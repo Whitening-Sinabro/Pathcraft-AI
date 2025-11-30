@@ -19,10 +19,15 @@ namespace PathcraftAI.UI
 
         private void LoadSettingsToUI()
         {
+            // Universal API Key
+            UniversalApiKeyBox.Text = _settings.UniversalApiKey ?? "";
+            UpdateDetectedProvider(_settings.UniversalApiKey ?? "");
+
             // API Keys
             ClaudeApiKeyBox.Text = _settings.ClaudeApiKey ?? "";
             GptApiKeyBox.Text = _settings.GptApiKey ?? "";
             GeminiApiKeyBox.Text = _settings.GeminiApiKey ?? "";
+            GrokApiKeyBox.Text = _settings.GrokApiKey ?? "";
             YouTubeApiKeyBox.Text = _settings.YouTubeApiKey ?? "";
 
             // Game Settings
@@ -34,6 +39,57 @@ namespace PathcraftAI.UI
 
             // UI Settings
             SelectComboBoxItem(AiProviderComboBox, _settings.DefaultAiProvider ?? "Rule-Based (Free)");
+        }
+
+        private void UniversalApiKey_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            var apiKey = UniversalApiKeyBox.Text.Trim();
+            UpdateDetectedProvider(apiKey);
+        }
+
+        private void UpdateDetectedProvider(string apiKey)
+        {
+            if (string.IsNullOrEmpty(apiKey))
+            {
+                DetectedProviderText.Text = "";
+                return;
+            }
+
+            var provider = DetectProviderFromApiKey(apiKey);
+            if (provider != null)
+            {
+                DetectedProviderText.Text = $"[{provider.ToUpper()}]";
+                DetectedProviderText.Foreground = new System.Windows.Media.SolidColorBrush(
+                    System.Windows.Media.Color.FromRgb(166, 227, 161)); // Green
+            }
+            else
+            {
+                DetectedProviderText.Text = "[?]";
+                DetectedProviderText.Foreground = new System.Windows.Media.SolidColorBrush(
+                    System.Windows.Media.Color.FromRgb(243, 139, 168)); // Red
+            }
+        }
+
+        /// <summary>
+        /// Detect LLM provider from API key pattern
+        /// </summary>
+        private static string? DetectProviderFromApiKey(string apiKey)
+        {
+            if (string.IsNullOrEmpty(apiKey)) return null;
+
+            // Claude: sk-ant-api03-xxxxx
+            if (apiKey.StartsWith("sk-ant-")) return "claude";
+
+            // Gemini: AIzaSyxxxxx
+            if (apiKey.StartsWith("AIza")) return "gemini";
+
+            // Grok: xai-xxxxx
+            if (apiKey.StartsWith("xai-")) return "grok";
+
+            // OpenAI: sk-xxxxx (but not sk-ant)
+            if (apiKey.StartsWith("sk-")) return "openai";
+
+            return null;
         }
 
         private void SelectComboBoxItem(System.Windows.Controls.ComboBox comboBox, string value)
@@ -82,10 +138,34 @@ namespace PathcraftAI.UI
                 }
 
                 // Save settings
+                _settings.UniversalApiKey = UniversalApiKeyBox.Text.Trim();
                 _settings.ClaudeApiKey = ClaudeApiKeyBox.Text.Trim();
                 _settings.GptApiKey = GptApiKeyBox.Text.Trim();
                 _settings.GeminiApiKey = GeminiApiKeyBox.Text.Trim();
+                _settings.GrokApiKey = GrokApiKeyBox.Text.Trim();
                 _settings.YouTubeApiKey = YouTubeApiKeyBox.Text.Trim();
+
+                // Auto-distribute universal key to specific provider
+                var universalKey = _settings.UniversalApiKey;
+                if (!string.IsNullOrEmpty(universalKey))
+                {
+                    var detectedProvider = DetectProviderFromApiKey(universalKey);
+                    switch (detectedProvider)
+                    {
+                        case "claude":
+                            _settings.ClaudeApiKey = universalKey;
+                            break;
+                        case "openai":
+                            _settings.GptApiKey = universalKey;
+                            break;
+                        case "gemini":
+                            _settings.GeminiApiKey = universalKey;
+                            break;
+                        case "grok":
+                            _settings.GrokApiKey = universalKey;
+                            break;
+                    }
+                }
 
                 _settings.DefaultLeague = (LeagueComboBox.SelectedItem as System.Windows.Controls.ComboBoxItem)?.Content?.ToString() ?? "Keepers";
                 _settings.DefaultBudget = budget;
@@ -115,9 +195,11 @@ namespace PathcraftAI.UI
             AppDomain.CurrentDomain.BaseDirectory, "config.json");
 
         // API Keys
+        public string? UniversalApiKey { get; set; }  // Auto-detect provider
         public string? ClaudeApiKey { get; set; }
         public string? GptApiKey { get; set; }
         public string? GeminiApiKey { get; set; }
+        public string? GrokApiKey { get; set; }
         public string? YouTubeApiKey { get; set; }
 
         // Game Settings
@@ -129,6 +211,9 @@ namespace PathcraftAI.UI
 
         // UI Settings
         public string? DefaultAiProvider { get; set; } = "Rule-Based (Free)";
+
+        // Backup Settings
+        public bool AutoBackupOnExit { get; set; } = true;
 
         /// <summary>
         /// Load settings from config.json, or create default if not exists
@@ -176,11 +261,80 @@ namespace PathcraftAI.UI
                 "gemini" or "google" => !string.IsNullOrEmpty(GeminiApiKey)
                     ? GeminiApiKey
                     : Environment.GetEnvironmentVariable("GOOGLE_API_KEY"),
+                "grok" or "xai" => !string.IsNullOrEmpty(GrokApiKey)
+                    ? GrokApiKey
+                    : Environment.GetEnvironmentVariable("XAI_API_KEY"),
                 "youtube" => !string.IsNullOrEmpty(YouTubeApiKey)
                     ? YouTubeApiKey
                     : Environment.GetEnvironmentVariable("YOUTUBE_API_KEY"),
                 _ => null
             };
+        }
+
+        /// <summary>
+        /// Get the best available API key and its detected provider
+        /// Returns (apiKey, provider) tuple
+        /// </summary>
+        public (string? ApiKey, string? Provider) GetBestAvailableApiKey()
+        {
+            // 1. Universal key (auto-detect)
+            if (!string.IsNullOrEmpty(UniversalApiKey))
+            {
+                var provider = DetectProviderFromApiKey(UniversalApiKey);
+                if (provider != null)
+                    return (UniversalApiKey, provider);
+            }
+
+            // 2. Specific keys in priority order
+            if (!string.IsNullOrEmpty(ClaudeApiKey))
+                return (ClaudeApiKey, "claude");
+            if (!string.IsNullOrEmpty(GptApiKey))
+                return (GptApiKey, "openai");
+            if (!string.IsNullOrEmpty(GeminiApiKey))
+                return (GeminiApiKey, "gemini");
+            if (!string.IsNullOrEmpty(GrokApiKey))
+                return (GrokApiKey, "grok");
+
+            // 3. Environment variables
+            var envClaude = Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY");
+            if (!string.IsNullOrEmpty(envClaude))
+                return (envClaude, "claude");
+
+            var envOpenAI = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+            if (!string.IsNullOrEmpty(envOpenAI))
+                return (envOpenAI, "openai");
+
+            var envGemini = Environment.GetEnvironmentVariable("GOOGLE_API_KEY");
+            if (!string.IsNullOrEmpty(envGemini))
+                return (envGemini, "gemini");
+
+            var envGrok = Environment.GetEnvironmentVariable("XAI_API_KEY");
+            if (!string.IsNullOrEmpty(envGrok))
+                return (envGrok, "grok");
+
+            return (null, null);
+        }
+
+        /// <summary>
+        /// Detect LLM provider from API key pattern
+        /// </summary>
+        public static string? DetectProviderFromApiKey(string? apiKey)
+        {
+            if (string.IsNullOrEmpty(apiKey)) return null;
+
+            // Claude: sk-ant-api03-xxxxx
+            if (apiKey.StartsWith("sk-ant-")) return "claude";
+
+            // Gemini: AIzaSyxxxxx
+            if (apiKey.StartsWith("AIza")) return "gemini";
+
+            // Grok: xai-xxxxx
+            if (apiKey.StartsWith("xai-")) return "grok";
+
+            // OpenAI: sk-xxxxx (but not sk-ant)
+            if (apiKey.StartsWith("sk-")) return "openai";
+
+            return null;
         }
 
         /// <summary>

@@ -347,6 +347,145 @@ Please respond in Korean (한국어)."""
         return {"error": str(e)}
 
 
+def analyze_build_with_grok(build_data: Dict, api_key: Optional[str] = None) -> Dict:
+    """
+    xAI Grok API를 사용하여 빌드 분석 (OpenAI SDK 호환)
+
+    Args:
+        build_data: POB 파싱된 빌드 데이터
+        api_key: Grok API 키
+
+    Returns:
+        분석 결과 딕셔너리
+    """
+
+    if api_key is None:
+        api_key = os.environ.get('XAI_API_KEY')
+
+    if not api_key:
+        print("[WARN] XAI_API_KEY not found")
+        return {"error": "No Grok API key"}
+
+    try:
+        from openai import OpenAI
+    except ImportError:
+        print("[ERROR] openai package not installed")
+        print("[INFO] Run: pip install openai")
+        return {"error": "openai package not installed"}
+
+    try:
+        # Grok uses OpenAI SDK with custom base URL
+        client = OpenAI(api_key=api_key, base_url="https://api.x.ai/v1")
+
+        # 빌드 데이터를 프롬프트로 변환
+        meta = build_data.get('meta', {})
+        stages = build_data.get('progression_stages', [])
+
+        if not stages:
+            return {"error": "No build stages found"}
+
+        stage = stages[0]
+        gem_setups = stage.get('gem_setups', {})
+        gear = stage.get('gear_recommendation', {})
+
+        # 프롬프트 작성 (다른 AI와 동일)
+        prompt = f"""You are a Path of Exile build expert. Analyze the following build:
+
+**Build Name:** {meta.get('build_name', 'Unknown')}
+**Class/Ascendancy:** {meta.get('class')} / {meta.get('ascendancy')}
+**POB Link:** {meta.get('pob_link')}
+
+**Main Skill Gems:**
+"""
+
+        for i, (label, setup) in enumerate(list(gem_setups.items())[:3]):
+            prompt += f"\n{i+1}. {label}: {setup.get('links', 'N/A')}"
+
+        prompt += "\n\n**Key Gear:**\n"
+
+        for slot, item in list(gear.items())[:8]:
+            prompt += f"- {slot}: {item.get('name', 'N/A')}\n"
+
+        prompt += """
+
+Please provide a detailed analysis in the following format:
+
+1. **Build Overview** (2-3 sentences)
+   - What is this build's main concept?
+   - What playstyle does it support?
+
+2. **Strengths** (3-4 bullet points)
+   - What does this build do well?
+
+3. **Weaknesses** (3-4 bullet points)
+   - What are the main drawbacks?
+
+4. **Recommended For** (2 sentences)
+   - Who should play this build?
+   - Budget level (league starter / mid-budget / high-budget)
+
+5. **Key Synergies** (2-3 bullet points)
+   - Important item/gem/passive interactions
+
+Please respond in Korean (한국어)."""
+
+        print("[INFO] Calling Grok API...")
+        start_time = time.time()
+
+        response = client.chat.completions.create(
+            model="grok-beta",
+            messages=[
+                {"role": "system", "content": "You are a Path of Exile build analysis expert."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=2000,
+            temperature=0.7
+        )
+
+        elapsed = time.time() - start_time
+
+        analysis = response.choices[0].message.content
+
+        return {
+            "provider": "grok",
+            "model": "grok-beta",
+            "analysis": analysis,
+            "elapsed_seconds": round(elapsed, 2),
+            "input_tokens": response.usage.prompt_tokens if response.usage else 0,
+            "output_tokens": response.usage.completion_tokens if response.usage else 0
+        }
+
+    except Exception as e:
+        print(f"[ERROR] Grok API failed: {e}")
+        return {"error": str(e)}
+
+
+def auto_detect_and_analyze(build_data: Dict) -> Dict:
+    """
+    사용 가능한 API 키를 자동 감지하여 분석 실행
+
+    Args:
+        build_data: POB 파싱된 빌드 데이터
+
+    Returns:
+        분석 결과 딕셔너리
+    """
+    # 우선순위: Claude > OpenAI > Gemini > Grok
+    providers = [
+        ('claude', os.environ.get('ANTHROPIC_API_KEY'), analyze_build_with_claude),
+        ('openai', os.environ.get('OPENAI_API_KEY'), analyze_build_with_openai),
+        ('gemini', os.environ.get('GOOGLE_API_KEY'), analyze_build_with_gemini),
+        ('grok', os.environ.get('XAI_API_KEY'), analyze_build_with_grok),
+    ]
+
+    for provider_name, api_key, analyze_func in providers:
+        if api_key:
+            print(f"[INFO] Auto-detected provider: {provider_name}")
+            return analyze_func(build_data, api_key)
+
+    return {"error": "No API key found. Please set ANTHROPIC_API_KEY, OPENAI_API_KEY, GOOGLE_API_KEY, or XAI_API_KEY"}
+
+
 def generate_upgrade_guide(build_data: Dict, budget: int = 1000, league: str = "Settlers") -> Dict:
     """
     빌드 업그레이드 가이드 생성
@@ -429,7 +568,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='AI Build Analyzer')
     parser.add_argument('--pob', '--pob-url', dest='pob_url', type=str, help='POB URL to analyze')
     parser.add_argument('--pob-code', dest='pob_code', type=str, help='POB code directly (base64 encoded)')
-    parser.add_argument('--provider', type=str, choices=['claude', 'openai', 'gemini', 'both', 'rule-based', 'guide'], default='both', help='AI provider or guide mode')
+    parser.add_argument('--provider', type=str, choices=['claude', 'openai', 'gemini', 'grok', 'both', 'rule-based', 'guide', 'auto'], default='both', help='AI provider or guide mode')
     parser.add_argument('--json', action='store_true', help='Output as JSON')
     parser.add_argument('--budget', type=int, default=1000, help='Target budget in chaos (for guide mode)')
     parser.add_argument('--league', type=str, default='Settlers', help='League name (for guide mode)')
@@ -534,17 +673,41 @@ if __name__ == "__main__":
             analyzer = RuleBasedAnalyzer()
 
             # POB 데이터를 rule-based analyzer 형식으로 변환
+            stats = build_data.get('stats', {})
+            meta = build_data.get('meta', {})
+            resistances = stats.get('resistances', {})
+
+            # 메인 스킬 추출 (progression_stages에서)
+            main_skill = 'Unknown'
+            stages = build_data.get('progression_stages', [])
+            if stages and stages[0].get('gem_setups'):
+                gem_setups = stages[0].get('gem_setups', {})
+                for label, setup in gem_setups.items():
+                    if 'Main' in label or len(gem_setups) == 1:
+                        links = setup.get('links', '')
+                        if links:
+                            # 첫 번째 젬이 보통 메인 스킬
+                            main_skill = links.split(' - ')[0] if ' - ' in links else links.split(', ')[0]
+                            break
+                if main_skill == 'Unknown' and gem_setups:
+                    # 첫 번째 셋업 사용
+                    first_setup = list(gem_setups.values())[0]
+                    links = first_setup.get('links', '')
+                    if links:
+                        main_skill = links.split(' - ')[0] if ' - ' in links else links.split(', ')[0]
+
             stats_data = {
-                'dps': build_data.get('stats', {}).get('total_dps', 0),
-                'life': build_data.get('stats', {}).get('life', 0),
-                'energy_shield': build_data.get('stats', {}).get('es', 0),
-                'fire_res': build_data.get('stats', {}).get('fire_res', 0),
-                'cold_res': build_data.get('stats', {}).get('cold_res', 0),
-                'lightning_res': build_data.get('stats', {}).get('lightning_res', 0),
-                'chaos_res': build_data.get('stats', {}).get('chaos_res', -60),
-                'main_skill': build_data.get('meta', {}).get('main_skill', 'Unknown'),
-                'class': build_data.get('meta', {}).get('poe_class', 'Unknown'),
-                'keystones': build_data.get('passive_tree', {}).get('keystones', [])
+                'dps': stats.get('dps', 0),
+                'life': stats.get('life', 0),
+                'energy_shield': stats.get('energy_shield', 0),
+                'fire_res': resistances.get('fire', 0),
+                'cold_res': resistances.get('cold', 0),
+                'lightning_res': resistances.get('lightning', 0),
+                'chaos_res': resistances.get('chaos', -60),
+                'main_skill': main_skill,
+                'class': meta.get('class', 'Unknown'),
+                'ascendancy': meta.get('ascendancy', ''),
+                'keystones': []  # TODO: passive_tree에서 추출
             }
 
             result = analyzer.analyze_build(stats_data)
@@ -553,6 +716,29 @@ if __name__ == "__main__":
                 print(json.dumps(result, ensure_ascii=False, indent=2))
             else:
                 print("\n" + result.get('analysis', str(result)))
+        elif args.provider == 'auto':
+            # 자동 감지 모드
+            result = auto_detect_and_analyze(build_data)
+            if args.json:
+                print(json.dumps(result, ensure_ascii=False, indent=2))
+            else:
+                if "error" in result:
+                    print(f"[ERROR] {result['error']}")
+                else:
+                    print(f"\n[{result.get('provider', 'unknown').upper()}] {result.get('model', 'unknown')}")
+                    print(result.get('analysis', ''))
+
+        elif args.provider == 'grok':
+            # Grok 분석
+            grok_result = analyze_build_with_grok(build_data)
+            if args.json:
+                print(json.dumps(grok_result, ensure_ascii=False, indent=2))
+            else:
+                if "error" in grok_result:
+                    print(f"[ERROR] {grok_result['error']}")
+                else:
+                    print("\n" + grok_result.get('analysis', str(grok_result)))
+
         else:
             # AI 분석 (Claude/OpenAI/Gemini)
             if args.provider in ['claude', 'both']:

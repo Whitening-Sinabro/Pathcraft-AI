@@ -28,6 +28,33 @@
                         <TextBlock Text="API Keys" FontSize="16" FontWeight="SemiBold"
                                    Foreground="#89b4fa" Margin="0,0,0,12"/>
 
+                        <!-- Universal API Key (Auto-Detect) -->
+                        <StackPanel Margin="0,0,0,16">
+                            <TextBlock Text="LLM API Key (Auto-Detect)" FontSize="12"
+                                       Foreground="#a6e3a1" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="UniversalApiKeyBox" Grid.Column="0"
+                                         Background="#313244" Foreground="#cdd6f4"
+                                         BorderBrush="#a6e3a1" BorderThickness="2"
+                                         Padding="8,6" FontSize="12"
+                                         TextChanged="UniversalApiKey_TextChanged"/>
+                                <TextBlock x:Name="DetectedProviderText" Grid.Column="1"
+                                           Foreground="#a6e3a1" FontSize="12" FontWeight="SemiBold"
+                                           VerticalAlignment="Center" Margin="8,0,0,0"/>
+                            </Grid>
+                            <TextBlock Text="Paste any API key (Claude, OpenAI, Gemini, Grok) - auto-detected!"
+                                       FontSize="10" Foreground="#7f849c" Margin="0,4,0,0"/>
+                        </StackPanel>
+
+                        <!-- Separator -->
+                        <Border Background="#45475a" Height="1" Margin="0,0,0,12"/>
+                        <TextBlock Text="Or enter specific keys:" FontSize="11"
+                                   Foreground="#7f849c" Margin="0,0,0,8"/>
+
                         <!-- Claude API Key -->
                         <StackPanel Margin="0,0,0,12">
                             <TextBlock Text="Claude API Key" FontSize="12"
@@ -53,6 +80,16 @@
                             <TextBlock Text="Google Gemini API Key" FontSize="12"
                                        Foreground="#bac2de" Margin="0,0,0,4"/>
                             <TextBox x:Name="GeminiApiKeyBox"
+                                     Background="#313244" Foreground="#cdd6f4"
+                                     BorderBrush="#45475a" BorderThickness="1"
+                                     Padding="8,6" FontSize="12"/>
+                        </StackPanel>
+
+                        <!-- Grok API Key -->
+                        <StackPanel Margin="0,0,0,12">
+                            <TextBlock Text="xAI Grok API Key" FontSize="12"
+                                       Foreground="#bac2de" Margin="0,0,0,4"/>
+                            <TextBox x:Name="GrokApiKeyBox"
                                      Background="#313244" Foreground="#cdd6f4"
                                      BorderBrush="#45475a" BorderThickness="1"
                                      Padding="8,6" FontSize="12"/>
