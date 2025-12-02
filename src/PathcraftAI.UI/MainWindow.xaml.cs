@@ -233,11 +233,13 @@ namespace PathcraftAI.UI
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
                 CreateNoWindow = true,
-                StandardOutputEncoding = System.Text.Encoding.UTF8
+                StandardOutputEncoding = System.Text.Encoding.UTF8,
+                StandardErrorEncoding = System.Text.Encoding.UTF8
             };
 
             // Enable UTF-8 mode for Python
             psi.Environment["PYTHONUTF8"] = "1";
+            psi.Environment["PYTHONIOENCODING"] = "utf-8";
 
             // API 키 환경 변수로 전달 (설정에서 가져오기)
             var settings = AppSettings.Load();
@@ -1284,7 +1286,7 @@ namespace PathcraftAI.UI
                 JObject analysisData;
                 try
                 {
-                    analysisData = JObject.Parse(result);
+                    analysisData = JObject.Parse(result ?? "{}");
                 }
                 catch (Newtonsoft.Json.JsonReaderException jsonEx)
                 {
@@ -1357,8 +1359,13 @@ namespace PathcraftAI.UI
                 RedirectStandardError = true,
                 CreateNoWindow = true,
                 WorkingDirectory = parserDir,
-                StandardOutputEncoding = System.Text.Encoding.UTF8
+                StandardOutputEncoding = System.Text.Encoding.UTF8,
+                StandardErrorEncoding = System.Text.Encoding.UTF8
             };
+
+            // Enable UTF-8 mode for Python
+            psi.Environment["PYTHONUTF8"] = "1";
+            psi.Environment["PYTHONIOENCODING"] = "utf-8";
 
             // API 키 전달 (Settings 우선, 없으면 환경 변수)
             var anthropicKey = settings.GetApiKey("claude");
@@ -4378,7 +4385,7 @@ except Exception as e:
 
             WriteDebugLog("[SUCCESS] Process completed successfully");
             WriteDebugLog("========== RunLevelingGuideScriptDirect END ==========");
-            return output.Trim();
+            return output?.Trim() ?? string.Empty;
         }
 
         /// <summary>

@@ -44,14 +44,14 @@ def analyze_build_with_claude(build_data: Dict, api_key: Optional[str] = None) -
         api_key = os.environ.get('ANTHROPIC_API_KEY')
 
     if not api_key:
-        print("[WARN] ANTHROPIC_API_KEY not found")
+        print("[WARN] ANTHROPIC_API_KEY not found", file=sys.stderr)
         return {"error": "No Claude API key"}
 
     try:
         import anthropic
     except ImportError:
-        print("[ERROR] anthropic package not installed")
-        print("[INFO] Run: pip install anthropic")
+        print("[ERROR] anthropic package not installed", file=sys.stderr)
+        print("[INFO] Run: pip install anthropic", file=sys.stderr)
         return {"error": "anthropic package not installed"}
 
     try:
@@ -111,7 +111,7 @@ Please provide a detailed analysis in the following format:
 
 Please respond in Korean (한국어)."""
 
-        print("[INFO] Calling Claude API...")
+        print("[INFO] Calling Claude API...", file=sys.stderr)
         start_time = time.time()
 
         message = client.messages.create(
@@ -156,14 +156,14 @@ def analyze_build_with_openai(build_data: Dict, api_key: Optional[str] = None) -
         api_key = os.environ.get('OPENAI_API_KEY')
 
     if not api_key:
-        print("[WARN] OPENAI_API_KEY not found")
+        print("[WARN] OPENAI_API_KEY not found", file=sys.stderr)
         return {"error": "No OpenAI API key"}
 
     try:
         from openai import OpenAI
     except ImportError:
-        print("[ERROR] openai package not installed")
-        print("[INFO] Run: pip install openai")
+        print("[ERROR] openai package not installed", file=sys.stderr)
+        print("[INFO] Run: pip install openai", file=sys.stderr)
         return {"error": "openai package not installed"}
 
     try:
@@ -221,7 +221,7 @@ Please provide a detailed analysis in the following format:
 
 Please respond in Korean (한국어)."""
 
-        print("[INFO] Calling OpenAI API...")
+        print("[INFO] Calling OpenAI API...", file=sys.stderr)
         start_time = time.time()
 
         response = client.chat.completions.create(
@@ -268,14 +268,14 @@ def analyze_build_with_gemini(build_data: Dict, api_key: Optional[str] = None) -
         api_key = os.environ.get('GOOGLE_API_KEY') or os.environ.get('GEMINI_API_KEY')
 
     if not api_key:
-        print("[WARN] GOOGLE_API_KEY not found")
+        print("[WARN] GOOGLE_API_KEY not found", file=sys.stderr)
         return {"error": "No Gemini API key"}
 
     try:
         import google.generativeai as genai
     except ImportError:
-        print("[ERROR] google-generativeai package not installed")
-        print("[INFO] Run: pip install google-generativeai")
+        print("[ERROR] google-generativeai package not installed", file=sys.stderr)
+        print("[INFO] Run: pip install google-generativeai", file=sys.stderr)
         return {"error": "google-generativeai package not installed"}
 
     try:
@@ -317,7 +317,7 @@ Please provide a concise analysis in 3-4 bullet points covering:
 
 Please respond in Korean (한국어)."""
 
-        print("[INFO] Calling Gemini API...")
+        print("[INFO] Calling Gemini API...", file=sys.stderr)
         start_time = time.time()
 
         model = genai.GenerativeModel('gemini-1.5-pro')
@@ -343,7 +343,7 @@ Please respond in Korean (한국어)."""
         }
 
     except Exception as e:
-        print(f"[ERROR] Gemini API failed: {e}")
+        print(f"[ERROR] Gemini API failed: {e}", file=sys.stderr)
         return {"error": str(e)}
 
 
@@ -363,14 +363,14 @@ def analyze_build_with_grok(build_data: Dict, api_key: Optional[str] = None) -> 
         api_key = os.environ.get('XAI_API_KEY')
 
     if not api_key:
-        print("[WARN] XAI_API_KEY not found")
+        print("[WARN] XAI_API_KEY not found", file=sys.stderr)
         return {"error": "No Grok API key"}
 
     try:
         from openai import OpenAI
     except ImportError:
-        print("[ERROR] openai package not installed")
-        print("[INFO] Run: pip install openai")
+        print("[ERROR] openai package not installed", file=sys.stderr)
+        print("[INFO] Run: pip install openai", file=sys.stderr)
         return {"error": "openai package not installed"}
 
     try:
@@ -429,7 +429,7 @@ Please provide a detailed analysis in the following format:
 
 Please respond in Korean (한국어)."""
 
-        print("[INFO] Calling Grok API...")
+        print("[INFO] Calling Grok API...", file=sys.stderr)
         start_time = time.time()
 
         response = client.chat.completions.create(
@@ -456,7 +456,7 @@ Please respond in Korean (한국어)."""
         }
 
     except Exception as e:
-        print(f"[ERROR] Grok API failed: {e}")
+        print(f"[ERROR] Grok API failed: {e}", file=sys.stderr)
         return {"error": str(e)}
 
 
@@ -480,7 +480,7 @@ def auto_detect_and_analyze(build_data: Dict) -> Dict:
 
     for provider_name, api_key, analyze_func in providers:
         if api_key:
-            print(f"[INFO] Auto-detected provider: {provider_name}")
+            print(f"[INFO] Auto-detected provider: {provider_name}", file=sys.stderr)
             return analyze_func(build_data, api_key)
 
     return {"error": "No API key found. Please set ANTHROPIC_API_KEY, OPENAI_API_KEY, GOOGLE_API_KEY, or XAI_API_KEY"}
@@ -580,40 +580,40 @@ if __name__ == "__main__":
         if args.json:
             print(json.dumps({"error": "Either --pob or --pob-code is required"}))
         else:
-            print("[ERROR] Either --pob or --pob-code is required")
+            print("[ERROR] Either --pob or --pob-code is required", file=sys.stderr)
         exit(1)
 
     try:
         # POB 코드 직접 제공 시
         if args.pob_code:
             if not args.json:
-                print("[INFO] Using provided POB code")
+                print("[INFO] Using provided POB code", file=sys.stderr)
             pob_code = args.pob_code
         # POB URL에서 가져오기
         else:
             if not args.json:
-                print(f"[INFO] Fetching POB data from: {args.pob_url}")
+                print(f"[INFO] Fetching POB data from: {args.pob_url}", file=sys.stderr)
             pob_code = get_pob_code_from_url(args.pob_url)
 
         if not pob_code:
             if args.json:
                 print(json.dumps({"error": "Could not fetch POB code"}))
             else:
-                print("[ERROR] Could not fetch POB code")
+                print("[ERROR] Could not fetch POB code", file=sys.stderr)
             exit(1)
 
         # XML 직접 로드인 경우 (로컬 파일에서 읽음)
         if pob_code.startswith("__XML_DIRECT__"):
             xml_data = pob_code[14:]  # __XML_DIRECT__ 제거
             if not args.json:
-                print("[INFO] Loaded POB XML from local file")
+                print("[INFO] Loaded POB XML from local file", file=sys.stderr)
         else:
             xml_data = decode_pob_code(pob_code)
             if not xml_data:
                 if args.json:
                     print(json.dumps({"error": "Could not decode POB data"}))
                 else:
-                    print("[ERROR] Could not decode POB data")
+                    print("[ERROR] Could not decode POB data", file=sys.stderr)
                 exit(1)
 
         pob_url = args.pob_url if args.pob_url else "direct_input"
@@ -622,12 +622,12 @@ if __name__ == "__main__":
             if args.json:
                 print(json.dumps({"error": "Could not parse POB XML"}))
             else:
-                print("[ERROR] Could not parse POB XML")
+                print("[ERROR] Could not parse POB XML", file=sys.stderr)
             exit(1)
 
         if not args.json:
-            print(f"[OK] Build loaded: {build_data['meta']['build_name']}")
-            print()
+            print(f"[OK] Build loaded: {build_data['meta']['build_name']}", file=sys.stderr)
+            print(file=sys.stderr)
 
         # AI 분석
         if args.provider == 'guide':
