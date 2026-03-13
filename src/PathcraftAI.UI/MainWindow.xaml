@@ -1172,6 +1172,191 @@
                     </Border>
                 </Grid>
             </TabItem>
+
+            <!-- ⛏️ Delve Tab -->
+            <TabItem Header="⛏️ Delve">
+                <Grid Margin="0,16,0,0">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <!-- Input Section -->
+                            <Border Background="#262638" CornerRadius="8" Padding="16" Margin="0,0,0,12">
+                                <StackPanel>
+                                    <TextBlock Text="델브 커런시 어드바이저" FontSize="16" FontWeight="SemiBold"
+                                               Foreground="#89B4FA" Margin="0,0,0,12"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="120"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0" Margin="0,0,12,0">
+                                            <TextBlock Text="POB 링크 또는 코드" FontSize="12" Foreground="#BAC2DE" Margin="0,0,0,4"/>
+                                            <TextBox x:Name="DelvePOBInputBox"
+                                                     Style="{StaticResource DarkTextBoxStyle}"
+                                                     Text="pobb.in URL 또는 POB 코드"
+                                                     GotFocus="DelvePOBInputBox_GotFocus"
+                                                     ToolTip="pobb.in URL 또는 POB base64 코드 붙여넣기"/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" Margin="0,0,12,0">
+                                            <TextBlock Text="현재 깊이" FontSize="12" Foreground="#BAC2DE" Margin="0,0,0,4"/>
+                                            <TextBox x:Name="DelveDepthBox"
+                                                     Style="{StaticResource DarkTextBoxStyle}"
+                                                     Text="100"/>
+                                        </StackPanel>
+                                        <Button x:Name="DelveAnalyzeButton" Grid.Column="2"
+                                                Content="⛏️ 분석" Height="36"
+                                                Margin="0,20,0,0" VerticalAlignment="Bottom"
+                                                Style="{StaticResource PrimaryButtonStyle}"
+                                                Click="AnalyzeDelve_Click"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Empty State -->
+                            <Border x:Name="DelveEmptyState" Background="#262638" CornerRadius="8" Padding="48" Margin="0,0,0,12">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock Text="⛏️" FontSize="48" HorizontalAlignment="Center" Margin="0,0,0,16"/>
+                                    <TextBlock Text="안전 파밍 깊이를 계산해보세요" FontSize="18" FontWeight="SemiBold"
+                                               Foreground="#CDD6F4" HorizontalAlignment="Center" Margin="0,0,0,8"/>
+                                    <TextBlock Text="POB 링크와 현재 델브 깊이를 입력하면&#x0a;안전 깊이 + 고가치 화석 추천 + 세션 전략을 알려드립니다."
+                                               FontSize="13" Foreground="#7F849C" TextAlignment="Center"
+                                               HorizontalAlignment="Center" LineHeight="22"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Results Section (hidden until analysis) -->
+                            <StackPanel x:Name="DelveResultsPanel" Visibility="Collapsed">
+
+                                <!-- Depth Analysis Card -->
+                                <Border Background="#262638" CornerRadius="8" Padding="16" Margin="0,0,0,12">
+                                    <StackPanel>
+                                        <TextBlock Text="깊이 분석" FontSize="14" FontWeight="SemiBold"
+                                                   Foreground="#89B4FA" Margin="0,0,0,12"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border Grid.Column="0" Background="#313244" CornerRadius="6" Padding="12" Margin="0,0,6,0">
+                                                <StackPanel>
+                                                    <TextBlock Text="현재 깊이" FontSize="11" Foreground="#7F849C" Margin="0,0,0,4"/>
+                                                    <TextBlock x:Name="DelveCurrentDepthText" Text="-"
+                                                               FontSize="22" FontWeight="Bold" Foreground="#CDD6F4"/>
+                                                </StackPanel>
+                                            </Border>
+
+                                            <Border Grid.Column="1" Background="#313244" CornerRadius="6" Padding="12" Margin="3,0,3,0">
+                                                <StackPanel>
+                                                    <TextBlock Text="안전 최대 깊이" FontSize="11" Foreground="#7F849C" Margin="0,0,0,4"/>
+                                                    <TextBlock x:Name="DelveSafeDepthText" Text="-"
+                                                               FontSize="22" FontWeight="Bold" Foreground="#A6E3A1"/>
+                                                </StackPanel>
+                                            </Border>
+
+                                            <Border Grid.Column="2" Background="#313244" CornerRadius="6" Padding="12" Margin="6,0,0,0">
+                                                <StackPanel>
+                                                    <TextBlock Text="빌드 타입" FontSize="11" Foreground="#7F849C" Margin="0,0,0,4"/>
+                                                    <TextBlock x:Name="DelveBuildTypeText" Text="-"
+                                                               FontSize="16" FontWeight="SemiBold" Foreground="#CBA6F7"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </Grid>
+
+                                        <TextBlock x:Name="DelveDepthTipText" Text="" FontSize="12"
+                                                   Foreground="#BAC2DE" Margin="0,12,0,0" TextWrapping="Wrap"/>
+
+                                        <!-- ZHP Warning -->
+                                        <Border x:Name="DelveZHPWarning" Background="#2A1B1B" BorderBrush="#F38BA8"
+                                                BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,8,0,0"
+                                                Visibility="Collapsed">
+                                            <TextBlock Text="⚠️ ZHP 전환 권장: 현재 깊이에서 ZHP (1HP) 빌드가 더 효율적입니다."
+                                                       FontSize="12" Foreground="#F38BA8" TextWrapping="Wrap"/>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- Top Fossils Card -->
+                                <Border Background="#262638" CornerRadius="8" Padding="16" Margin="0,0,0,12">
+                                    <StackPanel>
+                                        <TextBlock Text="추천 화석" FontSize="14" FontWeight="SemiBold"
+                                                   Foreground="#F9E2AF" Margin="0,0,0,12"/>
+                                        <ItemsControl x:Name="DelveFossilsList">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Background="#313244" CornerRadius="6" Padding="10,8"
+                                                            Margin="0,0,0,4">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="80"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBlock Grid.Column="0" Text="{Binding Name}"
+                                                                       FontSize="13" Foreground="#CDD6F4" VerticalAlignment="Center"/>
+                                                            <TextBlock Grid.Column="1" Text="{Binding Biome}"
+                                                                       FontSize="11" Foreground="#7F849C"
+                                                                       Margin="0,0,12,0" VerticalAlignment="Center"/>
+                                                            <TextBlock Grid.Column="2" Text="{Binding PriceDisplay}"
+                                                                       FontSize="13" Foreground="{Binding PriceColor}"
+                                                                       HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock x:Name="DelveFossilsNote" Text="* 가격 정보 없음 (오프라인)" FontSize="11"
+                                                   Foreground="#7F849C" Margin="0,8,0,0" Visibility="Collapsed"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- Session Strategy Card -->
+                                <Border Background="#262638" CornerRadius="8" Padding="16" Margin="0,0,0,12">
+                                    <StackPanel>
+                                        <TextBlock Text="세션 전략" FontSize="14" FontWeight="SemiBold"
+                                                   Foreground="#CBA6F7" Margin="0,0,0,12"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0" Margin="0,0,8,0">
+                                                <TextBlock Text="추천 파밍 깊이" FontSize="11" Foreground="#7F849C" Margin="0,0,0,4"/>
+                                                <TextBlock x:Name="DelveRecommendedDepthText" Text="-"
+                                                           FontSize="18" FontWeight="Bold" Foreground="#CBA6F7"/>
+                                                <TextBlock Text="목표 바이옴" FontSize="11" Foreground="#7F849C" Margin="0,12,0,4"/>
+                                                <TextBlock x:Name="DelveTargetBiomesText" Text="-"
+                                                           FontSize="13" Foreground="#CDD6F4" TextWrapping="Wrap"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1" Margin="8,0,0,0">
+                                                <TextBlock Text="기본 술파이트" FontSize="11" Foreground="#7F849C" Margin="0,0,0,4"/>
+                                                <TextBlock x:Name="DelveSulphiteText" Text="1,200"
+                                                           FontSize="18" FontWeight="Bold" Foreground="#F9E2AF"/>
+                                                <TextBlock Text="노드 수/세션" FontSize="11" Foreground="#7F849C" Margin="0,12,0,4"/>
+                                                <TextBlock x:Name="DelveNodesText" Text="-"
+                                                           FontSize="13" Foreground="#CDD6F4"/>
+                                            </StackPanel>
+                                        </Grid>
+                                        <TextBlock x:Name="DelvePriorityText" Text=""
+                                                   FontSize="12" Foreground="#BAC2DE" Margin="0,12,0,0"/>
+
+                                        <!-- Session Warning -->
+                                        <Border x:Name="DelveSessionWarning" Background="#2A1F0A" BorderBrush="#F9E2AF"
+                                                BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,8,0,0"
+                                                Visibility="Collapsed">
+                                            <TextBlock x:Name="DelveSessionWarningText" Text=""
+                                                       FontSize="12" Foreground="#F9E2AF" TextWrapping="Wrap"/>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>

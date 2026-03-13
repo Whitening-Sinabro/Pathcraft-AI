@@ -39,6 +39,7 @@ namespace PathcraftAI.UI
         private readonly string _upgradePathTradeScriptPath;
         private readonly string _passiveTreeScriptPath;
         private readonly string _filterGeneratorScriptPath;
+        private readonly string _delveAdvisorScriptPath;
         private readonly string _tokenFilePath;
         private string? _currentPOBXmlPath = null;  // 필터 생성용 POB XML 경로
         private bool _isLoading = false;
@@ -100,6 +101,7 @@ namespace PathcraftAI.UI
             _upgradePathTradeScriptPath = Path.Combine(parserDir, "upgrade_path_trade.py");
             _passiveTreeScriptPath = Path.Combine(parserDir, "passive_tree_analyzer.py");
             _filterGeneratorScriptPath = Path.Combine(parserDir, "filter_generator_cli.py");
+            _delveAdvisorScriptPath = Path.Combine(parserDir, "delve_advisor.py");
             _tokenFilePath = Path.Combine(parserDir, "poe_token.json");
 
             // 디버그 로그 경로 설정
@@ -5172,6 +5174,169 @@ except Exception as e:
         }
 
         #endregion
+
+        #region Delve Advisor
+
+        private void DelvePOBInputBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (DelvePOBInputBox.Text == "pobb.in URL 또는 POB 코드")
+                DelvePOBInputBox.Text = "";
+        }
+
+        private async void AnalyzeDelve_Click(object sender, RoutedEventArgs e)
+        {
+            var pobInput = DelvePOBInputBox.Text.Trim();
+            if (string.IsNullOrEmpty(pobInput) || pobInput == "pobb.in URL 또는 POB 코드")
+            {
+                MessageBox.Show("POB 링크 또는 코드를 입력해주세요.", "입력 필요", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            if (!int.TryParse(DelveDepthBox.Text.Trim(), out int depth) || depth < 0)
+                depth = 100;
+
+            DelveAnalyzeButton.IsEnabled = false;
+            DelveAnalyzeButton.Content = "분석 중...";
+            DelveEmptyState.Visibility = Visibility.Collapsed;
+            DelveResultsPanel.Visibility = Visibility.Collapsed;
+
+            try
+            {
+                var jsonOutput = await Task.Run(() => RunDelveAdvisor(pobInput, depth));
+                var jsonStart = jsonOutput.IndexOf('{');
+                var jsonEnd = jsonOutput.LastIndexOf('}');
+                if (jsonStart == -1 || jsonEnd <= jsonStart)
+                    throw new Exception("분석 결과를 파싱할 수 없습니다.");
+
+                var json = JObject.Parse(jsonOutput.Substring(jsonStart, jsonEnd - jsonStart + 1));
+
+                if (json["error"] != null)
+                    throw new Exception(json["error"]!.ToString());
+
+                DisplayDelveResults(json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"분석 실패: {ex.Message}", "오류", MessageBoxButton.OK, MessageBoxImage.Error);
+                DelveEmptyState.Visibility = Visibility.Visible;
+            }
+            finally
+            {
+                DelveAnalyzeButton.IsEnabled = true;
+                DelveAnalyzeButton.Content = "⛏️ 분석";
+            }
+        }
+
+        private string RunDelveAdvisor(string pobInput, int depth)
+        {
+            var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            var projectRoot = Path.GetFullPath(Path.Combine(baseDir, "..", "..", "..", "..", ".."));
+            var parserDir = Path.Combine(projectRoot, "src", "PathcraftAI.Parser");
+
+            var escapedPob = pobInput.Replace("\"", "\\\"");
+            var psi = new ProcessStartInfo
+            {
+                FileName = _pythonPath,
+                Arguments = $"\"{_delveAdvisorScriptPath}\" --pob \"{escapedPob}\" --depth {depth}",
+                WorkingDirectory = parserDir,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                CreateNoWindow = true,
+                StandardOutputEncoding = System.Text.Encoding.UTF8,
+                StandardErrorEncoding = System.Text.Encoding.UTF8
+            };
+            psi.Environment["PYTHONUTF8"] = "1";
+            psi.Environment["PYTHONIOENCODING"] = "utf-8";
+
+            using var process = Process.Start(psi);
+            if (process == null) throw new Exception("Python 프로세스 시작 실패");
+
+            var output = process.StandardOutput.ReadToEnd();
+            var error = process.StandardError.ReadToEnd();
+            process.WaitForExit();
+
+            if (process.ExitCode != 0)
+                throw new Exception($"스크립트 오류 (exit {process.ExitCode}): {error}");
+
+            return output;
+        }
+
+        private void DisplayDelveResults(JObject data)
+        {
+            var depth = data["depth_analysis"];
+            var strategy = data["session_strategy"];
+            var fossils = data["fossils"] as JArray;
+            bool pricesAvailable = data["prices_available"]?.Value<bool>() ?? false;
+
+            // Depth card
+            DelveCurrentDepthText.Text = depth?["current_depth"]?.ToString() ?? "-";
+            DelveSafeDepthText.Text = depth?["safe_max_depth"]?.ToString() ?? "-";
+            var buildType = depth?["build_type"]?.ToString() ?? "life";
+            DelveBuildTypeText.Text = buildType switch
+            {
+                "es" => "ES 빌드",
+                "hybrid" => "하이브리드",
+                _ => "라이프 빌드"
+            };
+            DelveDepthTipText.Text = depth?["depth_tip"]?.ToString() ?? "";
+
+            bool needsZhp = depth?["needs_zhp_now"]?.Value<bool>() ?? false;
+            DelveZHPWarning.Visibility = needsZhp ? Visibility.Visible : Visibility.Collapsed;
+
+            // Fossils list
+            var fossilItems = new System.Collections.ObjectModel.ObservableCollection<DelveFossilItem>();
+            if (fossils != null)
+            {
+                foreach (var f in fossils)
+                {
+                    var price = f["chaos_value"];
+                    string priceDisplay = price?.Type == Newtonsoft.Json.Linq.JTokenType.Null || price == null
+                        ? "가격 없음"
+                        : $"{price}c";
+                    string priority = f["priority"]?.ToString() ?? "unknown";
+                    string color = priority switch
+                    {
+                        "high" => "#A6E3A1",
+                        "medium" => "#F9E2AF",
+                        "low" => "#7F849C",
+                        _ => "#585B70"
+                    };
+                    fossilItems.Add(new DelveFossilItem
+                    {
+                        Name = f["name"]?.ToString() ?? "",
+                        Biome = f["biome"]?.ToString() ?? "",
+                        PriceDisplay = priceDisplay,
+                        PriceColor = color
+                    });
+                }
+            }
+            DelveFossilsList.ItemsSource = fossilItems;
+            DelveFossilsNote.Visibility = pricesAvailable ? Visibility.Collapsed : Visibility.Visible;
+
+            // Session strategy
+            DelveRecommendedDepthText.Text = strategy?["recommended_depth"]?.ToString() ?? "-";
+            var biomes = strategy?["target_biomes"] as JArray;
+            DelveTargetBiomesText.Text = biomes != null ? string.Join(", ", biomes) : "-";
+            DelveSulphiteText.Text = strategy?["sulphite_base"]?.ToString() ?? "1,200";
+            DelveNodesText.Text = $"{strategy?["nodes_per_session"]?.ToString() ?? "-"} 노드";
+            DelvePriorityText.Text = strategy?["priority_order"]?.ToString() ?? "";
+
+            var warning = strategy?["warning"]?.ToString();
+            if (!string.IsNullOrEmpty(warning))
+            {
+                DelveSessionWarningText.Text = warning;
+                DelveSessionWarning.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                DelveSessionWarning.Visibility = Visibility.Collapsed;
+            }
+
+            DelveResultsPanel.Visibility = Visibility.Visible;
+        }
+
+        #endregion
     }
 
     // 데이터 모델 클래스
@@ -5255,6 +5420,14 @@ except Exception as e:
         {
             throw new NotImplementedException();
         }
+    }
+
+    public class DelveFossilItem
+    {
+        public string Name { get; set; } = "";
+        public string Biome { get; set; } = "";
+        public string PriceDisplay { get; set; } = "";
+        public string PriceColor { get; set; } = "#CDD6F4";
     }
 
     // Helper class for upgrade suggestions

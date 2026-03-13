@@ -1,8 +1,20 @@
 # PathcraftAI - Product Requirements Document (PRD)
 
-**Version:** 2.0
-**Last Updated:** 2025-11-15
+**Version:** 2.1
+**Last Updated:** 2026-03-13
 **Status:** In Development
+
+---
+
+## Acceptance Criteria (DoD)
+
+### Delve Currency Advisor (v2.1 신규)
+- [ ] `delve_advisor.py` CLI 단독 실행 → JSON stdout 출력
+- [ ] POB URL 입력 → life/ES/저항 정상 추출
+- [ ] poe.ninja fossil 가격 fetch (실패 시 폴백 허용)
+- [ ] 깊이별 안전 범위 + 화석 추천 출력
+- [ ] WPF "⛏️ Delve" 탭에서 분석 버튼 동작
+- [ ] 네트워크 없어도 크래시 없음
 
 ---
 
