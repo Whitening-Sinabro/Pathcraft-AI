@@ -17,56 +17,141 @@ from delve_advisor import (
 
 
 # ──────────────────────────────────────
-# calc_safe_depth
+# calc_safe_depth (종합 스탯 기반)
 # ──────────────────────────────────────
 
-def test_life_build_low():
-    """낮은 라이프 → 안전 깊이 150"""
-    r = calc_safe_depth(life=1500, es=0)
+def _make_stats(**overrides):
+    """테스트용 기본 스탯 생성"""
+    base = {
+        "life": 5000, "energy_shield": 0, "ehp": 0,
+        "armour": 0, "evasion": 0, "block": 0, "spell_block": 0,
+        "dps": 500000,
+        "resistances": {"fire": 75, "cold": 75, "lightning": 75, "chaos": 0},
+    }
+    base.update(overrides)
+    return base
+
+
+def test_low_ehp_low_depth():
+    """낮은 EHP → 낮은 안전 깊이"""
+    r = calc_safe_depth(_make_stats(life=1500, dps=100000))
     assert r["build_type"] == "life"
-    assert r["safe_max_depth"] == 150
+    assert r["safe_max_depth"] < 200
 
 
-def test_life_build_mid():
-    """라이프 3000 → 안전 깊이 300"""
-    r = calc_safe_depth(life=3000, es=0)
-    assert r["build_type"] == "life"
-    assert r["safe_max_depth"] == 300
+def test_mid_ehp_mid_depth():
+    """중간 EHP → 중간 깊이"""
+    r = calc_safe_depth(_make_stats(life=5000))
+    assert 150 < r["safe_max_depth"] < 500
 
 
-def test_life_build_high():
-    """라이프 8000+ → 안전 깊이 900"""
-    r = calc_safe_depth(life=9000, es=0)
-    assert r["build_type"] == "life"
-    assert r["safe_max_depth"] == 900
+def test_high_ehp_high_depth():
+    """높은 EHP + 방어 레이어 → 높은 깊이"""
+    r = calc_safe_depth(_make_stats(
+        life=8000, ehp=50000, armour=30000, block=60,
+        dps=5000000, resistances={"fire": 80, "cold": 80, "lightning": 80, "chaos": 60}
+    ))
+    assert r["safe_max_depth"] >= 700
 
 
-def test_es_build():
-    """ES가 life의 2배 이상 → ES 빌드, 깊이 1.5배"""
-    r = calc_safe_depth(life=1000, es=5000)
+def test_es_build_type():
+    """ES > life*2 → ES 빌드"""
+    r = calc_safe_depth(_make_stats(life=1000, energy_shield=5000))
     assert r["build_type"] == "es"
-    assert r["safe_max_depth"] == 750  # 500 * 1.5
 
 
-def test_hybrid_build():
-    """ES가 life보다 크지만 2배 미만 → 하이브리드"""
-    r = calc_safe_depth(life=3000, es=4000)
+def test_hybrid_build_type():
+    """ES > life but < life*2 → 하이브리드"""
+    r = calc_safe_depth(_make_stats(life=3000, energy_shield=4000))
     assert r["build_type"] == "hybrid"
-    # effective = 3000 + 4000*0.5 = 5000 → 500
-    assert r["safe_max_depth"] == 500
+
+
+def test_armor_bonus():
+    """높은 아머 → 깊이 증가"""
+    base = calc_safe_depth(_make_stats())
+    armored = calc_safe_depth(_make_stats(armour=30000))
+    assert armored["safe_max_depth"] > base["safe_max_depth"]
+
+
+def test_block_bonus():
+    """높은 블록 → 깊이 증가"""
+    base = calc_safe_depth(_make_stats())
+    blocked = calc_safe_depth(_make_stats(block=60))
+    assert blocked["safe_max_depth"] > base["safe_max_depth"]
+
+
+def test_dps_bonus():
+    """높은 DPS → 깊이 증가"""
+    low_dps = calc_safe_depth(_make_stats(dps=50000))
+    high_dps = calc_safe_depth(_make_stats(dps=10000000))
+    assert high_dps["safe_max_depth"] > low_dps["safe_max_depth"]
+
+
+def test_negative_chaos_penalty():
+    """카오스 저항 음수 → 깊이 감소"""
+    pos = calc_safe_depth(_make_stats(
+        resistances={"fire": 75, "cold": 75, "lightning": 75, "chaos": 30}
+    ))
+    neg = calc_safe_depth(_make_stats(
+        resistances={"fire": 75, "cold": 75, "lightning": 75, "chaos": -60}
+    ))
+    assert neg["safe_max_depth"] < pos["safe_max_depth"]
+
+
+def test_uncapped_res_penalty():
+    """원소 저항 미캡 → 큰 깊이 감소"""
+    capped = calc_safe_depth(_make_stats())
+    uncapped = calc_safe_depth(_make_stats(
+        resistances={"fire": 50, "cold": 50, "lightning": 50, "chaos": 0}
+    ))
+    assert uncapped["safe_max_depth"] < capped["safe_max_depth"]
+
+
+def test_defense_details_populated():
+    """방어 상세 정보가 채워지는지 확인"""
+    r = calc_safe_depth(_make_stats(armour=30000, dps=10000000))
+    details = r["defense_details"]
+    stat_names = [d["stat"] for d in details]
+    assert "아머" in stat_names
+    assert "DPS" in stat_names
 
 
 def test_zhp_flag():
     """안전 깊이 >= 1000이면 ZHP 권장"""
-    r = calc_safe_depth(life=8000, es=20000)
-    assert r["build_type"] == "es"
+    r = calc_safe_depth(_make_stats(
+        life=8000, energy_shield=20000, ehp=100000,
+        armour=40000, block=70, dps=20000000,
+        resistances={"fire": 80, "cold": 80, "lightning": 80, "chaos": 70}
+    ))
     assert r["needs_zhp"] is True
 
 
 def test_zhp_not_needed():
     """안전 깊이 < 1000이면 ZHP 불필요"""
-    r = calc_safe_depth(life=3000, es=0)
+    r = calc_safe_depth(_make_stats(life=3000, dps=100000))
     assert r["needs_zhp"] is False
+
+
+def test_farming_depth_capped_at_500():
+    """보상 스케일링이 ~500 캡이므로 추천 파밍은 500 이하"""
+    r = calc_safe_depth(_make_stats(
+        life=8000, armour=30000, dps=10000000,
+        resistances={"fire": 80, "cold": 80, "lightning": 80, "chaos": 60}
+    ))
+    assert r["recommended_farming_depth"] <= 500
+
+
+def test_depth_clamped():
+    """최소 50, 최대 1500"""
+    low = calc_safe_depth(_make_stats(life=0, dps=0))
+    assert low["safe_max_depth"] >= 50
+    high = calc_safe_depth(_make_stats(
+        life=50000, energy_shield=50000, ehp=200000,
+        armour=50000, evasion=50000, block=75, spell_block=60,
+        dps=50000000,
+        resistances={"fire": 85, "cold": 85, "lightning": 85, "chaos": 80}
+    ))
+    assert high["safe_max_depth"] <= 1500
 
 
 # ──────────────────────────────────────
@@ -168,6 +253,7 @@ def test_cli_dummy_code():
     end = out.rindex("}") + 1
     data = json.loads(out[start:end])
     assert "depth_analysis" in data
+    assert "defense_details" in data["depth_analysis"]
     assert "fossils" in data
     assert "session_strategy" in data
 
@@ -195,3 +281,4 @@ def test_cli_real_pob():
     assert data["build"]["class"] != ""
     assert data["stats"]["life"] > 0
     assert data["depth_analysis"]["safe_max_depth"] > 0
+    assert "defense_details" in data["depth_analysis"]

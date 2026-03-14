@@ -5202,7 +5202,18 @@ except Exception as e:
 
             try
             {
-                var jsonOutput = await Task.Run(() => RunDelveAdvisor(pobInput, depth));
+                // URL인 경우 C#에서 먼저 POB 코드 추출 시도
+                var actualInput = pobInput;
+                if (pobInput.StartsWith("http://") || pobInput.StartsWith("https://") ||
+                    pobInput.StartsWith("pobb.in") || pobInput.StartsWith("pastebin.com"))
+                {
+                    var pobCode = await TryFetchPobCodeFromUrl(pobInput);
+                    if (pobCode != null)
+                        actualInput = pobCode;
+                    // 실패 시 그대로 Python에 URL 전달 (Python도 시도)
+                }
+
+                var jsonOutput = await Task.Run(() => RunDelveAdvisor(actualInput, depth));
                 var jsonStart = jsonOutput.IndexOf('{');
                 var jsonEnd = jsonOutput.LastIndexOf('}');
                 if (jsonStart == -1 || jsonEnd <= jsonStart)
@@ -5211,7 +5222,21 @@ except Exception as e:
                 var json = JObject.Parse(jsonOutput.Substring(jsonStart, jsonEnd - jsonStart + 1));
 
                 if (json["error"] != null)
-                    throw new Exception(json["error"]!.ToString());
+                {
+                    var errMsg = json["error"]!.ToString();
+                    if (errMsg.Contains("URL 접속 실패"))
+                    {
+                        throw new Exception(
+                            "POB URL 접속에 실패했습니다.\n\n" +
+                            "VPN/백신이 HTTPS를 차단하고 있을 수 있습니다.\n\n" +
+                            "해결 방법:\n" +
+                            "1. Path of Building에서 빌드 열기\n" +
+                            "2. 좌측 하단 'Import/Export Build' 클릭\n" +
+                            "3. 'Generate' → 코드 복사\n" +
+                            "4. 이 창에 코드를 직접 붙여넣기");
+                    }
+                    throw new Exception(errMsg);
+                }
 
                 DisplayDelveResults(json);
             }
@@ -5227,19 +5252,62 @@ except Exception as e:
             }
         }
 
+        private async Task<string?> TryFetchPobCodeFromUrl(string url)
+        {
+            try
+            {
+                // pobb.in URL → https:// 보정
+                if (!url.StartsWith("http"))
+                    url = "https://" + url;
+
+                // pastebin raw URL 변환
+                if (url.Contains("pastebin.com") && !url.Contains("/raw/"))
+                    url = url.Replace("pastebin.com/", "pastebin.com/raw/");
+
+                using var client = new System.Net.Http.HttpClient();
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+                client.Timeout = TimeSpan.FromSeconds(10);
+
+                var response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                var html = await response.Content.ReadAsStringAsync();
+
+                // pastebin raw → 직접 코드
+                if (url.Contains("pastebin.com/raw/"))
+                    return html.Trim();
+
+                // pobb.in → textarea에서 코드 추출
+                var match = System.Text.RegularExpressions.Regex.Match(html, @"<textarea[^>]*>(.*?)</textarea>", System.Text.RegularExpressions.RegexOptions.Singleline);
+                if (match.Success)
+                    return match.Groups[1].Value.Trim();
+
+                Debug.WriteLine("[Delve] C# URL fetch: textarea not found in HTML");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[Delve] C# URL fetch failed: {ex.Message}");
+                return null;
+            }
+        }
+
         private string RunDelveAdvisor(string pobInput, int depth)
         {
             var baseDir = AppDomain.CurrentDomain.BaseDirectory;
             var projectRoot = Path.GetFullPath(Path.Combine(baseDir, "..", "..", "..", "..", ".."));
             var parserDir = Path.Combine(projectRoot, "src", "PathcraftAI.Parser");
 
-            var escapedPob = pobInput.Replace("\"", "\\\"");
+            Debug.WriteLine($"[Delve] Input length: {pobInput.Length}, depth: {depth}");
+            Debug.WriteLine($"[Delve] Input prefix: {pobInput[..Math.Min(60, pobInput.Length)]}...");
+
+            // stdin으로 POB 코드 전달 (base64 코드가 10KB+ 가능 → 커맨드라인 한계 초과 방지)
             var psi = new ProcessStartInfo
             {
                 FileName = _pythonPath,
-                Arguments = $"\"{_delveAdvisorScriptPath}\" --pob \"{escapedPob}\" --depth {depth}",
+                Arguments = $"\"{_delveAdvisorScriptPath}\" --pob - --depth {depth}",
                 WorkingDirectory = parserDir,
                 UseShellExecute = false,
+                RedirectStandardInput = true,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
                 CreateNoWindow = true,
@@ -5252,9 +5320,28 @@ except Exception as e:
             using var process = Process.Start(psi);
             if (process == null) throw new Exception("Python 프로세스 시작 실패");
 
-            var output = process.StandardOutput.ReadToEnd();
-            var error = process.StandardError.ReadToEnd();
-            process.WaitForExit();
+            // stdin으로 POB 코드 전송 후 닫기
+            process.StandardInput.Write(pobInput);
+            process.StandardInput.Close();
+
+            // 데드락 방지: stdout/stderr 비동기 읽기
+            var outputTask = process.StandardOutput.ReadToEndAsync();
+            var errorTask = process.StandardError.ReadToEndAsync();
+
+            // 30초 타임아웃
+            if (!process.WaitForExit(30000))
+            {
+                try { process.Kill(); } catch { }
+                throw new Exception("분석 타임아웃 (30초 초과)");
+            }
+            Task.WaitAll(outputTask, errorTask);
+
+            var output = outputTask.Result;
+            var error = errorTask.Result;
+
+            Debug.WriteLine($"[Delve] Exit: {process.ExitCode}, stdout: {output.Length}B, stderr: {error.Length}B");
+            if (!string.IsNullOrEmpty(error))
+                Debug.WriteLine($"[Delve] stderr: {error[..Math.Min(500, error.Length)]}");
 
             if (process.ExitCode != 0)
                 throw new Exception($"스크립트 오류 (exit {process.ExitCode}): {error}");
@@ -5279,7 +5366,23 @@ except Exception as e:
                 "hybrid" => "하이브리드",
                 _ => "라이프 빌드"
             };
-            DelveDepthTipText.Text = depth?["depth_tip"]?.ToString() ?? "";
+            // 방어 점수 + 상세
+            var defenseScore = depth?["defense_score"]?.Value<int>() ?? 0;
+            var defenseDetails = depth?["defense_details"] as JArray;
+            var detailParts = new List<string>();
+            if (defenseDetails != null)
+            {
+                foreach (var d in defenseDetails)
+                {
+                    var grade = d["grade"]?.ToString() ?? "";
+                    var statName = d["stat"]?.ToString() ?? "";
+                    detailParts.Add($"{statName}({grade})");
+                }
+            }
+            string defenseText = detailParts.Count > 0
+                ? $"방어 점수: +{defenseScore} [{string.Join(", ", detailParts)}]"
+                : $"방어 점수: +{defenseScore}";
+            DelveDepthTipText.Text = $"{defenseText}\n{depth?["depth_tip"]?.ToString() ?? ""}";
 
             bool needsZhp = depth?["needs_zhp_now"]?.Value<bool>() ?? false;
             DelveZHPWarning.Visibility = needsZhp ? Visibility.Visible : Visibility.Collapsed;
