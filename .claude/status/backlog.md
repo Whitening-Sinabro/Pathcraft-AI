@@ -17,7 +17,11 @@
 - [x] Tauri UI (빌드 분석 + 코칭 결과 카드)
 - [x] print → logger 교체 + UTF-8 인코딩 수정
 - [x] 프롬프트 보강 (오라/유틸리티/전령 구간별, 보이드스톤, 장비 타이밍, 10구간)
-- [ ] UI에 leveling_skills 섹션 표시
+- [x] UI에 leveling_skills 섹션 표시
+- [x] 빌드 평가 5카테고리 별점 (PoE Vault 패턴)
+- [x] 장비 진행 타임라인 (슬롯별 카드 흐름)
+- [x] 맵 모드 경고 + regex 필터
+- [x] 구간별 스냅샷 탭 (Mobalytics 패턴)
 - [ ] 파밍 전략 (타겟 맵 추천)
 - [ ] 필터 생성 (SSF 모드, Phase 8 정리 버전)
 

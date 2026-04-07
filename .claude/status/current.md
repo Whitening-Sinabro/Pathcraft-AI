@@ -1,11 +1,11 @@
 ## 지금
-- 감사(audit) 지적사항 수정 중 (CSP, 타입, 테스트, 경로)
-- leveling_skills + aura_utility_progression UI 렌더링 완료
+- Phase 1 UI/코칭 완료. 데이터 자동화 파이프라인(Phase 1.5) 진행 중
+- 패치노트 크롤러 완성 (3.28.0 ~ 3.28.0e + 핫픽스 30개 수집)
 
 ## 다음
-- 파이프라인 스모크 테스트 보강
-- Foulborn 외 다른 리그 접두어 테스트
-- 필터 생성 연결
+- 패치노트 분류기 개선 (atlas/currency/mechanic 카테고리 정확도)
+- GGPK/번들 파서 (Rust) — .dat64 추출기 설계 + 구현
+- 파밍 전략 3.28 기준 갱신 (맵 시스템 전면 변경 반영)
 
 ## 참조
 - [아키텍처](architecture.md)
