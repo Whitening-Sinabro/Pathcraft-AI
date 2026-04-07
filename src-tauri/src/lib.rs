@@ -1,3 +1,6 @@
+mod dat64;
+mod schema;
+
 use std::process::Command;
 use std::path::PathBuf;
 
