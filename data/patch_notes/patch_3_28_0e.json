@@ -1,30 +1,71 @@
 {
   "version": "3.28.0e",
   "title": "3.28.0e Patch Notes",
-  "date": "",
   "url": "https://www.pathofexile.com/forum/view-thread/3924293",
-  "full_text": "1\n2\n3\n4\n…\n\n3.28.0e Patch Notes\n3.28.0e Patch Notes\nThe Mirage Challenge League\nSome buff effects now transition with you through combat areas like temporary minions. These include Rage, Fortify, most charges, and Shrines (excluding Evolving Shrine).\nOn first moving after entering a Mirage, a powerful shockwave will trigger to stun enemies near the player. This is to mitigate situations where the player is immediately swarmed on entering a Mirage.\nCorrected the error message that displays when trying to use the Divine Font on an Imbued Gem.\nFixed a bug with several wishes that added extra monster packs to the Mirage, where the added packs could be spawned outside the Mirage zone and therefore not appear.\nMirages will no longer spawn in a particular City Square room that made them unable to spread very far.\nThe Astral-touched modifier now has special font colouring\nGeneral Improvements\nUnique Maps will no longer show the \"Bonus Objective\" line when viewing the advanced mod descriptions.\nFixed a UI bug where some Atlas nodes in the far corners of the Atlas were not hoverable when the corresponding Voidstone had been unlocked.\nAdded more informative error messages when applying Memory Threads to invalid nodes on your Atlas.\nWhile viewing the Atlas, hovering or holding a Map item in your inventory will cause Atlas nodes to glow if that node hasn't had it's Bonus Completed and the map item can award Bonus Completion. e.g. Hovering a Magic Tier 7 map item will only cause Tier 5 and under map nodes to glow because Tier 6 & 7 map nodes require Rare maps for bonus completion.\nThe Map Device will no longer show the Maven/Eater/Exarch influence buttons for Unique maps that can't be Witnessed.\nAll uncompleted Unique maps on the Atlas will stop pulsing blue once you have completed any 10 Unique maps.\nKirac's Invitation UI will no longer show the Maven/Eater/Exarch influence buttons.\nWhile using Chaos Orbs, you can now hold Alt to swap to using an Exalted Orb.\nAdded extra reminder text to the Transfusion Support to state that it prioritises the closest Minion that isn't already at maximum Souls.\nAdd some extra space around unstable and sky fortress breaches near the edge of a mirage\nBreach monsters can no longer Fracture on death, or can have their Rarity upgraded when you have an Evolving Shrine. Breach monsters that were spawned via these effects were invisible and invulnerable to damage.\nFixed a bug where items with the +2 to level of Socketed Minion Gems Modifier on Gloves and Boots were not dropping identified in Delve.\nThe Ritualist's Breach Ring microtransaction now causes Unstable Breaches you find to be visually transformed into occult summoning circles.\nBug Fixes\nHarvest Bosses will transition back into their regular forms 40 seconds after starting a vine phase.\nThe Misty Reflection skill from the Delirious Bloodline can no longer be repeated. Fixes a bug where if the skill repeated your character would be invisible and unusable for the rest of that area.\nFixed a bug where you couldn't get Remembrance charges for Legacy of the Rose staff after entering a boss room.\nFixed a bug where the last shard fired by Eye of Winter of Transience was in the wrong location\nFixed a bug where magic monsters around bismuth ore could have duplicate monster mods\nFixed a bug where the Influencing Scarab of Interference couldn't be used alongside the Horned Scarab of Awakening.\nFixed a bug where the Shaper time stop during the Nightmare of Lycia boss in the Sanctuary Map could prevent the Nightmare of Lycia from transitioning to her Storm Call phase, rendering the fight incompletable.\nFixed a bug where the Incarnation of Dread could rarely leave an invisible donut area of Fire damage over time after the Incarnation of Dread had died.\nFixed a bug where the Incarnation of Dread in the Feared Maven Invitation would continue to spawn areas of Chilled Ground after dying.\nFixed a bug where Serpent Warrior Spectres were not using skills when Defensive.\nFixed an issue where vaal impurities did not apply their buff to you.\nFixed the Harvest Craft for +0.1 metres to Weapon Range per 10% Quality having an incorrect description at the Horticrafting Station.\nFixed a display bug where Corrupted Maps were not displaying \"Area is Corrupted\"\nFixed a bug introduced in 3.28, where the array of beams from the mirror in the Nightmare of Uhtred fight no longer had a medium-sized gap in the middle of the array.\nFixed a bug where players could not toggle Eldritch influence when interacting with Eagon's Map Device when using a controller.\nFixed a client crash on macOS.\nFixed 2 client crashes.",
-  "categories": {
-    "skill_gem_changes": [],
-    "item_changes": [],
-    "atlas_map_changes": [],
-    "mechanic_changes": [],
-    "currency_changes": [],
-    "balance_changes": [],
-    "bug_fixes": [],
-    "other": [
-      "3.28.0e Patch Notes",
-      "3.28.0e Patch Notes"
-    ]
-  },
-  "skill_changes": [
+  "patch_type": "minor",
+  "collected_at": "2026-04-07T15:51:55.548754",
+  "all_changes": [
+    "3.28.0e Patch Notes",
+    "3.28.0e Patch Notes",
+    "The Mirage Challenge League",
+    "Some buff effects now transition with you through combat areas like temporary minions. These include Rage, Fortify, most charges, and Shrines (excluding Evolving Shrine).",
+    "On first moving after entering a Mirage, a powerful shockwave will trigger to stun enemies near the player. This is to mitigate situations where the player is immediately swarmed on entering a Mirage.",
+    "Corrected the error message that displays when trying to use the Divine Font on an Imbued Gem.",
+    "Fixed a bug with several wishes that added extra monster packs to the Mirage, where the added packs could be spawned outside the Mirage zone and therefore not appear.",
+    "Mirages will no longer spawn in a particular City Square room that made them unable to spread very far.",
+    "The Astral-touched modifier now has special font colouring",
+    "General Improvements",
+    "Unique Maps will no longer show the \"Bonus Objective\" line when viewing the advanced mod descriptions.",
+    "Fixed a UI bug where some Atlas nodes in the far corners of the Atlas were not hoverable when the corresponding Voidstone had been unlocked.",
+    "Added more informative error messages when applying Memory Threads to invalid nodes on your Atlas.",
+    "While viewing the Atlas, hovering or holding a Map item in your inventory will cause Atlas nodes to glow if that node hasn't had it's Bonus Completed and the map item can award Bonus Completion. e.g. Hovering a Magic Tier 7 map item will only cause Tier 5 and under map nodes to glow because Tier 6 & 7 map nodes require Rare maps for bonus completion.",
+    "The Map Device will no longer show the Maven/Eater/Exarch influence buttons for Unique maps that can't be Witnessed.",
+    "All uncompleted Unique maps on the Atlas will stop pulsing blue once you have completed any 10 Unique maps.",
+    "Kirac's Invitation UI will no longer show the Maven/Eater/Exarch influence buttons.",
+    "While using Chaos Orbs, you can now hold Alt to swap to using an Exalted Orb.",
+    "Added extra reminder text to the Transfusion Support to state that it prioritises the closest Minion that isn't already at maximum Souls.",
+    "Add some extra space around unstable and sky fortress breaches near the edge of a mirage",
+    "Breach monsters can no longer Fracture on death, or can have their Rarity upgraded when you have an Evolving Shrine. Breach monsters that were spawned via these effects were invisible and invulnerable to damage.",
+    "Fixed a bug where items with the +2 to level of Socketed Minion Gems Modifier on Gloves and Boots were not dropping identified in Delve.",
+    "The Ritualist's Breach Ring microtransaction now causes Unstable Breaches you find to be visually transformed into occult summoning circles.",
+    "Harvest Bosses will transition back into their regular forms 40 seconds after starting a vine phase.",
+    "The Misty Reflection skill from the Delirious Bloodline can no longer be repeated. Fixes a bug where if the skill repeated your character would be invisible and unusable for the rest of that area.",
+    "Fixed a bug where you couldn't get Remembrance charges for Legacy of the Rose staff after entering a boss room.",
+    "Fixed a bug where the last shard fired by Eye of Winter of Transience was in the wrong location",
+    "Fixed a bug where magic monsters around bismuth ore could have duplicate monster mods",
+    "Fixed a bug where the Influencing Scarab of Interference couldn't be used alongside the Horned Scarab of Awakening.",
+    "Fixed a bug where the Shaper time stop during the Nightmare of Lycia boss in the Sanctuary Map could prevent the Nightmare of Lycia from transitioning to her Storm Call phase, rendering the fight incompletable.",
+    "Fixed a bug where the Incarnation of Dread could rarely leave an invisible donut area of Fire damage over time after the Incarnation of Dread had died.",
+    "Fixed a bug where the Incarnation of Dread in the Feared Maven Invitation would continue to spawn areas of Chilled Ground after dying.",
+    "Fixed a bug where Serpent Warrior Spectres were not using skills when Defensive.",
+    "Fixed an issue where vaal impurities did not apply their buff to you.",
+    "Fixed the Harvest Craft for +0.1 metres to Weapon Range per 10% Quality having an incorrect description at the Horticrafting Station.",
+    "Fixed a display bug where Corrupted Maps were not displaying \"Area is Corrupted\"",
+    "Fixed a bug introduced in 3.28, where the array of beams from the mirror in the Nightmare of Uhtred fight no longer had a medium-sized gap in the middle of the array.",
+    "Fixed a bug where players could not toggle Eldritch influence when interacting with Eagon's Map Device when using a controller.",
+    "Fixed a client crash on macOS.",
+    "Fixed 2 client crashes.",
+    "Last bumped on Apr 2, 2026, 9:56:30 PM"
+  ],
+  "skill_buffs": [
     {
-      "skill": "The Astral-touched modifier",
-      "change": "s",
-      "previous": "",
       "raw": "The Astral-touched modifier now has special font colouring",
-      "type": "change"
+      "type": "buff"
+    },
+    {
+      "raw": "While using Chaos Orbs, you can now hold Alt to swap to using an Exalted Orb.",
+      "type": "buff"
     }
   ],
-  "collected_at": "2026-04-07T15:31:47.483642"
+  "skill_nerfs": [
+    {
+      "raw": "Breach monsters can no longer Fracture on death, or can have their Rarity upgraded when you have an Evolving Shrine. Breach monsters that were spawned via these effects were invisible and invulnerable to damage.",
+      "type": "nerf"
+    },
+    {
+      "raw": "The Misty Reflection skill from the Delirious Bloodline can no longer be repeated. Fixes a bug where if the skill repeated your character would be invisible and unusable for the rest of that area.",
+      "type": "nerf"
+    }
+  ],
+  "total_changes": 41
 }

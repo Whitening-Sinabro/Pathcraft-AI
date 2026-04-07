@@ -1,4 +1,5 @@
 {
+  "version": "3.28.0",
   "endgame_changes": [
     "Extensive changes have been made to the Atlas and how you engage with Maps, without interfering with the beloved core experience. Some of the more frustrating aspects have also been streamlined or removed.",
     "Map items are no longer associated with a specific Map Area. As an example, instead of having a Tier 10 Mesa Map, you will now find a Tier 10 Map. To open a Mesa Map, you now locate and select Mesa on your Atlas, put in your Map item, and activate the Map Device.",
@@ -169,11 +170,19 @@
       "type": "buff"
     },
     {
+      "raw": "Detonate Dead of Scavenging now has 70% less Damage with Ailments (previously 60%).",
+      "type": "buff"
+    },
+    {
       "raw": "Dominating Blow: The chance to summon a Normal Sentinel on Hitting a Unique Monster now also applies when Hitting Rare Monsters. Debuff Duration is now 3 seconds (previously 1), and Sentinel Duration is now 30 seconds (previously 20).",
       "type": "buff"
     },
     {
       "raw": "Earthshatter: Now has an Effectiveness of Added Damage of 158%-329% at gem levels 1-20 (previously 171%-393%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Elemental Hit: The Cryogenesis notable on the Breachlord Bloodline now additionally states Elemental Hit's Added Damage cannot be replaced this way.",
       "type": "buff"
     },
     {
@@ -193,6 +202,10 @@
       "type": "buff"
     },
     {
+      "raw": "Penance Brand: Now deals 10% more Damage at all gem levels. Now has an Effectiveness of Added Damage of 520-630% at gem levels 1-20 (previously 470-570%). No longer has 30% less Damage with Ailments. Quality now provides Deals +0-15% more Damage with Hits against Branded Enemy (previously +0-10%).",
+      "type": "buff"
+    },
+    {
       "raw": "Penance Brand of Conduction: Now activates every 0.1 seconds while Attached (previously 0.15). Quality now provides Deals +0-30% more Damage with Hits against Branded Enemy (previously +0-15%).",
       "type": "buff"
     },
@@ -202,6 +215,10 @@
     },
     {
       "raw": "Purifying Flame of Revelations: Now has a Mana cost of 5-20 at gem levels 1-20 (previously 6-25), and now has a base cast time of 0.6 seconds (previously 0.7). Shockwave now deals 150% more Damage (previously 110%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Static Strike: Now has a base enemy zap range of 2.5 metres (previously 2), a base duration of 4 seconds (previously 3), and Beams now deal 30% less Damage (previously 40%).",
       "type": "buff"
     },
     {
@@ -221,56 +238,18 @@
       "type": "buff"
     },
     {
+      "raw": "Viper Strike of the Mamba: now has 30% less Attack Speed while Dual Wielding and 20% less Damage with Hits while Dual Wielding (matching regular Viper Strike). This modifier now explicitly states that it only applies to Damage with Hits rather than being ambiguous.",
+      "type": "buff"
+    },
+    {
       "raw": "Viper Strike of the Mamba now also has Cannot inflict multiple Poisons in the same Hit, as additional ways to apply multiple Poisons in a single Hit would otherwise have to be significantly weakened for the sake of this Skill. This does not affect the Skill's normal Dual Wielding behaviour, as it causes a single Hit (and therefore applies a single Poison) based on the combined Damage of both weapons.",
       "type": "buff"
     }
   ],
   "skill_nerfs": [
     {
-      "raw": "Detonate Dead of Scavenging now has 70% less Damage with Ailments (previously 60%).",
-      "type": "nerf"
-    },
-    {
-      "raw": "Penance Brand: Now deals 10% more Damage at all gem levels. Now has an Effectiveness of Added Damage of 520-630% at gem levels 1-20 (previously 470-570%). No longer has 30% less Damage with Ailments. Quality now provides Deals +0-15% more Damage with Hits against Branded Enemy (previously +0-10%).",
-      "type": "nerf"
-    },
-    {
       "raw": "Portal: No longer has its casting interrupted by self-damage.",
       "type": "nerf"
-    },
-    {
-      "raw": "Static Strike: Now has a base enemy zap range of 2.5 metres (previously 2), a base duration of 4 seconds (previously 3), and Beams now deal 30% less Damage (previously 40%).",
-      "type": "nerf"
-    },
-    {
-      "raw": "Viper Strike of the Mamba: now has 30% less Attack Speed while Dual Wielding and 20% less Damage with Hits while Dual Wielding (matching regular Viper Strike). This modifier now explicitly states that it only applies to Damage with Hits rather than being ambiguous.",
-      "type": "nerf"
-    }
-  ],
-  "skill_other": [
-    {
-      "raw": "Dominating Blow of Inspiring: Debuff Duration is now 3 seconds (previously 1), and Sentinel Duration is now 30 seconds (previously 20).",
-      "type": "change"
-    },
-    {
-      "raw": "Elemental Hit: The Cryogenesis notable on the Breachlord Bloodline now additionally states Elemental Hit's Added Damage cannot be replaced this way.",
-      "type": "change"
-    },
-    {
-      "raw": "Raised Spectres: No longer gain a hidden more Elemental Damage bonus when converting their Physical Damage to Elemental. They also now scale up their monster level more at gem levels past 20, a gem level 30 Raised Spectre is now level 85 (previously 81).",
-      "type": "change"
-    },
-    {
-      "raw": "Storm Burst: Now places an orb immediately on casting, rather than the first orb being placed one cast into the process of channelling.",
-      "type": "change"
-    },
-    {
-      "raw": "Sweep: Has been reworked, and is now called Holy Sweep. Holy Sweep swings a two handed mace or a staff in a circle, calling down Holy Hammers to land randomly on a number of enemies struck. Hits from these Holy Hammers cannot be evaded.",
-      "type": "change"
-    },
-    {
-      "raw": "Winter Orb: Projectile Speed modifiers now affect the time it takes for projectiles to impact the ground (previously projectile speed had no effect on Winter Orb).",
-      "type": "change"
     }
   ],
   "support_gem_changes": [
@@ -398,36 +377,6 @@
     "Possessed Legion Monsters can no longer release Tormented Spirits when being broken out. They can still release Tormented Spirits once broken out.",
     "Added a modifier to Ultimatums that prevents players being able to Block."
   ],
-  "new_content": [
-    "Added the new Reliquarian Ascendancy Class for the Scion. Notable Passive Skills for the Reliquarian borrow from the powers of Unique items found throughout Wraeclast, and will change with each League. For this reason, these Notables will not be available as outcomes for the Forbidden Flame and Forbidden Flesh Unique Jewels.",
-    "Introduced Exceptional Support Gems, a new and improved version of Awakened Support Gems, which are being phased out. There are over 40 Exceptional Support Gems, which can be found in the Endgame.",
-    "Introduced the Coin of Knowledge, which Corrupts a level 20 Skill Gem, Imbuing it with a random valid Intelligence Support effect.",
-    "Introduced the Coin of Power, which Corrupts a level 20 Skill Gem, Imbuing it with a random valid Strength Support effect.",
-    "Introduced the Coin of Skill, which Corrupts a level 20 Skill Gem, Imbuing it with a random valid Dexterity Support effect.",
-    "Added a new Strength/Intelligence Skill Gem, Divine Blast: Project a beam of holy light from your shield to a targeted location, causing an implosion of holy energy. This energy then lingers for a short duration, before blasting outwards in a larger and more damaging explosion.",
-    "Added a new Strength/Intelligence Skill Gem, Holy Hammers: Slam the ground ahead of you, calling down a Holy Hammer from above. On hitting an enemy, another Hammer will cascade forward, repeating if further enemies are hit, up to a cap. A Power Charge can be expended to call down additional Hammers to either side of the initial slam. Requires a Mace or Staff.",
-    "Added a new Strength/Intelligence Skill Gem, Holy Strike: Infuse your weapon with holy energy and swing. Successfully hitting an enemy will summon forth a Holy Armament, which copies your main hand weapon stats to determine its own. These Holy Armaments are undamageable minions, and will attack the enemies you target with Holy Strike. Requires a Mace, Sceptre or Staff.",
-    "Added a new Strength/Intelligence Skill Gem, Shield of Light: Retaliate against a blocked hit with a sweep of your Shield, unleashing a wave of light in a cone in front of you. Additional waves also emanate from allies in a radius around the first target struck, towards that target.",
-    "Added a new Strength Transfigured Skill Gem, Shockwave Totem of Authority: Summons a totem that shakes the earth around you, damaging enemies.",
-    "Added a new Strength/Intelligence Transfigured Skill Gem, Static Strike of Gathering Lightning: Attack with a melee weapon, gaining a Gathering Lightning buff for a duration if you hit an enemy. While you have Gathering Lightning, attacks with this skill will cause chaining beams of lightning, which chain farther the more Gathering Lightning you have.",
-    "Added a new Strength/Intelligence Transfigured Skill Gem, Searing Bond of Detonation: Summons a Totem that casts a beam of fire at you and each other Totem you control, dealing Burning Damage to enemies caught in the beam. Enemies near either end of a beam also suffer Burning Damage. Reaching maximum active Totem count will cause all Totems from this skill to detonate, applying the same Burning Damage for a duration.",
-    "Added a new Dexterity Transfigured Skill Gem, Charged Dash of Projection: Channel to project an illusion which you steer. You gain stages while it moves, until it stops at a maximum total distance. Waves of area damage frequently pulse along its path, based on your attack speed. Stop channelling to release the illusion, dealing a final wave of damage. Requires a Melee Weapon.",
-    "Added a new Dexterity/Intelligence Transfigured Skill Gem, Flamethrower Trap of Stability: Throws a trap that releases a number of flames in different directions around it when triggered. The flames last for a duration repeatedly dealing damage.",
-    "Added a new Intelligence Transfigured Skill Gem, Kinetic Fusillade of Detonation: Wave your wand to create multiple hovering kinetic projectiles. After a short duration, the projectiles explode, dealing area damage. Using this attack again will reset the duration for all hovering projectiles. Cannot be directly used by traps or mines.",
-    "Added a new Intelligence Transfigured Skill Gem, Orb of Storms of Squalls: Creates an electrical orb that will strike enemies in its area of effect with beams of lightning when placed, as well as when you use a lightning skill while within its area. These beams of lightning can then split to hit more enemies. When striking enemies, this orb will teleport to a random enemy struck. Casting this skill again will replace the previous orb.",
-    "Added a new Intelligence Transfigured Skill Gem, Shock Nova of Procession: Casts a ring of Lightning around you, followed by a larger Lightning nova. Each effect hits enemies caught in their area with Lightning Damage. This then repeats, with each repeat offset from the previous in the direction of your target.",
-    "Added a new Intelligence/Strength Transfigured Skill Gem, Storm Burst of Repulsion: Unleash orbs of energy while you channel that repeatedly jump away from the targeted location until their duration expires, dealing damage in a small area after each jump. When you stop channelling, all remaining orbs explode, dealing higher damage in a larger area.",
-    "Added a new Intelligence/Dexterity Transfigured Skill Gem, Siphoning Trap of Pain: Throws a trap that applies debuff beams to a number of nearby enemies for a duration. The beams chill enemies and deal cold damage over time.",
-    "Added a new Strength/Intelligence Support Gem, Blessed Call Support: Supports Warcry skills, causing them to create Consecrated Ground. Supported Warcries have lowered Area of Effect and Cooldown Recovery Rate. Cannot support triggered Warcries.",
-    "Added a new Strength/Intelligence Support Gem, Excommunicate: Supports melee attacks, causing them to gain a percentage of physical damage as extra fire and lightning damage, and excommunicate enemies on melee hit. Does not modify skills used by minions.",
-    "Added a new Intelligence Support Gem, Exemplar Support: Supports Minion skills, causing your minions to have increased Critical Strike Chance and Critical Strike Multiplier for each of your own recent Critical Strikes.",
-    "Added a new Strength/Intelligence Support Gem, Hallow: Supports melee attacks you use yourself, causing them to inflict Hallowing Flame on melee hit. Does not modify skills used by minions.",
-    "Added 10 new Runegrafts that can be found by shipping to ports in Kingsmarch: Runegraft of the Agile, Runegraft of Connection, Runegraft of Consecration, Runegraft of Fury, Runegraft of the Imbued, Runegraft of Rallying, Runegraft of Resurgence, Runegraft of Rotblood, Runegraft of the Spellbound, and Runegraft of Suffering.",
-    "Added 13 new Unique Items.",
-    "Added 8 new Divination Cards.",
-    "The \"Exotic\" sub-stash of the Currency Stash has been split into two new sub-stashes \"Atlas\" and \"League\".",
-    "Continued to incrementally improve the sound, art, effects and environments."
-  ],
   "player_changes": [
     "The Templar now wakes on the Twilight Strand more in touch with his faith: the starting skill gem for Templar is now Holy Strike, and the starting support gem for Templar is now Hallow Support.",
     "Totem Placement speed now also scales the speed at which Totems emerge. Ranged Attack Totems now have a base placement speed of 0.5 seconds (previously 0.35).",
@@ -444,6 +393,13 @@
     "Divine Blast is now offered to the Templar for completing Sever the Right Hand, and can be purchased from Clarissa by the Marauder and Scion.",
     "Blessed Call Support is now offered to the Templar for completing A Fixture of Fate, and can be purchased from Clarissa by the Marauder and Scion.",
     "Excommunicate Support is now offered to the Templar for completing A Fixture of Fate, and can be purchased from Clarissa by the Marauder and Scion."
+  ],
+  "passive_tree_changes": [
+    "Added two new clusters to the west of the Templar starting area: one granting Accuracy and Effect of Consecrated Ground, the other granting Accuracy and Attack Area of Effect.",
+    "Added a new Protection Mastery that provides 50% of Damage from your Hits cannot be Reflected (replacing the Mastery that granted 65% reduced effect of Wither on You).",
+    "The Defiled Forces Notable Passive no longer refreshes the Duration of Ignite on Enemies you Curse, and instead has Curse Skills have 15% increased Cast Speed.",
+    "The Evasion and Energy Shield Mastery now has 1% increased Evasion Rating per 10 Intelligence (previously per 5 Intelligence).",
+    "The Fire Mastery that granted 50% chance to refresh Ignite Duration on Critical Strike has been replaced with a Mastery granting +12% to Fire Damage over Time Multiplier and 50% increased Ignite Duration on You."
   ],
   "bloodline_changes": [
     "The King's Might, The King's Heritage, and The King's Contempt Bloodline Passive Skills now grant their respective Aura effect while you have minimum Frenzy, Endurance, or Power Charges respectively (previously no Frenzy, Endurance, or Power Charges).",
@@ -462,14 +418,7 @@
     "Ward Shatter triggered by the Volatile Runes Bloodline Passive Skill now has 200% more Damage if Ward has not broken in the past 2 seconds (previously 80%). It now deals 160% to 240% of Ward as Base Spell Physical Damage (previously 250% to 300%), and has a Cooldown of 0.15 seconds (previously 0.5). Ward Shatter can no longer apply the Enervation Debuff to player characters.",
     "The Vivid Cat Bloodline Passive Skill now provides 50% increased effect of Marks while you have Elusive, instead of 50% increased Stealth while Elusive."
   ],
-  "passive_tree_changes": [
-    "Added two new clusters to the west of the Templar starting area: one granting Accuracy and Effect of Consecrated Ground, the other granting Accuracy and Attack Area of Effect.",
-    "Added a new Protection Mastery that provides 50% of Damage from your Hits cannot be Reflected (replacing the Mastery that granted 65% reduced effect of Wither on You).",
-    "The Defiled Forces Notable Passive no longer refreshes the Duration of Ignite on Enemies you Curse, and instead has Curse Skills have 15% increased Cast Speed.",
-    "The Evasion and Energy Shield Mastery now has 1% increased Evasion Rating per 10 Intelligence (previously per 5 Intelligence).",
-    "The Fire Mastery that granted 50% chance to refresh Ignite Duration on Critical Strike has been replaced with a Mastery granting +12% to Fire Damage over Time Multiplier and 50% increased Ignite Duration on You."
-  ],
-  "mirage_mechanic": [
+  "the_mirage_challenge_league": [
     "Take on a rogue sect of the Faridun as they sap the energies of captured Djinn for nefarious ends, and help a legendary Maraketh Sekhema put an end to an ancient war once and for all.",
     "The Afarud, the most depraved and twisted of the Faridun, have formed a pact with Saresh, a powerful necromancer who built an army of undead to seek revenge on the Maraketh.",
     "Deny their twisted efforts towards dominion by joining forces with Varashta and freeing the spirits of Djinn before the Afarud can accomplish their goals.",
@@ -481,7 +430,7 @@
     "The new Mirage challenge league includes a set of 40 new challenges, and 8 new challenges in Ruthless Mirage. Earn pieces of the Orb Regalia Armour Set when you complete 12, 20, 28 and 36 challenges in Mirage, or 2, 4, 6 and 8 challenges in Ruthless Mirage. These challenge rewards are only obtainable in this league.",
     "From the 19th challenge onwards and for every third challenge after that, you will receive pieces of the Mirage Totem Pole decoration to display in your hideout. The Totem Pole permanently showcases how many of the Mirage challenges you completed during the league."
   ],
-  "breach_core_changes": [
+  "keepers_of_the_flame_as_a_core_league": [
     "Thanks to your help, Ailith and the Order of the Keepers of the Flame have managed to curb the onslaught of the Breachlords, but the fight is not yet over. Ailith and the Order have solidified their position, and will continue to offer assistance and rewards as you drive back the Hiveborn across Wraeclast.",
     "You now encounter Ailith for the first time at the Mud Flats entrance in the Coast in Act 6, where she will enlist your aid in the fight against the Hiveborn.",
     "Breach Hives and Unstable Breaches now spawn in areas from Act 6 Mud Flats onwards.",
@@ -535,7 +484,7 @@
     "Foulborn Doon Cuebiyari now has 1% increased maximum Energy Shield per 25 Strength when in Off Hand (previously per 16 Strength).",
     "Foulborn Doon Cuebiyari now has 1% increased maximum Mana per 18 Strength when in Main Hand (previously per 12 Strength)."
   ],
-  "harbinger_removal": [
+  "harbinger_removed_as_a_core_league": [
     "As turmoil grips the Atlas, the Harbingers appear to have departed Wraeclast, leaving behind only a cryptic message:",
     "While the Beachhead lies quiet for now, perhaps one day they will return…",
     "Fracturing Orbs and Ancient Orbs are now able to drop as part of the core drop pool.",
@@ -562,10 +511,10 @@
     "Removed most cases of Currency Shards dropping throughout the game. Vendor recipes for Currency Shards are unchanged."
   ],
   "key_numbers": {
-    "total_skill_buffs": 20,
-    "total_skill_nerfs": 5,
+    "total_sections": 22,
+    "total_skill_buffs": 25,
+    "total_skill_nerfs": 1,
     "total_endgame_changes": 109,
-    "total_atlas_passive_changes": 31,
-    "total_unique_changes": 21
+    "total_atlas_passive_changes": 31
   }
 }
