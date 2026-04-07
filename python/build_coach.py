@@ -224,15 +224,21 @@ def load_patch_context() -> dict:
     except (json.JSONDecodeError, OSError):
         return {}
 
-    # 메인 패치 버전만 필터 (핫픽스 제외하고 가장 최신)
-    main_versions = [v for v in index.keys() if "hotfix" not in v]
-    if not main_versions:
+    # 메이저 패치만 필터 (핫픽스/마이너 제외)
+    major_versions = [
+        v for v, info in index.items()
+        if info.get("patch_type") == "major" and "hotfix" not in v
+    ]
+    if not major_versions:
+        # patch_type이 없는 구버전 인덱스 폴백
+        major_versions = [v for v in index.keys() if "hotfix" not in v]
+    if not major_versions:
         return {}
 
-    latest = sorted(main_versions, reverse=True)[0]
-    info = index[latest]
+    latest = sorted(major_versions, reverse=True)[0]
 
-    summary_file = patch_dir / info.get("summary_file", "")
+    # summary 파일 탐색
+    summary_file = patch_dir / f"summary_{latest.replace('.', '_')}.json"
     if summary_file.exists():
         with open(summary_file, "r", encoding="utf-8") as f:
             return json.load(f)
