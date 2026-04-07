@@ -1,0 +1,319 @@
+{
+  "template_version": "1.0",
+  "template_type": "archetype",
+  "archetype": "minion",
+  "description": "소환수 빌드 아키타입 템플릿",
+  "created_date": "2025-11-22",
+  "extends": "common_template",
+  "sources": ["PoE Vault - BalorMage SRS Guide", "Maxroll Poison SRS"],
+
+  "stat_priority": {
+    "primary": "intelligence",
+    "secondary": ["strength"],
+    "note": "대부분의 미니언 젬은 인텔리전스 요구"
+  },
+
+  "defense_preference": {
+    "primary": "life",
+    "secondary": ["energy_shield", "block"],
+    "note": "미니언이 어그로 끌어서 비교적 안전"
+  },
+
+  "socket_colors": {
+    "primary": "blue",
+    "secondary": ["red", "green"],
+    "typical_setup": "BBBB, BBBR, BBGR"
+  },
+
+  "mana_management": {
+    "early_game": {
+      "method": "clarity_aura",
+      "note": "Clarity로 마나 리젠 확보"
+    },
+    "mid_game": {
+      "method": "mana_regen",
+      "note": "패시브 + 장비 마나 리젠"
+    },
+    "late_game": {
+      "method": "eldritch_battery",
+      "note": "ES를 마나로 사용하거나, -mana cost"
+    }
+  },
+
+  "damage_scaling": {
+    "sources": [
+      "미니언 젬 레벨 (+1, +2 젬 레벨)",
+      "미니언 데미지 증가",
+      "미니언 공격/시전 속도",
+      "미니언 크리티컬 (일부 빌드)"
+    ],
+    "gem_level_importance": "매우 높음 - 미니언 스탯은 젬 레벨에 크게 의존"
+  },
+
+  "support_gem_priority": {
+    "damage": [
+      "Minion Damage (미니언 데미지)",
+      "Melee Physical Damage (근접 물리)",
+      "Melee Splash (근접 범위)",
+      "Multistrike (연속 타격)",
+      "Predator (포식자)"
+    ],
+    "utility": [
+      "Feeding Frenzy (광란 급여)",
+      "Infernal Legion (지옥 군단)",
+      "Empower (강화)"
+    ]
+  },
+
+  "leveling_skill_progression": {
+    "description": "미니언 빌드 레벨링 스킬 추천",
+    "generic_path": [
+      {
+        "level": 1,
+        "skills": ["Freezing Pulse", "Stormblast Mine"],
+        "note": "SRS 전까지 사용"
+      },
+      {
+        "level": 4,
+        "skills": ["Raise Zombie"],
+        "note": "육체 벽, 첫 미니언"
+      },
+      {
+        "level": 8,
+        "skills": ["Summon Raging Spirit"],
+        "note": "SRS + Melee Splash 조합"
+      },
+      {
+        "level": 10,
+        "skills": ["Summon Skeletons", "Flame Dash"],
+        "note": "추가 미니언 옵션"
+      },
+      {
+        "level": 28,
+        "skills": ["Raise Spectre", "목표 스킬"],
+        "note": "스펙터 또는 최종 미니언 스킬"
+      }
+    ]
+  },
+
+  "aura_progression": {
+    "early": ["Clarity (클래리티)"],
+    "mid": ["Summon Skitterbots", "Anger", "Vitality"],
+    "late": ["Determination", "Grace", "Tempest Shield", "최종 오라 세팅"]
+  },
+
+  "aura_herald_utility_by_level": [
+    {
+      "phase": "Act 1",
+      "level_range": "1~12",
+      "auras": ["Clarity Lv1 (flat, Lv10 퀘스트)"],
+      "heralds": [],
+      "reservation_total": "~30 flat mana",
+      "utility": ["Flame Dash (Lv10)", "Convocation (Lv10, 미니언 소집)"],
+      "guard": "Steelskin (Lv4, 수동)",
+      "note": "SRS 마나 소모 크므로 Clarity 필수. flat이라 부담 없음"
+    },
+    {
+      "phase": "Act 2",
+      "level_range": "13~22",
+      "auras": ["Clarity (flat)", "Summon Skitterbots (35%, 미니언 핵심)"],
+      "heralds": [],
+      "reservation_total": "35% + flat",
+      "utility": ["Flame Dash", "Convocation", "Desecrate (시체 생성)"],
+      "guard": "Steelskin",
+      "note": "Skitterbots 35%로 적 감전+냉각 = 미니언 데미지 크게 증가. 전령보다 가성비 좋음"
+    },
+    {
+      "phase": "Act 3~4",
+      "level_range": "23~43",
+      "auras": ["Determination (50%)", "Summon Skitterbots (35%)"],
+      "heralds": [],
+      "reservation_total": "85%",
+      "utility": ["Flame Dash", "Convocation", "Flesh/Bone Offering (수동)"],
+      "guard": "Molten Shell → Act 4 후반 CWDT + Desecrate + Offering 자동화",
+      "note": "85% 예약. 미니언 빌드는 자신 스킬 거의 안 쓰므로 남은 15%로 충분. CWDT(Act 4) 해금 후 Offering 자동화"
+    },
+    {
+      "phase": "Act 5~6",
+      "level_range": "44~51",
+      "auras": ["Determination (50%)", "Summon Skitterbots (35%)"],
+      "heralds": [],
+      "reservation_total": "85%",
+      "utility": ["Flame Dash", "Convocation", "CWDT + Desecrate + Bone Offering"],
+      "guard": "CWDT + Molten Shell (별도 CWDT 체인)",
+      "note": "저항 패널티(-30%) 주의. 세팅 변경 없이 유지 — 85%는 효율적. 저항 장비 확보에 집중"
+    },
+    {
+      "phase": "Act 7~10",
+      "level_range": "52~65",
+      "auras": ["Determination (50%)", "Summon Skitterbots (35%)"],
+      "heralds": [],
+      "reservation_total": "85% — Grace(50%) 추가하면 135%, 효율 패시브 필요",
+      "utility": ["Flame Dash", "Convocation", "CWDT + Desecrate + Offering"],
+      "guard": "CWDT + Molten Shell 또는 Bone Offering (Mistress of Sacrifice)",
+      "note": "Grace 추가하려면 135% → Sovereignty 확보 전이면 불가. 확보 전까지 Determination + Skitterbots(85%) 유지",
+      "fallback": "저항 부족 시 Purity of Elements(35%)로 Skitterbots(35%) 대체. 총 85% 유지"
+    },
+    {
+      "phase": "화이트맵",
+      "tier_range": "T1~T5",
+      "level_range": "Lv68~78",
+      "auras": ["Determination (50%)", "Summon Skitterbots (35%)"],
+      "heralds": [],
+      "reservation_total": "85%",
+      "utility": ["Flame Dash", "Convocation", "CWDT + Desecrate + Bone Offering"],
+      "guard": "CWDT + Molten Shell (별도 체인)",
+      "defense_checkpoint": "라이프 3500+, 저항 75% 캡, 미니언 젬 Lv19+, 우버랩 완료",
+      "note": "85% 예약 유지. Grace 추가하려면 효율 패시브 필요. 우버랩 4차 어센던시(Mistress of Sacrifice 등) 필수",
+      "farming": "아틀라스 보너스, 에센스(+젬레벨 장비), AG 장비 수집 시작"
+    },
+    {
+      "phase": "옐로우맵",
+      "tier_range": "T6~T10",
+      "level_range": "Lv78~84",
+      "auras": ["Determination (~43%)", "Grace (~43%)", "Summon Skitterbots (~30%)"],
+      "heralds": [],
+      "reservation_total": "~95% (효율 패시브 Sovereignty 등 적용)",
+      "utility": ["Flame Dash", "Convocation", "CWDT + Desecrate + Bone Offering", "Animate Guardian (저렴한 장비만)"],
+      "guard": "CWDT + Molten Shell 또는 Bone Offering (블록)",
+      "defense_checkpoint": "라이프 4000+, 카오스 저항 양수, Bone Offering 블록 확보 (Mistress of Sacrifice)",
+      "note": "효율 패시브로 3개 오라 가능. AG 시작 — Leer Cast(머리), Dying Breath(무기), Victario's Flight(신발)",
+      "farming": "에센스, 비트레이얼, 델브(+젬레벨 크래프팅), AG 유니크 수집"
+    },
+    {
+      "phase": "얼리레드",
+      "tier_range": "T11~T13",
+      "level_range": "Lv84~89",
+      "auras": ["Determination (~43%)", "Grace (~43%)", "Summon Skitterbots (~30%)"],
+      "heralds": [],
+      "reservation_total": "~95%",
+      "utility": ["Flame Dash", "Convocation", "CWDT + Desecrate + Offering", "Animate Guardian"],
+      "guard": "CWDT + Molten Shell + Bone Offering",
+      "defense_checkpoint": "라이프 4500+, 블록 50%+ (Bone Offering), 에일먼트 면역(동결), AG 생존 확인",
+      "note": "미니언 빌드는 다른 아키타입보다 이 구간이 수월. 본인 방어가 핵심. AG가 죽지 않도록 HP 확인",
+      "fallback": "효율 패시브 부족: Skitterbots 제거 → Determination(~43%) + Grace(~43%) = ~86%",
+      "farming": "컨커러, 하베스트, 메이븐 위트니스, +젬레벨 장비 크래프팅"
+    },
+    {
+      "phase": "T16",
+      "tier_range": "T14~T16",
+      "level_range": "Lv89~93",
+      "auras": ["Determination (~43%)", "Grace (~43%)", "Summon Skitterbots (~30%)", "Tempest Shield (~22%) — Enlighten/효율 있으면"],
+      "heralds": [],
+      "reservation_total": "~95% (3개) 또는 ~117%→효율 적용 ~95% (4개)",
+      "utility": ["Flame Dash", "Convocation", "CWDT + Desecrate + Offering", "Animate Guardian (Garb of the Ephemeral 등)"],
+      "guard": "CWDT + Molten Shell + Bone Offering",
+      "defense_checkpoint": "라이프 5000+, 블록 60%+, 에일먼트 면역 완성, 미니언 DPS 1M+",
+      "note": "Enlighten 3 있으면 Tempest Shield로 블록 + 감전 면역 추가. AG에 고가 장비(Garb of the Ephemeral) 가능하면 큰 버프",
+      "ssf_no_enlighten": "효율 패시브 2~3개면 3개 오라 유지. Tempest Shield는 장비 -mana reserved 또는 추가 효율 패시브",
+      "farming": "T16 지속, 시어링/이터, 엑스페디션, AG 장비 업그레이드"
+    },
+    {
+      "phase": "핀나클",
+      "tier_range": "보스",
+      "level_range": "Lv93+",
+      "auras": ["Determination (~43%)", "Grace (~43%)", "Summon Skitterbots (~30%)"],
+      "heralds": [],
+      "reservation_total": "~95%",
+      "utility": ["Flame Dash", "Convocation", "CWDT + Desecrate + Offering", "Animate Guardian"],
+      "guard": "CWDT + Molten Shell + Bone Offering",
+      "defense_checkpoint": "라이프 5500+, 블록 65%+, 모든 방어층, 미니언 DPS 2M+",
+      "note": "미니언 빌드는 핀나클 보스 안정성 높음 — 미니언이 어그로 끌어줌. 악몽 맵(Nightmare) → 우버 핀나클은 HCSSF 선택. Generosity 오라는 별도 소켓으로 미니언 전용 운용",
+      "ssf_no_enlighten": "AG: Leer Cast, Dying Breath, Victario's Flight, Southbound(SSF 쉬움). 미니언 데미지는 젬 레벨이 가장 중요"
+    }
+  ],
+
+  "offering_skills": {
+    "description": "오퍼링 스킬 - 미니언 빌드 필수",
+    "options": [
+      {
+        "name": "Flesh Offering",
+        "effect": "미니언 공격/이동 속도 증가",
+        "use_case": "클리어 속도"
+      },
+      {
+        "name": "Bone Offering",
+        "effect": "미니언 블록 + 라이프 온 블록",
+        "use_case": "미스트레스 오브 새크리파이스로 자신에게 적용"
+      },
+      {
+        "name": "Spirit Offering",
+        "effect": "미니언 ES + 카오스 데미지",
+        "use_case": "ES 빌드"
+      }
+    ],
+    "automation": "Arcanist Brand 또는 CWDT에 연결하여 자동화"
+  },
+
+  "ascendancy_synergy": {
+    "recommended": [
+      {
+        "class": "Necromancer",
+        "reason": "모든 미니언 빌드의 기본, 오퍼링 효과"
+      },
+      {
+        "class": "Guardian",
+        "reason": "오라 공유, 미니언 + 자신 방어"
+      },
+      {
+        "class": "Elementalist",
+        "reason": "골렘 특화, 버프 공유"
+      }
+    ]
+  },
+
+  "unique_items_leveling": {
+    "weapons": [
+      {
+        "name": "Lifesprig",
+        "level": 1,
+        "note": "+1 젬 레벨 완드"
+      },
+      {
+        "name": "Matua Tupuna",
+        "level": 25,
+        "note": "+2 미니언 젬 레벨 방패"
+      },
+      {
+        "name": "Earendel's Embrace",
+        "level": 40,
+        "note": "좀비/스켈레톤에 좋음"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Tabula Rasa",
+        "level": 1,
+        "note": "6링크 무색"
+      },
+      {
+        "name": "Sidhebreath",
+        "level": 1,
+        "note": "미니언 스탯 아뮬렛"
+      },
+      {
+        "name": "Bones of Ullr",
+        "level": 22,
+        "note": "+1 좀비/스펙터"
+      }
+    ]
+  },
+
+  "minion_specific_tips": [
+    "미니언 지속시간 노드 초반에 확보 (SRS, 스켈레톤)",
+    "Convocation으로 미니언 소환 및 힐",
+    "Desecrate로 시체 생성 (오퍼링, 스펙터용)",
+    "Feeding Frenzy는 미니언 공격성 + 버프",
+    "Predator로 단일 대상 집중 가능",
+    "미니언 장비 (+젬 레벨)가 가장 중요한 업그레이드",
+    "Animate Guardian은 비싼 아이템 주의 (죽으면 사라짐)"
+  ],
+
+  "srs_specific": {
+    "description": "SRS 특화 팁",
+    "duration": "SRS는 시간 제한 미니언 - 지속시간 노드 필수",
+    "melee_splash": "Melee Splash로 광역 클리어, 보스전에는 제거",
+    "cast_speed": "시전 속도가 소환 속도에 영향",
+    "minion_speed": "미니언 이동 속도로 적 추적 향상"
+  }
+}

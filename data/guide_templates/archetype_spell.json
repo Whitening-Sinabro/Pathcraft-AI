@@ -1,0 +1,267 @@
+{
+  "template_version": "1.0",
+  "template_type": "archetype",
+  "archetype": "spell",
+  "description": "스펠 캐스터 아키타입 공통 템플릿",
+  "created_date": "2025-11-22",
+  "extends": "common_template",
+
+  "stat_priority": {
+    "primary": "intelligence",
+    "secondary": ["strength", "dexterity"],
+    "note": "대부분의 스펠은 인텔리전스 기반"
+  },
+
+  "defense_preference": {
+    "primary": "energy_shield",
+    "secondary": "life",
+    "note": "ES 기반 또는 하이브리드 가능"
+  },
+
+  "socket_colors": {
+    "primary": "blue",
+    "secondary": ["red", "green"],
+    "typical_setup": "BBBB, BBBR, BBBG"
+  },
+
+  "mana_management": {
+    "early_game": {
+      "method": "mana_flask",
+      "note": "마나 플라스크 + 클래리티"
+    },
+    "mid_game": {
+      "method": "mana_leech_or_regen",
+      "note": "마나 리젠/리치 확보, 플라스크 제거"
+    },
+    "late_game": {
+      "method": "mana_reservation",
+      "note": "마나 예약 오라 최적화"
+    }
+  },
+
+  "damage_scaling": {
+    "sources": [
+      "스펠 데미지 증가",
+      "속성 데미지 증가 (화염/냉기/번개/카오스)",
+      "젬 레벨",
+      "크리티컬 확률/배율",
+      "캐스트 속도"
+    ],
+    "gem_level_importance": "매우 높음 - 스펠은 젬 레벨에 크게 의존"
+  },
+
+  "support_gem_priority": {
+    "damage": [
+      "Controlled Destruction (제어된 파괴)",
+      "Elemental Focus (원소 집중)",
+      "Concentrated Effect (집중 효과)",
+      "Increased Critical Damage (치명타 피해 증가)"
+    ],
+    "utility": [
+      "Faster Casting (빠른 시전)",
+      "Spell Echo (스펠 에코)",
+      "Arcane Surge (비전 쇄도)"
+    ]
+  },
+
+  "leveling_skill_progression": {
+    "description": "스펠 캐스터 레벨링 스킬 추천",
+    "generic_path": [
+      {
+        "level": 1,
+        "skills": ["Freezing Pulse", "Spark", "Arc"],
+        "note": "초반 범용 스킬"
+      },
+      {
+        "level": 12,
+        "skills": ["Storm Brand", "Armageddon Brand", "Arc"],
+        "note": "브랜드 사용 가능"
+      },
+      {
+        "level": 28,
+        "skills": ["목표 스킬로 전환"],
+        "note": "대부분의 핵심 스킬 사용 가능"
+      }
+    ]
+  },
+
+  "aura_progression": {
+    "early": ["Clarity (클래리티)", "Herald of Thunder/Ice/Ash"],
+    "mid": ["Wrath/Anger/Hatred", "Zealotry"],
+    "late": ["최종 오라 세팅 (POB 참조)"]
+  },
+
+  "aura_herald_utility_by_level": [
+    {
+      "phase": "Act 1",
+      "level_range": "1~12",
+      "auras": ["Clarity Lv1 (Lv10 퀘스트 보상, flat 예약)"],
+      "heralds": [],
+      "reservation_total": "~30 flat mana",
+      "utility": ["Arcane Surge Lv1 (서포트, 메인에 연결)", "Flame Dash (Lv10)"],
+      "guard": "Steelskin (Lv4, 수동)",
+      "note": "Clarity는 flat이라 부담 없음. Arcane Surge Lv1 연결로 데미지+마나리젠"
+    },
+    {
+      "phase": "Act 2",
+      "level_range": "13~22",
+      "auras": ["Clarity Lv1~5 (flat)"],
+      "heralds": ["Herald of Thunder/Ice/Ash 1개 (25%)"],
+      "reservation_total": "25% + flat",
+      "utility": ["Flame Dash"],
+      "guard": "Steelskin",
+      "note": "Act 2 퀘스트에서 전령 획득. 원소에 맞는 전령 1개. 마나 75% 남아야 스킬 사용 가능"
+    },
+    {
+      "phase": "Act 3~4",
+      "level_range": "23~43",
+      "auras": ["Zealotry 또는 Wrath/Anger/Hatred (50%)"],
+      "heralds": ["Herald 1개 (25%) — 마나 여유 있으면"],
+      "reservation_total": "50~75%",
+      "utility": ["Flame Dash", "Arcane Surge (서포트)"],
+      "guard": "Steelskin 또는 Molten Shell",
+      "note": "Clarity 제거 → 50% 오라로 교체. 전령까지 75% — 마나 플라스크 필수. CWDT(Lv38) 해금되면 가드 자동화"
+    },
+    {
+      "phase": "Act 5~6",
+      "level_range": "44~51",
+      "auras": ["Zealotry/Wrath (50%)", "Precision Lv1 (flat, 크리 빌드만)"],
+      "heralds": ["Herald (25%) — 저항 패널티 후 마나 여유 확인"],
+      "reservation_total": "50~75% + flat",
+      "utility": ["Flame Dash", "CWDT Lv1 + Molten Shell Lv10"],
+      "guard": "CWDT 자동화",
+      "note": "Act 5 저항 -30%. 저항 캡 우선. 예약 75% 넘으면 전령 제거. CWDT+Molten Shell 필수"
+    },
+    {
+      "phase": "Act 7~10",
+      "level_range": "52~65",
+      "auras": ["Determination (50%)", "데미지 오라 (50%) — 택1"],
+      "heralds": ["제거 — 방어 오라 우선"],
+      "reservation_total": "50% (1개) 또는 100% (2개, 마나리치/EB 필수)",
+      "utility": ["Flame Dash", "CWDT Lv1 + Molten Shell Lv10"],
+      "guard": "CWDT + Molten Shell",
+      "note": "Act 6부터 저항 -60%. Determination 필수. 50%×2=100%면 마나 리치/리젠 또는 EB 필요",
+      "fallback": "마나 문제 시 Determination만(50%) + Purity of Elements(35%) = 85%로 저항 해결"
+    },
+    {
+      "phase": "화이트맵",
+      "tier_range": "T1~T5",
+      "level_range": "Lv68~78",
+      "auras": ["Determination (50%)", "데미지 오라 (50%) — 예약 효율 확보 전이면 택1"],
+      "heralds": [],
+      "reservation_total": "50% (1개) 또는 ~90% (효율 패시브로 2개)",
+      "utility": ["Flame Dash", "CWDT Lv1 + Molten Shell Lv10"],
+      "guard": "CWDT + Molten Shell",
+      "defense_checkpoint": "라이프 3500+, 저항 75% 캡, 우버랩 완료",
+      "note": "예약 효율 패시브(Sovereignty 8%) 확보 시점. 우버랩 4차 어센던시가 큰 파워 스파이크",
+      "farming": "아틀라스 보너스 수집, 에센스 특화 추천"
+    },
+    {
+      "phase": "옐로우맵",
+      "tier_range": "T6~T10",
+      "level_range": "Lv78~84",
+      "auras": ["Determination (~43%)", "데미지 오라 (~43%)"],
+      "heralds": [],
+      "reservation_total": "~86~90% (Sovereignty/Charisma 적용)",
+      "utility": ["Flame Dash", "CWDT Lv1 + Molten Shell Lv10", "Arcane Surge (서포트)"],
+      "guard": "CWDT + Molten Shell",
+      "defense_checkpoint": "라이프 4000+, 카오스 저항 양수(+20% 이상), 스펠 억제 or 블록 확보 시작",
+      "note": "카오스 저항이 중요해지는 구간. 하베스트/에센스로 장비 업그레이드. ES 빌드면 Discipline(35%)+데미지오라(50%)=85%",
+      "farming": "에센스, 비트레이얼(벤치 크래프트 해금), 얕은 델브(화석)"
+    },
+    {
+      "phase": "얼리레드",
+      "tier_range": "T11~T13",
+      "level_range": "Lv84~89",
+      "auras": ["Determination (~43%)", "데미지 오라 (~43%)"],
+      "heralds": [],
+      "reservation_total": "~86~90%",
+      "utility": ["Flame Dash", "CWDT Lv1 + Molten Shell Lv10"],
+      "guard": "CWDT + Molten Shell",
+      "defense_checkpoint": "라이프 4500+, 카오스 저항 +30%+, 에일먼트 면역(동결 필수), 스펠 억제 50%+",
+      "note": "HCSSF 첫 번째 '벽'. 여기서 기어가 안 따라오면 옐로우맵 파밍으로 돌아가야 함. 위험한 맵 모드 리롤 필수",
+      "fallback": "DPS 부족하면 데미지 오라 유지 + Determination. 방어 부족하면 Purity of Elements(35%)로 저항 해결 → 장비에서 데미지 확보",
+      "farming": "컨커러 파밍(와치스톤), 하베스트, 메이븐 위트니스"
+    },
+    {
+      "phase": "T16",
+      "tier_range": "T14~T16",
+      "level_range": "Lv89~93",
+      "auras": ["Determination (~43%)", "데미지 오라 (~43%)", "Defiance Banner (~9%) — 여유 있으면"],
+      "heralds": [],
+      "reservation_total": "~86~95%",
+      "utility": ["Flame Dash", "CWDT Lv1 + Molten Shell Lv10", "Vaal Grace (보스전)"],
+      "guard": "CWDT + Molten Shell",
+      "defense_checkpoint": "라이프 5000+, 카오스 저항 +40%+, 에일먼트 면역 완성, 물리 피해 감소 확보",
+      "note": "HCSSF 두 번째 '벽'. 주싱된 맵에서 원샷 가능 구간. Enlighten 3 있으면 Tempest Shield(25%) 추가",
+      "ssf_no_enlighten": "Enlighten 없는 SSF: Determination + 데미지 오라 + 효율 패시브 2~3개. 세 번째 오라는 Divine Blessing 보스전 임시 버프",
+      "farming": "T16 지속 파밍, 시어링/이터 알타 파밍, 엑스페디션(로그/궨넨)"
+    },
+    {
+      "phase": "핀나클",
+      "tier_range": "보스",
+      "level_range": "Lv93+",
+      "auras": ["Determination (~43%)", "데미지 오라 (~43%)", "가능하면 3번째 방어 오라"],
+      "heralds": [],
+      "reservation_total": "~86~95%",
+      "utility": ["Flame Dash", "CWDT Lv1 + Molten Shell Lv10", "Vaal Grace + Vaal Discipline (보스전)"],
+      "guard": "CWDT + Molten Shell",
+      "defense_checkpoint": "라이프 5500+, 모든 방어층 완성, DPS 2M+ (POB 기준)",
+      "note": "시어링 엑사크/이터 오브 월드 → 보이드스톤 1-2. 메이븐/우버 엘더는 안전성 확인 후. 악몽 맵(Nightmare, T16 Lv83) → 우버 프래그먼트 → 우버 핀나클(HCSSF 선택)",
+      "ssf_no_enlighten": "Purity of Elements(35%)로 저항 완전 해결 → 장비 모든 슬롯을 라이프+데미지로 → 오라 2개로도 충분한 스탯 확보 가능"
+    }
+  ],
+
+  "ascendancy_synergy": {
+    "recommended": [
+      {
+        "class": "Inquisitor",
+        "reason": "원소 저항 무시, 크리티컬"
+      },
+      {
+        "class": "Elementalist",
+        "reason": "원소 데미지, 골렘"
+      },
+      {
+        "class": "Occultist",
+        "reason": "ES, 카오스 데미지, 저주"
+      },
+      {
+        "class": "Trickster",
+        "reason": "ES 리젠, 속도"
+      }
+    ]
+  },
+
+  "unique_items_leveling": {
+    "weapons": [
+      {
+        "name": "Lifesprig",
+        "level": 1,
+        "note": "초반 스펠 완드, +1 젬 레벨"
+      },
+      {
+        "name": "Axiom Perpetuum",
+        "level": 10,
+        "note": "원소 스펠 완드"
+      },
+      {
+        "name": "Amplification Rod",
+        "level": 36,
+        "note": "+2 젬 레벨, 셉터"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Tabula Rasa",
+        "level": 1,
+        "note": "6링크 무색"
+      },
+      {
+        "name": "Goldrim",
+        "level": 1,
+        "note": "전체 저항"
+      }
+    ]
+  }
+}

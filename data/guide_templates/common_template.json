@@ -1,0 +1,284 @@
+{
+  "template_version": "1.0",
+  "template_type": "common",
+  "description": "모든 빌드에 공통으로 적용되는 레벨링 가이드 기본 템플릿",
+  "created_date": "2025-11-22",
+
+  "progression_stages": {
+    "description": "전체 진행 단계 정의 (캠페인 + 맵)",
+    "campaign": [
+      {
+        "id": "act_1_3",
+        "name": "Act 1~3",
+        "level_range": [1, 31],
+        "focus": ["기본 스킬 확보", "링크 세팅", "저항 확보 시작"]
+      },
+      {
+        "id": "act_4_6",
+        "name": "Act 4~6",
+        "level_range": [32, 51],
+        "focus": ["핵심 스킬 전환", "4링크 확보", "저항 75% 달성", "CWDT 자동화"]
+      },
+      {
+        "id": "act_7_10",
+        "name": "Act 7~10",
+        "level_range": [52, 65],
+        "focus": ["최종 스킬 세팅", "5-6링크 준비", "방어 오라 확보", "Blood Aqueduct 파밍"]
+      }
+    ],
+    "endgame": [
+      {
+        "id": "white_maps",
+        "name": "화이트맵",
+        "tier_range": [1, 5],
+        "level_range": [68, 78],
+        "focus": ["아틀라스 보너스 수집", "우버랩 4차 어센던시", "에센스 특화"],
+        "defense_target": {"life": 3500, "res": 75, "chaos_res": 0},
+        "voidstone": "없음 — 아틀라스 보너스 포인트 수집에 집중",
+        "gear_priority": "5링크 확보 (Blood Aqueduct Tabula or 크래프팅). 모든 슬롯 저항 캡 확인. 생명 플라스크 접미어(출혈/동결) 완성. 우버랩 인챈트 1개 이상"
+      },
+      {
+        "id": "yellow_maps",
+        "name": "옐로우맵",
+        "tier_range": [6, 10],
+        "level_range": [78, 84],
+        "focus": ["카오스 저항 확보", "에센스/하베스트 크래프팅", "벤치 크래프트 해금", "보이드스톤 1 퀘스트 시작"],
+        "defense_target": {"life": 4000, "res": 75, "chaos_res": 20},
+        "voidstone": "VS1(Eldritch) 퀘스트 시작 — T7~8에서 시어링/이터 영향력 등장. 아직 보스 도전 안 함, 퀘스트 진행만",
+        "gear_priority": "6링크 목표 (퓨징 투자 or 디비니 카드). 에센스로 주요 슬롯(무기/가슴) 업그레이드. 카오스 저항 장비 확보 시작. 벤치 크래프트 해금(비트레이얼 연구소)"
+      },
+      {
+        "id": "early_reds",
+        "name": "얼리레드 (첫 번째 벽)",
+        "tier_range": [11, 13],
+        "level_range": [84, 89],
+        "focus": ["기어 체크 — 부족하면 옐로우 파밍", "에일먼트 면역 완성(동결 필수)", "보이드스톤 1 도전 준비"],
+        "defense_target": {"life": 4500, "res": 75, "chaos_res": 30},
+        "voidstone": "VS1(Eldritch) 도전 — 시어링 엑사크 + 이터 오브 월드 킬. DPS 1M+, 라이프 4500+ 권장. HCSSF에서도 충분히 도전 가능",
+        "gear_priority": "전 슬롯 레어 장비 (빈 슬롯 없이). 무기 DPS가 핵심 — 에센스/하베스트로 업그레이드. 에일먼트 면역 확보 (장비 or 패시브 or 플라스크). 여기서 기어가 안 따라오면 옐로우맵 파밍으로 돌아갈 것"
+      },
+      {
+        "id": "t16",
+        "name": "T16 (두 번째 벽)",
+        "tier_range": [14, 16],
+        "level_range": [89, 93],
+        "focus": ["T16 지속 파밍", "시어링/이터 알타 파밍", "VS2(이곤 퀘스트) 진행", "VS3(쉐이퍼+엘더) 준비"],
+        "defense_target": {"life": 5000, "res": 75, "chaos_res": 40},
+        "voidstone": "VS2(Originator) — 이곤(Egon) 메모리 퀘스트 체인 → Incarnation of Dread 킬. VS3(Decayed) — 쉐이퍼+엘더 가디언 맵 진행 → 쉐이퍼/엘더 킬. HCSSF에서 VS3는 기어 충분할 때만",
+        "gear_priority": "핵심 장비 슬롯 확정 (최종 베이스에 크래프팅). 플라스크 5개 완성 (유틸리티 4 + 라이프 1). 주얼 소켓 3~4개 확보 + 좋은 주얼 장착. 이 구간에서 장비 90% 완성 목표"
+      },
+      {
+        "id": "pinnacle",
+        "name": "핀나클 보스",
+        "tier_range": "보스",
+        "level_range": [93, 100],
+        "focus": ["VS4(메이븐) 도전", "악몽 맵(Nightmare) → 우버 핀나클 (선택)", "아틀라스 패시브 최적화"],
+        "defense_target": {"life": 5500, "res": 75, "chaos_res": 40, "dps_min": 2000000},
+        "voidstone": "VS4(Ceremonial) — 메이븐 인비테이션 체인 → 메이븐 킬. 가장 어려움, HCSSF에서 선택. 4보이드스톤 = 모든 맵 T16 전환. 악몽 맵 → 우버 프래그먼트 → 우버 핀나클은 극소수",
+        "gear_priority": "장비 미세 최적화 (벤치 크래프트 마무리, 인챈트 교체). 보스전 특화 조정 (루비/사파이어 플라스크, 저항 오버캡 등). 새 장비보다는 기존 장비 최적화에 집중",
+        "hcssf_note": "VS1-2는 대부분 도전. VS3(쉐이퍼/엘더)는 기어에 따라. VS4(메이븐)는 선택. 악몽/우버는 극소수"
+      }
+    ]
+  },
+
+  "voidstone_progression": {
+    "description": "3.28 미라지 기준 보이드스톤 진행 (각 보이드스톤 = 맵 드롭 +1 티어 확률 25%)",
+    "stones": [
+      {
+        "id": "vs1_eldritch",
+        "name": "Eldritch Voidstone",
+        "source": "시어링 엑사크 + 이터 오브 월드 (둘 다 킬)",
+        "quest_start": "T7~8 (옐로우맵에서 영향력 등장)",
+        "recommended_kill": "얼리레드(T11-13) — DPS 1M+, 라이프 4500+",
+        "bonus": "엘드리치 알타에 추가 업사이드 25% 확률",
+        "hcssf_priority": "높음 — 대부분 도전"
+      },
+      {
+        "id": "vs2_originator",
+        "name": "Originator Voidstone",
+        "source": "Incarnation of Dread (이곤 메모리 퀘스트 최종 보스)",
+        "quest_start": "맵에서 메모리 균열 등장 시",
+        "recommended_kill": "T16 — 퀘스트 체인 완료 후",
+        "bonus": "보스가 아스트롤라브 + 예외적 서포트 젬 드롭",
+        "hcssf_priority": "높음 — 퀘스트 따라가면 자연스럽게 도달"
+      },
+      {
+        "id": "vs3_decayed",
+        "name": "Decayed Voidstone",
+        "source": "쉐이퍼 + 엘더 (둘 다 킬)",
+        "quest_start": "쉐이퍼/엘더 가디언 맵 (T14+)",
+        "recommended_kill": "T16 안정 후 — DPS 2M+, 라이프 5000+",
+        "bonus": "맵에 쉐이퍼/엘더 영향 25% 확률",
+        "hcssf_priority": "중간 — 기어 충분할 때"
+      },
+      {
+        "id": "vs4_ceremonial",
+        "name": "Ceremonial Voidstone",
+        "source": "메이븐",
+        "quest_start": "메이븐 인비테이션 체인 (T6+ 보스 위트니스)",
+        "recommended_kill": "핀나클 — DPS 3M+, 라이프 5500+, 보스 메카닉 숙지 필수",
+        "bonus": "메이븐 치즐 드롭",
+        "hcssf_priority": "낮음 — 선택사항, 위험도 높음"
+      }
+    ],
+    "full_4_stone_effect": "4 보이드스톤 = 모든 드롭 맵 T16 전환. T16 지속 파밍이 무한 가능"
+  },
+
+  "gear_upgrade_timeline": {
+    "description": "HCSSF 기어 업그레이드 타이밍 가이드",
+    "campaign": {
+      "act_1_3": "벤더 레시피 (물리 무기: Blacksmith Whetstone + 루스트풀 + 매직 아이템). 3링크 확보. 저항 장비 수집",
+      "act_4_6": "4링크 필수 (메인 스킬). 저항 75% 캡 (Act 5 패널티 대응). 생명 장비 우선",
+      "act_7_10": "5링크 목표. Blood Aqueduct에서 Humility 파밍 (Tabula Rasa). 모든 저항 75% 재확인 (Act 6 패널티)"
+    },
+    "endgame": {
+      "white_maps": {
+        "priority": "6링크 확보가 1순위",
+        "method": "Tabula(BA 파밍) → 진짜 6링크(퓨징 or 디비니 카드 The Chains That Bind 등)",
+        "slots": "무기 > 가슴 > 장갑/부츠 (저항 캡 유지하면서 교체)"
+      },
+      "yellow_maps": {
+        "priority": "전 슬롯 레어 장비 교체, 카오스 저항 장비 확보",
+        "method": "에센스 크래프팅 (무기/가슴 슬롯), 하베스트(저항/라이프 리롤), 비트레이얼 벤치 해금",
+        "slots": "무기(DPS) > 가슴(6링크+라이프) > 반지/아뮬렛(저항+카오스저항) > 헬멧/장갑/부츠"
+      },
+      "early_reds": {
+        "priority": "약한 슬롯 집중 업그레이드 — '가장 나쁜 장비'부터",
+        "method": "에센스(핵심 스탯 보장) + 하베스트(접미어/접두어 리롤) + 벤치 마무리",
+        "slots": "DPS 부족 → 무기. 죽음 → 가슴/헬멧(라이프). 저항 부족 → 반지/벨트",
+        "checkpoint": "여기서 장비가 안 되면 옐로우맵으로 돌아가서 파밍. 무리하면 죽음"
+      },
+      "t16": {
+        "priority": "장비 90% 완성 — 최종 베이스에 크래프팅",
+        "method": "하베스트(타겟 크래프팅) + 에센스 + 벤치. 주얼 소켓 확보 + 좋은 주얼",
+        "slots": "모든 슬롯 최소 라이프+저항+1유용스탯. 플라스크 5개 완성",
+        "checkpoint": "이 시점에서 새 장비 찾기보다 기존 장비에 크래프팅 집중이 효율적"
+      },
+      "pinnacle": {
+        "priority": "미세 최적화 — 마지막 5~10% 성능",
+        "method": "인챈트 교체, 벤치 크래프트 마무리, Watcher's Eye(우버 엘더) 같은 고가 주얼",
+        "slots": "보스별 특화 조정 (원소 플라스크, 저항 오버캡, Pantheon 교체)"
+      }
+    }
+  },
+
+  "defense_framework": {
+    "description": "방어 체계 기본 가이드라인",
+    "resistance_targets": {
+      "act_1_3": {
+        "fire": 30,
+        "cold": 30,
+        "lightning": 30,
+        "note": "최소 목표, 하나라도 높으면 좋음"
+      },
+      "act_4_5": {
+        "fire": 50,
+        "cold": 50,
+        "lightning": 50,
+        "note": "악몽의 법령 이후 저항 -30%"
+      },
+      "act_6_10": {
+        "fire": 75,
+        "cold": 75,
+        "lightning": 75,
+        "note": "악몽의 법령 이후 저항 -60% 총합"
+      },
+      "endgame": {
+        "fire": 75,
+        "cold": 75,
+        "lightning": 75,
+        "chaos": 0,
+        "note": "카오스 저항 양수 목표"
+      }
+    },
+    "life_targets": {
+      "act_3_end": 800,
+      "act_5_end": 1500,
+      "act_10_end": 3000,
+      "note": "ES 빌드는 별도 기준 적용"
+    },
+    "armor_evasion_note": "방어력/회피는 빌드 아키타입에 따라 다름"
+  },
+
+  "flask_progression": {
+    "description": "플라스크 진행 가이드",
+    "by_stage": {
+      "early": {
+        "slots": ["생명 플라스크 x2", "마나 플라스크 x1", "퀵실버 플라스크"],
+        "note": "마나 문제 해결될 때까지 마나 플라스크 유지"
+      },
+      "mid": {
+        "slots": ["생명 플라스크 x1", "유틸리티 x2", "퀵실버 플라스크"],
+        "note": "그라나이트/제이드/바살트 등 방어 플라스크 추가"
+      },
+      "late": {
+        "slots": ["생명 플라스크 x1", "유틸리티 x4"],
+        "note": "상황에 맞는 유틸리티 플라스크 구성"
+      }
+    },
+    "suffix_priority": ["출혈 면역", "동결 면역", "저주 면역"]
+  },
+
+  "currency_usage": {
+    "description": "레벨링 중 재화 사용 가이드",
+    "transmutation": "좋은 베이스에 마법 등급으로",
+    "alteration": "플라스크 접미어 굴리기",
+    "augmentation": "마법 아이템에 속성 추가",
+    "chromatic": "소켓 색상 변경",
+    "jeweller": "4소켓 만들기 (아이템 레벨 25+)",
+    "fusing": "4링크 시도 (아이템 레벨 25+)",
+    "alchemy": "좋은 베이스에만 사용, 아끼기",
+    "chaos": "트레이드용으로 저축"
+  },
+
+  "farming_spots": {
+    "description": "레벨링 중 파밍 스팟",
+    "locations": [
+      {
+        "name": "혈액 수로 (Blood Aqueduct)",
+        "act": 9,
+        "level": "61",
+        "note": "휴미리티 카드 드랍, 안전한 파밍",
+        "recommended_level": "62-68"
+      },
+      {
+        "name": "항구 다리 (The Harbour Bridge)",
+        "act": 8,
+        "level": "60",
+        "note": "밀집도 높음, 빠른 클리어",
+        "recommended_level": "58-62"
+      },
+      {
+        "name": "오시리안 지하실 (Ossuary)",
+        "act": 10,
+        "level": "63",
+        "note": "안정적인 레이아웃",
+        "recommended_level": "65-68"
+      }
+    ]
+  },
+
+  "quest_priority": {
+    "description": "퀘스트 우선순위",
+    "must_complete": [
+      "스킬 포인트 퀘스트 (모두)",
+      "아센던시 트라이얼 (모두)",
+      "패시브 리펀드 퀘스트"
+    ],
+    "skip_until_later": [
+      "보너스 목표 없는 사이드 퀘스트",
+      "아이템 보상만 있는 퀘스트"
+    ]
+  },
+
+  "socket_color_guide": {
+    "description": "소켓 색상 확률 가이드",
+    "by_attribute": {
+      "str_base": {"red": "높음", "green": "낮음", "blue": "낮음"},
+      "dex_base": {"red": "낮음", "green": "높음", "blue": "낮음"},
+      "int_base": {"red": "낮음", "green": "낮음", "blue": "높음"},
+      "hybrid": "두 가지 색상 균등"
+    },
+    "crafting_bench_note": "크래프팅 벤치로 확정 색상 가능 (크로매틱 소모)"
+  }
+}

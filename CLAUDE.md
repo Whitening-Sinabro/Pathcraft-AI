@@ -1,48 +1,44 @@
-# PathcraftAI - Claude Instructions
+# PathcraftAI — Claude Code Rules
 
-> **이 파일은 Claude가 자동으로 읽습니다**
+> POE1 빌드 검색/분석 도구. Tauri로 리빌드 예정. 백엔드 언어 미확정.
 
-## 필수 참조 파일
+## 데이터 소스
 
-매 세션 시작 시 반드시 읽어야 할 파일:
-1. **PROJECT_STATE.md** - 현재 프로젝트 상태
-2. **CLAUDE_INSTRUCTIONS.md** - 상세 지침
-3. **BACKLOG.md** - 작업 우선순위
+| 순위 | 소스 | 용도 |
+|------|------|------|
+| 1 | POB 자체 데이터 | 젬, 스킬, 아이템 |
+| 2 | poe.ninja API | 가격, 빌드 통계 |
+| 3 | POE 공식 API | 캐릭터, OAuth |
+| 4 | poedb.tw | 한국 커뮤니티 데이터 |
 
-## 핵심 규칙
+## 금지
 
-### 데이터 소스
-- ✅ **사용**: POB 데이터, poe.ninja, POE 공식 API, poedb.tw
-- ❌ **금지**: RePoE (업데이트 중단), PyPoE
+- RePoE, PyPoE 사용 금지 (업데이트 중단)
+- POE2 데이터 사용 금지 (POE1 전용)
+- 게임 데이터 하드코딩 금지 (JSON 분리)
 
-### 프로젝트 범위
-- POE1 전용 (POE2 데이터 사용 금지)
-- 한국어 지원 필수
+## 코딩 규칙
 
-### 코딩 규칙
-- 하드코딩 금지 → JSON 파일로 분리
-- 작업 완료 후 PROJECT_STATE.md 업데이트
+- 한국어 지원 필수 (모든 UI/데이터)
+- 에러 핸들링 필수 (구체적 예외 타입)
+- console.log/print 금지 (로거 사용)
+- 환경변수: .env.example 유지
 
-## 현재 핵심 이슈
+## 리빌드 맥락
 
-1. ~~**skill_tag_system.py** - 15개 스킬만 하드코딩됨~~ ✅ 해결됨 (338개 스킬 동적 로드)
-2. ~~**레벨링 가이드** - 젬 획득 레벨 부정확~~ ✅ 해결됨 (required_level 필터링 추가)
-3. ~~**필터 생성** - 일부 규칙 오류~~ ✅ 해결됨 (HasInfluence, Class 문법 수정)
+- 기존 코드: `src/` (WPF C# + Python). 리빌드하면서 살릴지 개별 판단
+- 기존 데이터: `data/`, `build_guides/` — 이관 가치 판단 후 결정
+- 기존 문서: PROJECT_STATE.md, BACKLOG.md — 참고용으로만. 새 시스템은 `.claude/status/` 사용
 
-**알려진 이슈 (데이터 품질):**
-- gem_levels.json 일부 젬 레벨 부정확 (예: Armageddon Brand=28, 실제=12)
-- poedb.tw 데이터 오류 - 수동 검증 필요
+## Status 시스템
 
-자세한 내용은 PROJECT_STATE.md 참조
+current.md 화이트리스트 (이것만 허용):
+- 지금 하고 있는 것 (1-3줄)
+- 다음 할 것 (1-3줄)
+- 블로커 (있으면)
+- 도메인 파일 포인터 (있으면)
 
----
-
-## 중요: 작업 완료 시 반드시 수행
-
-**이슈 해결 후:**
-1. 이 파일(CLAUDE.md)의 "현재 핵심 이슈" 섹션에서 해결된 항목 삭제
-2. PROJECT_STATE.md의 "현재 핵심 이슈" 섹션 업데이트
-3. PROJECT_STATE.md의 "변경 이력" 섹션에 날짜와 내용 추가
-4. 새로운 이슈 발견 시 두 파일 모두에 추가
-
-**이것은 수동 작업입니다 - Claude가 직접 해야 합니다**
+화이트리스트 밖 → 도메인 파일 또는 삭제.
+삭제 기준: "코드만 보면 알 수 있는가?" Yes → 삭제.
+정리 타이밍: 큰 작업 완료 시 + 세션 종료 시.
+도메인 파일이 비면 파일 삭제.

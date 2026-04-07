@@ -1,0 +1,301 @@
+{
+  "template_version": "1.0",
+  "template_type": "archetype",
+  "archetype": "attack",
+  "description": "근접/원거리 공격 빌드 아키타입 템플릿",
+  "created_date": "2025-11-22",
+  "extends": "common_template",
+
+  "stat_priority": {
+    "primary": "strength",
+    "secondary": ["dexterity"],
+    "note": "슬램/스트라이크는 힘, 레인저 공격은 민첩"
+  },
+
+  "defense_preference": {
+    "primary": "life",
+    "secondary": ["armour", "evasion"],
+    "note": "근접은 방어력, 원거리는 회피 선호"
+  },
+
+  "socket_colors": {
+    "primary": "red",
+    "secondary": ["green"],
+    "typical_setup": "RRRG, RRGG, RRRR"
+  },
+
+  "mana_management": {
+    "early_game": {
+      "method": "mana_leech",
+      "note": "마나 리치 노드 또는 장비로 해결"
+    },
+    "mid_game": {
+      "method": "mana_leech_node",
+      "note": "패시브 트리의 마나 리치 노드"
+    },
+    "late_game": {
+      "method": "-mana_cost_craft",
+      "note": "장비에 -마나 비용 크래프트, 또는 Inspiration"
+    }
+  },
+
+  "damage_scaling": {
+    "sources": [
+      "물리 데미지 증가",
+      "공격 속도",
+      "크리티컬 확률/배율",
+      "무기 데미지 (DPS)",
+      "Added Physical/Elemental Damage"
+    ],
+    "weapon_importance": "매우 높음 - 무기 DPS가 핵심"
+  },
+
+  "support_gem_priority": {
+    "damage": [
+      "Melee Physical Damage (근접 물리)",
+      "Brutality (만행)",
+      "Impale (꿰뚫기)",
+      "Pulverise (분쇄)",
+      "Fortify (강화)"
+    ],
+    "utility": [
+      "Lifetap (생명력 전환)",
+      "Faster Attacks (빠른 공격)",
+      "Multistrike (연속 타격)"
+    ]
+  },
+
+  "leveling_skill_progression": {
+    "description": "공격 빌드 레벨링 스킬 추천",
+    "melee_path": [
+      {
+        "level": 1,
+        "skills": ["Ground Slam", "Cleave", "Double Strike"],
+        "note": "초반 범용 근접 스킬"
+      },
+      {
+        "level": 12,
+        "skills": ["Sunder", "Leap Slam"],
+        "note": "Sunder는 최고의 레벨링 스킬"
+      },
+      {
+        "level": 28,
+        "skills": ["Cyclone", "Bladestorm", "목표 스킬"],
+        "note": "대부분의 근접 스킬 사용 가능"
+      }
+    ],
+    "ranged_path": [
+      {
+        "level": 1,
+        "skills": ["Burning Arrow", "Split Arrow"],
+        "note": "초반 활 스킬"
+      },
+      {
+        "level": 12,
+        "skills": ["Rain of Arrows", "Tornado Shot"],
+        "note": "광역 클리어"
+      }
+    ]
+  },
+
+  "aura_progression": {
+    "early": ["Pride (자부심)", "Blood and Sand"],
+    "mid": ["Pride", "Flesh and Stone", "Precision"],
+    "late": ["Pride", "Determination", "Blood Rage", "War Banner"]
+  },
+
+  "aura_herald_utility_by_level": [
+    {
+      "phase": "Act 1",
+      "level_range": "1~12",
+      "auras": ["War Banner (10%, Lv4 퀘스트)"],
+      "heralds": [],
+      "reservation_total": "10%",
+      "utility": ["Dash (Lv4)", "Leap Slam (Lv10) + Faster Attacks"],
+      "guard": "Steelskin (Lv4, 수동)",
+      "note": "War Banner 10%라 부담 없음. Leap Slam이 이동기 + Fortify 연결 가능"
+    },
+    {
+      "phase": "Act 2",
+      "level_range": "13~22",
+      "auras": ["War Banner (10%)"],
+      "heralds": ["Herald of Ash (25%)"],
+      "reservation_total": "35%",
+      "utility": ["Leap Slam + Faster Attacks", "Blood Rage (예약 아님, 디젠)"],
+      "guard": "Steelskin 또는 Molten Shell",
+      "note": "35% 예약. 마나 리치 노드 있으면 문제 없음. Blood Rage 디젠은 리젠으로 상쇄"
+    },
+    {
+      "phase": "Act 3~4",
+      "level_range": "23~43",
+      "auras": ["Pride (50%)", "War Banner (10%)"],
+      "heralds": ["Herald of Ash (25%) — 마나 여유 있으면"],
+      "reservation_total": "60% (전령 없이) 또는 85% (전령 포함)",
+      "utility": ["Leap Slam + Faster Attacks", "Blood Rage", "Ancestral Protector (보스전)"],
+      "guard": "Molten Shell → Act 4 후반 CWDT Lv1 + Molten Shell Lv10 자동화",
+      "note": "Pride 핵심. 전령까지 85% — 마나 리치 필수. CWDT(Lv38, Act 4쯤) 해금 후 가드 자동화"
+    },
+    {
+      "phase": "Act 5~6",
+      "level_range": "44~51",
+      "auras": ["Pride (50%)", "Flesh and Stone (25%)", "Precision Lv1 (flat)"],
+      "heralds": ["Herald of Ash (25%) — 마나에 따라"],
+      "reservation_total": "75% (전령 없이) 또는 100% (전령 포함)",
+      "utility": ["Leap Slam + Faster Attacks", "Blood Rage", "CWDT Lv1 + Molten Shell Lv10"],
+      "guard": "CWDT + Molten Shell",
+      "note": "Act 5 저항 -30%. 저항 캡 우선. 전령까지 100%면 마나 리치 없이 불가 — 부족하면 전령 제거"
+    },
+    {
+      "phase": "Act 7~10",
+      "level_range": "52~65",
+      "auras": ["Pride (50%)", "Determination (50%)"],
+      "heralds": [],
+      "reservation_total": "100% — 마나 리치로 해결",
+      "utility": ["Leap Slam + Faster Attacks", "Blood Rage", "CWDT Lv1 + Molten Shell Lv10"],
+      "guard": "CWDT + Molten Shell",
+      "note": "공격 빌드는 마나 리치로 100% 예약 운용 가능. Banner/Herald 자리 없음",
+      "fallback": "마나 리치 부족: Determination만(50%) + War Banner(10%) = 60%. 또는 Purity of Elements(35%) + Pride(50%) = 85%"
+    },
+    {
+      "phase": "화이트맵",
+      "tier_range": "T1~T5",
+      "level_range": "Lv68~78",
+      "auras": ["Pride (50%)", "Determination (50%) — 마나 리치로 100% 운용"],
+      "heralds": [],
+      "reservation_total": "100% (마나 리치 필수)",
+      "utility": ["Leap Slam + Faster Attacks", "Blood Rage", "CWDT Lv1 + Molten Shell Lv10"],
+      "guard": "CWDT + Molten Shell",
+      "defense_checkpoint": "라이프 3500+, 저항 75% 캡, 우버랩 완료, 물리 DPS 무기 확보",
+      "note": "공격 빌드는 마나 리치로 100% 예약 운용 가능. 우버랩 4차 어센던시 필수",
+      "farming": "아틀라스 보너스, 에센스 특화, 무기 업그레이드용 파밍"
+    },
+    {
+      "phase": "옐로우맵",
+      "tier_range": "T6~T10",
+      "level_range": "Lv78~84",
+      "auras": ["Pride (~43%)", "Determination (~43%)", "War Banner (~9%)"],
+      "heralds": [],
+      "reservation_total": "~95% (효율 패시브 적용)",
+      "utility": ["Leap Slam + Faster Attacks", "Blood Rage", "CWDT Lv1 + Molten Shell Lv10", "Ancestral Warchief (보스전)"],
+      "guard": "CWDT + Molten Shell",
+      "defense_checkpoint": "라이프 4000+, 카오스 저항 양수, 에일먼트 면역 시작(동결 필수)",
+      "note": "예약 효율 패시브로 Banner 추가 가능. 카오스 저항 확보 중요",
+      "farming": "에센스, 비트레이얼 벤치, 델브 화석, 무기 크래프팅"
+    },
+    {
+      "phase": "얼리레드",
+      "tier_range": "T11~T13",
+      "level_range": "Lv84~89",
+      "auras": ["Pride (~43%)", "Determination (~43%)", "War/Dread Banner (~9%)"],
+      "heralds": [],
+      "reservation_total": "~95%",
+      "utility": ["Leap Slam + Faster Attacks", "Blood Rage", "CWDT Lv1 + Molten Shell Lv10", "Ancestral Warchief"],
+      "guard": "CWDT + Molten Shell",
+      "defense_checkpoint": "라이프 4500+, 카오스 저항 +30%+, 에일먼트 면역 완성, Fortify 상시 유지",
+      "note": "HCSSF 첫 번째 '벽'. 무기 DPS가 부족하면 진행 불가. 위험 맵 모드(No Leech, -max res 등) 반드시 리롤",
+      "fallback": "방어 부족 시 Pride 대신 Purity of Elements(35%) → Determination(~43%) + PoE(~30%) + Banner(~9%) = ~82%",
+      "farming": "컨커러, 하베스트(무기 크래프팅), 메이븐 위트니스"
+    },
+    {
+      "phase": "T16",
+      "tier_range": "T14~T16",
+      "level_range": "Lv89~93",
+      "auras": ["Pride (~43%)", "Determination (~43%)", "War/Dread Banner (~9%)"],
+      "heralds": [],
+      "reservation_total": "~95% 또는 ~87% (Enlighten 3)",
+      "utility": ["Leap Slam + Faster Attacks", "Blood Rage", "CWDT Lv1 + Molten Shell Lv10", "Vaal Molten Shell (보스전)"],
+      "guard": "CWDT + Molten Shell (자동) + Vaal Molten Shell (수동)",
+      "defense_checkpoint": "라이프 5000+, 카오스 저항 +40%+, 물리 피해 감소 확보, DPS 1M+",
+      "note": "Enlighten 3 있으면 Grace/Flesh and Stone 추가. 원샷 가능 구간 — 맵 모드 선별 필수",
+      "ssf_no_enlighten": "Enlighten 없는 SSF: Pride + Determination + Banner 상한. Divine Blessing으로 Grace 보스전 임시 사용",
+      "farming": "T16 지속, 시어링/이터 알타, 엑스페디션"
+    },
+    {
+      "phase": "핀나클",
+      "tier_range": "보스",
+      "level_range": "Lv93+",
+      "auras": ["Pride (~43%)", "Determination (~43%)", "War/Dread Banner (~9%)"],
+      "heralds": [],
+      "reservation_total": "~95%",
+      "utility": ["Leap Slam + Faster Attacks", "Blood Rage", "CWDT Lv1 + Molten Shell Lv10", "Vaal Molten Shell"],
+      "guard": "CWDT + Molten Shell + Vaal Molten Shell",
+      "defense_checkpoint": "라이프 5500+, 모든 방어층 완성, DPS 2M+",
+      "note": "보이드스톤 1-2 목표. Vaal Molten Shell이 보스전 핵심. 악몽 맵(Nightmare) → 우버 핀나클은 HCSSF 선택",
+      "ssf_no_enlighten": "저항 여유 있으면 장비 슬롯을 라이프+아머로 → Determination 효율 극대화"
+    }
+  ],
+
+  "movement_skill": {
+    "primary": "Leap Slam",
+    "alternative": ["Whirling Blades", "Dash"],
+    "support": ["Faster Attacks"],
+    "note": "Fortify를 이동기에 연결 가능"
+  },
+
+  "ascendancy_synergy": {
+    "recommended": [
+      {
+        "class": "Slayer",
+        "reason": "오버리치, 컬링, 면역"
+      },
+      {
+        "class": "Champion",
+        "reason": "Fortify, Impale, 방어"
+      },
+      {
+        "class": "Berserker",
+        "reason": "높은 데미지, 공격 속도"
+      },
+      {
+        "class": "Gladiator",
+        "reason": "블록, 출혈"
+      }
+    ]
+  },
+
+  "unique_items_leveling": {
+    "weapons": [
+      {
+        "name": "Screaming Eagle",
+        "level": 6,
+        "note": "초반 도끼, 높은 물리 DPS"
+      },
+      {
+        "name": "The Cauteriser",
+        "level": 40,
+        "note": "좋은 물리 + 화염 데미지"
+      },
+      {
+        "name": "Terminus Est",
+        "level": 51,
+        "note": "Cyclone에 좋음, 프렌지 차지"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Tabula Rasa",
+        "level": 1,
+        "note": "6링크 무색"
+      },
+      {
+        "name": "Goldrim",
+        "level": 1,
+        "note": "전체 저항"
+      },
+      {
+        "name": "Wanderlust",
+        "level": 3,
+        "note": "동결 면역 + 이동 속도"
+      }
+    ]
+  },
+
+  "melee_specific_tips": [
+    "무기 업그레이드가 가장 중요 - 높은 pDPS 무기 우선",
+    "Sunder로 레벨링하다가 28+ 에서 메인 스킬 전환",
+    "Leap Slam에 Faster Attacks 연결로 빠른 이동",
+    "Blood Rage는 프렌지 차지 + 공격 속도 제공",
+    "Ancestral Protector/Warchief로 보스전 DPS 증가",
+    "Molten Shell 또는 Steelskin을 CWDT에 연결"
+  ]
+}
