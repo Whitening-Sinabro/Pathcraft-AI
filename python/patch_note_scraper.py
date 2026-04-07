@@ -21,6 +21,7 @@ from bs4 import BeautifulSoup
 import json
 import re
 import sys
+import time
 import argparse
 import logging
 from pathlib import Path
@@ -141,6 +142,7 @@ def classify_patch_type(title: str) -> str:
 
 def fetch_patch_content(thread_id: str) -> str:
     """스레드 첫 포스트(GGG 본문)만 추출"""
+    time.sleep(0.5)  # rate limiting — 포럼 차단 방지
     url = f"{FORUM_BASE}/view-thread/{thread_id}"
 
     try:

@@ -10,6 +10,7 @@ import os
 import argparse
 import logging
 from pathlib import Path
+import requests
 
 from dotenv import load_dotenv
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
@@ -272,8 +273,12 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
         if unique_names:
             logger.info(f"Wiki에서 유니크 {len(unique_names)}개 조회 중...")
             wiki_item_info = get_build_items_info(unique_names)
-    except Exception as e:
-        logger.warning(f"Wiki 조회 실패 (무시): {e}")
+    except (ImportError, ModuleNotFoundError):
+        logger.info("wiki_data_provider 모듈 없음 — Wiki 조회 스킵")
+    except requests.RequestException as e:
+        logger.warning(f"Wiki 네트워크 오류: {e}")
+    except (json.JSONDecodeError, KeyError, TypeError) as e:
+        logger.warning(f"Wiki 데이터 파싱 오류: {e}")
 
     context_parts = [f"이 POB 빌드를 HCSSF 기준으로 코칭해줘:\n\n{json.dumps(build_data, ensure_ascii=False, indent=2)}"]
 

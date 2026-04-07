@@ -1,134 +1,14 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
+import type { BuildData, CoachResult } from "./types";
+import { BuildRatingSection } from "./components/BuildRating";
+import { VariantTabs } from "./components/VariantTabs";
+import { GearTimeline } from "./components/GearTimeline";
+import { MapWarnings } from "./components/MapWarnings";
 
-interface BuildMeta {
-  build_name: string;
-  class: string;
-  ascendancy: string;
-}
-
-interface BuildStats {
-  dps: number;
-  life: number;
-  energy_shield: number;
-}
-
-interface BuildData {
-  meta: BuildMeta;
-  stats: BuildStats;
-  gear: Record<string, unknown>;
-  skills: Record<string, unknown>;
-  passives: Record<string, unknown>;
-}
-
-interface LevelingSkillOption {
-  name: string;
-  links: string;
-  speed: string;
-  safety: string;
-  reason: string;
-}
-
-interface SkillTransition {
-  level: number;
-  change: string;
-  reason: string;
-}
-
-interface LevelingSkills {
-  damage_type: string;
-  recommended: {
-    name: string;
-    links: string;
-    reason: string;
-    transition_level: string;
-  };
-  options: LevelingSkillOption[];
-  skill_transitions: SkillTransition[];
-}
-
-interface AuraPhase {
-  phase: string;
-  auras: string[];
-  heralds: string[];
-  reservation_total: string;
-  utility: string[];
-  guard: string;
-  reason: string;
-}
-
-interface BuildRating {
-  newbie_friendly: number;
-  gearing_difficulty: number;
-  play_difficulty: number;
-  league_start_viable: number;
-  hcssf_viability: number;
-}
-
-interface GearPhase {
-  phase: string;
-  item: string;
-  key_stats: string[];
-  acquisition: string;
-  priority: string;
-}
-
-interface GearSlotProgression {
-  slot: string;
-  phases: GearPhase[];
-}
-
-interface MapModWarnings {
-  deadly: string[];
-  dangerous: string[];
-  caution: string[];
-  regex_filter: string;
-}
-
-interface VariantSnapshot {
-  phase: string;
-  level_range: string;
-  main_skill: string;
-  auras: string;
-  gear_priority: string;
-  passive_focus: string;
-  defense_target: {
-    life: number;
-    energy_shield: number;
-    resists: string;
-    armour_or_evasion: string;
-  };
-}
-
-interface CoachResult {
-  build_summary: string;
-  tier: string;
-  strengths: string[];
-  weaknesses: string[];
-  leveling_guide: {
-    act1_4: string;
-    act5_10: string;
-    early_maps: string;
-    endgame: string;
-  };
-  leveling_skills: LevelingSkills;
-  key_items: {
-    name: string;
-    slot: string;
-    importance: string;
-    acquisition: string;
-    ssf_difficulty: string;
-    alternatives: string[];
-  }[];
-  aura_utility_progression: AuraPhase[];
-  build_rating: BuildRating;
-  gear_progression: GearSlotProgression[];
-  map_mod_warnings: MapModWarnings;
-  variant_snapshots: VariantSnapshot[];
-  passive_priority: string[];
-  danger_zones: string[];
-  farming_strategy: string;
-}
+const tierColor: Record<string, string> = {
+  S: "#ff6b6b", A: "#ffa94d", B: "#69db7c", C: "#74c0fc", D: "#868e96",
+};
 
 function App() {
   const [pobLink, setPobLink] = useState("");
@@ -136,7 +16,7 @@ function App() {
   const [coaching, setCoaching] = useState<CoachResult | null>(null);
   const [loading, setLoading] = useState("");
   const [error, setError] = useState("");
-  const [activeVariant, setActiveVariant] = useState(0);
+  const [patchStatus, setPatchStatus] = useState("");
 
   async function analyzeBuild() {
     setError("");
@@ -154,8 +34,7 @@ function App() {
 
       setLoading("AI 코치 분석 중...");
       const coachRaw = await invoke<string>("coach_build", { buildJson: raw });
-      const coachResult = JSON.parse(coachRaw);
-      setCoaching(coachResult);
+      setCoaching(JSON.parse(coachRaw));
       setLoading("");
     } catch (e) {
       setError(String(e));
@@ -163,13 +42,28 @@ function App() {
     }
   }
 
-  const tierColor: Record<string, string> = {
-    S: "#ff6b6b", A: "#ffa94d", B: "#69db7c", C: "#74c0fc", D: "#868e96",
-  };
+  async function updatePatchNotes() {
+    setPatchStatus("수집 중...");
+    try {
+      await invoke("collect_patch_notes");
+      setPatchStatus("완료");
+      setTimeout(() => setPatchStatus(""), 3000);
+    } catch (e) {
+      setPatchStatus(`오류: ${e}`);
+    }
+  }
 
   return (
     <main style={{ padding: "1.5rem", fontFamily: "Pretendard, sans-serif", maxWidth: 800, margin: "0 auto" }}>
-      <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>PathcraftAI — Build Coach</h1>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+        <h1 style={{ fontSize: "1.5rem", margin: 0 }}>PathcraftAI — Build Coach</h1>
+        <button onClick={updatePatchNotes} disabled={patchStatus === "수집 중..."} style={{
+          padding: "4px 10px", borderRadius: 4, border: "1px solid #dee2e6",
+          background: "#f8f9fa", fontSize: 11, cursor: "pointer", color: "#495057",
+        }}>
+          {patchStatus || "패치노트 갱신"}
+        </button>
+      </div>
 
       <div style={{ display: "flex", gap: 8, marginBottom: "1rem" }}>
         <input
@@ -234,93 +128,8 @@ function App() {
             </div>
           </section>
 
-          {/* 빌드 평가 */}
-          {coaching.build_rating && Object.keys(coaching.build_rating).length > 0 && (
-            <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
-              <h3 style={{ margin: "0 0 10px", fontSize: 15 }}>빌드 평가</h3>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 8, textAlign: "center" }}>
-                {([
-                  ["hcssf_viability", "HCSSF"],
-                  ["league_start_viable", "리그 스타터"],
-                  ["newbie_friendly", "뉴비 친화"],
-                  ["gearing_difficulty", "기어링"],
-                  ["play_difficulty", "조작 난이도"],
-                ] as const).map(([key, label]) => {
-                  const val = coaching.build_rating[key] || 0;
-                  return (
-                    <div key={key}>
-                      <div style={{ fontSize: 12, color: "#868e96", marginBottom: 4 }}>{label}</div>
-                      <div style={{ display: "flex", justifyContent: "center", gap: 2 }}>
-                        {[1, 2, 3, 4, 5].map(n => (
-                          <span key={n} style={{
-                            width: 10, height: 10, borderRadius: 2,
-                            background: n <= val
-                              ? (val >= 4 ? "#2b8a3e" : val >= 3 ? "#f59f00" : "#e03131")
-                              : "#e9ecef",
-                          }} />
-                        ))}
-                      </div>
-                      <div style={{ fontSize: 11, color: "#495057", marginTop: 2 }}>{val}/5</div>
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-          )}
-
-          {/* 구간별 스냅샷 탭 */}
-          {coaching.variant_snapshots?.length > 0 && (
-            <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
-              <h3 style={{ margin: "0 0 10px", fontSize: 15 }}>구간별 진행</h3>
-              <div style={{ display: "flex", gap: 4, marginBottom: 12, flexWrap: "wrap" }}>
-                {coaching.variant_snapshots.map((v, i) => (
-                  <button key={i} onClick={() => setActiveVariant(i)} style={{
-                    padding: "6px 12px", borderRadius: 4, border: "1px solid #dee2e6",
-                    background: activeVariant === i ? "#228be6" : "#f8f9fa",
-                    color: activeVariant === i ? "#fff" : "#495057",
-                    fontSize: 12, fontWeight: activeVariant === i ? 600 : 400,
-                    cursor: "pointer",
-                  }}>{v.phase}</button>
-                ))}
-              </div>
-              {(() => {
-                const v = coaching.variant_snapshots[activeVariant];
-                if (!v) return null;
-                return (
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, fontSize: 13 }}>
-                    <div>
-                      <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>레벨</div>
-                      <div style={{ fontWeight: 600 }}>{v.level_range}</div>
-                    </div>
-                    <div>
-                      <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>메인 스킬</div>
-                      <div>{v.main_skill}</div>
-                    </div>
-                    <div>
-                      <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>오라</div>
-                      <div>{v.auras}</div>
-                    </div>
-                    <div>
-                      <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>패시브 방향</div>
-                      <div>{v.passive_focus}</div>
-                    </div>
-                    <div style={{ gridColumn: "1 / -1" }}>
-                      <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>장비 우선순위</div>
-                      <div>{v.gear_priority}</div>
-                    </div>
-                    {v.defense_target && (
-                      <div style={{ gridColumn: "1 / -1", display: "flex", gap: 16, padding: 8, background: "#f8f9fa", borderRadius: 6 }}>
-                        <span>Life: <strong>{v.defense_target.life?.toLocaleString()}</strong></span>
-                        {v.defense_target.energy_shield > 0 && <span>ES: <strong>{v.defense_target.energy_shield?.toLocaleString()}</strong></span>}
-                        <span>저항: <strong>{v.defense_target.resists}</strong></span>
-                        {v.defense_target.armour_or_evasion && <span>방어: <strong>{v.defense_target.armour_or_evasion}</strong></span>}
-                      </div>
-                    )}
-                  </div>
-                );
-              })()}
-            </section>
-          )}
+          <BuildRatingSection rating={coaching.build_rating} />
+          <VariantTabs snapshots={coaching.variant_snapshots} />
 
           {/* 레벨링 */}
           <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
@@ -344,45 +153,40 @@ function App() {
                 <span style={{ marginLeft: 8, color: "#495057", fontSize: 13 }}>
                   ({coaching.leveling_skills.damage_type})
                 </span>
-                <div style={{ fontSize: 13, marginTop: 4 }}>
-                  링크: {coaching.leveling_skills.recommended.links}
-                </div>
+                <div style={{ fontSize: 13, marginTop: 4 }}>링크: {coaching.leveling_skills.recommended.links}</div>
                 <div style={{ fontSize: 13, color: "#495057" }}>
                   {coaching.leveling_skills.recommended.reason}
                   {coaching.leveling_skills.recommended.transition_level && (
-                    <span> — 전환 시점: Lv.{coaching.leveling_skills.recommended.transition_level}</span>
+                    <span> — 전환: Lv.{coaching.leveling_skills.recommended.transition_level}</span>
                   )}
                 </div>
               </div>
               {coaching.leveling_skills.options?.length > 0 && (
-                <>
-                  <strong style={{ fontSize: 13 }}>옵션</strong>
-                  <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13, marginTop: 4 }}>
-                    <thead>
-                      <tr style={{ borderBottom: "2px solid #dee2e6", textAlign: "left" }}>
-                        <th style={{ padding: 6 }}>스킬</th>
-                        <th style={{ padding: 6 }}>속도</th>
-                        <th style={{ padding: 6 }}>안전도</th>
-                        <th style={{ padding: 6 }}>설명</th>
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+                  <thead>
+                    <tr style={{ borderBottom: "2px solid #dee2e6", textAlign: "left" }}>
+                      <th style={{ padding: 6 }}>스킬</th>
+                      <th style={{ padding: 6 }}>속도</th>
+                      <th style={{ padding: 6 }}>안전도</th>
+                      <th style={{ padding: 6 }}>설명</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {coaching.leveling_skills.options.map((opt, i) => (
+                      <tr key={i} style={{ borderBottom: "1px solid #f1f3f5" }}>
+                        <td style={{ padding: 6 }}>
+                          <strong>{opt.name}</strong>
+                          <br /><span style={{ color: "#868e96", fontSize: 12 }}>{opt.links}</span>
+                        </td>
+                        <td style={{ padding: 6 }}>{opt.speed}</td>
+                        <td style={{ padding: 6, color: opt.safety === "높음" ? "#2b8a3e" : opt.safety === "낮음" ? "#e03131" : "#f59f00" }}>
+                          {opt.safety}
+                        </td>
+                        <td style={{ padding: 6 }}>{opt.reason}</td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {coaching.leveling_skills.options.map((opt, i) => (
-                        <tr key={i} style={{ borderBottom: "1px solid #f1f3f5" }}>
-                          <td style={{ padding: 6 }}>
-                            <strong>{opt.name}</strong>
-                            <br /><span style={{ color: "#868e96", fontSize: 12 }}>{opt.links}</span>
-                          </td>
-                          <td style={{ padding: 6 }}>{opt.speed}</td>
-                          <td style={{ padding: 6, color: opt.safety === "높음" ? "#2b8a3e" : opt.safety === "낮음" ? "#e03131" : "#f59f00" }}>
-                            {opt.safety}
-                          </td>
-                          <td style={{ padding: 6 }}>{opt.reason}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </>
+                    ))}
+                  </tbody>
+                </table>
               )}
               {coaching.leveling_skills.skill_transitions?.length > 0 && (
                 <div style={{ marginTop: 8 }}>
@@ -397,7 +201,7 @@ function App() {
             </section>
           )}
 
-          {/* 오라/유틸리티 진행 */}
+          {/* 오라/유틸리티 */}
           {coaching.aura_utility_progression?.length > 0 && (
             <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
               <h3 style={{ margin: "0 0 8px", fontSize: 15 }}>오라 / 유틸리티 진행</h3>
@@ -430,75 +234,26 @@ function App() {
             </section>
           )}
 
-          {/* 장비 진행 타임라인 */}
-          {coaching.gear_progression?.length > 0 && (
-            <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
-              <h3 style={{ margin: "0 0 12px", fontSize: 15 }}>장비 진행</h3>
-              {coaching.gear_progression.map((slot, si) => (
-                <div key={si} style={{ marginBottom: 16 }}>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: "#495057", marginBottom: 6 }}>{slot.slot}</div>
-                  <div style={{ display: "flex", alignItems: "stretch", gap: 0 }}>
-                    {slot.phases.map((p, pi) => {
-                      const prioColor = p.priority === "필수" ? "#e03131" : p.priority === "권장" ? "#f59f00" : "#2b8a3e";
-                      return (
-                        <div key={pi} style={{ display: "flex", alignItems: "center" }}>
-                          <div style={{
-                            padding: "8px 12px", borderRadius: 6, border: "1px solid #e9ecef",
-                            background: "#f8f9fa", minWidth: 130, fontSize: 12,
-                          }}>
-                            <div style={{ fontSize: 10, color: "#868e96", marginBottom: 2 }}>{p.phase}</div>
-                            <div style={{ fontWeight: 600, marginBottom: 3 }}>{p.item}</div>
-                            <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>
-                              {p.key_stats?.join(", ")}
-                            </div>
-                            <div style={{ fontSize: 11 }}>{p.acquisition}</div>
-                            <span style={{
-                              display: "inline-block", marginTop: 4, fontSize: 10, padding: "1px 6px",
-                              borderRadius: 3, background: prioColor + "18", color: prioColor, fontWeight: 600,
-                            }}>{p.priority}</span>
-                          </div>
-                          {pi < slot.phases.length - 1 && (
-                            <span style={{ padding: "0 6px", color: "#ced4da", fontSize: 18, fontWeight: 700 }}>→</span>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
-            </section>
-          )}
+          <GearTimeline progression={coaching.gear_progression} />
 
-          {/* 핵심 장비 (레거시 — gear_progression 없으면 폴백) */}
+          {/* 핵심 장비 폴백 */}
           {(!coaching.gear_progression || coaching.gear_progression.length === 0) && coaching.key_items?.length > 0 && (
             <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
               <h3 style={{ margin: "0 0 8px", fontSize: 15 }}>핵심 장비 (SSF 획득)</h3>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
                 <thead>
                   <tr style={{ borderBottom: "2px solid #dee2e6", textAlign: "left" }}>
-                    <th style={{ padding: 6 }}>아이템</th>
-                    <th style={{ padding: 6 }}>중요도</th>
-                    <th style={{ padding: 6 }}>SSF 난이도</th>
-                    <th style={{ padding: 6 }}>획득 방법</th>
+                    <th style={{ padding: 6 }}>아이템</th><th style={{ padding: 6 }}>중요도</th>
+                    <th style={{ padding: 6 }}>SSF 난이도</th><th style={{ padding: 6 }}>획득 방법</th>
                   </tr>
                 </thead>
                 <tbody>
                   {coaching.key_items.map((item, i) => (
                     <tr key={i} style={{ borderBottom: "1px solid #f1f3f5" }}>
-                      <td style={{ padding: 6 }}>
-                        <strong>{item.name}</strong>
-                        <br /><span style={{ color: "#868e96", fontSize: 12 }}>{item.slot}</span>
-                      </td>
+                      <td style={{ padding: 6 }}><strong>{item.name}</strong><br /><span style={{ color: "#868e96", fontSize: 12 }}>{item.slot}</span></td>
                       <td style={{ padding: 6 }}>{item.importance}</td>
-                      <td style={{ padding: 6, color: item.ssf_difficulty === "어려움" ? "#e03131" : item.ssf_difficulty === "보통" ? "#f59f00" : "#2b8a3e" }}>
-                        {item.ssf_difficulty}
-                      </td>
-                      <td style={{ padding: 6, fontSize: 12 }}>
-                        {item.acquisition}
-                        {item.alternatives?.length > 0 && (
-                          <div style={{ color: "#868e96", marginTop: 2 }}>대체: {item.alternatives.join(", ")}</div>
-                        )}
-                      </td>
+                      <td style={{ padding: 6, color: item.ssf_difficulty === "어려움" ? "#e03131" : item.ssf_difficulty === "보통" ? "#f59f00" : "#2b8a3e" }}>{item.ssf_difficulty}</td>
+                      <td style={{ padding: 6, fontSize: 12 }}>{item.acquisition}{item.alternatives?.length > 0 && <div style={{ color: "#868e96", marginTop: 2 }}>대체: {item.alternatives.join(", ")}</div>}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -506,7 +261,7 @@ function App() {
             </section>
           )}
 
-          {/* 패시브 우선순위 */}
+          {/* 패시브 */}
           <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
             <h3 style={{ margin: "0 0 8px", fontSize: 15 }}>패시브 트리 우선순위</h3>
             <ol style={{ margin: 0, paddingLeft: 20 }}>
@@ -514,44 +269,7 @@ function App() {
             </ol>
           </section>
 
-          {/* 맵 모드 경고 */}
-          {coaching.map_mod_warnings && (coaching.map_mod_warnings.deadly?.length > 0 || coaching.map_mod_warnings.dangerous?.length > 0) && (
-            <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
-              <h3 style={{ margin: "0 0 10px", fontSize: 15, color: "#e03131" }}>맵 모드 경고</h3>
-              <div style={{ display: "flex", gap: 12, marginBottom: 10 }}>
-                {coaching.map_mod_warnings.deadly?.length > 0 && (
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: 12, fontWeight: 600, color: "#e03131", marginBottom: 4 }}>금지</div>
-                    <ul style={{ margin: 0, paddingLeft: 16, fontSize: 13 }}>
-                      {coaching.map_mod_warnings.deadly.map((m, i) => <li key={i}>{m}</li>)}
-                    </ul>
-                  </div>
-                )}
-                {coaching.map_mod_warnings.dangerous?.length > 0 && (
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: 12, fontWeight: 600, color: "#f59f00", marginBottom: 4 }}>주의</div>
-                    <ul style={{ margin: 0, paddingLeft: 16, fontSize: 13 }}>
-                      {coaching.map_mod_warnings.dangerous.map((m, i) => <li key={i}>{m}</li>)}
-                    </ul>
-                  </div>
-                )}
-                {coaching.map_mod_warnings.caution?.length > 0 && (
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: 12, fontWeight: 600, color: "#868e96", marginBottom: 4 }}>참고</div>
-                    <ul style={{ margin: 0, paddingLeft: 16, fontSize: 13 }}>
-                      {coaching.map_mod_warnings.caution.map((m, i) => <li key={i}>{m}</li>)}
-                    </ul>
-                  </div>
-                )}
-              </div>
-              {coaching.map_mod_warnings.regex_filter && (
-                <div style={{ padding: 8, background: "#f8f9fa", borderRadius: 4, fontSize: 12, fontFamily: "monospace" }}>
-                  <span style={{ color: "#868e96" }}>regex: </span>
-                  <code style={{ userSelect: "all", color: "#228be6" }}>{coaching.map_mod_warnings.regex_filter}</code>
-                </div>
-              )}
-            </section>
-          )}
+          <MapWarnings warnings={coaching.map_mod_warnings} />
 
           {/* 위험 & 파밍 */}
           <div style={{ display: "flex", gap: 12 }}>
