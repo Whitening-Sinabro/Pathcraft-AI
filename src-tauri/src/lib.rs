@@ -1,6 +1,6 @@
-mod dat64;
-mod ggpk;
-mod schema;
+pub mod dat64;
+pub mod ggpk;
+pub mod schema;
 
 use std::process::Command;
 use std::path::PathBuf;
