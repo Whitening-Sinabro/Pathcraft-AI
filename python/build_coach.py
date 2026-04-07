@@ -88,6 +88,49 @@ SYSTEM_PROMPT = """너는 Path of Exile HCSSF 전문 빌드 코치다.
       "reason": "이 구간에서 이렇게 세팅하는 이유"
     }
   ],
+  "build_rating": {
+    "newbie_friendly": 4,
+    "gearing_difficulty": 2,
+    "play_difficulty": 3,
+    "league_start_viable": 5,
+    "hcssf_viability": 4
+  },
+  "gear_progression": [
+    {
+      "slot": "장비 슬롯 (Body Armour / Helmet / Boots / Gloves / Weapon / Shield / Belt / Amulet / Ring)",
+      "phases": [
+        {
+          "phase": "캠페인 / 초반맵 / 옐로우맵 / 레드맵 / 엔드게임",
+          "item": "아이템명 (레어면 '라이프+저항 레어' 등 설명, 유니크면 정확한 이름)",
+          "key_stats": ["핵심 스탯 1", "핵심 스탯 2"],
+          "acquisition": "획득 방법 (드롭 / 디비카드명 x장수 / 보스명 / 에센스 크래프팅 등)",
+          "priority": "필수/권장/목표"
+        }
+      ]
+    }
+  ],
+  "map_mod_warnings": {
+    "deadly": ["즉사 가능한 맵 모드 (이 빌드에서 절대 돌리면 안 되는 것)"],
+    "dangerous": ["위험한 맵 모드 (주의 필요)"],
+    "caution": ["약간 불편한 맵 모드"],
+    "regex_filter": "맵 모드 필터링용 regex (예: reflect|regen|immune)"
+  },
+  "variant_snapshots": [
+    {
+      "phase": "구간명 (Act 1-3 / Act 4-6 / Act 7-10 / 화이트맵 / 옐로우맵 / 레드맵 / 엔드게임)",
+      "level_range": "레벨 범위 (예: 1-30)",
+      "main_skill": "메인 스킬 + 서포트 (예: Blight - Void Manipulation - Controlled Destruction)",
+      "auras": "오라 세팅 요약 (예: Malevolence + Clarity)",
+      "gear_priority": "이 구간에서 가장 중요한 장비 업그레이드",
+      "passive_focus": "패시브 트리 방향 (예: Chaos DoT → Life wheel)",
+      "defense_target": {
+        "life": 1500,
+        "energy_shield": 0,
+        "resists": "30+",
+        "armour_or_evasion": "해당 시 수치"
+      }
+    }
+  ],
   "passive_priority": ["첫 번째로 찍을 노드 방향", "두 번째", "세 번째"],
   "danger_zones": ["주의할 맵 모드", "위험한 보스"],
   "farming_strategy": "SSF 파밍 전략 요약"
@@ -112,6 +155,28 @@ SYSTEM_PROMPT = """너는 Path of Exile HCSSF 전문 빌드 코치다.
 - 장비 업그레이드 타이밍 필수 포함: 각 구간에서 어떤 슬롯을 어떤 방법으로 업그레이드할지 (에센스/하베스트/벤치 등). 얼리레드에서 기어 부족하면 옐로우맵 파밍 권장.
 - 오라 3개 이상 동시 사용 시 마나 예약 합계를 계산해서 실현 가능한 조합만 제시. "Enlighten 있으면" 식 조건부는 SSF에서 기본값이 아님.
 - 퀘스트 젬 보상 데이터가 제공되면, 해당 클래스가 몇 Act에서 어떤 젬을 받는지 참고해서 "이 퀘스트에서 이 젬 선택" 형태로 안내.
+
+build_rating 규칙:
+- 5개 카테고리 모두 1~5 정수. 1=매우 어려움/낮음, 5=매우 쉬움/높음.
+- HCSSF 관점에서 평가. SSF 기어링이 어려운 빌드는 gearing_difficulty 낮게.
+- hcssf_viability와 tier는 일관성 유지 (S=5, A=4, B=3, C=2, D=1).
+
+gear_progression 규칙:
+- 핵심 슬롯 최소 6개 (Body, Helmet, Weapon, Boots, Belt, Amulet). 빌드에 중요한 슬롯만.
+- 각 슬롯에 phases 최소 2개 (캠페인 + 엔드게임). 중요한 슬롯은 3~4단계.
+- 레어 아이템은 "라이프+저항 레어"처럼 핵심 모드 명시. 유니크는 정확한 이름.
+- acquisition은 구체적으로: "에센스 오브 그리드 크래프팅" / "Humility 카드 x9 (Blood Aqueduct)" / "Shaper 보스 드롭".
+- priority: 필수(없으면 빌드 안 돌아감) / 권장(있으면 크게 좋아짐) / 목표(최종 BiS).
+
+map_mod_warnings 규칙:
+- deadly: 이 빌드에서 절대 돌리면 안 되는 모드 (예: 물리 반사 for 물리 빌드). 최소 1개.
+- dangerous: 주의해서 돌려야 하는 모드. 최소 2개.
+- regex_filter: PoE 맵 장치에서 복사+붙여넣기로 필터링할 수 있는 regex 문자열.
+
+variant_snapshots 규칙:
+- 최소 5단계: Act 1-3, Act 4-10, 화이트맵, 옐로우맵, 레드맵+.
+- 각 구간의 defense_target은 HCSSF 최소 기준 (이 수치 이하면 다음 구간 진입 금지).
+- main_skill은 서포트 젬까지 포함 (예: "Essence Drain - Controlled Destruction - Efficacy - Void Manipulation").
 """
 
 
@@ -218,7 +283,7 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
 
     response = client.messages.create(
         model=model,
-        max_tokens=8192,
+        max_tokens=16384,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_message}]
     )
@@ -237,6 +302,10 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
 
     result.setdefault("aura_utility_progression", [])
     result.setdefault("leveling_skills", {})
+    result.setdefault("build_rating", {})
+    result.setdefault("gear_progression", [])
+    result.setdefault("map_mod_warnings", {})
+    result.setdefault("variant_snapshots", [])
 
     logger.info(f"코칭 완료. 토큰: input={response.usage.input_tokens}, output={response.usage.output_tokens}")
     return result

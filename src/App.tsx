@@ -57,6 +57,49 @@ interface AuraPhase {
   reason: string;
 }
 
+interface BuildRating {
+  newbie_friendly: number;
+  gearing_difficulty: number;
+  play_difficulty: number;
+  league_start_viable: number;
+  hcssf_viability: number;
+}
+
+interface GearPhase {
+  phase: string;
+  item: string;
+  key_stats: string[];
+  acquisition: string;
+  priority: string;
+}
+
+interface GearSlotProgression {
+  slot: string;
+  phases: GearPhase[];
+}
+
+interface MapModWarnings {
+  deadly: string[];
+  dangerous: string[];
+  caution: string[];
+  regex_filter: string;
+}
+
+interface VariantSnapshot {
+  phase: string;
+  level_range: string;
+  main_skill: string;
+  auras: string;
+  gear_priority: string;
+  passive_focus: string;
+  defense_target: {
+    life: number;
+    energy_shield: number;
+    resists: string;
+    armour_or_evasion: string;
+  };
+}
+
 interface CoachResult {
   build_summary: string;
   tier: string;
@@ -78,6 +121,10 @@ interface CoachResult {
     alternatives: string[];
   }[];
   aura_utility_progression: AuraPhase[];
+  build_rating: BuildRating;
+  gear_progression: GearSlotProgression[];
+  map_mod_warnings: MapModWarnings;
+  variant_snapshots: VariantSnapshot[];
   passive_priority: string[];
   danger_zones: string[];
   farming_strategy: string;
@@ -89,6 +136,7 @@ function App() {
   const [coaching, setCoaching] = useState<CoachResult | null>(null);
   const [loading, setLoading] = useState("");
   const [error, setError] = useState("");
+  const [activeVariant, setActiveVariant] = useState(0);
 
   async function analyzeBuild() {
     setError("");
@@ -185,6 +233,94 @@ function App() {
               </div>
             </div>
           </section>
+
+          {/* 빌드 평가 */}
+          {coaching.build_rating && Object.keys(coaching.build_rating).length > 0 && (
+            <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
+              <h3 style={{ margin: "0 0 10px", fontSize: 15 }}>빌드 평가</h3>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 8, textAlign: "center" }}>
+                {([
+                  ["hcssf_viability", "HCSSF"],
+                  ["league_start_viable", "리그 스타터"],
+                  ["newbie_friendly", "뉴비 친화"],
+                  ["gearing_difficulty", "기어링"],
+                  ["play_difficulty", "조작 난이도"],
+                ] as const).map(([key, label]) => {
+                  const val = coaching.build_rating[key] || 0;
+                  return (
+                    <div key={key}>
+                      <div style={{ fontSize: 12, color: "#868e96", marginBottom: 4 }}>{label}</div>
+                      <div style={{ display: "flex", justifyContent: "center", gap: 2 }}>
+                        {[1, 2, 3, 4, 5].map(n => (
+                          <span key={n} style={{
+                            width: 10, height: 10, borderRadius: 2,
+                            background: n <= val
+                              ? (val >= 4 ? "#2b8a3e" : val >= 3 ? "#f59f00" : "#e03131")
+                              : "#e9ecef",
+                          }} />
+                        ))}
+                      </div>
+                      <div style={{ fontSize: 11, color: "#495057", marginTop: 2 }}>{val}/5</div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          {/* 구간별 스냅샷 탭 */}
+          {coaching.variant_snapshots?.length > 0 && (
+            <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
+              <h3 style={{ margin: "0 0 10px", fontSize: 15 }}>구간별 진행</h3>
+              <div style={{ display: "flex", gap: 4, marginBottom: 12, flexWrap: "wrap" }}>
+                {coaching.variant_snapshots.map((v, i) => (
+                  <button key={i} onClick={() => setActiveVariant(i)} style={{
+                    padding: "6px 12px", borderRadius: 4, border: "1px solid #dee2e6",
+                    background: activeVariant === i ? "#228be6" : "#f8f9fa",
+                    color: activeVariant === i ? "#fff" : "#495057",
+                    fontSize: 12, fontWeight: activeVariant === i ? 600 : 400,
+                    cursor: "pointer",
+                  }}>{v.phase}</button>
+                ))}
+              </div>
+              {(() => {
+                const v = coaching.variant_snapshots[activeVariant];
+                if (!v) return null;
+                return (
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, fontSize: 13 }}>
+                    <div>
+                      <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>레벨</div>
+                      <div style={{ fontWeight: 600 }}>{v.level_range}</div>
+                    </div>
+                    <div>
+                      <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>메인 스킬</div>
+                      <div>{v.main_skill}</div>
+                    </div>
+                    <div>
+                      <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>오라</div>
+                      <div>{v.auras}</div>
+                    </div>
+                    <div>
+                      <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>패시브 방향</div>
+                      <div>{v.passive_focus}</div>
+                    </div>
+                    <div style={{ gridColumn: "1 / -1" }}>
+                      <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>장비 우선순위</div>
+                      <div>{v.gear_priority}</div>
+                    </div>
+                    {v.defense_target && (
+                      <div style={{ gridColumn: "1 / -1", display: "flex", gap: 16, padding: 8, background: "#f8f9fa", borderRadius: 6 }}>
+                        <span>Life: <strong>{v.defense_target.life?.toLocaleString()}</strong></span>
+                        {v.defense_target.energy_shield > 0 && <span>ES: <strong>{v.defense_target.energy_shield?.toLocaleString()}</strong></span>}
+                        <span>저항: <strong>{v.defense_target.resists}</strong></span>
+                        {v.defense_target.armour_or_evasion && <span>방어: <strong>{v.defense_target.armour_or_evasion}</strong></span>}
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
+            </section>
+          )}
 
           {/* 레벨링 */}
           <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
@@ -294,40 +430,81 @@ function App() {
             </section>
           )}
 
-          {/* 핵심 장비 */}
-          <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
-            <h3 style={{ margin: "0 0 8px", fontSize: 15 }}>핵심 장비 (SSF 획득)</h3>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-              <thead>
-                <tr style={{ borderBottom: "2px solid #dee2e6", textAlign: "left" }}>
-                  <th style={{ padding: 6 }}>아이템</th>
-                  <th style={{ padding: 6 }}>중요도</th>
-                  <th style={{ padding: 6 }}>SSF 난이도</th>
-                  <th style={{ padding: 6 }}>획득 방법</th>
-                </tr>
-              </thead>
-              <tbody>
-                {coaching.key_items.map((item, i) => (
-                  <tr key={i} style={{ borderBottom: "1px solid #f1f3f5" }}>
-                    <td style={{ padding: 6 }}>
-                      <strong>{item.name}</strong>
-                      <br /><span style={{ color: "#868e96", fontSize: 12 }}>{item.slot}</span>
-                    </td>
-                    <td style={{ padding: 6 }}>{item.importance}</td>
-                    <td style={{ padding: 6, color: item.ssf_difficulty === "어려움" ? "#e03131" : item.ssf_difficulty === "보통" ? "#f59f00" : "#2b8a3e" }}>
-                      {item.ssf_difficulty}
-                    </td>
-                    <td style={{ padding: 6, fontSize: 12 }}>
-                      {item.acquisition}
-                      {item.alternatives.length > 0 && (
-                        <div style={{ color: "#868e96", marginTop: 2 }}>대체: {item.alternatives.join(", ")}</div>
-                      )}
-                    </td>
+          {/* 장비 진행 타임라인 */}
+          {coaching.gear_progression?.length > 0 && (
+            <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
+              <h3 style={{ margin: "0 0 12px", fontSize: 15 }}>장비 진행</h3>
+              {coaching.gear_progression.map((slot, si) => (
+                <div key={si} style={{ marginBottom: 16 }}>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: "#495057", marginBottom: 6 }}>{slot.slot}</div>
+                  <div style={{ display: "flex", alignItems: "stretch", gap: 0 }}>
+                    {slot.phases.map((p, pi) => {
+                      const prioColor = p.priority === "필수" ? "#e03131" : p.priority === "권장" ? "#f59f00" : "#2b8a3e";
+                      return (
+                        <div key={pi} style={{ display: "flex", alignItems: "center" }}>
+                          <div style={{
+                            padding: "8px 12px", borderRadius: 6, border: "1px solid #e9ecef",
+                            background: "#f8f9fa", minWidth: 130, fontSize: 12,
+                          }}>
+                            <div style={{ fontSize: 10, color: "#868e96", marginBottom: 2 }}>{p.phase}</div>
+                            <div style={{ fontWeight: 600, marginBottom: 3 }}>{p.item}</div>
+                            <div style={{ color: "#868e96", fontSize: 11, marginBottom: 2 }}>
+                              {p.key_stats?.join(", ")}
+                            </div>
+                            <div style={{ fontSize: 11 }}>{p.acquisition}</div>
+                            <span style={{
+                              display: "inline-block", marginTop: 4, fontSize: 10, padding: "1px 6px",
+                              borderRadius: 3, background: prioColor + "18", color: prioColor, fontWeight: 600,
+                            }}>{p.priority}</span>
+                          </div>
+                          {pi < slot.phases.length - 1 && (
+                            <span style={{ padding: "0 6px", color: "#ced4da", fontSize: 18, fontWeight: 700 }}>→</span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </section>
+          )}
+
+          {/* 핵심 장비 (레거시 — gear_progression 없으면 폴백) */}
+          {(!coaching.gear_progression || coaching.gear_progression.length === 0) && coaching.key_items?.length > 0 && (
+            <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
+              <h3 style={{ margin: "0 0 8px", fontSize: 15 }}>핵심 장비 (SSF 획득)</h3>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+                <thead>
+                  <tr style={{ borderBottom: "2px solid #dee2e6", textAlign: "left" }}>
+                    <th style={{ padding: 6 }}>아이템</th>
+                    <th style={{ padding: 6 }}>중요도</th>
+                    <th style={{ padding: 6 }}>SSF 난이도</th>
+                    <th style={{ padding: 6 }}>획득 방법</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
+                </thead>
+                <tbody>
+                  {coaching.key_items.map((item, i) => (
+                    <tr key={i} style={{ borderBottom: "1px solid #f1f3f5" }}>
+                      <td style={{ padding: 6 }}>
+                        <strong>{item.name}</strong>
+                        <br /><span style={{ color: "#868e96", fontSize: 12 }}>{item.slot}</span>
+                      </td>
+                      <td style={{ padding: 6 }}>{item.importance}</td>
+                      <td style={{ padding: 6, color: item.ssf_difficulty === "어려움" ? "#e03131" : item.ssf_difficulty === "보통" ? "#f59f00" : "#2b8a3e" }}>
+                        {item.ssf_difficulty}
+                      </td>
+                      <td style={{ padding: 6, fontSize: 12 }}>
+                        {item.acquisition}
+                        {item.alternatives?.length > 0 && (
+                          <div style={{ color: "#868e96", marginTop: 2 }}>대체: {item.alternatives.join(", ")}</div>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
 
           {/* 패시브 우선순위 */}
           <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
@@ -337,14 +514,55 @@ function App() {
             </ol>
           </section>
 
+          {/* 맵 모드 경고 */}
+          {coaching.map_mod_warnings && (coaching.map_mod_warnings.deadly?.length > 0 || coaching.map_mod_warnings.dangerous?.length > 0) && (
+            <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
+              <h3 style={{ margin: "0 0 10px", fontSize: 15, color: "#e03131" }}>맵 모드 경고</h3>
+              <div style={{ display: "flex", gap: 12, marginBottom: 10 }}>
+                {coaching.map_mod_warnings.deadly?.length > 0 && (
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 12, fontWeight: 600, color: "#e03131", marginBottom: 4 }}>금지</div>
+                    <ul style={{ margin: 0, paddingLeft: 16, fontSize: 13 }}>
+                      {coaching.map_mod_warnings.deadly.map((m, i) => <li key={i}>{m}</li>)}
+                    </ul>
+                  </div>
+                )}
+                {coaching.map_mod_warnings.dangerous?.length > 0 && (
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 12, fontWeight: 600, color: "#f59f00", marginBottom: 4 }}>주의</div>
+                    <ul style={{ margin: 0, paddingLeft: 16, fontSize: 13 }}>
+                      {coaching.map_mod_warnings.dangerous.map((m, i) => <li key={i}>{m}</li>)}
+                    </ul>
+                  </div>
+                )}
+                {coaching.map_mod_warnings.caution?.length > 0 && (
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 12, fontWeight: 600, color: "#868e96", marginBottom: 4 }}>참고</div>
+                    <ul style={{ margin: 0, paddingLeft: 16, fontSize: 13 }}>
+                      {coaching.map_mod_warnings.caution.map((m, i) => <li key={i}>{m}</li>)}
+                    </ul>
+                  </div>
+                )}
+              </div>
+              {coaching.map_mod_warnings.regex_filter && (
+                <div style={{ padding: 8, background: "#f8f9fa", borderRadius: 4, fontSize: 12, fontFamily: "monospace" }}>
+                  <span style={{ color: "#868e96" }}>regex: </span>
+                  <code style={{ userSelect: "all", color: "#228be6" }}>{coaching.map_mod_warnings.regex_filter}</code>
+                </div>
+              )}
+            </section>
+          )}
+
           {/* 위험 & 파밍 */}
           <div style={{ display: "flex", gap: 12 }}>
-            <section style={{ flex: 1, padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
-              <h3 style={{ margin: "0 0 8px", fontSize: 15, color: "#e03131" }}>주의</h3>
-              <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13 }}>
-                {coaching.danger_zones.map((d, i) => <li key={i}>{d}</li>)}
-              </ul>
-            </section>
+            {coaching.danger_zones?.length > 0 && (
+              <section style={{ flex: 1, padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
+                <h3 style={{ margin: "0 0 8px", fontSize: 15, color: "#e03131" }}>위험 요소</h3>
+                <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13 }}>
+                  {coaching.danger_zones.map((d, i) => <li key={i}>{d}</li>)}
+                </ul>
+              </section>
+            )}
             <section style={{ flex: 1, padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
               <h3 style={{ margin: "0 0 8px", fontSize: 15, color: "#2b8a3e" }}>파밍 전략</h3>
               <p style={{ margin: 0, fontSize: 13 }}>{coaching.farming_strategy}</p>
