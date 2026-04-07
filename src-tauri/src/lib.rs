@@ -1,4 +1,5 @@
 mod dat64;
+mod ggpk;
 mod schema;
 
 use std::process::Command;
@@ -89,6 +90,74 @@ fn coach_build(build_json: String) -> Result<String, String> {
 }
 
 #[tauri::command]
+fn extract_game_data(poe_path: String) -> Result<String, String> {
+    let ggpk_path = std::path::Path::new(&poe_path).join("Content.ggpk");
+    if !ggpk_path.exists() {
+        return Err(format!("Content.ggpk 없음: {:?}", ggpk_path));
+    }
+
+    let mut reader = ggpk::GgpkReader::open(&ggpk_path)?;
+    let dat64_files = reader.list_dat64();
+
+    let output_dir = project_root().join("data").join("game_data");
+    std::fs::create_dir_all(&output_dir)
+        .map_err(|e| format!("출력 디렉토리 생성 실패: {}", e))?;
+
+    // 핵심 테이블만 추출
+    let target_tables = [
+        "data/activeskills.dat64",
+        "data/skillgems.dat64",
+        "data/baseitemtypes.dat64",
+        "data/maps.dat64",
+        "data/questrewards.dat64",
+        "data/passiveskills.dat64",
+        "data/uniquestashlayout.dat64",
+    ];
+
+    let mut extracted = Vec::new();
+
+    for target in &target_tables {
+        // dat64_files에서 매칭 (대소문자 무시)
+        let matched = dat64_files.iter()
+            .find(|f| f.ends_with(target));
+
+        if let Some(path) = matched {
+            match reader.extract(path) {
+                Ok(data) => {
+                    let filename = std::path::Path::new(path)
+                        .file_name()
+                        .unwrap_or_default()
+                        .to_string_lossy()
+                        .to_string();
+
+                    let out_path = output_dir.join(&filename);
+                    std::fs::write(&out_path, &data)
+                        .map_err(|e| format!("{} 저장 실패: {}", filename, e))?;
+
+                    extracted.push(serde_json::json!({
+                        "file": filename,
+                        "size": data.len(),
+                        "rows": dat64::Dat64Parser::load(data)
+                            .map(|p| p.row_count())
+                            .unwrap_or(0),
+                    }));
+                }
+                Err(e) => {
+                    log::warn!("추출 실패 {}: {}", path, e);
+                }
+            }
+        }
+    }
+
+    let result = serde_json::json!({
+        "total_dat64_files": dat64_files.len(),
+        "extracted": extracted,
+    });
+
+    Ok(result.to_string())
+}
+
+#[tauri::command]
 fn collect_patch_notes() -> Result<String, String> {
     run_python("patch_note_scraper.py", &["--collect"])
 }
@@ -131,7 +200,7 @@ mod tests {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![parse_pob, coach_build, collect_patch_notes, get_latest_patch])
+        .invoke_handler(tauri::generate_handler![parse_pob, coach_build, collect_patch_notes, get_latest_patch, extract_game_data])
         .setup(|app| {
             if cfg!(debug_assertions) {
                 app.handle().plugin(
