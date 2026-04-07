@@ -85,6 +85,16 @@ fn coach_build(build_json: String) -> Result<String, String> {
     }
 }
 
+#[tauri::command]
+fn collect_patch_notes() -> Result<String, String> {
+    run_python("patch_note_scraper.py", &["--collect"])
+}
+
+#[tauri::command]
+fn get_latest_patch() -> Result<String, String> {
+    run_python("patch_note_scraper.py", &["--latest"])
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -118,7 +128,7 @@ mod tests {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![parse_pob, coach_build])
+        .invoke_handler(tauri::generate_handler![parse_pob, coach_build, collect_patch_notes, get_latest_patch])
         .setup(|app| {
             if cfg!(debug_assertions) {
                 app.handle().plugin(

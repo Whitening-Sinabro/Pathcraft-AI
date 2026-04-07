@@ -1,0 +1,44 @@
+{
+  "version": "3.28.0b",
+  "title": "3.28.0b Patch Notes",
+  "date": "",
+  "url": "https://www.pathofexile.com/forum/view-thread/3918360",
+  "full_text": "1\n2\n\n3.28.0b Patch Notes\n3.28.0b Patch Notes\nThe Mirage Challenge League\nPlayers can now assign the same hotkey to both 'Return to the Mirage Portal' and 'Use Portal Scroll'. In Mirage areas is will teleport you back to the start, and outside of Mirage areas it will use a Portal Scroll.\nFixed Honoured Incubators not correctly describing that they are capable of resulting in Gold as well as Djinn Coins. This is purely a description change, and not a functional change.\nDjinn Caches in Mirages now have a larger clickable area, and have a more prominent label and effects to be more noticeable.\nImproved the noticeability of the highlight for selectable uncompleted Maps while viewing the Atlas at a Map Device.\nBug fixes\nFixed a bug where regular Tier 14+ Map Bosses could drop the Cortex Unique Map.\nFixed a bug where the Remembered had no chance to drop Crescent Splinters or Maven Chisels when spawned from the Scarab of Awakening.\nFixed a UI bug where the 6th Map Device slot was showing incorrect unlock conditions.\nFixed a bug where The Memory Altar modifier that revives rare monsters by expending petals could do so multiple times.\nFixed a bug where the Black Star's arena could visually stop rotating if the player left the arena and came back.\nFixed a bug wherer Elder Guardian Maps and map items with specific map were no longer showing Maven witness status on their popups.\nThe description text of the Echo of Trauma, Reverence and Loneliness now specify which specific Incarnation Boss you will face in the area.\nThe Map Rucksack is now only visible in areas with Map Devices.\nFixed a bug where the Atlas Map Device wouldn't refocus on the last run map when using a controller.\nFor players who have not yet completed a map in the current league, the Atlas is now much more zoomed in by default.\nFixed an issue where Foulborn Currencies were not showing on the Currency Exchange.\nTimeless Emblems will now be auto placed into the Map Device Receptacle when viewing the Domain of Timeless Conflict on the Atlas.\nFixed a bug where Fossils could still rarely generate from Heist rewards.\nFixed a bug where Stitched Brute Spectres would spawn Gut Worm monsters if killed in a Hideout.\nFixed a bug where Increases and reductions to X damage also apply to Effect of Auras from X skills didnt work for some modifiers on Watcher's Eye Unique Jewels.\nAdded a display for your Hiveblood to the Wombgift Locker.\nFixed 2 client crashes.\nFixed 2 instance crashes.\nWebsite and Trade\nFixed challenge icons not showing on the website.\nTrade Site: Filtering by a maximum fee no longer excludes results without a fee.\nTrade Site: Added missing Bulk Exchange items.\nTrade Site: Fixed Valdo's Maps not being searchable by their Map Completion Reward.\nThis patch has been deployed without restarting the servers. You will need to update your client to receive the client changes in this patch.",
+  "categories": {
+    "skill_gem_changes": [],
+    "item_changes": [],
+    "atlas_map_changes": [],
+    "mechanic_changes": [],
+    "currency_changes": [],
+    "balance_changes": [],
+    "bug_fixes": [],
+    "other": [
+      "3.28.0b Patch Notes",
+      "3.28.0b Patch Notes"
+    ]
+  },
+  "skill_changes": [
+    {
+      "skill": "Trade Site",
+      "change": "F",
+      "previous": "",
+      "raw": "Trade Site: Filtering by a maximum fee no longer excludes results without a fee.",
+      "type": "nerf"
+    },
+    {
+      "skill": "Trade Site",
+      "change": "A",
+      "previous": "",
+      "raw": "Trade Site: Added missing Bulk Exchange items.",
+      "type": "buff"
+    },
+    {
+      "skill": "Trade Site",
+      "change": "F",
+      "previous": "",
+      "raw": "Trade Site: Fixed Valdo's Maps not being searchable by their Map Completion Reward.",
+      "type": "change"
+    }
+  ],
+  "collected_at": "2026-04-07T15:31:53.835761"
+}

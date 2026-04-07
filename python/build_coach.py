@@ -210,6 +210,36 @@ def load_quest_rewards() -> dict:
     return {}
 
 
+def load_patch_context() -> dict:
+    """최신 패치노트 요약을 로드 (AI 컨텍스트용)"""
+    patch_dir = Path(__file__).resolve().parent.parent / "data" / "patch_notes"
+    index_file = patch_dir / "patch_index.json"
+
+    if not index_file.exists():
+        return {}
+
+    try:
+        with open(index_file, "r", encoding="utf-8") as f:
+            index = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+    # 메인 패치 버전만 필터 (핫픽스 제외하고 가장 최신)
+    main_versions = [v for v in index.keys() if "hotfix" not in v]
+    if not main_versions:
+        return {}
+
+    latest = sorted(main_versions, reverse=True)[0]
+    info = index[latest]
+
+    summary_file = patch_dir / info.get("summary_file", "")
+    if summary_file.exists():
+        with open(summary_file, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    return {}
+
+
 def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> dict:
     client = anthropic.Anthropic()
 
@@ -276,6 +306,14 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
 
     if class_rewards:
         context_parts.append(f"\n\n{char_class} 클래스 퀘스트 젬 보상:\n{json.dumps(class_rewards, ensure_ascii=False, indent=2)}")
+
+    # 최신 패치 컨텍스트 주입
+    patch_context = load_patch_context()
+    if patch_context:
+        patch_ver = patch_context.get("version", "")
+        logger.info(f"패치 컨텍스트 로드: {patch_ver}")
+        context_parts.append(f"\n\n최신 패치 정보 ({patch_ver}):\n{json.dumps(patch_context, ensure_ascii=False, indent=2)}")
+        context_parts.append("\n위 패치 정보를 반드시 참고해서 답변해줘. 버프된 스킬은 추천도를 올리고, 너프된 스킬은 주의사항에 포함해.")
 
     user_message = "\n".join(context_parts)
 
