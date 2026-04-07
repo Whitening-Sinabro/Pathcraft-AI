@@ -1,96 +1,139 @@
-//! POE DAT64 테이블 스키마 정의
+//! POE DAT64 테이블 스키마
 //!
-//! 커뮤니티 소스 (poedat, PyPoE) 기반으로 핵심 테이블 스키마 정의.
-//! 패치마다 컬럼이 변경될 수 있으므로, 향후 외부 JSON 스키마 파일로 분리 예정.
+//! poe-tool-dev/dat-schema의 schema.min.json을 런타임에 로드.
+//! https://github.com/poe-tool-dev/dat-schema
 
 use crate::dat64::{FieldDef, FieldType, TableSchema};
+use serde::Deserialize;
+use std::collections::HashMap;
+use std::path::Path;
 
-/// 핵심 테이블 스키마 목록
-pub fn get_schemas() -> Vec<TableSchema> {
-    vec![
-        gems_schema(),
-        skill_gems_schema(),
-        base_item_types_schema(),
-        maps_schema(),
-        quest_rewards_schema(),
-    ]
+#[derive(Deserialize)]
+struct SchemaFile {
+    version: u32,
+    tables: Vec<SchemaTable>,
 }
 
-/// ActiveSkills.dat64 — 스킬 젬 기본 정보
-fn gems_schema() -> TableSchema {
-    TableSchema {
-        name: "ActiveSkills".into(),
-        fields: vec![
-            FieldDef { name: "Id".into(), field_type: FieldType::Str },
-            FieldDef { name: "DisplayedName".into(), field_type: FieldType::Str },
-            FieldDef { name: "Description".into(), field_type: FieldType::Str },
-            FieldDef { name: "ActiveSkillTargetTypes".into(), field_type: FieldType::List },
-            FieldDef { name: "ActiveSkillTypes".into(), field_type: FieldType::List },
-            FieldDef { name: "WeaponRestriction_ItemClassesKeys".into(), field_type: FieldType::List },
-            FieldDef { name: "WebsiteDescription".into(), field_type: FieldType::Str },
-            FieldDef { name: "WebsiteImage".into(), field_type: FieldType::Str },
-            FieldDef { name: "Unknown0".into(), field_type: FieldType::Bool },
-            FieldDef { name: "IconDDSFile".into(), field_type: FieldType::Str },
-        ],
+#[derive(Deserialize)]
+struct SchemaTable {
+    name: String,
+    columns: Vec<SchemaColumn>,
+}
+
+#[derive(Deserialize)]
+struct SchemaColumn {
+    name: Option<String>,
+    #[serde(rename = "type")]
+    col_type: Option<String>,
+    array: Option<bool>,
+    unique: Option<bool>,
+    references: Option<SchemaRef>,
+}
+
+#[derive(Deserialize)]
+struct SchemaRef {
+    table: Option<String>,
+    column: Option<String>,
+}
+
+/// 스키마 저장소
+pub struct SchemaStore {
+    tables: HashMap<String, TableSchema>,
+}
+
+impl SchemaStore {
+    /// schema.min.json 로드
+    pub fn load(path: &Path) -> Result<Self, String> {
+        let content = std::fs::read_to_string(path)
+            .map_err(|e| format!("스키마 파일 읽기 실패: {}", e))?;
+
+        let schema_file: SchemaFile = serde_json::from_str(&content)
+            .map_err(|e| format!("스키마 JSON 파싱 실패: {}", e))?;
+
+        let mut tables = HashMap::new();
+
+        for table in schema_file.tables {
+            let fields: Vec<FieldDef> = table.columns.iter().enumerate().map(|(i, col)| {
+                let name = col.name.clone()
+                    .unwrap_or_else(|| format!("Unknown{}", i));
+
+                let is_array = col.array.unwrap_or(false);
+                let base_type = col.col_type.as_deref().unwrap_or("i32");
+
+                let field_type = if is_array {
+                    FieldType::List
+                } else {
+                    match base_type {
+                        "bool" => FieldType::Bool,
+                        "i8" | "u8" | "enumrow" => FieldType::U8,
+                        "i16" | "u16" => FieldType::I16,
+                        "i32" | "u32" | "enum" => FieldType::I32,
+                        "i64" | "u64" => FieldType::I64,
+                        "f32" => FieldType::F32,
+                        "string" => FieldType::Str,
+                        "foreignrow" | "row" | "rid" => FieldType::Key,
+                        _ => FieldType::I32, // 알 수 없는 타입 → i32 폴백
+                    }
+                };
+
+                FieldDef { name, field_type }
+            }).collect();
+
+            tables.insert(table.name.clone(), TableSchema {
+                name: table.name,
+                fields,
+            });
+        }
+
+        Ok(Self { tables })
+    }
+
+    /// 테이블 스키마 조회
+    pub fn get(&self, name: &str) -> Option<&TableSchema> {
+        self.tables.get(name)
+    }
+
+    /// 모든 테이블 이름
+    pub fn table_names(&self) -> Vec<&str> {
+        self.tables.keys().map(|s| s.as_str()).collect()
+    }
+
+    /// 테이블 수
+    pub fn table_count(&self) -> usize {
+        self.tables.len()
     }
 }
 
-/// SkillGems.dat64 — 스킬 젬 메타데이터
-fn skill_gems_schema() -> TableSchema {
-    TableSchema {
-        name: "SkillGems".into(),
-        fields: vec![
-            FieldDef { name: "BaseItemTypesKey".into(), field_type: FieldType::Key },
-            FieldDef { name: "GrantedEffectsKey".into(), field_type: FieldType::Key },
-            FieldDef { name: "Str".into(), field_type: FieldType::I32 },
-            FieldDef { name: "Dex".into(), field_type: FieldType::I32 },
-            FieldDef { name: "Int".into(), field_type: FieldType::I32 },
-            FieldDef { name: "IsVaalGem".into(), field_type: FieldType::Bool },
-        ],
-    }
-}
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::path::PathBuf;
 
-/// BaseItemTypes.dat64 — 기본 아이템 타입 (유니크 포함)
-fn base_item_types_schema() -> TableSchema {
-    TableSchema {
-        name: "BaseItemTypes".into(),
-        fields: vec![
-            FieldDef { name: "Id".into(), field_type: FieldType::Str },
-            FieldDef { name: "ItemClassesKey".into(), field_type: FieldType::Key },
-            FieldDef { name: "Width".into(), field_type: FieldType::I32 },
-            FieldDef { name: "Height".into(), field_type: FieldType::I32 },
-            FieldDef { name: "Name".into(), field_type: FieldType::Str },
-            FieldDef { name: "InheritsFrom".into(), field_type: FieldType::Str },
-            FieldDef { name: "DropLevel".into(), field_type: FieldType::I32 },
-        ],
-    }
-}
+    #[test]
+    fn test_load_schema() {
+        let schema_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .join("data")
+            .join("schema")
+            .join("schema.min.json");
 
-/// Maps.dat64 — 맵 정보
-fn maps_schema() -> TableSchema {
-    TableSchema {
-        name: "Maps".into(),
-        fields: vec![
-            FieldDef { name: "BaseItemTypesKey".into(), field_type: FieldType::Key },
-            FieldDef { name: "Regular_WorldAreasKey".into(), field_type: FieldType::Key },
-            FieldDef { name: "Unique_WorldAreasKey".into(), field_type: FieldType::Key },
-            FieldDef { name: "MapSeriesKey".into(), field_type: FieldType::Key },
-            FieldDef { name: "Tier".into(), field_type: FieldType::I32 },
-        ],
-    }
-}
+        if !schema_path.exists() {
+            // 스키마 파일 없으면 스킵
+            return;
+        }
 
-/// QuestRewards.dat64 — 퀘스트 보상 (젬 보상 포함)
-fn quest_rewards_schema() -> TableSchema {
-    TableSchema {
-        name: "QuestRewards".into(),
-        fields: vec![
-            FieldDef { name: "QuestKey".into(), field_type: FieldType::Key },
-            FieldDef { name: "Unknown0".into(), field_type: FieldType::I32 },
-            FieldDef { name: "CharactersKey".into(), field_type: FieldType::Key },
-            FieldDef { name: "BaseItemTypesKey".into(), field_type: FieldType::Key },
-            FieldDef { name: "ItemLevel".into(), field_type: FieldType::I32 },
-            FieldDef { name: "RarityKey".into(), field_type: FieldType::I32 },
-        ],
+        let store = SchemaStore::load(&schema_path).unwrap();
+        assert!(store.table_count() > 1000, "테이블 수 부족: {}", store.table_count());
+
+        // 핵심 테이블 확인
+        assert!(store.get("ActiveSkills").is_some());
+        assert!(store.get("SkillGems").is_some());
+        assert!(store.get("BaseItemTypes").is_some());
+        assert!(store.get("Maps").is_some());
+
+        // 필드 확인
+        let active_skills = store.get("ActiveSkills").unwrap();
+        assert!(!active_skills.fields.is_empty());
     }
 }

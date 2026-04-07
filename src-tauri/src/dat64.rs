@@ -21,7 +21,7 @@ pub enum FieldType {
     F32,      // 4 bytes
     Str,      // 8 bytes (offset into variable data)
     List,     // 16 bytes (count: i64 + offset: i64)
-    Key,      // 8 bytes (foreign key offset)
+    Key,      // 16 bytes (foreign row: row_index i64 + reserved i64)
     I16,      // 2 bytes
     U16,      // 2 bytes
     U8,       // 1 byte
@@ -33,7 +33,8 @@ impl FieldType {
             FieldType::Bool | FieldType::U8 => 1,
             FieldType::I16 | FieldType::U16 => 2,
             FieldType::I32 | FieldType::U32 | FieldType::F32 => 4,
-            FieldType::I64 | FieldType::U64 | FieldType::Str | FieldType::Key => 8,
+            FieldType::I64 | FieldType::U64 | FieldType::Str => 8,
+            FieldType::Key => 16,
             FieldType::List => 16,
         }
     }
@@ -196,7 +197,9 @@ impl Dat64Parser {
                 }
             }
             FieldType::Key => {
+                // foreignrow: row_index (i64) + reserved (i64, usually 0xFEFEFEFEFEFEFEFE)
                 let key = i64::from_le_bytes(d[offset..offset + 8].try_into().unwrap());
+                // skip reserved 8 bytes
                 Value::Key(key)
             }
             FieldType::List => {
