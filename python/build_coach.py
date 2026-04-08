@@ -252,17 +252,32 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
 
     archetype = detect_archetype(build_data)
     archetype_data = load_archetype_data(archetype)
-    quest_data = load_quest_rewards()
 
     logger.info(f"아키타입 감지: {archetype}")
 
-    char_class = build_data.get("meta", {}).get("class", "")
+    # 게임 데이터 로드 (추출된 .datc64 기반)
+    game_data_context = ""
+    try:
+        from game_data_provider import GameData
+        gd = GameData()
+        game_data_context = gd.build_context_for_coach(build_data)
+        if game_data_context:
+            logger.info("게임 데이터 컨텍스트 로드 완료")
+    except ImportError:
+        logger.info("game_data_provider 없음 — 게임 데이터 스킵")
+    except (OSError, json.JSONDecodeError) as e:
+        logger.warning(f"게임 데이터 로드 실패: {e}")
+
+    # 폴백: 게임 데이터 없으면 기존 quest_rewards.json 사용
     class_rewards = {}
-    if quest_data and char_class:
-        for quest in quest_data.get("quests", []):
-            rewards = quest.get("rewards", {}).get(char_class, [])
-            if rewards:
-                class_rewards[quest["name"]] = rewards
+    if not game_data_context:
+        quest_data = load_quest_rewards()
+        char_class = build_data.get("meta", {}).get("class", "")
+        if quest_data and char_class:
+            for quest in quest_data.get("quests", []):
+                rewards = quest.get("rewards", {}).get(char_class, [])
+                if rewards:
+                    class_rewards[quest["name"]] = rewards
 
     # 유니크 아이템 Wiki 획득 정보 조회
     wiki_item_info = []
@@ -315,7 +330,11 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
         if gear_data:
             context_parts.append(f"\n장비 업그레이드 타이밍:\n{json.dumps(gear_data, ensure_ascii=False, indent=2)}")
 
-    if class_rewards:
+    # 게임 데이터 컨텍스트 (추출된 실제 데이터 우선, 폴백으로 기존 quest_rewards)
+    if game_data_context:
+        context_parts.append(f"\n\n{game_data_context}")
+    elif class_rewards:
+        char_class = build_data.get("meta", {}).get("class", "")
         context_parts.append(f"\n\n{char_class} 클래스 퀘스트 젬 보상:\n{json.dumps(class_rewards, ensure_ascii=False, indent=2)}")
 
     # 최신 패치 컨텍스트 주입
