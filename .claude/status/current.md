@@ -1,11 +1,11 @@
 ## 지금
-- 게임 데이터 → Build Coach 연동 완료
-- game_data_provider.py: 젬 정보 + 퀘스트 가용 여부를 빌드 기준으로 필터링
-- build_coach.py: 게임 데이터 컨텍스트 주입 (폴백: 기존 quest_rewards.json)
+- 아틀라스 전략 + 파밍 전략 데이터 추가 완료
+- common_template.json에 atlas_strategy 섹션 추가 (패시브 순서, 빌드별 파밍, SSF 팁)
+- farming_strategy 출력을 구조화 (메카닉 추천, 초반/중반/후반 전략)
 
 ## 다음
-- 파밍 전략 (타겟 맵 추천 — Maps.json 활용)
 - 추가 테이블 추출 필요 시 TARGETS 목록 확장
+- UI에 farming_strategy 구조화 출력 표시
 
 ## 블로커
 - 없음

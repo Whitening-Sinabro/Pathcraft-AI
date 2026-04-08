@@ -124,6 +124,71 @@
     "full_4_stone_effect": "4 보이드스톤 = 모든 드롭 맵 T16 전환. T16 지속 파밍이 무한 가능"
   },
 
+  "atlas_strategy": {
+    "description": "HCSSF 아틀라스 진행 + 파밍 전략 (3개 AI 교차검증 기반, top racer 벤치마크)",
+    "atlas_passive_progression": {
+      "points_0_20": {
+        "priority": ["Unwavering Vision (키스톤: 스카랍 드랍 포기 → 20포인트 즉시 확보)", "Shaping the Mountains", "Shaping the Skies", "Shaping the World"],
+        "reason": "맵 서스테인이 SSF 최우선. Shaping 3노드로 맵 티어 상승 확률 극대화"
+      },
+      "points_20_40": {
+        "priority": ["Essence 클러스터 (Prolific Essence, Amplified Energies)", "Jun/Betrayal 노드 (Test of Loyalty, Obsessed with Vengeance)"],
+        "reason": "에센스 = SSF 초반 기어 핵심. Jun 벤치 크래프트 해금 필수"
+      },
+      "points_40_60": {
+        "priority": ["Crystal Resonance (키스톤: 에센스 보스 모드)", "Crystal Lattice (에센스 3추가)", "Harvest 노드 (Call of the Grove)"],
+        "reason": "에센스 심화 + 하베스트 진입. SSF 크래프팅 두 축 확보"
+      },
+      "points_60_80": {
+        "priority": ["Harvest 클러스터 (Heart of the Grove, Crop Rotation 키스톤)", "Eldritch Gaze (키스톤: 알타 강화)"],
+        "reason": "하베스트 = SSF 타겟 크래프팅 유일한 수단. 엘드리치 알타로 추가 보상"
+      },
+      "points_80_138": {
+        "priority": "빌드 타입에 따라 메카닉 특화 (farming_strategy_by_build_type 참조). Unwavering Vision 해제 → 스카랍 드랍 활성화",
+        "reason": "4돌 후 풀 트리 리스펙 → 파밍 특화"
+      }
+    },
+    "transition_progression_to_farming": {
+      "trigger": "2 보이드스톤 + T14-16 맵풀 안정 + 에센스/하베스트 크래프팅 기어 확보",
+      "what_changes": "맵 완료 러쉬 중단 → 메카닉 특화 시작. Shaping 노드 일부 리스펙 → Essence/Harvest/Expedition 클러스터 투자",
+      "atlas_respec": "Unwavering Vision 해제 → 스카랍 드랍 활성화. Shaping 소노드 일부 제거 → 메카닉 클러스터로 전환. Orb of Unmaking 아껴두기 (Day 2-3 리스펙용)"
+    },
+    "farming_strategy_by_build_type": {
+      "fast_clear": {
+        "examples": ["Lightning Arrow", "Tornado Shot", "Kinetic Blast"],
+        "recommended_mechanics": ["Legion", "Breach", "Delirium"],
+        "atlas_tree_focus": "팩 사이즈, 수량, 속도 기반 메카닉. Shrine 노드 유지 (버프 + 클리어 속도)",
+        "scarab_priority": ["Legion Scarab", "Breach Scarab"]
+      },
+      "tanky_slow": {
+        "examples": ["Righteous Fire", "Minions", "Boneshatter Juggernaut"],
+        "recommended_mechanics": ["Expedition", "Blight", "Ritual"],
+        "atlas_tree_focus": "좁은 영역에서 탱킹하며 보상 획득. 안전한 메카닉 우선",
+        "scarab_priority": ["Expedition Scarab", "Blight Scarab", "Ritual Scarab"]
+      },
+      "dot_build": {
+        "examples": ["Toxic Rain", "Essence Drain", "Caustic Arrow"],
+        "recommended_mechanics": ["Essence", "Harvest", "Expedition"],
+        "atlas_tree_focus": "크래프팅 메카닉 집중 (SSF 기어 업그레이드). Expedition은 Rog/Tujen으로 기어+커런시 확보",
+        "scarab_priority": ["Essence Scarab", "Harvest Scarab"]
+      },
+      "boss_killer": {
+        "examples": ["Explosive Trap", "Boneshatter", "Lightning Strike"],
+        "recommended_mechanics": ["Maven Destructive Play", "Elderslayer maps", "Boss rush"],
+        "atlas_tree_focus": "보스 드랍 수량, 인비테이션 드랍, 가디언 맵 드랍",
+        "scarab_priority": ["Cartography Scarab", "Elder Scarab"]
+      }
+    },
+    "ssf_specific_tips": [
+      "에센스 = SSF 기어의 핵심. 저티어 맵에서도 Deafening 에센스는 동일 가치",
+      "하베스트 절대 스킵 금지 — 저항 스왑, 리롤, 클러스터 주얼 크래프팅의 유일한 수단",
+      "Expedition은 Rog 크래프팅 + Tujen 갬블링으로 SSF 커런시 핵심",
+      "HCSSF: 위험한 맵 모드 절대 금지 (minus max res, extra crit, no regen for RF)",
+      "Betrayal(Jun) 연구소 벤치 크래프트 해금 필수 — 무기/가슴 크래프팅에 필수",
+      "보스전은 항상 오버프렙 후 도전 — HCSSF에서 죽음 = 끝"
+    ]
+  },
+
   "gear_upgrade_timeline": {
     "description": "HCSSF 기어 업그레이드 타이밍 가이드",
     "campaign": {

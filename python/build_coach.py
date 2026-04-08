@@ -134,7 +134,15 @@ SYSTEM_PROMPT = """너는 Path of Exile HCSSF 전문 빌드 코치다.
   ],
   "passive_priority": ["첫 번째로 찍을 노드 방향", "두 번째", "세 번째"],
   "danger_zones": ["주의할 맵 모드", "위험한 보스"],
-  "farming_strategy": "SSF 파밍 전략 요약"
+  "farming_strategy": {
+    "recommended_mechanics": ["이 빌드에 맞는 아틀라스 메카닉 1순위", "2순위", "3순위"],
+    "atlas_passive_focus": "이 빌드의 아틀라스 패시브 투자 방향 요약",
+    "early_atlas": "초반 아틀라스 전략 (T1-T10, 맵 서스테인 확보)",
+    "mid_atlas": "중반 전략 (T14-T16, 1-2돌, 기어 크래프팅)",
+    "late_atlas": "후반 전략 (4돌 후 풀 파밍 최적화)",
+    "scarab_priority": ["자급자족 가능한 스카랍 1순위", "2순위"],
+    "ssf_crafting_focus": "SSF에서 이 빌드의 기어 크래프팅 핵심 메카닉"
+  }
 }
 
 규칙:
