@@ -271,21 +271,85 @@ function App() {
 
           <MapWarnings warnings={coaching.map_mod_warnings} />
 
-          {/* 위험 & 파밍 */}
-          <div style={{ display: "flex", gap: 12 }}>
-            {coaching.danger_zones?.length > 0 && (
-              <section style={{ flex: 1, padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
-                <h3 style={{ margin: "0 0 8px", fontSize: 15, color: "#e03131" }}>위험 요소</h3>
-                <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13 }}>
-                  {coaching.danger_zones.map((d, i) => <li key={i}>{d}</li>)}
-                </ul>
-              </section>
-            )}
-            <section style={{ flex: 1, padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
-              <h3 style={{ margin: "0 0 8px", fontSize: 15, color: "#2b8a3e" }}>파밍 전략</h3>
-              <p style={{ margin: 0, fontSize: 13 }}>{coaching.farming_strategy}</p>
+          {/* 위험 요소 */}
+          {coaching.danger_zones?.length > 0 && (
+            <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
+              <h3 style={{ margin: "0 0 8px", fontSize: 15, color: "#e03131" }}>위험 요소</h3>
+              <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13 }}>
+                {coaching.danger_zones.map((d, i) => <li key={i}>{d}</li>)}
+              </ul>
             </section>
-          </div>
+          )}
+
+          {/* 파밍 전략 */}
+          {coaching.farming_strategy && (
+            typeof coaching.farming_strategy === "string" ? (
+              <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
+                <h3 style={{ margin: "0 0 8px", fontSize: 15, color: "#2b8a3e" }}>파밍 전략</h3>
+                <p style={{ margin: 0, fontSize: 13 }}>{coaching.farming_strategy}</p>
+              </section>
+            ) : (
+              <section style={{ padding: 16, background: "#fff", borderRadius: 8, border: "1px solid #e9ecef" }}>
+                <h3 style={{ margin: "0 0 8px", fontSize: 15, color: "#2b8a3e" }}>파밍 전략</h3>
+
+                {coaching.farming_strategy.recommended_mechanics?.length > 0 && (
+                  <div style={{ marginBottom: 12 }}>
+                    <strong style={{ fontSize: 13 }}>추천 메카닉</strong>
+                    <div style={{ display: "flex", gap: 6, marginTop: 4, flexWrap: "wrap" }}>
+                      {coaching.farming_strategy.recommended_mechanics.map((m, i) => (
+                        <span key={i} style={{
+                          padding: "3px 10px", borderRadius: 12, fontSize: 12, fontWeight: 600,
+                          background: i === 0 ? "#d3f9d8" : "#e7f5ff",
+                          color: i === 0 ? "#2b8a3e" : "#1971c2",
+                        }}>{m}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {coaching.farming_strategy.atlas_passive_focus && (
+                  <div style={{ marginBottom: 10, padding: 8, background: "#f8f9fa", borderRadius: 6, fontSize: 13 }}>
+                    <strong>아틀라스 패시브:</strong> {coaching.farming_strategy.atlas_passive_focus}
+                  </div>
+                )}
+
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+                  <tbody>
+                    {coaching.farming_strategy.early_atlas && (
+                      <tr style={{ borderBottom: "1px solid #f1f3f5" }}>
+                        <td style={{ padding: 6, fontWeight: 600, whiteSpace: "nowrap", color: "#868e96" }}>초반</td>
+                        <td style={{ padding: 6 }}>{coaching.farming_strategy.early_atlas}</td>
+                      </tr>
+                    )}
+                    {coaching.farming_strategy.mid_atlas && (
+                      <tr style={{ borderBottom: "1px solid #f1f3f5" }}>
+                        <td style={{ padding: 6, fontWeight: 600, whiteSpace: "nowrap", color: "#868e96" }}>중반</td>
+                        <td style={{ padding: 6 }}>{coaching.farming_strategy.mid_atlas}</td>
+                      </tr>
+                    )}
+                    {coaching.farming_strategy.late_atlas && (
+                      <tr style={{ borderBottom: "1px solid #f1f3f5" }}>
+                        <td style={{ padding: 6, fontWeight: 600, whiteSpace: "nowrap", color: "#868e96" }}>후반</td>
+                        <td style={{ padding: 6 }}>{coaching.farming_strategy.late_atlas}</td>
+                      </tr>
+                    )}
+                    {coaching.farming_strategy.ssf_crafting_focus && (
+                      <tr>
+                        <td style={{ padding: 6, fontWeight: 600, whiteSpace: "nowrap", color: "#868e96" }}>크래프팅</td>
+                        <td style={{ padding: 6 }}>{coaching.farming_strategy.ssf_crafting_focus}</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+
+                {coaching.farming_strategy.scarab_priority?.length > 0 && (
+                  <div style={{ marginTop: 8, fontSize: 12, color: "#868e96" }}>
+                    스카랍: {coaching.farming_strategy.scarab_priority.join(", ")}
+                  </div>
+                )}
+              </section>
+            )
+          )}
         </div>
       )}
     </main>

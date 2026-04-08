@@ -124,5 +124,15 @@ export interface CoachResult {
   variant_snapshots: VariantSnapshot[];
   passive_priority: string[];
   danger_zones: string[];
-  farming_strategy: string;
+  farming_strategy: string | FarmingStrategy;
+}
+
+export interface FarmingStrategy {
+  recommended_mechanics: string[];
+  atlas_passive_focus: string;
+  early_atlas: string;
+  mid_atlas: string;
+  late_atlas: string;
+  scarab_priority: string[];
+  ssf_crafting_focus: string;
 }
