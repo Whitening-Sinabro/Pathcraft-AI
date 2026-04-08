@@ -1,5 +1,8 @@
+pub mod bundle;
+pub mod bundle_index;
 pub mod dat64;
 pub mod ggpk;
+pub mod oodle;
 pub mod schema;
 
 use std::process::Command;
@@ -91,66 +94,67 @@ fn coach_build(build_json: String) -> Result<String, String> {
 
 #[tauri::command]
 fn extract_game_data(poe_path: String) -> Result<String, String> {
-    let ggpk_path = std::path::Path::new(&poe_path).join("Content.ggpk");
-    if !ggpk_path.exists() {
-        return Err(format!("Content.ggpk 없음: {:?}", ggpk_path));
-    }
+    let poe_dir = std::path::Path::new(&poe_path);
 
-    let mut reader = ggpk::GgpkReader::open(&ggpk_path)?;
-    let dat64_files = reader.list_dat64();
+    // 번들 파이프라인 시도
+    let oodle = oodle::OodleLib::load(poe_dir)?;
+    let mut index = bundle_index::BundleIndex::load(poe_dir, &oodle)?;
 
     let output_dir = project_root().join("data").join("game_data");
     std::fs::create_dir_all(&output_dir)
         .map_err(|e| format!("출력 디렉토리 생성 실패: {}", e))?;
 
-    // 핵심 테이블만 추출
     let target_tables = [
-        "data/activeskills.dat64",
-        "data/skillgems.dat64",
-        "data/baseitemtypes.dat64",
-        "data/maps.dat64",
-        "data/questrewards.dat64",
-        "data/passiveskills.dat64",
-        "data/uniquestashlayout.dat64",
+        "Data/ActiveSkills.datc64",
+        "Data/SkillGems.datc64",
+        "Data/BaseItemTypes.datc64",
+        "Data/Maps.datc64",
+        "Data/QuestRewards.datc64",
+        "Data/PassiveSkills.datc64",
+        "Data/UniqueStashLayout.datc64",
     ];
 
     let mut extracted = Vec::new();
 
     for target in &target_tables {
-        // dat64_files에서 매칭 (대소문자 무시)
-        let matched = dat64_files.iter()
-            .find(|f| f.ends_with(target));
+        match index.find_file(target) {
+            Some(file) => {
+                let file = file.clone();
+                match index.extract_file(&file, &oodle) {
+                    Ok(data) => {
+                        let filename = target
+                            .rsplit('/')
+                            .next()
+                            .unwrap_or(target);
 
-        if let Some(path) = matched {
-            match reader.extract(path) {
-                Ok(data) => {
-                    let filename = std::path::Path::new(path)
-                        .file_name()
-                        .unwrap_or_default()
-                        .to_string_lossy()
-                        .to_string();
+                        let out_path = output_dir.join(filename);
+                        std::fs::write(&out_path, &data)
+                            .map_err(|e| format!("{} 저장 실패: {}", filename, e))?;
 
-                    let out_path = output_dir.join(&filename);
-                    std::fs::write(&out_path, &data)
-                        .map_err(|e| format!("{} 저장 실패: {}", filename, e))?;
-
-                    extracted.push(serde_json::json!({
-                        "file": filename,
-                        "size": data.len(),
-                        "rows": dat64::Dat64Parser::load(data)
-                            .map(|p| p.row_count())
-                            .unwrap_or(0),
-                    }));
+                        extracted.push(serde_json::json!({
+                            "file": filename,
+                            "size": data.len(),
+                            "rows": dat64::Dat64Parser::load(data)
+                                .map(|p| p.row_count())
+                                .unwrap_or(0),
+                        }));
+                    }
+                    Err(e) => {
+                        log::warn!("추출 실패 {}: {}", target, e);
+                    }
                 }
-                Err(e) => {
-                    log::warn!("추출 실패 {}: {}", path, e);
-                }
+            }
+            None => {
+                log::warn!("파일 없음: {}", target);
             }
         }
     }
 
+    // 추출 완료 후 번들 캐시 해제
+    index.clear_cache();
+
     let result = serde_json::json!({
-        "total_dat64_files": dat64_files.len(),
+        "total_files": index.file_count(),
         "extracted": extracted,
     });
 

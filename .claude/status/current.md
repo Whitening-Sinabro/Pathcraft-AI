@@ -1,12 +1,15 @@
 ## 지금
-- GGPK 파서 실제 테스트 완료 — 52,927 파일 인덱싱, 번들 구조 확인
-- Oodle 디컴프레서(ooz) 바인딩 필요 (번들 안에 .dat64 있음)
+- 스키마 타입 매핑 수정 (enumrow→4B, row/rid→8B)
+- 번들 캐시 추가 (같은 번들 반복 해제 방지)
+- 문자열 오프셋 버그 수정 (variable_data_start가 마커 위치 기준)
+- extract_data CLI 완성 (자동탐지 + .datc64 + JSON 변환, 7/7 성공)
 
 ## 다음
-- ooz FFI 바인딩 (Oodle Leviathan 압축 해제)
-- _.index.bin 파싱 (파일 경로 → 번들 위치 매핑)
-- .dat64 추출 + 스키마 기반 JSON 변환
-- 추출 UI (POE 경로 자동탐지 + 추출 버튼)
+- 추출 데이터 활용 (Build Coach에서 게임 데이터 참조)
+- 추가 테이블 추출 필요 시 TARGETS 목록 확장
+
+## 블로커
+- 없음
 
 ## 참조
 - [아키텍처](architecture.md)

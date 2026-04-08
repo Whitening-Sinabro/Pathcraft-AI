@@ -18,6 +18,9 @@ struct SchemaFile {
 struct SchemaTable {
     name: String,
     columns: Vec<SchemaColumn>,
+    /// 1=POE1, 2=POE2, 3=both
+    #[serde(rename = "validFor", default)]
+    valid_for: u32,
 }
 
 #[derive(Deserialize)]
@@ -53,6 +56,11 @@ impl SchemaStore {
         let mut tables = HashMap::new();
 
         for table in schema_file.tables {
+            // POE2 전용 테이블 스킵 (validFor: 1=POE1, 2=POE2, 3=both)
+            if table.valid_for == 2 {
+                continue;
+            }
+
             let fields: Vec<FieldDef> = table.columns.iter().enumerate().map(|(i, col)| {
                 let name = col.name.clone()
                     .unwrap_or_else(|| format!("Unknown{}", i));
@@ -65,13 +73,15 @@ impl SchemaStore {
                 } else {
                     match base_type {
                         "bool" => FieldType::Bool,
-                        "i8" | "u8" | "enumrow" => FieldType::U8,
+                        "i8" | "u8" => FieldType::U8,
+                        "enumrow" => FieldType::I32,
                         "i16" | "u16" => FieldType::I16,
                         "i32" | "u32" | "enum" => FieldType::I32,
                         "i64" | "u64" => FieldType::I64,
                         "f32" => FieldType::F32,
                         "string" => FieldType::Str,
-                        "foreignrow" | "row" | "rid" => FieldType::Key,
+                        "foreignrow" => FieldType::Key,
+                        "row" | "rid" => FieldType::Row,
                         _ => FieldType::I32, // 알 수 없는 타입 → i32 폴백
                     }
                 };
@@ -124,7 +134,7 @@ mod tests {
         }
 
         let store = SchemaStore::load(&schema_path).unwrap();
-        assert!(store.table_count() > 1000, "테이블 수 부족: {}", store.table_count());
+        assert!(store.table_count() > 900, "테이블 수 부족: {}", store.table_count());
 
         // 핵심 테이블 확인
         assert!(store.get("ActiveSkills").is_some());
@@ -135,5 +145,56 @@ mod tests {
         // 필드 확인
         let active_skills = store.get("ActiveSkills").unwrap();
         assert!(!active_skills.fields.is_empty());
+    }
+
+    /// 실제 .datc64 파일의 행 크기와 스키마 계산 행 크기 일치 검증
+    #[test]
+    fn test_schema_row_size_matches_actual() {
+        let project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).parent().unwrap().to_path_buf();
+        let schema_path = project_root.join("data").join("schema").join("schema.min.json");
+        let game_data_dir = project_root.join("data").join("game_data");
+
+        if !schema_path.exists() || !game_data_dir.exists() {
+            return;
+        }
+
+        let store = SchemaStore::load(&schema_path).unwrap();
+
+        let test_tables = [
+            ("ActiveSkills", "ActiveSkills.datc64"),
+            ("BaseItemTypes", "BaseItemTypes.datc64"),
+            ("Maps", "Maps.datc64"),
+            ("PassiveSkills", "PassiveSkills.datc64"),
+            ("QuestRewards", "QuestRewards.datc64"),
+        ];
+
+        let mut failures = Vec::new();
+
+        for (table_name, filename) in &test_tables {
+            let file_path = game_data_dir.join(filename);
+            if !file_path.exists() {
+                continue;
+            }
+
+            let data = std::fs::read(&file_path).unwrap();
+            let parser = crate::dat64::Dat64Parser::load(data).unwrap();
+            let actual = parser.estimated_row_size();
+
+            if let Some(schema) = store.get(table_name) {
+                let expected = schema.row_size();
+                if expected != actual {
+                    failures.push(format!(
+                        "{}: schema={}B, actual={}B (diff={})",
+                        table_name, expected, actual, expected as i64 - actual as i64
+                    ));
+                }
+            }
+        }
+
+        assert!(
+            failures.is_empty(),
+            "스키마/실제 행 크기 불일치:\n{}",
+            failures.join("\n")
+        );
     }
 }

@@ -22,6 +22,7 @@ pub enum FieldType {
     Str,      // 8 bytes (offset into variable data)
     List,     // 16 bytes (count: i64 + offset: i64)
     Key,      // 16 bytes (foreign row: row_index i64 + reserved i64)
+    Row,      // 8 bytes (row/rid: row_index i64, same-table reference)
     I16,      // 2 bytes
     U16,      // 2 bytes
     U8,       // 1 byte
@@ -33,7 +34,7 @@ impl FieldType {
             FieldType::Bool | FieldType::U8 => 1,
             FieldType::I16 | FieldType::U16 => 2,
             FieldType::I32 | FieldType::U32 | FieldType::F32 => 4,
-            FieldType::I64 | FieldType::U64 | FieldType::Str => 8,
+            FieldType::I64 | FieldType::U64 | FieldType::Str | FieldType::Row => 8,
             FieldType::Key => 16,
             FieldType::List => 16,
         }
@@ -150,8 +151,37 @@ impl Dat64Parser {
     }
 
     /// 스키마 기반으로 전체 테이블 파싱
+    ///
+    /// 스키마 행 크기와 실제 행 크기가 다르면:
+    /// - 스키마 > 실제: 실제 크기에 맞는 필드만 파싱 (초과 컬럼 무시)
+    /// - 스키마 < 실제: 스키마 필드만 파싱 (나머지 바이트 무시)
     pub fn parse_table(&self, schema: &TableSchema) -> Result<Vec<HashMap<String, Value>>, String> {
-        let row_size = schema.row_size();
+        let schema_row_size = schema.row_size();
+        let actual_row_size = self.estimated_row_size();
+
+        // 실제 행 크기 기준으로 파싱
+        let row_size = if actual_row_size > 0 { actual_row_size } else { schema_row_size };
+
+        // 스키마 필드 중 실제 행 크기에 맞는 것만 사용
+        let usable_fields: Vec<&FieldDef> = if schema_row_size != row_size && actual_row_size > 0 {
+            let mut fields = Vec::new();
+            let mut offset = 0;
+            for field in &schema.fields {
+                if offset + field.field_type.size() > actual_row_size {
+                    break;
+                }
+                fields.push(field);
+                offset += field.field_type.size();
+            }
+            log::warn!(
+                "스키마/데이터 행 크기 불일치: schema={}B, actual={}B — {} / {} 필드 사용",
+                schema_row_size, actual_row_size, fields.len(), schema.fields.len()
+            );
+            fields
+        } else {
+            schema.fields.iter().collect()
+        };
+
         let mut rows = Vec::with_capacity(self.row_count as usize);
 
         for row_idx in 0..self.row_count as usize {
@@ -159,7 +189,7 @@ impl Dat64Parser {
             let mut row = HashMap::new();
             let mut field_offset = row_offset;
 
-            for field in &schema.fields {
+            for field in &usable_fields {
                 let value = self.read_field(field_offset, &field.field_type)?;
                 row.insert(field.name.clone(), value);
                 field_offset += field.field_type.size();
@@ -195,6 +225,11 @@ impl Dat64Parser {
                 } else {
                     Value::Str(self.read_string(str_offset as usize))
                 }
+            }
+            FieldType::Row => {
+                // row/rid: row_index (i64) — 8 bytes only, no reserved padding
+                let key = i64::from_le_bytes(d[offset..offset + 8].try_into().unwrap());
+                Value::Key(key)
             }
             FieldType::Key => {
                 // foreignrow: row_index (i64) + reserved (i64, usually 0xFEFEFEFEFEFEFEFE)
@@ -251,8 +286,8 @@ impl Dat64Parser {
 
     /// 고정 데이터 크기 (행 크기 추정용)
     pub fn fixed_data_size(&self) -> usize {
-        if self.variable_data_start > 12 {
-            self.variable_data_start - 4 - 8 // row_count(4) 빼고, marker(8) 빼기
+        if self.variable_data_start > 4 {
+            self.variable_data_start - 4 // row_count(4)만 빼기. marker는 가변 데이터에 포함.
         } else {
             0
         }
@@ -269,10 +304,13 @@ impl Dat64Parser {
 }
 
 /// 0xBBBBBBBBBBBBBBBB 마커 찾기
+///
+/// 마커 위치 = 가변 데이터 섹션의 시작.
+/// 문자열 오프셋은 마커 위치 기준 (마커 8바이트가 오프셋 0-7을 차지).
 fn find_marker(data: &[u8]) -> Result<usize, String> {
     for i in 4..data.len().saturating_sub(7) {
         if data[i..i + 8] == MARKER {
-            return Ok(i + 8); // 마커 다음부터가 가변 데이터
+            return Ok(i); // 마커 위치 = 가변 데이터 섹션 시작
         }
     }
     // 마커 없으면 전체가 고정 데이터
@@ -339,11 +377,11 @@ mod tests {
         let mut data = Vec::new();
         // row_count = 1
         data.extend_from_slice(&1u32.to_le_bytes());
-        // row 0: string offset = 0 (8 bytes)
-        data.extend_from_slice(&0i64.to_le_bytes());
-        // marker
+        // row 0: string offset = 8 (마커 8바이트 건너뜀)
+        data.extend_from_slice(&8i64.to_le_bytes());
+        // marker (가변 데이터 섹션의 오프셋 0-7)
         data.extend_from_slice(&MARKER);
-        // variable data: UTF-16LE "Hello" + null terminator
+        // variable data: UTF-16LE "Hello" + null terminator (오프셋 8부터)
         for c in "Hello".encode_utf16() {
             data.extend_from_slice(&c.to_le_bytes());
         }
