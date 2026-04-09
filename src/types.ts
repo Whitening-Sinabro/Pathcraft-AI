@@ -136,3 +136,29 @@ export interface FarmingStrategy {
   scarab_priority: string[];
   ssf_crafting_focus: string;
 }
+
+export interface FilterTargetDivcard {
+  card: string;
+  stack: number;
+  target_unique: string;
+}
+
+export interface FilterChanceableBase {
+  base: string;
+  unique: string;
+}
+
+export interface FilterStats {
+  unique_count: number;
+  divcard_count: number;
+  chanceable_count: number;
+  strictness: number;
+}
+
+export interface FilterResult {
+  overlay: string;
+  stats: FilterStats;
+  uniques: string[];
+  target_divcards: FilterTargetDivcard[];
+  chanceable_bases: FilterChanceableBase[];
+}

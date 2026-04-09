@@ -5,6 +5,7 @@ import { BuildRatingSection } from "./components/BuildRating";
 import { VariantTabs } from "./components/VariantTabs";
 import { GearTimeline } from "./components/GearTimeline";
 import { MapWarnings } from "./components/MapWarnings";
+import { FilterPanel } from "./components/FilterPanel";
 
 const tierColor: Record<string, string> = {
   S: "#ff6b6b", A: "#ffa94d", B: "#69db7c", C: "#74c0fc", D: "#868e96",
@@ -14,6 +15,8 @@ function App() {
   const [pobLink, setPobLink] = useState("");
   const [buildData, setBuildData] = useState<BuildData | null>(null);
   const [coaching, setCoaching] = useState<CoachResult | null>(null);
+  const [rawBuildJson, setRawBuildJson] = useState("");
+  const [rawCoachJson, setRawCoachJson] = useState("");
   const [loading, setLoading] = useState("");
   const [error, setError] = useState("");
   const [patchStatus, setPatchStatus] = useState("");
@@ -22,6 +25,8 @@ function App() {
     setError("");
     setBuildData(null);
     setCoaching(null);
+    setRawBuildJson("");
+    setRawCoachJson("");
 
     const trimmed = pobLink.trim();
     if (!trimmed) return;
@@ -31,10 +36,12 @@ function App() {
       const raw = await invoke<string>("parse_pob", { link: trimmed });
       const parsed: BuildData = JSON.parse(raw);
       setBuildData(parsed);
+      setRawBuildJson(raw);
 
       setLoading("AI 코치 분석 중...");
       const coachRaw = await invoke<string>("coach_build", { buildJson: raw });
       setCoaching(JSON.parse(coachRaw));
+      setRawCoachJson(coachRaw);
       setLoading("");
     } catch (e) {
       setError(String(e));
@@ -349,6 +356,11 @@ function App() {
                 )}
               </section>
             )
+          )}
+
+          {/* 필터 생성 */}
+          {rawBuildJson && (
+            <FilterPanel buildJson={rawBuildJson} coachingJson={rawCoachJson} />
           )}
         </div>
       )}

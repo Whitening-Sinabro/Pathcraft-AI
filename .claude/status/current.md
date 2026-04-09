@@ -1,11 +1,11 @@
 ## 지금
-- 아틀라스 전략 + 파밍 전략 데이터 추가 완료
-- common_template.json에 atlas_strategy 섹션 추가 (패시브 순서, 빌드별 파밍, SSF 팁)
-- farming_strategy 출력을 구조화 (메카닉 추천, 초반/중반/후반 전략)
+- 필터 생성 심화 완료 (디비카/유니크/chanceable/엄격도 Hide/UI 연동)
+- Phase 1 전체 완료
 
 ## 다음
+- OAuth + 프로필 추적 — Phase 2
+- 기존 코드 정리 (레거시 아카이브, 중복 데이터 해소)
 - 추가 테이블 추출 필요 시 TARGETS 목록 확장
-- UI에 farming_strategy 구조화 출력 표시
 
 ## 블로커
 - 없음

@@ -162,6 +162,41 @@ fn extract_game_data(poe_path: String) -> Result<String, String> {
 }
 
 #[tauri::command]
+fn generate_filter(build_json: String, coaching_json: String, strictness: u8) -> Result<String, String> {
+    let temp_dir = std::env::temp_dir();
+    let build_path = temp_dir.join("pathcraft_build.json");
+    let coach_path = temp_dir.join("pathcraft_coaching.json");
+
+    std::fs::write(&build_path, &build_json)
+        .map_err(|e| format!("빌드 임시파일 쓰기 실패: {}", e))?;
+    std::fs::write(&coach_path, &coaching_json)
+        .map_err(|e| format!("코칭 임시파일 쓰기 실패: {}", e))?;
+
+    let output = Command::new("python")
+        .arg(python_dir().join("filter_generator.py"))
+        .arg(&build_path)
+        .arg("--coaching")
+        .arg(&coach_path)
+        .arg("--strictness")
+        .arg(strictness.to_string())
+        .arg("--json")
+        .env("PYTHONIOENCODING", "utf-8")
+        .current_dir(project_root())
+        .output()
+        .map_err(|e| format!("Python 실행 실패: {}", e))?;
+
+    let _ = std::fs::remove_file(&build_path);
+    let _ = std::fs::remove_file(&coach_path);
+
+    if output.status.success() {
+        Ok(String::from_utf8_lossy(&output.stdout).to_string())
+    } else {
+        let stderr = String::from_utf8_lossy(&output.stderr).to_string();
+        Err(format!("필터 생성 에러: {}", stderr))
+    }
+}
+
+#[tauri::command]
 fn collect_patch_notes() -> Result<String, String> {
     run_python("patch_note_scraper.py", &["--collect"])
 }
@@ -204,7 +239,7 @@ mod tests {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![parse_pob, coach_build, collect_patch_notes, get_latest_patch, extract_game_data])
+        .invoke_handler(tauri::generate_handler![parse_pob, coach_build, generate_filter, collect_patch_notes, get_latest_patch, extract_game_data])
         .setup(|app| {
             if cfg!(debug_assertions) {
                 app.handle().plugin(

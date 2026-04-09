@@ -9,3 +9,4 @@
 | src-tauri/src/bin/extract_data.rs | POE 게임 데이터 추출 CLI (자동탐지 + JSON 변환) | 아니오 |
 | python/game_data_provider.py | 추출된 게임 데이터 로더 + 크로스레퍼런스 해결 | 아니오 |
 | python/filter_generator.py | 빌드 기반 아이템 필터 생성 (Sanavi 오버레이) | 아니오 |
+| src/components/FilterPanel.tsx | 필터 생성 UI (엄격도 선택, 디비카/유니크 표시, 다운로드) | 아니오 |
