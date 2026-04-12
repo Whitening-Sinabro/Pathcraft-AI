@@ -19,100 +19,19 @@ import sys
 from pathlib import Path
 from typing import Optional
 
+from filter_merge import (
+    POE_FILTER_DIR,
+    apply_overlay_to_file,
+    find_sanavi_filter as _find_sanavi_filter_shared,
+)
+from pathcraft_sections import make_show_block as aurora_show_block
+
 logger = logging.getLogger("filter_gen")
 
-# POE 필터 디렉토리
-POE_FILTER_DIR = Path.home() / "Documents" / "My Games" / "Path of Exile"
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 
-class FilterStyle:
-    """필터 스타일 프리셋."""
-
-    # 빌드 핵심 아이템 (빨강 강조)
-    BUILD_CORE = {
-        "font_size": 45,
-        "text_color": "255 255 255 255",
-        "border_color": "255 40 0 255",
-        "bg_color": "100 0 0 240",
-        "sound": "6 300",
-        "effect": "Red",
-        "icon": "1 Red Star",
-    }
-
-    # 빌드 유용 아이템 (파랑 강조)
-    BUILD_USEFUL = {
-        "font_size": 40,
-        "text_color": "255 255 255 255",
-        "border_color": "30 144 255 255",
-        "bg_color": "0 30 80 220",
-        "sound": "3 200",
-        "effect": "Blue Temp",
-        "icon": "1 Blue Circle",
-    }
-
-    # 고가 커런시 (골드 강조)
-    CURRENCY_HIGH = {
-        "font_size": 45,
-        "text_color": "255 215 0 255",
-        "border_color": "255 215 0 255",
-        "bg_color": "40 30 0 255",
-        "sound": "1 300",
-        "effect": "Yellow",
-        "icon": "0 Yellow Diamond",
-    }
-
-    # 밸류 아이템 (초록 강조)
-    VALUE = {
-        "font_size": 38,
-        "text_color": "180 255 180 255",
-        "border_color": "100 200 100 255",
-        "bg_color": "0 40 0 200",
-        "effect": "Green Temp",
-        "icon": "2 Green Triangle",
-    }
-
-    # 디비니 카드 — 빌드 타겟 (보라 강조)
-    DIVCARD_TARGET = {
-        "font_size": 45,
-        "text_color": "255 255 255 255",
-        "border_color": "200 100 255 255",
-        "bg_color": "80 0 120 240",
-        "sound": "6 300",
-        "effect": "Purple",
-        "icon": "0 Purple Star",
-    }
-
-    # 디비니 카드 — 고가 (밝은 보라)
-    DIVCARD_HIGH = {
-        "font_size": 45,
-        "text_color": "255 255 255 255",
-        "border_color": "150 80 200 255",
-        "bg_color": "60 0 90 220",
-        "sound": "1 300",
-        "effect": "Purple",
-        "icon": "0 Purple Diamond",
-    }
-
-    # 유니크 — 빌드 핵심 (주황 강조)
-    UNIQUE_BUILD = {
-        "font_size": 45,
-        "text_color": "175 96 37 255",
-        "border_color": "175 96 37 255",
-        "bg_color": "50 25 0 240",
-        "sound": "6 300",
-        "effect": "Orange",
-        "icon": "0 Orange Star",
-    }
-
-    # Chanceable 베이스 (연한 주황)
-    CHANCEABLE = {
-        "font_size": 36,
-        "text_color": "210 160 60 255",
-        "border_color": "175 96 37 200",
-        "bg_color": "30 15 0 180",
-        "icon": "2 Orange Triangle",
-    }
+# FilterStyle 클래스 제거됨 — Aurora Glow 팔레트 사용 (aurora_show_block)
 
 
 # 유니크 → 디비니 카드 매핑 (빌드 타겟용)
@@ -165,25 +84,6 @@ UNIQUE_TO_BASE: dict[str, str] = {
     "Headhunter": "Leather Belt",
     "Kaom's Heart": "Glorious Plate",
 }
-
-
-def make_show_block(comment: str, conditions: list[str], style: dict) -> str:
-    """Show 블록 생성."""
-    lines = [f"Show # PathcraftAI: {comment}"]
-    for cond in conditions:
-        lines.append(f"\t{cond}")
-    lines.append(f"\tSetFontSize {style['font_size']}")
-    lines.append(f"\tSetTextColor {style['text_color']}")
-    lines.append(f"\tSetBorderColor {style['border_color']}")
-    lines.append(f"\tSetBackgroundColor {style['bg_color']}")
-    if "sound" in style:
-        lines.append(f"\tPlayAlertSound {style['sound']}")
-    if "effect" in style:
-        lines.append(f"\tPlayEffect {style['effect']}")
-    if "icon" in style:
-        lines.append(f"\tMinimapIcon {style['icon']}")
-    lines.append("")
-    return "\n".join(lines)
 
 
 def make_hide_block(comment: str, conditions: list[str]) -> str:
@@ -361,125 +261,108 @@ def generate_overlay(
         card_comment = ", ".join(
             f'{c["card"]}→{c["target_unique"]}' for c in target_cards
         )
-        blocks.append(make_show_block(
+        blocks.append(aurora_show_block(
             f"빌드 타겟 디비카 ({card_comment})",
-            [
-                'Class "Divination Cards"',
-                f'BaseType == {" ".join(card_names)}',
-            ],
-            FilterStyle.DIVCARD_TARGET,
+            ['Class "Divination Cards"',
+             f'BaseType == {" ".join(card_names)}'],
+            category="divcard", tier="P1_KEYSTONE", keystone=True,
         ))
 
     # ── Section 2: 고가 디비니 카드 (neversink 티어) ──
     divcard_tiers = load_divcard_tiers()
-    for tier_name, tier_style in [
-        ("t1_top", FilterStyle.DIVCARD_HIGH),
-        ("t2_high", FilterStyle.DIVCARD_HIGH),
+    for tier_name, aurora_tier in [
+        ("t1_top", "P1_KEYSTONE"),
+        ("t2_high", "P2_CORE"),
     ]:
         tier_cards = divcard_tiers.get(tier_name, [])
-        # 빌드 타겟과 중복 제거
         target_names = {c["card"] for c in target_cards}
         tier_cards = [c for c in tier_cards if c not in target_names]
         if tier_cards:
             names = [f'"{c}"' for c in tier_cards]
-            blocks.append(make_show_block(
+            blocks.append(aurora_show_block(
                 f"고가 디비카 {tier_name} ({len(tier_cards)}개)",
-                [
-                    'Class "Divination Cards"',
-                    f'BaseType == {" ".join(names)}',
-                ],
-                tier_style,
+                ['Class "Divination Cards"',
+                 f'BaseType == {" ".join(names)}'],
+                category="divcard", tier=aurora_tier,
             ))
 
     # ── Section 3: 빌드 유니크 아이템 ──
     if uniques:
         unique_names = [f'"{u}"' for u in uniques]
-        blocks.append(make_show_block(
+        blocks.append(aurora_show_block(
             f"빌드 유니크 ({len(uniques)}개)",
-            [
-                'Rarity Unique',
-                f'BaseType == {" ".join(unique_names)}',
-            ],
-            FilterStyle.UNIQUE_BUILD,
+            ['Rarity Unique',
+             f'BaseType == {" ".join(unique_names)}'],
+            category="unique", tier="P1_KEYSTONE", keystone=True,
         ))
 
     # ── Section 4: Chanceable 베이스 ──
     chanceable = get_chanceable_bases(uniques)
     if chanceable:
         base_names = [f'"{c["base"]}"' for c in chanceable]
-        blocks.append(make_show_block(
+        blocks.append(aurora_show_block(
             f"Chanceable 베이스 ({len(chanceable)}개)",
-            [
-                'Rarity Normal',
-                f'BaseType == {" ".join(base_names)}',
-            ],
-            FilterStyle.CHANCEABLE,
+            ['Rarity Normal',
+             f'BaseType == {" ".join(base_names)}'],
+            category="unique", tier="P5_MINOR", is_build_target=False,
         ))
 
     # ── Section 5: 빌드 핵심 스킬 젬 ──
     if skills:
         all_gems = [f'"{g}"' for g in skills]
-        blocks.append(make_show_block(
+        blocks.append(aurora_show_block(
             f"빌드 핵심 스킬 ({len(skills)}개)",
-            [
-                'Class "Skill Gems"',
-                f'BaseType == {" ".join(all_gems)}',
-            ],
-            FilterStyle.BUILD_CORE,
+            ['Class "Skill Gems"',
+             f'BaseType == {" ".join(all_gems)}'],
+            category="gem", tier="P1_KEYSTONE",
         ))
 
     # ── Section 6: 빌드 서포트 젬 ──
     if supports:
         support_names = [f'"{s}"' for s in supports]
-        blocks.append(make_show_block(
+        blocks.append(aurora_show_block(
             f"빌드 서포트 젬 ({len(supports)}개)",
-            [
-                'Class "Support Gems"',
-                f'BaseType == {" ".join(support_names)}',
-            ],
-            FilterStyle.BUILD_USEFUL,
+            ['Class "Support Gems"',
+             f'BaseType == {" ".join(support_names)}'],
+            category="gem", tier="P2_CORE",
         ))
 
     # ── Section 7: 빌드 장비 베이스 ──
     if bases:
         base_names = [f'"{b}"' for b in bases]
-        blocks.append(make_show_block(
+        blocks.append(aurora_show_block(
             f"빌드 장비 베이스 ({len(bases)}개)",
-            [
-                'Rarity Rare',
-                f'BaseType == {" ".join(base_names)}',
-                'ItemLevel >= 75',
-            ],
-            FilterStyle.BUILD_USEFUL,
+            ['Rarity Rare',
+             f'BaseType == {" ".join(base_names)}',
+             'ItemLevel >= 75'],
+            category="base", tier="P2_CORE",
         ))
 
     # ── Section 8: 빌드 타입별 크래프팅 베이스 ──
     crafting_bases = get_crafting_bases(build_type)
     if crafting_bases:
         craft_names = [f'"{b}"' for b in crafting_bases]
-        blocks.append(make_show_block(
+        blocks.append(aurora_show_block(
             f"크래프팅 베이스 ({build_type})",
-            [
-                'Rarity Normal Rare',
-                f'BaseType == {" ".join(craft_names)}',
-                'ItemLevel >= 82',
-            ],
-            FilterStyle.VALUE,
+            ['Rarity Normal Rare',
+             f'BaseType == {" ".join(craft_names)}',
+             'ItemLevel >= 82'],
+            category="base", tier="P3_USEFUL",
         ))
 
     # ── Section 9: 고가 커런시 ──
     currency_rules = load_currency_tiers()
     if currency_rules:
         for tier_name, tier_items in currency_rules.items():
-            if tier_name in ("t1_mirror_divine", "t2_exalted"):
+            aurora_tier = {"t1_mirror_divine": "P1_KEYSTONE",
+                           "t2_exalted": "P2_CORE"}.get(tier_name)
+            if aurora_tier:
                 item_names = [f'"{c}"' for c in tier_items]
-                blocks.append(make_show_block(
+                blocks.append(aurora_show_block(
                     f"커런시 {tier_name}",
-                    [
-                        'Class "Currency"',
-                        f'BaseType == {" ".join(item_names)}',
-                    ],
-                    FilterStyle.CURRENCY_HIGH,
+                    ['Class "Currency"',
+                     f'BaseType == {" ".join(item_names)}'],
+                    category="currency", tier=aurora_tier,
                 ))
 
     # ── Section 10: 엄격도별 Hide 블록 ──
@@ -631,43 +514,14 @@ def generate_hide_blocks(strictness: int, currency_rules: dict) -> list[str]:
     return blocks
 
 
-def apply_overlay(base_filter_path: Path, overlay: str, output_path: Path):
-    """베이스 필터에 오버레이를 삽입."""
-    with open(base_filter_path, "r", encoding="utf-8") as f:
-        base_content = f.read()
-
-    # Override Area ([[0100]]) 바로 앞에 삽입
-    marker = "# [[0100]]"
-    insert_pos = base_content.find(marker)
-
-    if insert_pos > 0:
-        result = base_content[:insert_pos] + overlay + "\n" + base_content[insert_pos:]
-    else:
-        # 마커 못 찾으면 맨 앞에 삽입
-        result = overlay + "\n" + base_content
-
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(result)
-
-    logger.info("필터 생성: %s (%d줄)", output_path, result.count("\n"))
+def apply_overlay(base_filter_path: Path, overlay: str, output_path: Path) -> None:
+    """베이스 필터에 오버레이를 삽입 (filter_merge 위임)."""
+    apply_overlay_to_file(base_filter_path, overlay, output_path)
 
 
 def find_sanavi_filter(strictness: int = 3) -> Optional[Path]:
-    """Sanavi 필터 자동 탐지."""
-    strictness_names = {
-        0: "0_Soft", 1: "1_Regular", 2: "2_Semi-Strict",
-        3: "3_Strict", 4: "4_Very Strict", 5: "5_Uber Strict",
-        6: "6_Uber Plus Strict",
-    }
-    name = strictness_names.get(strictness, "3_Strict")
-    path = POE_FILTER_DIR / f"Sanavi_{name}.filter"
-    if path.exists():
-        return path
-
-    # 아무 Sanavi 필터라도 찾기
-    for p in POE_FILTER_DIR.glob("Sanavi_*.filter"):
-        return p
-    return None
+    """Sanavi 필터 자동 탐지 (filter_merge 위임)."""
+    return _find_sanavi_filter_shared(strictness)
 
 
 def generate_filter_json(
