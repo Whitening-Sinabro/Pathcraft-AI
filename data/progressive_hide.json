@@ -1,0 +1,103 @@
+{
+  "_meta": {
+    "description": "β 프로그레시브 엄격도 데이터 — AL 기반 단계적 Hide 블록 정의. Wreckers SSF 분석문서 Section 8 기반.",
+    "source": "_analysis/wreckers_ssf_analysis.md",
+    "note": "레벨링/엔드게임 장비 BaseType는 분석문서에 등장한 것 + POE 일반 메타 기반. Wreckers 원본 필터 확보 시 β-3a에서 완전 parity 작업."
+  },
+  "always_hide": {
+    "description": "모든 레벨에서 즉시 Hide. 가장 위 레이어(HARD_HIDE)에서 처리 — 다른 레이어 영향 안 받음.",
+    "items": [
+      "Scroll Fragment",
+      "Alteration Shard",
+      "Transmutation Shard",
+      "Alchemy Shard"
+    ]
+  },
+  "supply_currency": {
+    "description": "보급품 6종 — AreaLevel 단계별 StackSize 이하 Hide. Act 10~T16+ 점진 필터링.",
+    "items": [
+      "Scroll of Wisdom",
+      "Portal Scroll",
+      "Armourer's Scrap",
+      "Blacksmith's Whetstone",
+      "Orb of Transmutation",
+      "Orb of Augmentation"
+    ],
+    "stages": [
+      { "min_area_level": 64, "max_stack_size": 1, "note": "Act 10" },
+      { "min_area_level": 68, "max_stack_size": 2, "note": "화이트 맵" },
+      { "min_area_level": 73, "max_stack_size": 3, "note": "옐로우 맵" },
+      { "min_area_level": 78, "max_stack_size": 4, "note": "레드 맵" },
+      { "min_area_level": 83, "max_stack_size": 5, "note": "T16+" }
+    ]
+  },
+  "normal_all": {
+    "min_area_level": 14,
+    "description": "AL 14+에서 모든 Normal 장비 Hide (가장 큰 레벨링 전환점)"
+  },
+  "magic_all": {
+    "min_area_level": 24,
+    "description": "AL 24+에서 모든 Magic 장비 Hide"
+  },
+  "gem_hide": {
+    "min_area_level": 45,
+    "description": "AL 45+에서 기본 스킬/서포트 젬 Hide (릴리 도착 후 상점 구매 가능)"
+  },
+  "flask_hide": {
+    "min_area_level": 73,
+    "description": "AL 73+(옐로우 맵)에서 기본 Life/Mana/Hybrid 플라스크 Hide"
+  },
+  "leveling_bases_early": {
+    "description": "AL 3~13 레벨링 초반 장비 — 자신보다 20+레벨 높은 곳에서 Hide",
+    "items": [
+      { "base": "Small Life Flask", "hide_above_al": 3 },
+      { "base": "Small Mana Flask", "hide_above_al": 3 },
+      { "base": "Rusted Sword",     "hide_above_al": 5 },
+      { "base": "Glass Shank",      "hide_above_al": 5 },
+      { "base": "Driftwood Wand",   "hide_above_al": 5 },
+      { "base": "Crude Bow",        "hide_above_al": 5 },
+      { "base": "Iron Hat",         "hide_above_al": 5 },
+      { "base": "Plate Vest",       "hide_above_al": 5 },
+      { "base": "Simple Robe",      "hide_above_al": 5 },
+      { "base": "Shabby Jerkin",    "hide_above_al": 5 },
+      { "base": "Rawhide Boots",    "hide_above_al": 5 },
+      { "base": "Iron Gauntlets",   "hide_above_al": 5 },
+      { "base": "Leather Cap",      "hide_above_al": 8 },
+      { "base": "Wool Shoes",       "hide_above_al": 8 },
+      { "base": "Ironwood Sword",   "hide_above_al": 10 },
+      { "base": "Skinning Knife",   "hide_above_al": 10 },
+      { "base": "Short Bow",        "hide_above_al": 10 },
+      { "base": "Goathide Boots",   "hide_above_al": 13 }
+    ]
+  },
+  "equipment_bases_midgame": {
+    "description": "AL 28~73 중후반 장비 — 지정 AL 이상에서 Hide. 개별 BaseType 매칭.",
+    "items": [
+      { "base": "Studded Leather Belt",  "hide_above_al": 28 },
+      { "base": "Chain Belt",            "hide_above_al": 32 },
+      { "base": "Coral Amulet",          "hide_above_al": 35 },
+      { "base": "Paua Amulet",           "hide_above_al": 35 },
+      { "base": "Iron Ring",             "hide_above_al": 35 },
+      { "base": "Coral Ring",            "hide_above_al": 35 },
+      { "base": "Paua Ring",             "hide_above_al": 35 },
+      { "base": "Chainmail Vest",        "hide_above_al": 35 },
+      { "base": "Studded Round Shield",  "hide_above_al": 40 },
+      { "base": "Strapped Leather",      "hide_above_al": 45 },
+      { "base": "Full Leather",          "hide_above_al": 50 },
+      { "base": "Chain Hauberk",         "hide_above_al": 55 },
+      { "base": "Copper Plate",          "hide_above_al": 60 },
+      { "base": "Scale Mail",            "hide_above_al": 60 },
+      { "base": "Ringmail Coat",         "hide_above_al": 65 },
+      { "base": "Plated Mail",           "hide_above_al": 70 }
+    ]
+  },
+  "endgame_supplies": {
+    "description": "리그 소모품 — Heist 도구, Expedition 아이템 단계적 Hide",
+    "items": [
+      { "base": "Rusted Casting",        "hide_above_al": 75 },
+      { "base": "Rusted Hunting",        "hide_above_al": 75 },
+      { "base": "Exotic Coinage",        "hide_above_al": 80 },
+      { "base": "Scouting Report",       "hide_above_al": 83 }
+    ]
+  }
+}

@@ -25,6 +25,7 @@ from filter_merge import (
     find_sanavi_filter as _find_sanavi_filter_shared,
 )
 from pathcraft_sections import make_show_block as aurora_show_block
+from sections_continue import generate_beta_overlay
 
 logger = logging.getLogger("filter_gen")
 
@@ -554,14 +555,58 @@ if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
 
     ap = argparse.ArgumentParser(description="PathcraftAI Build Filter Generator")
-    ap.add_argument("build_json", help="POB 빌드 JSON 파일 경로 또는 '-' (stdin)")
+    ap.add_argument("build_json", nargs="?", default=None,
+                    help="POB 빌드 JSON 파일 경로 또는 '-' (stdin). --arch continue에서는 생략 가능")
     ap.add_argument("--coaching", help="AI 코치 결과 JSON 파일 (디비카/유니크 강화용)")
     ap.add_argument("--base", help="베이스 필터 경로 (기본: Sanavi_3_Strict)")
     ap.add_argument("--out", help="출력 필터 경로 (기본: stdout 오버레이만)")
     ap.add_argument("--strictness", type=int, default=3,
                     help="엄격도 (0=Soft, 1=Regular, 2=Semi-Strict, 3=Strict, 4=Very Strict)")
     ap.add_argument("--json", action="store_true", help="JSON 형태로 출력 (Tauri용)")
+    ap.add_argument("--arch", choices=("aurora", "continue"), default="aurora",
+                    help="필터 아키텍처 (aurora=기존 오버레이, continue=β 레이어 체인)")
     args = ap.parse_args()
+
+    # β Continue 경로 — 빌드 데이터 옵셔널, 독립 필터 출력
+    if args.arch == "continue":
+        if args.json:
+            logger.error("β continue는 --json 미지원 (β-5b 예정)")
+            sys.exit(2)
+        if args.base:
+            logger.warning("β continue는 --base 미지원 (standalone 필터), 무시됨")
+        if args.strictness < 0 or args.strictness > 4:
+            logger.error("--strictness는 0~4 범위 (실제: %d)", args.strictness)
+            sys.exit(2)
+
+        # 빌드 데이터 로드 (옵셔널)
+        build_data: Optional[dict] = None
+        coaching_data: Optional[dict] = None
+        if args.build_json:
+            if args.build_json == "-":
+                build_data = json.load(sys.stdin)
+            else:
+                with open(args.build_json, "r", encoding="utf-8") as f:
+                    build_data = json.load(f)
+        if args.coaching:
+            with open(args.coaching, "r", encoding="utf-8") as f:
+                coaching_data = json.load(f)
+
+        overlay = generate_beta_overlay(
+            strictness=args.strictness,
+            build_data=build_data,
+            coaching_data=coaching_data,
+        )
+        if args.out:
+            Path(args.out).write_text(overlay, encoding="utf-8")
+            logger.info("β Continue 필터 출력: %s", args.out)
+        else:
+            print(overlay)
+        sys.exit(0)
+
+    # Aurora 경로는 빌드 데이터 필수
+    if args.build_json is None:
+        logger.error("aurora 아키텍처는 build_json 인자가 필요합니다")
+        sys.exit(2)
 
     # 빌드 데이터 로드
     if args.build_json == "-":

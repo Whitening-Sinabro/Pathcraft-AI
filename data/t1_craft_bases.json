@@ -1,0 +1,181 @@
+{
+  "_meta": {
+    "description": "T1 크래프팅 가치 베이스 화이트리스트 — ilvl>=86에서 T1 prefix/suffix roll 가능한 베이스. Continue 아키텍처 LAYER_T1_BORDER에서 사용.",
+    "ilvl_threshold": 86,
+    "influence_types": ["Shaper", "Elder", "Crusader", "Hunter", "Redeemer", "Warlord"],
+    "source": "커뮤니티 크래프팅 가이드 (crafting of exile, poe.ninja 메타)"
+  },
+  "weapons": {
+    "wands": [
+      "Convoking Wand",
+      "Profane Wand",
+      "Opal Wand",
+      "Prophecy Wand",
+      "Tornado Wand"
+    ],
+    "sceptres": [
+      "Opal Sceptre",
+      "Void Sceptre",
+      "Vaal Sceptre",
+      "Platinum Sceptre"
+    ],
+    "bows": [
+      "Spine Bow",
+      "Maraketh Bow",
+      "Citadel Bow",
+      "Thicket Bow",
+      "Solarine Bow"
+    ],
+    "swords": [
+      "Jewelled Foil",
+      "Vaal Rapier",
+      "Eternal Sword",
+      "Tiger Hook",
+      "Ezomyte Blade"
+    ],
+    "axes": [
+      "Void Axe",
+      "Fleshripper",
+      "Siege Axe",
+      "Vaal Axe"
+    ],
+    "maces": [
+      "Imperial Maul",
+      "Void Maul",
+      "Eternal Mace",
+      "Coronal Maul"
+    ],
+    "daggers": [
+      "Platinum Kris",
+      "Ambusher",
+      "Imp Dagger",
+      "Fiend Dagger"
+    ],
+    "claws": [
+      "Imperial Claw",
+      "Gemini Claw",
+      "Eye Gouger",
+      "Hellion's Paw"
+    ],
+    "staves": [
+      "Judgement Staff",
+      "Imperial Staff",
+      "Eclipse Staff",
+      "Maelström Staff"
+    ],
+    "warstaves": [
+      "Serpentine Staff",
+      "Maelström Staff",
+      "Eclipse Staff"
+    ],
+    "quivers": [
+      "Feathered Arrow Quiver",
+      "Spike-Point Arrow Quiver",
+      "Broadhead Arrow Quiver",
+      "Penetrating Arrow Quiver"
+    ]
+  },
+  "body_armour": [
+    "Vaal Regalia",
+    "Sacred Burgonet",
+    "Astral Plate",
+    "Glorious Plate",
+    "Saint's Hauberk",
+    "Zodiac Leather",
+    "Assassin's Garb",
+    "Sadist Garb",
+    "Occultist's Vestment",
+    "Cutthroat's Garb",
+    "Carnal Armour",
+    "Sun Plate"
+  ],
+  "helmets": [
+    "Bone Helmet",
+    "Hubris Circlet",
+    "Eternal Burgonet",
+    "Lion Pelt",
+    "Nightmare Bascinet",
+    "Royal Burgonet",
+    "Harlequin Mask",
+    "Samite Helmet",
+    "Fluted Bascinet",
+    "Vaal Mask"
+  ],
+  "gloves": [
+    "Fingerless Silk Gloves",
+    "Spiked Gloves",
+    "Sorcerer Gloves",
+    "Titan Gauntlets",
+    "Vaal Gauntlets",
+    "Shagreen Gloves",
+    "Slink Gloves",
+    "Assassin's Mitts",
+    "Murderous Mitts",
+    "Conjurer Gloves"
+  ],
+  "boots": [
+    "Two-Toned Boots",
+    "Sorcerer Boots",
+    "Stealth Boots",
+    "Slink Boots",
+    "Titan Greaves",
+    "Vaal Greaves",
+    "Assassin's Boots",
+    "Murder Boots",
+    "Dragonscale Boots"
+  ],
+  "shields": [
+    "Titanium Spirit Shield",
+    "Vaal Spirit Shield",
+    "Fossilised Spirit Shield",
+    "Harmonic Spirit Shield",
+    "Champion Kite Shield",
+    "Colossal Tower Shield",
+    "Imperial Buckler",
+    "Vaal Buckler"
+  ],
+  "jewelry": {
+    "amulets": [
+      "Marble Amulet",
+      "Onyx Amulet",
+      "Citrine Amulet",
+      "Turquoise Amulet",
+      "Agate Amulet",
+      "Gold Amulet",
+      "Lapis Amulet",
+      "Amber Amulet",
+      "Jade Amulet",
+      "Blue Pearl Amulet"
+    ],
+    "rings": [
+      "Vermillion Ring",
+      "Opal Ring",
+      "Steel Ring",
+      "Topaz Ring",
+      "Sapphire Ring",
+      "Ruby Ring",
+      "Two-Stone Ring",
+      "Prismatic Ring",
+      "Diamond Ring",
+      "Amethyst Ring",
+      "Iolite Ring",
+      "Cerulean Ring"
+    ],
+    "belts": [
+      "Stygian Vise",
+      "Crystal Belt",
+      "Vanguard Belt",
+      "Micro-Distillery Belt",
+      "Mechalarm Belt",
+      "Studded Belt",
+      "Heavy Belt",
+      "Leather Belt"
+    ]
+  },
+  "has_influence_all": true,
+  "notes": [
+    "has_influence_all=true: Hunter/Elder/Shaper/Redeemer/Crusader/Warlord 중 하나라도 있으면 베이스 화이트리스트 무시하고 T1 보더 적용",
+    "Cluster Jewel은 별도 섹션에서 처리 (이 리스트에 포함 안 함)",
+    "Abyss/Delve 특수 베이스는 각자 리스트에 포함됨 (Stygian Vise, Bone Helmet 등)"
+  ]
+}

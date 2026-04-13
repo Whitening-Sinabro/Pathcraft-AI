@@ -23,3 +23,10 @@
 | _analysis/cobalt_filter_analysis.md | NeverSink Cobalt 상세 분석 문서 | 예 |
 | _analysis/wreckers_ssf_analysis.md | Wreckers SSF 상세 분석 문서 | 예 |
 | src/components/FilterPanel.tsx | 필터 생성 UI (엄격도 선택, 디비카/유니크 표시, 다운로드) | 아니오 |
+| python/sections_continue.py | β Continue 체인 블록 빌더 (레이어 상수 + LayerStyle + make_layer_block + load_t1_bases + style_from_palette) | 아니오 |
+| python/tests/test_sections_continue.py | Continue 빌더 유닛 테스트 (36 케이스, β-0+β-1 커버) | 아니오 |
+| python/tests/test_filter_generator_cli.py | filter_generator.py CLI 엔드투엔드 스모크 (8 케이스) | 아니오 |
+| data/t1_craft_bases.json | T1 크래프팅 가치 베이스 화이트리스트 (ilvl>=86 보더용, _meta.influence_types 포함) | 아니오 |
+| data/progressive_hide.json | β 프로그레시브 엄격도 데이터 (Supply 5단계, AL 임계값, 레벨링/엔드게임 베이스) | 아니오 |
+| python/build_extractor.py | POB 빌드 데이터 파싱 헬퍼 (유니크/젬/베이스/디비카/chanceable 추출) | 아니오 |
+| .claude/status/continue_architecture.md | β 아키텍처 설계 문서 (레이어 순서, 빌더 API, 마이그레이션) | 아니오 |
