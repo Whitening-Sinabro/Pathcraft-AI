@@ -6,69 +6,23 @@ import {
   deallocWithCascade,
   type TreeData,
   type TreeNode,
-  type TreeGroup,
 } from "../utils/passiveTree";
 import { createUndoHandler, type UndoHandler } from "../utils/passiveTreeUndo";
+import { loadSpriteAtlas, type SpriteAtlas } from "../utils/passiveTreeSprites";
 import {
-  loadSpriteAtlas,
-  drawSpriteNative,
-  type SpriteAtlas,
-} from "../utils/passiveTreeSprites";
+  ATLAS_ZOOM,
+  CLASS_START_IDS, ASCENDANCIES,
+  CLASS_STORAGE_KEY, ASCENDANCY_STORAGE_KEY,
+  NODE_RADIUS_WORLD,
+  classifyNode,
+} from "../utils/passiveTreeConstants";
+import {
+  drawFrame,
+  type ResolvedNode, type ResolvedGroup, type Camera,
+} from "../utils/passiveTreeRender";
+import { TreeControls } from "./passive-tree/TreeControls";
 import dataUrl from "../../data/skilltree-export/data.json?url";
 
-// Atlas zoom level. Single level for Phase 1b — auto-switching deferred.
-const ATLAS_ZOOM = "0.2972";
-
-interface ResolvedGroup {
-  id: string;
-  group: TreeGroup;
-  bgKey: string | null;
-  isHalf: boolean;
-}
-
-const SKILLS_PER_ORBIT = [1, 6, 16, 16, 40, 72, 72];
-
-// Class start node IDs (from data.json sampling)
-const CLASS_START_IDS: Record<number, string> = {
-  0: "58833", // Scion
-  1: "47175", // Marauder
-  2: "50459", // Ranger
-  3: "54447", // Witch
-  4: "50986", // Duelist
-  5: "61525", // Templar
-  6: "44683", // Shadow
-};
-const CLASS_NAMES = ["Scion", "Marauder", "Ranger", "Witch", "Duelist", "Templar", "Shadow"];
-// Ascendancy 구성 (data.classes 구조 기준, bloodline 제외)
-const ASCENDANCIES: Record<number, string[]> = {
-  0: ["Ascendant", "Reliquarian"],
-  1: ["Juggernaut", "Berserker", "Chieftain"],
-  2: ["Warden", "Deadeye", "Pathfinder"],
-  3: ["Occultist", "Elementalist", "Necromancer"],
-  4: ["Slayer", "Gladiator", "Champion"],
-  5: ["Inquisitor", "Hierophant", "Guardian"],
-  6: ["Assassin", "Trickster", "Saboteur"],
-};
-const CLASS_STORAGE_KEY = "pathcraftai_passive_class";
-const ASCENDANCY_STORAGE_KEY = "pathcraftai_passive_ascendancy";
-
-const FRAME_UNALLOCATED: Record<string, string> = {
-  normal: "PSSkillFrame",
-  notable: "NotableFrameUnallocated",
-  keystone: "KeystoneFrameUnallocated",
-  jewel: "JewelFrameUnallocated",
-  ascendancy: "PSSkillFrame",
-  classStart: "PSSkillFrame",
-};
-
-const FRAME_ALLOCATED: Record<string, string> = {
-  normal: "PSSkillFrameActive",
-  notable: "NotableFrameAllocated",
-  keystone: "KeystoneFrameAllocated",
-  jewel: "JewelFrameAllocated",
-  ascendancy: "PSSkillFrameActive",
-  classStart: "PSSkillFrameActive",
-};
 
 interface Props {
   width?: number;
@@ -81,50 +35,6 @@ interface Props {
   buildAscendancy?: number;  // 0 = 없음, 1..3 = ascendancy 슬롯
   // 할당 변경 콜백 (상위에 allocated 노드 알림)
   onAllocationChange?: (allocated: Set<string>) => void;
-}
-
-interface Camera {
-  cx: number;
-  cy: number;
-  scale: number;
-}
-
-interface ResolvedNode {
-  id: string;
-  node: TreeNode;
-  x: number;
-  y: number;
-  kind: NodeKind;
-  radius: number;
-}
-
-type NodeKind =
-  | "normal" | "notable" | "keystone" | "mastery"
-  | "jewel" | "ascendancy" | "classStart";
-
-const NODE_COLORS: Record<NodeKind, string> = {
-  normal: "#a89572",
-  notable: "#e8c068",
-  keystone: "#e74c3c",
-  mastery: "#9b59b6",
-  jewel: "#5dade2",
-  ascendancy: "#f1c40f",
-  classStart: "#ecf0f1",
-};
-
-const NODE_RADIUS_WORLD: Record<NodeKind, number> = {
-  normal: 22, notable: 38, keystone: 50, mastery: 32,
-  jewel: 36, classStart: 70, ascendancy: 24,
-};
-
-function classifyNode(node: TreeNode): NodeKind {
-  if (node.classStartIndex != null) return "classStart";
-  if (node.isKeystone) return "keystone";
-  if (node.isJewelSocket) return "jewel";
-  if (node.isMastery) return "mastery";
-  if (node.isNotable) return "notable";
-  if (node.ascendancyName) return "ascendancy";
-  return "normal";
 }
 
 function computeBounds(nodes: ResolvedNode[]): {
@@ -391,267 +301,19 @@ export function PassiveTreeCanvas({
       }
       dirtyRef.current = false;
 
-      const cam = cameraRef.current;
-      const nodes = nodesRef.current;
-      const groups = groupsRef.current;
-      const byId = nodeByIdRef.current;
-      const hoveredId = hoveredIdRef.current;
-      const atlas = atlasRef.current;
-
-      ctx.fillStyle = "#0c0c0c";
-      ctx.fillRect(0, 0, width, height);
-
-      // 0) Background tile — POE의 별/대륙 텍스처
-      const atlasScaleBg = atlas ? parseFloat(atlas.zoomKey) : 0.2972;
-      const bgSheet2 = atlas?.sheets.get("background");
-      if (bgSheet2?.loaded) {
-        const coord = bgSheet2.coords["Background2"] || bgSheet2.coords[Object.keys(bgSheet2.coords)[0]];
-        if (coord) {
-          // 타일 크기 world 단위
-          const tileW = (coord.w / atlasScaleBg) * cam.scale;
-          const tileH = (coord.h / atlasScaleBg) * cam.scale;
-          if (tileW > 2 && tileH > 2) {
-            // 화면 좌상단의 world 좌표
-            const worldLeft = cam.cx - width / 2 / cam.scale;
-            const worldTop = cam.cy - height / 2 / cam.scale;
-            // 첫 타일 시작 위치 (world 좌표 기준)
-            const startX = Math.floor(worldLeft / (coord.w / atlasScaleBg)) * (coord.w / atlasScaleBg);
-            const startY = Math.floor(worldTop / (coord.h / atlasScaleBg)) * (coord.h / atlasScaleBg);
-            for (let wy = startY; wy < worldTop + height / cam.scale; wy += coord.h / atlasScaleBg) {
-              for (let wx = startX; wx < worldLeft + width / cam.scale; wx += coord.w / atlasScaleBg) {
-                const sx = (wx - cam.cx) * cam.scale + width / 2;
-                const sy = (wy - cam.cy) * cam.scale + height / 2;
-                ctx.drawImage(bgSheet2.image, coord.x, coord.y, coord.w, coord.h, sx, sy, tileW, tileH);
-              }
-            }
-          }
-        }
-      }
-
-      const w2sx = (wx: number) => (wx - cam.cx) * cam.scale + width / 2;
-      const w2sy = (wy: number) => (wy - cam.cy) * cam.scale + height / 2;
-
-      // 1) Group backgrounds (drawn behind nodes/lines)
-      const bgSheet = atlas?.sheets.get("groupBackground");
-      if (bgSheet?.loaded) {
-        // World→atlas pixel scale: atlas was authored at zoom level 0.2972 (px per world unit).
-        const atlasScale = parseFloat(atlas!.zoomKey);
-        for (const g of groups) {
-          if (!g.bgKey) continue;
-          const coord = bgSheet.coords[g.bgKey];
-          if (!coord) continue;
-          const sx = w2sx(g.group.x);
-          const sy = w2sy(g.group.y);
-          const dw = (coord.w / atlasScale) * cam.scale;
-          const dh = (coord.h / atlasScale) * cam.scale;
-          if (g.isHalf) {
-            // Draw the half image at offset, then mirror for bottom half.
-            ctx.drawImage(
-              bgSheet.image, coord.x, coord.y, coord.w, coord.h,
-              sx - dw / 2, sy - dh, dw, dh,
-            );
-            ctx.save();
-            ctx.translate(sx, sy);
-            ctx.scale(1, -1);
-            ctx.drawImage(
-              bgSheet.image, coord.x, coord.y, coord.w, coord.h,
-              -dw / 2, 0, dw, dh,
-            );
-            ctx.restore();
-          } else {
-            ctx.drawImage(
-              bgSheet.image, coord.x, coord.y, coord.w, coord.h,
-              sx - dw / 2, sy - dh / 2, dw, dh,
-            );
-          }
-        }
-      }
-
-      // 2) Edges — 기본은 dim(unallocated), 양끝 allocated면 bright
-      const allocatedSet = allocatedRef.current;
-      const dimStyle = "rgba(95, 80, 60, 0.85)";  // unallocated
-      const activeStyle = "rgba(255, 200, 100, 0.95)";  // allocated
-      ctx.lineWidth = Math.max(2, Math.min(10, 14 * cam.scale));
-      ctx.lineCap = "round";
-      const groupById = new Map<string, TreeGroup>();
-      for (const g of groups) groupById.set(g.id, g.group);
-      const orbitRadii = orbitRadiiRef.current;
-
-      // Unallocated 직선: POE line sprite (텍스처). Allocated: stroke bright.
-      const lineSheet = atlas?.sheets.get("line");
-      const lineCoordNormal = lineSheet?.coords["LineConnectorNormal"];
-      // sprite 높이를 stroke 두께에 맞춰 비율 계산
-      const strokeWidth = Math.max(2, Math.min(10, 14 * cam.scale));
-      const spriteHeight = strokeWidth;
-      const useLineSprite = lineSheet?.loaded && lineCoordNormal && cam.scale > 0.05;
-
-      for (const r of nodes) {
-        const outs = r.node.out;
-        if (!outs) continue;
-        const sax = w2sx(r.x);
-        const say = w2sy(r.y);
-        // POE 데이터의 out은 단방향 — 각 엣지가 정확히 한 쪽의 out에만 존재하므로
-        // string-id dedup 하면 절반이 사라진다. 중복 없이 바로 순회.
-        for (const targetId of outs) {
-          const t = byId.get(targetId);
-          if (!t) continue;
-          // Filter cross-class start links (Scion-style class start interconnects)
-          if (r.kind === "classStart" && t.kind === "classStart") continue;
-          // Filter mastery links (mastery has its own visual, not connected by lines)
-          if (r.kind === "mastery" || t.kind === "mastery") continue;
-          // Filter long cross-group jumps that are usually data artifacts
-          const dx = r.x - t.x, dy = r.y - t.y;
-          if (dx * dx + dy * dy > 1500 * 1500) continue;
-
-          const sbx = w2sx(t.x);
-          const sby = w2sy(t.y);
-
-          const sameGroup = r.node.group != null && r.node.group === t.node.group;
-          const sameOrbit = r.node.orbit != null && r.node.orbit === t.node.orbit;
-
-          // 양끝 할당 여부에 따라 색 결정
-          const bothAllocated = allocatedSet.has(r.id) && allocatedSet.has(t.id);
-          ctx.strokeStyle = bothAllocated ? activeStyle : dimStyle;
-
-          // 인접 orbitIndex (slot diff=1, wrap 포함)일 때만 arc로. 비인접은 chord.
-          let isAdjacentOrbit = false;
-          if (sameGroup && sameOrbit && r.node.orbit != null
-              && r.node.orbitIndex != null && t.node.orbitIndex != null) {
-            const slots = SKILLS_PER_ORBIT[r.node.orbit];
-            if (slots) {
-              let sd = Math.abs(r.node.orbitIndex - t.node.orbitIndex);
-              if (sd > slots / 2) sd = slots - sd;
-              isAdjacentOrbit = sd === 1;
-            }
-          }
-
-          if (isAdjacentOrbit && r.node.orbit != null) {
-            const g = groupById.get(String(r.node.group));
-            if (g) {
-              const gcx = w2sx(g.x);
-              const gcy = w2sy(g.y);
-              const radius = orbitRadii[r.node.orbit] * cam.scale;
-              const a1 = Math.atan2(say - gcy, sax - gcx);
-              const a2 = Math.atan2(sby - gcy, sbx - gcx);
-              let diff = a2 - a1;
-              while (diff > Math.PI) diff -= Math.PI * 2;
-              while (diff < -Math.PI) diff += Math.PI * 2;
-              const anticlockwise = diff < 0;
-              ctx.beginPath();
-              ctx.arc(gcx, gcy, radius, a1, a2, anticlockwise);
-              ctx.stroke();
-              continue;
-            }
-          }
-
-          // 직선: unallocated는 sprite, allocated는 stroke
-          if (!bothAllocated && useLineSprite && lineSheet && lineCoordNormal) {
-            const dx = sbx - sax;
-            const dy = sby - say;
-            const len = Math.hypot(dx, dy);
-            const angle = Math.atan2(dy, dx);
-            ctx.save();
-            ctx.translate(sax, say);
-            ctx.rotate(angle);
-            ctx.drawImage(
-              lineSheet.image,
-              lineCoordNormal.x, lineCoordNormal.y, lineCoordNormal.w, lineCoordNormal.h,
-              0, -spriteHeight / 2, len, spriteHeight,
-            );
-            ctx.restore();
-          } else {
-            ctx.beginPath();
-            ctx.moveTo(sax, say);
-            ctx.lineTo(sbx, sby);
-            ctx.stroke();
-          }
-        }
-      }
-
-      ctx.shadowBlur = 0;  // Reset shadow before node draws
-      // 3) Nodes — sprite (icon + frame) with circle fallback. Sized at atlas-native scale.
-      const margin = 80;
-      const atlasScale = atlas ? parseFloat(atlas.zoomKey) : 0.2972;
-      const allocated = allocatedRef.current;
-      // Active/Inactive 시트 분리 — 기본은 Inactive, 할당된 노드만 Active
-      const normalIconActive = atlas?.sheets.get("normalActive");
-      const normalIconInactive = atlas?.sheets.get("normalInactive");
-      const notableIconActive = atlas?.sheets.get("notableActive");
-      const notableIconInactive = atlas?.sheets.get("notableInactive");
-      const keystoneIconActive = atlas?.sheets.get("keystoneActive");
-      const keystoneIconInactive = atlas?.sheets.get("keystoneInactive");
-      const frameSheet = atlas?.sheets.get("frame");
-      const masterySheet = atlas?.sheets.get("mastery");
-
-      for (const r of nodes) {
-        const sx = w2sx(r.x);
-        const sy = w2sy(r.y);
-        if (sx < -margin || sx > width + margin || sy < -margin || sy > height + margin) continue;
-
-        let drewSprite = false;
-
-        // POE 렌더 관례: atlas-native 크기의 약 0.55배가 실제 노드 크기
-        // (atlas coord에 프레임 아트 외 여백 포함). 이렇게 하면 인접 orbit에서 선이 보임.
-        const ICON_SCALE = 0.55;
-        const FRAME_SCALE = 0.65;
-
-        if (r.kind === "mastery") {
-          if (r.node.icon && masterySheet) {
-            const ok = drawSpriteNative(
-              ctx, masterySheet, r.node.icon, sx, sy, atlasScale, cam.scale, ICON_SCALE,
-            );
-            if (ok) drewSprite = true;
-          }
-        } else {
-          const isAllocated = allocated.has(r.id);
-          if (r.node.icon) {
-            let iconSrc = isAllocated ? normalIconActive : normalIconInactive;
-            if (r.kind === "keystone") iconSrc = isAllocated ? keystoneIconActive : keystoneIconInactive;
-            else if (r.kind === "notable") iconSrc = isAllocated ? notableIconActive : notableIconInactive;
-            if (iconSrc) {
-              const ok = drawSpriteNative(
-                ctx, iconSrc, r.node.icon, sx, sy, atlasScale, cam.scale, ICON_SCALE,
-              );
-              if (ok) drewSprite = true;
-            }
-          }
-
-          const frameKey = (isAllocated ? FRAME_ALLOCATED : FRAME_UNALLOCATED)[r.kind];
-          if (frameKey && frameSheet) {
-            const ok = drawSpriteNative(
-              ctx, frameSheet, frameKey, sx, sy, atlasScale, cam.scale, FRAME_SCALE,
-            );
-            if (ok) drewSprite = true;
-          }
-        }
-
-        if (!drewSprite) {
-          const radius = Math.max(1.5, r.radius * cam.scale);
-          ctx.beginPath();
-          ctx.arc(sx, sy, radius, 0, Math.PI * 2);
-          ctx.fillStyle = NODE_COLORS[r.kind];
-          ctx.fill();
-        }
-
-        if (hoveredId === r.id) {
-          const hr = Math.max(8, r.radius * cam.scale * 1.4);
-          ctx.beginPath();
-          ctx.arc(sx, sy, hr, 0, Math.PI * 2);
-          ctx.strokeStyle = "#fff";
-          ctx.lineWidth = 2;
-          ctx.stroke();
-        }
-
-        // 검색 매칭 링 (밝은 시안, 호버와 구분)
-        if (searchMatchesRef.current.has(r.id)) {
-          const hr = Math.max(10, r.radius * cam.scale * 1.6);
-          ctx.beginPath();
-          ctx.arc(sx, sy, hr, 0, Math.PI * 2);
-          ctx.strokeStyle = "rgba(93, 173, 226, 0.95)";
-          ctx.lineWidth = 3;
-          ctx.stroke();
-        }
-      }
+      drawFrame({
+        ctx,
+        width, height,
+        camera: cameraRef.current,
+        nodes: nodesRef.current,
+        groups: groupsRef.current,
+        nodeById: nodeByIdRef.current,
+        allocated: allocatedRef.current,
+        hoveredId: hoveredIdRef.current,
+        searchMatches: searchMatchesRef.current,
+        atlas: atlasRef.current,
+        orbitRadii: orbitRadiiRef.current,
+      });
 
       rafRef.current = requestAnimationFrame(draw);
     };
@@ -659,6 +321,7 @@ export function PassiveTreeCanvas({
     rafRef.current = requestAnimationFrame(draw);
     return () => cancelAnimationFrame(rafRef.current);
   }, [loaded, width, height]);
+
 
   // Keyboard: Ctrl+Z / Ctrl+Y → undo / redo
   useEffect(() => {
@@ -880,121 +543,20 @@ export function PassiveTreeCanvas({
           패시브 트리 데이터 로드 중…
         </div>
       )}
-      {loaded && (
-        <>
-          {/* 좌상단 클래스 + 어센던시 드롭다운 */}
-          <div
-            style={{
-              position: "absolute", left: 8, top: 8,
-              display: "flex", gap: 6, alignItems: "center",
-            }}
-          >
-            <select
-              value={selectedClass ?? ""}
-              onChange={(e) => {
-                const v = e.target.value;
-                if (v === "") return;
-                pickClass(parseInt(v, 10));
-              }}
-              style={{
-                padding: "5px 10px", fontSize: 12,
-                background: selectedClass != null ? "#e8c068" : "rgba(0,0,0,0.75)",
-                color: selectedClass != null ? "#000" : "#ccc",
-                border: `1px solid ${selectedClass != null ? "#e8c068" : "#4a3f2a"}`,
-                borderRadius: 3, cursor: "pointer",
-                fontWeight: selectedClass != null ? 700 : 400,
-                outline: "none",
-              }}
-            >
-              <option value="" disabled>클래스 선택</option>
-              {CLASS_NAMES.map((name, i) => (
-                <option key={i} value={i}>{name}</option>
-              ))}
-            </select>
-            {selectedClass != null && ASCENDANCIES[selectedClass] && (
-              <select
-                value={selectedAscendancy ?? ""}
-                onChange={(e) => pickAscendancy(e.target.value || null)}
-                style={{
-                  padding: "5px 10px", fontSize: 12,
-                  background: selectedAscendancy ? "#5dade2" : "rgba(0,0,0,0.75)",
-                  color: selectedAscendancy ? "#000" : "#ccc",
-                  border: `1px solid ${selectedAscendancy ? "#5dade2" : "#2a3f4a"}`,
-                  borderRadius: 3, cursor: "pointer",
-                  fontWeight: selectedAscendancy ? 700 : 400,
-                  outline: "none",
-                }}
-              >
-                <option value="">어센던시 없음</option>
-                {ASCENDANCIES[selectedClass].map((asc) => (
-                  <option key={asc} value={asc}>{asc}</option>
-                ))}
-              </select>
-            )}
-          </div>
-          <div style={{ position: "absolute", right: 8, top: 8, display: "flex", gap: 6, alignItems: "center" }}>
-            <input
-              ref={searchInputRef}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="검색 (Ctrl+F)"
-              style={{
-                width: 160, padding: "3px 8px", fontSize: 11,
-                background: "rgba(0,0,0,0.75)", color: "#fff",
-                border: "1px solid #4a3f2a", borderRadius: 3,
-                outline: "none",
-              }}
-            />
-            {searchQuery && (
-              <span
-                style={{
-                  background: "rgba(0,0,0,0.75)", color: "#5dade2",
-                  padding: "2px 8px", borderRadius: 3, fontSize: 10,
-                }}
-              >
-                {searchMatchesRef.current.size} matches
-              </span>
-            )}
-            <span
-              style={{
-                background: "rgba(0,0,0,0.6)", color: "#aaa",
-                padding: "2px 8px", borderRadius: 3, fontSize: 10,
-              }}
-            >
-              {nodeCount} nodes
-            </span>
-          </div>
-          <div
-            style={{
-              position: "absolute", left: 8, bottom: 8,
-              background: "rgba(0,0,0,0.75)", color: "#e8c068",
-              padding: "4px 10px", borderRadius: 3, fontSize: 12,
-              border: "1px solid #4a3f2a", pointerEvents: "none",
-              fontWeight: 600,
-            }}
-          >
-            {pointsUsed} pts{jewelSockets > 0 && ` · ${jewelSockets} sockets`}
-          </div>
-          <div
-            style={{
-              position: "absolute", right: 8, bottom: 8,
-              background: "rgba(0,0,0,0.82)", color: "#bbb",
-              padding: "8px 12px", borderRadius: 4, fontSize: 11,
-              border: "1px solid #4a3f2a", pointerEvents: "none",
-              maxWidth: 260, lineHeight: 1.5,
-            }}
-          >
-            <div style={{ color: "#e8c068", fontWeight: 600, marginBottom: 4 }}>
-              사용법
-            </div>
-            <div><b style={{ color: "#fff" }}>좌클릭</b> 빈 노드 — 최단 경로로 자동 할당</div>
-            <div><b style={{ color: "#fff" }}>좌클릭</b> 할당된 노드 — 해당 노드 + 도달 불가 하위 해제</div>
-            <div><b style={{ color: "#fff" }}>드래그</b> — 이동 · <b style={{ color: "#fff" }}>휠</b> — 줌</div>
-            <div><b style={{ color: "#fff" }}>Ctrl+Z / Ctrl+Y</b> — 되돌리기 / 다시</div>
-            <div><b style={{ color: "#fff" }}>Ctrl+F</b> — 노드 검색 (이름/옵션)</div>
-          </div>
-        </>
-      )}
+      <TreeControls
+        loaded={loaded}
+        nodeCount={nodeCount}
+        selectedClass={selectedClass}
+        selectedAscendancy={selectedAscendancy}
+        searchQuery={searchQuery}
+        searchMatchCount={searchMatchesRef.current.size}
+        pointsUsed={pointsUsed}
+        jewelSockets={jewelSockets}
+        searchInputRef={searchInputRef}
+        onPickClass={pickClass}
+        onPickAscendancy={pickAscendancy}
+        onSearchChange={setSearchQuery}
+      />
       {tooltip && (
         <div
           style={{

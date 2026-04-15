@@ -43,3 +43,6 @@
 | src/utils/passiveTree.dealloc.test.ts | dealloc cascade (고아 정리) 테스트 (5 케이스) | 아니오 |
 | src/utils/passiveTreeUrl.ts | POE 공식 passive-tree URL 디코더 (base64url v6 포맷) | 아니오 |
 | src/utils/passiveTreeUrl.test.ts | URL 디코더 단위 테스트 (9 케이스) | 아니오 |
+| src/utils/passiveTreeConstants.ts | 상수 + classifyNode/NodeKind (Canvas 분리) | 아니오 |
+| src/utils/passiveTreeRender.ts | 순수 Canvas draw 함수 (background/edges/nodes) | 아니오 |
+| src/components/passive-tree/TreeControls.tsx | 드롭다운/검색/카운터/가이드 UI 분리 | 아니오 |
