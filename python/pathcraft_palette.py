@@ -100,6 +100,15 @@ LINKS_TIER_COLORS: dict[str, str] = {
     "P6_LOW":      "160 55 45",    # Dark Red      — 6소켓
 }
 
+GOLD_TIER_COLORS: dict[str, str] = {
+    "P1_KEYSTONE": "255 240 150",  # Lemonade       — 5000+ 최상급 더미
+    "P2_CORE":     "255 220 100",  # Bright Gold    — 2500+
+    "P3_USEFUL":   "230 190 75",   # Warm Gold      — 1000+
+    "P4_SUPPORT":  "200 160 60",   # Antique Gold   — 100+
+    "P5_MINOR":    "170 135 50",   # Dim Gold       — 1+
+    "P6_LOW":      "140 110 40",   # Dark Gold
+}
+
 FRAGMENT_TIER_COLORS: dict[str, str] = {
     "P1_KEYSTONE": "230 200 255",  # Lavender Mist
     "P2_CORE":     "210 180 240",  # Soft Lavender
@@ -119,6 +128,7 @@ TIER_COLORS_BY_CATEGORY: dict[str, dict[str, str]] = {
     "jewel":    JEWEL_TIER_COLORS,
     "fragment": FRAGMENT_TIER_COLORS,
     "links":    LINKS_TIER_COLORS,
+    "gold":     GOLD_TIER_COLORS,
 }
 
 

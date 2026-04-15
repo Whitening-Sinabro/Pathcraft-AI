@@ -13,10 +13,17 @@ const STRICTNESS_OPTIONS = [
 interface FilterPanelProps {
   buildJson: string;
   coachingJson: string;
+  extraBuildJsons?: string[];
+  stageMode?: boolean;
+  alSplit?: number;
 }
 
-export function FilterPanel({ buildJson, coachingJson }: FilterPanelProps) {
+export function FilterPanel({
+  buildJson, coachingJson,
+  extraBuildJsons = [], stageMode = false, alSplit = 67,
+}: FilterPanelProps) {
   const [strictness, setStrictness] = useState(3);
+  const [mode, setMode] = useState<"ssf" | "hcssf" | "trade">("ssf");
   const [filterResult, setFilterResult] = useState<FilterResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -26,10 +33,15 @@ export function FilterPanel({ buildJson, coachingJson }: FilterPanelProps) {
     setError("");
     setLoading(true);
     try {
-      const raw = await invoke<string>("generate_filter", {
-        buildJson,
+      // Multi-POB 경로: 보조 POB 있으면 generate_filter_multi
+      const allBuilds = [buildJson, ...extraBuildJsons];
+      const raw = await invoke<string>("generate_filter_multi", {
+        buildJsons: allBuilds,
         coachingJson,
         strictness,
+        stage: stageMode,
+        mode,
+        alSplit,
       });
       setFilterResult(JSON.parse(raw));
     } catch (e) {
@@ -79,6 +91,31 @@ export function FilterPanel({ buildJson, coachingJson }: FilterPanelProps) {
             {opt.label}
           </button>
         ))}
+      </div>
+
+      {/* 모드 선택 */}
+      <div style={{ display: "flex", gap: 4, marginBottom: 12, flexWrap: "wrap", fontSize: 12 }}>
+        <span style={{ alignSelf: "center", color: "#868e96" }}>모드:</span>
+        {(["ssf", "hcssf", "trade"] as const).map((m) => (
+          <button
+            key={m}
+            onClick={() => setMode(m)}
+            style={{
+              padding: "4px 10px", borderRadius: 4, fontSize: 11, fontWeight: 600,
+              border: mode === m ? "2px solid #2b8a3e" : "1px solid #dee2e6",
+              background: mode === m ? "#d3f9d8" : "#fff",
+              color: mode === m ? "#2b8a3e" : "#495057",
+              cursor: "pointer",
+            }}
+          >
+            {m.toUpperCase()}
+          </button>
+        ))}
+        {extraBuildJsons.length > 0 && (
+          <span style={{ alignSelf: "center", marginLeft: 8, color: "#f76707", fontWeight: 600 }}>
+            Multi-POB: 주 1 + 보조 {extraBuildJsons.length} {stageMode ? "(Stage)" : "(Union)"}
+          </span>
+        )}
       </div>
 
       <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>

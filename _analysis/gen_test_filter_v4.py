@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """Aurora v4 — Sanavi 실제 tier 데이터 기반 테스트 필터 생성.
 
-이전 v3가 Unique/Gem/Jewel/Fragment 조건을 수동으로 만들었던 문제 수정.
-sanavi_tier_data.json 의 실제 BaseType 리스트로 모든 카테고리 tier rule 작성.
+DEPRECATED (2026-04-13): β-5b에서 pathcraft_sections / sections_* 삭제됨.
+이 스크립트는 ImportError로 실행 불가. 히스토리 참고용으로만 보존.
+production 경로는 `python python/filter_generator.py --strictness N`.
 """
 import sys, json, os
 sys.path.insert(0, 'D:/Pathcraft-AI/python')

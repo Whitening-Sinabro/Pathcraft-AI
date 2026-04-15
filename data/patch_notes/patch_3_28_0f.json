@@ -1,0 +1,40 @@
+{
+  "version": "3.28.0f",
+  "title": "3.28.0f Patch Notes",
+  "url": "https://www.pathofexile.com/forum/view-thread/3927165",
+  "patch_type": "minor",
+  "collected_at": "2026-04-15T16:43:02.693972",
+  "all_changes": [
+    "3.28.0f Patch Notes",
+    "3.28.0f Patch Notes",
+    "Added support for the upcoming Gauntlet Event.",
+    "The Currency Exchange now ignores currency inside the map device storage.",
+    "Fixed several monster using additive ailment effect and duration on their skills, instead of a multiplicative. As an example, this could have resulted in a player getting Shocked even if they had 100% reduced effect of Shock on them.",
+    "The HUD notification that shows when Faustus sells one of your items now has a different message when the sold item is in a different league.",
+    "While viewing the Atlas, right clicking a Chronicle of Atzoatl will now work the same as it does for Unique Maps. i.e. The Atlas pans to that location and opens the Map Device with the item already placed.",
+    "Fixed a bug where monsters could be invisible in Breach Hive Colonies.",
+    "Fixed a rare bug where Zombies created from the Raise Zombie of Falling gem could get up and follow you, instead of remaining dead.",
+    "Fixed a bug where you wouldn't get a voided character notification after your hideout was timed out.",
+    "Fixed a bug where you could not right click to remove shrines that were carried over from another area, such as from a Mirage.",
+    "Fixed a bug where the Delve Curse on Hit Ring Modifiers were not correctly showing in the Modifier list if a Reflecting Mist was used on the Ring.",
+    "Fixed an Atlas highlighting bug with uncompleted maps in Voidstone-upgraded regions.",
+    "Fixed a client crash in Ultimatum.",
+    "Fixed a client crash when interacting with a crafting bench while using a controller.",
+    "Fixed a client crash on consoles when selecting an Eldritch Influence on the map device.",
+    "Fixed a client crash on PS4 and PS5.",
+    "Last bumped on Apr 14, 2026, 5:19:49 PM"
+  ],
+  "skill_buffs": [
+    {
+      "raw": "The HUD notification that shows when Faustus sells one of your items now has a different message when the sold item is in a different league.",
+      "type": "buff"
+    }
+  ],
+  "skill_nerfs": [
+    {
+      "raw": "Fixed several monster using additive ailment effect and duration on their skills, instead of a multiplicative. As an example, this could have resulted in a player getting Shocked even if they had 100% reduced effect of Shock on them.",
+      "type": "nerf"
+    }
+  ],
+  "total_changes": 18
+}

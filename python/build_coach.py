@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-PathcraftAI Build Coach — HCSSF 빌드 코칭 시스템
+PathcraftAI Build Coach — POE 빌드 범용 코칭 시스템
 POB 파싱 결과를 받아서 Claude Sonnet으로 단계별 가이드 생성
 """
 
@@ -28,39 +28,49 @@ except ImportError:
     sys.exit(1)
 
 
-SYSTEM_PROMPT = """너는 Path of Exile HCSSF 전문 빌드 코치다.
+SYSTEM_PROMPT = """너는 Path of Exile 범용 빌드 코치다.
 
 역할:
-- 유저가 제공한 POB 빌드 데이터를 분석하고 HCSSF 기준 단계별 가이드를 생성한다.
-- 생존력 > 공격력 우선. 한 번 죽으면 끝이다.
-- 모든 추천은 SSF(자급자족) 기준. 거래소 없다.
+- 유저가 제공한 POB 빌드 데이터를 분석하고 빌드 특성에 맞는 단계별 가이드를 생성한다.
+- **리그/모드 중립**: Softcore Trade / Softcore SSF / HC Trade / HCSSF 모두 대상. 빌드 자체에 HC/SC 단서가 없으면 균형 잡힌 조언.
+- 생존·공격·기어링·맵핑을 **고르게** 다룬다. HCSSF 생존 한쪽으로 편향 금지.
+- SSF 기어 획득 경로는 명시하되 "거래 불가능" 전제로 강제하지 않음 — trade 플레이어에게도 유용한 파밍 경로 기준.
 
 출력 형식 (반드시 JSON):
 {
   "build_summary": "빌드 한줄 요약",
-  "tier": "S/A/B/C/D (HCSSF 기준 생존력 등급)",
-  "strengths": ["강점 1", "강점 2"],
-  "weaknesses": ["약점 1 (HCSSF 관점)", "약점 2"],
+  "tier": "S/A/B/C/D (종합 평가 — DPS 규모 + 생존력 + 기어링 접근성 + 맵핑 편의 복합)",
+  "strengths": ["강점 1 (구체적 수치/매커닉)", "강점 2"],
+  "weaknesses": ["약점 1 (다양한 관점 — DPS 한계/방어 구멍/기어 종속/플레이 난이도 등)", "약점 2"],
   "leveling_guide": {
-    "act1_4": "Act 1-4 레벨링 전략",
-    "act5_10": "Act 5-10 전략",
-    "early_maps": "화이트/옐로우맵 전략",
-    "endgame": "레드맵+ 전략"
+    "act1_4": "Act 1-4 레벨링 전략 (패시브 우선순위, 스킬 전환 타이밍, 첫 주요 장비, 주의 보스)",
+    "act5_10": "Act 5-10 전략 (카루이 저항 -30% 3번 대응, Lab 진입, 키스톤 확보, 체크포인트)",
+    "early_maps": "화이트/옐로우맵 전환 전략 (아틀라스 패시브 할당, 첫 6-link, 레지스트 캡 75%)",
+    "endgame": "레드맵+ 전략 (기어 목표 / 파밍 경로 / 핀나클 보스 순서 — 시어링/이터/쉐이퍼/엘더/메이븐)"
   },
   "leveling_skills": {
     "damage_type": "물리/카오스/화염/냉기/번개/혼돈 등 빌드 데미지 유형",
     "recommended": {
       "name": "기본 추천 레벨링 스킬 (못 고르겠으면 이거)",
-      "links": "메인 + 서포트 조합",
+      "links_progression": [
+        {"level_range": "1-8 (Act 1 초반)", "gems": ["메인스킬", "서포트1"]},
+        {"level_range": "8-18 (Act 1~2)", "gems": ["메인스킬", "서포트1", "서포트2"]},
+        {"level_range": "18-31 (Act 3~4)", "gems": ["메인스킬", "서포트1", "서포트2", "서포트3"]},
+        {"level_range": "31+ (Act 5+)", "gems": ["메인스킬", "4-link 최종 조합"]}
+      ],
       "reason": "왜 이걸 추천하는지",
       "transition_level": "최종 빌드 스킬로 전환하는 레벨"
     },
     "options": [
       {
         "name": "레벨링 스킬 옵션",
-        "links": "서포트 조합",
+        "links_progression": [
+          {"level_range": "1-8", "gems": ["메인스킬", "서포트1"]},
+          {"level_range": "8-18", "gems": ["메인스킬", "서포트1", "서포트2"]},
+          {"level_range": "18-31", "gems": ["메인스킬", "서포트1", "서포트2", "서포트3"]}
+        ],
         "speed": "빠름/보통/느림 (레벨링 속도)",
-        "safety": "높음/보통/낮음 (HCSSF 안전도)",
+        "safety": "높음/보통/낮음 (레벨링 중 사망 위험도 — HC 플레이어는 이 기준 중시)",
         "reason": "이 옵션의 장단점"
       }
     ],
@@ -149,17 +159,18 @@ SYSTEM_PROMPT = """너는 Path of Exile HCSSF 전문 빌드 코치다.
 - 반드시 유효한 JSON만 출력. 마크다운이나 설명 텍스트 금지.
 - 한국어로 작성.
 - 아이템 획득 방법은 구체적으로 (어떤 보스, 어떤 디비니 카드, 어떤 맵).
-- 레벨링 가이드는 HCSSF 생존 중심 (저항 캡, 라이프 확보 시점 명시).
+- **leveling_guide 5요소 균형 포함** (HCSSF 편향 금지, SC/HC 모두 대상): (a) 생존 — 레지스트 목표(카루이 후 75+), 라이프/ES 마일스톤 (Act 4=1800+, Act 10=3500+, 얼리맵=4500+ 기준선) / (b) 공격 — 스킬 전환 타이밍, 클리어 속도 조언 / (c) 기어링 — 해당 구간 핵심 업그레이드, 퀘스트 보상 활용 / (d) 맵핑/레벨링 효율 — 파밍 경로, 보스 순서 / (e) 다음 구간 진입 조건. 한 관점으로 편향되지 않고 고르게 작성.
 - leveling_skills.options는 최소 2개 이상 제시. 속도/안전도 균형이 다른 옵션.
 - leveling_skills.recommended는 "못 고르겠으면 이거 써라" 기본 추천. 예: 카오스 DoT면 Blight+Contagion.
+- **links_progression은 반드시 구체적 레벨 구간별 젬 배열로 작성**: 실제 퀘스트 보상 타이밍 반영 (Act 1 초반 Lv1-4 기본 젬만 / Lv8 Mercy Mission 1 퀘스트 후 / Lv18 Breaking Some Eggs 후 / Lv31 Ribbon Spool 후). 각 구간 `gems` 배열은 해당 레벨에서 실제 소켓 가능한 젬만 포함. 최소 3단계 이상. 4-link 완성 시점 명시.
 - aura_utility_progression 배열은 구간별로 작성: 캠페인(Act 1~10) + 맵(화이트맵 T1-5 / 옐로우맵 T6-10 / 얼리레드 T11-13 / T16 T14-16 / 핀나클 보스). 최소 7단계.
 - 오라는 구간별로 구체적으로 (레벨 X부터 Y 사용, Z로 교체). 마나 예약 합산을 고려해서 실제 사용 가능한 조합만 제시.
 - 전령(Herald)이 유효하면 반드시 포함. 마나 여유 없으면 방어 오라 우선, 전령 제거 명시.
 - 유틸리티: 이동기 (Flame Dash/Leap Slam/Dash 등), 가드 스킬 (Steelskin/Molten Shell), 워크라이, CWDT 조합 모두 포함.
 - 가드 스킬은 Lv38 이후 CWDT 자동화 권장. CWDT 레벨과 가드 스킬 레벨 매칭도 명시.
-- 얼리레드(T11-13) 이후 구간은 반드시 SSF fallback 포함: Enlighten 못 구할 경우 대안 (마나 예약 효율 패시브, Divine Blessing, Purity of Elements 등).
-- 각 맵 구간마다 defense_checkpoint 포함: 라이프, 저항, 에일먼트 면역, DPS 기준.
-- 얼리레드(T11-13)는 HCSSF 첫 번째 '벽', T16(T14-16)은 두 번째 '벽'. 기어 부족하면 이전 티어 파밍 권장.
+- 얼리레드(T11-13) 이후 구간은 SSF fallback 포함 (Enlighten 못 구할 때 대안). Trade 플레이어는 구매 가능 명시.
+- 각 맵 구간마다 defense_checkpoint 포함: 라이프, 저항, 에일먼트 면역, DPS 기준 — HC/SC 공통 기준선.
+- 얼리레드(T11-13)는 첫 번째 난이도 급상승 구간, T16(T14-16)은 두 번째. 기어 부족하면 이전 티어 파밍 권장.
 - 핀나클 보스(시어링/이터/메이븐/쉐이퍼/엘더)는 T16 파밍 도중 진행. 보이드스톤 4개 타이밍: VS1(시어링+이터, 얼리레드) → VS2(이곤 퀘스트, T16) → VS3(쉐이퍼+엘더, T16 안정 후) → VS4(메이븐, 선택).
 - 장비 업그레이드 타이밍 필수 포함: 각 구간에서 어떤 슬롯을 어떤 방법으로 업그레이드할지 (에센스/하베스트/벤치 등). 얼리레드에서 기어 부족하면 옐로우맵 파밍 권장.
 - 오라 3개 이상 동시 사용 시 마나 예약 합계를 계산해서 실현 가능한 조합만 제시. "Enlighten 있으면" 식 조건부는 SSF에서 기본값이 아님.
@@ -167,8 +178,8 @@ SYSTEM_PROMPT = """너는 Path of Exile HCSSF 전문 빌드 코치다.
 
 build_rating 규칙:
 - 5개 카테고리 모두 1~5 정수. 1=매우 어려움/낮음, 5=매우 쉬움/높음.
-- HCSSF 관점에서 평가. SSF 기어링이 어려운 빌드는 gearing_difficulty 낮게.
-- hcssf_viability와 tier는 일관성 유지 (S=5, A=4, B=3, C=2, D=1).
+- **범용 평가**: newbie_friendly(입문자 접근성) / gearing_difficulty(기어 획득 난이도 SSF 기준) / play_difficulty(플레이 복잡도) / league_start_viable(리그 시작 적합도) / hcssf_viability(하드코어 SSF 적합도, 생존 편향 지표).
+- tier는 종합 평가 (DPS 규모 + 생존 + 기어링 + 플레이 편의 복합). hcssf_viability 하나로 tier 결정 금지.
 
 gear_progression 규칙:
 - 핵심 슬롯 최소 6개 (Body, Helmet, Weapon, Boots, Belt, Amulet). 빌드에 중요한 슬롯만.
@@ -184,7 +195,7 @@ map_mod_warnings 규칙:
 
 variant_snapshots 규칙:
 - 최소 5단계: Act 1-3, Act 4-10, 화이트맵, 옐로우맵, 레드맵+.
-- 각 구간의 defense_target은 HCSSF 최소 기준 (이 수치 이하면 다음 구간 진입 금지).
+- 각 구간의 defense_target은 안전하게 진입 가능한 최소 기준 (이 수치 이하면 데스 리스크 경고).
 - main_skill은 서포트 젬까지 포함 (예: "Essence Drain - Controlled Destruction - Efficacy - Void Manipulation").
 """
 
@@ -255,7 +266,74 @@ def load_patch_context() -> dict:
     return {}
 
 
-def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> dict:
+def _trim_build_for_prompt(build: dict) -> dict:
+    """프롬프트 사이즈 축소 — 장비 verbose mods 제거, 핵심 메타만 유지.
+
+    ~30~50% 축소 가능 (큰 빌드일수록 효과 큼).
+    """
+    if not isinstance(build, dict):
+        return build
+    trimmed = {
+        "meta": build.get("meta", {}),
+        "stats": build.get("stats", {}),
+        "build_notes": build.get("build_notes", "")[:500],  # 노트 첫 500자만
+    }
+    # progression_stages 트림
+    stages = build.get("progression_stages", [])
+    trimmed_stages = []
+    for s in stages:
+        if not isinstance(s, dict):
+            continue
+        ts = {
+            "stage_name": s.get("stage_name"),
+            "ascendancy_order": s.get("ascendancy_order", []),
+            "bandit": s.get("bandit"),
+            "pantheon": s.get("pantheon"),
+            "passive_tree_url": s.get("passive_tree_url"),
+        }
+        # gem_setups: links 텍스트만 유지 (reasoning=None 같은 메타 제거)
+        gems = s.get("gem_setups", {})
+        if isinstance(gems, dict):
+            ts["gem_setups"] = {
+                k: (v.get("links") if isinstance(v, dict) else v)
+                for k, v in gems.items()
+            }
+        # alternate_gem_sets도 동일 압축
+        alt = s.get("alternate_gem_sets", {})
+        if alt:
+            ts["alternate_gem_sets"] = {
+                title: {
+                    k: (v.get("links") if isinstance(v, dict) else v)
+                    for k, v in gset.items()
+                }
+                for title, gset in alt.items() if isinstance(gset, dict)
+            }
+        # gear: 핵심 필드만 (rarity, name, base_type, mods 첫 3개)
+        gear = s.get("gear_recommendation", {})
+        if isinstance(gear, dict):
+            ts["gear_recommendation"] = {
+                slot: {
+                    "rarity": item.get("rarity"),
+                    "name": item.get("name"),
+                    "base_type": item.get("base_type", item.get("base")),
+                    "mods": (item.get("mods", []) or [])[:3],  # mods 첫 3개만
+                    "sockets": item.get("sockets"),
+                } if isinstance(item, dict) else item
+                for slot, item in gear.items()
+            }
+        trimmed_stages.append(ts)
+    trimmed["progression_stages"] = trimmed_stages
+    # items: 이름/rarity만
+    items = build.get("items", [])
+    trimmed["items"] = [
+        {"rarity": i.get("rarity"), "name": i.get("name")}
+        if isinstance(i, dict) else i
+        for i in items
+    ]
+    return trimmed
+
+
+def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
     client = anthropic.Anthropic()
 
     archetype = detect_archetype(build_data)
@@ -303,10 +381,77 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
     except (json.JSONDecodeError, KeyError, TypeError) as e:
         logger.warning(f"Wiki 데이터 파싱 오류: {e}")
 
-    context_parts = [f"이 POB 빌드를 HCSSF 기준으로 코칭해줘:\n\n{json.dumps(build_data, ensure_ascii=False, indent=2)}"]
+    # 4-stage progression 지원: __extra_builds__ 필드 있으면 보조 POB들의 skills/gear 요약 추출
+    # get + 분리 dict 생성 — 원본 mutate 회피 (호출자가 동일 build_data 참조해도 안전)
+    extra_builds = (build_data.get("__extra_builds__", [])
+                    if isinstance(build_data, dict) else [])
+    primary_build = (
+        {k: v for k, v in build_data.items() if k != "__extra_builds__"}
+        if isinstance(build_data, dict) else build_data
+    )
+    primary_build = _trim_build_for_prompt(primary_build)
+
+    # pob_parser의 alternate_gem_sets (비활성 SkillSet) — 레벨링 SkillSet 정보 소스
+    alternate_skill_info = ""
+    if isinstance(primary_build, dict):
+        stages = primary_build.get("progression_stages", [])
+        if stages and isinstance(stages[0], dict):
+            alt_sets = stages[0].get("alternate_gem_sets", {})
+            if alt_sets:
+                alt_lines = []
+                for title, gems in alt_sets.items():
+                    gems_text = ", ".join(
+                        f"{label}({v.get('links','') if isinstance(v, dict) else v})"
+                        for label, v in gems.items()
+                    )
+                    alt_lines.append(f"- **{title}**: {gems_text}")
+                alternate_skill_info = "\n".join(alt_lines)
+
+    context_parts = [f"이 POB 빌드를 범용(SC/HC/SSF/Trade 전부) 관점으로 분석하고 고르게 코칭해줘 — 한 모드로 편향되지 않게:\n\n{json.dumps(primary_build, ensure_ascii=False)}"]
+
+    if alternate_skill_info:
+        context_parts.append(
+            "\n\n**POB 내 보조 SkillSet** (주 스킬 외에 이 POB에 저장된 레벨링/전환 스킬 세트 — "
+            "`leveling_skills.options` 및 `skill_transitions` 작성 시 반드시 반영):\n"
+            + alternate_skill_info
+        )
+        logger.info("alternate_gem_sets: %d개 보조 SkillSet 컨텍스트 추가",
+                    len(alt_sets) if isinstance(primary_build, dict) and primary_build.get("progression_stages") else 0)
+
+    # 사용자가 2단계 보조 POB를 추가했으면, 그 POB들의 전체 progression을 AI에 전달
+    if extra_builds:
+        progression_summary = []
+        for i, eb in enumerate(extra_builds, start=2):
+            if not isinstance(eb, dict):
+                continue
+            meta = eb.get("meta", {})
+            name = meta.get("build_name", f"POB {i}")
+            lvl = meta.get("class_level", "?")
+            stage = eb.get("progression_stages", [{}])[0] if eb.get("progression_stages") else {}
+            gems = stage.get("gem_setups", {})
+            gear = stage.get("gear_recommendation", {})
+            gems_text = ", ".join(
+                f"{label}({v.get('links','') if isinstance(v, dict) else ', '.join(v) if isinstance(v, list) else v})"
+                for label, v in gems.items()
+            )
+            uniques = [g.get("name") for g in gear.values() if isinstance(g, dict) and g.get("rarity") == "Unique"]
+            progression_summary.append(
+                f"### {i}단계 POB: {name} (Lv {lvl})\n"
+                f"- 스킬 그룹: {gems_text or '(없음)'}\n"
+                f"- 주요 유니크: {', '.join(uniques) if uniques else '(없음)'}"
+            )
+        if progression_summary:
+            context_parts.append(
+                "\n\n**중요**: 유저가 제공한 **전체 스킬 전환 progression** — 1단계(최종 빌드) 외에도 "
+                "여러 스테이지 POB가 있음. 레벨링 가이드 작성 시 이 progression 순서와 각 스테이지 "
+                "스킬을 반드시 반영해라. `leveling_skills.options`에 아래 POB들의 스킬을 옵션으로 포함하고, "
+                "`skill_transitions` 배열에 실제 전환 Lv/스킬 반영:\n\n"
+                + "\n\n".join(progression_summary)
+            )
+            logger.info("4-stage progression: %d개 보조 POB 컨텍스트 추가", len(extra_builds))
 
     if wiki_item_info:
-        context_parts.append(f"\n\n유니크 아이템 실제 획득 정보 (Wiki 기준, 이 데이터를 반드시 참고):\n{json.dumps(wiki_item_info, ensure_ascii=False, indent=2)}")
+        context_parts.append(f"\n\n유니크 아이템 실제 획득 정보 (Wiki 기준, 이 데이터를 반드시 참고):\n{json.dumps(wiki_item_info, ensure_ascii=False)}")
 
     if archetype_data:
         leveling = archetype_data.get("leveling_skill_progression", {})
@@ -314,15 +459,15 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
         aura_utility = archetype_data.get("aura_herald_utility_by_level", [])
         curses = archetype_data.get("curse_setup", {})
         movement = archetype_data.get("movement_skill", {})
-        context_parts.append(f"\n\n아키타입: {archetype}\n레벨링 스킬 데이터:\n{json.dumps(leveling, ensure_ascii=False, indent=2)}")
+        context_parts.append(f"\n\n아키타입: {archetype}\n레벨링 스킬 데이터:\n{json.dumps(leveling, ensure_ascii=False)}")
         if aura_utility:
-            context_parts.append(f"\n오라/전령/유틸리티 구간별 추천 (이 데이터를 기반으로 aura_utility_progression 작성):\n{json.dumps(aura_utility, ensure_ascii=False, indent=2)}")
+            context_parts.append(f"\n오라/전령/유틸리티 구간별 추천 (이 데이터를 기반으로 aura_utility_progression 작성):\n{json.dumps(aura_utility, ensure_ascii=False)}")
         else:
-            context_parts.append(f"\n오라 추천 (요약):\n{json.dumps(auras, ensure_ascii=False, indent=2)}")
+            context_parts.append(f"\n오라 추천 (요약):\n{json.dumps(auras, ensure_ascii=False)}")
         if curses:
-            context_parts.append(f"\n저주 추천:\n{json.dumps(curses, ensure_ascii=False, indent=2)}")
+            context_parts.append(f"\n저주 추천:\n{json.dumps(curses, ensure_ascii=False)}")
         if movement:
-            context_parts.append(f"\n이동기 추천:\n{json.dumps(movement, ensure_ascii=False, indent=2)}")
+            context_parts.append(f"\n이동기 추천:\n{json.dumps(movement, ensure_ascii=False)}")
 
     # 공통 템플릿에서 보이드스톤/장비 타이밍 로드
     common_path = Path(__file__).resolve().parent.parent / "data" / "guide_templates" / "common_template.json"
@@ -334,47 +479,128 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
         vs_data = common_data.get("voidstone_progression", {})
         gear_data = common_data.get("gear_upgrade_timeline", {})
         if vs_data:
-            context_parts.append(f"\n\n보이드스톤 진행 (3.28 미라지):\n{json.dumps(vs_data, ensure_ascii=False, indent=2)}")
+            context_parts.append(f"\n\n보이드스톤 진행 (3.28 미라지):\n{json.dumps(vs_data, ensure_ascii=False)}")
         if gear_data:
-            context_parts.append(f"\n장비 업그레이드 타이밍:\n{json.dumps(gear_data, ensure_ascii=False, indent=2)}")
+            context_parts.append(f"\n장비 업그레이드 타이밍:\n{json.dumps(gear_data, ensure_ascii=False)}")
 
     # 게임 데이터 컨텍스트 (추출된 실제 데이터 우선, 폴백으로 기존 quest_rewards)
     if game_data_context:
         context_parts.append(f"\n\n{game_data_context}")
     elif class_rewards:
         char_class = build_data.get("meta", {}).get("class", "")
-        context_parts.append(f"\n\n{char_class} 클래스 퀘스트 젬 보상:\n{json.dumps(class_rewards, ensure_ascii=False, indent=2)}")
+        context_parts.append(f"\n\n{char_class} 클래스 퀘스트 젬 보상:\n{json.dumps(class_rewards, ensure_ascii=False)}")
 
     # 최신 패치 컨텍스트 주입
     patch_context = load_patch_context()
     if patch_context:
         patch_ver = patch_context.get("version", "")
         logger.info(f"패치 컨텍스트 로드: {patch_ver}")
-        context_parts.append(f"\n\n최신 패치 정보 ({patch_ver}):\n{json.dumps(patch_context, ensure_ascii=False, indent=2)}")
+        context_parts.append(f"\n\n최신 패치 정보 ({patch_ver}):\n{json.dumps(patch_context, ensure_ascii=False)}")
         context_parts.append("\n위 패치 정보를 반드시 참고해서 답변해줘. 버프된 스킬은 추천도를 올리고, 너프된 스킬은 주의사항에 포함해.")
 
     user_message = "\n".join(context_parts)
 
-    logger.info(f"Claude {model}에게 빌드 코칭 요청 중...")
-
-    response = client.messages.create(
-        model=model,
-        max_tokens=16384,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": user_message}]
+    # 프롬프트 크기에 따라 max_tokens 동적 조정 (4-stage 같은 큰 컨텍스트 → 출력도 커짐)
+    prompt_chars = len(user_message) + len(SYSTEM_PROMPT)
+    # 대략 8192(기본) ~ 32000 (Sonnet 4.6 최대 output 64k까지 가능하나 32k로 안전)
+    max_out = 32000 if prompt_chars > 30000 else 16384
+    # 큰 요청은 SDK가 스트리밍 강제 (>10분 가능성). 30k자 또는 max_out>=16384면 스트리밍 사용.
+    use_streaming = prompt_chars > 30000 or max_out >= 16384
+    logger.info(
+        f"Claude {model}에게 빌드 코칭 요청 중 "
+        f"(prompt~{prompt_chars}자, max_out={max_out}, streaming={use_streaming})..."
     )
 
-    raw_text = response.content[0].text
+    if use_streaming:
+        # 스트리밍 — chunk 누적
+        raw_text = ""
+        stop_reason = None
+        with client.messages.stream(
+            model=model,
+            max_tokens=max_out,
+            system=SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": user_message}],
+        ) as stream:
+            for text_chunk in stream.text_stream:
+                raw_text += text_chunk
+            final_msg = stream.get_final_message()
+            stop_reason = getattr(final_msg, "stop_reason", None)
+            # 토큰 정보 (logging용)
+            response = final_msg
+    else:
+        response = client.messages.create(
+            model=model,
+            max_tokens=max_out,
+            system=SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": user_message}]
+        )
+        raw_text = response.content[0].text
+        stop_reason = getattr(response, "stop_reason", None)
+    if stop_reason == "max_tokens":
+        logger.warning(
+            "Claude 응답이 max_tokens(%d) 에서 잘림 — JSON 복구 시도",
+            max_out,
+        )
 
-    try:
-        result = json.loads(raw_text)
-    except json.JSONDecodeError:
-        start = raw_text.find('{')
-        end = raw_text.rfind('}') + 1
-        if start != -1 and end > start:
-            result = json.loads(raw_text[start:end])
-        else:
-            result = {"error": "JSON 파싱 실패", "raw": raw_text}
+    # JSON 파싱: 3단계 복구 시도
+    def _parse_or_repair(text: str) -> dict:
+        # 1) 그대로 파싱
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            pass
+        # 2) 첫 '{' ~ 마지막 '}' 부분 추출
+        s = text.find('{')
+        e = text.rfind('}')
+        if s != -1 and e > s:
+            try:
+                return json.loads(text[s:e + 1])
+            except json.JSONDecodeError:
+                pass
+        # 3) Truncation 복구 — 마지막 완전한 키-값까지만 취하고 닫음
+        if s != -1:
+            segment = text[s:]
+            # 마지막으로 닫힌 값 위치 추정 — 콤마 뒤 또는 닫는 괄호 전
+            # 간단 휴리스틱: 깊이 tracking + 마지막 유효 offset 찾기
+            depth = 0
+            in_str = False
+            escape = False
+            last_valid = -1
+            for i, ch in enumerate(segment):
+                if escape:
+                    escape = False
+                    continue
+                if ch == '\\' and in_str:
+                    escape = True
+                    continue
+                if ch == '"' and not escape:
+                    in_str = not in_str
+                    continue
+                if in_str:
+                    continue
+                if ch == '{' or ch == '[':
+                    depth += 1
+                elif ch == '}' or ch == ']':
+                    depth -= 1
+                    if depth == 0:
+                        last_valid = i + 1
+                elif ch == ',' and depth == 1:
+                    last_valid = i  # 최상위 콤마는 객체 경계
+            if last_valid > 0:
+                candidate = segment[:last_valid].rstrip().rstrip(',')
+                # 닫힘 부족 시 보충
+                open_braces = candidate.count('{') - candidate.count('}')
+                open_brackets = candidate.count('[') - candidate.count(']')
+                candidate += ']' * open_brackets + '}' * open_braces
+                try:
+                    repaired = json.loads(candidate)
+                    logger.warning("JSON truncation 복구 성공 (%d자 보존)", len(candidate))
+                    return repaired
+                except json.JSONDecodeError as e:
+                    logger.error("JSON 복구 실패: %s", e)
+        return {"error": "JSON 파싱 실패", "raw": text, "stop_reason": stop_reason}
+
+    result = _parse_or_repair(raw_text)
 
     result.setdefault("aura_utility_progression", [])
     result.setdefault("leveling_skills", {})
@@ -383,6 +609,19 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
     result.setdefault("map_mod_warnings", {})
     result.setdefault("variant_snapshots", [])
 
+    # AI 출력 검증 — quest_rewards cross-check + 스키마 + 범위
+    try:
+        from coach_validator import validate_coach_output
+        validation_warnings = validate_coach_output(result, primary_build)
+        if validation_warnings:
+            logger.warning("AI 코치 출력 검증 경고 %d건:", len(validation_warnings))
+            for w in validation_warnings:
+                logger.warning("  - %s", w)
+            # 결과에 메타 포함 — UI에서 뱃지 표시 가능
+            result["_validation_warnings"] = validation_warnings
+    except ImportError:
+        pass  # coach_validator 없어도 기본 동작 유지
+
     logger.info(f"코칭 완료. 토큰: input={response.usage.input_tokens}, output={response.usage.output_tokens}")
     return result
 
@@ -390,7 +629,7 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-20250514") -> di
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="PathcraftAI Build Coach")
     ap.add_argument("input", help="POB JSON 파일 경로 또는 '-' (stdin)")
-    ap.add_argument("--model", default="claude-sonnet-4-20250514", help="Claude 모델")
+    ap.add_argument("--model", default="claude-sonnet-4-6", help="Claude 모델")
     args = ap.parse_args()
 
     if args.input == "-":
@@ -400,4 +639,4 @@ if __name__ == "__main__":
             build_data = json.load(f)
 
     result = coach_build(build_data, model=args.model)
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    print(json.dumps(result, ensure_ascii=False))

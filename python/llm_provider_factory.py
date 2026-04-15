@@ -74,7 +74,7 @@ class BaseLLMProvider(ABC):
 class ClaudeProvider(BaseLLMProvider):
     """Claude API 프로바이더"""
 
-    DEFAULT_MODEL = "claude-sonnet-4-20250514"
+    DEFAULT_MODEL = "claude-sonnet-4-6"
 
     def __init__(self, api_key: str, model: str = None):
         super().__init__(api_key, model or self.DEFAULT_MODEL)

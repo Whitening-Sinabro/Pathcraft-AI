@@ -18,9 +18,15 @@ export interface BuildData {
   passives: Record<string, unknown>;
 }
 
+export interface LinksProgression {
+  level_range: string;
+  gems: string[];
+}
+
 export interface LevelingSkillOption {
   name: string;
-  links: string;
+  links?: string;  // 레거시 fallback
+  links_progression?: LinksProgression[];
   speed: string;
   safety: string;
   reason: string;
@@ -36,7 +42,8 @@ export interface LevelingSkills {
   damage_type: string;
   recommended: {
     name: string;
-    links: string;
+    links?: string;
+    links_progression?: LinksProgression[];
     reason: string;
     transition_level: string;
   };
@@ -61,6 +68,9 @@ export interface BuildRating {
   league_start_viable: number;
   hcssf_viability: number;
 }
+
+// AI 검증 경고 (coach_validator.py 출력)
+export type ValidationWarnings = string[];
 
 export interface GearPhase {
   phase: string;
@@ -125,6 +135,7 @@ export interface CoachResult {
   passive_priority: string[];
   danger_zones: string[];
   farming_strategy: string | FarmingStrategy;
+  _validation_warnings?: ValidationWarnings;
 }
 
 export interface FarmingStrategy {

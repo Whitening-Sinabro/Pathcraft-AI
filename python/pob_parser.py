@@ -134,17 +134,48 @@ def parse_pob_xml(xml_string, pob_url):
         if build is None: return None
         build_notes = notes_element.text.strip() if notes_element is not None and notes_element.text else ""
 
-        # 스킬 젬 정보 추출 (완성된 로직)
+        # 스킬 젬 정보 추출 — active SkillSet은 primary(엔드게임), 나머지는 alternate(레벨링/전환용)
+        def _extract_gems_from_skills(skill_nodes):
+            """Skill 노드 리스트 → {label: {links, reasoning}} 딕셔너리."""
+            result = {}
+            for skill_set in skill_nodes:
+                if skill_set.get('enabled', 'false').lower() != 'true':
+                    continue
+                gems = skill_set.findall('Gem')
+                if not gems:
+                    continue
+                label = (skill_set.get('label') or gems[0].get('nameSpec', 'Unnamed')).strip()
+                gem_links = " - ".join([gem.get('nameSpec') for gem in gems])
+                if label:
+                    result[label] = {"links": gem_links, "reasoning": None}
+            return result
+
         gem_setups = {}
+        alternate_gem_sets: dict[str, dict] = {}  # 비활성 SkillSet (레벨링 등)
+
         if skills_element is not None:
-            for skill_set in skills_element.findall('.//Skill'):
-                if skill_set.get('enabled', 'false').lower() == 'true':
-                    gems = skill_set.findall('Gem')
-                    if not gems: continue
-                    label = (skill_set.get('label') or gems[0].get('nameSpec', 'Unnamed Skill Group')).strip()
-                    gem_links = " - ".join([gem.get('nameSpec') for gem in gems])
-                    if label:
-                        gem_setups[label] = {"links": gem_links, "reasoning": None}
+            active_skill_set_id = skills_element.get('activeSkillSet')
+            all_skill_sets = skills_element.findall('./SkillSet')
+
+            if all_skill_sets:
+                for ss in all_skill_sets:
+                    ss_id = ss.get('id', '')
+                    ss_title = (ss.get('title') or f'SkillSet {ss_id}').strip()
+                    ss_skills = ss.findall('Skill')
+                    extracted = _extract_gems_from_skills(ss_skills)
+                    if not extracted:
+                        continue
+                    if ss_id == active_skill_set_id:
+                        gem_setups = extracted
+                        logger.info("활성 SkillSet id=%s 제목=%r — %d개 스킬 그룹",
+                                    ss_id, ss_title, len(extracted))
+                    else:
+                        alternate_gem_sets[ss_title] = extracted
+                        logger.info("보조 SkillSet id=%s 제목=%r — %d개 스킬 그룹",
+                                    ss_id, ss_title, len(extracted))
+            else:
+                # SkillSet 구조 없는 구 POB — 직계 Skill만
+                gem_setups = _extract_gems_from_skills(skills_element.findall('./Skill'))
         
         # [최종 수정] 슬롯 중심의 장비 정보 추출 로직
         gear = {}
@@ -173,6 +204,8 @@ def parse_pob_xml(xml_string, pob_url):
                             # Rarity 추출
                             if "Rarity: UNIQUE" in lines[0]:
                                 rarity = "Unique"
+                                if len(lines) > 2:
+                                    base_type = lines[2].strip()
                             elif "Rarity: RARE" in lines[0] or "Rarity: Rare" in lines[0]:
                                 rarity = "Rare"
                                 if len(lines) > 2:
@@ -252,11 +285,20 @@ def parse_pob_xml(xml_string, pob_url):
         # 패시브 트리 URL 추출 (변경 없음)
         passive_tree_url = ""
         if tree_element is not None:
-            active_spec = tree_element.find("./Spec[@active='true']") or tree_element.find('Spec')
+            # activeSpec 속성 우선 (1차/2차/3차 다중 트리 대응) → 레거시 active='true' → 첫 Spec
+            active_spec_id = tree_element.get('activeSpec')
+            active_spec = None
+            if active_spec_id:
+                active_spec = tree_element.find(f"./Spec[@id='{active_spec_id}']")
+            if active_spec is None:
+                active_spec = tree_element.find("./Spec[@active='true']") or tree_element.find('Spec')
             if active_spec is not None:
                 url_element = active_spec.find('URL')
                 if url_element is not None and url_element.text:
                     passive_tree_url = url_element.text.strip()
+                logger.info("활성 Tree Spec id=%s 제목=%r",
+                            active_spec.get('id', '?'),
+                            active_spec.get('title', ''))
 
         # 최종 JSON 데이터 조립 (pobapi 계산 결과 포함)
         asc_name = build.get('ascendClassName', 'Unknown')
@@ -335,6 +377,7 @@ def parse_pob_xml(xml_string, pob_url):
                 "passive_tree_url": passive_tree_url,
                 "ascendancy_order": [],
                 "gem_setups": gem_setups,
+                "alternate_gem_sets": alternate_gem_sets,  # 레벨링/전환 SkillSet (비활성)
                 "gear_recommendation": gear,
                 "bandit": build.get('bandit'),
                 "pantheon": {"major": build.get('pantheonMajorGod'), "minor": build.get('pantheonMinorGod')}

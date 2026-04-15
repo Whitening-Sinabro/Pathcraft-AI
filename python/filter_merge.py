@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""POE 필터 병합 유틸.
+"""POE 필터 병합 유틸 (레거시).
 
 Sanavi/NeverSink 베이스 필터의 `# [[0100]]` OVERRIDE 마커 앞에 오버레이를 삽입한다.
-filter_generator.py 와 _analysis/gen_test_filter_v4.py 가 공유 사용.
+현재 β Continue 아키텍처는 standalone 필터라 쓰이지 않음 — _analysis 스크립트 잔존 의존용.
 """
 import logging
 import os

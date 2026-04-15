@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "description": "커뮤니티 검증된 Syndicate safehouse 레이아웃 프리셋",
+    "format": "division → [member_id...] (Leader = 첫 항목, Member = 나머지)",
+    "tip": "각 safehouse는 Leader rank가 리더 보상 지배. Member는 보조."
+  },
+  "layouts": [
+    {
+      "id": "ss22",
+      "name": "SS22 (Classic 2-Safe)",
+      "strategy": "2개 safehouse 상시 풀 유지 — Intervention(Gravicius+Cameria 커런시) + Research(Aisling Veiled)",
+      "priority": "currency + veiled craft",
+      "board": {
+        "Intervention": ["gravicius", "cameria", "janus", "riker"],
+        "Research": ["aisling", "vorici", "jorgin", "rin"],
+        "Transportation": ["guff", "it_that_fled"],
+        "Fortification": ["elreon", "leo", "haku", "korell"]
+      },
+      "rewards_focus": ["Mirror Shard", "Exalted Shard", "Veiled T4 craft", "Currency scarab"]
+    },
+    {
+      "id": "aisling_fixed",
+      "name": "Aisling Research Fixed",
+      "strategy": "Aisling을 Research Leader로 고정 — Veiled T4 크래프팅 반복 farming (mirror-tier item crafting)",
+      "priority": "veiled_craft",
+      "board": {
+        "Research": ["aisling", "vorici", "jorgin"],
+        "Intervention": ["gravicius", "cameria", "janus"],
+        "Transportation": ["guff", "riker"],
+        "Fortification": ["elreon", "leo", "haku"]
+      },
+      "rewards_focus": ["Aisling T4 Veiled bench", "currency coverage"]
+    },
+    {
+      "id": "leo_gilded",
+      "name": "Leo Gilded Scarab Farm",
+      "strategy": "Leo Fortification Leader → Gilded Scarab 대량 + Map bonus 조합",
+      "priority": "scarab_farming",
+      "board": {
+        "Fortification": ["leo", "korell", "elreon", "haku"],
+        "Transportation": ["riker", "guff", "it_that_fled"],
+        "Research": ["aisling", "rin"],
+        "Intervention": ["cameria", "gravicius"]
+      },
+      "rewards_focus": ["Gilded Scarab", "Map", "PVP Trophy"]
+    },
+    {
+      "id": "jewelry_craft",
+      "name": "Jewelry Enchantment Focus",
+      "strategy": "Elreon Fortification Leader + Jorgin Research Leader — 반지/목걸이 크래프팅 파밍",
+      "priority": "jewelry_crafting",
+      "board": {
+        "Fortification": ["elreon", "haku", "korell"],
+        "Research": ["jorgin", "aisling", "vorici"],
+        "Transportation": ["guff", "riker"],
+        "Intervention": ["cameria", "gravicius", "tora"]
+      },
+      "rewards_focus": ["Resistance jewelry", "Animal spirit ring", "Veiled jewelry"]
+    },
+    {
+      "id": "gem_farm",
+      "name": "Tora Gem Experience Farm",
+      "strategy": "Tora Intervention Leader — Awakened 젬 레벨업 + Alternate Quality 젬 수집",
+      "priority": "gem_leveling",
+      "board": {
+        "Intervention": ["tora", "hillock", "vagan", "cameria"],
+        "Research": ["rin", "aisling", "vorici"],
+        "Transportation": ["guff", "riker"],
+        "Fortification": ["elreon", "leo"]
+      },
+      "rewards_focus": ["Gem experience", "Alternate Quality gem", "Quality flask"]
+    }
+  ]
+}

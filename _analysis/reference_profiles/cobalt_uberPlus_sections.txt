@@ -1,0 +1,200 @@
+NeverSink's Indepth Loot Filter - for Path of Exile
+VERSION:  8.19.2a.2026.86.15
+LINKS TO LATEST VERSION AND FILTER EDITOR
+# CUSTOMIZE THE POE 1 FILTER ON: 	https://www.FilterBlade.xyz?game=Poe1
+INSTALLATION / UPDATE :
+# 0) It's recommended to check for updates once a month or at least before new leagues, to receive economy finetuning and new features!
+AUTO-UPDATER SERVICE AND SUPPORT THE DEVELOPMENT
+# Patreon supporters get access to the FilterBlade Auto-Updater that combines 100% automated updates with custom styles and your customizations!
+CONTACT - if you want to get notifications about updates or just get in touch:
+For feedback, questions and suggestions please join our discord!
+[WELCOME] TABLE OF CONTENTS + QUICKJUMP TABLE
+[[0100]] OVERRIDE AREA 1 - Override ALL rules here
+[[0100]] Global overriding rules
+!! Waypoint c0.alpha : "All Rules - Highest priority - DANGER ZONE" : "Recipes and Linked Gear"
+[[0200]] Gold
+!! Waypoint c0.gold : "All Rules - Including Gold" : "Gold"
+[[0300]] Influenced Items
+------------------------------------
+!! Waypoint c1.infl.allplusmaps : "All rules - except gold and six-links" : "Maps"
+[0302] Influenced Gear
+!! Waypoint c1.infl.all : "All rules - except 6links and influenced maps" : "Gear - Exotic"
+[[0400]] ELDRITCH ITEMS
+!! Waypoint c1.eldritch.all : "Eldritch Items - Exarch and Eater" : "Gear - Exotic"
+[[0500]] Exotic Bases
+!! Waypoint c1.exotic.all : "Exotic - Expedition, Ritual, Kalandra etc" : "Gear - Exotic"
+[[0600]] IDENTIFIED MOD FILTERING - COMBINATIONS
+!! Waypoint c1.idmod.all : "Identified Mods - Best Veiled mods and combinations of expensive ID mods" : "Gear - Exotic"
+[0601] Physical
+Show # # # %D5 $type->rareid $tier->weapon_phys
+[0602] Elemental
+Show # # # %D5 $type->rareid $tier->weapon_ele
+[0603] Blade Blast Daggers
+Show # # # %D4 $type->rareid $tier->bladeblast_2core
+[0604] Gembased
+Show # # # %D5 $type->rareid $tier->gem_bow
+[0605] Caster
+Show # # # %D5 $type->rareid $tier->caster_fireweapont2
+[0606] Spellslinger
+Show # # # %D5 $type->rareid $tier->caster_slingert2
+[0607] Helmets
+Show # # # %D5 $type->rareid $tier->helmet_life_based
+[0608] Boots
+Show # # # %D5 $type->rareid $tier->boots_life_based
+[0609] Gloves
+Show # # # %D5 $type->rareid $tier->gloves_life_based
+[0610] Shields
+Show # # # %D5 $type->rareid $tier->shield_esfocus
+[0611] Amulets
+Show # # # %D5 $type->rareid $tier->amu_exalter
+[0612] Rings
+Show # # # %D5 $type->rareid $tier->ring_caster
+[0613] Quivers
+Show # # # %D5 $type->rareid $tier->quiv_hit
+[0614] Body Armours
+Show # # # %D4 $type->rareid $tier->body_life
+[0615] Belts
+Show # # # %D5 $type->rareid $tier->belt_general
+[0616] Jewels
+[0617] ID Mod exceptions - override id mod matching section
+Show # # # %D3 $type->rareid $tier->t1veil
+[[0700]] IDENTIFIED MOD FILTERING - DUAL MODS
+!! Waypoint c1.idmod.dualmod.all : "Identified Mods - Valuable Dual Mods" : "Gear - Exotic"
+[[0800]] IDENTIFIED MOD FILTERING - SINGLE MODS
+!! Waypoint c1.idmod.singlemod.all : "Identified Mods - Single Mods and low priority combinations" : "Gear - Exotic"
+[0801] Top Value
+Show # # # %D5 $type->magicid $tier->t1phys
+[0802] Uncorrupted Mods
+Show # # # %D5 $type->magicid $tier->t2amu
+[0803] Flasks and Tinctures
+Show # # # %D5 $type->magicid $tier->bleedlifeflask
+[[0900]] High Priority Equipment Properties
+------------------------------------
+!! Waypoint c3.gear.perfectionbased.all : "Crafting Bases - Perfection & Quality filtering" : "Gear - Exotic"
+[0902] Memory Strand Gear
+!! Waypoint c3.gear.memorystrand.all : "Crafting Bases - Memory Stranded" : "Gear - Memory Stranded"
+[[1000]] IDENTIFIED MOD - CORRUPTED ITEMS
+!! Waypoint c1.idmod.corruptedmod : "Identified Mods - Items with corrupted implicits" : "Gear - Exotic"
+[[1100]] Exotic Mods Filtering
+------------------------------------
+!! Waypoint c1.idmod.veil.all : "Identified Mods - Low priority veiled items (not member specific)" : "Gear - Regular Rares"
+[1102] Incursion/Temple Mods
+!! Waypoint c1.idmod.league.all : "Identified Mods - Incursion mod filtering" : "Gear - Exotic"
+[1103] Necropolis
+[1104] Bestiary
+Show # # # %D5 $type->exoticmods $tier->bestiaryvaluable
+[1105] Other
+[[1200]] Exotic Item Classes
+!! Waypoint c2.exotic.artefacts.all : "Exotic - Voidstones, Quest Items, Trinkets, Fishing items, Pieces" : "Gear - Exotic"
+[1201] Relics
+[[1300]] Exotic Item Variations
+!! Waypoint c2.exotic.doublecorrupted.all : "SpecialGear - Double corrupted rare items" : "Gear - Exotic"
+[1301] Double Corruptions
+[1302] Abyss Jeweled Rares
+!! Waypoint c2.exotic.abysssocketed : "SpecialGear - Rares with Abyss Sockets" : "Gear - Exotic"
+[1303] Synthesised
+!! Waypoint c2.exotic.synthesised.all : "SpecialGear - All synthesised items" : "Gear - Fractured and Synthesised"
+[1304] Fractured
+!! Waypoint c2.exotic.fractured.all : "SpecialGear - All fractured items" : "Gear - Fractured and Synthesised"
+[1305] Enchanted
+!! Waypoint c2.exotic.enchanted.all : "SpecialGear - All enchanted items" : "Gear - Exotic"
+[1306] Crucible
+!! Waypoint c2.exotic.others : "SpecialGear - Others exotic items" : "Gear - Exotic"
+[[1400]] Recipes and 5links
+!! Waypoint c3.gear.alllinks.all : "SpecialGear - 5-links and 6-socketed items" : "Recipes and Linked Gear"
+[1401] Link Based
+Show # # # %D4 $type->socketslinks $tier->5linksleveling
+[[1500]] High Level Crafting Bases
+!! Waypoint c3.gear.valuableilvl86 : "Crafting Bases - ilvl86 crafting bases" : "Gear - Crafting Bases"
+[1501] Expensive Atlas 86 Bases - matched by economy
+Show # # # %D5 $type->crafting->expensive $tier->any
+[[1600]] Endgame - Rare - Gear
+!! Waypoint c4.rare.decorator.all : "Rare Endgame Items - decorators"
+[[1700]] Endgame - Rare - Decorators
+[[1800]] Endgame - Rare - Exotic Veiled
+!! Waypoint c4.rare.veiled.generic : "Rare Endgame Items - Veiled" : "Gear - Veiled"
+[[1900]] Endgame - Rare - Exotic Corrupted
+!! Waypoint c4.rare.breach.all : "Rare Endgame Items - Breach rings" : "Gear - Exotic"
+[[2000]] Endgame - Rare - Conditional Hide Rules
+!! Waypoint c4.rare.generic.all : "Rare Endgame Items - (Optional) Hiding identified rares"
+[[2100]] Endgame - Rare - Amulets, Rings, Boots
+!! Waypoint c4.rare.trinkets.all : "Rare Endgame Items - Amulets, Rings" : "Gear - Regular Rares"
+[[2200]] Endgame - Rare - Gear - Droplevel Hiding
+!! Waypoint c4.rare.drophiders : "Rare Endgame Items - Hide low items on high levels" : "Gear - Regular Rares"
+[2201] Endgame - Rare - Gear
+!! Waypoint c4.rare.t1.all : "Rare Endgame Items - T1" : "Gear - Regular Rares"
+[[2300]] Endgame - Crafting
+------------------------------------
+Minimal list of bases crafting. This list is really not conclusive, but you can adjust it yourself on filterblade or here.
+[2302] Crafting Matrix
+!! Waypoint c5.gear.crafting86.all : "Crafting Bases - High level basetypes - ILVL86" : "Gear - Crafting Bases"
+[[2400]] Chancing Bases
+!! Waypoint c5.chancing : "Chancing bases" : "Recipes and Linked Gear"
+[[2500]] Endgame Flasks & Tinctures
+!! Waypoint c6.flasks.all : "Endgame Flasks - All non-unique" : "Flasks and Tinctures"
+[2501] Endgame Flasks
+Show # # # %D4 $type->endgameflasks $tier->overqualcorrupted
+[2502] Quality High
+!! Waypoint c6.flasks.others : "Endgame Flasks - Other flasks" : "Flasks and Tinctures"
+[2503] Quality Low
+Show  # # # %D1 $type->endgameflasks $tier->qualityhigh
+[2504] Utility flasks
+Show # # # %D4 $type->endgameflasks $tier->earlymappingflasks
+[2505] Early mapping life/mana/utility flasks
+Show # # # %D2 $type->endgameflasks $tier->earlymappinglifemana
+[[2600]] Misc Rules
+!! Waypoint c6.misc.others : "SpecialGear - Overquality items and optional animated weapon module" : "Gear - Exotic"
+[2601] RGB Endgame
+!! Waypoint c6.recipes.rgb.all : "Recipes - Endgame chromatic recipes (normal and magic RGBs)" : "Recipes and Linked Gear"
+[2602] Remaining Rares
+!! Waypoint c6.rares.remaining : "Rares - lowest tier" : "Gear - Regular Rares"
+[[2700]] Hide Layer 1 - Rare & Magic Gear
+!! Waypoint c6.hidelayer.endgame : "HIDELAYER - all endgame and magic and normal items"
+[[2800]] Jewels
+!! Waypoint c7.jewels.identified : "Jewels - Identified with interesting mods" : "Jewels and Cluster Jewels"
+[2801] Special Cases
+Show # # # %D4 $type->jewels->special $tier->1modcorrupted
+[2802] Leveling Exceptions
+!! Waypoint c7.jewels.leveling : "Jewels - Leveling Overrides" : "Jewels and Cluster Jewels"
+[2803] Abyss Jewels
+!! Waypoint c7.jewels.abyss.all : "Jewels - Abyss Jewels" : "Jewels and Cluster Jewels"
+[2804] Generic Jewels
+!! Waypoint c7.jewels.generic.all : "Jewels - Generic Jewels"
+[2805] Cluster Jewels: Eco-Based-Large
+!! Waypoint c7.jewels.cluster.all : "Jewels - Cluster - Economy-Based-Tiering" : "Jewels and Cluster Jewels"
+[2806] Cluster Jewels: Random
+[[2900]] Heist Gear
+!! Waypoint c7.heist.all : "Heist Gear" : "Heist, Expedition, Sanctum"
+[2901] Heist Cloak
+[2902] Heist Brooch
+[2903] Heist Gear
+[2904] Heist Tool
+[[3000]] Gem Tierlists
+!! Waypoint c8.gems.all : "Gem Rules - Override All" : "Gems"
+[3001] Exceptional Gems - Awakened and AltQuality
+!! Waypoint c8.gems.empowerclass : "Gem Rules - Empower Class" : "Gems"
+[3002] Economy based leveled, quality and vaal gem rules
+[3003] High Quality and Leveled Gems
+!! Waypoint c8.gems.qualityandlevel : "Gem Rules - Quality and Leveled versions" : "Gems"
+[[3100]] REPLICA AND FOULBORN UNIQUES
+!! Waypoint c9.replicas.all : "Tierlists - Replicas" : "Uniques"
+[[3200]] Special Maps
+!! Waypoint c9.maps.all : "Maps - All" : "Maps"
+[3201] Unique Maps
+!! Waypoint c9.maps.unique.all : "Maps - Unique Tierlists" : "Uniques"
+[3202] SpecialMaps
+!! Waypoint c9.maps.special.t17 : "Maps - Exceptional Types" : "Maps"
+[3203] Blighted maps
+!! Waypoint c9.maps.special.all : "Maps - Blighted, Enchanted, Delirium maps" : "Maps"
+[3204] Special Maps
+[[3300]] Normal Map Progression
+!! Waypoint c9.maps.generic.specialcases : "Maps - generic - optional special cases" : "Maps"
+[3301] Generic Decorators
+!! Waypoint c9.maps.decorators.all : "Maps - decorators" : "Maps"
+[3302] Map progression
+!! Waypoint c9.maps.generic.t16 : "Maps - t14-t16 - high reds" : "Maps"
+[[3400]] Pseudo-Map-Items
+!! Waypoint c9.maplike.all : "Maplike - contracts, logbooks, blueprints, memories" : "Heist, Expedition, Sanctum"
+[[3500]] Misc Map Items
+!! Waypoint c10.relics.all : "Relic Keys, Itemized Leagues" : "Scarabs and Fragments"
+[[3600]] Fragments
