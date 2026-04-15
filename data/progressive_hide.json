@@ -2,7 +2,16 @@
   "_meta": {
     "description": "β 프로그레시브 엄격도 데이터 — AL 기반 단계적 Hide 블록 정의. Wreckers SSF 분석문서 Section 8 기반.",
     "source": "_analysis/wreckers_ssf_analysis.md",
-    "note": "레벨링/엔드게임 장비 BaseType는 분석문서에 등장한 것 + POE 일반 메타 기반. Wreckers 원본 필터 확보 시 β-3a에서 완전 parity 작업."
+    "note": "레벨링/엔드게임 장비 BaseType는 분석문서에 등장한 것 + POE 일반 메타 기반. Wreckers 원본 필터 확보 시 β-3a에서 완전 parity 작업.",
+    "sources": {
+      "wreckers": 526,
+      "neversink": 0,
+      "cobalt_strict": 0,
+      "cobalt_uber": 0
+    },
+    "user_curated_overrides": 533,
+    "total_after_merge": 533,
+    "extracted_date": "2026-04-13"
   },
   "always_hide": {
     "description": "모든 레벨에서 즉시 Hide. 가장 위 레이어(HARD_HIDE)에서 처리 — 다른 레이어 영향 안 받음.",
@@ -24,11 +33,31 @@
       "Orb of Augmentation"
     ],
     "stages": [
-      { "min_area_level": 64, "max_stack_size": 1, "note": "Act 10" },
-      { "min_area_level": 68, "max_stack_size": 2, "note": "화이트 맵" },
-      { "min_area_level": 73, "max_stack_size": 3, "note": "옐로우 맵" },
-      { "min_area_level": 78, "max_stack_size": 4, "note": "레드 맵" },
-      { "min_area_level": 83, "max_stack_size": 5, "note": "T16+" }
+      {
+        "min_area_level": 64,
+        "max_stack_size": 1,
+        "note": "Act 10"
+      },
+      {
+        "min_area_level": 68,
+        "max_stack_size": 2,
+        "note": "화이트 맵"
+      },
+      {
+        "min_area_level": 73,
+        "max_stack_size": 3,
+        "note": "옐로우 맵"
+      },
+      {
+        "min_area_level": 78,
+        "max_stack_size": 4,
+        "note": "레드 맵"
+      },
+      {
+        "min_area_level": 83,
+        "max_stack_size": 5,
+        "note": "T16+"
+      }
     ]
   },
   "normal_all": {
@@ -50,54 +79,2728 @@
   "leveling_bases_early": {
     "description": "AL 3~13 레벨링 초반 장비 — 자신보다 20+레벨 높은 곳에서 Hide",
     "items": [
-      { "base": "Small Life Flask", "hide_above_al": 3 },
-      { "base": "Small Mana Flask", "hide_above_al": 3 },
-      { "base": "Rusted Sword",     "hide_above_al": 5 },
-      { "base": "Glass Shank",      "hide_above_al": 5 },
-      { "base": "Driftwood Wand",   "hide_above_al": 5 },
-      { "base": "Crude Bow",        "hide_above_al": 5 },
-      { "base": "Iron Hat",         "hide_above_al": 5 },
-      { "base": "Plate Vest",       "hide_above_al": 5 },
-      { "base": "Simple Robe",      "hide_above_al": 5 },
-      { "base": "Shabby Jerkin",    "hide_above_al": 5 },
-      { "base": "Rawhide Boots",    "hide_above_al": 5 },
-      { "base": "Iron Gauntlets",   "hide_above_al": 5 },
-      { "base": "Leather Cap",      "hide_above_al": 8 },
-      { "base": "Wool Shoes",       "hide_above_al": 8 },
-      { "base": "Ironwood Sword",   "hide_above_al": 10 },
-      { "base": "Skinning Knife",   "hide_above_al": 10 },
-      { "base": "Short Bow",        "hide_above_al": 10 },
-      { "base": "Goathide Boots",   "hide_above_al": 13 }
+      {
+        "base": "Small Life Flask",
+        "hide_above_al": 3
+      },
+      {
+        "base": "Small Mana Flask",
+        "hide_above_al": 3
+      },
+      {
+        "base": "Splintered Tower Shield",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Crude Bow",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Rusted Sword",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Driftwood Sceptre",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Glass Shank",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Driftwood Club",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Driftwood Wand",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Iron Hat",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Shabby Jerkin",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Iron Gauntlets",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Simple Robe",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Rawhide Boots",
+        "hide_above_al": 5
+      },
+      {
+        "base": "Rusted Hatchet",
+        "hide_above_al": 6
+      },
+      {
+        "base": "Medium Life Flask",
+        "hide_above_al": 6
+      },
+      {
+        "base": "Medium Mana Flask",
+        "hide_above_al": 6
+      },
+      {
+        "base": "Rusted Spike",
+        "hide_above_al": 7
+      },
+      {
+        "base": "Nailed Fist",
+        "hide_above_al": 7
+      },
+      {
+        "base": "Vine Circlet",
+        "hide_above_al": 8
+      },
+      {
+        "base": "Goathide Buckler",
+        "hide_above_al": 8
+      },
+      {
+        "base": "Corroded Blade",
+        "hide_above_al": 8
+      },
+      {
+        "base": "Driftwood Maul",
+        "hide_above_al": 8
+      },
+      {
+        "base": "Wool Shoes",
+        "hide_above_al": 8
+      },
+      {
+        "base": "Leather Cap",
+        "hide_above_al": 8
+      },
+      {
+        "base": "Iron Greaves",
+        "hide_above_al": 9
+      },
+      {
+        "base": "Rawhide Gloves",
+        "hide_above_al": 9
+      },
+      {
+        "base": "Padded Vest",
+        "hide_above_al": 9
+      },
+      {
+        "base": "Gnarled Branch",
+        "hide_above_al": 9
+      },
+      {
+        "base": "Stone Axe",
+        "hide_above_al": 9
+      },
+      {
+        "base": "Scare Mask",
+        "hide_above_al": 10
+      },
+      {
+        "base": "Skinning Knife",
+        "hide_above_al": 10
+      },
+      {
+        "base": "Short Bow",
+        "hide_above_al": 10
+      },
+      {
+        "base": "Corroded Tower Shield",
+        "hide_above_al": 11
+      },
+      {
+        "base": "Wool Gloves",
+        "hide_above_al": 12
+      },
+      {
+        "base": "Rusted Coif",
+        "hide_above_al": 12
+      },
+      {
+        "base": "Rotted Round Shield",
+        "hide_above_al": 12
+      },
+      {
+        "base": "Spiked Bundle",
+        "hide_above_al": 12
+      },
+      {
+        "base": "Large Life Flask",
+        "hide_above_al": 12
+      },
+      {
+        "base": "Large Mana Flask",
+        "hide_above_al": 12
+      },
+      {
+        "base": "Battered Helm",
+        "hide_above_al": 13
+      },
+      {
+        "base": "Plank Kite Shield",
+        "hide_above_al": 13
+      },
+      {
+        "base": "Chain Boots",
+        "hide_above_al": 13
+      },
+      {
+        "base": "Goathide Boots",
+        "hide_above_al": 13
+      },
+      {
+        "base": "Fishscale Gauntlets",
+        "hide_above_al": 15
+      },
+      {
+        "base": "Wrapped Boots",
+        "hide_above_al": 16
+      },
+      {
+        "base": "Wrapped Mitts",
+        "hide_above_al": 16
+      },
+      {
+        "base": "Light Brigandine",
+        "hide_above_al": 17
+      },
+      {
+        "base": "Chainmail Tunic",
+        "hide_above_al": 17
+      },
+      {
+        "base": "Iron Circlet",
+        "hide_above_al": 17
+      },
+      {
+        "base": "Plague Mask",
+        "hide_above_al": 17
+      },
+      {
+        "base": "Chestplate",
+        "hide_above_al": 17
+      },
+      {
+        "base": "Oiled Vest",
+        "hide_above_al": 18
+      },
+      {
+        "base": "Cone Helmet",
+        "hide_above_al": 18
+      },
+      {
+        "base": "Silken Vest",
+        "hide_above_al": 18
+      },
+      {
+        "base": "Leatherscale Boots",
+        "hide_above_al": 18
+      },
+      {
+        "base": "Greater Life Flask",
+        "hide_above_al": 18
+      },
+      {
+        "base": "Greater Mana Flask",
+        "hide_above_al": 18
+      },
+      {
+        "base": "Chain Gloves",
+        "hide_above_al": 19
+      },
+      {
+        "base": "Tricorne",
+        "hide_above_al": 20
+      },
+      {
+        "base": "Small Hybrid Flask",
+        "hide_above_al": 20
+      },
+      {
+        "base": "Scale Doublet",
+        "hide_above_al": 21
+      },
+      {
+        "base": "Goathide Gloves",
+        "hide_above_al": 21
+      },
+      {
+        "base": "Soldier Helmet",
+        "hide_above_al": 22
+      },
+      {
+        "base": "Padded Jacket",
+        "hide_above_al": 22
+      },
+      {
+        "base": "Velvet Slippers",
+        "hide_above_al": 22
+      },
+      {
+        "base": "Sallet",
+        "hide_above_al": 23
+      },
+      {
+        "base": "Plated Gauntlets",
+        "hide_above_al": 23
+      },
+      {
+        "base": "Steel Greaves",
+        "hide_above_al": 23
+      },
+      {
+        "base": "Grand Life Flask",
+        "hide_above_al": 24
+      },
+      {
+        "base": "Grand Mana Flask",
+        "hide_above_al": 24
+      },
+      {
+        "base": "Buckskin Tunic",
+        "hide_above_al": 25
+      },
+      {
+        "base": "Scholar's Robe",
+        "hide_above_al": 25
+      },
+      {
+        "base": "Velvet Gloves",
+        "hide_above_al": 25
+      },
+      {
+        "base": "Barbute Helmet",
+        "hide_above_al": 26
+      },
+      {
+        "base": "Torture Cage",
+        "hide_above_al": 26
+      },
+      {
+        "base": "Ironscale Gauntlets",
+        "hide_above_al": 27
+      },
+      {
+        "base": "Strapped Boots",
+        "hide_above_al": 27
+      }
     ]
   },
   "equipment_bases_midgame": {
     "description": "AL 28~73 중후반 장비 — 지정 AL 이상에서 Hide. 개별 BaseType 매칭.",
     "items": [
-      { "base": "Studded Leather Belt",  "hide_above_al": 28 },
-      { "base": "Chain Belt",            "hide_above_al": 32 },
-      { "base": "Coral Amulet",          "hide_above_al": 35 },
-      { "base": "Paua Amulet",           "hide_above_al": 35 },
-      { "base": "Iron Ring",             "hide_above_al": 35 },
-      { "base": "Coral Ring",            "hide_above_al": 35 },
-      { "base": "Paua Ring",             "hide_above_al": 35 },
-      { "base": "Chainmail Vest",        "hide_above_al": 35 },
-      { "base": "Studded Round Shield",  "hide_above_al": 40 },
-      { "base": "Strapped Leather",      "hide_above_al": 45 },
-      { "base": "Full Leather",          "hide_above_al": 50 },
-      { "base": "Chain Hauberk",         "hide_above_al": 55 },
-      { "base": "Copper Plate",          "hide_above_al": 60 },
-      { "base": "Scale Mail",            "hide_above_al": 60 },
-      { "base": "Ringmail Coat",         "hide_above_al": 65 },
-      { "base": "Plated Mail",           "hide_above_al": 70 }
+      {
+        "base": "Chainmail Doublet",
+        "hide_above_al": 28
+      },
+      {
+        "base": "Infantry Brigandine",
+        "hide_above_al": 28
+      },
+      {
+        "base": "Iron Mask",
+        "hide_above_al": 28
+      },
+      {
+        "base": "Oiled Coat",
+        "hide_above_al": 28
+      },
+      {
+        "base": "Ringmail Boots",
+        "hide_above_al": 28
+      },
+      {
+        "base": "Silken Garb",
+        "hide_above_al": 28
+      },
+      {
+        "base": "Studded Belt",
+        "hide_above_al": 28
+      },
+      {
+        "base": "Twig Spirit Shield",
+        "hide_above_al": 28
+      },
+      {
+        "base": "War Plate",
+        "hide_above_al": 28
+      },
+      {
+        "base": "Wild Leather",
+        "hide_above_al": 28
+      },
+      {
+        "base": "Giant Life Flask",
+        "hide_above_al": 30
+      },
+      {
+        "base": "Giant Mana Flask",
+        "hide_above_al": 30
+      },
+      {
+        "base": "Ironscale Boots",
+        "hide_above_al": 30
+      },
+      {
+        "base": "Leather Hood",
+        "hide_above_al": 30
+      },
+      {
+        "base": "Medium Hybrid Flask",
+        "hide_above_al": 30
+      },
+      {
+        "base": "Great Helmet",
+        "hide_above_al": 31
+      },
+      {
+        "base": "Serrated Arrow Quiver",
+        "hide_above_al": 31
+      },
+      {
+        "base": "Strapped Mitts",
+        "hide_above_al": 31
+      },
+      {
+        "base": "Chain Belt",
+        "hide_above_al": 32
+      },
+      {
+        "base": "Full Plate",
+        "hide_above_al": 32
+      },
+      {
+        "base": "Full Ringmail",
+        "hide_above_al": 32
+      },
+      {
+        "base": "Full Scale Armour",
+        "hide_above_al": 32
+      },
+      {
+        "base": "Mage's Vestment",
+        "hide_above_al": 32
+      },
+      {
+        "base": "Ringmail Gloves",
+        "hide_above_al": 32
+      },
+      {
+        "base": "Scarlet Raiment",
+        "hide_above_al": 32
+      },
+      {
+        "base": "Silk Slippers",
+        "hide_above_al": 32
+      },
+      {
+        "base": "Deerskin Gloves",
+        "hide_above_al": 33
+      },
+      {
+        "base": "Plated Greaves",
+        "hide_above_al": 33
+      },
+      {
+        "base": "Visored Sallet",
+        "hide_above_al": 33
+      },
+      {
+        "base": "Clasped Boots",
+        "hide_above_al": 34
+      },
+      {
+        "base": "Deerskin Boots",
+        "hide_above_al": 34
+      },
+      {
+        "base": "Tribal Circlet",
+        "hide_above_al": 34
+      },
+      {
+        "base": "Arena Plate",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Bronze Gauntlets",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Chainmail Vest",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Close Helmet",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Copper Sword",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Coral Amulet",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Coral Ring",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Darkwood Sceptre",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Festival Mask",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Goat's Horn",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Iron Ring",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Paua Amulet",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Paua Ring",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Silk Robe",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Soldier's Brigandine",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Sun Leather",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Tribal Club",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Waxed Garb",
+        "hide_above_al": 35
+      },
+      {
+        "base": "Bronzescale Boots",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Bronzescale Gauntlets",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Clasped Mitts",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Colossal Life Flask",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Colossal Mana Flask",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Gilded Sallet",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Jade Hatchet",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Longsword",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Mesh Boots",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Silk Gloves",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Tribal Maul",
+        "hide_above_al": 36
+      },
+      {
+        "base": "Cabalist Regalia",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Crusader Helmet",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Jade Chopper",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Lordly Plate",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Mesh Gloves",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Primitive Staff",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Reinforced Greaves",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Sharktooth Claw",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Thief's Garb",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Whalebone Rapier",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Yew Spirit Shield",
+        "hide_above_al": 37
+      },
+      {
+        "base": "Bronze Sceptre",
+        "hide_above_al": 38
+      },
+      {
+        "base": "Carving Knife",
+        "hide_above_al": 38
+      },
+      {
+        "base": "Field Lamellar",
+        "hide_above_al": 38
+      },
+      {
+        "base": "Golden Mask",
+        "hide_above_al": 38
+      },
+      {
+        "base": "Long Bow",
+        "hide_above_al": 38
+      },
+      {
+        "base": "Nubuck Gloves",
+        "hide_above_al": 38
+      },
+      {
+        "base": "Pine Buckler",
+        "hide_above_al": 38
+      },
+      {
+        "base": "Sabre",
+        "hide_above_al": 38
+      },
+      {
+        "base": "Scholar Boots",
+        "hide_above_al": 38
+      },
+      {
+        "base": "Spiked Club",
+        "hide_above_al": 38
+      },
+      {
+        "base": "Boarding Axe",
+        "hide_above_al": 39
+      },
+      {
+        "base": "Bone Circlet",
+        "hide_above_al": 39
+      },
+      {
+        "base": "Driftwood Spiked Shield",
+        "hide_above_al": 39
+      },
+      {
+        "base": "Fir Round Shield",
+        "hide_above_al": 39
+      },
+      {
+        "base": "Holy Chainmail",
+        "hide_above_al": 39
+      },
+      {
+        "base": "Nubuck Boots",
+        "hide_above_al": 39
+      },
+      {
+        "base": "Rawhide Tower Shield",
+        "hide_above_al": 39
+      },
+      {
+        "base": "Steel Gauntlets",
+        "hide_above_al": 39
+      },
+      {
+        "base": "Awl",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Bastard Sword",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Battered Foil",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Bone Armour",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Carved Wand",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Gladiator Helmet",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Large Hybrid Flask",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Leyline Gloves",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Linden Kite Shield",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Mallet",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Preserving Gauntlets",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Riveted Boots",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Somatic Wand",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Studded Round Shield",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Tinker Gloves",
+        "hide_above_al": 40
+      },
+      {
+        "base": "Broad Sword",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Bronze Plate",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Composite Bow",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Eelskin Tunic",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Embroidered Gloves",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Iron Staff",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Quartz Sceptre",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Sage's Robe",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Shackled Boots",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Stiletto",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Stone Hammer",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Wolf Pelt",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Woodsplitter",
+        "hide_above_al": 41
+      },
+      {
+        "base": "Cleaver",
+        "hide_above_al": 42
+      },
+      {
+        "base": "Painted Buckler",
+        "hide_above_al": 42
+      },
+      {
+        "base": "Sacred Life Flask",
+        "hide_above_al": 42
+      },
+      {
+        "base": "Sacred Mana Flask",
+        "hide_above_al": 42
+      },
+      {
+        "base": "Steelscale Boots",
+        "hide_above_al": 42
+      },
+      {
+        "base": "Wyrmscale Doublet",
+        "hide_above_al": 42
+      },
+      {
+        "base": "Basket Rapier",
+        "hide_above_al": 43
+      },
+      {
+        "base": "Cat's Paw",
+        "hide_above_al": 43
+      },
+      {
+        "base": "Cedar Tower Shield",
+        "hide_above_al": 43
+      },
+      {
+        "base": "Latticed Ringmail",
+        "hide_above_al": 43
+      },
+      {
+        "base": "Riveted Gloves",
+        "hide_above_al": 43
+      },
+      {
+        "base": "Secutor Helm",
+        "hide_above_al": 43
+      },
+      {
+        "base": "Steelscale Gauntlets",
+        "hide_above_al": 43
+      },
+      {
+        "base": "Aventail Helmet",
+        "hide_above_al": 44
+      },
+      {
+        "base": "Boot Knife",
+        "hide_above_al": 44
+      },
+      {
+        "base": "Eelskin Boots",
+        "hide_above_al": 44
+      },
+      {
+        "base": "Iron Sceptre",
+        "hide_above_al": 44
+      },
+      {
+        "base": "Quilted Jacket",
+        "hide_above_al": 44
+      },
+      {
+        "base": "Recurve Bow",
+        "hide_above_al": 44
+      },
+      {
+        "base": "Satin Slippers",
+        "hide_above_al": 44
+      },
+      {
+        "base": "Sledgehammer",
+        "hide_above_al": 44
+      },
+      {
+        "base": "Two-Handed Sword",
+        "hide_above_al": 44
+      },
+      {
+        "base": "War Hammer",
+        "hide_above_al": 44
+      },
+      {
+        "base": "War Sword",
+        "hide_above_al": 44
+      },
+      {
+        "base": "Alloyed Spiked Shield",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Battle Plate",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Broad Axe",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Eelskin Gloves",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Fire Arrow Quiver",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Frontier Leather",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Gale Crown",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Imp Crown",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Long Staff",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Poleaxe",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Quartz Wand",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Raven Mask",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Silken Wrap",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Sorrow Mask",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Strapped Leather",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Tarnished Spirit Shield",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Trapper Mitts",
+        "hide_above_al": 45
+      },
+      {
+        "base": "Antique Greaves",
+        "hide_above_al": 46
+      },
+      {
+        "base": "Blinder",
+        "hide_above_al": 46
+      },
+      {
+        "base": "Hammered Buckler",
+        "hide_above_al": 46
+      },
+      {
+        "base": "Hussar Brigandine",
+        "hide_above_al": 46
+      },
+      {
+        "base": "Jagged Foil",
+        "hide_above_al": 46
+      },
+      {
+        "base": "Reinforced Kite Shield",
+        "hide_above_al": 46
+      },
+      {
+        "base": "Ancient Sword",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Antique Gauntlets",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Bladed Mace",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Bone Bow",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Copper Kris",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Copper Tower Shield",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Crusader Chainmail",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Hunter Hood",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Ochre Sceptre",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Satin Gloves",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Trapper Boots",
+        "hide_above_al": 47
+      },
+      {
+        "base": "Arming Axe",
+        "hide_above_al": 48
+      },
+      {
+        "base": "Etched Greatsword",
+        "hide_above_al": 48
+      },
+      {
+        "base": "Jagged Maul",
+        "hide_above_al": 48
+      },
+      {
+        "base": "Lunaris Circlet",
+        "hide_above_al": 48
+      },
+      {
+        "base": "Reaver Helmet",
+        "hide_above_al": 48
+      },
+      {
+        "base": "Runic Gloves",
+        "hide_above_al": 48
+      },
+      {
+        "base": "Runic Greaves",
+        "hide_above_al": 48
+      },
+      {
+        "base": "Sleek Coat",
+        "hide_above_al": 48
+      },
+      {
+        "base": "Antique Rapier",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Burnished Spiked Shield",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Coiled Staff",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Conjurer's Vestment",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Double Axe",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Glorious Leather",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Jingling Spirit Shield",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Runic Helm",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Scarlet Round Shield",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Serpentscale Gauntlets",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Spiraled Wand",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Sun Plate",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Timeworn Claw",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Zealot Boots",
+        "hide_above_al": 49
+      },
+      {
+        "base": "Ambush Mitts",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Assembler Wand",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Basemetal Treads",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Blunt Force Condenser",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Capacity Rod",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Ceremonial Mace",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Cloudwhisper Boots",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Colossal Hybrid Flask",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Duskwalk Slippers",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Elegant Sword",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Endothermic Buckler",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Exhausting Spirit Shield",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Exothermic Tower Shield",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Fickle Spiritblade",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Flare Mace",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Flickerflame Blade",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Full Leather",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Full Wyrmscale",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Hallowed Life Flask",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Hallowed Mana Flask",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Hedron Bow",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Hollowpoint Dagger",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Layered Kite Shield",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Maltreatment Axe",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Prime Cleaver",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Rebuking Blade",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Ritual Sceptre",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Royal Bow",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Shadow Fangs",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Skean",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Transformer Staff",
+        "hide_above_al": 50
+      },
+      {
+        "base": "War Buckler",
+        "hide_above_al": 50
+      },
+      {
+        "base": "Brass Maul",
+        "hide_above_al": 51
+      },
+      {
+        "base": "Decorative Axe",
+        "hide_above_al": 51
+      },
+      {
+        "base": "Fencer Helm",
+        "hide_above_al": 51
+      },
+      {
+        "base": "Full Chainmail",
+        "hide_above_al": 51
+      },
+      {
+        "base": "Ornate Ringmail",
+        "hide_above_al": 51
+      },
+      {
+        "base": "Ornate Sword",
+        "hide_above_al": 51
+      },
+      {
+        "base": "Prong Dagger",
+        "hide_above_al": 51
+      },
+      {
+        "base": "Reinforced Tower Shield",
+        "hide_above_al": 51
+      },
+      {
+        "base": "Serpentscale Boots",
+        "hide_above_al": 51
+      },
+      {
+        "base": "Zealot Gloves",
+        "hide_above_al": 51
+      },
+      {
+        "base": "Callous Mask",
+        "hide_above_al": 52
+      },
+      {
+        "base": "Crimson Raiment",
+        "hide_above_al": 52
+      },
+      {
+        "base": "Elegant Foil",
+        "hide_above_al": 52
+      },
+      {
+        "base": "Gilded Axe",
+        "hide_above_al": 52
+      },
+      {
+        "base": "Royal Staff",
+        "hide_above_al": 52
+      },
+      {
+        "base": "Sparkling Claw",
+        "hide_above_al": 52
+      },
+      {
+        "base": "Ancient Gauntlets",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Brass Spirit Shield",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Colosseum Plate",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Coronal Leather",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Death Bow",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Dream Mace",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Dusk Blade",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Imp Dagger",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Sage Wand",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Samite Slippers",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Shadow Sceptre",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Spidersilk Robe",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Zealot Helmet",
+        "hide_above_al": 53
+      },
+      {
+        "base": "Ancient Greaves",
+        "hide_above_al": 54
+      },
+      {
+        "base": "Commander's Brigandine",
+        "hide_above_al": 54
+      },
+      {
+        "base": "Fright Maul",
+        "hide_above_al": 54
+      },
+      {
+        "base": "Gilded Buckler",
+        "hide_above_al": 54
+      },
+      {
+        "base": "Ornate Spiked Shield",
+        "hide_above_al": 54
+      },
+      {
+        "base": "Sharkskin Gloves",
+        "hide_above_al": 54
+      },
+      {
+        "base": "Spectral Axe",
+        "hide_above_al": 54
+      },
+      {
+        "base": "Spectral Sword",
+        "hide_above_al": 54
+      },
+      {
+        "base": "Splendid Round Shield",
+        "hide_above_al": 54
+      },
+      {
+        "base": "Steel Circlet",
+        "hide_above_al": 54
+      },
+      {
+        "base": "Ambush Boots",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Chain Hauberk",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Fright Claw",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Hook Sword",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Horned Sceptre",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Noble Tricorne",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Pagan Wand",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Painted Tower Shield",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Samite Gloves",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Shadow Axe",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Sharkskin Boots",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Siege Helmet",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Thorn Rapier",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Vile Staff",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Wyrm Mace",
+        "hide_above_al": 55
+      },
+      {
+        "base": "Curved Blade",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Cutthroat's Garb",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Destroyer Regalia",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Etched Hatchet",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Faun's Horn",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Flaying Knife",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Grinning Fetish",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Grove Bow",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Lacquered Garb",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Majestic Plate",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Morning Star",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Petrified Club",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Variscite Blade",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Walnut Spirit Shield",
+        "hide_above_al": 56
+      },
+      {
+        "base": "Battle Lamellar",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Butcher Sword",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Crescent Staff",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Double Claw",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Jasper Axe",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Oak Buckler",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Reflex Bow",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Regicide Mask",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Smallsword",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Soldier Gloves",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Totemic Maul",
+        "hide_above_al": 57
+      },
+      {
+        "base": "Barbed Club",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Buckskin Tower Shield",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Butcher Knife",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Carnal Mitts",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Cutlass",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Decurve Bow",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Devout Chainmail",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Great Crown",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Jasper Chopper",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Lacquered Helmet",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Maple Round Shield",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Redwood Spiked Shield",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Sekhem",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Soldier Boots",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Thresher Claw",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Woodful Staff",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Wyrmbone Rapier",
+        "hide_above_al": 58
+      },
+      {
+        "base": "Blasting Wand",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Crypt Armour",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Dagger Axe",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Engraved Wand",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Etched Kite Shield",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Footman Sword",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Golden Plate",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Great Mallet",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Necromancer Circlet",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Savant's Robe",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Sharkskin Tunic",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Tomahawk",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Wyrmscale Boots",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Wyrmscale Gauntlets",
+        "hide_above_al": 59
+      },
+      {
+        "base": "Baselard",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Burnished Foil",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Compound Bow",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Conjurer Gloves",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Copper Plate",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Crystal Sceptre",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Dragonscale Doublet",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Enameled Buckler",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Gouger",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Military Staff",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Poignard",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Rock Breaker",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Sacred Hybrid Flask",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Samnite Helmet",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Sanctified Life Flask",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Sanctified Mana Flask",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Scale Vest",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Timber Axe",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Ursine Pelt",
+        "hide_above_al": 60
+      },
+      {
+        "base": "Blunt Arrow Quiver",
+        "hide_above_al": 61
+      },
+      {
+        "base": "Conjurer Boots",
+        "hide_above_al": 61
+      },
+      {
+        "base": "Highland Blade",
+        "hide_above_al": 61
+      },
+      {
+        "base": "Loricated Ringmail",
+        "hide_above_al": 61
+      },
+      {
+        "base": "Mahogany Tower Shield",
+        "hide_above_al": 61
+      },
+      {
+        "base": "Steelhead",
+        "hide_above_al": 61
+      },
+      {
+        "base": "Wrist Chopper",
+        "hide_above_al": 61
+      },
+      {
+        "base": "Ancient Spirit Shield",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Battle Hammer",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Battle Sword",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Boot Blade",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Compound Spiked Shield",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Crusader Plate",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Crystal Wand",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Destiny Leather",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Estoc",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Goliath Greaves",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Harlequin Mask",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Headsman Axe",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Lead Sceptre",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Necromancer Silks",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Quarterstaff",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Sentinel Jacket",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Shagreen Boots",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Shagreen Gloves",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Sniper Bow",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Spiked Round Shield",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Steel Kite Shield",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Tiger's Paw",
+        "hide_above_al": 62
+      },
+      {
+        "base": "Carnal Boots",
+        "hide_above_al": 63
+      },
+      {
+        "base": "Corrugated Buckler",
+        "hide_above_al": 63
+      },
+      {
+        "base": "Desert Brigandine",
+        "hide_above_al": 63
+      },
+      {
+        "base": "Engraved Greatsword",
+        "hide_above_al": 63
+      },
+      {
+        "base": "Fluted Bascinet",
+        "hide_above_al": 63
+      },
+      {
+        "base": "Goliath Gauntlets",
+        "hide_above_al": 63
+      },
+      {
+        "base": "Headman's Sword",
+        "hide_above_al": 63
+      },
+      {
+        "base": "Magistrate Crown",
+        "hide_above_al": 63
+      },
+      {
+        "base": "Spiny Maul",
+        "hide_above_al": 63
+      },
+      {
+        "base": "War Axe",
+        "hide_above_al": 63
+      },
+      {
+        "base": "Blood Sceptre",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Bronze Tower Shield",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Conquest Chainmail",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Elder Sword",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Flanged Mace",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Golden Kris",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Gut Ripper",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Ivory Bow",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Labrys",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Legion Boots",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Serpentine Staff",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Serrated Foil",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Shagreen Tower Shield",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Silken Hood",
+        "hide_above_al": 64
+      },
+      {
+        "base": "Astral Plate",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Blasting Blade",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Capricious Spiritblade",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Chest Splitter",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Chiming Spirit Shield",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Coiled Wand",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Congregator Wand",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Convening Wand",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Crack Mace",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Crushing Force Magnifier",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Darksteel Treads",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Disapprobation Axe",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Exquisite Leather",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Ezomyte Burgonet",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Flashfire Blade",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Foundry Bow",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Honed Cleaver",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Hydrascale Boots",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Laminated Kite Shield",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Magmatic Tower Shield",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Malign Fangs",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Nightwind Slippers",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Occultist's Vestment",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Plated Maul",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Polar Buckler",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Potentiality Rod",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Pressurised Dagger",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Reciprocation Staff",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Ringmail Coat",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Solaris Circlet",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Stabilising Sceptre",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Subsuming Spirit Shield",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Tiger Sword",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Varnished Coat",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Windbreak Boots",
+        "hide_above_al": 65
+      },
+      {
+        "base": "Battle Buckler",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Crimson Round Shield",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Elegant Round Shield",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Full Dragonscale",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Graceful Sword",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Highborn Bow",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Highborn Staff",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Ironwood Buckler",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Lacquered Buckler",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Legion Gloves",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Noble Axe",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Ornate Mace",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Polished Spiked Shield",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Prehistoric Claw",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Primeval Rapier",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Primordial Staff",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Royal Sceptre",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Royal Skean",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Spiny Round Shield",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Trisula",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Vaal Buckler",
+        "hide_above_al": 66
+      },
+      {
+        "base": "Arcanist Slippers",
+        "hide_above_al": 67
+      },
+      {
+        "base": "Assassin's Mitts",
+        "hide_above_al": 67
+      },
+      {
+        "base": "Ceremonial Axe",
+        "hide_above_al": 67
+      },
+      {
+        "base": "Dread Maul",
+        "hide_above_al": 67
+      },
+      {
+        "base": "Elegant Ringmail",
+        "hide_above_al": 67
+      },
+      {
+        "base": "Fancy Foil",
+        "hide_above_al": 67
+      },
+      {
+        "base": "Girded Tower Shield",
+        "hide_above_al": 67
+      },
+      {
+        "base": "Hydrascale Gauntlets",
+        "hide_above_al": 67
+      },
+      {
+        "base": "Noble Claw",
+        "hide_above_al": 67
+      },
+      {
+        "base": "Wraith Sword",
+        "hide_above_al": 67
+      },
+      {
+        "base": "Abyssal Sceptre",
+        "hide_above_al": 68
+      },
+      {
+        "base": "Decimation Bow",
+        "hide_above_al": 68
+      },
+      {
+        "base": "Fiend Dagger",
+        "hide_above_al": 68
+      },
+      {
+        "base": "Omen Wand",
+        "hide_above_al": 68
+      },
+      {
+        "base": "Phantom Mace",
+        "hide_above_al": 68
+      },
+      {
+        "base": "Thorium Spirit Shield",
+        "hide_above_al": 68
+      },
+      {
+        "base": "Twilight Blade",
+        "hide_above_al": 68
+      },
+      {
+        "base": "Baroque Round Shield",
+        "hide_above_al": 69
+      },
+      {
+        "base": "Golden Buckler",
+        "hide_above_al": 69
+      },
+      {
+        "base": "Sovereign Spiked Shield",
+        "hide_above_al": 69
+      },
+      {
+        "base": "Wraith Axe",
+        "hide_above_al": 69
+      },
+      {
+        "base": "Abyssal Axe",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Alder Spiked Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Ambusher",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Ancestral Club",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Angelic Kite Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Apex Rapier",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Arcanist Gloves",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Assassin Bow",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Assassin's Boots",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Blood Raiment",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Branded Kite Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Butcher Axe",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Champion Kite Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Citadel Bow",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Colossus Mallet",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Corsair Sword",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Courtesan Sword",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Crested Tower Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Crusader Boots",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Demon's Horn",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Dragon Mace",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Dragonbone Rapier",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Dragonscale Boots",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Eagle Claw",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Ebony Tower Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Engraved Hatchet",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Eye Gouger",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Ezomyte Axe",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Ezomyte Blade",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Ezomyte Dagger",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Ezomyte Spiked Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Ezomyte Staff",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Ezomyte Tower Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Fossilised Spirit Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Foul Staff",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Gavel",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Gemstone Sword",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Gladiator Plate",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Gladius",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Grappler",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Great White Claw",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Gutting Knife",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Harmonic Spirit Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Heathen Wand",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Heavy Arrow Quiver",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Hellion's Paw",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Imbued Wand",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Imperial Maul",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Karui Axe",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Karui Chopper",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Karui Maul",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Karui Sceptre",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Kinetic Wand",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Lacewood Spirit Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Lathi",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Legion Hammer",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Legion Sword",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Lion Sword",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Lithe Blade",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Maelström Staff",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Meatgrinder",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Mind Cage",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Moon Staff",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Mosaic Kite Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Opal Sceptre",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Opal Wand",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Pecoraro",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Pernach",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Pig-Faced Bascinet",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Piledriver",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Plate Vest",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Platinum Kris",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Platinum Sceptre",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Prophet Crown",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Ranger Bow",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Reaver Axe",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Reaver Sword",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Royal Burgonet",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Siege Axe",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Sinner Tricorne",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Slaughter Knife",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Solar Maul",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Spine Bow",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Spiraled Foil",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Stag Sceptre",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Stealth Boots",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Stealth Gloves",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Steelwood Bow",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Sundering Axe",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Talon Axe",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Teak Round Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Tempered Foil",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Tenderizer",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Thicket Bow",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Throat Stabber",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Tornado Wand",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Twin Claw",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Tyrant's Sekhem",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Vaal Axe",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Vaal Blade",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Vaal Gauntlets",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Vaal Greatsword",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Vaal Greaves",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Vaal Hatchet",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Vaal Mask",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Vaal Sceptre",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Vaal Spirit Shield",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Vile Arrow Quiver",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Widowsilk Robe",
+        "hide_above_al": 70
+      },
+      {
+        "base": "Zodiac Leather",
+        "hide_above_al": 70
+      }
     ]
   },
   "endgame_supplies": {
-    "description": "리그 소모품 — Heist 도구, Expedition 아이템 단계적 Hide",
+    "description": "리그 소모품 — Expedition/기타 단계적 Hide",
     "items": [
-      { "base": "Rusted Casting",        "hide_above_al": 75 },
-      { "base": "Rusted Hunting",        "hide_above_al": 75 },
-      { "base": "Exotic Coinage",        "hide_above_al": 80 },
-      { "base": "Scouting Report",       "hide_above_al": 83 }
+      {
+        "base": "Exotic Coinage",
+        "hide_above_al": 80
+      }
     ]
   }
 }

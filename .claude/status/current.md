@@ -1,22 +1,17 @@
 ## 지금
-- β 아키텍처 전환 진행 중 (Wreckers식 Continue 체인)
-- β-0~β-5a 완료. `--arch aurora|continue` + `--strictness 0~4` + 빌드 데이터 CLI 병존
-- 전 레이어 활성: L0/L1/L2/L3/L5/L6/L7/L8/L9/L10 (L4 SPECIAL_BASE 폐기)
-- 블록 수 strictness별 (빌드 없음): 0→45, 1→47, 2→68, 3→86, 4→92
-- 빌드 투입 시 L7 BUILD_TARGET + L10 RE_SHOW 동적 생성 (Tabula s=3 → 90)
-
-## β 인게임 시각 검증 주의 (β-1~β-4 interim)
-- L1 UpsideDownHouse 아이콘이 모든 아이템에 캐스케이드 (의도된 동작, Wreckers 설계 원본)
-- β-2에서 부패/T1 보더 레이어 추가, β-4 카테고리별 최종 아이콘 덮어쓰기까지 **시각적 완성 아님**
-- β-1~β-3 인게임 테스트는 "기능 캐스케이드 확인" 목적, "UI 완성도 확인" 아님
+- Phase 1~7 + 후속 3작업 + Syndicate UX 개선 완료
+- equipment_bases_midgame 455 → 599 (+144), Hale strictness=4 옵트인, Awakener's Orb T1
+- Syndicate: 튜토리얼 + 추천 엔진 + Vision 자동 입력 (Claude Opus 4.6 vision, 캐싱)
+- 메인 탭 분리 (빌드 분석 / Syndicate)
+- 테스트 355 passing, TS type-check OK, Tauri rebuilt
 
 ## 다음
-- β-5b: Aurora 제거 + 구 모듈 삭제 + POB 4개 인게임 검증 (필터 적재 + 시각 검증)
-- β-4a: 누락 카테고리 (Quest Items, Unique Tiers, Gold, Essences)
-- β-3a (선택): Wreckers 원본 필터 확보 시 장비 베이스 완전 parity
+- **인게임 검증 필수**: Phase 1-6 변경 + equipment_bases 599 확장 + Awakener's Orb T1 승격 동작 확인
+- **Epic 6-Link 사운드 요구**: `6Link.mp3` 파일이 POE Documents 폴더에 있어야 함 (Sanavi 필터 설치 시 자동; 없으면 POE 기본 사운드 fallback)
+- 향후 선택: Wreckers 원본 .filter 확보 시 equipment_bases 합집합 재검증 / strictness=4 실사용 피드백
 
 ## 블로커
-- 없음
+- 없음 (sinabro MCP 글로벌 `.mcp.json` 등록 완료 — 다음 세션 재시작 시 `sv_observe` 툴 로드됨)
 
 ## 참조
 - [Continue 아키텍처 (β)](continue_architecture.md)

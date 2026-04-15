@@ -8,13 +8,8 @@
 | src-tauri/src/bin/test_bundle.rs | 번들 파이프라인 실제 테스트 바이너리 | 예 |
 | src-tauri/src/bin/extract_data.rs | POE 게임 데이터 추출 CLI (자동탐지 + JSON 변환) | 아니오 |
 | python/game_data_provider.py | 추출된 게임 데이터 로더 + 크로스레퍼런스 해결 | 아니오 |
-| python/filter_generator.py | 빌드 기반 아이템 필터 생성 (Sanavi 오버레이) | 아니오 |
+| python/filter_generator.py | β Continue 필터 생성 CLI (standalone 필터) | 아니오 |
 | python/pathcraft_palette.py | Aurora Glow 팔레트 — 색/상수/헬퍼 (498줄) | 아니오 |
-| python/pathcraft_sections.py | Facade — 4개 모듈 re-export (16줄) | 아니오 |
-| python/sections_core.py | 코어 빌더 + 엄격도 시스템 (381줄) | 아니오 |
-| python/sections_currency.py | 커런시 관련 섹션 (752줄) | 아니오 |
-| python/sections_gear.py | 장비/기어 관련 섹션 (2,005줄) | 아니오 |
-| python/sections_leveling.py | 레벨링 + 맵 + 기타 (1,066줄) | 아니오 |
 | python/sanavi_tier_parser.py | Sanavi 필터에서 카테고리×티어 BaseType 리스트 추출 | 아니오 |
 | python/filter_merge.py | POE 필터 오버레이 삽입/Sanavi 탐지 공유 유틸 | 아니오 |
 | python/tests/test_pathcraft_palette.py | palette + sections 단위 테스트 (90 케이스) | 아니오 |
@@ -30,3 +25,7 @@
 | data/progressive_hide.json | β 프로그레시브 엄격도 데이터 (Supply 5단계, AL 임계값, 레벨링/엔드게임 베이스) | 아니오 |
 | python/build_extractor.py | POB 빌드 데이터 파싱 헬퍼 (유니크/젬/베이스/디비카/chanceable 추출) | 아니오 |
 | .claude/status/continue_architecture.md | β 아키텍처 설계 문서 (레이어 순서, 빌더 API, 마이그레이션) | 아니오 |
+| src/utils/syndicateEngine.ts | Syndicate 경로 추천 엔진 (current → target 액션 추천) | 아니오 |
+| src/components/SyndicateTutorial.tsx | Syndicate 4 액션/분과/Rank/약어 튜토리얼 패널 | 아니오 |
+| python/syndicate_vision.py | Claude Vision으로 POE Syndicate 스크린샷 → 멤버/Rank 추출 (Opus 4.6 + 캐싱) | 아니오 |
+| python/tests/test_syndicate_vision.py | Vision 정규화/파싱 단위 테스트 (19 케이스, anthropic mock) | 아니오 |

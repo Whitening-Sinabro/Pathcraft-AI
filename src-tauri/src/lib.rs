@@ -8,32 +8,48 @@ pub mod schema;
 use std::process::Command;
 use std::path::PathBuf;
 
+#[cfg(target_os = "windows")]
+use std::os::windows::process::CommandExt;
+
+/// Windows에서 Python subprocess 호출 시 콘솔 창 표시 억제 flag.
+/// CREATE_NO_WINDOW = 0x08000000 (WinAPI 상수).
+#[cfg(target_os = "windows")]
+const CREATE_NO_WINDOW: u32 = 0x08000000;
+
+/// 플랫폼별로 Command 생성 + Windows는 콘솔 창 숨김.
+fn new_python_cmd() -> Command {
+    let mut cmd = Command::new("python");
+    #[cfg(target_os = "windows")]
+    cmd.creation_flags(CREATE_NO_WINDOW);
+    cmd
+}
+
 fn project_root() -> PathBuf {
-    // TAURI_PROJECT_ROOT 환경변수 > exe 위치 기준 > CWD 기준
+    // TAURI_PROJECT_ROOT 환경변수 > exe 위치 조상 탐색 > CWD 조상 탐색
     if let Ok(root) = std::env::var("TAURI_PROJECT_ROOT") {
         return PathBuf::from(root);
     }
 
-    // 프로덕션: exe와 같은 디렉토리 또는 상위에 python/ 폴더 탐색
+    // exe 조상 경로 모두 탐색 (target/release/app.exe → target → src-tauri → PROJECT_ROOT)
     if let Ok(exe) = std::env::current_exe() {
-        if let Some(exe_dir) = exe.parent() {
-            if exe_dir.join("python").is_dir() {
-                return exe_dir.to_path_buf();
-            }
-            if let Some(parent) = exe_dir.parent() {
-                if parent.join("python").is_dir() {
-                    return parent.to_path_buf();
-                }
+        for ancestor in exe.ancestors().skip(1) {
+            if ancestor.join("python").is_dir() {
+                return ancestor.to_path_buf();
             }
         }
     }
 
-    // 개발: CWD(src-tauri/)의 상위 = 프로젝트 루트
-    std::env::current_dir()
-        .unwrap_or_default()
-        .parent()
-        .map(|p| p.to_path_buf())
-        .unwrap_or_default()
+    // CWD 조상도 동일 방식으로 탐색 (개발 모드 fallback)
+    if let Ok(cwd) = std::env::current_dir() {
+        for ancestor in cwd.ancestors() {
+            if ancestor.join("python").is_dir() {
+                return ancestor.to_path_buf();
+            }
+        }
+    }
+
+    // 최후: CWD 자체
+    std::env::current_dir().unwrap_or_default()
 }
 
 fn python_dir() -> PathBuf {
@@ -41,7 +57,7 @@ fn python_dir() -> PathBuf {
 }
 
 fn run_python(script: &str, args: &[&str]) -> Result<String, String> {
-    let output = Command::new("python")
+    let output = new_python_cmd()
         .arg(python_dir().join(script))
         .args(args)
         .env("PYTHONIOENCODING", "utf-8")
@@ -58,38 +74,47 @@ fn run_python(script: &str, args: &[&str]) -> Result<String, String> {
 }
 
 #[tauri::command]
-fn parse_pob(link: String) -> Result<String, String> {
-    run_python("pob_parser.py", &[&link])
+async fn parse_pob(link: String) -> Result<String, String> {
+    // 블로킹 서브프로세스 → tokio blocking pool에서 실행 → UI 프리즈 방지
+    tauri::async_runtime::spawn_blocking(move || {
+        run_python("pob_parser.py", &[&link])
+    })
+    .await
+    .map_err(|e| format!("작업 스케줄 실패: {}", e))?
 }
 
 #[tauri::command]
-fn coach_build(build_json: String) -> Result<String, String> {
-    let mut child = Command::new("python")
-        .arg(python_dir().join("build_coach.py"))
-        .arg("-")
-        .env("PYTHONIOENCODING", "utf-8")
-        .current_dir(project_root())
-        .stdin(std::process::Stdio::piped())
-        .stdout(std::process::Stdio::piped())
-        .stderr(std::process::Stdio::piped())
-        .spawn()
-        .map_err(|e| format!("Python 실행 실패: {}", e))?;
+async fn coach_build(build_json: String) -> Result<String, String> {
+    tauri::async_runtime::spawn_blocking(move || {
+        let mut child = new_python_cmd()
+            .arg(python_dir().join("build_coach.py"))
+            .arg("-")
+            .env("PYTHONIOENCODING", "utf-8")
+            .current_dir(project_root())
+            .stdin(std::process::Stdio::piped())
+            .stdout(std::process::Stdio::piped())
+            .stderr(std::process::Stdio::piped())
+            .spawn()
+            .map_err(|e| format!("Python 실행 실패: {}", e))?;
 
-    use std::io::Write;
-    if let Some(mut stdin) = child.stdin.take() {
-        stdin.write_all(build_json.as_bytes())
-            .map_err(|e| format!("stdin 전달 실패: {}", e))?;
-    }
+        use std::io::Write;
+        if let Some(mut stdin) = child.stdin.take() {
+            stdin.write_all(build_json.as_bytes())
+                .map_err(|e| format!("stdin 전달 실패: {}", e))?;
+        }
 
-    let output = child.wait_with_output()
-        .map_err(|e| format!("프로세스 대기 실패: {}", e))?;
+        let output = child.wait_with_output()
+            .map_err(|e| format!("프로세스 대기 실패: {}", e))?;
 
-    if output.status.success() {
-        Ok(String::from_utf8_lossy(&output.stdout).to_string())
-    } else {
-        let stderr = String::from_utf8_lossy(&output.stderr).to_string();
-        Err(format!("코치 에러: {}", stderr))
-    }
+        if output.status.success() {
+            Ok(String::from_utf8_lossy(&output.stdout).to_string())
+        } else {
+            let stderr = String::from_utf8_lossy(&output.stderr).to_string();
+            Err(format!("코치 에러: {}", stderr))
+        }
+    })
+    .await
+    .map_err(|e| format!("작업 스케줄 실패: {}", e))?
 }
 
 #[tauri::command]
@@ -162,38 +187,132 @@ fn extract_game_data(poe_path: String) -> Result<String, String> {
 }
 
 #[tauri::command]
-fn generate_filter(build_json: String, coaching_json: String, strictness: u8) -> Result<String, String> {
-    let temp_dir = std::env::temp_dir();
-    let build_path = temp_dir.join("pathcraft_build.json");
-    let coach_path = temp_dir.join("pathcraft_coaching.json");
+async fn generate_filter(build_json: String, coaching_json: String, strictness: u8) -> Result<String, String> {
+    generate_filter_multi(vec![build_json], coaching_json, strictness, false, "ssf".to_string(), 67).await
+}
 
-    std::fs::write(&build_path, &build_json)
-        .map_err(|e| format!("빌드 임시파일 쓰기 실패: {}", e))?;
-    std::fs::write(&coach_path, &coaching_json)
-        .map_err(|e| format!("코칭 임시파일 쓰기 실패: {}", e))?;
+#[tauri::command]
+async fn generate_filter_multi(
+    build_jsons: Vec<String>,
+    coaching_json: String,
+    strictness: u8,
+    stage: bool,
+    mode: String,
+    al_split: u8,
+) -> Result<String, String> {
+    tauri::async_runtime::spawn_blocking(move || {
+        if build_jsons.is_empty() {
+            return Err("빌드 JSON이 비어있습니다".to_string());
+        }
+        let temp_dir = std::env::temp_dir();
+        let coach_path = temp_dir.join("pathcraft_coaching.json");
+        std::fs::write(&coach_path, &coaching_json)
+            .map_err(|e| format!("코칭 임시파일 쓰기 실패: {}", e))?;
 
-    let output = Command::new("python")
-        .arg(python_dir().join("filter_generator.py"))
-        .arg(&build_path)
-        .arg("--coaching")
-        .arg(&coach_path)
-        .arg("--strictness")
-        .arg(strictness.to_string())
-        .arg("--json")
-        .env("PYTHONIOENCODING", "utf-8")
-        .current_dir(project_root())
-        .output()
-        .map_err(|e| format!("Python 실행 실패: {}", e))?;
+        // 각 빌드 JSON을 temp 파일로 (다중 POB 지원)
+        let mut build_paths: Vec<std::path::PathBuf> = Vec::with_capacity(build_jsons.len());
+        for (i, bj) in build_jsons.iter().enumerate() {
+            let p = temp_dir.join(format!("pathcraft_build_{}.json", i));
+            std::fs::write(&p, bj)
+                .map_err(|e| format!("빌드 {} 임시파일 쓰기 실패: {}", i, e))?;
+            build_paths.push(p);
+        }
 
-    let _ = std::fs::remove_file(&build_path);
-    let _ = std::fs::remove_file(&coach_path);
+        let mut cmd = new_python_cmd();
+        cmd.arg(python_dir().join("filter_generator.py"));
+        for p in &build_paths {
+            cmd.arg(p);
+        }
+        cmd.arg("--coaching").arg(&coach_path)
+            .arg("--strictness").arg(strictness.to_string())
+            .arg("--mode").arg(&mode)
+            .arg("--al-split").arg(al_split.to_string())
+            .arg("--json");
+        if stage {
+            cmd.arg("--stage");
+        }
+        cmd.env("PYTHONIOENCODING", "utf-8")
+            .current_dir(project_root());
 
-    if output.status.success() {
-        Ok(String::from_utf8_lossy(&output.stdout).to_string())
-    } else {
-        let stderr = String::from_utf8_lossy(&output.stderr).to_string();
-        Err(format!("필터 생성 에러: {}", stderr))
-    }
+        let output = cmd.output()
+            .map_err(|e| format!("Python 실행 실패: {}", e))?;
+
+        for p in &build_paths {
+            let _ = std::fs::remove_file(p);
+        }
+        let _ = std::fs::remove_file(&coach_path);
+
+        if output.status.success() {
+            Ok(String::from_utf8_lossy(&output.stdout).to_string())
+        } else {
+            let stderr = String::from_utf8_lossy(&output.stderr).to_string();
+            Err(format!("필터 생성 에러: {}", stderr))
+        }
+    })
+    .await
+    .map_err(|e| format!("작업 스케줄 실패: {}", e))?
+}
+
+#[tauri::command]
+async fn syndicate_recommend(build_json: String) -> Result<String, String> {
+    tauri::async_runtime::spawn_blocking(move || {
+        let mut child = new_python_cmd()
+            .arg(python_dir().join("syndicate_advisor.py"))
+            .arg("-")
+            .env("PYTHONIOENCODING", "utf-8")
+            .current_dir(project_root())
+            .stdin(std::process::Stdio::piped())
+            .stdout(std::process::Stdio::piped())
+            .stderr(std::process::Stdio::piped())
+            .spawn()
+            .map_err(|e| format!("Python 실행 실패: {}", e))?;
+        use std::io::Write;
+        if let Some(mut stdin) = child.stdin.take() {
+            stdin.write_all(build_json.as_bytes())
+                .map_err(|e| format!("stdin 전달 실패: {}", e))?;
+        }
+        let output = child.wait_with_output()
+            .map_err(|e| format!("프로세스 대기 실패: {}", e))?;
+        if output.status.success() {
+            Ok(String::from_utf8_lossy(&output.stdout).to_string())
+        } else {
+            Err(format!("Syndicate advisor 에러: {}",
+                        String::from_utf8_lossy(&output.stderr)))
+        }
+    })
+    .await
+    .map_err(|e| format!("작업 스케줄 실패: {}", e))?
+}
+
+#[tauri::command]
+async fn analyze_syndicate_image(image_base64: String) -> Result<String, String> {
+    // Claude Vision API 호출 — 큰 base64 페이로드는 stdin 전달.
+    // .env 파일에서 ANTHROPIC_API_KEY 자동 로드 (프로젝트 루트).
+    tauri::async_runtime::spawn_blocking(move || {
+        let mut child = new_python_cmd()
+            .arg(python_dir().join("syndicate_vision.py"))
+            .env("PYTHONIOENCODING", "utf-8")
+            .current_dir(project_root())
+            .stdin(std::process::Stdio::piped())
+            .stdout(std::process::Stdio::piped())
+            .stderr(std::process::Stdio::piped())
+            .spawn()
+            .map_err(|e| format!("Python 실행 실패: {}", e))?;
+        use std::io::Write;
+        if let Some(mut stdin) = child.stdin.take() {
+            stdin.write_all(image_base64.as_bytes())
+                .map_err(|e| format!("stdin 전달 실패: {}", e))?;
+        }
+        let output = child.wait_with_output()
+            .map_err(|e| format!("프로세스 대기 실패: {}", e))?;
+        if output.status.success() {
+            Ok(String::from_utf8_lossy(&output.stdout).to_string())
+        } else {
+            Err(format!("Vision 분석 에러: {}", String::from_utf8_lossy(&output.stderr)))
+        }
+    })
+    .await
+    .map_err(|e| format!("작업 스케줄 실패: {}", e))?
 }
 
 #[tauri::command]
@@ -239,7 +358,7 @@ mod tests {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![parse_pob, coach_build, generate_filter, collect_patch_notes, get_latest_patch, extract_game_data])
+        .invoke_handler(tauri::generate_handler![parse_pob, coach_build, generate_filter, generate_filter_multi, syndicate_recommend, analyze_syndicate_image, collect_patch_notes, get_latest_patch, extract_game_data])
         .setup(|app| {
             if cfg!(debug_assertions) {
                 app.handle().plugin(
