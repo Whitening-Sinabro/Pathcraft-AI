@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import type { BuildData, CoachResult } from "./types";
 import { BuildRatingSection } from "./components/BuildRating";
@@ -8,6 +8,7 @@ import { MapWarnings } from "./components/MapWarnings";
 import { FilterPanel } from "./components/FilterPanel";
 import { SyndicateBoard } from "./components/SyndicateBoard";
 import { PobInputSection } from "./components/PobInputSection";
+import { PassiveTreeView } from "./components/PassiveTreeView";
 import { colors, space, radius, font } from "./theme";
 
 const tierColor: Record<string, string> = {
@@ -35,16 +36,18 @@ function App() {
   // Syndicate 레이아웃 AI 추천
   const [syndicateRec, setSyndicateRec] = useState<{ layout_id: string; reason: string } | null>(null);
 
-  // 메인 탭 (build / syndicate) — localStorage 영속
-  const [activeTab, setActiveTab] = useState<"build" | "syndicate">(() => {
+  // 메인 탭 (build / syndicate / passive) — localStorage 영속
+  type TabId = "build" | "syndicate" | "passive";
+  const [activeTab, setActiveTab] = useState<TabId>(() => {
     try {
       const saved = localStorage.getItem("pathcraftai_active_tab");
-      return saved === "syndicate" ? "syndicate" : "build";
+      if (saved === "syndicate" || saved === "passive") return saved;
+      return "build";
     } catch {
       return "build";
     }
   });
-  function switchTab(tab: "build" | "syndicate") {
+  function switchTab(tab: TabId) {
     setActiveTab(tab);
     try { localStorage.setItem("pathcraftai_active_tab", tab); } catch { /* ignore */ }
   }
@@ -69,6 +72,21 @@ function App() {
   };
   const buildKey = buildData?.meta?.build_name || "build";
   const ck = (suffix: string) => `${buildKey}::${suffix}`;
+
+  // rawBuildJson에서 passive_tree_url 추출 (progression_stages[].passive_tree_url)
+  const passiveTreeUrl = useMemo(() => {
+    if (!rawBuildJson) return "";
+    try {
+      const d = JSON.parse(rawBuildJson);
+      const stages = (d as { progression_stages?: Array<{ passive_tree_url?: string }> }).progression_stages || [];
+      for (const s of stages) {
+        if (s.passive_tree_url) return s.passive_tree_url;
+      }
+      return "";
+    } catch {
+      return "";
+    }
+  }, [rawBuildJson]);
 
   // 간단 hash (POB raw JSON → 32-bit int)
   function hashString(s: string): string {
@@ -196,6 +214,7 @@ function App() {
         {[
           { id: "build" as const, label: "🔨 빌드 분석" },
           { id: "syndicate" as const, label: "🎭 Syndicate" },
+          { id: "passive" as const, label: "🌳 패시브 트리" },
         ].map((t) => (
           <button
             key={t.id}
@@ -215,6 +234,10 @@ function App() {
 
       {activeTab === "syndicate" && (
         <SyndicateBoard buildJson={rawBuildJson} recommendation={syndicateRec} />
+      )}
+
+      {activeTab === "passive" && (
+        <PassiveTreeView url={passiveTreeUrl} />
       )}
 
       {activeTab === "build" && <>
@@ -471,6 +494,9 @@ function App() {
             <ol style={{ margin: 0, paddingLeft: 20 }}>
               {coaching.passive_priority.map((p, i) => <li key={i} style={{ marginBottom: 4 }}>{p}</li>)}
             </ol>
+            <div style={{ marginTop: 8, fontSize: 11, color: "#868e96" }}>
+              실제 트리 뷰어는 상단 <strong>🌳 패시브 트리</strong> 탭에서 확인.
+            </div>
           </section>
 
           <MapWarnings warnings={coaching.map_mod_warnings} />

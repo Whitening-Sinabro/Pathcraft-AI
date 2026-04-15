@@ -29,3 +29,5 @@
 | src/components/SyndicateTutorial.tsx | Syndicate 4 액션/분과/Rank/약어 튜토리얼 패널 | 아니오 |
 | python/syndicate_vision.py | Claude Vision으로 POE Syndicate 스크린샷 → 멤버/Rank 추출 (Opus 4.6 + 캐싱) | 아니오 |
 | python/tests/test_syndicate_vision.py | Vision 정규화/파싱 단위 테스트 (19 케이스, anthropic mock) | 아니오 |
+| src/components/PassiveTreeView.tsx | 패시브 트리 탭 — POE 공식 iframe + fallback (현재 X-Frame 차단, 다음 세션 재설계) | 아니오 |
+| _analysis/filter_coverage_audit.py | BaseItemTypes vs 필터 매칭 자동 감사 (P0/P1 누락 탐지) | 아니오 |

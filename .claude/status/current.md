@@ -1,9 +1,17 @@
 ## 지금
-- Phase 1~7 + 후속 3작업 + Syndicate UX 개선 완료
-- equipment_bases_midgame 455 → 599 (+144), Hale strictness=4 옵트인, Awakener's Orb T1
-- Syndicate: 튜토리얼 + 추천 엔진 + Vision 자동 입력 (Claude Opus 4.6 vision, 캐싱)
-- 메인 탭 분리 (빌드 분석 / Syndicate)
-- 테스트 355 passing, TS type-check OK, Tauri rebuilt
+- 세션 커밋 완료 (master 29 commits pushed to origin)
+- 필터 coverage 감사 완료 — BaseType 매칭 1777 → 1955 (에센스 7티어 + P0 + P1 + Heist Objective)
+- Syndicate 탭 (튜토리얼 + 엔진 + Claude Vision)
+- 패시브 트리 탭 추가됨 — **현재 iframe 차단 (POE X-Frame-Options: DENY)**
+- 테스트 406 passing
+
+## 다음 세션: 패시브 트리 렌더 방식 결정
+- iframe 불가 확인됨 (`www.pathofexile.com 연결을 거부`)
+- 유저 선택 대기 중 (UX 관점):
+  - A. Tauri WebviewWindow — 30분, 별창으로 POE 공식 뷰어 띄움
+  - D. 로컬 SVG 렌더 — 3~4시간, `data/skilltree-export/` 에셋으로 탭 내 자체 구현 (오프라인, 앱 통합)
+- 현 구현: `PassiveTreeView.tsx` iframe + fallback "새 창" 버튼 (브라우저 열림)
+- passive_tree_url 추출 로직은 `App.tsx` useMemo로 구현됨 (progression_stages[].passive_tree_url)
 
 ## 다음
 - **인게임 검증 필수**: Phase 1-6 변경 + equipment_bases 599 확장 + Awakener's Orb T1 승격 동작 확인
