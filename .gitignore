@@ -96,6 +96,16 @@ crash_log.txt
 # Config (로컬 설정만)
 .claude/settings.local.json
 
+# Claude Code 런타임 상태 (로컬 전용)
+.claude/scheduled_tasks.lock
+.claude/skillmaker/
+.claude/status/filter_analysis.md
+python/.claude/
+src-tauri/.claude/
+
+# Build output
+dist/
+
 # External tools/repos (git submodules)
 src/PathcraftAI.Parser/pob_repo/
 tools/LibGGPK3/
