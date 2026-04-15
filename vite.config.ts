@@ -13,5 +13,7 @@ export default defineConfig({
     hmr: host
       ? { protocol: "ws", host, port: 1421 }
       : undefined,
+    // 패시브 트리 데이터(data/skilltree-export/data.json)를 src 외부에서 ?url 로 import 허용
+    fs: { allow: [".."] },
   },
 });

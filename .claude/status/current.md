@@ -1,29 +1,46 @@
 ## 지금
-- 세션 커밋 완료 (master 29 commits pushed to origin)
-- 필터 coverage 감사 완료 — BaseType 매칭 1777 → 1955 (에센스 7티어 + P0 + P1 + Heist Objective)
-- Syndicate 탭 (튜토리얼 + 엔진 + Claude Vision)
-- 패시브 트리 탭 추가됨 — **현재 iframe 차단 (POE X-Frame-Options: DENY)**
-- 테스트 406 passing
+- 패시브 트리 Canvas 뷰어 Phase 1 + 1b + PoB 호환 기능 대부분 구현 (미커밋)
+- 테스트 31/31 passing
+- Tauri 빌드 통과
 
-## 다음 세션: 패시브 트리 렌더 방식 결정
-- iframe 불가 확인됨 (`www.pathofexile.com 연결을 거부`)
-- 유저 선택 대기 중 (UX 관점):
-  - A. Tauri WebviewWindow — 30분, 별창으로 POE 공식 뷰어 띄움
-  - D. 로컬 SVG 렌더 — 3~4시간, `data/skilltree-export/` 에셋으로 탭 내 자체 구현 (오프라인, 앱 통합)
-- 현 구현: `PassiveTreeView.tsx` iframe + fallback "새 창" 버튼 (브라우저 열림)
-- passive_tree_url 추출 로직은 `App.tsx` useMemo로 구현됨 (progression_stages[].passive_tree_url)
+## 패시브 트리 완료 기능
+- ✅ Phase 1 (정적 트리) — orbit→cartesian, 2737 노드, BFS 경로
+- ✅ Phase 1b (스프라이트) — 아이콘/프레임/그룹배경, Active/Inactive 분기
+- ✅ Undo/Redo (Ctrl+Z/Y, 100 스냅샷)
+- ✅ 포인트 카운터 (좌하단)
+- ✅ Dealloc cascade (할당 해제 시 고아 노드 자동 제거)
+- ✅ 검색 하이라이트 (Ctrl+F, 이름/stat 매칭)
+- ✅ 사용법 가이드 패널 (우하단)
 
-## 다음
-- **인게임 검증 필수**: Phase 1-6 변경 + equipment_bases 599 확장 + Awakener's Orb T1 승격 동작 확인
-- **Epic 6-Link 사운드 요구**: `6Link.mp3` 파일이 POE Documents 폴더에 있어야 함 (Sanavi 필터 설치 시 자동; 없으면 POE 기본 사운드 fallback)
-- 향후 선택: Wreckers 원본 .filter 확보 시 equipment_bases 합집합 재검증 / strictness=4 실사용 피드백
+## 다음 우선순위
+- [ ] **클래스 고정** — 7개 클래스 선택 UI, 시작 노드 자동 할당 + 변경 불가 (현재 아무 노드나 첫 할당 가능 = POE와 불일치)
+- [ ] Phase 2: PoB 빌드 `progression_stages[].passive_tree_url` 디코드 → 자동 allocated
+- [ ] Phase 3: 한국어 stat 툴팁 (merged_translations.json)
+
+## Class Start 노드 매핑 (data.json)
+- 0: Scion (id 58833, "Seven")
+- 1: Marauder (id 47175)
+- 2: Ranger (id 50459)
+- 3: Witch (id 54447)
+- 4: Duelist (id 50986)
+- 5: Templar (id 61525)
+- 6: Shadow (id 44683, "SIX")
+
+## UX 결정 기록
+- 우클릭 dealloc 분리 → **되돌림**. 왼클릭 토글 유지 (할당된 노드 클릭 = cascade dealloc)
+- line sprite vs stroke arc 질감 차이 — 허용 (사용자 "어쩔 수 없음")
+- 수동 URL import UI — **스킵**. 빌드 로드로 자동 처리할 것 (Phase 2)
+- 검색 하이라이트 — 구현 완료
+
+## 잔존 이슈
+- 일부 엣지 굵기 불일치 (arc stroke vs 직선 sprite)
+- 705 line PassiveTreeCanvas.tsx 분리 미수행 (audit 권고)
 
 ## 블로커
-- 없음 (sinabro MCP 글로벌 `.mcp.json` 등록 완료 — 다음 세션 재시작 시 `sv_observe` 툴 로드됨)
+- 없음
 
 ## 참조
+- [패시브 트리 플랜](passive_tree_plan.md)
 - [Continue 아키텍처 (β)](continue_architecture.md)
 - [아키텍처](architecture.md)
 - [필터 분석](filter_analysis.md)
-- [Cobalt 분석](../../_analysis/cobalt_filter_analysis.md)
-- [Wreckers SSF 분석](../../_analysis/wreckers_ssf_analysis.md)

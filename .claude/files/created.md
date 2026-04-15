@@ -31,3 +31,15 @@
 | python/tests/test_syndicate_vision.py | Vision 정규화/파싱 단위 테스트 (19 케이스, anthropic mock) | 아니오 |
 | src/components/PassiveTreeView.tsx | 패시브 트리 탭 — POE 공식 iframe + fallback (현재 X-Frame 차단, 다음 세션 재설계) | 아니오 |
 | _analysis/filter_coverage_audit.py | BaseItemTypes vs 필터 매칭 자동 감사 (P0/P1 누락 탐지) | 아니오 |
+| src/utils/passiveTree.ts | 패시브 트리 좌표 변환 + 데이터 타입 (orbit→cartesian, 3.17 16-orbit 테이블) | 아니오 |
+| src/utils/passiveTree.test.ts | 좌표 변환 유닛 테스트 (13 케이스, vitest) | 아니오 |
+| .claude/status/passive_tree_plan.md | 패시브 트리 뷰어 Phase 1/2/3 플랜 (PASS 조건 + 파일 목록) | 아니오 |
+| src/components/PassiveTreeCanvas.tsx | Canvas2D 패시브 트리 렌더 (Phase 1, 노드/연결/팬줌/호버) | 아니오 |
+| src/vite-env.d.ts | Vite client types + ?url JSON import 선언 | 아니오 |
+| src/utils/passiveTreeSprites.ts | 패시브 트리 sprite atlas 로더 (import.meta.glob + drawSprite) | 아니오 |
+| src/utils/passiveTree.pathfind.test.ts | BFS 경로/인접 리스트 테스트 (7 케이스) | 아니오 |
+| src/utils/passiveTreeUndo.ts | PoB식 undo/redo 스택 (100 깊이) | 아니오 |
+| src/utils/passiveTreeUndo.test.ts | undo handler 단위 테스트 (6 케이스) | 아니오 |
+| src/utils/passiveTree.dealloc.test.ts | dealloc cascade (고아 정리) 테스트 (5 케이스) | 아니오 |
+| src/utils/passiveTreeUrl.ts | POE 공식 passive-tree URL 디코더 (base64url v6 포맷) | 아니오 |
+| src/utils/passiveTreeUrl.test.ts | URL 디코더 단위 테스트 (9 케이스) | 아니오 |
