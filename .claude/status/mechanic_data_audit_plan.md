@@ -1,0 +1,179 @@
+# 메커닉 데이터 감사 플랜 (Phase F)
+
+> 2026-04-16 착수 사유: weapon/skill gem 감사에서 GGPK ActiveSkills.WeaponRestriction이
+> 실게임과 다름을 발견 (Sunder Axe 누락 등). 같은 리스크가 다른 메커닉 도메인에도
+> 있을 것. 사용자 요구: "디비전 카드, 브리치, 레기온 등 관련된 것들 다
+> 더블/트리플 체크".
+
+## 원칙
+
+1. **데이터는 출처 메타데이터 없으면 신뢰 불가** — `_meta.source` + `_meta.version` + `_meta.collected_at`이 없으면 감사 대상
+2. **코드 하드코딩 dict는 기본 의심** — 패치로 변경되는 게임 데이터를 하드코딩하면 stale 리스크
+3. **Ground truth 3순위**:
+   1. GGPK 추출본 (현재 클라이언트, 단 ActiveSkills처럼 부정확한 필드 있음)
+   2. POB Community 소스 (Lua 데이터, 빌드 툴 기준)
+   3. POE Wiki Cargo API (커뮤니티 관리, 버전 명시)
+4. **리그 시작 직후 + 월 1회 재검증** 기본 cadence
+
+## 공통 체크리스트 (각 도메인 공통 적용)
+
+| # | 항목 | 합격 기준 |
+|---|------|-----------|
+| D1 | 데이터 파일 `_meta` 필드 | `source`, `version`, `collected_at` 중 최소 2개 |
+| D2 | 파일 신선도 | 현재 POE 리그 기준 ±1 리그 이내 데이터 |
+| D3 | GGPK/POB/Wiki 대조 샘플 | 10개 무작위 entry 실 게임과 일치 확인 |
+| D4 | 하드코딩 dict 존재 여부 | 소스 파일 grep. 있으면 출처 근거 주석 필수 |
+| D5 | 생성 스크립트 유무 | 재현 가능한 파이프라인 (수동 dict이라도 출처 문서화) |
+| D6 | 단위 테스트 | 최소 스모크 1건 (데이터 존재 + 필수 키) |
+| D7 | 필터 출력 검증 | 해당 도메인 샘플 3개(unique/base/currency 각 1)를 build_data fixture에 inject → `filter_generator` 출력 문자열에 `assert '<sample_name>' in overlay` 최소 3건. `test_sections_continue.py` 기존 스모크 패턴 따름 |
+
+통과: **D1-D7 전부** (D7만 필터 통합 후 가능, Phase 말미에 확인)
+
+## 진행 권고 순서
+
+**1순위 (병합 감사):** F1 Divcard + F6 Unique/Chanceable base — 둘 다 `build_extractor.py`
+모듈에 하드코딩 dict 있음. 함께 감사하면 효율. 예상 6~8h.
+
+**2순위:** F2 Breach/Legion/Scarab/Incursion/Expedition — GGPK BaseItemTypes 태그 자동 추출로
+4 Phase 일괄 처리 가능.
+
+**3순위:** F3 기타 메커닉 (Ultimatum/Blight/Delve 등), F4 Sanavi, F5 Syndicate, F7 Mod — 독립 병렬.
+
+## 우선순위 Phase
+
+### F1: Divination Card (🔴 HIGH)
+
+**대상:**
+- `data/hc_divcard_tiers.json` — `_meta: {}` **비어있음**
+- `python/build_extractor.py` — `UNIQUE_TO_DIVCARD` 하드코딩 dict (Death's Oath, Mageblood 등 ~20개 매핑)
+- `get_target_divcards()` / `get_chanceable_bases()` 함수
+- `sections_continue.py` — L8 divination card 블록
+
+**구체 위험:**
+- 하드코딩 유니크-카드 매핑이 POE 리그별로 변경됨 (카드 rotation, 유니크 rebalance)
+- `hc_divcard_tiers.json` 출처 불명 — 리그 중 경제 기준인지 SSF 기준인지 모름
+
+**해결 방향:**
+- POE Wiki Cargo API `divination_cards` 테이블 → 자동 추출 스크립트
+- 또는 poedb.tw 스크래핑 (정기)
+- `UNIQUE_TO_DIVCARD` 하드코딩 제거 → 동적 로드
+
+**예상: 4~6h**
+
+### F2: Breach / Legion / Scarab / Incursion / Expedition (🟡 MID)
+
+**대상:**
+- GGPK `BaseItemTypes` (splinter, scarab, lifeforce 등은 GGPK가 truth)
+- `sections_continue.py` — 각 메커닉별 Show 블록 (L8)
+- Category 하드코딩 리스트 (scarab 종류, breachstone 등급 등)
+
+**구체 위험:**
+- 새 scarab/splinter 추가 시 필터에서 누락
+- Breachstone 등급 변화 (Uber Breach 등)
+
+**해결 방향:**
+- GGPK `BaseItemTypes`에서 태그별 자동 추출 (`Breach`, `Legion`, `Scarab` 태그)
+- 자동 추출 스크립트 → `data/category_items.json` 같은 단일 테이블
+
+**예상: 3~4h**
+
+### F3: Ultimatum / Blight / Delve / Heist / Ritual / Essence / Metamorph / Beyond (🟡 MID)
+
+**대상:**
+- 각 메커닉의 currency, consumable, splinter
+- `data/farming_mechanics.json`, `data/farming_strategies.json`
+- `python/farming_strategy_system.py`
+
+**구체 위험:**
+- `farming_mechanics.json` / `farming_strategies.json`의 `_meta` 미확인
+- 메커닉별 currency 아이콘/이름 stale 가능
+
+**예상: 3~5h (도메인당 30분)**
+
+### F4: Sanavi 티어 데이터 (🟡 MID)
+
+**대상:**
+- `data/sanavi_tier_data.json` (32 카테고리)
+- `python/sanavi_tier_parser.py`
+- 섹션 `t1high`, `t1`, `t2high`, `t2`, `t3high`, `t3` 등 분류
+
+**구체 위험:**
+- Sanavi 필터 버전 업데이트 시 stale
+- 버전 추적 없음 (`_meta` 부재 가능)
+
+**예상: 2h**
+
+### F5: Syndicate (🟢 LOW — 기존 검증)
+
+**대상:**
+- `data/syndicate_{layouts,members}.json`
+- `python/syndicate_advisor.py`, `syndicate_vision.py`
+
+**기존 상황:** Claude Vision으로 인게임 스크린샷 검증 파이프라인 있음 (`syndicate_vision.py`).
+
+**추가 필요:** `_meta` 정합성 + Vision 정확도 샘플링
+
+**예상: 1h**
+
+### F6: Unique 아이템 & Chanceable base (🔴 HIGH — F1과 함께 진행 권고)
+
+**대상:**
+- `python/build_extractor.py` — `UNIQUE_TO_BASE` 하드코딩 26 entries
+- `get_chanceable_bases()` 의존
+- L10 re_show 블록의 chanceable base 의존
+
+**구체 위험:**
+- 유니크 rebalance / 신규 유니크 추가 시 하드코딩 miss
+- `UNIQUE_TO_BASE`가 현재 26개만 — POE1 유니크 전체 ~1500개 대비 미미. 나머지는 POB `gear_recommendation`의 `base_type` 필드에 의존
+- 누락 시 L10 re_show에 chanceable base 미포함 → 빌드 유니크 체이싱 실패
+
+**해결 방향:**
+- POE Wiki Cargo `items` 테이블 또는 GGPK `Unique*.json` 전수 매핑
+- **F1과 같은 `build_extractor.py` 모듈이라 병합 감사 효율적** — F1 실행 시 함께 처리 권고
+
+**예상: 3~4h (F1과 합치면 6~8h)**
+
+### F7: 마스터 크래프팅 / Veiled mod / Exalted influence (🟢 LOW)
+
+**대상:**
+- `data/mod_pool.json`, `data/id_mod_filtering.json`
+- mod 이름 기반 필터링 (HasExplicitMod)
+
+**예상: 2h**
+
+## DoD (Phase F 전체)
+
+1. 각 Phase 완료 시 해당 데이터 파일에 `_meta` 필드 완비 (D1 통과)
+2. 발견된 하드코딩 dict 5개 이상 → 자동 로드 체계로 전환 (D4 통과)
+3. 각 도메인 최소 1개 자동 추출 스크립트 존재 (D5 통과)
+4. 리그 업데이트 체크리스트 `docs/league_refresh.md` 작성
+5. 필터 출력 회귀 테스트: 각 도메인 샘플 아이템이 L8 블록에 포함되는지 1 assert
+6. 발견된 부정확/stale 데이터는 **이슈 리포트** (`_analysis/mechanic_data_audit_{domain}.md`)
+
+## 실행 규칙
+
+- 한 Phase 완료 전까지 다음 Phase 착수 금지 ("1~2개씩 구현→확인" 규칙)
+- 발견된 큰 부정확성은 즉시 memory entry로 박제 (무기 감사 때 `project_weapon_filter_ground_truth.md`처럼)
+- 각 Phase 커밋 분리: `chore: Phase F{N} 감사 — {domain}`
+- 감사만 하고 수정 안 할 것 (단순 스코프 폭증 방지). 수정 필요 항목은 별도 task
+
+## 후속 TODO (이번 플랜 범위 외)
+
+- **리그 시작 자동 감지** — `python/patch_note_scraper.py`가 새 POE 리그 버전 감지 시
+  `current.md`에 "Phase F 재감사 필요" 자동 append. 수동 재검증 누락 방지. 별도 task로 backlog 등록
+
+## 진행 로그 (발견 사항 기록)
+
+### F1 — 미착수
+- 발견: `hc_divcard_tiers.json _meta: {}` 출처 불명 (2026-04-16 1차 조사)
+- 발견: `build_extractor.UNIQUE_TO_DIVCARD` ~20 엔트리 하드코딩 (2026-04-16)
+- TODO: POE Wiki Cargo `divination_cards` 테이블 PoC → 자동 생성 가능성 타진
+
+### F2~F7 — 미착수
+(진행 시 기록)
+
+## 참조
+
+- Phase B+C 무기 감사 선례: `_analysis/gem_weapon_restriction_audit.md`
+- 메모리: `C:\Users\User\.claude\projects\D--Pathcraft-AI\memory\project_weapon_filter_ground_truth.md`
+- Ground truth 원칙: `C:\Users\User\.claude\projects\D--Pathcraft-AI\memory\project_mechanic_data_audit_required.md` (이번 Phase 등록)

@@ -61,3 +61,6 @@
 | _analysis/neversink_weaponphys_rules.md | NeverSink 812-844 mod-tier 룰 분석 + 의미 주석 | 아니오 |
 | _analysis/gem_weapon_restriction_audit.md | GGPK WeaponRestriction 전수 조사 (187 스킬, 부정확성 증거) | 예 (참조 자료) |
 | _analysis/_gen_weapon_restriction_audit.py | 전수 감사 리포트 생성 일회성 스크립트 | 예 |
+| python/weapon_class_extractor.py | build_data → weapon Class set 유도 (착용 무기 + 젬 fallback) | 아니오 |
+| python/tests/test_weapon_class_extractor.py | weapon class extractor 단위 테스트 (9 케이스) | 아니오 |
+| .claude/status/mechanic_data_audit_plan.md | Phase F 메커닉 데이터 감사 플랜 (Divcard/Breach/Legion 등 F1~F7) | 아니오 |

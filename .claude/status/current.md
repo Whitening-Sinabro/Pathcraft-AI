@@ -20,11 +20,15 @@
 - ✅ 파일 분리: Canvas 591 line + Render 307 + Controls 155 + Constants 85
 
 ## 다음
-- [ ] Step 2: `python/weapon_class_extractor.py` 작성 (build_data → weapon Class set)
-  - pob_parser nameSpec vs POB skill name 매칭 실측 (I4-b)
-  - 4 fixture: Sunder 2H Mace / Sunder+Boneshatter 듀얼 / CoC 1H Sword / Wand
-- [ ] Step 3: build_extractor 통합 (StageData에 weapon_classes 필드)
+- [x] Step 2: `python/weapon_class_extractor.py` — 9 테스트 통과 (커밋 221269d)
+- [x] Step 3: build_extractor 통합 — StageData.weapon_classes 필드, 419 테스트 통과
 - [ ] Step 4: sections_continue L7 weapon_phys_proxy — physpure 블록 strictness 0~1 분기 스펙 박제 (I4-d)
+- [ ] Step 5/6: 빌드/타입 + 자동 스모크 + 인게임 검증
+- [ ] **Phase F: 메커닉 데이터 감사** (사용자 제기 2026-04-16)
+  - 플랜: [mechanic_data_audit_plan.md](mechanic_data_audit_plan.md)
+  - 메모리: `memory/project_mechanic_data_audit_required.md`
+  - F1(Divcard) 🔴 HIGH / F2~F7 🟡~🟢
+  - Phase B+C Step 4 완료 후 착수
 - [ ] (별건) 패시브 트리 Phase 3 인게임 호버 지연 검증
 
 ## Class Start 노드 매핑 (data.json)
@@ -46,6 +50,7 @@
 
 ## 참조
 - [Build-aware 무기 필터 플랜 (Phase B+C)](build_aware_weapon_filter_plan.md)
+- [메커닉 데이터 감사 플랜 (Phase F)](mechanic_data_audit_plan.md)
 - [패시브 트리 플랜](passive_tree_plan.md)
 - [Continue 아키텍처 (β)](continue_architecture.md)
 - [아키텍처](architecture.md)

@@ -41,6 +41,42 @@ def _load_valid_gems() -> set[str]:
     return _VALID_GEMS_CACHE
 
 
+_WEAPON_CLASS_MAPS_CACHE: Optional[tuple[dict[str, str], dict[str, list[str]]]] = None
+
+
+def _load_weapon_class_maps() -> tuple[dict[str, str], dict[str, list[str]]]:
+    """Return (base_to_class, gem_to_weapon_req) from data/*.json.
+
+    Missing files degrade gracefully to empty dicts — caller passes them to
+    weapon_class_extractor which returns an empty set, which makes the L7
+    weapon_phys_proxy block skip itself. Regenerate with:
+      python python/extract_weapon_bases.py
+      python python/extract_gem_weapon_reqs.py
+    """
+    global _WEAPON_CLASS_MAPS_CACHE
+    if _WEAPON_CLASS_MAPS_CACHE is not None:
+        return _WEAPON_CLASS_MAPS_CACHE
+    root = Path(__file__).resolve().parent.parent / "data"
+    base_map: dict[str, str] = {}
+    gem_map: dict[str, list[str]] = {}
+    base_path = root / "weapon_base_to_class.json"
+    gem_path = root / "gem_weapon_requirements.json"
+    if base_path.exists():
+        base_map = json.loads(base_path.read_text(encoding="utf-8")).get(
+            "base_to_class", {},
+        )
+    else:
+        logger.warning("weapon_base_to_class.json missing — run extract_weapon_bases.py")
+    if gem_path.exists():
+        gem_map = json.loads(gem_path.read_text(encoding="utf-8")).get(
+            "gem_weapon_classes", {},
+        )
+    else:
+        logger.warning("gem_weapon_requirements.json missing — run extract_gem_weapon_reqs.py")
+    _WEAPON_CLASS_MAPS_CACHE = (base_map, gem_map)
+    return _WEAPON_CLASS_MAPS_CACHE
+
+
 # 유니크 → 디비니 카드 매핑 (빌드 타겟용)
 UNIQUE_TO_DIVCARD: dict[str, list[dict]] = {
     "Death's Oath": [{"card": "The Oath", "stack": 6}],
@@ -384,6 +420,9 @@ class StageData:
     skills: list[str] = field(default_factory=list)
     supports: list[str] = field(default_factory=list)
     bases: list[str] = field(default_factory=list)
+    # POE filter `Class ==` names the build's main skill/weapon can use.
+    # Empty list → L7 weapon_phys_proxy block is skipped for this stage.
+    weapon_classes: list[str] = field(default_factory=list)
 
     def al_conditions(self) -> list[str]:
         """AreaLevel 조건 리스트 (없으면 빈 리스트)."""
@@ -406,6 +445,11 @@ def _extract_stage_bundle(
     chanceable = get_chanceable_bases(unique_names)
     skills, supports = extract_build_gems(build_data)
     bases = extract_build_bases(build_data)
+    # Lazy import: weapon_class_extractor re-imports extract_build_gems from
+    # this module, so a top-level import would be circular.
+    from weapon_class_extractor import extract_build_weapon_classes
+    base_map, gem_map = _load_weapon_class_maps()
+    weapon_classes = extract_build_weapon_classes(build_data, base_map, gem_map)
     return {
         "unique_names": set(unique_names),
         "unique_bases": set(unique_bases),
@@ -414,6 +458,7 @@ def _extract_stage_bundle(
         "skills": set(skills),
         "supports": set(supports),
         "bases": set(bases),
+        "weapon_classes": weapon_classes,
     }
 
 
@@ -454,6 +499,7 @@ def merge_build_stages(
         sk: set[str] = set()
         sp: set[str] = set()
         bs: set[str] = set()
+        wc: set[str] = set()
         for b in bundles:
             u_bases |= b["unique_bases"]
             u_names |= b["unique_names"]
@@ -462,6 +508,7 @@ def merge_build_stages(
             sk |= b["skills"]
             sp |= b["supports"]
             bs |= b["bases"]
+            wc |= b["weapon_classes"]
         return StageData(
             label=label,
             unique_bases=sorted(u_bases),
@@ -471,6 +518,7 @@ def merge_build_stages(
             skills=sorted(sk),
             supports=sorted(sp),
             bases=sorted(bs),
+            weapon_classes=sorted(wc),
         )
 
     if len(build_datas) == 1 or no_staging:
@@ -502,6 +550,7 @@ def merge_build_stages(
             "unique_bases": set(), "unique_names": set(),
             "target_cards": {}, "chanceable": {},
             "skills": set(), "supports": set(), "bases": set(),
+            "weapon_classes": set(),
         }
         for b in bundles_list:
             merged["unique_bases"] |= b["unique_bases"]
@@ -511,6 +560,7 @@ def merge_build_stages(
             merged["skills"] |= b["skills"]
             merged["supports"] |= b["supports"]
             merged["bases"] |= b["bases"]
+            merged["weapon_classes"] |= b["weapon_classes"]
         return merged
 
     lv = _union(leveling_bundles)
@@ -538,28 +588,32 @@ def merge_build_stages(
     sk_lv, sk_cm, sk_eg = _split("skills")
     sp_lv, sp_cm, sp_eg = _split("supports")
     bs_lv, bs_cm, bs_eg = _split("bases")
+    wc_lv, wc_cm, wc_eg = _split("weapon_classes")
 
     stages: list[StageData] = []
 
-    if any((ub_cm, un_cm, tc_cm, ch_cm, sk_cm, sp_cm, bs_cm)):
+    if any((ub_cm, un_cm, tc_cm, ch_cm, sk_cm, sp_cm, bs_cm, wc_cm)):
         stages.append(StageData(
             label="common",
             unique_bases=ub_cm, unique_names=un_cm, target_cards=tc_cm,
             chanceable=ch_cm, skills=sk_cm, supports=sp_cm, bases=bs_cm,
+            weapon_classes=wc_cm,
         ))
 
-    if any((ub_lv, un_lv, tc_lv, ch_lv, sk_lv, sp_lv, bs_lv)):
+    if any((ub_lv, un_lv, tc_lv, ch_lv, sk_lv, sp_lv, bs_lv, wc_lv)):
         stages.append(StageData(
             label="leveling", al_max=al_split,
             unique_bases=ub_lv, unique_names=un_lv, target_cards=tc_lv,
             chanceable=ch_lv, skills=sk_lv, supports=sp_lv, bases=bs_lv,
+            weapon_classes=wc_lv,
         ))
 
-    if any((ub_eg, un_eg, tc_eg, ch_eg, sk_eg, sp_eg, bs_eg)):
+    if any((ub_eg, un_eg, tc_eg, ch_eg, sk_eg, sp_eg, bs_eg, wc_eg)):
         stages.append(StageData(
             label="endgame", al_min=al_split + 1,
             unique_bases=ub_eg, unique_names=un_eg, target_cards=tc_eg,
             chanceable=ch_eg, skills=sk_eg, supports=sp_eg, bases=bs_eg,
+            weapon_classes=wc_eg,
         ))
 
     return stages
@@ -612,6 +666,7 @@ def _build_n_stages(
             skills=sorted(bundle["skills"]),
             supports=sorted(bundle["supports"]),
             bases=sorted(bundle["bases"]),
+            weapon_classes=sorted(bundle["weapon_classes"]),
         ))
 
     logger.info(

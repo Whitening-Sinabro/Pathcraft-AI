@@ -129,3 +129,77 @@ class TestNStage:
         stages = merge_build_stages([_mk(30), _mk(70), b_unknown])
         # unknown이 마지막 stage(endgame)에 들어가야 함
         assert stages[-1].label == "endgame"
+
+
+class TestWeaponClasses:
+    """StageData.weapon_classes — Step 3 통합 회귀.
+
+    통합 테스트: merge_build_stages 내부가 data/weapon_base_to_class.json +
+    data/gem_weapon_requirements.json 을 실제 로드하므로 이 JSON 파일들이
+    레포에 존재해야 동작. 의도적 통합 — 생성 스크립트 regression(예: POB
+    Lua 포맷 변화)이 여기서 걸림. 순수 단위 테스트는 test_weapon_class_extractor.py
+    가 fixture dict 주입으로 별도 커버.
+    """
+
+    @staticmethod
+    def _mk_with_weapon(level: int, weapon_base: str) -> dict:
+        """weapon slot이 있는 build_data."""
+        return {
+            "meta": {"class_level": level},
+            "items": [],
+            "progression_stages": [{
+                "gem_setups": {"Main": {"links": "Cleave"}},
+                "gear_recommendation": {
+                    "Weapon 1": {"base_type": weapon_base, "rarity": "Normal"},
+                },
+            }],
+        }
+
+    def test_single_pob_populates_weapon_classes(self):
+        # Brass Maul → Two Hand Maces (data/weapon_base_to_class.json ground truth)
+        stages = merge_build_stages([self._mk_with_weapon(90, "Brass Maul")])
+        assert len(stages) == 1
+        assert stages[0].weapon_classes == ["Two Hand Maces"]
+
+    def test_two_pob_different_classes_split_correctly(self):
+        # Leveling 2H sword, endgame 1H sword → common empty, lv/eg split
+        stages = merge_build_stages([
+            self._mk_with_weapon(30, "Bastard Sword"),  # Two Hand Swords
+            self._mk_with_weapon(95, "Corsair Sword"),  # One Hand Swords
+        ])
+        by_label = {s.label: s for s in stages}
+        assert "leveling" in by_label and "endgame" in by_label
+        assert by_label["leveling"].weapon_classes == ["Two Hand Swords"]
+        assert by_label["endgame"].weapon_classes == ["One Hand Swords"]
+        # common stage: no shared weapon class
+        if "common" in by_label:
+            assert by_label["common"].weapon_classes == []
+
+    def test_two_pob_same_class_lands_in_common(self):
+        # Both POBs use 1H Axe — expect common weapon_classes, empty lv/eg weapons
+        stages = merge_build_stages([
+            self._mk_with_weapon(30, "Reaver Axe"),   # One Hand Axes
+            self._mk_with_weapon(95, "Siege Axe"),    # One Hand Axes
+        ])
+        by_label = {s.label: s for s in stages}
+        # common must carry the shared class
+        assert "common" in by_label
+        assert by_label["common"].weapon_classes == ["One Hand Axes"]
+        # leveling/endgame should not re-list the shared class
+        if "leveling" in by_label:
+            assert "One Hand Axes" not in by_label["leveling"].weapon_classes
+        if "endgame" in by_label:
+            assert "One Hand Axes" not in by_label["endgame"].weapon_classes
+
+    def test_no_weapon_in_gear_returns_empty(self):
+        # No weapon slot in any stage → weapon_classes empty (L7 will skip)
+        build = {
+            "meta": {"class_level": 90},
+            "items": [],
+            "progression_stages": [{
+                "gem_setups": {"Main": {"links": "Arc"}},  # spell, no weapon req
+                "gear_recommendation": {"Body Armour": {"base_type": "Astral Plate"}},
+            }],
+        }
+        stages = merge_build_stages([build])
+        assert stages[0].weapon_classes == []
