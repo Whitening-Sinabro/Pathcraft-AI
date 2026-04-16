@@ -1,0 +1,76 @@
+{
+  "source": "NeverSink 1-REGULAR.filter:812-844 (v8.19.0b) - 룰 구조 참고",
+  "license_note": "NeverSink 저장소 LICENSE 파일 미확인. POE mod 이름 자체는 GGG 게임 데이터로 저작물 아님. 본 파일은 mod 이름 리스트만 수록, 룰 구조는 PathcraftAI에서 재작성.",
+  "version_tracked": "NeverSink v8.19.0b",
+  "analysis_doc": "_analysis/neversink_weaponphys_rules.md",
+  "weapon_classes": [
+    "Bows",
+    "Claws",
+    "Daggers",
+    "One Hand Axes",
+    "One Hand Maces",
+    "One Hand Swords",
+    "Thrusting One Hand Swords",
+    "Two Hand Axes",
+    "Two Hand Maces",
+    "Two Hand Swords",
+    "Wands",
+    "Warstaves"
+  ],
+  "required_any_mod": [
+    "Merciless",
+    "Tyrannical",
+    "Cruel",
+    "of the Underground",
+    "Subterranean",
+    "of Many",
+    "of Tacati",
+    "Tacati's"
+  ],
+  "counted_good_mods": [
+    "Merciless",
+    "Tyrannical",
+    "Flaring",
+    "Dictator's",
+    "Emperor's",
+    "of Celebration",
+    "of Incision",
+    "of Dissolution",
+    "of Destruction",
+    "of the Underground",
+    "Subterranean",
+    "of Many",
+    "of Tacati",
+    "Tacati's",
+    "Veil"
+  ],
+  "excluded_bad_mods": [
+    "Heavy",
+    "Serrated",
+    "Wicked",
+    "Vicious",
+    "Glinting",
+    "Burnished",
+    "Polished",
+    "Honed",
+    "of Needling",
+    "of Skill"
+  ],
+  "strictness_mod_count": {
+    "0": 2,
+    "1": 2,
+    "2": 3,
+    "3": 3,
+    "4": 3
+  },
+  "mirrored_corrupted_exclude_at_strictness_below": 2,
+  "drop_level_min": 5,
+  "comments": {
+    "required_any_mod": "이 중 최소 1개가 붙어야 한다 - T1/T2 phys prefix 또는 T1 attack speed suffix",
+    "counted_good_mods": "HasExplicitMod >=N 에서 카운트할 mod 풀 (prefix+suffix 통합)",
+    "excluded_bad_mods": "이 중 1개라도 붙으면 배제 - 저티어 phys mod (slot 낭비 의미)",
+    "strictness_mod_count": "strictness 값 -> 필요한 good mod 최소 개수. 0~1은 lenient, 2+는 strict",
+    "mirrored_corrupted_exclude_at_strictness_below": "이 strictness 값 미만에서만 Mirrored False + Corrupted False 적용 (관대 조건일수록 수정 가능 아이템만 허용)",
+    "drop_level_min": "NeverSink는 >=50 사용. 우리는 레벨링 초반도 커버해야 하므로 5로 완화. Step 6b 인게임 검증에서 리튜닝 가능"
+  }
+}

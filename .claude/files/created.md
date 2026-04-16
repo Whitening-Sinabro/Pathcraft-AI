@@ -52,3 +52,12 @@
 | src/utils/passiveTreeTranslate.test.ts | 번역 유틸 단위 테스트 (13 케이스) | 아니오 |
 | _analysis/passive_tree_translation_misses.md | 번역 미스 207건 패턴 분류 리포트 | 예 |
 | _analysis/_gen_translation_misses.py | 미스 리포트 생성 일회성 스크립트 | 예 |
+| .claude/status/build_aware_weapon_filter_plan.md | Build-aware 무기 필터 플랜 (Phase B+C, Step 1 완료) | 아니오 |
+| data/weapon_mod_tiers.json | NeverSink 812-844 weapon_phys mod-tier 사전 | 아니오 |
+| data/weapon_base_to_class.json | 무기 base_type → POE Class 매핑 (299 베이스, GGPK 자동) | 예 (재생성 가능) |
+| data/gem_weapon_requirements.json | 젬 → weapon Class set (231 젬, POB 자동) | 예 (재생성 가능) |
+| python/extract_weapon_bases.py | GGPK BaseItemTypes → weapon_base_to_class.json 생성 | 아니오 |
+| python/extract_gem_weapon_reqs.py | POB src/Data/Skills/*.lua → gem_weapon_requirements.json 생성 | 아니오 |
+| _analysis/neversink_weaponphys_rules.md | NeverSink 812-844 mod-tier 룰 분석 + 의미 주석 | 아니오 |
+| _analysis/gem_weapon_restriction_audit.md | GGPK WeaponRestriction 전수 조사 (187 스킬, 부정확성 증거) | 예 (참조 자료) |
+| _analysis/_gen_weapon_restriction_audit.py | 전수 감사 리포트 생성 일회성 스크립트 | 예 |

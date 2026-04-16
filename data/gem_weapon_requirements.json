@@ -1,0 +1,1528 @@
+{
+  "source": "PathOfBuildingCommunity src/Data/Skills/*.lua (MIT). Game data © GGG.",
+  "generator": "python/extract_gem_weapon_reqs.py",
+  "pob_files_used": [
+    "act_str.lua",
+    "act_dex.lua",
+    "act_int.lua",
+    "other.lua",
+    "glove.lua",
+    "sup_str.lua",
+    "sup_dex.lua",
+    "sup_int.lua"
+  ],
+  "cache_dir": "data\\pob_skills_cache",
+  "physical_weapon_classes": [
+    "Bows",
+    "Claws",
+    "Daggers",
+    "One Hand Axes",
+    "One Hand Maces",
+    "One Hand Swords",
+    "Thrusting One Hand Swords",
+    "Two Hand Axes",
+    "Two Hand Maces",
+    "Two Hand Swords",
+    "Wands",
+    "Warstaves"
+  ],
+  "gem_weapon_classes": {
+    "Animate Weapon of Self Reflection": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Arrow Nova": [
+      "Bows"
+    ],
+    "Artillery Ballista": [
+      "Bows"
+    ],
+    "Artillery Ballista of Cross Strafe": [
+      "Bows"
+    ],
+    "Artillery Ballista of Focus Fire": [
+      "Bows"
+    ],
+    "Awakened Arrow Nova": [
+      "Bows"
+    ],
+    "Ballista Totem": [
+      "Bows",
+      "Wands"
+    ],
+    "Barrage": [
+      "Bows",
+      "Wands"
+    ],
+    "Barrage Support": [
+      "Bows",
+      "Wands"
+    ],
+    "Barrage of Volley Fire": [
+      "Bows",
+      "Wands"
+    ],
+    "Blade Flurry": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Blade Flurry of Incision": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Blade Trap": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Blade Trap of Greatswords": [
+      "Two Hand Swords"
+    ],
+    "Blade Trap of Laceration": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Bladestorm": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Bladestorm of Uncertainty": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Blast Rain": [
+      "Bows"
+    ],
+    "Blast Rain of Trarthus": [
+      "Bows"
+    ],
+    "Blink Arrow": [
+      "Bows"
+    ],
+    "Blink Arrow of Bombarding Clones": [
+      "Bows"
+    ],
+    "Blink Arrow of Prismatic Clones": [
+      "Bows"
+    ],
+    "Boneshatter": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Boneshatter of Carnage": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Boneshatter of Complex Trauma": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Burning Arrow": [
+      "Bows"
+    ],
+    "Burning Arrow of Vigour": [
+      "Bows"
+    ],
+    "Call the Pyre": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Caustic Arrow": [
+      "Bows"
+    ],
+    "Caustic Arrow of Poison": [
+      "Bows"
+    ],
+    "Chain Hook": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Chain Hook of Trarthus": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Charged Dash": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Charged Dash of Projection": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Cleave": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Cleave of Rage": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Close Combat": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Cobra Lash": [
+      "Claws",
+      "Daggers"
+    ],
+    "Combust": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Commandment of Fury": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Commandment of Ire": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Commandment of Spite": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Commandment of War": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Conflagration": [
+      "Bows"
+    ],
+    "Consecrated Path": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Consecrated Path of Endurance": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Crushing Fist": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Cyclone": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Cyclone of Tumult": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Decree of Fury": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Decree of Ire": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Decree of Spite": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Decree of War": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Dominating Blow": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Dominating Blow of Inspiring": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Double Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Double Strike of Impaling": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Double Strike of Momentum": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Dual Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes"
+    ],
+    "Dual Strike of Ambidexterity": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes"
+    ],
+    "Earthquake": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Earthquake of Amplification": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Earthshatter": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Earthshatter of Fragility": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Earthshatter of Prominence": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Edict of Fury": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Edict of Ire": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Edict of Spite": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Edict of War": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Elemental Hit": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Elemental Hit of the Spectrum": [
+      "Bows",
+      "Wands"
+    ],
+    "Energy Blade": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Ensnaring Arrow": [
+      "Bows"
+    ],
+    "Eviscerate": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Explosive Arrow": [
+      "Bows"
+    ],
+    "Fiery Impact": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Fissure": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Flicker Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Flicker Strike of Power": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Frenzy": [
+      "Bows",
+      "Wands"
+    ],
+    "Frenzy of Onslaught": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Frost Blades": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Frost Blades of Katabasis": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Frozen Legion": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Frozen Legion of Rallying": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Frozen Sweep": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Galvanic Arrow": [
+      "Bows"
+    ],
+    "Galvanic Arrow of Energy": [
+      "Bows"
+    ],
+    "Galvanic Arrow of Surging": [
+      "Bows"
+    ],
+    "Glacial Hammer": [
+      "One Hand Maces",
+      "Two Hand Maces"
+    ],
+    "Glacial Hammer of Shattering": [
+      "One Hand Maces",
+      "Two Hand Maces"
+    ],
+    "Gore Shockwave": [
+      "Two Hand Axes"
+    ],
+    "Greater Kinetic Instability": [
+      "Wands"
+    ],
+    "Ground Slam": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Ground Slam of Earthshaking": [
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Heavy Strike": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Holy Hammers": [
+      "One Hand Maces",
+      "Two Hand Maces"
+    ],
+    "Holy Strike": [
+      "One Hand Maces",
+      "Two Hand Maces"
+    ],
+    "Holy Sweep": [
+      "Two Hand Maces"
+    ],
+    "Ice Crash": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Ice Crash of Cadence": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Ice Shot": [
+      "Bows"
+    ],
+    "Ice Shot of Penetration": [
+      "Bows"
+    ],
+    "Infernal Blow": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Infernal Blow of Immolation": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Kinetic Anomaly": [
+      "Wands"
+    ],
+    "Kinetic Blast": [
+      "Wands"
+    ],
+    "Kinetic Blast of Clustering": [
+      "Wands"
+    ],
+    "Kinetic Bolt": [
+      "Wands"
+    ],
+    "Kinetic Bolt of Fragmentation": [
+      "Wands"
+    ],
+    "Kinetic Flux": [
+      "Wands"
+    ],
+    "Kinetic Fusillade": [
+      "Wands"
+    ],
+    "Kinetic Fusillade of Detonation": [
+      "Wands"
+    ],
+    "Kinetic Instability": [
+      "Wands"
+    ],
+    "Kinetic Rain": [
+      "Wands"
+    ],
+    "Kinetic Rain of Impact": [
+      "Wands"
+    ],
+    "Lacerate": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Lacerate of Butchering": [
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Lacerate of Haemorrhage": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Lancing Steel": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Lancing Steel of Spraying": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Leap Slam": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Leap Slam of Groundbreaking": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Lightning Arrow": [
+      "Bows"
+    ],
+    "Lightning Arrow of Electrocution": [
+      "Bows"
+    ],
+    "Lightning Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Lightning Strike of Arcing": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Manaforged Arrows": [
+      "Bows"
+    ],
+    "Mirror Arrow": [
+      "Bows"
+    ],
+    "Mirror Arrow of Bombarding Clones": [
+      "Bows"
+    ],
+    "Mirror Arrow of Prismatic Clones": [
+      "Bows"
+    ],
+    "Molten Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Molten Strike of the Zenith": [
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Nightblade": [
+      "Claws",
+      "Daggers"
+    ],
+    "Perforate": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Perforate of Bloodshed": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Perforate of Duality": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Pestilent Strike": [
+      "Claws",
+      "Daggers"
+    ],
+    "Power Siphon": [
+      "Wands"
+    ],
+    "Power Siphon of the Archmage": [
+      "Wands"
+    ],
+    "Puncture": [
+      "Bows"
+    ],
+    "Puncture of Shanking": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Swords"
+    ],
+    "Rage Vortex": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Rage Vortex of Berserking": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Rain of Arrows": [
+      "Bows"
+    ],
+    "Rain of Arrows of Artillery": [
+      "Bows"
+    ],
+    "Rain of Arrows of Saturation": [
+      "Bows"
+    ],
+    "Reave": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Reave of Refraction": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Sacred Wisps": [
+      "Wands"
+    ],
+    "Scourge Arrow": [
+      "Bows"
+    ],
+    "Scourge Arrow of Menace": [
+      "Bows"
+    ],
+    "Seize the Flesh": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Shattering Steel": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Shattering Steel of Ammunition": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Shockwave": [
+      "One Hand Maces",
+      "Two Hand Maces"
+    ],
+    "Shrapnel Ballista": [
+      "Bows"
+    ],
+    "Shrapnel Ballista of Steel": [
+      "Bows"
+    ],
+    "Siege Ballista": [
+      "Bows"
+    ],
+    "Siege Ballista of Splintering": [
+      "Bows"
+    ],
+    "Siege Ballista of Trarthus": [
+      "Bows"
+    ],
+    "Smite": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Smite of Divine Judgement": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Snipe": [
+      "Bows"
+    ],
+    "Somatic Shell": [
+      "Wands"
+    ],
+    "Spectral Helix": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Spectral Helix of Trarthus": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Spectral Throw": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Spectral Throw of Materialising": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Spectral Throw of Trarthus": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Split Arrow": [
+      "Bows"
+    ],
+    "Split Arrow of Splitting": [
+      "Bows"
+    ],
+    "Splitting Steel": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Splitting Steel of Ammunition": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Static Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Static Strike of Gathering Lightning": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Storm Rain": [
+      "Bows"
+    ],
+    "Storm Rain of the Conduit": [
+      "Bows"
+    ],
+    "Storm Rain of the Fence": [
+      "Bows"
+    ],
+    "Sunder": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Sunder of Earthbreaking": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Sunder of Trarthus": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Swordstorm": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Tectonic Slam": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Tectonic Slam of Cataclysm": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Thunderburst": [
+      "Bows"
+    ],
+    "Thunderstorm": [
+      "Bows"
+    ],
+    "Tornado Shot": [
+      "Bows"
+    ],
+    "Tornado Shot of Cloudburst": [
+      "Bows"
+    ],
+    "Toxic Rain": [
+      "Bows"
+    ],
+    "Toxic Rain of Sporeburst": [
+      "Bows"
+    ],
+    "Toxic Rain of Withering": [
+      "Bows"
+    ],
+    "Trauma": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Unseen Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Vaal Blade Flurry": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Vaal Burning Arrow": [
+      "Bows"
+    ],
+    "Vaal Caustic Arrow": [
+      "Bows"
+    ],
+    "Vaal Cleave": [
+      "One Hand Axes",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Swords"
+    ],
+    "Vaal Cyclone": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Vaal Double Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Vaal Earthquake": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Vaal Flicker Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Vaal Glacial Hammer": [
+      "One Hand Maces",
+      "Two Hand Maces"
+    ],
+    "Vaal Ground Slam": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Vaal Ice Shot": [
+      "Bows"
+    ],
+    "Vaal Lightning Arrow": [
+      "Bows"
+    ],
+    "Vaal Lightning Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Vaal Molten Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Vaal Power Siphon": [
+      "Wands"
+    ],
+    "Vaal Rain of Arrows": [
+      "Bows"
+    ],
+    "Vaal Reave": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Vaal Smite": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Vaal Spectral Throw": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Vaal Venom Gyre": [
+      "Claws",
+      "Daggers"
+    ],
+    "Vaal Volcanic Fissure": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Venom Gyre": [
+      "Claws",
+      "Daggers"
+    ],
+    "Vigilant Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Viper Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Swords"
+    ],
+    "Viper Strike of the Mamba": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Swords"
+    ],
+    "Void Shockwave": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Void Shot": [
+      "Bows"
+    ],
+    "Voidstorm": [
+      "Bows",
+      "Wands"
+    ],
+    "Volcanic Fissure": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Volcanic Fissure of Snaking": [
+      "One Hand Axes",
+      "One Hand Maces",
+      "Two Hand Axes",
+      "Two Hand Maces"
+    ],
+    "Whirling Blades": [
+      "Claws",
+      "Daggers",
+      "One Hand Swords",
+      "Thrusting One Hand Swords"
+    ],
+    "Wild Strike": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Wild Strike of Extremes": [
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords"
+    ],
+    "Word of Fury": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Word of Ire": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Word of Spite": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ],
+    "Word of War": [
+      "Bows",
+      "Claws",
+      "Daggers",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Thrusting One Hand Swords",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands"
+    ]
+  }
+}

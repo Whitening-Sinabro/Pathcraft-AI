@@ -1,15 +1,10 @@
 ## 지금
-- Phase 3: 한국어 stat 툴팁 연동 — 자동검증 PASS, 인게임 호버 지연 측정 대기
-- DoD 상태 (`passive_tree_plan.md:79-82` 기준):
-  - 80%+ 한국어 매칭 → 91.9% (2352/2559) ✅
-  - 호버 50ms 이내 툴팁 → **미측정 ⚠️** (dev 서버에서 Profiler 확인 필요)
-  - 미매칭 영문 fallback → ✅ (translateStat null 경로)
-- 데이터 소스: 플랜 1순위 `merged_translations.json`(`#` placeholder, 재배치 불가)
-  → 2순위 `poe_translations.json#mods`(`{0}` placeholder, 재배치 가능) 로 폴백. 플랜 허용 범위
-- 번역 미스 207건(8.1%) 분석: 82 멀티라인 + 123 기타 + 2 트리거. 보류 권고 (인게임 pain 후 재판단)
-  - 리포트: [_analysis/passive_tree_translation_misses.md](../../_analysis/passive_tree_translation_misses.md)
-- 재생성: `npm run translations` (또는 `npm run build`의 prebuild 훅 자동)
-- 테스트 53/53 passing (기존 40 + 신규 13)
+- **Build-aware 무기 필터 Phase B+C, Step 1 완료** (2026-04-16)
+  - 플랜: [build_aware_weapon_filter_plan.md](build_aware_weapon_filter_plan.md)
+  - 산출: `data/weapon_mod_tiers.json`(NeverSink 룰) + `weapon_base_to_class.json`(299) + `gem_weapon_requirements.json`(231 젬)
+  - **핵심 결정: GGPK ActiveSkills.WeaponRestriction 신뢰 불가** (Sunder Axe 누락 등) → POB `src/Data/Skills/*.lua` ground truth 전환. [메모리 참조](../../../../../Users/User/.claude/projects/D--Pathcraft-AI/memory/project_weapon_filter_ground_truth.md)
+  - 재감사: Phase A ⚠️ CONDITIONAL (BLOCK 해제). 🟡 잔여 4건 (C3 단위 테스트, I4-b nameSpec 실측 Step 2, I4-d L7 physpure 스펙 Step 4, I4-e 세션 연속성 → 이 파일 + memory 갱신으로 처리)
+- (완료) Phase 3 한국어 stat 툴팁 — 자동검증 PASS, 인게임 호버 지연 측정 대기 (별건)
 
 ## 패시브 트리 완료 기능
 - ✅ Phase 1 (정적 트리) — orbit→cartesian, 2737 노드, BFS 경로
@@ -25,9 +20,12 @@
 - ✅ 파일 분리: Canvas 591 line + Render 307 + Controls 155 + Constants 85
 
 ## 다음
-- [ ] 인게임 검증: 호버 지연 50ms 체크 (React Profiler) + 한국어 표시 샘플링
-- [ ] (선택) 노드 이름(name) 한국어 번역 — 현재 영문 고정
-- [ ] (선택) UX 개선: Intuitive Leap 미구현, 기타 피드백 반영
+- [ ] Step 2: `python/weapon_class_extractor.py` 작성 (build_data → weapon Class set)
+  - pob_parser nameSpec vs POB skill name 매칭 실측 (I4-b)
+  - 4 fixture: Sunder 2H Mace / Sunder+Boneshatter 듀얼 / CoC 1H Sword / Wand
+- [ ] Step 3: build_extractor 통합 (StageData에 weapon_classes 필드)
+- [ ] Step 4: sections_continue L7 weapon_phys_proxy — physpure 블록 strictness 0~1 분기 스펙 박제 (I4-d)
+- [ ] (별건) 패시브 트리 Phase 3 인게임 호버 지연 검증
 
 ## Class Start 노드 매핑 (data.json)
 - 0: Scion (id 58833) / 1: Marauder (47175) / 2: Ranger (50459)
@@ -47,7 +45,10 @@
 - 없음
 
 ## 참조
+- [Build-aware 무기 필터 플랜 (Phase B+C)](build_aware_weapon_filter_plan.md)
 - [패시브 트리 플랜](passive_tree_plan.md)
 - [Continue 아키텍처 (β)](continue_architecture.md)
 - [아키텍처](architecture.md)
 - [필터 분석](filter_analysis.md)
+- _analysis/neversink_weaponphys_rules.md — NeverSink 812-844 mod-tier 룰 분석
+- _analysis/gem_weapon_restriction_audit.md — GGPK 부정확성 전수 증거 (187 스킬)
