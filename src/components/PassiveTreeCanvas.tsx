@@ -20,8 +20,13 @@ import {
   drawFrame,
   type ResolvedNode, type ResolvedGroup, type Camera,
 } from "../utils/passiveTreeRender";
+import {
+  translateStat,
+  type TranslationTable,
+} from "../utils/passiveTreeTranslate";
 import { TreeControls } from "./passive-tree/TreeControls";
 import dataUrl from "../../data/skilltree-export/data.json?url";
+import translationsUrl from "../../data/skilltree-export/passive_tree_translations.json?url";
 
 
 interface Props {
@@ -78,6 +83,8 @@ export function PassiveTreeCanvas({
   const [tooltip, setTooltip] = useState<{ name: string; stats: string[]; sx: number; sy: number } | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // 한국어 stat 템플릿 사전 — 로드 실패 시 영문 fallback
+  const [translations, setTranslations] = useState<TranslationTable | null>(null);
   const [nodeCount, setNodeCount] = useState(0);
   // 포인트 카운터 (classStart/ascendancyStart 제외 + jewel sockets)
   const [pointsUsed, setPointsUsed] = useState(0);
@@ -182,6 +189,28 @@ export function PassiveTreeCanvas({
     setPointsUsed(used);
     setJewelSockets(sockets);
   }
+
+  // Load Korean translation table once. Failure is non-fatal — tooltip falls
+  // back to English source strings (translateStat handles null table).
+  useEffect(() => {
+    let cancelled = false;
+    fetch(translationsUrl)
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json() as Promise<TranslationTable>;
+      })
+      .then((t) => {
+        if (cancelled) return;
+        setTranslations(t);
+      })
+      .catch((err: unknown) => {
+        // Translation is best-effort; English fallback is acceptable.
+        // Still surface the failure so stale/missing translations don't go unnoticed.
+        // eslint-disable-next-line no-console
+        console.warn("[passiveTree] translation load failed:", err);
+      });
+    return () => { cancelled = true; };
+  }, []);
 
   // Load tree data — reload nodes when ascendancy changes (filter dependency)
   useEffect(() => {
@@ -581,7 +610,9 @@ export function PassiveTreeCanvas({
             <div style={{ color: "#666", fontStyle: "italic" }}>(no stats)</div>
           ) : (
             tooltip.stats.map((s, i) => (
-              <div key={i} style={{ color: "#bbb" }}>{s}</div>
+              <div key={i} style={{ color: "#bbb" }}>
+                {translateStat(s, translations)}
+              </div>
             ))
           )}
         </div>

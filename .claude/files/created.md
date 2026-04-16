@@ -46,3 +46,9 @@
 | src/utils/passiveTreeConstants.ts | 상수 + classifyNode/NodeKind (Canvas 분리) | 아니오 |
 | src/utils/passiveTreeRender.ts | 순수 Canvas draw 함수 (background/edges/nodes) | 아니오 |
 | src/components/passive-tree/TreeControls.tsx | 드롭다운/검색/카운터/가이드 UI 분리 | 아니오 |
+| python/extract_passive_tree_translations.py | 패시브 트리 stat → 한국어 사전 빌드 (poe_translations.json#mods) | 아니오 |
+| data/skilltree-export/passive_tree_translations.json | 빌드 산출물, 트리 stat 한국어 템플릿 (2352/2559 매칭, 152KB) | 예 (재생성 가능) |
+| src/utils/passiveTreeTranslate.ts | {N} 정규화 + 한국어 재주입 번역 유틸 | 아니오 |
+| src/utils/passiveTreeTranslate.test.ts | 번역 유틸 단위 테스트 (13 케이스) | 아니오 |
+| _analysis/passive_tree_translation_misses.md | 번역 미스 207건 패턴 분류 리포트 | 예 |
+| _analysis/_gen_translation_misses.py | 미스 리포트 생성 일회성 스크립트 | 예 |

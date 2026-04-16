@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "prebuild": "npm run translations",
     "test": "vitest run",
     "test:watch": "vitest",
+    "translations": "python python/extract_passive_tree_translations.py",
     "tauri": "tauri"
   },
   "keywords": [],
