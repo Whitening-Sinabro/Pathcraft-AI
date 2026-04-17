@@ -22,12 +22,16 @@
 - ✅ Phase 3: 한국어 stat 툴팁 (poe_translations.json#mods 사용, 91.9% 커버)
 - ✅ 파일 분리: Canvas 591 line + Render 307 + Controls 155 + Constants 85
 
-## 다음
-- [ ] Step 6b: 인게임 스모크 (사용자 세션 — Tyrannical vs Heavy, DropLevel 5 리튜닝)
-- [ ] **Phase F: 메커닉 데이터 감사** (사용자 제기 2026-04-16)
-  - 플랜: [mechanic_data_audit_plan.md](mechanic_data_audit_plan.md)
-  - F1+F6 (Divcard + Unique base) 🔴 HIGH 병합 착수
-- [ ] (별건) 패시브 트리 Phase 3 인게임 호버 지연 검증
+## 다음 (우선순위순)
+1. [ ] **Phase F1+F6 감사** — Divcard (`hc_divcard_tiers.json _meta:{}` + `UNIQUE_TO_DIVCARD` 하드코딩) + Unique base (`UNIQUE_TO_BASE` 26개 하드코딩). 병합 6~8h
+2. [ ] **Phase D: 방어 타입 필터** — 착용 장비에서 Arm/Ev/ES 유도 + defense mod-tier 프록시. 4~6h
+3. [ ] **Phase E: 악세서리 필터** — Ring/Amulet/Belt suffix mod-tier 프록시. 4~6h
+4. [ ] **Phase F2~F7 나머지 감사** — Breach/Legion/Scarab/Incursion/Essence/기타 12~18h
+5. [ ] **E2E 필터 통합 테스트** — POB 링크 → filter file 전 과정 1건 이상. 2~3h
+6. [ ] **pob_parser stats API 실측** — `pob_parser.py:190` TODO 주석 확인 + fallback. 1~2h
+7. [ ] Step 6b: 인게임 스모크 (무기 필터 — Tyrannical vs Heavy, DropLevel 5 리튜닝)
+8. [ ] 패시브 트리 Phase 3 인게임 호버 지연 검증
+9. [ ] (이후) 아틀라스 트리 뷰어 / 빌드 패시브 추천 — 현재 인프라 준비도 60~90%
 
 ## Class Start 노드 매핑 (data.json)
 - 0: Scion (id 58833) / 1: Marauder (47175) / 2: Ranger (50459)
