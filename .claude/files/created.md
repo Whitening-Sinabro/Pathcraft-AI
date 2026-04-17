@@ -86,3 +86,4 @@
 | data/accessory_mod_tiers.json | NeverSink 악세서리 mod-tier (amu/ring/belt × axis, 681 mods) | 아니오 |
 | scripts/extract_accessory_mod_tiers.py | NeverSink → accessory_mod_tiers.json 자동 재생성 | 아니오 |
 | python/tests/test_e2e_filter_pipeline.py | E2E 필터 파이프라인 (Juggernaut/Occultist/Guardian fixture + multi-stage + minimal) | 아니오 |
+| _analysis/ggpk_extraction_completeness_audit.md | Phase F0 GGPK 추출 감사 (7/921=0.76%, Tier1/2 확장 권고) | 예 (참조 자료) |

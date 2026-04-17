@@ -1,0 +1,383 @@
+{
+  "current_targets": [
+    "ActiveSkills",
+    "BaseItemTypes",
+    "Maps",
+    "PassiveSkills",
+    "QuestRewards",
+    "SkillGems",
+    "UniqueStashLayout"
+  ],
+  "feature_needs": {
+    "build_parsing (pob_parser)": {
+      "current": [],
+      "desirable": [
+        "Characters",
+        "Ascendancy",
+        "Tags",
+        "GemTags"
+      ]
+    },
+    "filter_gen_L7_weapon (Phase B+C)": {
+      "current": [
+        "BaseItemTypes",
+        "ActiveSkills",
+        "SkillGems"
+      ],
+      "desirable": [
+        "Mods"
+      ]
+    },
+    "filter_gen_L7_defense (Phase D)": {
+      "current": [
+        "BaseItemTypes"
+      ],
+      "desirable": [
+        "ArmourTypes",
+        "Mods"
+      ]
+    },
+    "filter_gen_L7_accessory (Phase E)": {
+      "current": [],
+      "desirable": [
+        "Mods",
+        "ModType",
+        "ModFamily",
+        "GemTags"
+      ]
+    },
+    "filter_gen_L8_mechanics (GGPKItems)": {
+      "current": [
+        "BaseItemTypes"
+      ],
+      "desirable": [
+        "Tags",
+        "Scarabs",
+        "Essences",
+        "Flasks"
+      ]
+    },
+    "filter_gen_maps": {
+      "current": [
+        "Maps"
+      ],
+      "desirable": [
+        "MapSeries",
+        "AtlasNode"
+      ]
+    },
+    "filter_gen_divcard (F1)": {
+      "current": [],
+      "desirable": [
+        "ShopTag"
+      ]
+    },
+    "filter_gen_unique_base (F6)": {
+      "current": [],
+      "desirable": [
+        "BaseItemTypes"
+      ]
+    },
+    "build_coach": {
+      "current": [],
+      "desirable": [
+        "Characters",
+        "Ascendancy",
+        "PassiveSkills"
+      ]
+    },
+    "passive_tree": {
+      "current": [
+        "PassiveSkills"
+      ],
+      "desirable": [
+        "Characters",
+        "Ascendancy",
+        "PassiveTreeExpansionJewels"
+      ]
+    },
+    "mechanic_audit_F2_breach": {
+      "current": [],
+      "desirable": [
+        "BreachArtVariations",
+        "BreachElement"
+      ]
+    },
+    "mechanic_audit_F2_legion": {
+      "current": [],
+      "desirable": [
+        "LegionChestTypes",
+        "LegionChestCounts"
+      ]
+    },
+    "mechanic_audit_F2_scarab": {
+      "current": [],
+      "desirable": [
+        "Scarabs",
+        "ScarabTypes"
+      ]
+    },
+    "mechanic_audit_F2_incursion": {
+      "current": [],
+      "desirable": [
+        "IncursionChestRewards",
+        "IncursionArchitect",
+        "IncursionRooms"
+      ]
+    },
+    "mechanic_audit_F2_expedition": {
+      "current": [],
+      "desirable": [
+        "ExpeditionAreas",
+        "ExpeditionCurrency",
+        "ExpeditionRelicMods"
+      ]
+    },
+    "mechanic_audit_F3_heist": {
+      "current": [],
+      "desirable": [
+        "HeistJobs",
+        "HeistAreas",
+        "HeistContracts"
+      ]
+    },
+    "mechanic_audit_F3_delve": {
+      "current": [],
+      "desirable": [
+        "DelveBiomes",
+        "DelveAzuriteShop"
+      ]
+    },
+    "mechanic_audit_F3_blight": {
+      "current": [],
+      "desirable": [
+        "BlightTowers",
+        "BlightRewards"
+      ]
+    },
+    "mechanic_audit_F4_sanavi": {
+      "current": [],
+      "desirable": []
+    },
+    "mechanic_audit_F7_crafting_mods": {
+      "current": [],
+      "desirable": [
+        "Mods",
+        "ModType",
+        "ModFamily"
+      ]
+    }
+  },
+  "extension_candidates": [
+    {
+      "table": "Mods",
+      "feature_count": 4,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "Characters",
+      "feature_count": 3,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "Ascendancy",
+      "feature_count": 3,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "Tags",
+      "feature_count": 2,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "GemTags",
+      "feature_count": 2,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "ModType",
+      "feature_count": 2,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "ModFamily",
+      "feature_count": 2,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "Scarabs",
+      "feature_count": 2,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "ArmourTypes",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "Essences",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "Flasks",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "MapSeries",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "AtlasNode",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "ShopTag",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "BaseItemTypes",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": true
+    },
+    {
+      "table": "PassiveSkills",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": true
+    },
+    {
+      "table": "PassiveTreeExpansionJewels",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "BreachArtVariations",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "BreachElement",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "LegionChestTypes",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "LegionChestCounts",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "ScarabTypes",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "IncursionChestRewards",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "IncursionArchitect",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "IncursionRooms",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "ExpeditionAreas",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "ExpeditionCurrency",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "ExpeditionRelicMods",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "HeistJobs",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "HeistAreas",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "HeistContracts",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "DelveBiomes",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "DelveAzuriteShop",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "BlightTowers",
+      "feature_count": 1,
+      "exists_in_schema": true,
+      "currently_extracted": false
+    },
+    {
+      "table": "BlightRewards",
+      "feature_count": 1,
+      "exists_in_schema": false,
+      "currently_extracted": false
+    }
+  ]
+}

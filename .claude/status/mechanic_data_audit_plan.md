@@ -189,8 +189,31 @@ Fix 태스크 진행 현황:
 
 회귀: pytest 425 → **436 PASS** (신규 11 케이스)
 
-### F2~F7 — 미착수
-(진행 시 기록)
+### F0 — GGPK 추출 완전성 감사 (2026-04-17)
+
+리포트: `_analysis/ggpk_extraction_completeness_audit.md`
+
+**발단**: 사용자 지적 — "GGPK 모든 데이터를 가져온다고 했는데 체크리스트 없이 '이정도면 됐지' 하고 끝났을 가능성". 확인 결과 **사실**.
+
+**핵심 발견**:
+1. 체크리스트 근거 = `poe-tool-dev/dat-schema` (`data/schema/schema.min.json`, v7, 이미 repo 로드됨)
+2. POE1 applicable 테이블 **921개** vs 현재 `extract_data.rs` TARGETS **7개** → **커버리지 0.76%**
+3. `Tags` 테이블 부재로 `load_ggpk_items`가 Name 패턴 매칭 휴리스틱 의존 (🔴)
+4. `Mods` 테이블 부재로 NeverSink mod 이름 검증 완전 불가 (🔴)
+5. `Characters/Ascendancy` 부재로 클래스 정보 수동 관리 (🟡)
+
+**Fix 태스크 분리**:
+- F0-fix-1: `extract_data.rs` TARGETS 확장 (Tier 1: Tags/Mods/ModType/ModFamily/Characters/Ascendancy + Tier 2: GemTags/ArmourTypes/Scarabs/ScarabTypes/Essences/Flasks). 30~45min (Rust build 별도)
+- F0-fix-2: `load_ggpk_items` 태그 기반 재작성 (F0-fix-1 후). 1.5h
+- F0-fix-3: `validate_mod_names.py` mod 이름 GGPK 대조 스크립트. 1h
+
+**Phase F2~F7 전제 재정의**: F0-fix-1 완료 후 각 도메인 필요 테이블 확보됨 → 그때 감사 착수.
+
+**Phase F1 재평가**: DivinationCards 테이블 schema에 없음 → Wiki Cargo 의존 전략 유효 유지.
+
+**Phase D 재평가**: ArmourTypes 추출 후 BaseItemTypes.Id 휴리스틱 업그레이드 가능 (현재 동작 OK이지만 정확도 향상).
+
+### F2~F7 — F0-fix-1 후 착수 대기
 
 ## 참조
 
