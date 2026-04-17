@@ -15,8 +15,16 @@ use app_lib::dat64::Dat64Parser;
 use app_lib::oodle::OodleLib;
 use app_lib::schema::SchemaStore;
 
-/// 추출 대상 테이블
+/// 추출 대상 테이블.
+///
+/// 확장 근거: _analysis/ggpk_extraction_completeness_audit.md (Phase F0, 2026-04-17).
+/// schema.min.json 전체 POE1 921 테이블 중 feature 의존도 기준 우선 추출.
+///
+/// - Tier 0 (기존): build parsing / L7-L8 필터 기본 인프라
+/// - Tier 1 (Critical): Tags/Mods/Characters 부재로 휴리스틱 대체 중이던 것
+/// - Tier 2 (다중 feature 활용): GemTags/ArmourTypes/Scarabs 등
 const TARGETS: &[&str] = &[
+    // Tier 0 — 기존 (Phase B/D/E 의존)
     "Data/ActiveSkills.datc64",
     "Data/BaseItemTypes.datc64",
     "Data/Maps.datc64",
@@ -24,6 +32,20 @@ const TARGETS: &[&str] = &[
     "Data/QuestRewards.datc64",
     "Data/SkillGems.datc64",
     "Data/UniqueStashLayout.datc64",
+    // Tier 1 — Critical (F0 감사 Critical 1/2/3 해결)
+    "Data/Tags.datc64",          // load_ggpk_items TagsKeys 해결
+    "Data/Mods.datc64",          // HasExplicitMod 검증 (Phase B/D/E/F7)
+    "Data/ModType.datc64",       // Mods 보조
+    "Data/ModFamily.datc64",     // Mods 보조
+    "Data/Characters.datc64",    // 클래스 start node 자동 매핑
+    "Data/Ascendancy.datc64",    // 어센던시 자동 매핑
+    // Tier 2 — 다중 feature 활용
+    "Data/GemTags.datc64",       // Phase E damage_type 대체 후보
+    "Data/ArmourTypes.datc64",   // Phase D BaseItemTypes.Id 휴리스틱 업그레이드
+    "Data/Scarabs.datc64",       // GGPKItems.scarabs_* 대체
+    "Data/ScarabTypes.datc64",
+    "Data/Essences.datc64",      // GGPKItems.essence_* 대체
+    "Data/Flasks.datc64",
 ];
 
 fn main() {

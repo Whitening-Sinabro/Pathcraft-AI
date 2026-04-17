@@ -35,9 +35,10 @@
 2. ✅ **Phase D 완료 (2026-04-17)**: defense_type_extractor(16) + defense_mod_tiers(NeverSink 1064-1300, 5 slots × life/es) + StageData.defence_types(4) + L7 defense_proxy(6). 470 PASS. 인게임 검증 대기
 3. ✅ **Phase E 완료 (2026-04-17)**: damage_type_extractor(16) + gem_damage_types(741 gems from POB Lua) + accessory_mod_tiers(NeverSink 1238-1501, 3 slots × 5 axis, 681 mods) + StageData.damage_types(5) + L7 accessory_proxy(6 + 1 updated 7-way). 499 PASS. 인게임 검증 대기
 4. [ ] **Phase F2~F7 감사 — F0-fix-1 선행 필요** (2026-04-17 발견: GGPK 추출 7/921 = 0.76% 커버리지. 리포트 `_analysis/ggpk_extraction_completeness_audit.md`)
-   - F0-fix-1: `extract_data.rs` TARGETS 확장 (Tags/Mods/ModType/ModFamily/Characters/Ascendancy + Tier 2 6개). 30~45min (Rust build 별도)
-   - F0-fix-2: `load_ggpk_items` 태그 기반 재작성. 1.5h
-   - F0-fix-3: `validate_mod_names.py` 대조 스크립트. 1h
+   - ✅ F0-fix-1 소스: `extract_data.rs` TARGETS 7→19 확장 (cargo check PASS)
+   - [ ] **F0-fix-1 실행 대기**: `cd src-tauri && cargo run --bin extract_data` — Tier 1+2 재추출. POE 설치 경로 자동탐지, ~10분. 다음 세션 시작점
+   - [ ] F0-fix-2: `load_ggpk_items` 태그 기반 재작성 (Tags.json 추출 후). 1.5h
+   - [ ] F0-fix-3: `validate_mod_names.py` 대조 스크립트. 1h
    - 이후: F2~F7 각 감사 (12~18h)
 5. ✅ **E2E 통합 테스트 완료 (2026-04-17)**: 3 realistic fixture(Juggernaut/CI Occultist/Guardian) + multi-stage life→CI 전환 + minimal fallback + L10 re_show 통합 = 17 tests. 516 PASS
 6. ✅ **pob_parser dead code 제거 완료 (2026-04-17)**: pobapi 통합 전체 제거 (항상 None fallback이었음), XML PlayerStat이 유일 production path 명시. 516 PASS 유지
