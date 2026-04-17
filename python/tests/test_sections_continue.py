@@ -854,6 +854,94 @@ class TestLayerBuildTarget:
         assert text.count("PlayEffect Cyan") >= 5
 
 
+class TestWeaponPhysProxy:
+    """L7 weapon_phys_proxy — NeverSink 812-844 mod-tier 룰 emit.
+
+    통합 테스트: data/weapon_{mod_tiers,base_to_class}.json + gem_weapon_requirements.json
+    실제 로드. Tabula fixture의 Jewelled Foil → Thrusting One Hand Swords 경로 검증.
+    """
+
+    def test_strictness_3_emits_phys_variant(self):
+        # strictness 2+ → HasExplicitMod >= 3, Mirrored/Corrupted 조건 없음
+        text = layer_build_target(TABULA_BUILD, strictness=3)
+        assert "[L7|weapon_phys_proxy]" in text
+        idx = text.find("[L7|weapon_phys_proxy]")
+        end = text.find("Continue", idx)
+        block = text[idx:end]
+        assert '"Thrusting One Hand Swords"' in block
+        assert "HasExplicitMod >= 3" in block
+        assert '"Tyrannical"' in block  # T1 flat phys — counted_good_mods
+        assert 'HasExplicitMod = 0 "Heavy"' in block  # excluded_bad_mods leader
+        # physpure 지표 부재
+        assert "Mirrored False" not in block
+        assert "Corrupted False" not in block
+
+    def test_strictness_1_emits_physpure_variant(self):
+        # strictness 0~1 → HasExplicitMod >= 2 + Mirrored/Corrupted False
+        text = layer_build_target(TABULA_BUILD, strictness=1)
+        idx = text.find("[L7|weapon_phys_proxy]")
+        end = text.find("Continue", idx)
+        block = text[idx:end]
+        assert "Mirrored False" in block
+        assert "Corrupted False" in block
+        assert "HasExplicitMod >= 2" in block
+
+    def test_no_weapon_in_build_skips_block(self):
+        # Spell-only build (no weapon base, only armour) → proxy 블록 생략
+        build = {
+            "meta": {"build_name": "CI Witch"},
+            "items": [],
+            "progression_stages": [{
+                "gem_setups": {"Arc": []},
+                "gear_recommendation": {
+                    "Body Armour": {"rarity": "rare", "base_type": "Astral Plate"},
+                },
+            }],
+        }
+        text = layer_build_target(build, strictness=3)
+        assert "[L7|weapon_phys_proxy" not in text
+
+    def test_block_order_chanceable_before_weapon_proxy(self):
+        # first-match semantics: unique > chanceable > weapon_phys_proxy > ...
+        text = layer_build_target(TABULA_BUILD, strictness=3)
+        pos_chance = text.find("[L7|chanceable")
+        pos_proxy = text.find("[L7|weapon_phys_proxy")
+        pos_divcard = text.find("[L7|divcard")
+        assert pos_chance >= 0 and pos_proxy >= 0 and pos_divcard >= 0
+        assert pos_chance < pos_proxy < pos_divcard
+
+
+class TestWeaponPhysProxyReShow:
+    """L10 weapon_phys_proxy 재Show — L9 Hide 복권 검증."""
+
+    def test_weapon_phys_proxy_reshow_present(self):
+        """L10에 weapon_phys_proxy 재Show 블록이 존재해야 L9 Hide 복권."""
+        text = layer_re_show(TABULA_BUILD)
+        assert "[L10|weapon_phys_proxy]" in text
+        idx = text.find("[L10|weapon_phys_proxy]")
+        end = text.find("\n\n", idx)
+        block = text[idx:end] if end > 0 else text[idx:]
+        assert '"Thrusting One Hand Swords"' in block
+        assert "HasExplicitMod >= 2" in block  # L10은 관대 (2)
+        assert '"Tyrannical"' in block
+        assert "Continue" not in block  # L10은 Continue=False (최종 Show)
+
+    def test_no_weapon_no_reshow(self):
+        """무기 없는 빌드면 weapon_phys_proxy 재Show도 없어야."""
+        spell_build = {
+            "meta": {"build_name": "CI Witch"},
+            "items": [],
+            "progression_stages": [{
+                "gem_setups": {"Arc": []},
+                "gear_recommendation": {
+                    "Body Armour": {"rarity": "rare", "base_type": "Astral Plate"},
+                },
+            }],
+        }
+        text = layer_re_show(spell_build)
+        assert "[L10|weapon_phys_proxy]" not in text
+
+
 class TestLayerReShow:
     def test_no_build_data_returns_unconditional_t1_only(self):
         """Phase 2 이후: build_data 없어도 unconditional T1 보더 21블록 생성."""

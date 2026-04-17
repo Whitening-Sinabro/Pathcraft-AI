@@ -757,6 +757,12 @@ _STRICTNESS_SUPPLY_INDEX = {
     4: 4,    # + AL>=78 stack<=4, + AL>=83 stack<=5
 }
 
+# L7 weapon_phys_proxy: strictness → HasExplicitMod count 하한.
+# 0~1은 NeverSink 'weapon_physpure' 대응(관대 + Mirrored/Corrupted 배제),
+# 2+는 NeverSink 'weapon_phys' 대응(엄격).
+# 레퍼런스: _analysis/neversink_weaponphys_rules.md
+_STRICTNESS_WEAPON_MOD_COUNT: dict[int, int] = {0: 2, 1: 2, 2: 3, 3: 3, 4: 3}
+
 
 def _hide_block(
     comment: str,
@@ -3814,11 +3820,110 @@ def layer_scarabs(mode: str = "ssf", items: Optional[GGPKItems] = None) -> str:
 _BUILD_CYAN = "100 220 255"  # Aurora 팔레트 base 색
 
 
+_WEAPON_MOD_TIERS_CACHE: Optional[dict] = None
+
+
+def _load_weapon_mod_tiers() -> dict:
+    """data/weapon_mod_tiers.json — NeverSink 812-844 룰 매핑.
+
+    Missing file → empty dict → caller skips the weapon_phys_proxy block.
+    Regenerate by re-running the analysis (data is hand-maintained, not auto).
+    """
+    global _WEAPON_MOD_TIERS_CACHE
+    if _WEAPON_MOD_TIERS_CACHE is not None:
+        return _WEAPON_MOD_TIERS_CACHE
+    path = Path(__file__).resolve().parent.parent / "data" / "weapon_mod_tiers.json"
+    if not path.exists():
+        logger.warning("weapon_mod_tiers.json missing — L7 weapon_phys_proxy will be skipped")
+        _WEAPON_MOD_TIERS_CACHE = {}
+        return _WEAPON_MOD_TIERS_CACHE
+    _WEAPON_MOD_TIERS_CACHE = json.loads(path.read_text(encoding="utf-8"))
+    return _WEAPON_MOD_TIERS_CACHE
+
+
+def _weapon_phys_proxy_block(
+    weapon_classes: list[str],
+    strictness: int,
+    label_suffix: str,
+    al_conditions: list[str],
+    category_tag: str,
+) -> Optional[str]:
+    """L7 weapon_phys_proxy block — NeverSink weapon_phys/physpure mod-tier rule.
+
+    Emits a rare-weapon Show rule gated by HasExplicitMod thresholds. Returns
+    None when inputs insufficient so the caller's join drops the section.
+
+    - strictness < mirrored_corrupted_exclude_at_strictness_below → physpure
+      variant (Mirrored/Corrupted False, mod count ≥ 2)
+    - otherwise → standard variant (mod count ≥ 3)
+
+    al_conditions: per-stage AreaLevel filters from StageData.al_conditions().
+    """
+    if not weapon_classes:
+        return None
+    tiers = _load_weapon_mod_tiers()
+    required = tiers.get("required_any_mod") or []
+    counted = tiers.get("counted_good_mods") or []
+    excluded = tiers.get("excluded_bad_mods") or []
+    if not (required and counted and excluded):
+        logger.warning(
+            "weapon_mod_tiers.json incomplete (required=%d counted=%d excluded=%d) — "
+            "skipping weapon_phys_proxy",
+            len(required), len(counted), len(excluded),
+        )
+        return None
+
+    mod_count = _STRICTNESS_WEAPON_MOD_COUNT.get(strictness, 3)
+    physpure_threshold = tiers.get("mirrored_corrupted_exclude_at_strictness_below", 2)
+    use_physpure = strictness < physpure_threshold
+    drop_level_min = tiers.get("drop_level_min", 5)
+
+    cls_quoted = " ".join(f'"{c}"' for c in weapon_classes)
+    required_quoted = " ".join(f'"{m}"' for m in required)
+    counted_quoted = " ".join(f'"{m}"' for m in counted)
+    excluded_quoted = " ".join(f'"{m}"' for m in excluded)
+
+    conditions: list[str] = []
+    if use_physpure:
+        # Match order to NeverSink 828-844 (Mirrored/Corrupted first for clarity).
+        conditions.extend(["Mirrored False", "Corrupted False"])
+    conditions.extend([
+        "Identified True",
+        f"DropLevel >= {drop_level_min}",
+        "Rarity Rare",
+        f"Class == {cls_quoted}",
+        f"HasExplicitMod {required_quoted}",
+        f"HasExplicitMod >= {mod_count} {counted_quoted}",
+        f"HasExplicitMod = 0 {excluded_quoted}",
+        *al_conditions,
+    ])
+
+    variant = "physpure" if use_physpure else "phys"
+    comment = (
+        f"빌드 무기 phys 프록시{label_suffix} ({len(weapon_classes)} class, "
+        f"mod count >= {mod_count}, {variant})"
+    )
+    return make_layer_block(
+        LAYER_BUILD_TARGET,
+        comment,
+        conditions=conditions,
+        style=LayerStyle(
+            border=_BUILD_CYAN,
+            bg="0 0 0 220",
+            font=43,
+            effect="Cyan",
+            icon="0 Cyan Star",
+        ),
+        category_tag=category_tag,
+    )
+
+
 def layer_build_target(
     build_data: "Optional[dict | list[dict]]" = None,
     coaching_data: Optional[dict] = None,
     stage: bool = False,
     al_split: int = 67,
+    strictness: int = 3,
 ) -> str:
     """L7 Build Target — 빌드 유니크/디비카/chanceable/젬/베이스 하이라이트.
 
@@ -3875,6 +3980,19 @@ def layer_build_target(
                 style=_cyan_style("0 Cyan Circle", font=40),
                 category_tag=f"chanceable{tag_suffix}",
             ))
+
+        # weapon_phys_proxy — Build 무기 클래스 레어 중 T1/T2 물리 mod만 강조.
+        # 순서 고정: unique > chanceable > weapon_phys_proxy > ... (first-match
+        # semantics; Class+mod 조합이 일반 base whitelist보다 우선).
+        proxy = _weapon_phys_proxy_block(
+            s.weapon_classes,
+            strictness=strictness,
+            label_suffix=hint,
+            al_conditions=al_conds,
+            category_tag=f"weapon_phys_proxy{tag_suffix}",
+        )
+        if proxy is not None:
+            blocks.append(proxy)
 
     # ── divcard / skill / support / base (항상 union) ──
     if union.target_cards:
@@ -4277,6 +4395,48 @@ def layer_re_show(
             category_tag="base_act_identify",
         ))
 
+    # weapon_phys_proxy 재Show — L7 weapon_phys_proxy는 Continue=True라서 L9
+    # progressive_hide(Rarity Rare AL>=N)에 매칭돼 Hide됨. L10에서 복권해야
+    # T1/T2 phys mod 무기가 실제로 보임. NeverSink도 동일 패턴 (weapon_phys는
+    # [[0600]] + [[0900]] 두 층으로 Show 확정).
+    weapon_classes = stage.weapon_classes
+    if weapon_classes:
+        tiers = _load_weapon_mod_tiers()
+        required = tiers.get("required_any_mod") or []
+        counted = tiers.get("counted_good_mods") or []
+        excluded = tiers.get("excluded_bad_mods") or []
+        if required and counted and excluded:
+            # L10은 strictness 구분 없이 mod count >= 2 (가장 관대) — L9에서
+            # 살아남아야 하는 아이템이므로 가능한 넓게 복권.
+            drop_level_min = tiers.get("drop_level_min", 5)
+            cls_quoted = " ".join(f'"{c}"' for c in weapon_classes)
+            required_quoted = " ".join(f'"{m}"' for m in required)
+            counted_quoted = " ".join(f'"{m}"' for m in counted)
+            excluded_quoted = " ".join(f'"{m}"' for m in excluded)
+            blocks.append(make_layer_block(
+                LAYER_RE_SHOW,
+                f"빌드 무기 phys 프록시 재Show ({len(weapon_classes)} class, L9 Hide 방어)",
+                conditions=[
+                    "Identified True",
+                    f"DropLevel >= {drop_level_min}",
+                    "Rarity Rare",
+                    f"Class == {cls_quoted}",
+                    f"HasExplicitMod {required_quoted}",
+                    f"HasExplicitMod >= 2 {counted_quoted}",
+                    f"HasExplicitMod = 0 {excluded_quoted}",
+                ],
+                style=LayerStyle(
+                    text=_RESHOW_CYAN_TEXT,
+                    border=_RESHOW_CYAN_TEXT,
+                    bg=_RESHOW_CYAN_BG,
+                    font=43,
+                    effect="Cyan",
+                    icon="0 Cyan Star",
+                ),
+                continue_=False,
+                category_tag="weapon_phys_proxy",
+            ))
+
     # Generic 모든 젬 재Show — Wreckers "Show Class Gem" pattern
     # L9의 Rarity Normal/Magic blanket hide를 뚫고 비빌드 젬도 Show로 확정
     blocks.append(make_layer_block(
@@ -4465,7 +4625,9 @@ def generate_beta_overlay(
     parts.append(layer_special_base())
     parts.append(layer_corrupt_border())
     parts.append(layer_t1_border())
-    parts.append(layer_build_target(build_data, coaching_data, stage=stage, al_split=al_split))
+    parts.append(layer_build_target(
+        build_data, coaching_data, stage=stage, al_split=al_split, strictness=strictness,
+    ))
     parts.append(layer_currency(mode=mode))
     parts.append(layer_maps())
     parts.append(layer_divcards())

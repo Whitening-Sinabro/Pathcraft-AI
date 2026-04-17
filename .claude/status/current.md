@@ -1,10 +1,13 @@
 ## 지금
-- **Build-aware 무기 필터 Phase B+C, Step 1 완료** (2026-04-16)
+- **Build-aware 무기 필터 Phase B+C — Step 1~4 완료, Step 6b 인게임 검증 대기** (2026-04-16~17)
+  - Step 1: 데이터 사전 3종 (POB ground truth, 231 gems)
+  - Step 2: weapon_class_extractor (9 tests)
+  - Step 3: build_extractor 통합 (StageData.weapon_classes)
+  - Step 4: L7 weapon_phys_proxy + L10 re_show 복권 (6 tests)
+  - Step 5+6a: 자동검증 PASS (tsc/vitest/pytest 425+53, E2E smoke)
+  - **핵심 결정: GGPK ActiveSkills 신뢰 불가 → POB ground truth**
   - 플랜: [build_aware_weapon_filter_plan.md](build_aware_weapon_filter_plan.md)
-  - 산출: `data/weapon_mod_tiers.json`(NeverSink 룰) + `weapon_base_to_class.json`(299) + `gem_weapon_requirements.json`(231 젬)
-  - **핵심 결정: GGPK ActiveSkills.WeaponRestriction 신뢰 불가** (Sunder Axe 누락 등) → POB `src/Data/Skills/*.lua` ground truth 전환. [메모리 참조](../../../../../Users/User/.claude/projects/D--Pathcraft-AI/memory/project_weapon_filter_ground_truth.md)
-  - 재감사: Phase A ⚠️ CONDITIONAL (BLOCK 해제). 🟡 잔여 4건 (C3 단위 테스트, I4-b nameSpec 실측 Step 2, I4-d L7 physpure 스펙 Step 4, I4-e 세션 연속성 → 이 파일 + memory 갱신으로 처리)
-- (완료) Phase 3 한국어 stat 툴팁 — 자동검증 PASS, 인게임 호버 지연 측정 대기 (별건)
+- (완료) Phase 3 한국어 stat 툴팁 — 인게임 호버 지연 측정 대기 (별건)
 
 ## 패시브 트리 완료 기능
 - ✅ Phase 1 (정적 트리) — orbit→cartesian, 2737 노드, BFS 경로
@@ -20,15 +23,10 @@
 - ✅ 파일 분리: Canvas 591 line + Render 307 + Controls 155 + Constants 85
 
 ## 다음
-- [x] Step 2: `python/weapon_class_extractor.py` — 9 테스트 통과 (커밋 221269d)
-- [x] Step 3: build_extractor 통합 — StageData.weapon_classes 필드, 419 테스트 통과
-- [ ] Step 4: sections_continue L7 weapon_phys_proxy — physpure 블록 strictness 0~1 분기 스펙 박제 (I4-d)
-- [ ] Step 5/6: 빌드/타입 + 자동 스모크 + 인게임 검증
+- [ ] Step 6b: 인게임 스모크 (사용자 세션 — Tyrannical vs Heavy, DropLevel 5 리튜닝)
 - [ ] **Phase F: 메커닉 데이터 감사** (사용자 제기 2026-04-16)
   - 플랜: [mechanic_data_audit_plan.md](mechanic_data_audit_plan.md)
-  - 메모리: `memory/project_mechanic_data_audit_required.md`
-  - F1(Divcard) 🔴 HIGH / F2~F7 🟡~🟢
-  - Phase B+C Step 4 완료 후 착수
+  - F1+F6 (Divcard + Unique base) 🔴 HIGH 병합 착수
 - [ ] (별건) 패시브 트리 Phase 3 인게임 호버 지연 검증
 
 ## Class Start 노드 매핑 (data.json)
