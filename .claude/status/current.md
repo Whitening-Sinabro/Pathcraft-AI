@@ -23,11 +23,19 @@
 - ✅ 파일 분리: Canvas 591 line + Render 307 + Controls 155 + Constants 85
 
 ## 다음 (우선순위순)
-1. [ ] **Phase F1+F6 감사** — Divcard (`hc_divcard_tiers.json _meta:{}` + `UNIQUE_TO_DIVCARD` 하드코딩) + Unique base (`UNIQUE_TO_BASE` 26개 하드코딩). 병합 6~8h
-2. [ ] **Phase D: 방어 타입 필터** — 착용 장비에서 Arm/Ev/ES 유도 + defense mod-tier 프록시. 4~6h
-3. [ ] **Phase E: 악세서리 필터** — Ring/Amulet/Belt suffix mod-tier 프록시. 4~6h
+1. [ ] **Phase F1+F6 fix 태스크 진행중** (감사 완료 2026-04-17, 리포트 `_analysis/mechanic_data_audit_divcard_unique.md`)
+   - ✅ F1-fix-1 Step A: `data/divcard_mapping.json` + `divcard_data.py` + 2 소비처 마이그 + 5 테스트 (2026-04-17)
+   - ✅ F6-fix-1 Step A: `data/unique_base_mapping.json` + `unique_base_data.py` + build_extractor 마이그 + 6 테스트 (2026-04-17)
+   - ✅ F1-fix-3: `neversink_filter_rules.json` `_meta` 추가 (NeverSink 8.19.2a 출처 명시) (2026-04-17)
+   - ✅ F1-fix-1/F6 Step B: `refresh_unique_base_mapping.py` (22→642 엔트리 자동 확장) + `validate_divcard_mapping.py` (Wiki 대조) (2026-04-17)
+   - ✅ divcard 6건 stale 정정: 5 제거(Aegis Aurora/Badge of the Brotherhood/Inpulsa's/Cospri's Malice/Hyrri's Ire — Wiki 매핑 없음) + 1 오타(Replica Farrul's Fur 아포스트로피). 16 엔트리 100% Wiki 정합 (2026-04-17)
+   - ✅ F1-fix-2 (B안) 완료 (2026-04-17): poe.ninja Hardcore Mirage → hc_divcard_tiers.json 신규 스키마 (t1_override 9장 + t2_override 18장). layer_divcards(mode=) 분기 + 12 신규 테스트. 444 PASS
+   - ✅ F1-fix-4 완료 (2026-04-17): docs/league_refresh.md — refresh 스크립트 실행 순서 + 체크리스트
+   - 잔여 0h (Phase F1 전체 완료)
+2. ✅ **Phase D 완료 (2026-04-17)**: defense_type_extractor(16) + defense_mod_tiers(NeverSink 1064-1300, 5 slots × life/es) + StageData.defence_types(4) + L7 defense_proxy(6). 470 PASS. 인게임 검증 대기
+3. ✅ **Phase E 완료 (2026-04-17)**: damage_type_extractor(16) + gem_damage_types(741 gems from POB Lua) + accessory_mod_tiers(NeverSink 1238-1501, 3 slots × 5 axis, 681 mods) + StageData.damage_types(5) + L7 accessory_proxy(6 + 1 updated 7-way). 499 PASS. 인게임 검증 대기
 4. [ ] **Phase F2~F7 나머지 감사** — Breach/Legion/Scarab/Incursion/Essence/기타 12~18h
-5. [ ] **E2E 필터 통합 테스트** — POB 링크 → filter file 전 과정 1건 이상. 2~3h
+5. ✅ **E2E 통합 테스트 완료 (2026-04-17)**: 3 realistic fixture(Juggernaut/CI Occultist/Guardian) + multi-stage life→CI 전환 + minimal fallback + L10 re_show 통합 = 17 tests. 516 PASS
 6. [ ] **pob_parser stats API 실측** — `pob_parser.py:190` TODO 주석 확인 + fallback. 1~2h
 7. [ ] Step 6b: 인게임 스모크 (무기 필터 — Tyrannical vs Heavy, DropLevel 5 리튜닝)
 8. [ ] 패시브 트리 Phase 3 인게임 호버 지연 검증

@@ -64,3 +64,25 @@
 | python/weapon_class_extractor.py | build_data → weapon Class set 유도 (착용 무기 + 젬 fallback) | 아니오 |
 | python/tests/test_weapon_class_extractor.py | weapon class extractor 단위 테스트 (9 케이스) | 아니오 |
 | .claude/status/mechanic_data_audit_plan.md | Phase F 메커닉 데이터 감사 플랜 (Divcard/Breach/Legion 등 F1~F7) | 아니오 |
+| _analysis/mechanic_data_audit_divcard_unique.md | F1+F6 감사 리포트 (2026-04-17) | 예 (참조 자료) |
+| data/divcard_mapping.json | 유니크→디비카 단일 진실원 (_meta 포함, 21 엔트리) | 아니오 |
+| python/divcard_data.py | divcard_mapping.json 로더 (캐시 + 폴백) | 아니오 |
+| python/tests/test_divcard_data.py | divcard 매핑 로더/회귀 테스트 (5 케이스) | 아니오 |
+| data/unique_base_mapping.json | 유니크→chanceable base 단일 진실원 (_meta 포함, 22 엔트리) | 아니오 |
+| python/unique_base_data.py | unique_base_mapping.json 로더 (캐시 + 폴백) | 아니오 |
+| python/tests/test_unique_base_data.py | unique base 매핑 로더/회귀 테스트 (6 케이스) | 아니오 |
+| scripts/refresh_unique_base_mapping.py | Wiki Cargo 기반 유니크→base 자동 생성 (642 엔트리) | 아니오 |
+| scripts/validate_divcard_mapping.py | divcard_mapping.json Wiki 대조 검증 리포트 | 아니오 |
+| scripts/refresh_hc_divcard_tiers.py | poe.ninja HC 경제 기반 디비카 T1/T2 override 자동 생성 | 아니오 |
+| docs/league_refresh.md | 리그 교체 시 refresh 스크립트 실행 순서 + 체크리스트 | 아니오 |
+| python/defense_type_extractor.py | 캐릭터 방어 축 분류 (Phase D, pob_parser 수치 기반 ratio hybrid) | 아니오 |
+| python/tests/test_defense_type_extractor.py | defense_type_extractor 단위 테스트 (16 케이스) | 아니오 |
+| data/defense_mod_tiers.json | NeverSink 1-REGULAR.filter 방어 mod-tier 추출 (5 slots × life/es) | 아니오 |
+| scripts/extract_defense_mod_tiers.py | NeverSink → defense_mod_tiers.json 자동 재생성 | 아니오 |
+| python/damage_type_extractor.py | 빌드 damage axis 분류 (Phase E, gem_setups → {attack/caster/dot/minion}) | 아니오 |
+| python/tests/test_damage_type_extractor.py | damage_type_extractor 단위 테스트 (16 케이스) | 아니오 |
+| python/extract_gem_damage_types.py | POB Lua skillTypes → gem_damage_types.json 자동 생성 | 아니오 |
+| data/gem_damage_types.json | 741 gems × 4 axis flag (Phase E 빌드 damage 분류 소스) | 예 (재생성 가능) |
+| data/accessory_mod_tiers.json | NeverSink 악세서리 mod-tier (amu/ring/belt × axis, 681 mods) | 아니오 |
+| scripts/extract_accessory_mod_tiers.py | NeverSink → accessory_mod_tiers.json 자동 재생성 | 아니오 |
+| python/tests/test_e2e_filter_pipeline.py | E2E 필터 파이프라인 (Juggernaut/Occultist/Guardian fixture + multi-stage + minimal) | 아니오 |

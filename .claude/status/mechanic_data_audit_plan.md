@@ -164,10 +164,30 @@
 
 ## 진행 로그 (발견 사항 기록)
 
-### F1 — 미착수
-- 발견: `hc_divcard_tiers.json _meta: {}` 출처 불명 (2026-04-16 1차 조사)
-- 발견: `build_extractor.UNIQUE_TO_DIVCARD` ~20 엔트리 하드코딩 (2026-04-16)
-- TODO: POE Wiki Cargo `divination_cards` 테이블 PoC → 자동 생성 가능성 타진
+### F1 + F6 — 감사 완료 (2026-04-17)
+
+리포트: `_analysis/mechanic_data_audit_divcard_unique.md`
+
+주요 발견:
+1. **`hc_divcard_tiers.json` orphan** — β Continue 파이프라인에서 미사용, `_analysis/gen_test_filter_v4.py` HCSSF 모드만 소비. 삭제 or 연결 결정 필요
+2. **디비카 하드코딩 3곳 분산 + 중복** — `build_extractor.UNIQUE_TO_DIVCARD`(21) + `wiki_data_provider.KNOWN_DIV_CARDS`(5 서브셋) + `hc_divcard_tiers.json`. 단일 진실원 부재
+3. **`neversink_filter_rules.json` `_meta` 부재** — 런타임 실사용 파일인데 버전 추적 불가
+4. **`UNIQUE_TO_BASE` 22개** — 플랜 "26개" 기재 오류. POE1 ~1500 유니크 대비 1.5%이나 POB 필드로 대부분 커버 (실전 영향 제한적)
+5. **재현 가능한 생성 스크립트 전무** — 5개 데이터 소스 전부 수동 관리
+6. **Wiki Cargo 인프라 이미 존재** (`wiki_data_provider.cargo_query`) — 자동화 가능
+
+DoD: **감사 통과 불가** (D1/D4/D5 모두 FAIL). 수정 4 task 분리 등록.
+
+Fix 태스크 진행 현황:
+- ✅ F1-fix-1 Step A (2026-04-17): `data/divcard_mapping.json` + `divcard_data.py` 로더 + 2 소비처 마이그 + 5 테스트
+- ✅ F1-fix-1/F6 Step B (2026-04-17): `scripts/refresh_unique_base_mapping.py` (642 엔트리 자동 생성) + `scripts/validate_divcard_mapping.py` (Wiki 대조). Cargo API 제약(`stack_size` 미정의)으로 divcard는 validate만 자동, generate는 수동
+- ✅ divcard 6건 stale 정정 (2026-04-17): 16 엔트리 100% Wiki 정합. 5 제거(Aegis Aurora/Badge of the Brotherhood/Inpulsa's/Cospri's Malice/Hyrri's Ire) + 1 오타
+- ✅ F1-fix-3 (2026-04-17): `neversink_filter_rules.json` `_meta` (NeverSink 8.19.2a.2026.102.11 출처)
+- ✅ F6-fix-1 Step A (2026-04-17): `data/unique_base_mapping.json` + `unique_base_data.py` + build_extractor 마이그 + 6 테스트
+- [ ] F1-fix-2 (B안 확정): HCSSF 파이프라인 — `hc_divcard_tiers.json` `_meta` + refresh + β Continue 분기 (4~6h, 다음 세션)
+- [ ] F1-fix-4: `docs/league_refresh.md` (0.5h)
+
+회귀: pytest 425 → **436 PASS** (신규 11 케이스)
 
 ### F2~F7 — 미착수
 (진행 시 기록)

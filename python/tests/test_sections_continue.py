@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """sections_continue β Continue 빌더 유닛 테스트."""
 
+import json
 import sys
 import pytest
 from pathlib import Path
@@ -781,6 +782,72 @@ class TestLayerDivcards:
         text = layer_divcards()
         assert "\tContinue" not in text
 
+    def test_ssf_mode_has_no_hc_override(self):
+        """SSF 모드는 HC override 블록 생성하지 않음."""
+        text = layer_divcards(mode="ssf")
+        assert "[L8|divcard_hc_t1_override]" not in text
+        assert "[L8|divcard_hc_t2_override]" not in text
+
+    def test_trade_mode_has_no_hc_override(self):
+        """Trade 모드도 HC override 없음."""
+        text = layer_divcards(mode="trade")
+        assert "[L8|divcard_hc_t1_override]" not in text
+
+    def test_hcssf_mode_inserts_override_blocks(self):
+        """HCSSF 모드는 T1/T2 override 블록을 SC 흐름 앞에 삽입."""
+        text = layer_divcards(mode="hcssf")
+        assert "[L8|divcard_hc_t1_override]" in text
+        assert "[L8|divcard_hc_t2_override]" in text
+        # HC override가 SC t1_top 앞에 위치
+        hc_t1 = text.find("[L8|divcard_hc_t1_override]")
+        sc_t1 = text.find("[L8|divcard_t1_top]")
+        assert 0 <= hc_t1 < sc_t1
+
+    def test_hcssf_t1_override_has_keystone_styling(self):
+        """HC T1 override는 P1_KEYSTONE (Purple Square 0) 스타일."""
+        text = layer_divcards(mode="hcssf")
+        t1_start = text.find("[L8|divcard_hc_t1_override]")
+        t1_end = text.find("[L8|divcard_hc_t2", t1_start)
+        t1_block = text[t1_start:t1_end]
+        assert "MinimapIcon 0 Purple Square" in t1_block
+
+    def test_hcssf_apothecary_in_t1_override(self):
+        """HC Mirage 최고가 카드 The Apothecary는 T1 override 포함."""
+        text = layer_divcards(mode="hcssf")
+        t1_start = text.find("[L8|divcard_hc_t1_override]")
+        t1_end = text.find("[L8|divcard_hc_t2", t1_start)
+        t1_block = text[t1_start:t1_end]
+        assert '"The Apothecary"' in t1_block
+
+
+class TestLoadHcDivcardOverride:
+    def test_file_missing_returns_empty(self, tmp_path):
+        """파일 없으면 빈 override (SC 흐름 유지)."""
+        from sections_continue import _load_hc_divcard_override
+        result = _load_hc_divcard_override(tmp_path / "missing.json")
+        assert result == {"t1_override": [], "t2_override": []}
+
+    def test_malformed_json_returns_empty(self, tmp_path):
+        """JSON 파싱 실패 시 빈 override (예외 전파 금지)."""
+        from sections_continue import _load_hc_divcard_override
+        bad = tmp_path / "bad.json"
+        bad.write_text("{not json", encoding="utf-8")
+        result = _load_hc_divcard_override(bad)
+        assert result == {"t1_override": [], "t2_override": []}
+
+    def test_loads_override_lists(self, tmp_path):
+        """정상 파일은 t1/t2 리스트 반환."""
+        from sections_continue import _load_hc_divcard_override
+        good = tmp_path / "good.json"
+        good.write_text(json.dumps({
+            "_meta": {"league": "Hardcore Mirage"},
+            "t1_override": ["The Apothecary", "Brother's Gift"],
+            "t2_override": ["The Doctor"],
+        }), encoding="utf-8")
+        result = _load_hc_divcard_override(good)
+        assert result["t1_override"] == ["The Apothecary", "Brother's Gift"]
+        assert result["t2_override"] == ["The Doctor"]
+
 
 class TestLayerBuildTarget:
     def test_no_build_data_returns_empty(self):
@@ -909,6 +976,253 @@ class TestWeaponPhysProxy:
         pos_divcard = text.find("[L7|divcard")
         assert pos_chance >= 0 and pos_proxy >= 0 and pos_divcard >= 0
         assert pos_chance < pos_proxy < pos_divcard
+
+
+class TestDefenseProxy:
+    """L7 defense_proxy — 빌드 defence_types 기반 방어 장비 강조 (D4)."""
+
+    @staticmethod
+    def _mk_build(armour=0, evasion=0, energy_shield=0) -> dict:
+        """Minimal build with stats only (triggers defence_types extraction)."""
+        return {
+            "meta": {"build_name": "DefenseTest"},
+            "items": [],
+            "stats": {
+                "armour": armour,
+                "evasion": evasion,
+                "energy_shield": energy_shield,
+            },
+            "progression_stages": [{
+                "gem_setups": {},
+                "gear_recommendation": {},
+            }],
+        }
+
+    def test_no_defence_types_skips_all_blocks(self):
+        """stats 없는 빌드 → defence_types 비어 있음 → L7 defense_proxy 0 블록."""
+        build = {
+            "meta": {"build_name": "NoStats"},
+            "items": [],
+            "progression_stages": [{"gem_setups": {}, "gear_recommendation": {}}],
+        }
+        text = layer_build_target(build, strictness=3)
+        assert "[L7|defense_proxy" not in text
+
+    def test_pure_armour_emits_life_focused_blocks(self):
+        """pure AR 빌드 → life focus 블록만 (5 slots), es focus 없음."""
+        text = layer_build_target(self._mk_build(armour=25000), strictness=3)
+        for slot in ("body_armour", "helmet", "boots", "gloves", "shield"):
+            assert f"[L7|defense_proxy_{slot}_life]" in text
+        assert "defense_proxy" in text  # sanity
+        # ES focus 미활성
+        for slot in ("body_armour", "helmet", "boots", "gloves", "shield"):
+            assert f"[L7|defense_proxy_{slot}_es]" not in text
+
+    def test_pure_es_emits_es_focused_blocks(self):
+        """CI Witch ES 빌드 → es focus 블록만, life focus 없음."""
+        text = layer_build_target(self._mk_build(energy_shield=8000), strictness=3)
+        for slot in ("body_armour", "helmet", "boots", "gloves", "shield"):
+            assert f"[L7|defense_proxy_{slot}_es]" in text
+        for slot in ("body_armour", "helmet", "boots", "gloves", "shield"):
+            assert f"[L7|defense_proxy_{slot}_life]" not in text
+
+    def test_hybrid_ar_es_emits_both_focuses(self):
+        """Aegis Aurora Occultist ES+AR → life + es 양쪽."""
+        text = layer_build_target(
+            self._mk_build(armour=6000, energy_shield=6000),
+            strictness=3,
+        )
+        assert "[L7|defense_proxy_body_armour_life]" in text
+        assert "[L7|defense_proxy_body_armour_es]" in text
+
+    def test_strictness_affects_mod_count(self):
+        """strictness 2+ → HasExplicitMod >= 3, 0~1 → >= 2."""
+        text3 = layer_build_target(self._mk_build(armour=25000), strictness=3)
+        text1 = layer_build_target(self._mk_build(armour=25000), strictness=1)
+        # helmet_life 블록에서 확인
+        idx3 = text3.find("[L7|defense_proxy_helmet_life]")
+        end3 = text3.find("Continue", idx3)
+        block3 = text3[idx3:end3]
+        idx1 = text1.find("[L7|defense_proxy_helmet_life]")
+        end1 = text1.find("Continue", idx1)
+        block1 = text1[idx1:end1]
+        assert "HasExplicitMod >= 3" in block3
+        assert "HasExplicitMod >= 2" in block1
+
+    def test_block_order_defense_after_weapon_proxy(self):
+        """first-match: weapon_phys_proxy > defense_proxy > divcard 순서."""
+        # weapon + defence types 둘 다 있는 fixture
+        build = {
+            "meta": {"build_name": "Combo"},
+            "items": [],
+            "stats": {"armour": 20000, "evasion": 0, "energy_shield": 0},
+            "progression_stages": [{
+                "gem_setups": {"Main": {"links": "Cleave"}},
+                "gear_recommendation": {
+                    "Weapon 1": {"base_type": "Reaver Axe", "rarity": "Normal"},
+                },
+            }],
+        }
+        text = layer_build_target(build, strictness=3)
+        pos_weapon = text.find("[L7|weapon_phys_proxy")
+        pos_defense = text.find("[L7|defense_proxy_")
+        pos_divcard = text.find("[L7|divcard")
+        assert pos_weapon >= 0 and pos_defense >= 0
+        assert pos_weapon < pos_defense
+        if pos_divcard >= 0:
+            assert pos_defense < pos_divcard
+
+    def test_staged_build_emits_per_stage_defence_types(self):
+        """Multi-POB 전환 빌드: leveling life → endgame CI.
+        stage=True → leveling 블록엔 life만, endgame 블록엔 es만.
+        """
+        leveling_pob = {
+            "meta": {"class_level": 30, "build_name": "Lv30 life"},
+            "items": [],
+            "stats": {"armour": 5000, "evasion": 3000, "energy_shield": 0},
+            "progression_stages": [{"gem_setups": {}, "gear_recommendation": {}}],
+        }
+        endgame_pob = {
+            "meta": {"class_level": 95, "build_name": "Lv95 CI"},
+            "items": [],
+            "stats": {"armour": 0, "evasion": 0, "energy_shield": 10000},
+            "progression_stages": [{"gem_setups": {}, "gear_recommendation": {}}],
+        }
+        text = layer_build_target(
+            [leveling_pob, endgame_pob], stage=True, strictness=3,
+        )
+        # leveling stage 블록에 life focus만, es focus 없음
+        assert "[L7|defense_proxy_leveling_body_armour_life]" in text
+        assert "[L7|defense_proxy_leveling_body_armour_es]" not in text
+        # endgame stage 블록에 es focus만, life focus 없음
+        assert "[L7|defense_proxy_endgame_body_armour_es]" in text
+        assert "[L7|defense_proxy_endgame_body_armour_life]" not in text
+
+    def test_l7_full_block_order_snapshot(self):
+        """L7 7-way 블록 순서 박제: unique > chanceable > weapon > defense > accessory > divcard > skill.
+
+        회귀 방어: layer_build_target 내부 emit 순서가 바뀌면 이 테스트로 감지.
+        """
+        # 모든 L7 카테고리를 활성화하는 fixture
+        # - Tabula + Mageblood (unique/chanceable/base)
+        # - Jewelled Foil weapon (weapon_phys_proxy)
+        # - 20000 armour (defense_proxy)
+        # - gem_setups Cyclone (attack → accessory_proxy)
+        build = {
+            "meta": {"build_name": "FullCoverage"},
+            "items": [
+                {"rarity": "unique", "name": "Tabula Rasa"},
+                {"rarity": "unique", "name": "Mageblood"},
+            ],
+            "stats": {"armour": 20000, "evasion": 0, "energy_shield": 0},
+            "progression_stages": [{
+                "gem_setups": {
+                    "Cyclone": {
+                        "links": "Cyclone - Melee Physical Damage Support - Fortify Support",
+                        "reasoning": None,
+                    },
+                },
+                "gear_recommendation": {
+                    "weapon": {"rarity": "rare", "base_type": "Jewelled Foil"},
+                },
+            }],
+        }
+        text = layer_build_target(build, strictness=3)
+        positions = {
+            "unique":     text.find("[L7|unique]"),
+            "chanceable": text.find("[L7|chanceable]"),
+            "weapon":     text.find("[L7|weapon_phys_proxy]"),
+            "defense":    text.find("[L7|defense_proxy_"),
+            "accessory":  text.find("[L7|accessory_proxy_"),
+            "divcard":    text.find("[L7|divcard]"),
+            "skill":      text.find("[L7|skill_gem]"),
+        }
+        # 모든 블록 존재 확인
+        for name, pos in positions.items():
+            assert pos >= 0, f"missing L7 block: {name}"
+        # 순서 박제 (first-match 시맨틱 준수)
+        order = ["unique", "chanceable", "weapon", "defense", "accessory", "divcard", "skill"]
+        for prev, curr in zip(order, order[1:]):
+            assert positions[prev] < positions[curr], (
+                f"L7 order violation: {prev}({positions[prev]}) >= {curr}({positions[curr]})"
+            )
+
+
+class TestAccessoryProxy:
+    """L7 accessory_proxy — 빌드 damage_types 기반 악세서리 강조 (E6)."""
+
+    @staticmethod
+    def _mk_build(main_skill: str = "", armour: int = 0, ev: int = 0, es: int = 0) -> dict:
+        """gem_setups + 선택적 stats 빌드."""
+        build = {
+            "meta": {"build_name": "AccessoryTest"},
+            "items": [],
+            "progression_stages": [{
+                "gem_setups": (
+                    {main_skill: {"links": main_skill, "reasoning": None}}
+                    if main_skill else {}
+                ),
+                "gear_recommendation": {},
+            }],
+        }
+        if any((armour, ev, es)):
+            build["stats"] = {"armour": armour, "evasion": ev, "energy_shield": es}
+        return build
+
+    def test_no_damage_types_still_emits_common(self):
+        """damage_types 비어도 common(exalter amulet, general belt)은 emit."""
+        build = self._mk_build()  # no gem_setups
+        text = layer_build_target(build, strictness=3)
+        assert "[L7|accessory_proxy_amulet_common]" in text
+        assert "[L7|accessory_proxy_belt_common]" in text
+        # damage axis 블록은 없어야 함
+        for axis in ("attack", "caster", "dot", "minion"):
+            assert f"[L7|accessory_proxy_amulet_{axis}]" not in text
+
+    def test_cyclone_emits_attack_plus_common(self):
+        """Cyclone → attack + common 블록, caster/dot/minion 없음."""
+        text = layer_build_target(self._mk_build("Cyclone"), strictness=3)
+        assert "[L7|accessory_proxy_amulet_attack]" in text
+        assert "[L7|accessory_proxy_ring_attack]" in text
+        assert "[L7|accessory_proxy_amulet_common]" in text
+        for axis in ("caster", "dot", "minion"):
+            assert f"[L7|accessory_proxy_amulet_{axis}]" not in text
+
+    def test_righteous_fire_emits_caster_plus_dot(self):
+        """RF → caster + dot + common (RF는 Spell + DamageOverTime)."""
+        text = layer_build_target(self._mk_build("Righteous Fire"), strictness=3)
+        assert "[L7|accessory_proxy_amulet_caster]" in text
+        assert "[L7|accessory_proxy_amulet_dot]" in text
+        assert "[L7|accessory_proxy_amulet_common]" in text
+        assert "[L7|accessory_proxy_amulet_attack]" not in text
+
+    def test_srs_emits_caster_plus_minion(self):
+        """SRS → caster + minion + common. ring_minion 포함."""
+        text = layer_build_target(self._mk_build("Summon Raging Spirit"), strictness=3)
+        assert "[L7|accessory_proxy_amulet_caster]" in text
+        assert "[L7|accessory_proxy_ring_minion]" in text
+        assert "[L7|accessory_proxy_amulet_minion]" not in text  # amu에 minion axis 없음
+        assert "[L7|accessory_proxy_amulet_attack]" not in text
+
+    def test_strictness_affects_mod_count(self):
+        """strictness 2+ → HasExplicitMod >= 3, 0~1 → >= 2."""
+        text3 = layer_build_target(self._mk_build("Cyclone"), strictness=3)
+        text1 = layer_build_target(self._mk_build("Cyclone"), strictness=1)
+        idx3 = text3.find("[L7|accessory_proxy_amulet_attack]")
+        end3 = text3.find("Continue", idx3)
+        idx1 = text1.find("[L7|accessory_proxy_amulet_attack]")
+        end1 = text1.find("Continue", idx1)
+        assert "HasExplicitMod >= 3" in text3[idx3:end3]
+        assert "HasExplicitMod >= 2" in text1[idx1:end1]
+
+    def test_exalter_amulet_common_mod(self):
+        """amulet.common 블록은 Exalter's mod 하나만 요구 (NeverSink amu_exalter)."""
+        text = layer_build_target(self._mk_build(), strictness=3)
+        idx = text.find("[L7|accessory_proxy_amulet_common]")
+        end = text.find("Continue", idx)
+        block = text[idx:end]
+        assert '"Exalter\'s"' in block
+        assert 'Class == "Amulets"' in block
 
 
 class TestWeaponPhysProxyReShow:
@@ -1803,6 +2117,7 @@ class TestThreeModeGeneration:
         text = generate_beta_overlay(mode="hcssf")
         assert "[L8|hcssf_life_flask]" in text  # HCSSF 전용 블록
         assert '"Orb of Scouring"' in text  # HCSSF P1
+        assert "[L8|divcard_hc_t1_override]" in text  # HCSSF 디비카 T1 경제 override
 
 
 class TestLayerLevelingSupplies:

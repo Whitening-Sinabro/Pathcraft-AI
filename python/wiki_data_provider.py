@@ -65,18 +65,14 @@ def get_item_acquisition(item_name: str) -> dict:
     }
 
 
-KNOWN_DIV_CARDS = {
-    "Death's Oath": [{"card": "The Oath", "stack": 6}],
-    "Shavronne's Wrappings": [{"card": "The Offering", "stack": 8}],
-    "Headhunter": [{"card": "The Doctor", "stack": 8}, {"card": "The Fiend", "stack": 11}],
-    "Mageblood": [{"card": "The Apothecary", "stack": 13}],
-    "Aegis Aurora": [{"card": "The Gladiator", "stack": 5}],
-}
+# 디비카 매핑은 data/divcard_mapping.json (단일 진실원) 에서 로드.
+# 기존 KNOWN_DIV_CARDS 하드코딩 (5-entry subset) 은 2026-04-17 Phase F1-fix-1 에서 제거.
+from divcard_data import load_divcard_mapping
 
 
 def get_divination_cards_for_item(item_name: str) -> list:
     cards = []
-    known = KNOWN_DIV_CARDS.get(item_name, [])
+    known = load_divcard_mapping().get(item_name, [])
     for entry in known:
         card_info = cargo_query(
             fields="items.name, items.drop_areas_html",

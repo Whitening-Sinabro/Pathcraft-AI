@@ -203,3 +203,103 @@ class TestWeaponClasses:
         }
         stages = merge_build_stages([build])
         assert stages[0].weapon_classes == []
+
+
+class TestStageDefenceTypes:
+    """StageData.defence_types — D3 통합 회귀."""
+
+    @staticmethod
+    def _mk_with_stats(level: int, armour: int, evasion: int, es: int) -> dict:
+        return {
+            "meta": {"class_level": level},
+            "items": [],
+            "stats": {"armour": armour, "evasion": evasion, "energy_shield": es},
+            "progression_stages": [{
+                "gem_setups": {},
+                "gear_recommendation": {},
+            }],
+        }
+
+    def test_single_pob_pure_armour_builds_ar_defence(self):
+        """Juggernaut 25000 armour → defence_types = {"ar"}."""
+        stages = merge_build_stages([self._mk_with_stats(90, 25000, 200, 0)])
+        assert len(stages) == 1
+        assert stages[0].defence_types == frozenset({"ar"})
+
+    def test_single_pob_pure_es_ci_witch(self):
+        """CI Witch 8000 ES → defence_types = {"es"}."""
+        stages = merge_build_stages([self._mk_with_stats(90, 0, 0, 8000)])
+        assert stages[0].defence_types == frozenset({"es"})
+
+    def test_two_pob_life_to_ci_transition_splits_by_stage(self):
+        """Leveling life (AR+EV) → endgame CI (ES): stage별 다른 defence_types."""
+        stages = merge_build_stages([
+            self._mk_with_stats(30, 8000, 5000, 0),   # life AR+EV
+            self._mk_with_stats(95, 0, 0, 10000),     # CI ES
+        ])
+        by_label = {s.label: s for s in stages}
+        assert "leveling" in by_label and "endgame" in by_label
+        assert by_label["leveling"].defence_types == frozenset({"ar", "ev"})
+        assert by_label["endgame"].defence_types == frozenset({"es"})
+
+    def test_missing_stats_returns_empty_defence(self):
+        """stats 필드 없는 build_data → 빈 defence_types (L7 defense_proxy 생략)."""
+        build = {
+            "meta": {"class_level": 90},
+            "items": [],
+            "progression_stages": [{"gem_setups": {}, "gear_recommendation": {}}],
+        }
+        stages = merge_build_stages([build])
+        assert stages[0].defence_types == frozenset()
+
+
+class TestStageDamageTypes:
+    """StageData.damage_types — E5 통합 회귀.
+
+    data/gem_damage_types.json 실제 로드 (E2 산출물). 4 fixture 대표 gem 포함.
+    """
+
+    @staticmethod
+    def _mk_with_gems(level: int, main_skill: str, supports: list[str] = None) -> dict:
+        """gem_setups만 있는 빌드. 메인 스킬 이름이 label + links 첫 항목."""
+        links = [main_skill] + (supports or [])
+        return {
+            "meta": {"class_level": level},
+            "items": [],
+            "progression_stages": [{
+                "gem_setups": {
+                    main_skill: {"links": " - ".join(links), "reasoning": None},
+                },
+                "gear_recommendation": {},
+            }],
+        }
+
+    def test_single_pob_cyclone_attack(self):
+        """Cyclone → damage_types = {"attack"}."""
+        stages = merge_build_stages([self._mk_with_gems(90, "Cyclone")])
+        assert stages[0].damage_types == frozenset({"attack"})
+
+    def test_single_pob_arc_caster(self):
+        """Arc → damage_types = {"caster"}."""
+        stages = merge_build_stages([self._mk_with_gems(90, "Arc")])
+        assert stages[0].damage_types == frozenset({"caster"})
+
+    def test_single_pob_rf_caster_plus_dot(self):
+        """Righteous Fire → {"caster", "dot"} (RF = Spell + DamageOverTime)."""
+        stages = merge_build_stages([self._mk_with_gems(90, "Righteous Fire")])
+        assert stages[0].damage_types == frozenset({"caster", "dot"})
+
+    def test_single_pob_srs_caster_plus_minion(self):
+        """Summon Raging Spirit → {"caster", "minion"}."""
+        stages = merge_build_stages([self._mk_with_gems(90, "Summon Raging Spirit")])
+        assert stages[0].damage_types == frozenset({"caster", "minion"})
+
+    def test_missing_gems_returns_empty_damage(self):
+        """gem_setups 없음 → 빈 damage_types (accessory_proxy common만)."""
+        build = {
+            "meta": {"class_level": 90},
+            "items": [],
+            "progression_stages": [{"gem_setups": {}, "gear_recommendation": {}}],
+        }
+        stages = merge_build_stages([build])
+        assert stages[0].damage_types == frozenset()

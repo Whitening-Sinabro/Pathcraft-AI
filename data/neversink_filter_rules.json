@@ -1,4 +1,13 @@
 {
+  "_meta": {
+    "source": "NeverSink Indepth Loot Filter",
+    "source_version": "8.19.2a.2026.102.11",
+    "source_reference": "_analysis/reference_profiles/neversink_strict_sections.txt",
+    "derivation": "manual_extraction",
+    "derived_at": "2026-04-06",
+    "verified_at": "2026-04-17",
+    "notes": "티어 분류(currency_tiers, divination_cards 등)를 NeverSink strict 프로파일에서 수동 추출. 리그마다 경제 기반 티어가 변경되므로 신 리그 시작 1~2주 내 재검증 필요. refresh 스크립트 TODO (scripts/refresh_neversink_rules.py)."
+  },
   "currency_tiers": {
     "t1_mirror_divine": [
       "Albino Rhoa Feather",

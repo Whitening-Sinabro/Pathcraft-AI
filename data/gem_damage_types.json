@@ -1,0 +1,4485 @@
+{
+  "_meta": {
+    "source": "PathOfBuildingCommunity src/Data/Skills/*.lua (MIT). Game data © GGG.",
+    "generator": "python/extract_gem_damage_types.py",
+    "pob_files_used": [
+      "act_str.lua",
+      "act_dex.lua",
+      "act_int.lua",
+      "other.lua",
+      "glove.lua",
+      "sup_str.lua",
+      "sup_dex.lua",
+      "sup_int.lua"
+    ],
+    "cache_dir": "data/pob_skills_cache",
+    "collected_at": "2026-04-17T07:45:12+00:00",
+    "skill_type_mapping": {
+      "attack": [
+        "Attack"
+      ],
+      "caster": [
+        "Spell"
+      ],
+      "dot": [
+        "CausesBurning",
+        "DamageOverTime",
+        "DegenOnlySpellDamage"
+      ],
+      "minion": [
+        "CreatesMinion"
+      ]
+    },
+    "gem_count": 741,
+    "processed_skills": 1057,
+    "notes": "caster와 dot은 공존 가능 (예: Righteous Fire). damage_type_extractor에서 메인 스킬의 true flag 축을 union."
+  },
+  "gems": {
+    "Abberath's Fury": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Absolution": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Absolution of Inspiring": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Affliction": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Alchemist's Mark": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ambush": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Anger": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Animate Guardian": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Animate Guardian of Smiting": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Animate Guardian's Weapon": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Animate Weapon": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Animate Weapon of Ranged Arms": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Animate Weapon of Self Reflection": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Approaching Flames": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Arc": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Arc of Oscillating": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Arc of Surging": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Arcane Cloak": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Arcanist Brand": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Arctic Armour": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Armageddon Brand": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Armageddon Brand of Recall": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Armageddon Brand of Volatility": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Artillery Ballista": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Artillery Ballista of Cross Strafe": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Artillery Ballista of Focus Fire": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Aspect of the Avian": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Aspect of the Cat": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Aspect of the Crab": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Aspect of the Spider": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Assassin's Mark": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Autoexertion": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Automation": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Avenging Flame": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ball Lightning": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ball Lightning of Orbiting": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ball Lightning of Static": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bane": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Bane of Condemnation": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Barkskin": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Barrage": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Barrage of Volley Fire": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Bear Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bear Trap of Skewers": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Berserk": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Blade Blast": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Blade Blast of Dagger Detonation": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Blade Blast of Unloading": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Blade Flurry": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Blade Flurry of Incision": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Blade Trap": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Blade Trap of Greatswords": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Blade Trap of Laceration": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Blade Vortex": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Blade Vortex of the Scythe": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bladefall": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bladefall of Impaling": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bladefall of Trarthus": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bladefall of Volleys": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bladestorm": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Bladestorm of Uncertainty": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Blast Rain": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Blast Rain of Trarthus": {
+      "attack": true,
+      "caster": false,
+      "dot": true,
+      "minion": false
+    },
+    "Blazing Glare": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Blazing Salvo": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Blight": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Blight of Atrophy": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Blight of Contagion": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Blink Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": true
+    },
+    "Blink Arrow of Bombarding Clones": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": true
+    },
+    "Blink Arrow of Prismatic Clones": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": true
+    },
+    "Blood Offering": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Blood Rage": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Blood Sacrament": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Blood and Sand": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bodyswap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bodyswap of Sacrifice": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bone Armour": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Bone Nova": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Bone Offering": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Boneshatter": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Boneshatter of Carnage": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Boneshatter of Complex Trauma": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Brand Recall": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Brandsurge": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Burning Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Burning Arrow of Vigour": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Bursting Toad": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Call the Pyre": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Caustic Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": true,
+      "minion": false
+    },
+    "Caustic Arrow of Poison": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Caustic Retribution": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ceaseless Flesh": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Chain Hook": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Chain Hook of Trarthus": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Charged Dash": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Charged Dash of Projection": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Cinders": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Clarity": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Cleave": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Cleave of Rage": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Cobra Lash": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Cold Aegis": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Cold Snap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Cold Snap of Power": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Combust": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Blades": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Flames": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Force": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Frost": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Fury": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Inferno": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Ire": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Light": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Reflection": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Commandment of Spite": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Thunder": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of War": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of Winter": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Commandment of the Grave": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Commandment of the Tempest": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Conductivity": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Conflagration": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Consecrate": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Consecrated Path": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Consecrated Path of Endurance": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Contagion": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Contagion of Subsiding": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Contagion of Transference": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Contaminate": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Conversion Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Convocation": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Corrupting Fever": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Crackling Lance": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Crackling Lance of Branching": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Crackling Lance of Disintegration": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Create Lesser Shrine": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Creeping Frost": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Creeping Frost of Floes": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Cremation": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Cremation of Exhuming": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Cremation of the Volcano": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Crushing Fist": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Cyclone": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Cyclone of Tumult": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Dark Pact": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Dark Pact of Trarthus": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Dash": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Death Aura": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Death Walk": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Death Wish": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Decoy Totem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Blades": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Flames": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Force": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Frost": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Fury": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Inferno": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Ire": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Light": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Reflection": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Decree of Spite": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Thunder": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of War": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of Winter": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Decree of the Grave": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Decree of the Tempest": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Default Attack": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Defiance Banner": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Desecrate": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Despair": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Destructive Link": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Determination": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Detonate Dead": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Detonate Dead of Chain Reaction": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Detonate Dead of Scavenging": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Detonate Mines": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Devouring Totem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Discharge": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Discharge of Misery": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Discipline": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Divine Blast": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Divine Ire": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Divine Ire of Disintegration": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Divine Ire of Holy Lightning": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Divine Retribution": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Dominating Blow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": true
+    },
+    "Dominating Blow of Inspiring": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": true
+    },
+    "Doom Blast": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Doryani's Touch": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Double Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Double Strike of Impaling": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Double Strike of Momentum": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Dread Banner": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Dual Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Dual Strike of Ambidexterity": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Earthquake": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Earthquake of Amplification": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Earthshatter": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Earthshatter of Fragility": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Earthshatter of Prominence": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Blades": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Flames": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Force": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Frost": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Fury": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Inferno": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Ire": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Light": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Reflection": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Edict of Spite": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Thunder": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of War": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of Winter": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Edict of the Grave": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Edict of the Tempest": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Elemental Aegis": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Elemental Hit": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Elemental Hit of the Spectrum": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Elemental Warding": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Elemental Weakness": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Embrace Madness": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Energy Blade": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Enfeeble": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ensnaring Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Envy": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Essence Drain": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Essence Drain of Desperation": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Essence Drain of Wickedness": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Ethereal Knives": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ethereal Knives of Lingering Blades": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ethereal Knives of the Massacre": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Eviscerate": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Explosive Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Explosive Concoction": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Explosive Concoction of Destruction": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Explosive Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Explosive Trap of Magnitude": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Explosive Trap of Shrapnel": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Exsanguinate": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Exsanguinate of Transmission": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Eye of Winter": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Eye of Winter of Finality": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Eye of Winter of Transience": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Fiery Impact": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Fire Aegis": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Fire Burst": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Fire Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Fire Trap of Blasting": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Fireball": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Firestorm": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Firestorm of Meteors": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Firestorm of Pelting": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Fissure": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Flame Dash": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Flame Dash of Return": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Flame Link": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flame Surge": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flame Surge of Combusting": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flame Wall": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Flameblast": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flameblast of Celerity": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flameblast of Contraction": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flames of Judgement": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flamethrower Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flamethrower Trap of Stability": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flammability": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flesh Offering": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flesh and Stone": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Flicker Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Flicker Strike of Power": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Focus": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Fog of War": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Forbidden Rite": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Forbidden Rite of Soul Sacrifice": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Foulgrasp": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Freezing Pulse": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frenzy": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Frenzy of Onslaught": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Frost Blades": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Frost Blades of Katabasis": {
+      "attack": true,
+      "caster": false,
+      "dot": true,
+      "minion": false
+    },
+    "Frost Bomb": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frost Bomb of Forthcoming": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frost Bomb of Instability": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frost Shield": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frost Wall": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frostbite": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frostblink": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frostblink of Wintry Blast": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frostbolt": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frozen Legion": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frozen Legion of Rallying": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Frozen Sweep": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Galvanic Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Galvanic Arrow of Energy": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Galvanic Arrow of Surging": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Galvanic Field": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Galvanic Field of Intensity": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Glacial Cascade": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Glacial Cascade of the Fissure": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Glacial Hammer": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Glacial Hammer of Shattering": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Glacial Shield Swipe": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Gluttony of Elements": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Gore Shockwave": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Grace": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ground Slam": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Ground Slam of Earthshaking": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Haste": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Hatred": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Heavy Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Heavy Strike of Trarthus": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Herald of Agony": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Herald of Ash": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Herald of Ice": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Herald of Purity": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Herald of Thunder": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Herald of the Hive": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Hexblast": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Hexblast of Contradiction": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Hexblast of Havoc": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Holy Flame Totem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Holy Flame Totem of Ire": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Holy Hammers": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Holy Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": true
+    },
+    "Holy Sweep": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Hydrosphere": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Crash": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Crash of Cadence": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Nova": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Nova of Deep Freeze": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Nova of Frostbolts": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Shot": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Shot of Penetration": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Spear": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Spear of Splitting": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ice Trap of Hollowness": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Icestorm": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Icicle Burst": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Icicle Mine": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Icicle Mine of Fanning": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Icicle Mine of Sabotage": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Illusory Warp": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Immortal Call": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Incinerate": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Incinerate of Expanse": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Incinerate of Venting": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Infernal Blow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Infernal Blow of Immolation": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Intuitive Link": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Kinetic Anomaly": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Kinetic Blast": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Kinetic Blast of Clustering": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Kinetic Bolt": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Kinetic Bolt of Fragmentation": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Kinetic Flux": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Kinetic Fusillade": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Kinetic Fusillade of Detonation": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Kinetic Rain": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Kinetic Rain of Impact": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Lacerate": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Lacerate of Butchering": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Lacerate of Haemorrhage": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Lancing Steel": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Lancing Steel of Spraying": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Leap Slam": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Leap Slam of Groundbreaking": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Aegis": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Arrow of Electrocution": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Bolt": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Conduit": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Conduit of the Heavens": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Spire Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Spire Trap of Overloading": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Spire Trap of Zapping": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Strike of Arcing": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Tendrils": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Tendrils of Eccentricity": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Tendrils of Escalation": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Trap of Sparking": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Lightning Warp": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Malevolence": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Manabond": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Manifest Dancing Dervishes": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Mirror Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": true
+    },
+    "Mirror Arrow of Bombarding Clones": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": true
+    },
+    "Mirror Arrow of Prismatic Clones": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": true
+    },
+    "Misty Reflection": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Molten Burst": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Molten Shell": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Molten Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Molten Strike of the Zenith": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Orb of Storms": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Orb of Storms of Squalls": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Pacify": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Penance Brand": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Penance Brand of Conduction": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Penance Brand of Dissipation": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Penance Mark": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Perforate": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Perforate of Bloodshed": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Perforate of Duality": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Pestilent Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Petrified Blood": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Phase Run": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Physical Aegis": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Plague Bearer": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Poacher's Mark": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Poisonous Concoction": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Poisonous Concoction of Bouncing": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Portal": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Power Siphon": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Power Siphon of the Archmage": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Precision": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Pride": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Primal Aegis": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Prismatic Burst": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Protective Link": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Puncture": {
+      "attack": true,
+      "caster": false,
+      "dot": true,
+      "minion": false
+    },
+    "Puncture of Shanking": {
+      "attack": true,
+      "caster": false,
+      "dot": true,
+      "minion": false
+    },
+    "Punishment": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Purifying Flame": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Purifying Flame of Revelations": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Purity of Elements": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Purity of Fire": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Purity of Ice": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Purity of Lightning": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Pyroclast Mine": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Pyroclast Mine of Sabotage": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Queen's Demand": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Quickstep": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Rage Vortex": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Rage Vortex of Berserking": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Rain of Arrows": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Rain of Arrows of Artillery": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Rain of Arrows of Saturation": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Raise Spectre": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Raise Spectre of Transience": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Raise Spiders": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Raise Zombie": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Raise Zombie of Falling": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Raise Zombie of Slamming": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Ravenous": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Reap": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Reave": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Reave of Refraction": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Rejuvenation Totem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Righteous Fire": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Righteous Fire of Arcane Devotion": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Rolling Magma": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Rune Blast": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Rune Blast of Teleportation": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Scorching Ray": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Scorching Ray of Immolation": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Scourge Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Scourge Arrow of Menace": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Searing Bond": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Searing Bond of Detonation": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Seismic Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Seismic Trap of Swells": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Seize the Flesh": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Shade Form": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Shaper's Despair": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Shaper's Devastation": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Shaper's Ire": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Shattering Steel": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Shattering Steel of Ammunition": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Shield Charge": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Shield Crush": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Shield Crush of the Chieftain": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Shield Shatter": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Shield of Light": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Shock Ground": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Shock Nova": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Shock Nova of Procession": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Shockwave": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Shockwave Totem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Shockwave Totem of Authority": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Shrapnel Ballista": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Shrapnel Ballista of Steel": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Siege Ballista": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Siege Ballista of Splintering": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Siege Ballista of Trarthus": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Sigil of Power": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Signal Prey": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Siphoning Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Siphoning Trap of Pain": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Smite": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Smite of Divine Judgement": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Smoke Mine": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Snipe": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Sniper's Mark": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Somatic Shell": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Soul Link": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Soulrend": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Soulrend of Reaping": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Soulrend of the Spiral": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Spark": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Spark of Unpredictability": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Spark of the Nova": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Spectral Helix": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Spectral Helix of Trarthus": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Spectral Shield Throw": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Spectral Shield Throw of Shattering": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Spectral Shield Throw of Trarthus": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Spectral Spirits": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Spectral Throw": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Spectral Throw of Materialising": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Spectral Throw of Trarthus": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Spellslinger": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Spirit Burst": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Spirit Offering": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Split Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Split Arrow of Splitting": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Splitting Steel": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Splitting Steel of Ammunition": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Stalking Pustule": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Starfall": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Static Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Static Strike of Gathering Lightning": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Steelskin": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Storm Brand": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Storm Brand of Indecision": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Storm Burst": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Storm Burst of Repulsion": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Storm Call": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Storm Call of Trarthus": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Storm Cascade": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Storm Rain": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Storm Rain of the Conduit": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Storm Rain of the Fence": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Storm of Judgement": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Stormbind": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Stormbind of Teleportation": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Stormblast Mine": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Summon Arbalists": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Bestial Rhoa": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Bestial Snake": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Bestial Ursa": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Carrion Golem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Carrion Golem of Hordes": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Carrion Golem of Scavenging": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Chaos Golem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Chaos Golem of Hordes": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Chaos Golem of the Maelström": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Doedre's Effigy": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Summon Elemental Relic": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Flame Golem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Flame Golem of Hordes": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Flame Golem of the Meteor": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Greater Harbinger of Brutality": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Greater Harbinger of Directions": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Greater Harbinger of Focus": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Greater Harbinger of Storms": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Greater Harbinger of Time": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Greater Harbinger of the Arcane": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Harbinger of Brutality": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Harbinger of Directions": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Harbinger of Focus": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Harbinger of Storms": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Harbinger of Time": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Harbinger of the Arcane": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Hiveborn": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Holy Relic": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Holy Relic of Conviction": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Ice Golem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Ice Golem of Hordes": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Ice Golem of Shattering": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Lightning Golem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Lightning Golem of Hordes": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Living Lightning": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Raging Spirit": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Raging Spirit of Enormity": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Reaper": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Reaper of Eviscerating": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Reaper of Revenants": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Sacred Wisps": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Summon Sentinel of Radiance": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Shaper Memory": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Summon Skeletons": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Skeletons of Archers": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Skeletons of Mages": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Skitterbots": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spectral Tiger": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spectral Wolf": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spirit of Ahuana": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spirit of Akoya": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spirit of Ikiaho": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spirit of Kahuturoa": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spirit of Kaom": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spirit of Kiloava": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spirit of Maata": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spirit of Rakiata": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spirit of Tawhanuku": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Spirit of Utula": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Stone Golem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Stone Golem of Hordes": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Stone Golem of Safeguarding": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Taunting Contraption": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Visiting Harbinger of Focus": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Visiting Harbinger of Time": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Visiting Harbinger of the Arcane": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Void Spawn": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Summon Volatile Anomaly": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Sunder": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Sunder of Earthbreaking": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Sunder of Trarthus": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Swordstorm": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Tawhoa's Chosen": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Tears of Rot": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Tectonic Slam": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Tectonic Slam of Cataclysm": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Tempest Shield": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Temporal Chains": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Temporal Rift": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Tentacle Whip": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Thirst for Blood": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Thunderburst": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Thunderstorm": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Tornado": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Tornado Shot": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Tornado Shot of Cloudburst": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Tornado of Elemental Turbulence": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Toxic Rain": {
+      "attack": true,
+      "caster": false,
+      "dot": true,
+      "minion": false
+    },
+    "Toxic Rain of Sporeburst": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Toxic Rain of Withering": {
+      "attack": true,
+      "caster": false,
+      "dot": true,
+      "minion": false
+    },
+    "Triggered Summon Phantasm": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Twister": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Unbound Avatar": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Unearth": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Unhinge": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Unseen Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Absolution": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Animate Weapon": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Vaal Arc": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Arctic Armour": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Blade Flurry": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Blade Vortex": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Blight": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Vaal Breach": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Burning Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Caustic Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": true,
+      "minion": false
+    },
+    "Vaal Clarity": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Cleave": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Cold Snap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Cyclone": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Detonate Dead": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Discipline": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Domination": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Double Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Earthquake": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Fireball": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Firestorm": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Flameblast": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Flicker Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Glacial Hammer": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Grace": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Ground Slam": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Haste": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Ice Nova": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Ice Shot": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Immortal Call": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Impurity of Fire": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Impurity of Ice": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Impurity of Lightning": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Lightning Arrow": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Lightning Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Lightning Trap": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Lightning Warp": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Molten Shell": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Molten Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Power Siphon": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Rain of Arrows": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Reap": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Vaal Reave": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Rejuvenation Totem": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Righteous Fire": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Vaal Smite": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Spark": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Spectral Throw": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Storm Call": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Summon Skeletons": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Vaal Venom Gyre": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vaal Volcanic Fissure": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vampiric Link": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Venom Gyre": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Vigilant Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Viper Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": true,
+      "minion": false
+    },
+    "Viper Strike of the Mamba": {
+      "attack": true,
+      "caster": false,
+      "dot": true,
+      "minion": false
+    },
+    "Vitality": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Void Gaze": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Void Shockwave": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Void Shot": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Void Sphere": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Void Sphere of Rending": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Voidstorm": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Volatile Dead": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Volatile Dead of Confinement": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Volatile Dead of Seething": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Volcanic Fissure": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Volcanic Fissure of Snaking": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Voltaxic Burst": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vortex": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vortex of Projection": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Vulnerability": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Wall of Force": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "War Banner": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Ward Shatter": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Warlord's Mark": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Wave of Conviction": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Wave of Conviction of Trarthus": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Whirling Blades": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Wild Strike": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Wild Strike of Extremes": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Will of the Lords": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Windburst": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Winter Orb": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Wintertide Brand": {
+      "attack": false,
+      "caster": true,
+      "dot": true,
+      "minion": false
+    },
+    "Wither": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Withering Step": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Blades": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Flames": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Force": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Frost": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Fury": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Inferno": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Ire": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Light": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Reflection": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Word of Spite": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Thunder": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Word of War": {
+      "attack": true,
+      "caster": false,
+      "dot": false,
+      "minion": false
+    },
+    "Word of Winter": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Word of the Grave": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": true
+    },
+    "Word of the Tempest": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Wrath": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    },
+    "Zealotry": {
+      "attack": false,
+      "caster": true,
+      "dot": false,
+      "minion": false
+    }
+  }
+}

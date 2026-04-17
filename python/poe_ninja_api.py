@@ -7,12 +7,15 @@ POE.Ninja API Client with Caching
 
 import sys
 import os
+import logging
 import requests
 import json
 import time
 import threading
 from pathlib import Path
 from typing import Dict, List, Optional
+
+logger = logging.getLogger(__name__)
 
 # UTF-8 설정
 if sys.platform == 'win32':
@@ -623,6 +626,52 @@ class POENinjaAPI:
                 prices[full_name] = chaos_value / 100
 
         return prices
+
+    def get_divcards(self) -> List[Dict]:
+        """Divination Card 전체 가격 조회 (캐시 사용).
+
+        Returns:
+            [{'name': str, 'chaos_value': float, 'count': int}, ...]
+            chaos_value 내림차순 정렬. 조회 실패 시 빈 리스트.
+        """
+        cache_key = self._get_cache_key("DivinationCard")
+
+        data = None
+        if self._cache:
+            data = self._cache.get(cache_key)
+
+        if data is None:
+            url = f"{self.base_url}/itemoverview"
+            params = {
+                'league': self.league,
+                'type': 'DivinationCard',
+                'language': 'en',
+            }
+            try:
+                response = self.session.get(url, params=params, timeout=15)
+                response.raise_for_status()
+                data = response.json()
+                if self._cache:
+                    self._cache.set(cache_key, data)
+            except requests.RequestException as e:
+                logger.error("poe.ninja DivinationCard fetch failed (league=%s): %s",
+                             self.league, e)
+                return []
+
+        lines = data.get('lines', [])
+        result: List[Dict] = []
+        for item in lines:
+            name = item.get('name', '')
+            if not name:
+                continue
+            result.append({
+                'name': name,
+                'chaos_value': item.get('chaosValue', 0),
+                'count': item.get('count', 0),
+            })
+
+        result.sort(key=lambda x: x['chaos_value'], reverse=True)
+        return result
 
     def search_item(self, item_name: str) -> Optional[Dict]:
         """아이템 검색"""

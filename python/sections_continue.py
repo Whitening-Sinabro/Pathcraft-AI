@@ -6,9 +6,12 @@ Wreckers식 Continue 캐스케이드. 각 레이어는 단일 관심사만 수�
 """
 
 import json
+import logging
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
+
+logger = logging.getLogger(__name__)
 
 __all__ = [
     "LAYER_NAMES", "LAYER_HARD_HIDE", "LAYER_CATCH_ALL",
@@ -1103,10 +1106,69 @@ _DIVCARD_TIER_MAP: dict[str, str] = {
 }
 
 
-def layer_divcards(data: Optional[CategoryData] = None) -> str:
-    """L8 Divination Cards — neversink 5 티어. 종료."""
+def _load_hc_divcard_override(filepath: Optional[Path] = None) -> dict[str, list[str]]:
+    """HCSSF T1/T2 override 데이터 로드 (hc_divcard_tiers.json).
+
+    파일 없거나 손상 시 빈 override 반환 (SC 흐름 유지).
+    """
+    path = filepath if filepath is not None else _DATA_DIR / "hc_divcard_tiers.json"
+    if not path.exists():
+        logger.warning("hc_divcard_tiers.json not found at %s — HCSSF override 비활성", path)
+        return {"t1_override": [], "t2_override": []}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            raw = json.load(f)
+    except (OSError, json.JSONDecodeError) as e:
+        logger.warning("hc_divcard_tiers.json 로드 실패: %s — HCSSF override 비활성", e)
+        return {"t1_override": [], "t2_override": []}
+    return {
+        "t1_override": list(raw.get("t1_override", [])),
+        "t2_override": list(raw.get("t2_override", [])),
+    }
+
+
+def _hc_override_block(palette_tier: str, label: str, cards: list[str], tag: str) -> str:
+    """HCSSF T1/T2 override 단일 블록 생성."""
+    style = style_from_palette("divcard", palette_tier)
+    if palette_tier == "P1_KEYSTONE":
+        style.effect = "Purple"
+        style.icon = "0 Purple Square"
+    elif palette_tier == "P2_CORE":
+        style.icon = "1 Purple Square"
+    quoted = " ".join(f'"{c}"' for c in cards)
+    return make_layer_block(
+        LAYER_CATEGORY_SHOW,
+        f"디비카 {label} ({len(cards)}종)",
+        conditions=[
+            'Class "Divination Cards"',
+            f'BaseType == {quoted}',
+        ],
+        style=style,
+        continue_=False,
+        category_tag=tag,
+    )
+
+
+def layer_divcards(data: Optional[CategoryData] = None, mode: str = "ssf") -> str:
+    """L8 Divination Cards — neversink 5 티어.
+
+    HCSSF 모드에서는 앞에 HC 경제 기반 T1/T2 override 블록을 삽입 (keystone/core).
+    override 카드는 첫 매치로 소비되고 뒤의 SC 5티어 흐름에는 영향 없음.
+    """
     d = data if data is not None else load_category_data()
     blocks: list[str] = []
+
+    if mode == "hcssf":
+        hc = _load_hc_divcard_override()
+        for key, palette_tier, label in (
+            ("t1_override", "P1_KEYSTONE", "HC-T1 override"),
+            ("t2_override", "P2_CORE", "HC-T2 override"),
+        ):
+            cards = hc.get(key, [])
+            if cards:
+                blocks.append(_hc_override_block(
+                    palette_tier, label, cards, tag=f"divcard_hc_{key}",
+                ))
 
     for tier_name, cards in d.divcard_tiers.items():
         palette_tier = _DIVCARD_TIER_MAP.get(tier_name)
@@ -3821,6 +3883,262 @@ _BUILD_CYAN = "100 220 255"  # Aurora 팔레트 base 색
 
 
 _WEAPON_MOD_TIERS_CACHE: Optional[dict] = None
+_DEFENSE_MOD_TIERS_CACHE: Optional[dict] = None
+_ACCESSORY_MOD_TIERS_CACHE: Optional[dict] = None
+
+# L7 defense_proxy: slot key → POE filter Class 이름
+_DEFENSE_SLOT_CLASS: dict[str, str] = {
+    "body_armour": "Body Armours",
+    "helmet": "Helmets",
+    "boots": "Boots",
+    "gloves": "Gloves",
+    "shield": "Shields",
+}
+
+# L7 defense_proxy: strictness → HasExplicitMod counted 하한
+# Phase B 무기 패턴 재사용 (0~1 관대, 2+ 엄격)
+_STRICTNESS_DEFENSE_MOD_COUNT: dict[int, int] = {0: 2, 1: 2, 2: 3, 3: 3, 4: 4}
+
+
+def _load_defense_mod_tiers() -> dict:
+    """data/defense_mod_tiers.json — NeverSink 방어 mod-tier 룰 매핑.
+
+    Missing → empty → caller skips defense_proxy blocks.
+    """
+    global _DEFENSE_MOD_TIERS_CACHE
+    if _DEFENSE_MOD_TIERS_CACHE is not None:
+        return _DEFENSE_MOD_TIERS_CACHE
+    path = _DATA_DIR / "defense_mod_tiers.json"
+    if not path.exists():
+        logger.warning("defense_mod_tiers.json missing — L7 defense_proxy skipped")
+        _DEFENSE_MOD_TIERS_CACHE = {}
+        return _DEFENSE_MOD_TIERS_CACHE
+    try:
+        _DEFENSE_MOD_TIERS_CACHE = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as e:
+        logger.warning("defense_mod_tiers.json 로드 실패: %s — L7 defense_proxy skipped", e)
+        _DEFENSE_MOD_TIERS_CACHE = {}
+    return _DEFENSE_MOD_TIERS_CACHE
+
+
+def _active_defence_focuses(defence_types: frozenset[str]) -> list[str]:
+    """defence axis 집합 → NeverSink focus 토큰 리스트 ('life', 'es').
+
+    - "ar" 또는 "ev" 포함 → "life" (NeverSink life_based는 armour/evasion 둘 다 포괄)
+    - "es" 포함 → "es"
+    - 둘 다 있는 하이브리드(예: Occultist Aegis Aurora) → 양쪽
+    """
+    focuses: list[str] = []
+    if defence_types & {"ar", "ev"}:
+        focuses.append("life")
+    if "es" in defence_types:
+        focuses.append("es")
+    return focuses
+
+
+def _defense_proxy_blocks(
+    defence_types: frozenset[str],
+    strictness: int,
+    label_suffix: str,
+    al_conditions: list[str],
+    category_tag_prefix: str,
+) -> list[str]:
+    """L7 defense_proxy — 빌드 방어 axis에 맞는 레어 장비 강조.
+
+    defence_types 비면 빈 리스트. 각 (slot × focus) 조합마다 NeverSink 레퍼런스 패턴으로
+    Show 블록 생성. first-match + continue_=False → 일반 rare 흐름 전에 가로챔.
+
+    레퍼런스: _analysis/neversink_8.19.0b/1-REGULAR.filter line 1064-1300
+    """
+    focuses = _active_defence_focuses(defence_types)
+    if not focuses:
+        return []
+
+    tiers = _load_defense_mod_tiers()
+    slots = tiers.get("slots", {})
+    if not slots:
+        return []
+
+    mod_count = _STRICTNESS_DEFENSE_MOD_COUNT.get(strictness, 3)
+    blocks: list[str] = []
+
+    for focus in focuses:
+        for slot_key, cls_name in _DEFENSE_SLOT_CLASS.items():
+            slot_data = slots.get(slot_key, {}).get(focus)
+            if not slot_data:
+                continue
+            required = slot_data.get("required_any") or []
+            # fallback: required_count_2 (일부 slot은 required_any 없이 count만)
+            if not required:
+                required = slot_data.get("required_count_2") or []
+            counted_key = next(
+                (k for k in slot_data if k.startswith("required_count_")),
+                None,
+            )
+            counted = slot_data.get(counted_key, []) if counted_key else []
+            exclude = slot_data.get("exclude", []) or []
+            if not (required or counted):
+                continue
+
+            conditions: list[str] = [
+                "Identified True",
+                "Rarity Rare",
+                f'Class == "{cls_name}"',
+            ]
+            if required:
+                req_quoted = " ".join(f'"{m}"' for m in required)
+                conditions.append(f"HasExplicitMod {req_quoted}")
+            if counted:
+                cnt_quoted = " ".join(f'"{m}"' for m in counted)
+                conditions.append(f"HasExplicitMod >= {mod_count} {cnt_quoted}")
+            if exclude:
+                exc_quoted = " ".join(f'"{m}"' for m in exclude)
+                conditions.append(f"HasExplicitMod = 0 {exc_quoted}")
+            conditions.extend(al_conditions)
+
+            comment = (
+                f"빌드 방어 프록시{label_suffix} {slot_key}.{focus} "
+                f"(mod count >= {mod_count}, required={len(required)}, "
+                f"counted={len(counted)})"
+            )
+            blocks.append(make_layer_block(
+                LAYER_BUILD_TARGET,
+                comment,
+                conditions=conditions,
+                style=LayerStyle(
+                    border=_BUILD_CYAN,
+                    bg="0 0 0 220",
+                    font=43,
+                    effect="Cyan",
+                    icon="0 Cyan Star",
+                ),
+                category_tag=f"{category_tag_prefix}_{slot_key}_{focus}",
+            ))
+    return blocks
+
+
+# L7 accessory_proxy: slot key → POE filter Class 이름
+_ACCESSORY_SLOT_CLASS: dict[str, str] = {
+    "amulet": "Amulets",
+    "ring": "Rings",
+    "belt": "Belts",
+}
+
+
+def _load_accessory_mod_tiers() -> dict:
+    """data/accessory_mod_tiers.json — NeverSink 악세서리 mod-tier 룰.
+
+    Missing → empty → caller skips accessory_proxy blocks.
+    """
+    global _ACCESSORY_MOD_TIERS_CACHE
+    if _ACCESSORY_MOD_TIERS_CACHE is not None:
+        return _ACCESSORY_MOD_TIERS_CACHE
+    path = _DATA_DIR / "accessory_mod_tiers.json"
+    if not path.exists():
+        logger.warning("accessory_mod_tiers.json missing — L7 accessory_proxy skipped")
+        _ACCESSORY_MOD_TIERS_CACHE = {}
+        return _ACCESSORY_MOD_TIERS_CACHE
+    try:
+        _ACCESSORY_MOD_TIERS_CACHE = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as e:
+        logger.warning("accessory_mod_tiers.json 로드 실패: %s — L7 accessory_proxy skipped", e)
+        _ACCESSORY_MOD_TIERS_CACHE = {}
+    return _ACCESSORY_MOD_TIERS_CACHE
+
+
+def _active_damage_axes(damage_types: frozenset[str]) -> list[str]:
+    """빌드 damage_types + 공통 'common' 축 포함 리스트.
+
+    - damage_types 비어 있어도 'common'은 항상 활성 (exalter amulet / general belt)
+    - 순서: damage axis 먼저, common은 마지막 (필터 우선순위)
+    """
+    axes: list[str] = []
+    # 결정적 순서 유지 (테스트 박제)
+    for axis in ("attack", "caster", "dot", "minion"):
+        if axis in damage_types:
+            axes.append(axis)
+    axes.append("common")
+    return axes
+
+
+def _accessory_proxy_blocks(
+    damage_types: frozenset[str],
+    strictness: int,
+    label_suffix: str,
+    al_conditions: list[str],
+    category_tag_prefix: str,
+) -> list[str]:
+    """L7 accessory_proxy — amulet/ring/belt × damage axis + common.
+
+    damage_types 비어 있어도 common 블록은 emit (exalter amulet, general belt).
+    first-match + continue_=False → 일반 rare 흐름 전에 가로챔.
+
+    레퍼런스: _analysis/neversink_8.19.0b/1-REGULAR.filter line 1238-1501
+    """
+    axes = _active_damage_axes(damage_types)
+    if not axes:
+        return []
+
+    tiers = _load_accessory_mod_tiers()
+    slots = tiers.get("slots", {})
+    if not slots:
+        return []
+
+    mod_count = _STRICTNESS_DEFENSE_MOD_COUNT.get(strictness, 3)
+    blocks: list[str] = []
+
+    for axis in axes:
+        for slot_key, cls_name in _ACCESSORY_SLOT_CLASS.items():
+            slot_data = slots.get(slot_key, {}).get(axis)
+            if not slot_data:
+                continue
+            required = slot_data.get("required_any") or []
+            if not required:
+                required = slot_data.get("required_count_2") or []
+            counted_key = next(
+                (k for k in slot_data if k.startswith("required_count_")),
+                None,
+            )
+            counted = slot_data.get(counted_key, []) if counted_key else []
+            exclude = slot_data.get("exclude", []) or []
+            if not (required or counted):
+                continue
+
+            conditions: list[str] = [
+                "Identified True",
+                "Rarity Rare",
+                f'Class == "{cls_name}"',
+            ]
+            if required:
+                req_quoted = " ".join(f'"{m}"' for m in required)
+                conditions.append(f"HasExplicitMod {req_quoted}")
+            if counted:
+                cnt_quoted = " ".join(f'"{m}"' for m in counted)
+                conditions.append(f"HasExplicitMod >= {mod_count} {cnt_quoted}")
+            if exclude:
+                exc_quoted = " ".join(f'"{m}"' for m in exclude)
+                conditions.append(f"HasExplicitMod = 0 {exc_quoted}")
+            conditions.extend(al_conditions)
+
+            comment = (
+                f"빌드 악세서리 프록시{label_suffix} {slot_key}.{axis} "
+                f"(mod count >= {mod_count}, required={len(required)}, "
+                f"counted={len(counted)})"
+            )
+            blocks.append(make_layer_block(
+                LAYER_BUILD_TARGET,
+                comment,
+                conditions=conditions,
+                style=LayerStyle(
+                    border=_BUILD_CYAN,
+                    bg="0 0 0 220",
+                    font=43,
+                    effect="Cyan",
+                    icon="0 Cyan Star",
+                ),
+                category_tag=f"{category_tag_prefix}_{slot_key}_{axis}",
+            ))
+    return blocks
 
 
 def _load_weapon_mod_tiers() -> dict:
@@ -3982,8 +4300,8 @@ def layer_build_target(
             ))
 
         # weapon_phys_proxy — Build 무기 클래스 레어 중 T1/T2 물리 mod만 강조.
-        # 순서 고정: unique > chanceable > weapon_phys_proxy > ... (first-match
-        # semantics; Class+mod 조합이 일반 base whitelist보다 우선).
+        # 순서 고정: unique > chanceable > weapon_phys_proxy > defense_proxy > ...
+        # (first-match semantics; Class+mod 조합이 일반 base whitelist보다 우선).
         proxy = _weapon_phys_proxy_block(
             s.weapon_classes,
             strictness=strictness,
@@ -3993,6 +4311,26 @@ def layer_build_target(
         )
         if proxy is not None:
             blocks.append(proxy)
+
+        # defense_proxy — 빌드 방어 axis(life/es)에 맞는 레어 장비 강조
+        # (body/helmet/boots/gloves/shield × life/es). defence_types 비면 skip.
+        blocks.extend(_defense_proxy_blocks(
+            s.defence_types,
+            strictness=strictness,
+            label_suffix=hint,
+            al_conditions=al_conds,
+            category_tag_prefix=f"defense_proxy{tag_suffix}",
+        ))
+
+        # accessory_proxy — 빌드 damage axis(attack/caster/dot/minion)별 amu/ring/belt.
+        # common 블록(exalter amulet, general belt)은 damage_types 비어도 항상 emit.
+        blocks.extend(_accessory_proxy_blocks(
+            s.damage_types,
+            strictness=strictness,
+            label_suffix=hint,
+            al_conditions=al_conds,
+            category_tag_prefix=f"accessory_proxy{tag_suffix}",
+        ))
 
     # ── divcard / skill / support / base (항상 union) ──
     if union.target_cards:
@@ -4630,7 +4968,7 @@ def generate_beta_overlay(
     ))
     parts.append(layer_currency(mode=mode))
     parts.append(layer_maps())
-    parts.append(layer_divcards())
+    parts.append(layer_divcards(mode=mode))
     # L8 SSF 카테고리 (GGPK 기반)
     parts.append(layer_lifeforce(mode=mode))
     parts.append(layer_splinters(mode=mode))

@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "source": "manual_curation",
+    "version": "Phrecia 0.1",
+    "collected_at": "2026-04-17",
+    "verified_at": "2026-04-17",
+    "script": "scripts/validate_divcard_mapping.py (Wiki 대조 검증)",
+    "notes": "빌드 타겟 유니크 → 디비니 카드 매핑. stack은 manual curation (Wiki Cargo stack_size 스키마 미정의). validate_divcard_mapping.py 검증 후 5건 stale 제거: Aegis Aurora(The Gladiator 매핑 오류), Badge of the Brotherhood(Brotherhood in Exile 오류), Inpulsa's Broken Heart(The Spark and the Flame 오류), Cospri's Malice(The Wolven King's Bite 오류 — wiki는 The Whiteout, stack 미확인으로 제거), Hyrri's Ire(The Wind 오류). Replica Farrul's Fur 오타 수정(아포스트로피). 향후 refresh는 bulk wiki fetch + poe.ninja stack 조합 필요."
+  },
+  "unique_to_cards": {
+    "Death's Oath": [{"card": "The Oath", "stack": 6}],
+    "Shavronne's Wrappings": [{"card": "The Offering", "stack": 8}],
+    "Headhunter": [
+      {"card": "The Doctor", "stack": 8},
+      {"card": "The Fiend", "stack": 11}
+    ],
+    "Mageblood": [{"card": "The Apothecary", "stack": 13}],
+    "Kaom's Heart": [{"card": "The King's Heart", "stack": 8}],
+    "The Squire": [{"card": "The Shieldbearer", "stack": 13}],
+    "Ashes of the Stars": [{"card": "The Enlightened", "stack": 6}],
+    "Nimis": [{"card": "The Rabbit's Foot", "stack": 9}],
+    "Tabula Rasa": [{"card": "Humility", "stack": 9}],
+    "Skin of the Loyal": [{"card": "The Sacrifice", "stack": 9}],
+    "Replica Farrul's Fur": [{"card": "The Cheater", "stack": 5}],
+    "The Brass Dome": [{"card": "The Mountain", "stack": 8}],
+    "Cloak of Defiance": [{"card": "The Easy Stroll", "stack": 5}],
+    "Queen of the Forest": [{"card": "The Wolf", "stack": 5}],
+    "Doryani's Prototype": [{"card": "Doryani's Epiphany", "stack": 5}],
+    "Forbidden Shako": [{"card": "The Dragon's Heart", "stack": 10}]
+  }
+}

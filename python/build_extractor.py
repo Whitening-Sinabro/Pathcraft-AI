@@ -77,56 +77,13 @@ def _load_weapon_class_maps() -> tuple[dict[str, str], dict[str, list[str]]]:
     return _WEAPON_CLASS_MAPS_CACHE
 
 
-# 유니크 → 디비니 카드 매핑 (빌드 타겟용)
-UNIQUE_TO_DIVCARD: dict[str, list[dict]] = {
-    "Death's Oath": [{"card": "The Oath", "stack": 6}],
-    "Shavronne's Wrappings": [{"card": "The Offering", "stack": 8}],
-    "Headhunter": [{"card": "The Doctor", "stack": 8}, {"card": "The Fiend", "stack": 11}],
-    "Mageblood": [{"card": "The Apothecary", "stack": 13}],
-    "Aegis Aurora": [{"card": "The Gladiator", "stack": 5}],
-    "Kaom's Heart": [{"card": "The King's Heart", "stack": 8}],
-    "The Squire": [{"card": "The Shieldbearer", "stack": 13}],
-    "Ashes of the Stars": [{"card": "The Enlightened", "stack": 6}],
-    "Nimis": [{"card": "The Rabbit's Foot", "stack": 9}],
-    "Badge of the Brotherhood": [{"card": "Brotherhood in Exile", "stack": 5}],
-    "Inpulsa's Broken Heart": [{"card": "The Spark and the Flame", "stack": 7}],
-    "Cospri's Malice": [{"card": "The Wolven King's Bite", "stack": 8}],
-    "Hyrri's Ire": [{"card": "The Wind", "stack": 10}],
-    "Tabula Rasa": [{"card": "Humility", "stack": 9}],
-    "Skin of the Loyal": [{"card": "The Sacrifice", "stack": 9}],
-    "Replica Farruls Fur": [{"card": "The Cheater", "stack": 5}],
-    "The Brass Dome": [{"card": "The Mountain", "stack": 8}],
-    "Cloak of Defiance": [{"card": "The Easy Stroll", "stack": 5}],
-    "Queen of the Forest": [{"card": "The Wolf", "stack": 5}],
-    "Doryani's Prototype": [{"card": "Doryani's Epiphany", "stack": 5}],
-    "Forbidden Shako": [{"card": "The Dragon's Heart", "stack": 10}],
-}
+# 유니크 → 디비니 카드 매핑은 data/divcard_mapping.json (단일 진실원) 에서 로드.
+# 기존 UNIQUE_TO_DIVCARD 하드코딩 dict는 2026-04-17 Phase F1-fix-1 에서 제거.
+from divcard_data import load_divcard_mapping
 
-# 유니크 → chanceable 베이스 매핑 (자주 쓰이는 것만)
-UNIQUE_TO_BASE: dict[str, str] = {
-    "Tabula Rasa": "Simple Robe",
-    "Goldrim": "Leather Cap",
-    "Wanderlust": "Wool Shoes",
-    "Lifesprig": "Driftwood Wand",
-    "Praxis": "Paua Ring",
-    "Le Heup of All": "Iron Ring",
-    "Berek's Grip": "Two-Stone Ring",
-    "Berek's Pass": "Two-Stone Ring",
-    "Berek's Respite": "Two-Stone Ring",
-    "Aegis Aurora": "Champion Kite Shield",
-    "Death's Oath": "Astral Plate",
-    "Shavronne's Wrappings": "Occultist's Vestment",
-    "Inpulsa's Broken Heart": "Sadist Garb",
-    "Cospri's Malice": "Jewelled Foil",
-    "Hyrri's Ire": "Zodiac Leather",
-    "The Brass Dome": "Gladiator Plate",
-    "Queen of the Forest": "Destiny Leather",
-    "Cloak of Defiance": "Lacquered Garb",
-    "Doryani's Prototype": "Saint's Hauberk",
-    "Mageblood": "Heavy Belt",
-    "Headhunter": "Leather Belt",
-    "Kaom's Heart": "Glorious Plate",
-}
+# 유니크 → chanceable base 매핑은 data/unique_base_mapping.json (단일 진실원) 에서 로드.
+# 기존 UNIQUE_TO_BASE 하드코딩 dict는 2026-04-17 Phase F6-fix-1 에서 제거.
+from unique_base_data import load_unique_base_mapping
 
 
 def extract_build_uniques(
@@ -177,9 +134,11 @@ def extract_build_unique_bases(
 
     우선순위:
     1. POB `gear_recommendation[slot].base_type` (pob_parser가 채움)
-    2. `UNIQUE_TO_BASE` 하드코딩 매핑 (coaching 전용 또는 POB에 base 없을 때)
+    2. `data/unique_base_mapping.json` (coaching 전용 또는 POB에 base 없을 때)
     """
     bases: set[str] = set()
+
+    unique_to_base = load_unique_base_mapping()
 
     stages = build_data.get("progression_stages", [])
     for stage in stages:
@@ -194,9 +153,9 @@ def extract_build_unique_bases(
                 if base:
                     bases.add(base)
                     continue
-                # fallback: 유니크명으로 UNIQUE_TO_BASE 조회
+                # fallback: 유니크명으로 매핑 조회
                 name = slot_data.get("name", "").strip()
-                mapped = UNIQUE_TO_BASE.get(name)
+                mapped = unique_to_base.get(name)
                 if mapped:
                     bases.add(mapped)
 
@@ -204,7 +163,7 @@ def extract_build_unique_bases(
     if coaching_data:
         for item in coaching_data.get("key_items", []):
             name = item.get("name", "")
-            mapped = UNIQUE_TO_BASE.get(name)
+            mapped = unique_to_base.get(name)
             if mapped:
                 bases.add(mapped)
 
@@ -215,7 +174,7 @@ def extract_build_unique_bases(
                 bases.add(base)
                 continue
             name = item.get("name", "").strip()
-            mapped = UNIQUE_TO_BASE.get(name)
+            mapped = unique_to_base.get(name)
             if mapped:
                 bases.add(mapped)
 
@@ -224,10 +183,11 @@ def extract_build_unique_bases(
 
 def get_target_divcards(unique_names: list[str]) -> list[dict]:
     """유니크 아이템 목록에서 타겟 디비니 카드 추출."""
+    mapping = load_divcard_mapping()
     cards: list[dict] = []
     seen: set[str] = set()
     for uname in unique_names:
-        for entry in UNIQUE_TO_DIVCARD.get(uname, []):
+        for entry in mapping.get(uname, []):
             card_name = entry["card"]
             if card_name not in seen:
                 seen.add(card_name)
@@ -241,10 +201,11 @@ def get_target_divcards(unique_names: list[str]) -> list[dict]:
 
 def get_chanceable_bases(unique_names: list[str]) -> list[dict]:
     """유니크 아이템 목록에서 chanceable 베이스 추출."""
+    unique_to_base = load_unique_base_mapping()
     bases: list[dict] = []
     seen: set[str] = set()
     for uname in unique_names:
-        base = UNIQUE_TO_BASE.get(uname)
+        base = unique_to_base.get(uname)
         if base and base not in seen:
             seen.add(base)
             bases.append({"base": base, "unique": uname})
@@ -423,6 +384,11 @@ class StageData:
     # POE filter `Class ==` names the build's main skill/weapon can use.
     # Empty list → L7 weapon_phys_proxy block is skipped for this stage.
     weapon_classes: list[str] = field(default_factory=list)
+    # 빌드 방어 axis 집합 {"ar", "ev", "es"}의 서브셋. 비면 L7 defense_proxy 블록 생략.
+    defence_types: frozenset[str] = field(default_factory=frozenset)
+    # 빌드 damage axis 집합 {"attack", "caster", "dot", "minion"}의 서브셋.
+    # 비면 L7 accessory_proxy는 common axis(exalter/belt_general)만 emit.
+    damage_types: frozenset[str] = field(default_factory=frozenset)
 
     def al_conditions(self) -> list[str]:
         """AreaLevel 조건 리스트 (없으면 빈 리스트)."""
@@ -448,8 +414,12 @@ def _extract_stage_bundle(
     # Lazy import: weapon_class_extractor re-imports extract_build_gems from
     # this module, so a top-level import would be circular.
     from weapon_class_extractor import extract_build_weapon_classes
+    from defense_type_extractor import extract_build_defence_types
+    from damage_type_extractor import extract_build_damage_types
     base_map, gem_map = _load_weapon_class_maps()
     weapon_classes = extract_build_weapon_classes(build_data, base_map, gem_map)
+    defence_types = extract_build_defence_types(build_data)
+    damage_types = extract_build_damage_types(build_data)
     return {
         "unique_names": set(unique_names),
         "unique_bases": set(unique_bases),
@@ -459,6 +429,8 @@ def _extract_stage_bundle(
         "supports": set(supports),
         "bases": set(bases),
         "weapon_classes": weapon_classes,
+        "defence_types": defence_types,
+        "damage_types": damage_types,
     }
 
 
@@ -500,6 +472,8 @@ def merge_build_stages(
         sp: set[str] = set()
         bs: set[str] = set()
         wc: set[str] = set()
+        dt: set[str] = set()
+        dmg: set[str] = set()
         for b in bundles:
             u_bases |= b["unique_bases"]
             u_names |= b["unique_names"]
@@ -509,6 +483,8 @@ def merge_build_stages(
             sp |= b["supports"]
             bs |= b["bases"]
             wc |= b["weapon_classes"]
+            dt |= b["defence_types"]
+            dmg |= b["damage_types"]
         return StageData(
             label=label,
             unique_bases=sorted(u_bases),
@@ -519,6 +495,8 @@ def merge_build_stages(
             supports=sorted(sp),
             bases=sorted(bs),
             weapon_classes=sorted(wc),
+            defence_types=frozenset(dt),
+            damage_types=frozenset(dmg),
         )
 
     if len(build_datas) == 1 or no_staging:
@@ -551,6 +529,8 @@ def merge_build_stages(
             "target_cards": {}, "chanceable": {},
             "skills": set(), "supports": set(), "bases": set(),
             "weapon_classes": set(),
+            "defence_types": set(),
+            "damage_types": set(),
         }
         for b in bundles_list:
             merged["unique_bases"] |= b["unique_bases"]
@@ -561,6 +541,8 @@ def merge_build_stages(
             merged["supports"] |= b["supports"]
             merged["bases"] |= b["bases"]
             merged["weapon_classes"] |= b["weapon_classes"]
+            merged["defence_types"] |= b["defence_types"]
+            merged["damage_types"] |= b["damage_types"]
         return merged
 
     lv = _union(leveling_bundles)
@@ -589,31 +571,39 @@ def merge_build_stages(
     sp_lv, sp_cm, sp_eg = _split("supports")
     bs_lv, bs_cm, bs_eg = _split("bases")
     wc_lv, wc_cm, wc_eg = _split("weapon_classes")
+    dt_lv, dt_cm, dt_eg = _split("defence_types")
+    dmg_lv, dmg_cm, dmg_eg = _split("damage_types")
 
     stages: list[StageData] = []
 
-    if any((ub_cm, un_cm, tc_cm, ch_cm, sk_cm, sp_cm, bs_cm, wc_cm)):
+    if any((ub_cm, un_cm, tc_cm, ch_cm, sk_cm, sp_cm, bs_cm, wc_cm, dt_cm, dmg_cm)):
         stages.append(StageData(
             label="common",
             unique_bases=ub_cm, unique_names=un_cm, target_cards=tc_cm,
             chanceable=ch_cm, skills=sk_cm, supports=sp_cm, bases=bs_cm,
             weapon_classes=wc_cm,
+            defence_types=frozenset(dt_cm),
+            damage_types=frozenset(dmg_cm),
         ))
 
-    if any((ub_lv, un_lv, tc_lv, ch_lv, sk_lv, sp_lv, bs_lv, wc_lv)):
+    if any((ub_lv, un_lv, tc_lv, ch_lv, sk_lv, sp_lv, bs_lv, wc_lv, dt_lv, dmg_lv)):
         stages.append(StageData(
             label="leveling", al_max=al_split,
             unique_bases=ub_lv, unique_names=un_lv, target_cards=tc_lv,
             chanceable=ch_lv, skills=sk_lv, supports=sp_lv, bases=bs_lv,
             weapon_classes=wc_lv,
+            defence_types=frozenset(dt_lv),
+            damage_types=frozenset(dmg_lv),
         ))
 
-    if any((ub_eg, un_eg, tc_eg, ch_eg, sk_eg, sp_eg, bs_eg, wc_eg)):
+    if any((ub_eg, un_eg, tc_eg, ch_eg, sk_eg, sp_eg, bs_eg, wc_eg, dt_eg, dmg_eg)):
         stages.append(StageData(
             label="endgame", al_min=al_split + 1,
             unique_bases=ub_eg, unique_names=un_eg, target_cards=tc_eg,
             chanceable=ch_eg, skills=sk_eg, supports=sp_eg, bases=bs_eg,
             weapon_classes=wc_eg,
+            defence_types=frozenset(dt_eg),
+            damage_types=frozenset(dmg_eg),
         ))
 
     return stages
@@ -667,6 +657,8 @@ def _build_n_stages(
             supports=sorted(bundle["supports"]),
             bases=sorted(bundle["bases"]),
             weapon_classes=sorted(bundle["weapon_classes"]),
+            defence_types=frozenset(bundle["defence_types"]),
+            damage_types=frozenset(bundle["damage_types"]),
         ))
 
     logger.info(
