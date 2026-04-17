@@ -231,6 +231,19 @@ Tags.json 추출 후, `sections_continue.load_ggpk_items()` (line 1246+)의 Name
 
 **예상 시간**: 1.5h (F0-fix-1 완료 후)
 
+#### 완료 (2026-04-17)
+
+- `_TAGS_CACHE` 추가 + `_tags(b)` 헬퍼로 TagsKeys→Tags.Id 해결.
+- 태그 기반 분류:
+  - `breachstone_splinter` → 5 Breach ✅ (기존과 동일)
+  - `legion_splinter` → 5 Legion ✅
+  - `scarab` → 190 전체 스카랩 ✅
+  - `uber_scarab | uniques_scarab | influence_scarab` ∪ Name prefix(Horned/Titanic/Influencing) → 14 고가
+  - `essence` → 105 전체 에센스 (티어는 Name 접두사)
+- Name 유지 (태그 없음): `lifeforce` (Id prefix `HarvestSeed` 추가 검증), `splinter_simulacrum`, fossils/resonators/oils
+- **Triple-check (POE Wiki)**: `Influencing Scarab of Shaper/Elder/Hordes/Interference` 4종 모두 Wiki disambiguation 상 동일 family. GGPK는 1종만 `influence_scarab` 태그, 3종은 `scarab_grants_extra_content` — 드롭 메커니즘 차이 반영일 뿐 사용자 분류 아님. **최종: 태그∪Wiki Name union으로 14 유지** (태그 전용 11 버전 폐기).
+- 스냅샷 테스트: `test_snapshot_tag_based_classification` (pytest 313 PASS)
+
 ### Task F0-fix-3 (우선순위 3): mod 검증 스크립트
 
 `scripts/validate_mod_names.py` — `defense_mod_tiers.json` / `accessory_mod_tiers.json` /

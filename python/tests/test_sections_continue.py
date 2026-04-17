@@ -1488,6 +1488,57 @@ class TestLoadGGPKItems:
         assert any(n.startswith("Horned ") for n in d.scarabs_special), \
             "Horned 스카랩이 special에 있어야 함"
 
+    def test_snapshot_tag_based_classification(self):
+        """F0-fix-2 (2026-04-17): 태그 기반 분류 결과 박제.
+
+        변경 감지용 스냅샷. 리그 업데이트 후 GGPK 데이터가 바뀌면 의도적 변경인지 확인.
+        diff가 생기면 `_analysis/ggpk_extraction_completeness_audit.md` 업데이트 필요.
+        """
+        from sections_continue import load_ggpk_items
+        import sections_continue as sc
+        sc._GGPK_CACHE = None
+        sc._TAGS_CACHE = None
+        d = load_ggpk_items()
+
+        # Tier 1 — 태그 기반 (명확한 Tags.Id 매핑)
+        assert d.splinter_breach == (
+            "Splinter of Chayula", "Splinter of Esh", "Splinter of Tul",
+            "Splinter of Uul-Netol", "Splinter of Xoph",
+        )
+        assert d.splinter_legion == (
+            "Timeless Eternal Empire Splinter", "Timeless Karui Splinter",
+            "Timeless Maraketh Splinter", "Timeless Templar Splinter",
+            "Timeless Vaal Splinter",
+        )
+        assert len(d.scarabs_all) == 190, f"scarabs_all 190 고정, got {len(d.scarabs_all)}"
+        # scarabs_special: GGPK 태그(uber/uniques/influence) UNION 위키 Name prefix = 14
+        # POE Wiki disambiguation 기준 Influencing Scarab 4종 전부 포함 (triple-check).
+        assert len(d.scarabs_special) == 14, (
+            f"scarabs_special 14 고정 (tag∪wiki-name family), got {len(d.scarabs_special)}"
+        )
+        assert d.scarabs_special == (
+            "Horned Scarab of Awakening", "Horned Scarab of Bloodlines",
+            "Horned Scarab of Glittering", "Horned Scarab of Nemeses",
+            "Horned Scarab of Pandemonium", "Horned Scarab of Preservation",
+            "Horned Scarab of Tradition",
+            "Influencing Scarab of Hordes",
+            "Influencing Scarab of Interference",
+            "Influencing Scarab of the Elder",
+            "Influencing Scarab of the Shaper",
+            "Titanic Scarab", "Titanic Scarab of Legend", "Titanic Scarab of Treasures",
+        )
+
+        # Essence 티어: essence 태그 + Name 접두사
+        assert len(d.essence_deafening) == 20
+        assert len(d.essence_shrieking) == 20
+        assert len(d.essence_screaming) == 20
+        assert len(d.essence_wailing) == 16
+        assert len(d.essence_weeping) == 12
+        assert len(d.essence_muttering) == 8
+        assert len(d.essence_whispering) == 4
+        assert len(d.essence_corrupt) == 5
+        assert d.remnant_corruption == ("Remnant of Corruption",)
+
 
 class TestLayerLifeforce:
     def test_generates_five_tiers(self):

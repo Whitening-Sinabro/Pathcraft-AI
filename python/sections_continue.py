@@ -1205,6 +1205,7 @@ def layer_divcards(data: Optional[CategoryData] = None, mode: str = "ssf") -> st
 # 여기서 자동으로 신규 아이템 포함. 수동 하드코딩 금지.
 
 _GGPK_CACHE: Optional[dict] = None
+_TAGS_CACHE: Optional[list] = None  # Tags.json Id 인덱스 (TagsKeys 해석용)
 
 
 @dataclass
@@ -1216,7 +1217,7 @@ class GGPKItems:
     splinter_legion: tuple[str, ...] = ()
     splinter_simulacrum: tuple[str, ...] = ()
     scarabs_all: tuple[str, ...] = ()
-    scarabs_special: tuple[str, ...] = ()  # Horned/Titanic/Influencing 등 고가
+    scarabs_special: tuple[str, ...] = ()  # uber/uniques/influence 태그 (F0-fix-2)
     # Essences 티어별 — POE는 7 티어 (T0 부패 제외)
     essence_deafening: tuple[str, ...] = ()
     essence_shrieking: tuple[str, ...] = ()
@@ -1244,22 +1245,34 @@ class GGPKItems:
 
 
 def load_ggpk_items(filepath: Optional[Path] = None) -> GGPKItems:
-    """data/game_data/BaseItemTypes.json에서 SSF 카테고리 추출.
+    """data/game_data/BaseItemTypes.json에서 SSF 카테고리 추출 (태그 기반 분류).
 
-    규칙:
-    - Lifeforce: Name에 'Crystallised Lifeforce' 포함
-    - Splinter Breach: Splinter of [Chayula/Esh/Tul/Uul-Netol/Xoph]
-    - Splinter Legion: 5종 Timeless Splinter
-    - Splinter Simulacrum: Simulacrum Splinter
-    - Scarabs: InheritsFrom == AbstractMapFragment + 'Scarab' in Name
-    - Scarabs special: 접두사(Horned/Titanic/Influencing) 또는 baseless(네이밍 특수)
+    2026-04-17 F0-fix-2: `BaseItemTypes.TagsKeys` → `Tags.Id` 해결로 Name 휴리스틱 대체.
+    번역된 클라이언트/리그 명명 변경에도 robust. 태그 없는 카테고리는 Name fallback.
+
+    태그 매핑 (Tags.Id):
+    - `breachstone_splinter` → 5 Breach 조각
+    - `legion_splinter` → 5 Legion 조각
+    - `scarab` → 전체 스카랩 (190)
+    - `uber_scarab | uniques_scarab | influence_scarab` → 고가 스카랩 (11)
+    - `essence` → 전체 에센스 (프리필터), Name 접두사로 티어 분류
+
+    Name fallback (태그 없음):
+    - Lifeforce: Id prefix `HarvestSeed` + Name 'Crystallised Lifeforce'
+    - Simulacrum Splinter: Name 정확 매칭 (affliction_orb 태그는 Delirium과 공유)
+    - Fossils/Resonators/Delirium Orbs/Oils: 기존 Name 규칙 유지 (F0-fix-2 범위 외)
     """
-    global _GGPK_CACHE
+    global _GGPK_CACHE, _TAGS_CACHE
     path = filepath if filepath is not None else _DATA_DIR / "game_data" / "BaseItemTypes.json"
     if not path.exists():
         return GGPKItems()
     if _GGPK_CACHE is None:
         _GGPK_CACHE = json.loads(path.read_text(encoding="utf-8"))
+
+    tags_path = _DATA_DIR / "game_data" / "Tags.json"
+    if _TAGS_CACHE is None and tags_path.exists():
+        _TAGS_CACHE = [t.get("Id", "") for t in json.loads(tags_path.read_text(encoding="utf-8"))]
+    tags_index = _TAGS_CACHE or []
 
     bt = _GGPK_CACHE
     if not isinstance(bt, list):
@@ -1268,49 +1281,59 @@ def load_ggpk_items(filepath: Optional[Path] = None) -> GGPKItems:
     def _name(b: dict) -> str:
         return b.get("Name", "") if isinstance(b, dict) else ""
 
+    def _tags(b: dict) -> set:
+        if not isinstance(b, dict):
+            return set()
+        return {
+            tags_index[i] for i in b.get("TagsKeys", [])
+            if isinstance(i, int) and 0 <= i < len(tags_index)
+        }
+
+    # Lifeforce: 태그 없음 → Id prefix + Name 이중 검증
     lifeforce = tuple(sorted({
         _name(b) for b in bt
-        if _name(b) and "Crystallised Lifeforce" in _name(b)
+        if str(b.get("Id", "")).startswith("Metadata/Items/Currency/HarvestSeed")
+        and "Crystallised Lifeforce" in _name(b)
         and not _name(b).startswith("[")
     }))
 
-    BREACH_LORDS = {"Chayula", "Esh", "Tul", "Uul-Netol", "Xoph"}
     splinter_breach = tuple(sorted({
-        _name(b) for b in bt
-        if _name(b).startswith("Splinter of ")
-        and _name(b).split()[-1] in BREACH_LORDS
+        _name(b) for b in bt if "breachstone_splinter" in _tags(b)
     }))
 
-    LEGION_SPLINTERS = {
-        "Timeless Karui Splinter", "Timeless Maraketh Splinter",
-        "Timeless Eternal Empire Splinter", "Timeless Templar Splinter",
-        "Timeless Vaal Splinter",
-    }
     splinter_legion = tuple(sorted({
-        _name(b) for b in bt if _name(b) in LEGION_SPLINTERS
+        _name(b) for b in bt if "legion_splinter" in _tags(b)
     }))
+
+    # Simulacrum: affliction_orb 태그는 Delirium Orb와 공유 → Name 정확 매칭 유지
     splinter_simulacrum = ("Simulacrum Splinter",) if any(
         _name(b) == "Simulacrum Splinter" for b in bt
     ) else ()
 
     scarabs_all = tuple(sorted({
-        _name(b) for b in bt
-        if b.get("InheritsFrom") == "Metadata/Items/MapFragments/AbstractMapFragment"
-        and "Scarab" in _name(b) and not _name(b).startswith("[")
+        _name(b) for b in bt if "scarab" in _tags(b) and not _name(b).startswith("[")
     }))
 
-    SPECIAL_PREFIXES = ("Horned ", "Titanic ", "Influencing ")
+    # 고가 스카랩: GGPK 태그(uber/uniques/influence) UNION 위키 Name family(Horned/Titanic/Influencing)
+    # POE Wiki는 4개 "Influencing Scarab of X"를 하나의 family로 묶음(disambiguation) —
+    # GGPK는 1개만 influence_scarab 태그, 나머지 3개는 scarab_grants_extra_content.
+    # 사용자 관점 분류 보존을 위해 union 채택 (F0-fix-2 triple-check, 2026-04-17).
+    SPECIAL_SCARAB_TAGS = {"uber_scarab", "uniques_scarab", "influence_scarab"}
+    SPECIAL_SCARAB_PREFIXES = ("Horned ", "Titanic ", "Influencing ")
     scarabs_special = tuple(sorted({
-        n for n in scarabs_all
-        if n.startswith(SPECIAL_PREFIXES)
+        _name(b) for b in bt
+        if "scarab" in _tags(b) and (
+            _tags(b) & SPECIAL_SCARAB_TAGS
+            or _name(b).startswith(SPECIAL_SCARAB_PREFIXES)
+        )
     }))
 
-    # Essences 티어별 추출 (접두사 기반 분류)
+    # Essences 티어: essence 태그로 프리필터 + 접두사로 티어 분류
     def _essences_with_prefix(prefix: str) -> tuple[str, ...]:
         return tuple(sorted({
             _name(b) for b in bt
-            if _name(b).startswith(prefix + " Essence of")
-            and "Metadata/Items/Currency" in b.get("InheritsFrom", "")
+            if "essence" in _tags(b)
+            and _name(b).startswith(prefix + " Essence of")
         }))
     essence_deafening = _essences_with_prefix("Deafening")
     essence_shrieking = _essences_with_prefix("Shrieking")
@@ -1326,8 +1349,8 @@ def load_ggpk_items(filepath: Optional[Path] = None) -> GGPKItems:
         "Essence of Desolation",
     }
     essence_corrupt = tuple(sorted({
-        _name(b) for b in bt if _name(b) in _CORRUPT_ESSENCE_NAMES
-        and "Metadata/Items/Currency" in b.get("InheritsFrom", "")
+        _name(b) for b in bt
+        if "essence" in _tags(b) and _name(b) in _CORRUPT_ESSENCE_NAMES
     }))
     remnant_corruption = tuple(sorted({
         _name(b) for b in bt if _name(b) == "Remnant of Corruption"
