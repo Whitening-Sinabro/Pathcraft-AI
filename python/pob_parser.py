@@ -17,13 +17,10 @@ sys.stderr.reconfigure(encoding='utf-8')
 logger = logging.getLogger("pob_parser")
 logging.basicConfig(level=logging.INFO, format="%(message)s", stream=sys.stderr)
 
-# pobapi: POB 계산 엔진 (95%+ 정확도)
-try:
-    import pobapi
-    POBAPI_AVAILABLE = True
-except ImportError:
-    POBAPI_AVAILABLE = False
-    logger.warning("pobapi not installed. Accurate calculations unavailable.")
+# Stats는 POB XML의 <PlayerStat> 요소를 직접 파싱하여 추출한다 (parse_pob_xml 내부).
+# 이전에 pobapi 패키지 기반 "정확 계산" 경로가 존재했으나 pobapi 0.5.0 API
+# 호환성 문제로 항상 fallback 되는 dead code였다. XML 경로는 Phase B/D/E 및
+# 17건 E2E 테스트로 검증됨 → pobapi 통합 제거, XML이 유일한 production path.
 
 try:
     from src.utils import resource_path
@@ -87,43 +84,9 @@ def decode_pob_code(encoded_code):
         logger.error(f"   > 코드 디코딩 실패: {e}")
         return None
 
-def calculate_with_pobapi(xml_string):
-    """
-    pobapi를 사용하여 정확한 DPS/방어력 계산 (95%+ 정확도)
-    POB와 동일한 계산 로직 사용
-
-    Note: pobapi 0.5.0은 API 호환성 문제가 있음.
-    향후 pobapi 0.6+ 또는 대안 구현 필요.
-    현재는 fallback으로 동작 (stats = 0)
-    """
-    if not POBAPI_AVAILABLE:
-        logger.info("   > pobapi not available - using fallback stats")
-        return None
-
-    logger.info("   > pobapi로 정확한 계산 시도 중...")
-    try:
-        # XML declaration 제거
-        xml_clean = re.sub(r'<\?xml[^>]*\?>', '', xml_string).strip()
-
-        # pobapi 0.5.0 API: PathOfBuildingAPI 생성
-        build = pobapi.PathOfBuildingAPI(xml_clean.encode('utf-8'))
-
-        # TODO: pobapi 0.5.0의 stats API가 깨짐.
-        # 향후 0.6+ 또는 다른 방법으로 교체 필요
-        # 현재는 None 반환하여 fallback 사용
-        logger.warning("   > pobapi 0.5.0 stats API incompatible - using fallback")
-        return None
-
-    except Exception as e:
-        logger.warning(f"   > pobapi 계산 실패: {e}")
-        return None
-
 def parse_pob_xml(xml_string, pob_url):
     logger.info("3. XML 데이터 파싱 및 최종 JSON으로 가공 중...")
     try:
-        # pobapi로 정확한 계산 수행 (95%+ 정확도)
-        accurate_stats = calculate_with_pobapi(xml_string)
-
         root = ET.fromstring(xml_string)
         build = root.find('Build')
         skills_element = root.find('Skills')
@@ -300,13 +263,13 @@ def parse_pob_xml(xml_string, pob_url):
                             active_spec.get('id', '?'),
                             active_spec.get('title', ''))
 
-        # 최종 JSON 데이터 조립 (pobapi 계산 결과 포함)
+        # 최종 JSON 데이터 조립
         asc_name = build.get('ascendClassName', 'Unknown')
         class_name = build.get('className', 'Unknown')
         level = build.get('level', 'N/A')
         build_name = f"{class_name} {asc_name} Lvl {level}"
 
-        # XML에서 PlayerStat 추출 (pobapi 없이도 사용 가능)
+        # XML의 <PlayerStat> 요소에서 직접 추출 (production stats path)
         xml_stats = {}
         for stat in root.findall('.//PlayerStat'):
             stat_name = stat.get('stat')
@@ -344,8 +307,7 @@ def parse_pob_xml(xml_string, pob_url):
         extracted_block = xml_stats.get('BlockChance', 0)
         extracted_spell_block = xml_stats.get('SpellBlockChance', 0)
 
-        # pobapi 계산 결과가 있으면 사용, 없으면 XML에서 추출한 값 사용
-        final_stats = accurate_stats if accurate_stats else {
+        final_stats = {
             "dps": int(extracted_dps),
             "life": int(extracted_life),
             "energy_shield": int(extracted_es),
@@ -364,7 +326,6 @@ def parse_pob_xml(xml_string, pob_url):
                 "ascendancy": asc_name,
                 "pob_link": pob_url,
                 "version": build.get('targetVersion'),
-                "calculated_with_pobapi": accurate_stats is not None,
                 "has_xml_stats": bool(xml_stats)
             },
             "build_notes": build_notes,
@@ -384,8 +345,8 @@ def parse_pob_xml(xml_string, pob_url):
             }]
         }
 
-        calc_method = "pobapi (95%+ accurate)" if accurate_stats else "fallback (estimates)"
-        logger.info(f"   > POB 데이터 변환 완료 (계산: {calc_method})")
+        stats_source = "XML PlayerStat" if xml_stats else "empty (no PlayerStat found)"
+        logger.info("   > POB 데이터 변환 완료 (stats source: %s)", stats_source)
         return final_guide
     except Exception as e:
         logger.error(f"   > XML 파싱 실패: {e}")

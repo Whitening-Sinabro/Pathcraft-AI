@@ -36,7 +36,7 @@
 3. ✅ **Phase E 완료 (2026-04-17)**: damage_type_extractor(16) + gem_damage_types(741 gems from POB Lua) + accessory_mod_tiers(NeverSink 1238-1501, 3 slots × 5 axis, 681 mods) + StageData.damage_types(5) + L7 accessory_proxy(6 + 1 updated 7-way). 499 PASS. 인게임 검증 대기
 4. [ ] **Phase F2~F7 나머지 감사** — Breach/Legion/Scarab/Incursion/Essence/기타 12~18h
 5. ✅ **E2E 통합 테스트 완료 (2026-04-17)**: 3 realistic fixture(Juggernaut/CI Occultist/Guardian) + multi-stage life→CI 전환 + minimal fallback + L10 re_show 통합 = 17 tests. 516 PASS
-6. [ ] **pob_parser stats API 실측** — `pob_parser.py:190` TODO 주석 확인 + fallback. 1~2h
+6. ✅ **pob_parser dead code 제거 완료 (2026-04-17)**: pobapi 통합 전체 제거 (항상 None fallback이었음), XML PlayerStat이 유일 production path 명시. 516 PASS 유지
 7. [ ] Step 6b: 인게임 스모크 (무기 필터 — Tyrannical vs Heavy, DropLevel 5 리튜닝)
 8. [ ] 패시브 트리 Phase 3 인게임 호버 지연 검증
 9. [ ] (이후) 아틀라스 트리 뷰어 / 빌드 패시브 추천 — 현재 인프라 준비도 60~90%
