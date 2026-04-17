@@ -87,3 +87,6 @@
 | scripts/extract_accessory_mod_tiers.py | NeverSink → accessory_mod_tiers.json 자동 재생성 | 아니오 |
 | python/tests/test_e2e_filter_pipeline.py | E2E 필터 파이프라인 (Juggernaut/Occultist/Guardian fixture + multi-stage + minimal) | 아니오 |
 | _analysis/ggpk_extraction_completeness_audit.md | Phase F0 GGPK 추출 감사 (7/921=0.76%, Tier1/2 확장 권고) | 예 (참조 자료) |
+| _analysis/ggpk_truth_reference.json | 19 테이블 rows+content_hash+schema pin+anchored_to 진실 레퍼런스 (리그 anchor) | 아니오 |
+| python/scripts/ggpk_truth_builder.py | ggpk_truth_reference.json 빌더 — KEY_FIELDS 기반 sha256 계산 | 아니오 |
+| python/tests/test_ggpk_truth_reference.py | 계층 1/3/5 검증 pytest (row/hash/schema/stale/구조) | 아니오 |

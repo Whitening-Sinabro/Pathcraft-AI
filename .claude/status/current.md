@@ -1,20 +1,16 @@
 ## 지금
-- **F0-fix-1 실행 대기** — `extract_data.rs` TARGETS 7→19 소스만 커밋됨 (`5bbede3`). cargo run 별도 세션
+- **Truth reference 계층 1+3+5 완료** (2026-04-17) — `_analysis/ggpk_truth_reference.json` + builder + pytest 8건 PASS. 525 전체 PASS. 계층 2(독립 추출기)/4(인게임 스크린샷)는 후속.
+- **F0-fix-2 완료** — `load_ggpk_items` 태그 기반 재작성 + POE Wiki triple-check. scarabs_special 태그∪Name union(14). 커밋 대기.
 
 ## 다음 (우선순위순)
-1. [ ] **F0-fix-1 실행**: `cd src-tauri && cargo run --bin extract_data` (~10분, POE 경로 자동탐지)
-   - 산출: `data/game_data/`에 Tags/Mods/ModType/ModFamily/Characters/Ascendancy/GemTags/ArmourTypes/Scarabs/ScarabTypes/Essences/Flasks JSON
-   - 검증: 각 JSON 스모크 로드 + 기존 `load_category_data` 회귀 (pytest PASS)
-2. [ ] **F0-fix-2**: `sections_continue.load_ggpk_items` 태그 기반 재작성 (1.5h, fix-1 후)
-   - 현재 Name 패턴 매칭 → `BaseItemTypes.TagsKeys` → `Tags` 해결로 전환
-   - 리스크: breach/scarab/essence 분류 결과가 기존과 달라질 수 있음 → 스냅샷 테스트로 diff 박제
-3. [ ] **F0-fix-3**: `scripts/validate_mod_names.py` (1h)
+1. [ ] **Truth reference 계층 2+4** (후속): SnosMe/poe-dat-viewer cross-check 스크립트 + 인게임 골든 스크린샷 가이드 (2~2.5h)
+2. [ ] **F0-fix-3**: `scripts/validate_mod_names.py` (1h)
    - `defense_mod_tiers.json` / `accessory_mod_tiers.json` / `weapon_mod_tiers.json` mod 이름이 GGPK `Mods.Name`과 일치하는지 스팟체크
-4. [ ] **Phase F2~F7 본진 감사** (12~18h, F0-fix-1/2 완료 후)
+3. [ ] **Phase F2~F7 본진 감사** (12~18h, F0-fix-2 완료 후)
    - F2 Breach/Legion/Scarab/Incursion/Expedition (테이블 다수 추출 완료 상태 가정)
    - F3 Heist/Delve/Blight 등
    - F4 Sanavi / F5 Syndicate / F7 Crafting mods
-5. [ ] **인게임 검증** (사용자 영역, Claude 대기)
+4. [ ] **인게임 검증** (사용자 영역, Claude 대기)
    - Phase B+C Step 6b: 무기 필터 Tyrannical vs Heavy, DropLevel 5 리튜닝
    - Phase D 방어 필터 스모크
    - Phase E 악세서리 필터 스모크
@@ -32,6 +28,7 @@
 - [Continue 아키텍처 (β)](continue_architecture.md)
 - [필터 분석](filter_analysis.md)
 - _analysis/ggpk_extraction_completeness_audit.md — F0 감사 (0.76% 커버리지)
+- _analysis/ggpk_truth_reference.json — 19 테이블 진실 anchor (3.28 Mirage, content hash + schema pin)
 - _analysis/mechanic_data_audit_divcard_unique.md — F1+F6 리포트
 - _analysis/neversink_weaponphys_rules.md — NeverSink 812-844 무기 mod-tier
 - _analysis/gem_weapon_restriction_audit.md — GGPK 부정확성 증거 (187 스킬)

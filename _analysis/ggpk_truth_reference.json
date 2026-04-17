@@ -1,0 +1,208 @@
+{
+  "$schema_version": 1,
+  "patch_note_sources": {
+    "canonical_forum": "https://www.pathofexile.com/forum/view-forum/patch-notes",
+    "wiki_version_history": "https://www.poewiki.net/wiki/Version_history"
+  },
+  "anchored_to": {
+    "league": "3.28 Mirage",
+    "verified_at": "2026-04-17",
+    "patch_notes_url": "https://www.poewiki.net/wiki/Version_3.28.0",
+    "expected_changes": [
+      "Scion 신규 ascendancy Reliquarian 추가 (Ascendancy 20 → Characters 7 유지)",
+      "신규 스킬 젬 Holy Hammers (ActiveSkills/SkillGems 증가)",
+      "Atlas Keystone 재편 (Shadow Shaping/Bold Undertakings/Singular Focus 제거, The Paths Not Taken/Synthesised Stability 추가)"
+    ]
+  },
+  "schema_pin": {
+    "path": "data/schema/schema.min.json",
+    "git_commit": "1a857c78606fdbf0418264377676189ec08672b1",
+    "sha256": "11a18fa582409bce9c6d3a64cb734f3979af9d577e09019dd485115ef2cdcc3e",
+    "size_bytes": 2012509
+  },
+  "extractor_pin": {
+    "binary": "src-tauri/src/bin/extract_data.rs",
+    "targets_count": 19
+  },
+  "tables": {
+    "ActiveSkills": {
+      "rows": 1917,
+      "key_fields": [
+        "Id",
+        "DisplayedName"
+      ],
+      "content_hash": "bb87492a1cc27be40fb312f4c50bbbdeb268bc9629a4e5845695fd2a9fe8e80f"
+    },
+    "ArmourTypes": {
+      "rows": 481,
+      "key_fields": [
+        "BaseItemTypesKey",
+        "ArmourMin",
+        "ArmourMax",
+        "EvasionMin",
+        "EvasionMax",
+        "EnergyShieldMin",
+        "EnergyShieldMax"
+      ],
+      "content_hash": "50fffb56ae1b78af325b3b35a61c064aaaeef63894089beeda56c1ed41853628"
+    },
+    "Ascendancy": {
+      "rows": 20,
+      "key_fields": [
+        "Id",
+        "ClassNo",
+        "Character"
+      ],
+      "content_hash": "b01ce36d7a18e75b021698d37eca8b340016cfda683b269a1f08883ff0eb8277"
+    },
+    "BaseItemTypes": {
+      "rows": 5334,
+      "key_fields": [
+        "Id",
+        "Name",
+        "InheritsFrom"
+      ],
+      "content_hash": "6edbc212bc6a19d57135b4133de9f83065a2c65df2a04d52ed3763425ace6193"
+    },
+    "Characters": {
+      "rows": 7,
+      "key_fields": [
+        "Attr",
+        "ACTFile"
+      ],
+      "content_hash": "6da82dd9a046f27555d6bdb73baa55c2f0b1324f934c2b0267a5053aae83af8d"
+    },
+    "Essences": {
+      "rows": 106,
+      "key_fields": [
+        "BaseItemTypesKey",
+        "Level",
+        "DropLevel",
+        "IsScreamingEssence"
+      ],
+      "content_hash": "3dad5dcc5cad7edcde6bbdff8a43b6a79312d7a657619d9eea510e889df86c24"
+    },
+    "Flasks": {
+      "rows": 51,
+      "key_fields": [
+        "BaseItemTypesKey",
+        "Name",
+        "Type"
+      ],
+      "content_hash": "4dc1b2809cba90c0557b34fae32d34e3dfbbb827b8d8dea3831463050f8fb3e7"
+    },
+    "GemTags": {
+      "rows": 53,
+      "key_fields": [
+        "Id",
+        "Tag"
+      ],
+      "content_hash": "679e7da8d2123d72f6affe218eacc67e799c8298440adb65a43e46a2c2296b7a"
+    },
+    "Maps": {
+      "rows": 491,
+      "key_fields": [
+        "BaseItemTypesKey",
+        "Tier"
+      ],
+      "content_hash": "5b76b8acf06108917057fbc6c0629123852f36827481d8a1d1dcbfa07ed37454"
+    },
+    "ModFamily": {
+      "rows": 7678,
+      "key_fields": [
+        "Id"
+      ],
+      "content_hash": "67dbfcf2ed78b61d09c0c3f8efba97ac8a19c9919527de42592c347de6ddbae1"
+    },
+    "Mods": {
+      "rows": 39291,
+      "key_fields": [
+        "Id",
+        "Name",
+        "Level",
+        "Domain",
+        "GenerationType"
+      ],
+      "content_hash": "9df98ce86f71ff31e8ac958ce47d944755981f2c732938cb9a18fbbb23f540b2"
+    },
+    "ModType": {
+      "rows": 14239,
+      "key_fields": [
+        "Name"
+      ],
+      "content_hash": "b349e656010968d9cd744b44973714ec15d2db0df019abd16fef5dcaa50c70ec"
+    },
+    "PassiveSkills": {
+      "rows": 5592,
+      "key_fields": [
+        "Id",
+        "IsNotable",
+        "IsKeystone",
+        "IsJewelSocket"
+      ],
+      "content_hash": "6103ccee046b6129fe60d8d5c08e925e3e6214dbe0e96a36b676a5e988456fb6"
+    },
+    "QuestRewards": {
+      "rows": 1339,
+      "key_fields": [
+        "Characters",
+        "Reward",
+        "RewardLevel"
+      ],
+      "content_hash": "c457008ed30462b2ac0bafe5e9c377bea3521a04c7f2ed597f7ba2dd9a5afef6"
+    },
+    "Scarabs": {
+      "rows": 27,
+      "key_fields": [
+        "Type",
+        "Items"
+      ],
+      "content_hash": "e88df474db31b7fb1d1f7be678eafb6c28efdbd1e5061253bd3e4328069d2437"
+    },
+    "ScarabTypes": {
+      "rows": 27,
+      "key_fields": [
+        "Id",
+        "Tag",
+        "Count"
+      ],
+      "content_hash": "1e77885a7afb895940a0fe78ac69cb03a434e52bc916fa64afe99002d065c46b"
+    },
+    "SkillGems": {
+      "rows": 840,
+      "key_fields": [
+        "BaseItemTypesKey",
+        "IsSupport",
+        "IsVaalVariant"
+      ],
+      "content_hash": "49281a7f1614bd8d5d6614e1cfe972ca240117799ef74b597b6c6244957e8e31"
+    },
+    "Tags": {
+      "rows": 1355,
+      "key_fields": [
+        "Id"
+      ],
+      "content_hash": "3df462d99820068918f1d4f8faf84f6d80bdbc488c0fef8c8e94936d5282fd00"
+    },
+    "UniqueStashLayout": {
+      "rows": 1525,
+      "key_fields": [
+        "WordsKey",
+        "UniqueStashTypesKey"
+      ],
+      "content_hash": "88afe6b5cf5307a17977121f2167bc75da38c07dbe2eb3dbd261c4df7703de70"
+    }
+  },
+  "notes": {
+    "hash_semantics": "각 테이블 key_fields 값의 정렬 튜플 리스트 → sha256. 리그 전환 시 hash 변경이 기대되면 anchored_to.expected_changes에 기록.",
+    "verification_layers": [
+      "Layer 1 (자동, pytest): rows + content_hash 일치",
+      "Layer 3 (반자동): schema_pin.git_commit 및 sha256 불일치 시 재검증 요구",
+      "Layer 5 (수동): 새 리그 패치노트 읽고 expected_changes 갱신 후 재해시"
+    ],
+    "out_of_scope_layers": [
+      "Layer 2 (독립 추출기 SnosMe/poe-dat-viewer cross-check): 후속 작업",
+      "Layer 4 (인게임 골든 스크린샷): 후속 작업"
+    ]
+  }
+}
