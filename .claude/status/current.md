@@ -1,14 +1,12 @@
 ## 지금
-- **Truth reference Layer 2+4 완료** (2026-04-18) — SnosMe pathofexile-dat@15.1.0 독립 추출기로 7 테이블 교차 검증 7/7 일치. Layer 4는 인게임 골든 스크린샷 가이드 문서화. 532 pytest 전체 PASS. 커밋 대기.
+- **F0-fix-3 완료** (2026-04-18) — `validate_mod_names.py` + pytest. defense(175)/accessory(125)/weapon(26) = 326 mod 이름 모두 GGPK Mods에 resolve (exact 322 + substring 4). POE 필터 기본 substring 매칭 확인("Veil"/"Elevated " 의도적 wildcard). 535 pytest PASS. 커밋 대기.
 
 ## 다음 (우선순위순)
-1. [ ] **F0-fix-3**: `scripts/validate_mod_names.py` (1h)
-   - `defense_mod_tiers.json` / `accessory_mod_tiers.json` / `weapon_mod_tiers.json` mod 이름이 GGPK `Mods.Name`과 일치하는지 스팟체크
-3. [ ] **Phase F2~F7 본진 감사** (12~18h, F0-fix-2 완료 후)
+1. [ ] **Phase F2~F7 본진 감사** (12~18h, F0 전부 완료)
    - F2 Breach/Legion/Scarab/Incursion/Expedition (테이블 다수 추출 완료 상태 가정)
    - F3 Heist/Delve/Blight 등
    - F4 Sanavi / F5 Syndicate / F7 Crafting mods
-4. [ ] **인게임 검증** (사용자 영역, Claude 대기)
+2. [ ] **인게임 검증** (사용자 영역, Claude 대기)
    - Phase B+C Step 6b: 무기 필터 Tyrannical vs Heavy, DropLevel 5 리튜닝
    - Phase D 방어 필터 스모크
    - Phase E 악세서리 필터 스모크

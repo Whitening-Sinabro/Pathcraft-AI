@@ -94,3 +94,5 @@
 | _analysis/crosscheck/README.md | Layer 2 독립 추출기 + Layer 4 인게임 스크린샷 가이드 | 아니오 |
 | python/scripts/ggpk_crosscheck.py | Layer 2 비교 CLI — 우리 vs pathofexile-dat 결과 diff | 아니오 |
 | python/tests/test_ggpk_crosscheck.py | Layer 2 parametrized pytest (crosscheck 출력 있을 때만) | 아니오 |
+| python/scripts/validate_mod_names.py | F0-fix-3 — tier JSON mod 이름 → GGPK Mods.Name 검증 (exact/substring/missing) | 아니오 |
+| python/tests/test_validate_mod_names.py | F0-fix-3 pytest — defense/accessory/weapon tier 326/326 resolve 검증 | 아니오 |
