@@ -23,6 +23,11 @@ src/PathcraftAI.Parser/poe_token.json
 build_data/
 game_data/
 
+# Layer 2 independent extractor cache + output (재생성 가능)
+_analysis/crosscheck/.cache/
+_analysis/crosscheck/tables/
+_analysis/crosscheck/report.json
+
 # IDE
 .vscode/
 .idea/

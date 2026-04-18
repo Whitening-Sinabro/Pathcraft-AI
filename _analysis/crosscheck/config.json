@@ -1,0 +1,34 @@
+{
+  "patch": "3.28.0.8",
+  "translations": ["English"],
+  "tables": [
+    {
+      "name": "Characters",
+      "columns": ["Id", "Name", "Attr"]
+    },
+    {
+      "name": "Ascendancy",
+      "columns": ["Id", "ClassNo", "Character"]
+    },
+    {
+      "name": "Tags",
+      "columns": ["Id"]
+    },
+    {
+      "name": "Scarabs",
+      "columns": ["Type"]
+    },
+    {
+      "name": "ScarabTypes",
+      "columns": ["Id", "Tag", "Count"]
+    },
+    {
+      "name": "Flasks",
+      "columns": ["Name", "Type"]
+    },
+    {
+      "name": "GemTags",
+      "columns": ["Id", "Tag"]
+    }
+  ]
+}

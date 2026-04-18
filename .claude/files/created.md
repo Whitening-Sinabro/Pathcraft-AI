@@ -90,3 +90,7 @@
 | _analysis/ggpk_truth_reference.json | 19 테이블 rows+content_hash+schema pin+anchored_to 진실 레퍼런스 (리그 anchor) | 아니오 |
 | python/scripts/ggpk_truth_builder.py | ggpk_truth_reference.json 빌더 — KEY_FIELDS 기반 sha256 계산 | 아니오 |
 | python/tests/test_ggpk_truth_reference.py | 계층 1/3/5 검증 pytest (row/hash/schema/stale/구조) | 아니오 |
+| _analysis/crosscheck/config.json | Layer 2 pathofexile-dat CLI 설정 (patch + tables) | 아니오 |
+| _analysis/crosscheck/README.md | Layer 2 독립 추출기 + Layer 4 인게임 스크린샷 가이드 | 아니오 |
+| python/scripts/ggpk_crosscheck.py | Layer 2 비교 CLI — 우리 vs pathofexile-dat 결과 diff | 아니오 |
+| python/tests/test_ggpk_crosscheck.py | Layer 2 parametrized pytest (crosscheck 출력 있을 때만) | 아니오 |
