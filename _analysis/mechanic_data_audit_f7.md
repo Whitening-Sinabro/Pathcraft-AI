@@ -86,7 +86,8 @@
 ### 🔴 HIGH
 
 1. **`mod_pool.json` ORPHAN + 3.25 stale**
-   - 사실: `grep -r mod_pool` → plan 문서에서만 참조. 코드 0개. 3.25 버전.
+   - **사실** (2026-04-19 재검증): `grep -rn "mod_pool\|all_mods"` `**/*.{py,ts,tsx,js,jsx,rs}` → **모두 0건**. 문서 3건(current/plan/본 리포트)만 히트. 코드 사용처 0 확정.
+   - **사실**: version 3.25 (3.28 Mirage 기준 3 리그 전)
    - 위험: 정비 안 된 데이터 파일 누적 → 혼란 + 부정확한 의사결정
    - 권고: **삭제** (F6-fix-1에서 unique_base_mapping이 실질 대체 + t1_craft_bases가 craft 커버)
    - 또는 Wiki Cargo에서 자동 재생성 파이프라인 구축 (F7-fix-A 별도 task)
@@ -103,7 +104,8 @@
    - 권고: 참조 가이드 URL + snapshot 날짜 기록 (F7-fix-C, 15min)
 
 4. **`mod_pool.json` veiled 20 vs GGPK 16 Name-level**
-   - 3.25 → 3.28 사이 Veiled mod 제거/리네임 의심 (3.26 Mastery 리워크, 3.27 Settlers)
+   - **불확실**: mod_pool veiled 20은 Wiki Cargo Id 포맷("Catarina's", "Vorici's" 등), GGPK 16은 Mods.Name 포맷. 4 차이가 실제 리그 변동인지 포맷 차이인지 불명
+   - **검증 방법**: mod_pool veiled 20 keys → Wiki Cargo `mods` 테이블에서 실제 Name 조회 → GGPK Mods.Name과 매핑 대조. 현재 미실행
    - 해당 파일이 orphan이라 실영향 없음 — #1에서 처리하면 자동 해소
 
 5. **HIGH_FOSSILS / OILS_TOP/HIGH/MID/LOW/PREMIUM 출처 주석 없음**

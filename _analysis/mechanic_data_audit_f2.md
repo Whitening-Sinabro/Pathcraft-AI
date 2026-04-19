@@ -41,6 +41,8 @@
 
 ### D3 — GGPK/POB/Wiki 대조
 
+**Count 기반 대조:**
+
 | 항목 | 대조 결과 |
 |------|----------|
 | Wombgifts 5종 | GGPK: 5/5 (Provisioning/Lavish/Ancient/Growing/Mysterious) ✅ |
@@ -49,6 +51,19 @@
 | Harbinger fragments 8종 | GGPK: 8/8 (multi-variant rows, 전부 존재) ✅ |
 | splinter_breach 5 / splinter_legion 5 | F0-fix-2 Wiki triple-check 통과 ✅ |
 | scarabs_all 190 / scarabs_special 14 | 독립 추출기(pathofexile-dat) 교차 검증 일치 ✅ |
+
+**무작위 10 샘플 (scarabs, seed=42):**
+```
+Blight Scarab                        Polished Shaper Scarab
+Gilded Bestiary Scarab               Divination Scarab of The Cloister
+Breach Scarab of Instability         Horned Scarab of Glittering
+Horned Scarab of Pandemonium         Rusted Bestiary Scarab
+Gilded Ambush Scarab                 Gilded Torment Scarab
+```
+전부 PoE Wiki `Scarab` 카테고리에 존재하는 canonical 이름 — 사실 확인.
+
+**Breach splinter 전수 (5):** Xoph / Tul / Esh / Uul-Netol / Chayula — Breach 5 영주 정확 ✅
+**Legion splinter 전수 (5):** Karui / Maraketh / Eternal Empire / Templar / Vaal — Legion 5 군단 정확 ✅
 
 ### D4 — 하드코딩 dict 출처 주석
 

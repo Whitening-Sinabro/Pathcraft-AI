@@ -41,3 +41,11 @@
 - [ ] 레거시 파일 ~15개 정리
 - [ ] 번역 데이터 5개 → merged_translations.json 기준 정리
 - [ ] 젬 데이터 이원화 해소 (gems.json 단일 소스)
+
+## Phase F 감사 Fix (2026-04-19 F2+F7 감사 결과)
+- [ ] **F7-fix-1 (🔴)** — `data/mod_pool.json` 삭제 (ORPHAN 확정, 3.25 stale). 권고 삭제; 대안 2h로 Wiki Cargo 자동 재생성
+- [ ] **F7-fix-2 (🔴)** — `data/id_mod_filtering.json` `_meta` 보강 (source/version/collected_at) + NeverSink 재추출 스크립트 (1h)
+- [ ] **F7-fix-3 (🟡)** — `data/t1_craft_bases.json` `_meta` 보강 (version/collected_at/ref_url) (15min)
+- [ ] **F7-fix-4 (🟡)** — `sections_continue.py` `HIGH_FOSSILS` / `OILS_*` 출처 주석 보강 (10min)
+- [ ] **F2-fix-1 (🟡)** — `_EXCEPTIONAL` / `_UNIQUE_FRAGMENTS` 출처 주석 추가 (30min)
+- [ ] **F2-fix-2 (🟡)** — `layer_endgame_content` / `layer_stacked_currency` 스모크 테스트 추가 (15min)
