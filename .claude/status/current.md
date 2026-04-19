@@ -1,9 +1,8 @@
 ## 지금
-- **F2-fix + 주석 보강 8건 완료** (2026-04-19) — 모든 하드코딩 리스트 출처 주석 + syndicate_layouts/t1_craft_bases _meta 완비. F2-fix-2는 기존 test_p1_base_routed 커버 확인. 535 pytest PASS. 커밋 대기.
+- **Phase F 전체 종료** (2026-04-19) — F1-fix-2 재확인(HCSSF 이미 구현 + 7 pytest PASS), F1-fix-4 `league_refresh.md` 보강(F7-fix-2 + GGPK truth reference 4계층 + deprecated archive 추가). 535 pytest PASS. 커밋 대기.
 
 ## 다음 (우선순위순)
-1. [ ] **F1-fix-2 HCSSF 파이프라인** (별도 세션, 4~6h, 제품 기능)
-2. [ ] **인게임 검증** (사용자 영역, Claude 대기)
+1. [ ] **인게임 검증** (사용자 영역, Claude 대기)
    - Phase B+C Step 6b: 무기 필터 Tyrannical vs Heavy, DropLevel 5 리튜닝
    - Phase D 방어 필터 스모크
    - Phase E 악세서리 필터 스모크

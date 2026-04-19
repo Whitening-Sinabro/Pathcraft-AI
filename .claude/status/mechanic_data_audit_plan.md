@@ -188,8 +188,8 @@ Fix 태스크 진행 현황:
 - ✅ divcard 6건 stale 정정 (2026-04-17): 16 엔트리 100% Wiki 정합. 5 제거(Aegis Aurora/Badge of the Brotherhood/Inpulsa's/Cospri's Malice/Hyrri's Ire) + 1 오타
 - ✅ F1-fix-3 (2026-04-17): `neversink_filter_rules.json` `_meta` (NeverSink 8.19.2a.2026.102.11 출처)
 - ✅ F6-fix-1 Step A (2026-04-17): `data/unique_base_mapping.json` + `unique_base_data.py` + build_extractor 마이그 + 6 테스트
-- [ ] F1-fix-2 (B안 확정): HCSSF 파이프라인 — `hc_divcard_tiers.json` `_meta` + refresh + β Continue 분기 (4~6h, 다음 세션)
-- [ ] F1-fix-4: `docs/league_refresh.md` (0.5h)
+- [x] F1-fix-2 (B안 확정): HCSSF 파이프라인 완료 (2026-04-19 재확인). `hc_divcard_tiers.json` `_meta` 완비 (poe.ninja Mirage HC, `scripts/refresh_hc_divcard_tiers.py` 자동화) + β Continue 분기 (`_load_hc_divcard_override` + `layer_divcards` mode="hcssf") + HCSSF 7 pytest PASS
+- [x] F1-fix-4: `docs/league_refresh.md` 보강 (2026-04-19) — F7-fix-2 `extract_id_mod_filtering.py` + GGPK truth reference 4계층 + `_archive/phase_f_legacy/` deprecated 명시 포함
 
 회귀: pytest 425 → **436 PASS** (신규 11 케이스)
 

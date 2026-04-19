@@ -76,6 +76,69 @@ python scripts/validate_divcard_mapping.py
 **실행 시점**: refresh_unique_base_mapping 이후
 **용도**: `data/divcard_mapping.json` 수동 엔트리가 Wiki와 일치하는지 확인
 
+### 6. `scripts/extract_id_mod_filtering.py` (NeverSink 필터 업데이트 시)
+
+NeverSink ID MOD FILTERING [[0600]/[[0700]]/[[0800]]] 블록 파싱 → class별 mod 리스트.
+
+```bash
+python scripts/extract_id_mod_filtering.py
+```
+
+**출력**: `data/id_mod_filtering.json` (26 classes, 394 unique mods)
+**재수집 주기**: NeverSink 필터 메이저 업데이트 시 (`_analysis/neversink_*` 갱신 후)
+**짝 파일**: `scripts/extract_{defense,accessory}_mod_tiers.py`
+
+## GGPK truth reference (4계층, 리그 전환 시 재검증 권장)
+
+### 7. `cargo run --bin extract_data -- --json` + 진실 레퍼런스 재빌드
+
+```bash
+# Rust 추출 (POE 경로 자동탐지, ~1~2분)
+cd src-tauri && cargo run --release --bin extract_data -- --json
+
+# 진실 레퍼런스 빌더 (content_hash 재계산)
+cd ..
+python python/scripts/ggpk_truth_builder.py
+```
+
+**출력**:
+- `data/game_data/*.json` (19 테이블 — ActiveSkills, BaseItemTypes, Mods, Tags, ...)
+- `_analysis/ggpk_truth_reference.json` (rows + content_hash + schema_pin)
+
+**Layer 1 자동 검증**:
+```bash
+python -m pytest python/tests/test_ggpk_truth_reference.py -v
+```
+
+**재수집 주기**: 리그 시작 직후 필수. content_hash 불일치 시 `anchored_to.expected_changes` 반영 후 재빌드.
+
+### 8. `_analysis/crosscheck/` 독립 추출기 cross-check (Layer 2)
+
+```bash
+# 1회 설치 (이후 재사용)
+npm install -g pathofexile-dat
+
+# 최신 patch 버전 업데이트
+curl -s https://raw.githubusercontent.com/poe-tool-dev/latest-patch-version/main/latest.txt
+# → _analysis/crosscheck/config.json 의 "patch" 값 교체
+
+# 독립 추출 (~1~2분, ~50MB 다운로드)
+cd _analysis/crosscheck && node "$(npm root -g)/pathofexile-dat/dist/cli/run.js"
+
+# 비교
+cd ../.. && python python/scripts/ggpk_crosscheck.py
+python -m pytest python/tests/test_ggpk_crosscheck.py -v
+```
+
+**용도**: 우리 Rust `extract_data`와 SnosMe `pathofexile-dat`(npm) 결과 교차 검증.
+
+### 9. 인게임 골든 스크린샷 (Layer 4, 사용자 수동)
+
+리그 시작 시 5 화면 캡처 → `_analysis/crosscheck/screenshots/YYYY-MM-DD_league/`:
+- Ascendancy 선택 / Character 선택 / 스카랩 탭 / Gem Progression / Flask inventory
+
+**상세**: `_analysis/crosscheck/README.md` Layer 4 섹션.
+
 ## 검증 체크리스트
 
 갱신 후:
@@ -90,3 +153,5 @@ python scripts/validate_divcard_mapping.py
 - **poe.ninja 집계 지연**: 리그 시작 첫 주는 카드 가격이 매우 불안정 → HC override refresh는 2주 이후 권장
 - **Wiki 업데이트 지연**: GGG 릴리스 직후 며칠은 신규 유니크가 Wiki에 없을 수 있음
 - **수동 매핑**: `data/divcard_mapping.json`의 `unique_to_cards`는 일부 수동 엔트리 보존. 자동화 불가 시 validate 스크립트로 drift만 감지
+- **schema drift**: `data/schema/schema.min.json`가 `pathofexile-dat-schema` (npm) 업그레이드로 변경되면 `ggpk_truth_reference.json`의 `schema_pin` 불일치. GGPK 재추출 + builder 재실행 필요
+- **DEPRECATED (2026-04-19)**: `_archive/phase_f_legacy/` 내 `mod_pool.json` / `sanavi_*` / `farming_*` 6 파일은 Phase F 감사 후 orphan 확정 처리. 재활용 금지 (대체: `id_mod_filtering.json` + `build_coach.py` LLM 프롬프트)
