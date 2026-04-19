@@ -2,8 +2,23 @@
   "_meta": {
     "description": "T1 크래프팅 가치 베이스 화이트리스트 — ilvl>=86에서 T1 prefix/suffix roll 가능한 베이스. Continue 아키텍처 LAYER_T1_BORDER에서 사용.",
     "ilvl_threshold": 86,
-    "influence_types": ["Shaper", "Elder", "Crusader", "Hunter", "Redeemer", "Warlord"],
-    "source": "커뮤니티 크래프팅 가이드 (crafting of exile, poe.ninja 메타)"
+    "influence_types": [
+      "Shaper",
+      "Elder",
+      "Crusader",
+      "Hunter",
+      "Redeemer",
+      "Warlord"
+    ],
+    "source": "커뮤니티 크래프팅 가이드 (crafting of exile, poe.ninja 메타)",
+    "source_urls": [
+      "https://www.craftofexile.com/",
+      "https://poe.ninja/poe1/builds/mirage"
+    ],
+    "verified_at": "2026-04-19",
+    "poe_league": "3.28 Mirage",
+    "collection_method": "커뮤니티 가이드 (craftofexile + poe.ninja 빌드 메타) 기반 수동 큐레이션 + influence base ilvl>=86 화이트리스트",
+    "review_cadence": "리그 전환 시 재검토 (Influence 메타 변경 가능)"
   },
   "weapons": {
     "wands": [

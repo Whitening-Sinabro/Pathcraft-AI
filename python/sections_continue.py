@@ -1364,6 +1364,9 @@ def load_ggpk_items(filepath: Optional[Path] = None) -> GGPKItems:
         and "Metadata/Items/Currency" in b.get("InheritsFrom", "")
         and not _name(b).startswith("[")
     }
+    # HIGH_FOSSILS: Delve 3.5 이후 상위 12개 가치 fossil (Wiki "Fossil" tier 표 + Wreckers SSF).
+    # 선정 기준: craft 수요 (Pristine=life, Gilded=quality, Bound=minion) 및 가격.
+    # 출처: POE Wiki https://www.poewiki.net/wiki/Fossil (2026-04-19 확인, F7 감사).
     HIGH_FOSSILS = {
         "Sanctified Fossil", "Pristine Fossil", "Opulent Fossil", "Gilded Fossil",
         "Bound Fossil", "Encrusted Fossil", "Hollow Fossil", "Shuddering Fossil",
@@ -1394,6 +1397,12 @@ def load_ggpk_items(filepath: Optional[Path] = None) -> GGPKItems:
         _name(b) for b in bt
         if _name(b).endswith(" Oil") and not _name(b).startswith("[")
     }
+    # Oil 5단계 티어 — Blight 3.8 enchant 가치 기준.
+    # TOP: Golden/Silver/Opalescent (top anoint 가능, amulet enchant 상위)
+    # HIGH: Black/Crimson/Violet (중상위 anoint + Delirium passive node)
+    # MID/LOW: 저가 (양 축적용)
+    # PREMIUM: Reflective/Prismatic/Tainted (Blighted map + Ravaged Blight, SSF 최상급)
+    # 출처: Wreckers L1585-1674 13단계 + POE Wiki Oil 페이지 (2026-04-19 F7 감사 확인).
     OILS_TOP = {"Golden Oil", "Silver Oil", "Opalescent Oil"}
     OILS_HIGH = {"Black Oil", "Crimson Oil", "Violet Oil"}
     OILS_MID = {"Indigo Oil", "Teal Oil", "Azure Oil", "Verdant Oil"}
@@ -2234,6 +2243,10 @@ def layer_flasks_quality(mode: str = "ssf") -> str:
     return "".join(blocks)
 
 
+# Heist handpicked 9 areas — 커뮤니티 검증 고수익 영역.
+# 선정 기준: (1) Blueprint/Contract 수익성 상위 (Enchants/Divination/Trinkets 포함 확률),
+# (2) Wreckers SSF 가이드 L937 영역. 출처: POE Wiki "Heist Contract" + Wreckers 필터 L937.
+# GGPK 교차검증 (2026-04-19 F3b 감사): Blueprint: {area} / Contract: {area} 각 9종 → 18/18 존재.
 _HEIST_HANDPICKED_AREAS: "list[str]" = [
     "Bunker", "Laboratory", "Mansion", "Prohibited Library",
     "Records Office", "Repository", "Smuggler's Den", "Tunnels", "Underbelly",
@@ -2590,7 +2603,8 @@ def layer_endgame_content(mode: str = "ssf") -> str:
         category_tag="chronicle",
     ))
 
-    # 7. Inscribed Ultimatum (Cobalt L6720) — Ultimatum 컨텐츠
+    # 7. Inscribed Ultimatum (Cobalt 8.19.x L6720) — Ultimatum 컨텐츠 (3.14 도입 영구 메커닉).
+    # 출처: GGPK BaseItemTypes.json 확인 2026-04-19 (F3a 감사), Cobalt REGULAR 원본 라인 보존.
     blocks.append(make_layer_block(
         LAYER_CATEGORY_SHOW,
         "Inscribed Ultimatum (Ultimatum 컨텐츠)",
@@ -2888,7 +2902,9 @@ def layer_atlas_and_memory(mode: str = "ssf") -> str:
         category_tag="stackable_t2_high",
     ))
 
-    # Exceptional Artifacts/Ember/Ichor — Expedition 최고 티어
+    # Exceptional Artifacts/Ember/Ichor — Expedition 최고 티어.
+    # 출처: GGPK BaseItemTypes.json 전수 확인 2026-04-19 — 6/6 존재 (F2 감사).
+    # Expedition (3.16) 이후 변동 없음. Wiki: "Exceptional Currency" 카테고리.
     _EXCEPTIONAL = (
         "Exceptional Black Scythe Artifact", "Exceptional Broken Circle Artifact",
         "Exceptional Eldritch Ember", "Exceptional Eldritch Ichor",
@@ -2907,7 +2923,9 @@ def layer_atlas_and_memory(mode: str = "ssf") -> str:
         category_tag="exceptional_artifacts",
     ))
 
-    # Unique Fragments — Harbinger shards (5 shards per unique) + 특수
+    # Unique Fragments — Harbinger shards (5 shards per unique) + 특수 (Primordial, Vaal Aspect).
+    # 출처: GGPK BaseItemTypes.json 전수 확인 2026-04-19 — 8/8 존재 (F2 감사).
+    # Harbinger (3.1) 이후 영구 메커닉. Wiki: "Harbinger" piece 페이지.
     _UNIQUE_FRAGMENTS = (
         "Archon Kite Shield Piece", "Blunt Arrow Quiver Piece",
         "Callous Mask Piece", "Cloth Belt Piece",
@@ -2928,6 +2946,8 @@ def layer_atlas_and_memory(mode: str = "ssf") -> str:
     ))
 
     # Heist Objective — Heist 컨트랙트 타겟 아이템 (47종). 컨트랙트 실행 중 자동 드롭.
+    # 출처: GGPK BaseItemTypes.json 전수 검증 2026-04-19 (F3b 감사) — 47/47 존재.
+    # Heist 3.12 (2020-09) 도입, 이후 BaseType 리스트 변동 없음 (core 메커닉).
     _HEIST_OBJECTIVES = (
         "Abberathine Horns", "Admiral Proclar's Pipe", "Alchemical Chalice",
         "Ancient Seal", "Blood of Innocence", "Box of Tripyxis",
