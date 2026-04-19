@@ -1,36 +1,35 @@
 ## 지금
-- **Phase F 전체 종료** (2026-04-19) — F1-fix-2 재확인(HCSSF 이미 구현 + 7 pytest PASS), F1-fix-4 `league_refresh.md` 보강(F7-fix-2 + GGPK truth reference 4계층 + deprecated archive 추가). 535 pytest PASS. 커밋 대기.
+- **다음 세션 주제: 어플 디자인** (UI/UX). 백엔드/데이터/필터 파이프라인은 전부 종료됨
+- **Phase F 감사 전체 완결** (2026-04-19) — 8 감사 + 15 fix + legacy cleanup + truth reference 5계층. 535 pytest PASS
 
 ## 다음 (우선순위순)
-1. [ ] **인게임 검증** (사용자 영역, Claude 대기)
+1. [ ] **어플 디자인** (다음 세션 집중) — 범위 확정 필요:
+   - Tauri UI 전반 개선? (`src/App.tsx`, `src/components/`)
+   - 특정 화면/컴포넌트 리디자인?
+   - 디자인 시스템/토큰 정비?
+   - 사용자 의도 확인 필요
+2. [ ] **인게임 검증** (사용자 영역, 플레이 피드백 대기)
    - Phase B+C Step 6b: 무기 필터 Tyrannical vs Heavy, DropLevel 5 리튜닝
    - Phase D 방어 필터 스모크
    - Phase E 악세서리 필터 스모크
    - 패시브 트리 Phase 3 한국어 stat 툴팁 호버 지연
 
 ## 완료된 기능 (참조용, git log 대체 요약)
-- **β Continue 필터 L0~L10**: weapon_phys_proxy(B+C), defense_proxy(D), accessory_proxy(E) 모두 L7 통합. L7 7-way 순서 박제됨
+- **β Continue 필터 L0~L10**: weapon_phys_proxy(B+C) / defense_proxy(D) / accessory_proxy(E) L7 통합. layer_build_target 완전 연결
 - **패시브 트리 Phase 1~3**: Canvas 뷰어 / PoB URL 자동 디코드 / 한국어 stat 툴팁 (91.9%)
-- **F1+F6**: 디비카/유니크 단일 진실원 + HCSSF Mirage 파이프라인
+- **F1+F6**: 디비카/유니크 단일 진실원 + HCSSF Mirage 파이프라인 (7 pytest)
+- **F0**: GGPK 추출 19 테이블 + Truth reference 5계층 (content hash / schema pin / 독립 추출기 / 스크린샷 가이드 / stale warning)
+- **F2/F3a/F3b/F4/F5/F7 감사 + fix 완료**: legacy 6 파일 archive, 전 하드코딩 출처 주석
 
-## 도메인 파일 포인터
-- [메커닉 데이터 감사 플랜 (Phase F)](mechanic_data_audit_plan.md)
-- [Build-aware 무기 필터 플랜 (Phase B+C)](build_aware_weapon_filter_plan.md)
-- [패시브 트리 플랜](passive_tree_plan.md)
-- [Continue 아키텍처 (β)](continue_architecture.md)
-- [필터 분석](filter_analysis.md)
-- _analysis/ggpk_extraction_completeness_audit.md — F0 감사 (0.76% 커버리지)
-- _analysis/ggpk_truth_reference.json — 19 테이블 진실 anchor (3.28 Mirage, content hash + schema pin)
-- _analysis/crosscheck/README.md — Layer 2 독립 추출기 + Layer 4 스크린샷 가이드
-- _analysis/mechanic_data_audit_divcard_unique.md — F1+F6 리포트
-- _analysis/mechanic_data_audit_f2.md — F2 리포트 (Breach/Legion/Scarab/Incursion/Expedition)
-- _analysis/mechanic_data_audit_f3a.md — F3a 리포트 (Ultimatum/Blight/Delve)
-- _analysis/mechanic_data_audit_f3b.md — F3b 리포트 (Ritual/Heist/Beyond/Metamorph)
-- _analysis/mechanic_data_audit_f4.md — F4 리포트 (Sanavi 티어, ORPHAN)
-- _analysis/mechanic_data_audit_f5.md — F5 리포트 (Syndicate)
-- _analysis/mechanic_data_audit_f7.md — F7 리포트 (크래프팅/Veiled/Influence mods)
-- _analysis/neversink_weaponphys_rules.md — NeverSink 812-844 무기 mod-tier
-- _analysis/gem_weapon_restriction_audit.md — GGPK 부정확성 증거 (187 스킬)
+## 도메인 파일 포인터 (다음 세션에서 필요 시 참조)
+- **어플 디자인 진입점**: `src/App.tsx` (~700 lines, 메인 레이아웃), `src/components/` (FilterPanel, PassiveTreeCanvas, SyndicateTutorial, PobInputSection)
+- [Continue 아키텍처](continue_architecture.md) — 필터 레이어 설계
+- [패시브 트리 플랜](passive_tree_plan.md) — UI 컴포넌트 결정 기록
+- [메커닉 데이터 감사 (Phase F)](mechanic_data_audit_plan.md) — 전 Phase 감사 종료 상태
+- _analysis/ggpk_truth_reference.json — 19 테이블 진실 anchor (3.28 Mirage)
+- _analysis/crosscheck/README.md — 리그 전환 시 GGPK 재검증 가이드
+- _analysis/mechanic_data_audit_{f2,f3a,f3b,f4,f5,f7,divcard_unique}.md — Phase F 감사 리포트 7건
+- docs/league_refresh.md — 리그 교체 시 refresh 실행 순서 (9 섹션)
 
 ## Class Start 노드 매핑 (data.json, 수동 — Characters.json 추출 후 자동화 예정)
 - 0: Scion (58833) / 1: Marauder (47175) / 2: Ranger (50459)
