@@ -96,3 +96,5 @@
 | python/tests/test_ggpk_crosscheck.py | Layer 2 parametrized pytest (crosscheck 출력 있을 때만) | 아니오 |
 | python/scripts/validate_mod_names.py | F0-fix-3 — tier JSON mod 이름 → GGPK Mods.Name 검증 (exact/substring/missing) | 아니오 |
 | python/tests/test_validate_mod_names.py | F0-fix-3 pytest — defense/accessory/weapon tier 326/326 resolve 검증 | 아니오 |
+| _analysis/mechanic_data_audit_f2.md | F2 감사 리포트 — Breach/Legion/Scarab/Incursion/Expedition PASS | 예 (참조) |
+| _analysis/mechanic_data_audit_f7.md | F7 감사 리포트 — 크래프팅/Veiled/Influence mods CONDITIONAL | 예 (참조) |

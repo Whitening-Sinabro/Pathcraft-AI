@@ -213,7 +213,36 @@ Fix 태스크 진행 현황:
 
 **Phase D 재평가**: ArmourTypes 추출 후 BaseItemTypes.Id 휴리스틱 업그레이드 가능 (현재 동작 OK이지만 정확도 향상).
 
-### F2~F7 — F0-fix-1 후 착수 대기
+### F2 — 감사 완료 (2026-04-19)
+
+리포트: `_analysis/mechanic_data_audit_f2.md`
+
+**판정**: ✅ PASS (하위 권고 있음)
+
+주요 발견:
+- Breach/Legion/Scarab/Lifeforce 주력 데이터 GGPK 기반 + truth reference 5계층 검증 + 독립 추출기 교차 검증 완료
+- 하드코딩 4블록(Wombgifts/Exceptional/Unique Fragments/Chronicle) 전부 GGPK 존재 확인. 모두 stable content (3.1/3.7/3.16 이후 변동 없음)
+- F2-fix-1 (출처 주석 보강 30min), F2-fix-2 (layer_endgame 스모크 15min) 권고 — 별도 task
+
+### F7 — 감사 완료 (2026-04-19)
+
+리포트: `_analysis/mechanic_data_audit_f7.md`
+
+**판정**: ⚠️ CONDITIONAL (HIGH 2건)
+
+주요 발견:
+1. **`mod_pool.json` ORPHAN + 3.25 stale (3 리그 전)** — 코드 미사용, 삭제 or Wiki Cargo 자동 재생성 필요
+2. **`id_mod_filtering.json` source/version/collected_at 전부 없음** — 런타임 실사용인데 NeverSink 버전 추적 불가
+3. `t1_craft_bases.json` version/collected_at 부재 (MID)
+4. `HIGH_FOSSILS` / `OILS_*` 하드코딩 출처 주석 없음 (MID)
+5. defense/accessory/weapon_mod_tiers.json 326/326 GGPK resolve ✅ (F0-fix-3)
+
+Fix 태스크:
+- F7-fix-1 (🔴): `mod_pool.json` orphan 처리 (0.5h 삭제 or 2h Wiki Cargo 자동화)
+- F7-fix-2 (🔴): `id_mod_filtering.json` `_meta` + 재추출 스크립트 (1h)
+- F7-fix-3/4 (🟡): _meta/주석 보강 (25min)
+
+### F3/F4/F5 — 대기
 
 ## 참조
 

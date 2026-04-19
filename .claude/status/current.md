@@ -1,8 +1,13 @@
 ## 지금
-- **F0-fix-3 완료** (2026-04-18) — `validate_mod_names.py` + pytest. defense(175)/accessory(125)/weapon(26) = 326 mod 이름 모두 GGPK Mods에 resolve (exact 322 + substring 4). POE 필터 기본 substring 매칭 확인("Veil"/"Elevated " 의도적 wildcard). 535 pytest PASS. 커밋 대기.
+- **F2 + F7 감사 완료** (2026-04-19) — `_analysis/mechanic_data_audit_f2.md` (✅ PASS, 하위 권고) + `_analysis/mechanic_data_audit_f7.md` (⚠️ CONDITIONAL, HIGH 2: mod_pool orphan/id_mod _meta). 감사만, 수정 X. 커밋 대기.
 
 ## 다음 (우선순위순)
-1. [ ] **Phase F2~F7 본진 감사** (12~18h, F0 전부 완료)
+1. [ ] **F7-fix 실행** (🔴 먼저, 1.5~3h): mod_pool orphan 처리 + id_mod _meta 보강
+2. [ ] **F2-fix 실행** (🟡, 45min): 출처 주석 + endgame 스모크 테스트
+3. [ ] **F5 Syndicate 감사** (1h) — 가볍게
+4. [ ] **F4 Sanavi 감사** (2h) — 32 카테고리
+5. [ ] **F3a/F3b 감사** (각 2h) — Ultimatum/Blight/Delve / Ritual/Heist/Beyond/Metamorph
+6. [ ] **F1-fix-2 HCSSF 파이프라인** (별도 세션, 4~6h, 제품 기능)
    - F2 Breach/Legion/Scarab/Incursion/Expedition (테이블 다수 추출 완료 상태 가정)
    - F3 Heist/Delve/Blight 등
    - F4 Sanavi / F5 Syndicate / F7 Crafting mods
@@ -27,6 +32,8 @@
 - _analysis/ggpk_truth_reference.json — 19 테이블 진실 anchor (3.28 Mirage, content hash + schema pin)
 - _analysis/crosscheck/README.md — Layer 2 독립 추출기 + Layer 4 스크린샷 가이드
 - _analysis/mechanic_data_audit_divcard_unique.md — F1+F6 리포트
+- _analysis/mechanic_data_audit_f2.md — F2 리포트 (Breach/Legion/Scarab/Incursion/Expedition)
+- _analysis/mechanic_data_audit_f7.md — F7 리포트 (크래프팅/Veiled/Influence mods)
 - _analysis/neversink_weaponphys_rules.md — NeverSink 812-844 무기 mod-tier
 - _analysis/gem_weapon_restriction_audit.md — GGPK 부정확성 증거 (187 스킬)
 
