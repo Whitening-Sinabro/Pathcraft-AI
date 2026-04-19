@@ -1,8 +1,7 @@
 ## 지금
-- **Phase F legacy cleanup 완료** (2026-04-19) — 6 orphan 파일 `_archive/phase_f_legacy/`로 이동 (mod_pool + sanavi 2 + farming 3). README 첨부. 535 pytest PASS. 커밋 대기.
+- **F7-fix-2 완료** (2026-04-19) — `scripts/extract_id_mod_filtering.py` + `_meta` 완비. 기존 데이터 5 mod 오분류 정정 (Boots/Gloves/Helmets의 스펠 mod 제거). 535 pytest PASS. 커밋 대기.
 
 ## 다음 (우선순위순)
-1. [ ] **F7-fix-2 id_mod_filtering _meta + 재추출 스크립트** (🔴 1h)
 2. [ ] **F2-fix 실행** (🟡 45min): 출처 주석 + endgame 스모크
 3. [ ] **주석 보강 묶음** (F3a-fix-3/F3b-fix-1/F3b-fix-2/F5-fix-1/F7-fix-3/F7-fix-4, 🟡 총 1h)
 4. [ ] **F1-fix-2 HCSSF 파이프라인** (별도 세션, 4~6h, 제품 기능)

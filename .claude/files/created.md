@@ -102,3 +102,4 @@
 | _analysis/mechanic_data_audit_f4.md | F4 감사 리포트 — Sanavi 티어 데이터 CONDITIONAL (ORPHAN) | 예 (참조) |
 | _analysis/mechanic_data_audit_f5.md | F5 감사 리포트 — Syndicate PASS | 예 (참조) |
 | _analysis/mechanic_data_audit_f7.md | F7 감사 리포트 — 크래프팅/Veiled/Influence mods CONDITIONAL | 예 (참조) |
+| scripts/extract_id_mod_filtering.py | F7-fix-2 — NeverSink 1-REGULAR.filter → id_mod_filtering.json 재추출 CLI | 아니오 |

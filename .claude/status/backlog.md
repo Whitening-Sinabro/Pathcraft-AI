@@ -44,7 +44,7 @@
 
 ## Phase F 감사 Fix (2026-04-19 F2+F7 감사 결과)
 - [x] **F7-fix-1 (🔴)** — `data/mod_pool.json` → `_archive/phase_f_legacy/` (2026-04-19 완료)
-- [ ] **F7-fix-2 (🔴)** — `data/id_mod_filtering.json` `_meta` 보강 (source/version/collected_at) + NeverSink 재추출 스크립트 (1h)
+- [x] **F7-fix-2 (🔴)** — `scripts/extract_id_mod_filtering.py` 신설 + `_meta` 완비 (2026-04-19 완료). 기존 데이터 5 mod 오분류 정정 (Boots/Gloves/Helmets의 Carbonising 등 스펠 mod 제거)
 - [ ] **F7-fix-3 (🟡)** — `data/t1_craft_bases.json` `_meta` 보강 (version/collected_at/ref_url) (15min)
 - [ ] **F7-fix-4 (🟡)** — `sections_continue.py` `HIGH_FOSSILS` / `OILS_*` 출처 주석 보강 (10min)
 - [ ] **F2-fix-1 (🟡)** — `_EXCEPTIONAL` / `_UNIQUE_FRAGMENTS` 출처 주석 추가 (30min)
