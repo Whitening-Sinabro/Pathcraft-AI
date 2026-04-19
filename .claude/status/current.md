@@ -1,13 +1,12 @@
 ## 지금
-- **F2 + F7 감사 완료** (2026-04-19) — `_analysis/mechanic_data_audit_f2.md` (✅ PASS, 하위 권고) + `_analysis/mechanic_data_audit_f7.md` (⚠️ CONDITIONAL, HIGH 2: mod_pool orphan/id_mod _meta). 감사만, 수정 X. 커밋 대기.
+- **Phase F 감사 완료** (2026-04-19) — F2/F3a/F3b/F4/F5/F7 6 리포트 작성. **반복 발견**: β-5b 이후 legacy 파일 6개 ORPHAN (mod_pool + sanavi 2 + farming 3). 일괄 정리 권고. 커밋 대기.
 
 ## 다음 (우선순위순)
-1. [ ] **F7-fix 실행** (🔴 먼저, 1.5~3h): mod_pool orphan 처리 + id_mod _meta 보강
-2. [ ] **F2-fix 실행** (🟡, 45min): 출처 주석 + endgame 스모크 테스트
-3. [ ] **F5 Syndicate 감사** (1h) — 가볍게
-4. [ ] **F4 Sanavi 감사** (2h) — 32 카테고리
-5. [ ] **F3a/F3b 감사** (각 2h) — Ultimatum/Blight/Delve / Ritual/Heist/Beyond/Metamorph
-6. [ ] **F1-fix-2 HCSSF 파이프라인** (별도 세션, 4~6h, 제품 기능)
+1. [ ] **Phase F legacy cleanup 묶음** (🔴 30min) — 6 orphan 파일 일괄 `_archive/` 이동
+2. [ ] **F7-fix-2 id_mod_filtering _meta + 재추출 스크립트** (🔴 1h)
+3. [ ] **F2-fix 실행** (🟡 45min): 출처 주석 + endgame 스모크
+4. [ ] **F3a-fix-3/F3b-fix-1/F3b-fix-2/F5-fix-1/F7-fix-3/F7-fix-4** 🟡 주석 보강 묶음 (총 1h)
+5. [ ] **F1-fix-2 HCSSF 파이프라인** (별도 세션, 4~6h, 제품 기능)
    - F2 Breach/Legion/Scarab/Incursion/Expedition (테이블 다수 추출 완료 상태 가정)
    - F3 Heist/Delve/Blight 등
    - F4 Sanavi / F5 Syndicate / F7 Crafting mods
@@ -33,6 +32,10 @@
 - _analysis/crosscheck/README.md — Layer 2 독립 추출기 + Layer 4 스크린샷 가이드
 - _analysis/mechanic_data_audit_divcard_unique.md — F1+F6 리포트
 - _analysis/mechanic_data_audit_f2.md — F2 리포트 (Breach/Legion/Scarab/Incursion/Expedition)
+- _analysis/mechanic_data_audit_f3a.md — F3a 리포트 (Ultimatum/Blight/Delve)
+- _analysis/mechanic_data_audit_f3b.md — F3b 리포트 (Ritual/Heist/Beyond/Metamorph)
+- _analysis/mechanic_data_audit_f4.md — F4 리포트 (Sanavi 티어, ORPHAN)
+- _analysis/mechanic_data_audit_f5.md — F5 리포트 (Syndicate)
 - _analysis/mechanic_data_audit_f7.md — F7 리포트 (크래프팅/Veiled/Influence mods)
 - _analysis/neversink_weaponphys_rules.md — NeverSink 812-844 무기 mod-tier
 - _analysis/gem_weapon_restriction_audit.md — GGPK 부정확성 증거 (187 스킬)

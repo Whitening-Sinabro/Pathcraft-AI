@@ -246,7 +246,50 @@ Fix 태스크:
 - F7-fix-2 (🔴): `id_mod_filtering.json` `_meta` + 재추출 스크립트 (1h)
 - F7-fix-3/4 (🟡): _meta/주석 보강 (25min)
 
-### F3/F4/F5 — 대기
+### F5 — 감사 완료 (2026-04-19)
+
+리포트: `_analysis/mechanic_data_audit_f5.md` — ✅ PASS (하위 권고)
+- 18 members GGPK 교차 검증 100%, 28 pytest PASS
+- Betrayal 3.5 이후 6년 stable
+- F5-fix-1 (🟡 15min): `syndicate_layouts.json` `_meta.source` 추가
+
+### F4 — 감사 완료 (2026-04-19)
+
+리포트: `_analysis/mechanic_data_audit_f4.md` — ⚠️ CONDITIONAL (HIGH 1, ORPHAN)
+- `sanavi_tier_data.json` (5530 items) + `sanavi_tier_parser.py` 전체 ORPHAN (β-5b 이후 분리)
+- 유일 소비자 `_analysis/gen_test_filter_v4.py`가 DEPRECATED
+- F4-fix-1 (🔴 10min): 3파일 삭제 or `_archive/` 이동
+
+### F3a — 감사 완료 (2026-04-19)
+
+리포트: `_analysis/mechanic_data_audit_f3a.md` — ⚠️ CONDITIONAL (HIGH 1, ORPHAN 3파일)
+- 프로덕션 경로 (Delirium/Oils/Blight/Ultimatum) 건전 (GGPK + 게임 native + 1 하드코딩)
+- `farming_mechanics.json` (3.27) + `farming_strategies.json` (3.27) + `farming_strategy_system.py` (1450 lines) 전체 ORPHAN
+- UI `coaching.farming_strategy`는 build_coach.py Claude LLM 프롬프트 출력물 (독립)
+- F3a-fix-1 (🔴 15min): 3파일 삭제
+- F3a-fix-3 (🟡 5min): Inscribed Ultimatum Cobalt 버전 주석
+
+### F3b — 감사 완료 (2026-04-19)
+
+리포트: `_analysis/mechanic_data_audit_f3b.md` — ✅ PASS (하위 권고)
+- `_METAMORPH_ORGANS` 5/5, `_HEIST_OBJECTIVES` 47/47, `_HEIST_HANDPICKED_AREAS` Blueprint/Contract 18/18 전부 GGPK 매칭
+- Heist 3.12/Metamorph 3.9 이후 stable
+- F3b-fix-1/2 (🟡 각 10min): 하드코딩 리스트 출처 주석 보강
+
+## Phase F 감사 종료 요약 (2026-04-19)
+
+| Phase | 판정 | ORPHAN 발견 | Fix 태스크 |
+|-------|------|-------------|-----------|
+| F0 | ✅ | - | 3 완료 |
+| F1+F6 | ⚠️ (대부분 해결) | - | 1 대기 (HCSSF) |
+| F2 | ✅ | - | 2 (주석/스모크) |
+| F3a | ⚠️ | 3 파일 (farming_*) | 3 |
+| F3b | ✅ | - | 2 (주석) |
+| F4 | ⚠️ | 2 파일 (sanavi_*) | 1 |
+| F5 | ✅ | - | 1 (meta) |
+| F7 | ⚠️ | 1 파일 (mod_pool) | 4 |
+
+**반복 발견 패턴**: β-5b 재설계 후 legacy 파일 6개 orphan 상태 (mod_pool / sanavi 2 / farming 3). 일괄 정리 권고.
 
 ## 참조
 

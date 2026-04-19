@@ -97,4 +97,8 @@
 | python/scripts/validate_mod_names.py | F0-fix-3 — tier JSON mod 이름 → GGPK Mods.Name 검증 (exact/substring/missing) | 아니오 |
 | python/tests/test_validate_mod_names.py | F0-fix-3 pytest — defense/accessory/weapon tier 326/326 resolve 검증 | 아니오 |
 | _analysis/mechanic_data_audit_f2.md | F2 감사 리포트 — Breach/Legion/Scarab/Incursion/Expedition PASS | 예 (참조) |
+| _analysis/mechanic_data_audit_f3a.md | F3a 감사 리포트 — Ultimatum/Blight/Delve CONDITIONAL (farming_* orphan) | 예 (참조) |
+| _analysis/mechanic_data_audit_f3b.md | F3b 감사 리포트 — Ritual/Heist/Beyond/Metamorph PASS | 예 (참조) |
+| _analysis/mechanic_data_audit_f4.md | F4 감사 리포트 — Sanavi 티어 데이터 CONDITIONAL (ORPHAN) | 예 (참조) |
+| _analysis/mechanic_data_audit_f5.md | F5 감사 리포트 — Syndicate PASS | 예 (참조) |
 | _analysis/mechanic_data_audit_f7.md | F7 감사 리포트 — 크래프팅/Veiled/Influence mods CONDITIONAL | 예 (참조) |
