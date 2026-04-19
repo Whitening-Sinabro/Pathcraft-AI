@@ -1,16 +1,12 @@
 ## 지금
-- **Phase F 감사 완료** (2026-04-19) — F2/F3a/F3b/F4/F5/F7 6 리포트 작성. **반복 발견**: β-5b 이후 legacy 파일 6개 ORPHAN (mod_pool + sanavi 2 + farming 3). 일괄 정리 권고. 커밋 대기.
+- **Phase F legacy cleanup 완료** (2026-04-19) — 6 orphan 파일 `_archive/phase_f_legacy/`로 이동 (mod_pool + sanavi 2 + farming 3). README 첨부. 535 pytest PASS. 커밋 대기.
 
 ## 다음 (우선순위순)
-1. [ ] **Phase F legacy cleanup 묶음** (🔴 30min) — 6 orphan 파일 일괄 `_archive/` 이동
-2. [ ] **F7-fix-2 id_mod_filtering _meta + 재추출 스크립트** (🔴 1h)
-3. [ ] **F2-fix 실행** (🟡 45min): 출처 주석 + endgame 스모크
-4. [ ] **F3a-fix-3/F3b-fix-1/F3b-fix-2/F5-fix-1/F7-fix-3/F7-fix-4** 🟡 주석 보강 묶음 (총 1h)
-5. [ ] **F1-fix-2 HCSSF 파이프라인** (별도 세션, 4~6h, 제품 기능)
-   - F2 Breach/Legion/Scarab/Incursion/Expedition (테이블 다수 추출 완료 상태 가정)
-   - F3 Heist/Delve/Blight 등
-   - F4 Sanavi / F5 Syndicate / F7 Crafting mods
-2. [ ] **인게임 검증** (사용자 영역, Claude 대기)
+1. [ ] **F7-fix-2 id_mod_filtering _meta + 재추출 스크립트** (🔴 1h)
+2. [ ] **F2-fix 실행** (🟡 45min): 출처 주석 + endgame 스모크
+3. [ ] **주석 보강 묶음** (F3a-fix-3/F3b-fix-1/F3b-fix-2/F5-fix-1/F7-fix-3/F7-fix-4, 🟡 총 1h)
+4. [ ] **F1-fix-2 HCSSF 파이프라인** (별도 세션, 4~6h, 제품 기능)
+5. [ ] **인게임 검증** (사용자 영역, Claude 대기)
    - Phase B+C Step 6b: 무기 필터 Tyrannical vs Heavy, DropLevel 5 리튜닝
    - Phase D 방어 필터 스모크
    - Phase E 악세서리 필터 스모크
