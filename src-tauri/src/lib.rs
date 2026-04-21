@@ -5,11 +5,19 @@ pub mod ggpk;
 pub mod oodle;
 pub mod schema;
 
-use std::process::Command;
+use std::process::{Child, Command};
 use std::path::PathBuf;
+use std::sync::{Mutex, OnceLock};
 
 #[cfg(target_os = "windows")]
 use std::os::windows::process::CommandExt;
+
+/// 현재 실행 중인 coach subprocess handle. 사용자가 정지 버튼 누르면 kill.
+/// 단일 데스크톱 앱 가정 — 동시에 coach는 1개만 돌음.
+fn coach_child() -> &'static Mutex<Option<Child>> {
+    static REG: OnceLock<Mutex<Option<Child>>> = OnceLock::new();
+    REG.get_or_init(|| Mutex::new(None))
+}
 
 /// Windows에서 Python subprocess 호출 시 콘솔 창 표시 억제 flag.
 /// CREATE_NO_WINDOW = 0x08000000 (WinAPI 상수).
@@ -84,17 +92,28 @@ async fn parse_pob(link: String) -> Result<String, String> {
 }
 
 #[tauri::command]
-async fn coach_build(build_json: String) -> Result<String, String> {
+async fn coach_build(build_json: String, model: Option<String>) -> Result<String, String> {
     tauri::async_runtime::spawn_blocking(move || {
-        let mut child = new_python_cmd()
-            .arg(python_dir().join("build_coach.py"))
+        // 허용 모델 화이트리스트 — 임의 값 주입 차단 (subprocess 인자 인젝션 방지).
+        let model_arg = match model.as_deref() {
+            Some("claude-haiku-4-5-20251001") => Some("claude-haiku-4-5-20251001"),
+            Some("claude-sonnet-4-6") => Some("claude-sonnet-4-6"),
+            Some("claude-opus-4-7") => Some("claude-opus-4-7"),
+            Some(other) => return Err(format!("허용되지 않은 모델: {}", other)),
+            None => None,  // Python 기본값 사용
+        };
+        let mut cmd = new_python_cmd();
+        cmd.arg(python_dir().join("build_coach.py"))
             .arg("-")
             .env("PYTHONIOENCODING", "utf-8")
             .current_dir(project_root())
             .stdin(std::process::Stdio::piped())
             .stdout(std::process::Stdio::piped())
-            .stderr(std::process::Stdio::piped())
-            .spawn()
+            .stderr(std::process::Stdio::piped());
+        if let Some(m) = model_arg {
+            cmd.arg("--model").arg(m);
+        }
+        let mut child = cmd.spawn()
             .map_err(|e| format!("Python 실행 실패: {}", e))?;
 
         use std::io::Write;
@@ -103,18 +122,71 @@ async fn coach_build(build_json: String) -> Result<String, String> {
                 .map_err(|e| format!("stdin 전달 실패: {}", e))?;
         }
 
-        let output = child.wait_with_output()
-            .map_err(|e| format!("프로세스 대기 실패: {}", e))?;
+        // stdout/stderr 수동 수집 — child 자체는 cancel을 위해 레지스트리로 이관 (wait_with_output은 child ownership을 소비하므로 사용 불가).
+        // 중요: stdout/stderr를 **동시** 드레인해야 deadlock 방지 (build_coach.py는 stderr로 진행 로그를 계속 씀 — 파이프 버퍼 ~64KB 차면 Python 블록).
+        let stdout_pipe = child.stdout.take();
+        let stderr_pipe = child.stderr.take();
 
-        if output.status.success() {
-            Ok(String::from_utf8_lossy(&output.stdout).to_string())
+        // 기존 레지스트리 entry는 coach 중복 실행 가드 — 이전 것은 취소해 넘김.
+        if let Ok(mut slot) = coach_child().lock() {
+            if let Some(mut old) = slot.take() {
+                let _ = old.kill();
+                let _ = old.wait();
+            }
+            *slot = Some(child);
+        }
+
+        use std::io::Read;
+        let stderr_handle = stderr_pipe.map(|mut p| {
+            std::thread::spawn(move || {
+                let mut buf = Vec::new();
+                let _ = p.read_to_end(&mut buf);
+                buf
+            })
+        });
+
+        let mut stdout_buf = Vec::new();
+        if let Some(mut p) = stdout_pipe {
+            let _ = p.read_to_end(&mut stdout_buf);
+        }
+
+        let stderr_buf = stderr_handle
+            .map(|h| h.join().unwrap_or_default())
+            .unwrap_or_default();
+
+        // 파이프가 닫혔으면 프로세스 종료 후 회수 — kill 여부 판별용 exit status 확보.
+        let status = {
+            let mut slot = coach_child().lock()
+                .map_err(|e| format!("레지스트리 잠금 실패: {}", e))?;
+            match slot.take() {
+                Some(mut c) => c.wait().map_err(|e| format!("프로세스 대기 실패: {}", e))?,
+                None => return Err("코치 취소됨".to_string()),  // cancel_coach가 이미 회수
+            }
+        };
+
+        if status.success() {
+            Ok(String::from_utf8_lossy(&stdout_buf).to_string())
         } else {
-            let stderr = String::from_utf8_lossy(&output.stderr).to_string();
+            let stderr = String::from_utf8_lossy(&stderr_buf).to_string();
             Err(format!("코치 에러: {}", stderr))
         }
     })
     .await
     .map_err(|e| format!("작업 스케줄 실패: {}", e))?
+}
+
+#[tauri::command]
+fn cancel_coach() -> Result<bool, String> {
+    let mut slot = coach_child().lock()
+        .map_err(|e| format!("레지스트리 잠금 실패: {}", e))?;
+    match slot.take() {
+        Some(mut child) => {
+            let _ = child.kill();
+            let _ = child.wait();
+            Ok(true)
+        }
+        None => Ok(false),  // 실행 중인 coach 없음
+    }
 }
 
 #[tauri::command]
@@ -358,7 +430,7 @@ mod tests {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![parse_pob, coach_build, generate_filter, generate_filter_multi, syndicate_recommend, analyze_syndicate_image, collect_patch_notes, get_latest_patch, extract_game_data])
+        .invoke_handler(tauri::generate_handler![parse_pob, coach_build, cancel_coach, generate_filter, generate_filter_multi, syndicate_recommend, analyze_syndicate_image, collect_patch_notes, get_latest_patch, extract_game_data])
         .setup(|app| {
             if cfg!(debug_assertions) {
                 app.handle().plugin(

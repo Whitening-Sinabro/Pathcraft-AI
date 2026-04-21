@@ -12,15 +12,35 @@
   "app": {
     "windows": [
       {
+        "label": "main",
         "title": "PathcraftAI - Build Coach",
-        "width": 800,
-        "height": 600,
+        "width": 1440,
+        "height": 900,
+        "minWidth": 1100,
+        "minHeight": 700,
         "resizable": true,
-        "fullscreen": false
+        "fullscreen": false,
+        "theme": "Dark"
+      },
+      {
+        "label": "overlay",
+        "title": "PathcraftAI Overlay",
+        "url": "index.html?mode=overlay",
+        "width": 400,
+        "height": 640,
+        "minWidth": 320,
+        "minHeight": 480,
+        "resizable": true,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": false,
+        "theme": "Dark"
       }
     ],
     "security": {
-      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://ipc.localhost"
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self' https://ipc.localhost"
     }
   },
   "bundle": {

@@ -1,0 +1,121 @@
+/* 오버레이 창 전용 스타일. 반투명 배경 + 프레임리스. */
+
+html, body, #root {
+  height: 100vh;
+  overflow: hidden;
+  background: transparent;
+}
+
+.overlay-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.overlay-drag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border-default);
+  cursor: grab;
+  user-select: none;
+}
+.overlay-drag:active {
+  cursor: grabbing;
+}
+
+.overlay-drag__title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.overlay-drag__close {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background var(--anim-fast) var(--anim-easing), color var(--anim-fast) var(--anim-easing);
+}
+.overlay-drag__close:hover {
+  background: var(--status-danger-bg);
+  color: var(--status-danger);
+}
+
+.overlay-body {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.overlay-drag__tier {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: var(--accent-subtle);
+  color: var(--accent-hover);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.overlay-section {
+  padding: 8px 10px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+}
+
+.overlay-section__title {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.overlay-phase-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.overlay-phase-tab {
+  flex: 1 1 auto;
+  padding: 4px 8px;
+  background: transparent;
+  border: 1px solid var(--border-default);
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--anim-fast) var(--anim-easing), color var(--anim-fast) var(--anim-easing), border-color var(--anim-fast) var(--anim-easing);
+  white-space: nowrap;
+}
+.overlay-phase-tab:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-hover);
+}
+.overlay-phase-tab.is-active {
+  background: var(--accent-subtle);
+  border-color: var(--accent-hover);
+  color: var(--accent-hover);
+}

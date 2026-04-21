@@ -1,11 +1,21 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "enables the default permissions",
+  "description": "main + overlay 창 권한 — 창 show/hide/close + 드래그",
   "windows": [
-    "main"
+    "main",
+    "overlay"
   ],
   "permissions": [
-    "core:default"
+    "core:default",
+    "core:window:allow-show",
+    "core:window:allow-hide",
+    "core:window:allow-close",
+    "core:window:allow-start-dragging",
+    "core:window:allow-set-focus",
+    "core:webview:allow-create-webview-window",
+    "core:event:allow-emit",
+    "core:event:allow-listen",
+    "core:event:allow-unlisten"
   ]
 }
