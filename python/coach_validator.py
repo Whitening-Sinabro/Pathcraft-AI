@@ -25,6 +25,56 @@ def _load_quest_rewards() -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _load_valid_gems() -> set[str]:
+    """POE1 유효 젬 이름 set (대소문자 무시 키). hallucination 탐지용."""
+    path = Path(__file__).resolve().parent.parent / "data" / "valid_gems.json"
+    if not path.exists():
+        return set()
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"valid_gems.json 로드 실패: {e}")
+        return set()
+    gems = data.get("gems", [])
+    if not isinstance(gems, list):
+        return set()
+    return {g.strip().lower() for g in gems if isinstance(g, str) and g.strip()}
+
+
+_VALID_GEMS_CACHE: set[str] | None = None
+
+
+def _get_valid_gems() -> set[str]:
+    global _VALID_GEMS_CACHE
+    if _VALID_GEMS_CACHE is None:
+        _VALID_GEMS_CACHE = _load_valid_gems()
+    return _VALID_GEMS_CACHE
+
+
+def _extract_gem_strings(obj: Any, out: list[str]) -> None:
+    """결과 JSON 재귀 순회 — 'gems' 배열 + main_skill/change 문자열에서 젬 이름 추출.
+    경계: str/list/dict만 탐색. 숫자/None 스킵."""
+    if isinstance(obj, dict):
+        for key, val in obj.items():
+            # 'gems' 배열은 젬 이름 리스트
+            if key == "gems" and isinstance(val, list):
+                for g in val:
+                    if isinstance(g, str) and g.strip():
+                        out.append(g.strip())
+            # main_skill/change는 "A - B - C" 형태
+            elif key in ("main_skill", "change") and isinstance(val, str):
+                # " - " 또는 "," 로 쪼갬
+                for part in val.replace(",", " - ").split(" - "):
+                    part = part.strip()
+                    if part and len(part) < 60:  # 젬 이름 길이 합리 제한
+                        out.append(part)
+            else:
+                _extract_gem_strings(val, out)
+    elif isinstance(obj, list):
+        for item in obj:
+            _extract_gem_strings(item, out)
+
+
 # 퀘스트 보상 젬 → {gem_name: {class: [quest_name, npc, act, min_level]}} 역인덱스
 _GEM_QUEST_INDEX: dict = {}
 _INDEX_BUILT = False
@@ -137,6 +187,40 @@ def validate_coach_output(result: dict, build_data: dict | None = None) -> list[
     tier = result.get("tier", "")
     if isinstance(tier, str) and tier and tier not in ("S", "A", "B", "C", "D", "F"):
         warnings.append(f"[값] tier='{tier}' (S/A/B/C/D/F 기대)")
+
+    # 5. 젬 이름 hallucination 검증 — POE1 valid_gems.json 대조
+    valid_gems = _get_valid_gems()
+    if valid_gems:
+        gem_candidates: list[str] = []
+        _extract_gem_strings(result, gem_candidates)
+        # 중복 제거 + 정규화된 비교 (대소문자 무시, 선후 공백 제거)
+        seen_invalid: set[str] = set()
+        # False positive 억제용 stopword — gem이 아닌 설명 토큰
+        STOPWORDS = {
+            "and", "or", "with", "to", "vs", "into", "via", "at", "on",
+            "4-link", "5-link", "6-link", "4l", "5l", "6l",
+            "메인스킬", "서포트1", "서포트2", "서포트3", "서포트4", "서포트5",
+            "final", "main", "support", "skill", "gem", "final combo", "최종 조합",
+        }
+        for cand in gem_candidates:
+            norm = cand.strip().lower()
+            if not norm or norm in STOPWORDS or norm in seen_invalid:
+                continue
+            # 숫자만 / 2글자 이하는 젬 이름 아닐 가능성 높음
+            if len(norm) < 3 or norm.replace("-", "").replace(" ", "").isdigit():
+                continue
+            # valid 젬이면 통과
+            if norm in valid_gems:
+                continue
+            # 일반화된 표현 허용 (예: "메인스킬") — 한글/이모지 포함이면 설명 텍스트로 간주
+            if any(ord(c) > 127 for c in norm):
+                continue
+            # 괄호 포함 주석 (예: "Firestorm (4L)") — 괄호 앞 부분만 재검사
+            paren = norm.split("(")[0].strip()
+            if paren and paren != norm and paren in valid_gems:
+                continue
+            seen_invalid.add(norm)
+            warnings.append(f"[젬] '{cand}' — POE1 valid_gems.json에 없음 (hallucination 의심)")
 
     return warnings
 

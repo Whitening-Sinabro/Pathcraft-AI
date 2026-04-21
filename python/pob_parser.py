@@ -59,7 +59,23 @@ def get_pob_code_from_url(pob_url):
             pob_url = pob_url.replace('pastebin.com/', 'pastebin.com/raw/')
             logger.info(f"   > Pastebin URL detected, using raw: {pob_url}")
 
-        response = requests.get(pob_url, headers=HEADERS, timeout=10)
+        # pobb.in은 간헐적으로 느림 — 30초 타임아웃 + 타임아웃 시 1회 재시도.
+        # 커넥션 에러/4xx/5xx는 재시도하지 않음 (서버 문제는 반복해도 소용 없음).
+        response = None
+        last_timeout: requests.exceptions.Timeout | None = None
+        for attempt in range(2):
+            try:
+                response = requests.get(pob_url, headers=HEADERS, timeout=30)
+                break
+            except requests.exceptions.Timeout as e:
+                last_timeout = e
+                if attempt == 0:
+                    logger.warning(f"   > 타임아웃 (30s), 재시도 중...")
+                    continue
+                raise
+        if response is None:
+            # 루프 끝났는데 response 없음 = 모든 시도 타임아웃 (raise 이후 못 옴, 방어적)
+            raise last_timeout if last_timeout else RuntimeError("요청 실패")
         response.raise_for_status()
 
         # pastebin.com/raw는 직접 텍스트 반환
@@ -70,8 +86,14 @@ def get_pob_code_from_url(pob_url):
         soup = BeautifulSoup(response.content, 'html.parser')
         code_element = soup.find('textarea')
         return code_element.text.strip() if code_element else None
-    except Exception as e:
-        logger.error(f"   > POB URL 가져오기 실패: {e}")
+    except requests.exceptions.Timeout as e:
+        logger.error(f"   > POB URL 타임아웃 (30s × 2회): {e}")
+        return None
+    except requests.exceptions.RequestException as e:
+        logger.error(f"   > POB URL 네트워크 에러: {e}")
+        return None
+    except (OSError, IOError) as e:
+        logger.error(f"   > POB URL 파일/IO 에러: {e}")
         return None
 
 def decode_pob_code(encoded_code):

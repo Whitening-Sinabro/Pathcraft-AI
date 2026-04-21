@@ -13,7 +13,7 @@ from pathlib import Path
 import requests
 
 from dotenv import load_dotenv
-load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+load_dotenv(Path(__file__).resolve().parent.parent / ".env", override=True)
 
 sys.stdout.reconfigure(encoding='utf-8')
 sys.stderr.reconfigure(encoding='utf-8')
@@ -28,7 +28,17 @@ except ImportError:
     sys.exit(1)
 
 
-SYSTEM_PROMPT = """너는 Path of Exile 범용 빌드 코치다.
+SYSTEM_PROMPT = """너는 Path of Exile 1 (현재 리그: 3.28 Mirage) 전용 빌드 코치다.
+
+**필수 제약 — 절대 위반 금지**:
+- POE1 데이터만 사용. POE2는 별도 게임으로 젬/스킬/메커닉이 다름. POE2 이름 (예: "Fire Wall", "Shock Burst Rounds") 사용 금지.
+- 제공된 "POE1 Support 젬 화이트리스트"에 없는 support 젬은 추천 금지. 확신 없으면 화이트리스트에서만 선택.
+- 삭제되거나 개명된 레거시 젬 (예: 구 Vaal 젬, 2019년 이전 이름) 사용 금지.
+- **정식명 전용**: 젬·스킬·유니크·베이스 이름은 반드시 POE Wiki 정식 표기. 약칭/단축/변형 금지.
+  - ✗ "bleed chance" / "ele focus" / "cwdt" / "HH" / "tabula"
+  - ✓ "Chance to Bleed Support" / "Elemental Focus Support" / "Cast when Damage Taken Support" / "Headhunter" / "Tabula Rasa"
+- **추측성 유니크 금지**: 존재 여부가 확실한 유니크만 기입. 확신 없으면 절대 이름 지어내지 말고 레어 설명으로 대체 (예: `"item": "Rare Body Armour with life and resists"`).
+- **출력 정규화 인지**: 이 코치의 출력은 `coach_normalizer` + `gear_normalizer` 로 자동 검증된다. 정식명 이탈은 사용자에게 "자동 교정 N건" 배지로 노출되어 신뢰도 저하를 초래한다.
 
 역할:
 - 유저가 제공한 POB 빌드 데이터를 분석하고 빌드 특성에 맞는 단계별 가이드를 생성한다.
@@ -183,8 +193,10 @@ build_rating 규칙:
 
 gear_progression 규칙:
 - 핵심 슬롯 최소 6개 (Body, Helmet, Weapon, Boots, Belt, Amulet). 빌드에 중요한 슬롯만.
+- **slot 정식명 사용**: "Body Armour" / "Helmet" / "Gloves" / "Boots" / "Weapon" / "Offhand" / "Belt" / "Ring" / "Amulet" / "Flask" / "Jewel" / "Abyss Jewel". 축약/오기 금지 ("Chest", "Head", "Main Hand" 등).
 - 각 슬롯에 phases 최소 2개 (캠페인 + 엔드게임). 중요한 슬롯은 3~4단계.
 - 레어 아이템은 "라이프+저항 레어"처럼 핵심 모드 명시. 유니크는 정확한 이름.
+- **추측성 유니크 금지**: POB 빌드 본문에 없는 유니크를 "이 슬롯에 어울릴 것 같은" 느낌으로 넣지 말 것. 불확실하면 `"item": "Rare ${slot} with life/resists"` 형태 레어 설명 사용.
 - acquisition은 구체적으로: "에센스 오브 그리드 크래프팅" / "Humility 카드 x9 (Blood Aqueduct)" / "Shaper 보스 드롭".
 - priority: 필수(없으면 빌드 안 돌아감) / 권장(있으면 크게 좋아짐) / 목표(최종 BiS).
 
@@ -228,6 +240,23 @@ def load_quest_rewards() -> dict:
         with open(filepath, "r", encoding="utf-8") as f:
             return json.load(f)
     return {}
+
+
+def load_valid_support_gems() -> list[str]:
+    """POE1 유효 support 젬 이름 리스트 (data/valid_gems.json). hallucination 차단용 화이트리스트.
+    빈 리스트 반환 시 제약 생략 (코치는 무제약 모드로 동작)."""
+    path = Path(__file__).resolve().parent.parent / "data" / "valid_gems.json"
+    if not path.exists():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"valid_gems.json 로드 실패: {e}")
+        return []
+    gems = data.get("gems", [])
+    if not isinstance(gems, list):
+        return []
+    return sorted([g for g in gems if isinstance(g, str) and g.endswith(" Support")])
 
 
 def load_patch_context() -> dict:
@@ -407,10 +436,27 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
                     alt_lines.append(f"- **{title}**: {gems_text}")
                 alternate_skill_info = "\n".join(alt_lines)
 
-    context_parts = [f"이 POB 빌드를 범용(SC/HC/SSF/Trade 전부) 관점으로 분석하고 고르게 코칭해줘 — 한 모드로 편향되지 않게:\n\n{json.dumps(primary_build, ensure_ascii=False)}"]
+    # === Prompt caching 전략 ===
+    # 프롬프트 캐싱은 prefix 매칭 — 안정 콘텐츠가 **반드시** 변동 콘텐츠 앞에 와야 한다.
+    # render 순서: tools → system → messages. system은 SYSTEM_PROMPT (글로벌 안정).
+    # messages에선 user content를 3 블록으로 분할:
+    #   (1) stable_global: 전 사용자/빌드 공통 — support 젬, 보이드스톤, 패치노트
+    #   (2) stable_class:  클래스·아키타입 공통 — archetype 데이터, 클래스 퀘스트 보상
+    #   (3) variable:      POB 개별 — 빌드 JSON, 보조 SkillSet, extras, Wiki, game data
+    # 각 stable 블록 끝에 cache_control ephemeral → 2회차부터 해당 구간 ~90% 할인.
+    # variable은 매번 full price (어차피 POB마다 다름).
+    stable_global_parts: list[str] = []
+    stable_class_parts: list[str] = []
+    variable_parts: list[str] = []
+
+    # (3) VARIABLE — POB 빌드 본체
+    variable_parts.append(
+        "이 POB 빌드를 범용(SC/HC/SSF/Trade 전부) 관점으로 분석하고 고르게 코칭해줘 — 한 모드로 편향되지 않게:\n\n"
+        + json.dumps(primary_build, ensure_ascii=False)
+    )
 
     if alternate_skill_info:
-        context_parts.append(
+        variable_parts.append(
             "\n\n**POB 내 보조 SkillSet** (주 스킬 외에 이 POB에 저장된 레벨링/전환 스킬 세트 — "
             "`leveling_skills.options` 및 `skill_transitions` 작성 시 반드시 반영):\n"
             + alternate_skill_info
@@ -418,7 +464,7 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
         logger.info("alternate_gem_sets: %d개 보조 SkillSet 컨텍스트 추가",
                     len(alt_sets) if isinstance(primary_build, dict) and primary_build.get("progression_stages") else 0)
 
-    # 사용자가 2단계 보조 POB를 추가했으면, 그 POB들의 전체 progression을 AI에 전달
+    # 사용자가 2단계 보조 POB를 추가했으면, 그 POB들의 전체 progression을 AI에 전달 (VARIABLE)
     if extra_builds:
         progression_summary = []
         for i, eb in enumerate(extra_builds, start=2):
@@ -441,7 +487,7 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
                 f"- 주요 유니크: {', '.join(uniques) if uniques else '(없음)'}"
             )
         if progression_summary:
-            context_parts.append(
+            variable_parts.append(
                 "\n\n**중요**: 유저가 제공한 **전체 스킬 전환 progression** — 1단계(최종 빌드) 외에도 "
                 "여러 스테이지 POB가 있음. 레벨링 가이드 작성 시 이 progression 순서와 각 스테이지 "
                 "스킬을 반드시 반영해라. `leveling_skills.options`에 아래 POB들의 스킬을 옵션으로 포함하고, "
@@ -451,25 +497,46 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
             logger.info("4-stage progression: %d개 보조 POB 컨텍스트 추가", len(extra_builds))
 
     if wiki_item_info:
-        context_parts.append(f"\n\n유니크 아이템 실제 획득 정보 (Wiki 기준, 이 데이터를 반드시 참고):\n{json.dumps(wiki_item_info, ensure_ascii=False)}")
+        variable_parts.append(f"\n\n유니크 아이템 실제 획득 정보 (Wiki 기준, 이 데이터를 반드시 참고):\n{json.dumps(wiki_item_info, ensure_ascii=False)}")
 
+    # 게임 데이터 컨텍스트는 POB 빌드의 젬 목록에 의존 → VARIABLE
+    if game_data_context:
+        variable_parts.append(f"\n\n{game_data_context}")
+
+    # (2) STABLE_CLASS — 클래스/아키타입 공통 (archetype 4개 × class 7개 = 최대 28 캐시 엔트리)
     if archetype_data:
         leveling = archetype_data.get("leveling_skill_progression", {})
         auras = archetype_data.get("aura_progression", {})
         aura_utility = archetype_data.get("aura_herald_utility_by_level", [])
         curses = archetype_data.get("curse_setup", {})
         movement = archetype_data.get("movement_skill", {})
-        context_parts.append(f"\n\n아키타입: {archetype}\n레벨링 스킬 데이터:\n{json.dumps(leveling, ensure_ascii=False)}")
+        stable_class_parts.append(f"\n\n아키타입: {archetype}\n레벨링 스킬 데이터:\n{json.dumps(leveling, ensure_ascii=False)}")
         if aura_utility:
-            context_parts.append(f"\n오라/전령/유틸리티 구간별 추천 (이 데이터를 기반으로 aura_utility_progression 작성):\n{json.dumps(aura_utility, ensure_ascii=False)}")
+            stable_class_parts.append(f"\n오라/전령/유틸리티 구간별 추천 (이 데이터를 기반으로 aura_utility_progression 작성):\n{json.dumps(aura_utility, ensure_ascii=False)}")
         else:
-            context_parts.append(f"\n오라 추천 (요약):\n{json.dumps(auras, ensure_ascii=False)}")
+            stable_class_parts.append(f"\n오라 추천 (요약):\n{json.dumps(auras, ensure_ascii=False)}")
         if curses:
-            context_parts.append(f"\n저주 추천:\n{json.dumps(curses, ensure_ascii=False)}")
+            stable_class_parts.append(f"\n저주 추천:\n{json.dumps(curses, ensure_ascii=False)}")
         if movement:
-            context_parts.append(f"\n이동기 추천:\n{json.dumps(movement, ensure_ascii=False)}")
+            stable_class_parts.append(f"\n이동기 추천:\n{json.dumps(movement, ensure_ascii=False)}")
 
-    # 공통 템플릿에서 보이드스톤/장비 타이밍 로드
+    # game_data 없으면 class_rewards 폴백 — 클래스별 stable
+    if not game_data_context and class_rewards:
+        char_class = build_data.get("meta", {}).get("class", "")
+        stable_class_parts.append(f"\n\n{char_class} 클래스 퀘스트 젬 보상:\n{json.dumps(class_rewards, ensure_ascii=False)}")
+
+    # (1) STABLE_GLOBAL — 전 사용자 공통 (support gems + 보이드스톤 + 패치노트)
+    support_gems = load_valid_support_gems()
+    if support_gems:
+        stable_global_parts.append(
+            f"\n\n**POE1 Support 젬 화이트리스트 ({len(support_gems)}개)** — "
+            f"아래 목록에 없는 support 젬은 **절대 추천하지 마라**. "
+            f"기본/각성(Awakened)/디바전트(Divergent) 등 quality variant은 이름이 다르면 별도 젬으로 취급:\n"
+            + ", ".join(support_gems)
+        )
+        logger.info(f"Support 젬 화이트리스트 주입: {len(support_gems)}개")
+
+    # 공통 템플릿에서 보이드스톤/장비 타이밍 로드 (GLOBAL)
     common_path = Path(__file__).resolve().parent.parent / "data" / "guide_templates" / "common_template.json"
     common_data = {}
     if common_path.exists():
@@ -479,26 +546,24 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
         vs_data = common_data.get("voidstone_progression", {})
         gear_data = common_data.get("gear_upgrade_timeline", {})
         if vs_data:
-            context_parts.append(f"\n\n보이드스톤 진행 (3.28 미라지):\n{json.dumps(vs_data, ensure_ascii=False)}")
+            stable_global_parts.append(f"\n\n보이드스톤 진행 (3.28 미라지):\n{json.dumps(vs_data, ensure_ascii=False)}")
         if gear_data:
-            context_parts.append(f"\n장비 업그레이드 타이밍:\n{json.dumps(gear_data, ensure_ascii=False)}")
+            stable_global_parts.append(f"\n장비 업그레이드 타이밍:\n{json.dumps(gear_data, ensure_ascii=False)}")
 
-    # 게임 데이터 컨텍스트 (추출된 실제 데이터 우선, 폴백으로 기존 quest_rewards)
-    if game_data_context:
-        context_parts.append(f"\n\n{game_data_context}")
-    elif class_rewards:
-        char_class = build_data.get("meta", {}).get("class", "")
-        context_parts.append(f"\n\n{char_class} 클래스 퀘스트 젬 보상:\n{json.dumps(class_rewards, ensure_ascii=False)}")
-
-    # 최신 패치 컨텍스트 주입
+    # 최신 패치 컨텍스트 주입 (GLOBAL, 리그 전환 시만 변경)
     patch_context = load_patch_context()
     if patch_context:
         patch_ver = patch_context.get("version", "")
         logger.info(f"패치 컨텍스트 로드: {patch_ver}")
-        context_parts.append(f"\n\n최신 패치 정보 ({patch_ver}):\n{json.dumps(patch_context, ensure_ascii=False)}")
-        context_parts.append("\n위 패치 정보를 반드시 참고해서 답변해줘. 버프된 스킬은 추천도를 올리고, 너프된 스킬은 주의사항에 포함해.")
+        stable_global_parts.append(f"\n\n최신 패치 정보 ({patch_ver}):\n{json.dumps(patch_context, ensure_ascii=False)}")
+        stable_global_parts.append("\n위 패치 정보를 반드시 참고해서 답변해줘. 버프된 스킬은 추천도를 올리고, 너프된 스킬은 주의사항에 포함해.")
 
-    user_message = "\n".join(context_parts)
+    # 캐시 효율 관측용 (디버깅 — 각 블록 대략 토큰 수 측정)
+    stable_global = "\n".join(stable_global_parts)
+    stable_class = "\n".join(stable_class_parts)
+    variable_text = "\n".join(variable_parts)
+    # 전체 문자열 (max_tokens 계산용 호환)
+    user_message = stable_global + stable_class + variable_text
 
     # 프롬프트 크기에 따라 max_tokens 동적 조정 (4-stage 같은 큰 컨텍스트 → 출력도 커짐)
     prompt_chars = len(user_message) + len(SYSTEM_PROMPT)
@@ -511,6 +576,39 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
         f"(prompt~{prompt_chars}자, max_out={max_out}, streaming={use_streaming})..."
     )
 
+    # Prompt caching 적용 — 블록 구성:
+    #  • system:  [SYSTEM_PROMPT + cache_control]  → 1 breakpoint (tools+system 전체 캐시)
+    #  • messages[0].content[0]: stable_global     + cache_control → 2 breakpoint
+    #  • messages[0].content[1]: stable_class      + cache_control → 3 breakpoint (없으면 skip)
+    #  • messages[0].content[-1]: variable_text    (캐시 불가)
+    # 같은 POB 재분석 / 같은 클래스 재분석 시 cache_read 경로로 입력 ~90% 할인.
+    system_blocks = [{
+        "type": "text",
+        "text": SYSTEM_PROMPT,
+        "cache_control": {"type": "ephemeral"},
+    }]
+
+    user_content: list[dict] = []
+    if stable_global:
+        user_content.append({
+            "type": "text",
+            "text": stable_global,
+            "cache_control": {"type": "ephemeral"},
+        })
+    if stable_class:
+        user_content.append({
+            "type": "text",
+            "text": stable_class,
+            "cache_control": {"type": "ephemeral"},
+        })
+    # Variable POB 블록 — cache_control 없음 (매번 달라서 의미 없음)
+    user_content.append({
+        "type": "text",
+        "text": variable_text,
+    })
+
+    messages = [{"role": "user", "content": user_content}]
+
     if use_streaming:
         # 스트리밍 — chunk 누적
         raw_text = ""
@@ -518,8 +616,8 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
         with client.messages.stream(
             model=model,
             max_tokens=max_out,
-            system=SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": user_message}],
+            system=system_blocks,
+            messages=messages,
         ) as stream:
             for text_chunk in stream.text_stream:
                 raw_text += text_chunk
@@ -531,8 +629,8 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
         response = client.messages.create(
             model=model,
             max_tokens=max_out,
-            system=SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": user_message}]
+            system=system_blocks,
+            messages=messages,
         )
         raw_text = response.content[0].text
         stop_reason = getattr(response, "stop_reason", None)
@@ -609,20 +707,68 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
     result.setdefault("map_mod_warnings", {})
     result.setdefault("variant_snapshots", [])
 
+    # AI 출력 정규화 — 젬 이름 canonical 강제 (Phase H2) + gear (Phase H3)
+    # 정규화 후 검증이라 hallucination 경고 대폭 감소.
+    norm_warnings: list[str] = []
+    norm_trace: list[dict] = []
+    try:
+        from coach_normalizer import normalize_coach_output
+        gem_warnings, gem_trace = normalize_coach_output(result)
+        norm_warnings.extend(gem_warnings)
+        norm_trace.extend(gem_trace)
+    except ImportError:
+        pass
+
+    try:
+        from gear_normalizer import normalize_gear
+        gear_warnings, gear_trace = normalize_gear(result)
+        norm_warnings.extend(gear_warnings)
+        norm_trace.extend(gear_trace)
+    except ImportError:
+        pass
+
+    if norm_trace:
+        logger.info("코치 출력 자동 교정 %d건:", len(norm_trace))
+        for t in norm_trace:
+            logger.info("  ✎ %s: %r -> %r (%s)",
+                        t["field"], t["from"], t["to"], t["match_type"])
+        result["_normalization_trace"] = norm_trace
+    if norm_warnings:
+        logger.info("코치 출력 정규화 — 매칭 실패 %d건", len(norm_warnings))
+
     # AI 출력 검증 — quest_rewards cross-check + 스키마 + 범위
     try:
         from coach_validator import validate_coach_output
         validation_warnings = validate_coach_output(result, primary_build)
-        if validation_warnings:
-            logger.warning("AI 코치 출력 검증 경고 %d건:", len(validation_warnings))
-            for w in validation_warnings:
+        combined = norm_warnings + validation_warnings
+        if combined:
+            logger.warning("AI 코치 출력 경고 %d건 (정규화 %d + 검증 %d):",
+                           len(combined), len(norm_warnings), len(validation_warnings))
+            for w in combined:
                 logger.warning("  - %s", w)
             # 결과에 메타 포함 — UI에서 뱃지 표시 가능
-            result["_validation_warnings"] = validation_warnings
+            result["_validation_warnings"] = combined
+        elif norm_warnings:
+            result["_validation_warnings"] = norm_warnings
     except ImportError:
-        pass  # coach_validator 없어도 기본 동작 유지
+        if norm_warnings:
+            result["_validation_warnings"] = norm_warnings
 
-    logger.info(f"코칭 완료. 토큰: input={response.usage.input_tokens}, output={response.usage.output_tokens}")
+    # 토큰 사용량 + 캐시 히트 로그 — 캐시 동작 가시화.
+    # input_tokens = 캐시 미적용 잔여 (full price)
+    # cache_read_input_tokens = 캐시 hit (~10% price)
+    # cache_creation_input_tokens = 첫 write (1.25x price)
+    # 2회차부터 cache_read ↑ 이면 설계대로 동작.
+    usage = response.usage
+    cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
+    cache_write = getattr(usage, "cache_creation_input_tokens", 0) or 0
+    total_input = usage.input_tokens + cache_read + cache_write
+    cache_ratio = (cache_read / total_input * 100) if total_input else 0
+    logger.info(
+        f"코칭 완료. 토큰: uncached={usage.input_tokens}, "
+        f"cache_read={cache_read} ({cache_ratio:.0f}%), cache_write={cache_write}, "
+        f"output={usage.output_tokens}"
+    )
     return result
 
 

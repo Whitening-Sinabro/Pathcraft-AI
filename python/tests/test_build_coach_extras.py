@@ -12,6 +12,19 @@ from unittest.mock import patch, MagicMock
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 
+def _content_to_text(content) -> str:
+    """messages[0]['content']가 이제 list of text blocks (cache_control 포함).
+    전체 블록 텍스트 병합 — 테스트가 'in' 검사로 쓸 수 있게."""
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        return "".join(
+            b.get("text", "") for b in content
+            if isinstance(b, dict) and b.get("type") == "text"
+        )
+    return str(content)
+
+
 def _mk_build_with_gems(name: str, level: int, gems: dict, uniques: list = None) -> dict:
     return {
         "meta": {"build_name": name, "class_level": level, "class": "Templar"},
@@ -89,7 +102,7 @@ class TestBuildCoachExtras:
                 pass
 
         assert captured_messages, "Claude API 호출 메시지 없음"
-        user_msg = captured_messages[0][0]["content"]
+        user_msg = _content_to_text(captured_messages[0][0]["content"])
         # 보조 POB 정보가 프롬프트에 포함돼야 함
         assert "Sunder" in user_msg, "보조 POB Sunder 스킬이 프롬프트에 없음"
         assert "2단계 POB" in user_msg or "progression" in user_msg.lower(), \
@@ -136,6 +149,6 @@ class TestBuildCoachExtras:
                 pass
 
         assert captured_messages
-        user_msg = captured_messages[0][0]["content"]
+        user_msg = _content_to_text(captured_messages[0][0]["content"])
         assert "Leveling Set" in user_msg or "Sunder" in user_msg, \
             "alternate_gem_sets이 프롬프트에 전달되지 않음"
