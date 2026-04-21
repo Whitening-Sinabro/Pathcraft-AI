@@ -41,6 +41,8 @@ export interface RenderState {
   groups: ResolvedGroup[];
   nodeById: Map<string, ResolvedNode>;
   allocated: Set<string>;
+  /** 클래스/어센던시 시작점 — "할당" 아니나 시각적으로 active 프레임 사용 (캐릭터 마커) */
+  anchors: Set<string>;
   hoveredId: string | null;
   searchMatches: Set<string>;
   atlas: SpriteAtlas | null;
@@ -133,7 +135,8 @@ function drawEdges(
   w2sx: (x: number) => number,
   w2sy: (y: number) => number,
 ): void {
-  const { ctx, nodes, nodeById, groups, allocated, camera, atlas, orbitRadii } = state;
+  const { ctx, nodes, nodeById, groups, allocated, anchors, camera, atlas, orbitRadii } = state;
+  const isLit = (id: string) => allocated.has(id) || anchors.has(id);
 
   const dimStyle = "rgba(95, 80, 60, 0.85)";
   const activeStyle = "rgba(255, 200, 100, 0.95)";
@@ -167,7 +170,7 @@ function drawEdges(
 
       const sameGroup = r.node.group != null && r.node.group === t.node.group;
       const sameOrbit = r.node.orbit != null && r.node.orbit === t.node.orbit;
-      const bothAllocated = allocated.has(r.id) && allocated.has(t.id);
+      const bothAllocated = isLit(r.id) && isLit(t.id);
       ctx.strokeStyle = bothAllocated ? activeStyle : dimStyle;
 
       let isAdjacentOrbit = false;
@@ -229,7 +232,7 @@ function drawNodes(
   w2sx: (x: number) => number,
   w2sy: (y: number) => number,
 ): void {
-  const { ctx, nodes, allocated, hoveredId, searchMatches, atlas, camera, width, height } = state;
+  const { ctx, nodes, allocated, anchors, hoveredId, searchMatches, atlas, camera, width, height } = state;
   const margin = 80;
   const atlasScale = atlas ? parseFloat(atlas.zoomKey) : 0.2972;
 
@@ -257,7 +260,8 @@ function drawNodes(
         if (ok) drewSprite = true;
       }
     } else {
-      const isAllocated = allocated.has(r.id);
+      // classStart/ascendancyStart는 anchors 기반 active (캐릭터 마커이지 "할당" 아님)
+      const isAllocated = allocated.has(r.id) || (r.kind === "classStart" && anchors.has(r.id));
       if (r.node.icon) {
         let iconSrc = isAllocated ? normalIconActive : normalIconInactive;
         if (r.kind === "keystone") iconSrc = isAllocated ? keystoneIconActive : keystoneIconInactive;

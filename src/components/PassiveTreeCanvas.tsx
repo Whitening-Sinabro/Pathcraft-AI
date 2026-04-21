@@ -25,6 +25,8 @@ import {
   type TranslationTable,
 } from "../utils/passiveTreeTranslate";
 import { TreeControls } from "./passive-tree/TreeControls";
+import { ClassPortrait } from "./passive-tree/ClassPortrait";
+import { logger } from "../utils/logger";
 import dataUrl from "../../data/skilltree-export/data.json?url";
 import translationsUrl from "../../data/skilltree-export/passive_tree_translations.json?url";
 
@@ -76,6 +78,9 @@ export function PassiveTreeCanvas({
   const undoRef = useRef<UndoHandler>(createUndoHandler());
   const dirtyRef = useRef(true);
   const rafRef = useRef(0);
+  // P1: 7 class portrait DOM overlay refs (ClassPortrait wrappers, position: absolute).
+  // Imperative style.transform 업데이트로 camera pan/zoom sync. pointer-events: none.
+  const portraitRefs = useRef<Array<HTMLDivElement | null>>([null, null, null, null, null, null, null]);
   const onAllocationChangeRef = useRef(onAllocationChange);
   onAllocationChangeRef.current = onAllocationChange;
 
@@ -130,13 +135,20 @@ export function PassiveTreeCanvas({
     dirtyRef.current = true;
   }, [searchQuery, loaded]);
 
-  // 클래스 변경 시 트리 리셋 + 해당 class start 자동 할당
+  // 클래스 변경 시 트리 완전 리셋. class start는 **anchor**로만 유지 (캐릭터 마커), 할당 세트는 비움.
   function pickClass(classIdx: number) {
     const startId = CLASS_START_IDS[classIdx];
     if (!startId) return;
+    const prevSize = allocatedRef.current.size;
     undoRef.current.push(allocatedRef.current);
-    const next = new Set<string>([startId]);
-    allocatedRef.current = next;
+
+    // 완전히 빈 할당 — 클래스 선택 ≠ 노드 찍기. 클래스 시작점은 anchor로만 유지.
+    allocatedRef.current = new Set<string>();
+    hoveredIdRef.current = null;
+    searchMatchesRef.current = new Set();
+    setSearchQuery("");
+    logger.info(`[passiveTree] pickClass ${classIdx} → startId=${startId} (anchor only), allocated ${prevSize} → 0`);
+
     setSelectedClass(classIdx);
     setSelectedAscendancy(null);
     try {
@@ -144,25 +156,41 @@ export function PassiveTreeCanvas({
       localStorage.removeItem(ASCENDANCY_STORAGE_KEY);
     } catch { /* quota full */ }
     anchorsRef.current = new Set([startId]);
+
+    // 클래스 시작점으로 카메라 이동 + 적당한 줌인
+    const startNode = nodeByIdRef.current.get(startId);
+    if (startNode) {
+      cameraRef.current = {
+        cx: startNode.x,
+        cy: startNode.y,
+        scale: Math.max(cameraRef.current.scale, 0.05),
+      };
+    }
+
     dirtyRef.current = true;
     recomputePoints();
-    onAllocationChangeRef.current?.(new Set(next));
+    onAllocationChangeRef.current?.(new Set(allocatedRef.current));
   }
 
-  // 어센던시 변경 — 기존 ascendancy 노드 제거 + 새 ascendancy start 포함
+  // 어센던시 변경 — 기존 ascendancy 노드 제거. 새 ascendancy start는 anchor 업데이트(할당 아님)
   function pickAscendancy(ascName: string | null) {
     const alloc = allocatedRef.current;
     undoRef.current.push(alloc);
-    // 기존 모든 ascendancy 노드 제거
+    // 기존 모든 ascendancy 노드 제거 (할당된 것만 — anchor는 Set 외)
     const rawNodes = rawNodesRef.current;
     for (const id of [...alloc]) {
       const n = rawNodes[id];
       if (n?.ascendancyName) alloc.delete(id);
     }
+    // ascendancy start는 anchors에 포함, 할당에 넣지 않음
+    const startClassId = selectedClass != null ? CLASS_START_IDS[selectedClass] : null;
+    const nextAnchors = new Set<string>();
+    if (startClassId) nextAnchors.add(startClassId);
     if (ascName) {
       const startId = ascStartIdsRef.current[ascName];
-      if (startId) alloc.add(startId);
+      if (startId) nextAnchors.add(startId);
     }
+    anchorsRef.current = nextAnchors;
     setSelectedAscendancy(ascName);
     try {
       if (ascName) localStorage.setItem(ASCENDANCY_STORAGE_KEY, ascName);
@@ -206,8 +234,7 @@ export function PassiveTreeCanvas({
       .catch((err: unknown) => {
         // Translation is best-effort; English fallback is acceptable.
         // Still surface the failure so stale/missing translations don't go unnoticed.
-        // eslint-disable-next-line no-console
-        console.warn("[passiveTree] translation load failed:", err);
+        logger.warn("[passiveTree] translation load failed:", err);
       });
     return () => { cancelled = true; };
   }, []);
@@ -256,6 +283,7 @@ export function PassiveTreeCanvas({
         ascStartIdsRef.current = ascMap;
 
         // Dealloc cascade 앵커 = class start + 선택된 ascendancy start
+        // 앵커는 "할당 세트"와 별도 — 시각만 active로 렌더, 할당 카운트 0 유지
         if (selectedClass != null && CLASS_START_IDS[selectedClass]) {
           const startId = CLASS_START_IDS[selectedClass];
           const anchors = new Set<string>([startId]);
@@ -263,12 +291,6 @@ export function PassiveTreeCanvas({
             anchors.add(ascMap[selectedAscendancy]);
           }
           anchorsRef.current = anchors;
-          if (allocatedRef.current.size === 0) {
-            allocatedRef.current.add(startId);
-            if (selectedAscendancy && ascMap[selectedAscendancy]) {
-              allocatedRef.current.add(ascMap[selectedAscendancy]);
-            }
-          }
         } else {
           const anchors = new Set<string>();
           for (const n of nodes) if (n.node.classStartIndex != null) anchors.add(n.id);
@@ -300,12 +322,32 @@ export function PassiveTreeCanvas({
         const b = computeBounds(nodes);
         const w = b.maxX - b.minX;
         const h = b.maxY - b.minY;
-        const scale = Math.min(width / w, height / h) * 0.9;
-        cameraRef.current = {
-          cx: (b.minX + b.maxX) / 2,
-          cy: (b.minY + b.maxY) / 2,
-          scale,
-        };
+        const overviewScale = Math.min(width / w, height / h) * 0.9;
+        // 선택된 클래스가 있으면 시작점으로 줌인, 아니면 전체 뷰
+        const nodeMap = new Map(nodes.map((n) => [n.id, n]));
+        if (selectedClass != null) {
+          const startId = CLASS_START_IDS[selectedClass];
+          const startNode = startId ? nodeMap.get(startId) : null;
+          if (startNode) {
+            cameraRef.current = {
+              cx: startNode.x,
+              cy: startNode.y,
+              scale: Math.max(overviewScale, 0.05),
+            };
+          } else {
+            cameraRef.current = {
+              cx: (b.minX + b.maxX) / 2,
+              cy: (b.minY + b.maxY) / 2,
+              scale: overviewScale,
+            };
+          }
+        } else {
+          cameraRef.current = {
+            cx: (b.minX + b.maxX) / 2,
+            cy: (b.minY + b.maxY) / 2,
+            scale: overviewScale,
+          };
+        }
         dirtyRef.current = true;
         setNodeCount(nodes.length);
         setLoaded(true);
@@ -338,11 +380,42 @@ export function PassiveTreeCanvas({
         groups: groupsRef.current,
         nodeById: nodeByIdRef.current,
         allocated: allocatedRef.current,
+        anchors: anchorsRef.current,
         hoveredId: hoveredIdRef.current,
         searchMatches: searchMatchesRef.current,
         atlas: atlasRef.current,
         orbitRadii: orbitRadiiRef.current,
       });
+
+      // P1: class portrait overlay 재배치. NODE_RADIUS_WORLD.classStart=70 대비
+      // 직경 = 2*radius*portraitScale. portraitScale 1.0 = 포트레이트가 node disc와 동일.
+      // 호버 링이 1.4x 반경이므로 포트레이트 < 호버 링이어야 함.
+      const cam = cameraRef.current;
+      const nodeMap = nodeByIdRef.current;
+      for (let i = 0; i < 7; i++) {
+        const el = portraitRefs.current[i];
+        if (!el) continue;
+        const nodeId = CLASS_START_IDS[i];
+        const node = nodeId ? nodeMap.get(nodeId) : null;
+        if (!node) {
+          el.style.display = "none";
+          continue;
+        }
+        const diameter = node.radius * 2 * cam.scale;
+        const sx = (node.x - cam.cx) * cam.scale + width / 2;
+        const sy = (node.y - cam.cy) * cam.scale + height / 2;
+        const offscreen = sx < -diameter || sx > width + diameter
+                       || sy < -diameter || sy > height + diameter;
+        if (offscreen || diameter < 6) {
+          el.style.display = "none";
+        } else {
+          el.style.display = "block";
+          el.style.width = `${diameter}px`;
+          el.style.height = `${diameter}px`;
+          el.style.transform =
+            `translate3d(${sx - diameter / 2}px, ${sy - diameter / 2}px, 0)`;
+        }
+      }
 
       rafRef.current = requestAnimationFrame(draw);
     };
@@ -447,14 +520,21 @@ export function PassiveTreeCanvas({
           if (alloc.has(hit.id)) {
             // 할당된 노드 클릭 → cascade dealloc (고아 정리)
             deallocWithCascade(hit.id, alloc, anchorsRef.current, adjRef.current);
-          } else if (alloc.size === 0) {
-            alloc.add(hit.id);
           } else {
-            const path = shortestPath(alloc, hit.id, adjRef.current);
-            if (path.length === 0) {
+            // 경로 탐색은 anchors(캐릭터 시작점) ∪ 이미 할당된 노드에서 시작
+            const from = new Set<string>([...alloc, ...anchorsRef.current]);
+            if (from.size === 0) {
               alloc.add(hit.id);
             } else {
-              for (const nid of path) alloc.add(nid);
+              const path = shortestPath(from, hit.id, adjRef.current);
+              if (path.length === 0) {
+                alloc.add(hit.id);
+              } else {
+                for (const nid of path) {
+                  // anchors는 "할당"에 포함하지 않음 — 시작점은 영구 marker
+                  if (!anchorsRef.current.has(nid)) alloc.add(nid);
+                }
+              }
             }
           }
           dirtyRef.current = true;
@@ -572,6 +652,23 @@ export function PassiveTreeCanvas({
           패시브 트리 데이터 로드 중…
         </div>
       )}
+      {/* P1: 7 class portrait overlay. display:none 초기값, rAF가 좌표 주입. */}
+      {[0, 1, 2, 3, 4, 5, 6].map((classIdx) => (
+        <div
+          key={classIdx}
+          ref={(el) => { portraitRefs.current[classIdx] = el; }}
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            display: "none",
+            pointerEvents: "none",
+            willChange: "transform",
+          }}
+        >
+          <ClassPortrait classIndex={classIdx} />
+        </div>
+      ))}
       <TreeControls
         loaded={loaded}
         nodeCount={nodeCount}

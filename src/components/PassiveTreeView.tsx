@@ -21,27 +21,14 @@ export function PassiveTreeView({ url }: Props) {
   const buildAsc = decoded?.ascendancyIndex;
 
   return (
-    <section
-      style={{
-        padding: 16, background: "#fff", borderRadius: 8,
-        border: "1px solid #e9ecef",
-      }}
-    >
-      <div
-        style={{
-          display: "flex", justifyContent: "space-between",
-          alignItems: "center", marginBottom: 8,
-        }}
-      >
-        <h3 style={{ margin: 0, fontSize: 15 }}>패시브 트리</h3>
+    <section className="app-main__full ui-card">
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+        <h3 className="ui-section-title" style={{ margin: 0 }}>패시브 트리</h3>
         <div style={{ display: "flex", gap: 6 }}>
           <button
             onClick={() => setExpanded((v) => !v)}
-            style={{
-              padding: "4px 10px", fontSize: 11,
-              border: "1px solid #dee2e6", background: "#f8f9fa",
-              borderRadius: 3, cursor: "pointer", color: "#495057",
-            }}
+            className="ui-button ui-button--secondary"
+            style={{ padding: "4px 10px", fontSize: 11 }}
           >
             {expanded ? "축소" : "크게"}
           </button>
@@ -50,11 +37,8 @@ export function PassiveTreeView({ url }: Props) {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                padding: "4px 10px", fontSize: 11,
-                border: "1px solid #4dabf7", background: "#e7f5ff",
-                borderRadius: 3, textDecoration: "none", color: "#1864ab",
-              }}
+              className="ui-button ui-button--secondary"
+              style={{ padding: "4px 10px", fontSize: 11, textDecoration: "none", color: "var(--accent-hover)" }}
             >
               POE 공식 뷰어
             </a>
@@ -71,13 +55,13 @@ export function PassiveTreeView({ url }: Props) {
         buildAscendancy={buildAsc}
       />
       {decoded && (
-        <div style={{ marginTop: 6, fontSize: 11, color: "#37b24d" }}>
+        <div className="ui-text-success" style={{ marginTop: 6, fontSize: 11 }}>
           빌드 로드: class {decoded.classIndex} / asc {decoded.ascendancyIndex} /
           노드 {decoded.nodes.length}개 하이라이트됨
         </div>
       )}
 
-      <div style={{ marginTop: 6, fontSize: 11, color: "#868e96" }}>
+      <div className="ui-text-muted" style={{ marginTop: 6, fontSize: 11 }}>
         클래스 선택 → 클릭으로 노드 할당. 빌드 로드 시 해당 빌드의 노드가 자동 표시됨.
       </div>
     </section>
