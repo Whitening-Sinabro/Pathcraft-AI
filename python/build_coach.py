@@ -827,6 +827,16 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
         logger.info("코치 출력 정규화 — 매칭 실패 %d건", len(norm_warnings))
     if retry_info:
         result["_retry_info"] = retry_info
+        recovered_count = len(retry_info.get("recovered_from") or [])
+        final_dropped_count = len(retry_info.get("final_dropped") or [])
+        recovery_success = final_dropped_count == 0 and recovered_count > 0
+        logger.info(
+            "L3_RETRY_METRIC attempts=%d recovered_from=%d final_dropped=%d success=%s",
+            retry_info.get("attempts", 0),
+            recovered_count,
+            final_dropped_count,
+            "true" if recovery_success else "false",
+        )
 
     # AI 출력 검증 — quest_rewards cross-check + 스키마 + 범위
     try:

@@ -51,6 +51,24 @@ def _sha256(p: Path) -> str:
     return h.hexdigest()
 
 
+def _is_pollution(name: str, all_names: set[str]) -> bool:
+    """개발 placeholder / 내부 ID 엔트리 필터.
+
+    GGPK BaseItemTypes 는 종종 미완/폐기 젬 메타데이터를 남긴다. valid_gems 에
+    노출되면 LLM normalizer 가 엉뚱한 canonical 로 유도할 위험. 실제 사례:
+    - Name == "..." (SkillGemComboStrike placeholder)
+    - "NewPunishment" (camelCase 내부 ID, 공식 릴리스는 "Punishment")
+    - "New Blade Vortex" / "New Shock Nova" (dev iteration, 원본도 존재)
+    """
+    if name == "...":
+        return True
+    if name.startswith("New") and " " not in name:
+        return True
+    if name.startswith("New ") and name[4:] in all_names:
+        return True
+    return False
+
+
 def collect_ggpk_gem_names(base_item_types_path: Path) -> set[str]:
     try:
         rows = json.loads(base_item_types_path.read_text(encoding="utf-8"))
@@ -58,7 +76,7 @@ def collect_ggpk_gem_names(base_item_types_path: Path) -> set[str]:
         logger.error("BaseItemTypes.json 로드 실패: %s", e)
         sys.exit(2)
 
-    names: set[str] = set()
+    raw: set[str] = set()
     for r in rows:
         if not isinstance(r, dict):
             continue
@@ -73,8 +91,9 @@ def collect_ggpk_gem_names(base_item_types_path: Path) -> set[str]:
             continue
         if name.startswith("[UNUSED]"):
             continue  # 제거된/비활성 젬
-        names.add(name)
-    return names
+        raw.add(name)
+    # pollution 필터 — 전체 이름 집합 필요해서 2-pass
+    return {n for n in raw if not _is_pollution(n, raw)}
 
 
 def collect_transfigured_gems(active_skills_path: Path) -> set[str]:

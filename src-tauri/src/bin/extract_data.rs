@@ -1,19 +1,64 @@
 //! POE 게임 데이터 추출 CLI
 //!
 //! 사용법:
-//!   cargo run --bin extract_data
-//!   cargo run --bin extract_data -- "D:\POE"
-//!   cargo run --bin extract_data -- --json
+//!   cargo run --bin extract_data                          # POE1 자동탐지
+//!   cargo run --bin extract_data -- "D:\POE"              # POE1 경로 지정
+//!   cargo run --bin extract_data -- --json                # POE1 + JSON 변환
+//!   cargo run --bin extract_data -- --game poe2           # POE2 자동탐지
+//!   cargo run --bin extract_data -- --game poe2 --json    # POE2 + JSON
 //!
 //! POE 설치 경로를 자동 탐지하거나, 인자로 직접 지정.
 //! .datc64 파일을 추출하고 스키마 기반 JSON 변환까지 수행.
+//!
+//! --game 플래그 (POE2 확장, D0):
+//! - poe1 (기본): data/game_data/ 에 출력, SchemaStore::load_for_game(Poe1) 필터
+//! - poe2: data/game_data_poe2/ 에 출력, SchemaStore::load_for_game(Poe2) 필터
+//!   주의: Mods POE2 +24B / SkillGems POE2 +32B drift 미해결 (backlog 4번). 추출
+//!   자체는 성공하나 해당 2테이블 끝 컬럼 파싱 누락.
 
 use std::path::{Path, PathBuf};
 
 use app_lib::bundle_index::BundleIndex;
 use app_lib::dat64::Dat64Parser;
 use app_lib::oodle::OodleLib;
-use app_lib::schema::SchemaStore;
+use app_lib::schema::{Game, SchemaStore};
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum CliGame {
+    Poe1,
+    Poe2,
+}
+
+impl CliGame {
+    fn parse(s: &str) -> Result<Self, String> {
+        match s.to_ascii_lowercase().as_str() {
+            "poe1" | "1" => Ok(CliGame::Poe1),
+            "poe2" | "2" => Ok(CliGame::Poe2),
+            other => Err(format!("알 수 없는 --game 값: '{}'. 허용: poe1|poe2", other)),
+        }
+    }
+
+    fn as_schema_game(self) -> Game {
+        match self {
+            CliGame::Poe1 => Game::Poe1,
+            CliGame::Poe2 => Game::Poe2,
+        }
+    }
+
+    fn output_subdir(self) -> &'static str {
+        match self {
+            CliGame::Poe1 => "game_data",
+            CliGame::Poe2 => "game_data_poe2",
+        }
+    }
+
+    fn label(self) -> &'static str {
+        match self {
+            CliGame::Poe1 => "POE1",
+            CliGame::Poe2 => "POE2",
+        }
+    }
+}
 
 /// 추출 대상 테이블.
 ///
@@ -55,7 +100,20 @@ fn main() {
 
     let args: Vec<String> = std::env::args().skip(1).collect();
     let json_mode = args.iter().any(|a| a == "--json");
-    let custom_path = args.iter().find(|a| !a.starts_with('-'));
+
+    // --game poe1|poe2 파싱. 공백 형식 (--game poe2) 및 등호 형식 (--game=poe2) 둘 다 지원.
+    let game = match parse_game_arg(&args) {
+        Ok(g) => g,
+        Err(e) => {
+            eprintln!("[오류] {}", e);
+            std::process::exit(1);
+        }
+    };
+
+    // custom_path: --game / --json 과 그 다음 값을 제외한 첫 positional 인자
+    let custom_path = positional_path_arg(&args);
+
+    eprintln!("[게임] {}", game.label());
 
     // 1. POE 경로 결정
     let poe_path = match custom_path {
@@ -67,14 +125,15 @@ fn main() {
             }
             path
         }
-        None => match detect_poe_path() {
+        None => match detect_poe_path(game) {
             Some(p) => {
                 eprintln!("[자동탐지] {}", p.display());
                 p
             }
             None => {
-                eprintln!("[오류] POE 설치 경로를 찾을 수 없습니다.");
-                eprintln!("직접 지정: cargo run --bin extract_data -- \"C:\\경로\\Path of Exile\"");
+                eprintln!("[오류] {} 설치 경로를 찾을 수 없습니다.", game.label());
+                eprintln!("직접 지정: cargo run --bin extract_data -- --game {} \"C:\\경로\"",
+                    if game == CliGame::Poe2 { "poe2" } else { "poe1" });
                 std::process::exit(1);
             }
         },
@@ -101,18 +160,18 @@ fn main() {
     };
     eprintln!("       번들 {}, 파일 {}", index.bundles.len(), index.file_count());
 
-    // 4. 출력 디렉토리
-    let output_dir = project_data_dir();
+    // 4. 출력 디렉토리 — 게임별 분리
+    let output_dir = project_data_dir(game);
     if let Err(e) = std::fs::create_dir_all(&output_dir) {
         eprintln!("[오류] 출력 디렉토리 생성 실패: {}", e);
         std::process::exit(1);
     }
 
-    // 5. 스키마 로드 (JSON 변환용)
+    // 5. 스키마 로드 (JSON 변환용) — 게임별 validFor 필터링 적용
     let schema_store = if json_mode {
-        eprintln!("[3/4] 스키마 로드...");
+        eprintln!("[3/4] 스키마 로드 ({} validFor 필터)...", game.label());
         let schema_path = project_root().join("data").join("schema").join("schema.min.json");
-        match SchemaStore::load(&schema_path) {
+        match SchemaStore::load_for_game(&schema_path, game.as_schema_game()) {
             Ok(s) => {
                 eprintln!("       테이블 {} 개", s.table_count());
                 Some(s)
@@ -217,23 +276,72 @@ fn main() {
     eprintln!("출력: {}", output_dir.display());
 }
 
-/// POE 설치 경로 자동 탐지
-fn detect_poe_path() -> Option<PathBuf> {
-    let candidates = [
-        // Standalone (한국)
-        r"C:\Program Files (x86)\Grinding Gear Games\Path of Exile",
-        // Standalone (글로벌)
-        r"C:\Program Files\Grinding Gear Games\Path of Exile",
-        // Steam 기본
-        r"C:\Program Files (x86)\Steam\steamapps\common\Path of Exile",
-        r"C:\Program Files\Steam\steamapps\common\Path of Exile",
-        // Steam 추가 라이브러리
-        r"D:\Steam\steamapps\common\Path of Exile",
-        r"D:\SteamLibrary\steamapps\common\Path of Exile",
-        r"E:\SteamLibrary\steamapps\common\Path of Exile",
-    ];
+/// --game 플래그 파싱 (--game <v> / --game=<v>). 없으면 Poe1 기본.
+fn parse_game_arg(args: &[String]) -> Result<CliGame, String> {
+    for (i, a) in args.iter().enumerate() {
+        if let Some(rest) = a.strip_prefix("--game=") {
+            return CliGame::parse(rest);
+        }
+        if a == "--game" {
+            let v = args.get(i + 1).ok_or_else(|| "--game 뒤 값 누락".to_string())?;
+            return CliGame::parse(v);
+        }
+    }
+    Ok(CliGame::Poe1)
+}
 
-    for path in &candidates {
+/// --game/--json 뒤에 붙은 값이 아닌 첫 positional 인자.
+fn positional_path_arg(args: &[String]) -> Option<&String> {
+    let mut skip_next = false;
+    for a in args {
+        if skip_next {
+            skip_next = false;
+            continue;
+        }
+        if a == "--game" {
+            skip_next = true;
+            continue;
+        }
+        if a.starts_with('-') {
+            continue;
+        }
+        return Some(a);
+    }
+    None
+}
+
+/// POE 설치 경로 자동 탐지 (게임별 후보 경로)
+fn detect_poe_path(game: CliGame) -> Option<PathBuf> {
+    let candidates: &[&str] = match game {
+        CliGame::Poe1 => &[
+            // Standalone (한국)
+            r"C:\Program Files (x86)\Grinding Gear Games\Path of Exile",
+            // Standalone (글로벌)
+            r"C:\Program Files\Grinding Gear Games\Path of Exile",
+            // Steam 기본
+            r"C:\Program Files (x86)\Steam\steamapps\common\Path of Exile",
+            r"C:\Program Files\Steam\steamapps\common\Path of Exile",
+            // Steam 추가 라이브러리
+            r"D:\Steam\steamapps\common\Path of Exile",
+            r"D:\SteamLibrary\steamapps\common\Path of Exile",
+            r"E:\SteamLibrary\steamapps\common\Path of Exile",
+        ],
+        CliGame::Poe2 => &[
+            // Standalone (한국, Daum/Kakao 배포)
+            r"C:\Daum Games\Path of Exile2",
+            // Standalone (글로벌)
+            r"C:\Program Files (x86)\Grinding Gear Games\Path of Exile 2",
+            r"C:\Program Files\Grinding Gear Games\Path of Exile 2",
+            // Steam
+            r"C:\Program Files (x86)\Steam\steamapps\common\Path of Exile 2",
+            r"C:\Program Files\Steam\steamapps\common\Path of Exile 2",
+            r"D:\Steam\steamapps\common\Path of Exile 2",
+            r"D:\SteamLibrary\steamapps\common\Path of Exile 2",
+            r"E:\SteamLibrary\steamapps\common\Path of Exile 2",
+        ],
+    };
+
+    for path in candidates {
         let p = Path::new(path);
         // Content.ggpk (Standalone) 또는 Bundles2/ (Steam) 존재 여부로 판별
         if p.join("Content.ggpk").exists() || p.join("Bundles2").is_dir() {
@@ -252,7 +360,65 @@ fn project_root() -> PathBuf {
         .unwrap_or_else(|| PathBuf::from("."))
 }
 
-/// 추출 데이터 출력 디렉토리
-fn project_data_dir() -> PathBuf {
-    project_root().join("data").join("game_data")
+/// 추출 데이터 출력 디렉토리 (게임별 분리: game_data / game_data_poe2)
+fn project_data_dir(game: CliGame) -> PathBuf {
+    project_root().join("data").join(game.output_subdir())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_parse_game_default_poe1() {
+        let args: Vec<String> = vec!["--json".into()];
+        assert_eq!(parse_game_arg(&args).unwrap(), CliGame::Poe1);
+    }
+
+    #[test]
+    fn test_parse_game_space_form() {
+        let args: Vec<String> = vec!["--game".into(), "poe2".into()];
+        assert_eq!(parse_game_arg(&args).unwrap(), CliGame::Poe2);
+    }
+
+    #[test]
+    fn test_parse_game_equals_form() {
+        let args: Vec<String> = vec!["--game=poe2".into()];
+        assert_eq!(parse_game_arg(&args).unwrap(), CliGame::Poe2);
+    }
+
+    #[test]
+    fn test_parse_game_invalid() {
+        let args: Vec<String> = vec!["--game".into(), "poe3".into()];
+        assert!(parse_game_arg(&args).is_err());
+    }
+
+    #[test]
+    fn test_parse_game_numeric() {
+        let args: Vec<String> = vec!["--game".into(), "2".into()];
+        assert_eq!(parse_game_arg(&args).unwrap(), CliGame::Poe2);
+    }
+
+    #[test]
+    fn test_positional_path_skips_game_value() {
+        let args: Vec<String> = vec![
+            "--game".into(),
+            "poe2".into(),
+            "D:\\custom\\path".into(),
+            "--json".into(),
+        ];
+        assert_eq!(positional_path_arg(&args), Some(&"D:\\custom\\path".to_string()));
+    }
+
+    #[test]
+    fn test_positional_path_none() {
+        let args: Vec<String> = vec!["--json".into(), "--game".into(), "poe1".into()];
+        assert_eq!(positional_path_arg(&args), None);
+    }
+
+    #[test]
+    fn test_output_subdir_per_game() {
+        assert_eq!(CliGame::Poe1.output_subdir(), "game_data");
+        assert_eq!(CliGame::Poe2.output_subdir(), "game_data_poe2");
+    }
 }

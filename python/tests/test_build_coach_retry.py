@@ -155,3 +155,37 @@ class TestL3Retry:
         # trace 에 dropped 엔트리 있어서 L4 차단될 조건
         trace = result.get("_normalization_trace", [])
         assert any(t.get("match_type") == "dropped" for t in trace)
+
+    def test_retry_metric_log_emitted_success(self, caplog):
+        """L3_RETRY_METRIC 로그 — 복구 성공 시 success=true."""
+        import build_coach
+        import logging
+        responses = [
+            _mk_result_gem("Onslaught Support"),
+            _mk_result_gem("Multistrike Support"),
+        ]
+        mock, _ = _make_mock_anthropic(responses)
+        with caplog.at_level(logging.INFO, logger="build_coach"):
+            with patch.object(build_coach, "anthropic", mock):
+                build_coach.coach_build(_mk_build())
+        metric_lines = [r.message for r in caplog.records if "L3_RETRY_METRIC" in r.message]
+        assert len(metric_lines) == 1
+        assert "success=true" in metric_lines[0]
+        assert "attempts=2" in metric_lines[0]
+        assert "final_dropped=0" in metric_lines[0]
+
+    def test_retry_metric_log_emitted_failure(self, caplog):
+        """L3_RETRY_METRIC 로그 — 복구 실패 시 success=false."""
+        import build_coach
+        import logging
+        responses = [
+            _mk_result_gem("Onslaught Support"),
+            _mk_result_gem("FakeGem Support"),
+        ]
+        mock, _ = _make_mock_anthropic(responses)
+        with caplog.at_level(logging.INFO, logger="build_coach"):
+            with patch.object(build_coach, "anthropic", mock):
+                build_coach.coach_build(_mk_build())
+        metric_lines = [r.message for r in caplog.records if "L3_RETRY_METRIC" in r.message]
+        assert len(metric_lines) == 1
+        assert "success=false" in metric_lines[0]

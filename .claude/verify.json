@@ -2,6 +2,7 @@
   "_note": "Stop hook (~/.claude/hooks/verify_on_stop.py) 가 읽는 프로젝트 검증 설정. 자동 감지 대신 여기 명시된 걸 우선 사용. 필드 전부 optional — 없으면 자동 감지 fallback.",
   "_usage": {
     "test_cmd": "pytest 대신 실행할 전체 커맨드 (changed-files 타겟팅 무시)",
+    "test_cmd_strict": "Tier 2 C strict 모드 (TEST_CLAIM 감지 시) 전용 pytest 커맨드. 없으면 test_cmd 또는 python/tests fallback",
     "typecheck_cmd": "tsc 대신 실행할 커맨드",
     "vitest_cmd": "vitest/jest 대신 실행할 커맨드",
     "skip_tests": "pytest -k 'not (X or Y)' 로 제외할 테스트 이름 패턴 목록 (stale test bypass)",

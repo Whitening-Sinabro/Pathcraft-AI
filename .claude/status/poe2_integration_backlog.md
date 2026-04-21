@@ -48,6 +48,11 @@
 - Python 스크립트 (ai_build_analyzer/build_coach/pob_parser) `--game` CLI 플래그 추가
 - 추정 작업량: 0.5~1 세션
 
+**D0 진행 상황 (2026-04-21 세션):**
+- [x] `extract_data.rs` — `--game poe1|poe2` 플래그, 게임별 출력 디렉터리(data/game_data_poe2/), `SchemaStore::load_for_game` 사용, POE2 경로 auto-detect (Daum/Grinding Gear/Steam). 단위 테스트 8건 추가.
+- [ ] `lib.rs` 10개 Tauri 커맨드 game 인자 미적용
+- [ ] Python 스크립트 --game 플래그 미적용
+
 **D1. POB 포맷 POE2 대응**
 - POE2용 Path of Building fork (SnosMe: PathOfBuilding-PoE2) 포맷 확인
 - `python/pob_parser.py` POE2 XML 스키마 분기 추가

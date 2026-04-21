@@ -1,45 +1,37 @@
 ## 지금
-- **세션 종료 (2026-04-21)** — Phase H6 4-Layer 방어 + transfigured 갭 해결 + Stop hook 자동 검증 도입 + stale syndicate 테스트 fix. L3 인게임 미검증 상태로 마감
-- **이번 세션 주요 학습:** Phase F 감사 "완료" 를 "데이터 정확" 으로 일반화한 게 과장이었음 → `feedback_no_data_completeness_overclaim.md` 기록
-- **Stop hook 도입 (전역, v2):** `~/.claude/hooks/verify_on_stop.py` — 범용, 모든 프로젝트 적용. 자동 감지(pytest/tsc/vitest/jest) + $CLAUDE_PROJECT_DIR 기반. v2: changed-files 타겟팅 + `.claude/verify.json` 오버라이드 (test_cmd/skip_tests) + risk-weighted Meta-audit + 증상 덮기 금지 경고. bypass: `CLAUDE_SKIP_STOP_VERIFY=1` 또는 `.claude/skip-stop-verify` 파일
+- **세션 종료 (2026-04-21, Priority 0+1+2+4 세션)** — current.md 우선순위 0/1/2 완결 + 4(POE2) 착수. Tier 2 C Fast/Strict 분리(훅 11건 테스트), L3_RETRY_METRIC 로그(코치 테스트 2건), valid_gems pollution 4건 제거(refresh 테스트 11건), extract_data.rs --game 플래그(Rust 테스트 8건). 전체 pytest 639/639 green.
 
 ## 다음 할 것 (우선순위순)
 
-0. [ ] **Self-audit leak 방어 v3 설계** — 피어 리뷰 3건(Gemini+Grok+GPT) 공통 지적 남은 Tier 2 3개:
-   - **Claim-gate hook** (GPT v2 최우선): 응답 생성 직전 "구현/완료/검증" 단어 + evidence 부재 시 차단. Stop hook 보다 더 근본. 구현 포인트 (UserPromptSubmit? PostToolUse? 커스텀?) 확정 필요
-   - **Audit subagent 분리**: `/audit-all` 끝단에 `Agent(subagent_type=feature-dev:code-reviewer)` 외부 감사. 자가 편향 10-15% 마지막 leak 제거
-   - **Fast / Strict 모드 분리**: 기본 fast (changed-files만), 완료 선언 시에만 strict (full suite)
-   - 셋 중 **어느 것부터 할지** 먼저 결정
-   - 관련 peer-review 문서: `D:/tmp/claude_peer_review/README.md`
-1. [ ] **L3 auto-retry 인게임 검증** — 재분석 시 Onslaught Support 같은 hallucination 재발 시 교정 프롬프트로 자동 복구하는지 확인. 복구 성공률 + `_retry_info.final_dropped=[]` 비율 수집
-2. [ ] **alias 맵 / valid_gems 누락 카테고리 재감사** — transfigured 발견 계기로 다른 카테고리(meta gems? awakened? vaal alt quality?) 도 누락 가능성. GGPK 테이블별 gem 소스 전수 확인
-3. [ ] **DoD 수동 검증 (미검증 대기)** — 기존 Tauri 창 `Ctrl+R` 후:
-   - FilterPanel: 소개 문구 / 엄격도 안내 / 모드 툴팁 / ".filter 다운로드됨" 피드백
-   - 오버레이: 4 phase 탭 / 활성 phase bullet / 젬 링크 `Cleave - Bleed Chance - Ruthless` 형식 / 스킬 전환 inline
-   - 히스토리: 분석 후 자동 저장 / 새로고침 즉시 복원 / 다른 빌드 선택 복원 / × 삭제 / 20개 초과 자동 trim
-4. [ ] **POE2 착수** — 구두 설명 only. 데이터 선결(D0+D2+D3+D6) → Bleed Twister. `project_next_session_poe2.md` + `poe2_integration_backlog.md` 참조. Phase H+H6 인프라 재사용
-5. [ ] **필터 생성 인게임 검증** — 원래 세션 목표 계속 (실필터 문법 점검)
-6. [ ] **P1 인게임 검증** — `npm run tauri dev` → 7 클래스 start 포트레이트 + 호버 링 + 줌/팬 sync
+0. [ ] **L3 auto-retry 인게임 검증 (미검증)** — Tauri 에서 Onslaught Support 같은 hallucination 재분석 시 `L3_RETRY_METRIC success=true` 로그 찍히는지 확인. `_retry_info.final_dropped=[]` 비율 수집
+1. [ ] **DoD 수동 검증 (미검증 대기)** — Tauri 창 `Ctrl+R` 후 FilterPanel / 오버레이 / 히스토리 각 항목
+2. [ ] **POE2 D0 잔여** — `src-tauri/src/lib.rs` 10개 Tauri 커맨드 `game: Game` 인자 추가 + Python 스크립트(ai_build_analyzer/build_coach/pob_parser) `--game` 플래그. `extract_data.rs` 는 완료.
+3. [ ] **POE2 D2/D3 drift 선해결** — Mods POE2 +24B / SkillGems POE2 +32B. backlog 4번 Option B (로컬 override) 권장
+4. [ ] **POE2 D6 PRD** — 코치 프롬프트/support 재설계. backlog 7.3 요구
+5. [ ] **Strict 모드 실측** — TEST_CLAIM ("all tests pass") 발언 세션에서 full pytest 실제 트리거 확인 (30~60s 예상)
+5. [ ] **필터 생성 인게임 검증**
+6. [ ] **P1 인게임 검증** — `npm run tauri dev`
 7. [ ] **Passive P2~P6** — DAT 경로 추출 + DDS→PNG + manifest + renderer + UX
 8. [ ] **Mode 승격 마무리** — FilterPanel mode state → useBuildAnalyzer 마이그레이션
-9. [ ] **메인 창 LevelingGuide A형 적용 여부 결정** — 오버레이와 동일화할지 / 체크리스트 방식 유지할지
-10. [ ] **Syndicate empty state + mode 필터** — 빌드 분석 전 "먼저 분석하세요" / 모드별 프리셋
+9. [ ] **메인 창 LevelingGuide A형 적용 여부 결정**
+10. [ ] **Syndicate empty state + mode 필터**
 11. [ ] **Syndicate S4** — 골든 OCR + SHA-256 캐시 + Mastermind 추적
 12. [ ] **Phase 5b/5c** — 오버레이 콘텐츠 + 위치 영속
+13. [ ] **alias 맵 재감사 다음 스텝** — 이번 세션에서 valid_gems 는 깨끗함 확인(Awakened 38/38, Vaal 61/61, transfigured 210, meta 전부 커버). 다음은 `data/gem_aliases.json` 103개 엔트리 재검증 + POE2 alias 맵 설계
 
 ## 도메인 파일 포인터
 
-- [코치 품질 Phase H 백로그](coach_quality_backlog.md) — Normalizer 파이프라인 (H1~H5 + H6 구현 완료, L3 인게임/alias 누적)
-- [POE2 통합 backlog](poe2_integration_backlog.md) — feasibility 완료, D0~D8 단계별 통합 (제품 요구 확정 전까지 착수 금지)
-- [디자인 Phase 0~5 플랜](design_phase_plan.md) — 어플 리디자인 (P5 미완)
-- [Syndicate 전면 개편 S1~S4](syndicate_phase_plan.md) — S1/S2/S3 완료
-- [패시브 asset 플랜](passive_tree_assets_plan.md) — run-time + SVG fallback, P1 완료, P2~P6 대기
+- [코치 품질 Phase H 백로그](coach_quality_backlog.md) — H1~H5 + H6 완료, L3 인게임/alias 누적
+- [POE2 통합 backlog](poe2_integration_backlog.md) — feasibility 완료, D0~D8 (제품 요구 확정 전 착수 금지)
+- [디자인 Phase 0~5 플랜](design_phase_plan.md) — P5 미완
+- [Syndicate 전면 개편 S1~S4](syndicate_phase_plan.md) — S1~S3 완료
+- [패시브 asset 플랜](passive_tree_assets_plan.md) — P1 완료, P2~P6 대기
 - [Syndicate 리서치 1/2차](../../../_analysis/syndicate_research_2026-04-20.md / syndicate_ux_research_2026-04-20.md)
-- [POE2 테이블 카탈로그](../../../_analysis/poe2_tables.json) — 942 base tables (row_count/size/locale_variants)
+- [POE2 테이블 카탈로그](../../../_analysis/poe2_tables.json)
 - [Continue 아키텍처](continue_architecture.md)
 - [패시브 트리 원 플랜](passive_tree_plan.md)
 - _analysis/ggpk_truth_reference.json — POE1 19 테이블 진실 anchor
-- docs/league_refresh.md — 리그 교체 순서
+- docs/league_refresh.md
 
 ## Class Start 노드 매핑 (data.json 수동)
 - 0: Scion (58833) / 1: Marauder (47175) / 2: Ranger (50459)
@@ -49,25 +41,28 @@
 
 - **valid_gems 다른 카테고리 누락 가능성** — transfigured 발견 사례로 meta/awakened/vaal alt 등 추가 감사 필요 (우선순위 2)
 - **L3 인게임 미검증** — 재시도 교정 프롬프트 실제 효과 측정 필요
-- **SyndicateBoard 내부 일관성**: ss22 deprecated flag UI 확인 필요 (다음 세션 Tauri 실측)
-- **Cmd+K palette UX**: 초보자 부적합 → 고인물 모드 뒤로 숨김 or 삭제 결정 보류
-- **PassiveTreeCanvas 623줄**: 300 룰 초과, 기능 복잡도로 허용
-- **Syndicate Vision OCR**: 골든 스크린샷 테스트 없음 (S4에서 추가)
-- **Coach 좀비 cleanup on window close** — 후속 백로그 (앱 종료 hook에서 cancel_coach 호출)
-- **Model toggle frontend 테스트 부재** — 후속 백로그
+- **Phase E subagent 제기 미패치 5건** — (1) ACTIVE_EVIDENCE_TOOLS 에 Task 미포함 의도적이지만 문서화 없음 (2) `_is_real_user_prompt` mixed event turn boundary (3) git status `line[3:]` rename/공백 파일명 (4) 한국어 문장 경계 edge case (5) Claude Code Stop 훅 실제 stdin 스키마 미확정 — 다음 세션 `CLAUDE_CLAIM_GATE_DEBUG=1` 켜고 hook_input.log 실측 대기
+- **Tier 2 C 대기** — Fast/Strict 분리, 현 테스트 부하 문제 없으면 연기 가능
+- **SyndicateBoard 내부 일관성** — ss22 deprecated flag UI 확인 (Tauri 실측)
+- **Cmd+K palette UX** — 초보자 부적합 결정 보류
+- **PassiveTreeCanvas 623줄** — 300 룰 초과, 복잡도로 허용
+- **Syndicate Vision OCR** — 골든 스크린샷 테스트 부재 (S4)
+- **Coach 좀비 cleanup on window close**
+- **Model toggle frontend 테스트 부재**
 
 ## UX 결정 기록 (누적)
 - 우클릭 dealloc 분리 → 되돌림 (왼클릭 토글 유지)
 - 수동 URL import UI 스킵 (자동 디코드 대체)
 - AI 이모지 제거, UI 이모지 → SVG 아이콘
 - 전면 리디자인 = 다크 단일 + POE Rarity + Linear 레이아웃 + 2-창 오버레이
-- 기본 리그 모드 = SC (SSF/HCSSF/Trade 3모드는 Wreckers 스타일 단일 파일 아키텍처 위에 경제·철학 조정만 차이)
+- 기본 리그 모드 = SC (SSF/HCSSF/Trade 3모드는 Wreckers 스타일 단일 파일 위에 경제·철학 조정만 차이)
 - **빌드 분석 = 진입점** 원칙
 - 패시브 class start = anchor only
-- **코치 모델 기본 Haiku** (비용 민감) — "빠름 / 느리지만 디테일 / 심층 분석" 3버튼
+- **코치 모델 기본 Haiku** — "빠름 / 느리지만 디테일 / 심층 분석" 3버튼
 - **게임 토글 TopBar** (startup modal 아님) — POE1 기본, POE2는 경고 배너
-- **빌드 히스토리 (pobb 스타일)** — localStorage 최근 20개, 자동 최신 복원, 수동 선택 복원. 30일 경과 압축은 Phase B로 분리
-- **오버레이 레벨링 = 탭 네비 + 활성 phase bullet 노트** — 4 phase(Act1-4/5-10/초반맵/엔드게임) 각 Lv range로 links_progression + skill_transitions 필터
-- **FilterPanel 3모드 유지** — SSF/HCSSF/TRADE 모두 Wreckers 스타일 단일 파일 위에 조정. 소개 문구에 명기
-- **코치 정식화 = 코드 레이어 hard constraint** — prompt engineering은 보완, normalizer가 주 제약 (Phase H 원칙)
-- **4-Layer hallucination 방어** — L1 prompt(soft) + L2 strict drop + L3 auto-retry + L4 풀스크린 블록. 사용자는 배너 아닌 전면 검은 오버레이 선호 (Phase H6)
+- **빌드 히스토리 (pobb 스타일)** — localStorage 최근 20개, 자동 최신 복원
+- **오버레이 레벨링 = 탭 네비 + 활성 phase bullet** — 4 phase 각 Lv range
+- **FilterPanel 3모드 유지** — SSF/HCSSF/TRADE 공통 Wreckers 스타일 + 경제·철학 조정
+- **코치 정식화 = 코드 레이어 hard constraint** — normalizer 가 주 제약 (Phase H)
+- **4-Layer hallucination 방어** — L1 prompt + L2 strict + L3 retry + L4 풀스크린 블록 (Phase H6). **L3_RETRY_METRIC 로그 grep-friendly** (2026-04-21).
+- **자가-PASS 방어 Tier 2** — A(Claim-gate) + B(Phase E audit-all subagent) + C(Fast/Strict 모드 분리: 기본 fast = changed-files, TEST_CLAIM 감지 시 strict = full suite). 전부 완료 (2026-04-21).
