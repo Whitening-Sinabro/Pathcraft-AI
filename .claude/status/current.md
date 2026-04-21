@@ -1,6 +1,7 @@
 ## 지금
-- **세션 종료 (2026-04-21)** — Phase H6 4-Layer 방어 구현 + transfigured 데이터 갭 해결. L3 인게임 미검증 상태로 마감
+- **세션 종료 (2026-04-21)** — Phase H6 4-Layer 방어 + transfigured 갭 해결 + Stop hook 자동 검증 도입 + stale syndicate 테스트 fix. L3 인게임 미검증 상태로 마감
 - **이번 세션 주요 학습:** Phase F 감사 "완료" 를 "데이터 정확" 으로 일반화한 게 과장이었음 → `feedback_no_data_completeness_overclaim.md` 기록
+- **Stop hook 도입:** `.claude/hooks/verify_on_stop.py` — .py/.ts/.tsx 변경 있으면 응답 종료 직전 자동 pytest/tsc/vitest. bypass 는 `PATHCRAFT_SKIP_STOP_VERIFY=1`
 
 ## 다음 할 것 (우선순위순)
 
@@ -40,7 +41,6 @@
 
 ## 잔존 이슈 (허용/추후 처리)
 
-- **test_syndicate_advisor.py 1건 실패** — ss22 deprecated 이후 meta_2x2_5 반환, 테스트 기대값 업데이트 누락. 별건
 - **valid_gems 다른 카테고리 누락 가능성** — transfigured 발견 사례로 meta/awakened/vaal alt 등 추가 감사 필요 (우선순위 2)
 - **L3 인게임 미검증** — 재시도 교정 프롬프트 실제 효과 측정 필요
 - **SyndicateBoard 내부 일관성**: ss22 deprecated flag UI 확인 필요 (다음 세션 Tauri 실측)

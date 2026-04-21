@@ -59,9 +59,11 @@ class TestSyndicateRecommendation:
     """빌드 → 최적 레이아웃 추천."""
 
     def test_mageblood_picks_currency_layout(self):
-        """Mageblood는 SS22 또는 Aisling (currency 관련) 추천."""
+        """Mageblood 는 currency 관련 레이아웃 추천.
+        ss22 는 3.26 Mastermind 분리 후 deprecated — 현재 meta 는 meta_2x2_5.
+        aisling_fixed/jewelry_craft 도 currency 계열이라 허용."""
         rec = recommend_layout(_mk_build(name="Mageblood Gladiator"))
-        assert rec["layout_id"] in ("ss22", "aisling_fixed", "jewelry_craft")
+        assert rec["layout_id"] in ("meta_2x2_5", "ss22", "aisling_fixed", "jewelry_craft")
         assert "커런시" in rec["reason"] or "Veiled" in rec["reason"]
 
     def test_returns_valid_layout_id(self):
