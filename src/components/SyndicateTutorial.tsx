@@ -4,18 +4,24 @@ export function SyndicateTutorial() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div style={{ marginBottom: 12, border: "1px solid #ffd43b", borderRadius: 6, background: "#fff9db" }}>
+    <div
+      style={{
+        marginBottom: 12, borderRadius: 6,
+        border: "1px solid var(--status-warning)", background: "var(--status-warning-bg)",
+      }}
+    >
       <button
         onClick={() => setOpen((v) => !v)}
         style={{
           width: "100%", padding: "8px 12px", textAlign: "left", border: "none",
-          background: "transparent", cursor: "pointer", fontSize: 13, fontWeight: 700, color: "#5c3c00",
+          background: "transparent", cursor: "pointer", fontSize: 13, fontWeight: 700,
+          color: "var(--status-warning)",
         }}
       >
         {open ? "▼" : "▶"} Syndicate 처음 보세요? 1분 설명서 (Mid-League 진입자용)
       </button>
       {open && (
-        <div style={{ padding: "0 12px 12px", fontSize: 12, color: "#495057", lineHeight: 1.6 }}>
+        <div className="ui-text-secondary" style={{ padding: "0 12px 12px", fontSize: 12, lineHeight: 1.6 }}>
           <Section title="① 4가지 액션 (인카운터 후 캡처된 멤버에게)">
             <Row k="Bargain (협상)" v="멤버를 원하는 분과로 이동 + 보상 1개. Rank 변동 없음. 가장 자주 씀." />
             <Row k="Interrogate (심문)" v="Rank −1 (Member→이탈). 다른 멤버 위치 정보 노출. 원치 않는 멤버 청소용." />
@@ -47,7 +53,7 @@ export function SyndicateTutorial() {
             <ol style={{ margin: "4px 0", paddingLeft: 18 }}>
               <li>위 보드에서 프리셋 1개 선택 (예: SS22) → 목표 레이아웃 표시.</li>
               <li>아래 "현재 인게임 상태"에 본인의 실제 syndicate 입력.</li>
-              <li>"🎯 다음 액션 추천"이 우선순위별로 무엇을 할지 알려줌.</li>
+              <li>"다음 액션 추천"이 우선순위별로 무엇을 할지 알려줌.</li>
               <li>인카운터마다 추천 따라 액션 → 목표에 점진 수렴.</li>
             </ol>
           </Section>
@@ -60,7 +66,7 @@ export function SyndicateTutorial() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginTop: 8 }}>
-      <div style={{ fontWeight: 700, fontSize: 12, color: "#5c3c00", marginBottom: 2 }}>{title}</div>
+      <div className="ui-text-warning" style={{ fontWeight: 700, fontSize: 12, marginBottom: 2 }}>{title}</div>
       {children}
     </div>
   );
@@ -69,7 +75,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Row({ k, v }: { k: string; v: string }) {
   return (
     <div style={{ marginLeft: 8, marginBottom: 2 }}>
-      <strong style={{ color: "#212529" }}>{k}</strong> — <span style={{ color: "#495057" }}>{v}</span>
+      <strong>{k}</strong> — <span className="ui-text-secondary">{v}</span>
     </div>
   );
 }

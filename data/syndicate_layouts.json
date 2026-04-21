@@ -1,19 +1,193 @@
 {
   "_meta": {
-    "description": "커뮤니티 검증된 Syndicate safehouse 레이아웃 프리셋",
+    "description": "커뮤니티 검증된 Syndicate safehouse 레이아웃 프리셋 (3.28 Mirage 기준 + HCSSF 전용 추가)",
     "format": "division → [member_id...] (Leader = 첫 항목, Member = 나머지)",
-    "tip": "각 safehouse는 Leader rank가 리더 보상 지배. Member는 보조.",
-    "source": "POE Wiki Betrayal guide + SS22 community consensus",
-    "source_url": "https://www.poewiki.net/wiki/Syndicate",
-    "verified_at": "2026-04-19",
-    "poe_league": "3.28 Mirage (Betrayal 3.5 이후 영구 메커니즘, core 변동 없음)"
+    "tip": "각 safehouse는 Leader rank가 리더 보상 지배. Member는 보조. 보드 14 slot 제약으로 3명은 미배치.",
+    "source": "POE Wiki Betrayal guide + Maxroll 3.28 Betrayal + aoeah/fdaytalk/poe-vault cheat sheets (T2 교차)",
+    "source_url": "https://www.poewiki.net/wiki/Immortal_Syndicate",
+    "verified_at": "2026-04-20",
+    "verified_by": "_analysis/syndicate_research_2026-04-20.md",
+    "poe_league": "3.28 Mirage (2026-03-06). 3.26 Secrets of the Atlas에서 Mastermind 분리 + 3.28 보상 리워크 반영.",
+    "notes": {
+      "ss22_status": "3.26 Mastermind 분리 이후 SS22는 'Safehouse 풀 유지 → Catarina 직접 트리거'가 불가능해져 가치 하락. deprecated 태그.",
+      "current_meta": "2x2/2x5 Method (`meta_2x2_5`) — 2명 분과 × 2(집중 파밍) + 5명 분과 × 2(인텔리 충전용). 2025-2026 커뮤니티 컨센서스.",
+      "hcssf_presets": "HCSSF/SSF 전용 3종: hcssf_safe_start (캠페인~초반 맵), ssf_crafting_core (중반 Aisling+Vorici), ssf_currency_sustain (후반 HC-safe). Janus/Vagan는 HC 회피 권고.",
+      "aisling_division_choice": "3.28 Aisling Fortification = Veiled Exalted Orb bench (드롭률 상향으로 가치 ↑). Research = Veiled Chaos. 상황별 분리."
+    }
   },
   "layouts": [
     {
+      "id": "meta_2x2_5",
+      "name": "Meta 2x2/2x5 (3.28 Current)",
+      "strategy": "2명 분과 × 2 = 파밍 집중 (Safehouse 클리어 우선). 5명 분과 × 2 = 인텔리 충전용. 3.26 Mastermind 분리 이후 표준 메타.",
+      "priority": "currency_veiled_exalt_3.28",
+      "hcssf_safe": false,
+      "board": {
+        "Transportation": [
+          "gravicius",
+          "it_that_fled"
+        ],
+        "Research": [
+          "guff",
+          "janus"
+        ],
+        "Fortification": [
+          "aisling",
+          "korell",
+          "haku",
+          "cameria",
+          "elreon"
+        ],
+        "Intervention": [
+          "vorici",
+          "tora",
+          "rin",
+          "riker",
+          "leo"
+        ]
+      },
+      "required_ranks": {
+        "gravicius": 3,
+        "it_that_fled": 3,
+        "aisling": 3,
+        "guff": 3
+      },
+      "rewards_focus": [
+        "Divination card stacks (Gravicius)",
+        "Foulborn Unique (It That Fled, 3.28)",
+        "Veiled Exalted Orb bench (Aisling Fortification)",
+        "Reflecting Mist (Guff Research)",
+        "Syndicate Medallion → Mastermind"
+      ]
+    },
+    {
+      "id": "hcssf_safe_start",
+      "name": "HCSSF Safe Start (Campaign ~ T1 Map)",
+      "strategy": "Act 9 직후 초반 맵 구간. Hillock(Flask quality) + Haku(quality currency) 2축으로 build 안정화. HC 위험 멤버(Janus/Vagan) 제외.",
+      "priority": "safe_quality_currency",
+      "hcssf_safe": true,
+      "board": {
+        "Intervention": [
+          "hillock",
+          "tora"
+        ],
+        "Fortification": [
+          "haku",
+          "elreon",
+          "korell"
+        ],
+        "Research": [
+          "vorici",
+          "jorgin"
+        ],
+        "Transportation": [
+          "guff",
+          "riker",
+          "it_that_fled"
+        ]
+      },
+      "required_ranks": {
+        "hillock": 2,
+        "haku": 2,
+        "elreon": 2
+      },
+      "rewards_focus": [
+        "Flask 20%+ quality (Hillock)",
+        "Quality currency stack (Haku)",
+        "Life/Resist jewelry (Elreon)",
+        "초반 random currency (Guff)",
+        "Talisman (Jorgin)"
+      ]
+    },
+    {
+      "id": "ssf_crafting_core",
+      "name": "SSF Crafting Core (Aisling + Vorici)",
+      "strategy": "중반. Aisling Research Captain(rank 3) = Veiled T4 bench. Vorici Fortification = socket/link 자급. Jorgin 보조.",
+      "priority": "veiled_craft_selffound",
+      "hcssf_safe": true,
+      "board": {
+        "Research": [
+          "aisling",
+          "vorici",
+          "jorgin",
+          "rin"
+        ],
+        "Fortification": [
+          "elreon",
+          "haku",
+          "korell"
+        ],
+        "Intervention": [
+          "tora",
+          "hillock"
+        ],
+        "Transportation": [
+          "guff",
+          "riker"
+        ]
+      },
+      "required_ranks": {
+        "aisling": 3,
+        "vorici": 3,
+        "tora": 3
+      },
+      "rewards_focus": [
+        "Aisling T4 Veiled Chaos bench",
+        "Vorici Chromatic/Jewelers/Fusing (Fortification)",
+        "Tora Quality Gems + Facetor's Lens",
+        "Korell Essence bench",
+        "Haku Influence Orbs craft"
+      ]
+    },
+    {
+      "id": "ssf_currency_sustain",
+      "name": "SSF Currency Sustain (HC-safe)",
+      "strategy": "후반 맵 파밍. Gravicius Transportation Leader + Cameria Intervention Leader 교대. Janus/Vagan HC 위험 회피.",
+      "priority": "currency_self_sufficient_hc_safe",
+      "hcssf_safe": true,
+      "board": {
+        "Intervention": [
+          "cameria",
+          "tora",
+          "hillock"
+        ],
+        "Transportation": [
+          "gravicius",
+          "guff",
+          "riker"
+        ],
+        "Research": [
+          "aisling",
+          "vorici"
+        ],
+        "Fortification": [
+          "elreon",
+          "haku",
+          "korell"
+        ]
+      },
+      "required_ranks": {
+        "gravicius": 3,
+        "cameria": 3,
+        "aisling": 3
+      },
+      "rewards_focus": [
+        "Divination card stacks (Gravicius)",
+        "Delirium Scarabs (Cameria)",
+        "Swap Divination Cards (Gravicius Research 보조)",
+        "Veiled Chaos Orb (Leader 드롭)",
+        "Aisling Veiled Chaos bench"
+      ]
+    },
+    {
       "id": "ss22",
-      "name": "SS22 (Classic 2-Safe)",
-      "strategy": "2개 safehouse 상시 풀 유지 — Intervention(Gravicius+Cameria 커런시) + Research(Aisling Veiled)",
-      "priority": "currency + veiled craft",
+      "name": "SS22 (Legacy, deprecated since 3.26)",
+      "deprecated": true,
+      "deprecated_since": "3.26 Secrets of the Atlas",
+      "deprecated_reason": "Mastermind가 Safehouse에서 분리됨 — 'Safehouse 풀 유지로 Catarina 직접 트리거' 모델 종료. 현재 meta는 `meta_2x2_5`.",
+      "strategy": "[LEGACY] 2개 safehouse 상시 풀 — Intervention + Research 중심",
+      "priority": "legacy_currency_veiled",
+      "hcssf_safe": false,
       "board": {
         "Intervention": [
           "gravicius",
@@ -39,17 +213,55 @@
         ]
       },
       "rewards_focus": [
-        "Mirror Shard",
-        "Exalted Shard",
+        "Mirror Shard (legacy)",
         "Veiled T4 craft",
         "Currency scarab"
       ]
     },
     {
+      "id": "aisling_fortification_vexalted",
+      "name": "Aisling Fortification (Veiled Exalt, 3.28)",
+      "strategy": "Aisling을 Fortification Leader로 — Veiled Exalted Orb bench. 3.28 드롭률 상향으로 Research T4보다 우선될 수 있음.",
+      "priority": "veiled_exalt_craft_3.28",
+      "hcssf_safe": false,
+      "board": {
+        "Fortification": [
+          "aisling",
+          "haku",
+          "elreon",
+          "korell"
+        ],
+        "Research": [
+          "vorici",
+          "jorgin"
+        ],
+        "Intervention": [
+          "cameria",
+          "tora"
+        ],
+        "Transportation": [
+          "gravicius",
+          "guff",
+          "it_that_fled"
+        ]
+      },
+      "required_ranks": {
+        "aisling": 3,
+        "haku": 3
+      },
+      "rewards_focus": [
+        "Aisling Veiled Exalted Orb bench",
+        "Haku Domination Scarabs",
+        "Cameria Delirium Scarabs",
+        "Gravicius Divination stacks"
+      ]
+    },
+    {
       "id": "aisling_fixed",
-      "name": "Aisling Research Fixed",
-      "strategy": "Aisling을 Research Leader로 고정 — Veiled T4 크래프팅 반복 farming (mirror-tier item crafting)",
-      "priority": "veiled_craft",
+      "name": "Aisling Research Fixed (Veiled Chaos T4)",
+      "strategy": "Aisling Research Leader 고정 — Veiled Chaos T4 크래프팅 반복. SSF mirror-tier 루프.",
+      "priority": "veiled_chaos_t4",
+      "hcssf_safe": true,
       "board": {
         "Research": [
           "aisling",
@@ -57,62 +269,37 @@
           "jorgin"
         ],
         "Intervention": [
-          "gravicius",
           "cameria",
-          "janus"
+          "tora",
+          "hillock"
         ],
         "Transportation": [
+          "gravicius",
           "guff",
           "riker"
         ],
         "Fortification": [
           "elreon",
-          "leo",
-          "haku"
+          "haku",
+          "korell"
         ]
       },
-      "rewards_focus": [
-        "Aisling T4 Veiled bench",
-        "currency coverage"
-      ]
-    },
-    {
-      "id": "leo_gilded",
-      "name": "Leo Gilded Scarab Farm",
-      "strategy": "Leo Fortification Leader → Gilded Scarab 대량 + Map bonus 조합",
-      "priority": "scarab_farming",
-      "board": {
-        "Fortification": [
-          "leo",
-          "korell",
-          "elreon",
-          "haku"
-        ],
-        "Transportation": [
-          "riker",
-          "guff",
-          "it_that_fled"
-        ],
-        "Research": [
-          "aisling",
-          "rin"
-        ],
-        "Intervention": [
-          "cameria",
-          "gravicius"
-        ]
+      "required_ranks": {
+        "aisling": 3,
+        "vorici": 3
       },
       "rewards_focus": [
-        "Gilded Scarab",
-        "Map",
-        "PVP Trophy"
+        "Aisling T4 Veiled Chaos bench",
+        "Vorici Chance/Scour (Research)",
+        "Jorgin Talisman craft"
       ]
     },
     {
       "id": "jewelry_craft",
       "name": "Jewelry Enchantment Focus",
-      "strategy": "Elreon Fortification Leader + Jorgin Research Leader — 반지/목걸이 크래프팅 파밍",
+      "strategy": "Elreon Fortification Leader + Jorgin Research Leader — 반지/목걸이 자급",
       "priority": "jewelry_crafting",
+      "hcssf_safe": true,
       "board": {
         "Fortification": [
           "elreon",
@@ -134,17 +321,22 @@
           "tora"
         ]
       },
+      "required_ranks": {
+        "elreon": 3,
+        "jorgin": 3
+      },
       "rewards_focus": [
-        "Resistance jewelry",
-        "Animal spirit ring",
-        "Veiled jewelry"
+        "Elreon Corrupted jewelry chest",
+        "Jorgin Talisman craft",
+        "Aisling Veiled jewelry"
       ]
     },
     {
       "id": "gem_farm",
       "name": "Tora Gem Experience Farm",
-      "strategy": "Tora Intervention Leader — Awakened 젬 레벨업 + Alternate Quality 젬 수집",
+      "strategy": "Tora Intervention Leader — Awakened 젬 레벨업 + Alternate Quality 젬",
       "priority": "gem_leveling",
+      "hcssf_safe": true,
       "board": {
         "Intervention": [
           "tora",
@@ -166,10 +358,13 @@
           "leo"
         ]
       },
+      "required_ranks": {
+        "tora": 3
+      },
       "rewards_focus": [
-        "Gem experience",
-        "Alternate Quality gem",
-        "Quality flask"
+        "Tora Ritual Scarabs",
+        "Tora Quality Gems (Transportation T3)",
+        "Alternate Quality gem craft (Research)"
       ]
     }
   ]

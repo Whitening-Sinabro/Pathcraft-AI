@@ -164,7 +164,7 @@ def analyze_image(image_bytes: bytes) -> dict[str, Any]:
     # 프로젝트 .env에서 자동 로드 (build_coach.py 패턴)
     try:
         from dotenv import load_dotenv
-        load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+        load_dotenv(Path(__file__).resolve().parent.parent / ".env", override=True)
     except ImportError:
         pass  # 환경변수만 있어도 동작
     api_key = os.environ.get("ANTHROPIC_API_KEY")

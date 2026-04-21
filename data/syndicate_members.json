@@ -1,9 +1,19 @@
 {
   "_meta": {
-    "description": "POE Syndicate (Jun Betrayal) 18 멤버 + 분과별 주요 보상",
+    "description": "POE Syndicate (Jun Betrayal) 17 Lieutenants + Catarina Mastermind. 분과별 보상 3.28 Mirage 기준.",
     "divisions": ["Transportation", "Fortification", "Research", "Intervention"],
     "ranks": ["Member", "Leader", "Mastermind"],
-    "source": "POE Wiki + 커뮤니티 가이드 (2024-2025)"
+    "board_slots": 14,
+    "poe_league": "3.28 Mirage (2026-03-06). 3.26 Secrets of the Atlas에서 Mastermind가 Safehouse에서 분리, Medallion 진입. 3.28에서 It That Fled 복귀(Breach 테마) + Aisling Fortification Veiled Exalt 부스트.",
+    "source": "PoE Wiki(T1) + Maxroll 3.28 patch notes(T1) + fdaytalk/aoeah/poe-vault 3.28 cheatsheet(T2, 3 교차).",
+    "verified_at": "2026-04-20",
+    "verified_by": "_analysis/syndicate_research_2026-04-20.md (8 병렬 에이전트)",
+    "notes": {
+      "member_count": "17 Lieutenants (Catarina 제외). 보드는 14 slot이라 3명은 미배치 상태.",
+      "rank_scaling": "rank는 Member(맵 조우) → Leader(Safehouse) → Mastermind(Catarina). Leader 보상이 양·가치 모두 가장 높음. Mastermind는 4 Safehouse 클리어 후 Medallion 획득 시 진입.",
+      "leader_drops_common": "모든 분과 Leader 처치 시 공통 드롭 기회: Veiled Chaos Orb, Syndicate Medallion, Allflame, Intervention Leader 한정 Paradoxica 유니크.",
+      "scarab_mapping": "Intervention 분과 드롭 Scarab은 멤버 1:1 고정."
+    }
   },
   "members": [
     {
@@ -12,202 +22,202 @@
       "default_division": "Research",
       "tags": ["veiled", "crafting"],
       "rewards": {
-        "Research": "Veiled mod 크래프트 (T1~T4, 벤치 unlock) — 최상급 rare 크래프팅의 핵심",
-        "Fortification": "Veiled mod 매직/레어 장비 드롭",
-        "Intervention": "Veiled 아이템 드롭",
-        "Transportation": "Veiled 아이템 드롭"
+        "Transportation": "Double Veiled Items",
+        "Fortification": "Craft: Veiled Exalted Orb (3.28 리워크 — Veiled Exalt 드롭률 상향으로 가치 ↑)",
+        "Research": "Craft: Veiled Chaos (Veiled bench unlock, Leader rank 3 = T4 bench)",
+        "Intervention": "Torment Scarabs"
       }
     },
     {
       "id": "cameria",
       "name": "Cameria the Coldblooded",
       "default_division": "Intervention",
-      "tags": ["currency", "mirror_shard", "scarab"],
+      "tags": ["currency", "delirium", "jewel"],
       "rewards": {
-        "Intervention": "Currency scarab + 희귀 커런시 (Mirror Shard/Exalted Shard)",
-        "Transportation": "Currency 보상 카펫",
-        "Research": "Currency 인챈트 스크롤",
-        "Fortification": "Currency 장비"
+        "Transportation": "Abyss Scarabs",
+        "Fortification": "Jewel chest (Abyss Jewel 포함)",
+        "Research": "Craft: Jewel",
+        "Intervention": "Delirium Scarabs"
       }
     },
     {
       "id": "elreon",
       "name": "Elreon",
       "default_division": "Fortification",
-      "tags": ["jewelry", "resistance"],
+      "tags": ["jewelry", "resistance", "fragments"],
       "rewards": {
-        "Fortification": "레지 3~4개 + 라이프 rare 반지/목걸이 (바닐라 엔드게임 저항 제작 기본)",
-        "Research": "일루미네이터 매직 쥬얼리",
-        "Transportation": "쥬얼리 드롭",
-        "Intervention": "쥬얼리 드롭"
+        "Transportation": "Fragments (Sacrifice/Mortal set)",
+        "Fortification": "Corrupted gear chest (레지/라이프 rare jewelry)",
+        "Research": "Tainted Currency (Tainted Chaos/Alchemy 등)",
+        "Intervention": "Beyond Scarabs"
       }
     },
     {
       "id": "gravicius",
       "name": "Gravicius",
       "default_division": "Transportation",
-      "tags": ["currency", "scarab"],
+      "tags": ["currency", "divination"],
       "rewards": {
-        "Transportation": "Currency scarab + Mirror Shard (Cameria와 짝) — 커런시 파밍 핵심",
-        "Research": "Chaos Orb 벤치",
-        "Intervention": "Currency 드롭",
-        "Fortification": "Currency 장비"
+        "Transportation": "Full stack of Divination Cards",
+        "Fortification": "Divination card chest",
+        "Research": "Swap Divination Cards",
+        "Intervention": "Divination Scarabs"
       }
     },
     {
       "id": "guff",
       "name": "Guff 'Tiny' Grenn",
       "default_division": "Transportation",
-      "tags": ["maps", "atlas"],
+      "tags": ["currency", "reflecting_mist"],
       "rewards": {
-        "Transportation": "Map scarab + 고티어 맵 드롭",
-        "Intervention": "Map 드롭",
-        "Research": "Map 인챈트",
-        "Fortification": "Map 장비"
+        "Transportation": "Random currency drop",
+        "Fortification": "Rare equipment chest",
+        "Research": "Craft: Reflecting Mist (Unique Jewel)",
+        "Intervention": "Blight Scarabs"
       }
     },
     {
       "id": "haku",
       "name": "Haku",
       "default_division": "Fortification",
-      "tags": ["quality", "currency"],
+      "tags": ["quality", "influence", "domination"],
       "rewards": {
-        "Fortification": "Quality currency (Armourer/Whetstone/Cartographer's Chisel 다량) + 장비 퀄리티 인챈트",
-        "Research": "Map/Flask 퀄리티 증가",
-        "Transportation": "Quality currency 드롭",
-        "Intervention": "장비 퀄리티 보너스"
+        "Transportation": "Unique strongbox",
+        "Fortification": "Domination Scarabs",
+        "Research": "Craft: Influence Orbs (Shaper/Elder 등)",
+        "Intervention": "Ambush Scarabs"
       }
     },
     {
       "id": "hillock",
       "name": "Hillock",
       "default_division": "Intervention",
-      "tags": ["flask", "quality"],
+      "tags": ["flask", "quality", "eldritch_implicit"],
       "rewards": {
-        "Intervention": "Flask 퀄리티 증가 (20%+ 인챈트) + 이벤트 플라스크",
-        "Research": "Flask 벤치 크래프팅",
-        "Transportation": "Flask 드롭",
-        "Fortification": "Flask 장비"
+        "Transportation": "Influenced gear chest",
+        "Fortification": "Influence crafting (Eldritch Implicit 관련)",
+        "Research": "Craft: Eldritch Implicits",
+        "Intervention": "Influencing Scarabs (Flask quality 인챈트는 Member/Leader에서 부차 드롭)"
       }
     },
     {
       "id": "it_that_fled",
       "name": "It That Fled",
       "default_division": "Transportation",
-      "tags": ["bestiary", "beasts"],
+      "tags": ["breach", "foulborn", "3.28"],
       "rewards": {
-        "Transportation": "Bestiary Orb + 희귀 비스트 (Imprint 등)",
-        "Research": "비스트 인챈트",
-        "Intervention": "비스트 드롭",
-        "Fortification": "비스트 장비"
+        "Transportation": "Trapped chest: Foulborn Unique items (3.28 신규)",
+        "Fortification": "Crafting spree: Random Breach Ring w/ Foulborn Currency (3.28 리워크)",
+        "Research": "Tainted Socket Currency (Tainted Fusing/Chromatic 등)",
+        "Intervention": "Breach Scarabs"
       }
     },
     {
       "id": "janus",
       "name": "Janus Perandus",
       "default_division": "Transportation",
-      "tags": ["shards", "coins"],
+      "tags": ["kalguur", "gold", "expedition"],
       "rewards": {
-        "Transportation": "Perandus Coin + Currency Shard (Chaos/Alchemy/Alteration)",
-        "Intervention": "Currency 드롭",
-        "Research": "Coin 보상",
-        "Fortification": "Currency 장비"
+        "Transportation": "Gold piles (Kalguur currency, 3.25+ 변경)",
+        "Fortification": "Kalguuran Scarabs",
+        "Research": "Unique purchase trade (Kalguur merchant)",
+        "Intervention": "Expedition Scarabs"
       }
     },
     {
       "id": "jorgin",
       "name": "Jorgin the Banished",
       "default_division": "Research",
-      "tags": ["talisman", "unique_rings"],
+      "tags": ["talisman", "bestiary", "delve"],
       "rewards": {
-        "Research": "Animal spirit ring (Bestiary 유니크 반지) + Talisman 인챈트",
-        "Fortification": "Talisman 장비",
-        "Transportation": "Talisman 드롭",
-        "Intervention": "Talisman 드롭"
+        "Transportation": "Sulphite Scarabs",
+        "Fortification": "Delve gear chest",
+        "Research": "Craft: Talisman",
+        "Intervention": "Bestiary Scarabs"
       }
     },
     {
       "id": "korell",
       "name": "Korell Goya",
       "default_division": "Fortification",
-      "tags": ["jewels", "cluster"],
+      "tags": ["essence", "jewels", "cluster"],
       "rewards": {
-        "Fortification": "Jewel/Abyss Jewel 드롭 (희귀 mod 포함)",
-        "Research": "Jewel 인챈트",
-        "Transportation": "Jewel 드롭",
-        "Intervention": "Jewel 장비"
+        "Transportation": "Anarchy Scarabs",
+        "Fortification": "Essence gear chest",
+        "Research": "Craft: Essence (Essence upgrade bench)",
+        "Intervention": "Essence Scarabs"
       }
     },
     {
       "id": "leo",
       "name": "Leo Redmane",
       "default_division": "Fortification",
-      "tags": ["maps", "gilded_scarab", "trophy"],
+      "tags": ["unique", "corruption", "ultimatum"],
       "rewards": {
-        "Fortification": "Gilded Scarab + PVP Trophy + Map 보너스",
-        "Transportation": "Map + Scarab 드롭",
-        "Intervention": "Trophy 드롭",
-        "Research": "Map 인챈트"
+        "Transportation": "Incursion Scarabs",
+        "Fortification": "Trapped chest: Corrupted Unique",
+        "Research": "Craft: Unique corruption (Djinn Vaal Orb)",
+        "Intervention": "Ultimatum Scarabs"
       }
     },
     {
       "id": "riker",
       "name": "Riker Maloney",
       "default_division": "Transportation",
-      "tags": ["scarab", "fragment"],
+      "tags": ["unique", "ancient", "titanic"],
       "rewards": {
-        "Transportation": "Scarab 전반 + Fragment 드롭",
-        "Intervention": "Scarab 드롭",
-        "Research": "Scarab 인챈트",
-        "Fortification": "Scarab 장비"
+        "Transportation": "Unique items drop",
+        "Fortification": "Unique chest",
+        "Research": "Craft: Ancient Orb",
+        "Intervention": "Titanic Scarabs"
       }
     },
     {
       "id": "rin",
       "name": "Rin Yuushu",
       "default_division": "Research",
-      "tags": ["scarab", "gems"],
+      "tags": ["maps", "originator", "cartography"],
       "rewards": {
-        "Research": "Scarab 인챈트 + 희귀 젬",
-        "Fortification": "Scarab 장비",
-        "Transportation": "Scarab 드롭",
-        "Intervention": "Scarab 드롭"
+        "Transportation": "Originator influenced maps (3.28)",
+        "Fortification": "Unique map chest",
+        "Research": "Trapped chest: Scarabs (3.28)",
+        "Intervention": "Cartography Scarabs"
       }
     },
     {
       "id": "tora",
       "name": "Tora",
       "default_division": "Intervention",
-      "tags": ["gems", "experience"],
+      "tags": ["gems", "ritual"],
       "rewards": {
-        "Intervention": "Gem experience (+Lv up to 21) + Gem 퀄리티",
-        "Research": "Gem 인챈트 + Alternate Quality",
-        "Fortification": "Gem 장비",
-        "Transportation": "Gem 드롭"
+        "Transportation": "Quality gems + Facetor's Lens (T3 rank)",
+        "Fortification": "Trapped chest: Gem",
+        "Research": "Craft: Gem (Alternate Quality + gem 인챈트)",
+        "Intervention": "Ritual Scarabs"
       }
     },
     {
       "id": "vagan",
       "name": "Vagan",
       "default_division": "Intervention",
-      "tags": ["weapons", "rare"],
+      "tags": ["weapons", "incubator", "legion", "fractured"],
       "rewards": {
-        "Intervention": "높은 dps 무기 드롭 + 무기 벤치 크래프팅",
-        "Research": "무기 인챈트",
-        "Fortification": "무기 장비",
-        "Transportation": "무기 드롭"
+        "Transportation": "Incubators",
+        "Fortification": "Incubator completion (incubator 가속)",
+        "Research": "Craft: Fracturing Orb (Fractured item w/ Chaos)",
+        "Intervention": "Legion Scarabs"
       }
     },
     {
       "id": "vorici",
       "name": "Vorici",
       "default_division": "Research",
-      "tags": ["sockets", "chromatic", "link"],
+      "tags": ["sockets", "chromatic", "harvest"],
       "rewards": {
-        "Research": "White socket + Chromatic 크래프팅 + 링크 벤치",
-        "Fortification": "Socket 장비",
-        "Transportation": "Socket currency 드롭",
-        "Intervention": "Socket 드롭"
+        "Transportation": "Full stack of currency",
+        "Fortification": "Craft: Socket/Link (Chromatic/Jewelers/Fusing)",
+        "Research": "Craft: Chance/Scour Orbs (3.28 — 기존 White Socket은 Fortification으로 이동)",
+        "Intervention": "Harvest Scarabs"
       }
     },
     {
@@ -216,7 +226,7 @@
       "default_division": null,
       "tags": ["mastermind", "veiled", "triggered"],
       "rewards": {
-        "Mastermind": "모든 멤버 트리거 — 다양한 보상 + Catarina 유니크 드롭"
+        "Mastermind": "Safehouse 4곳 클리어 후 Mastermind Medallion 필요 (3.26 이후 분리). 모든 Lieutenant 보상 테이블 트리거 + Catarina's Crown 유니크 + Veiled Exalted Orb 확률 드롭"
       }
     }
   ]
