@@ -161,6 +161,7 @@
 | python/data_integrity.py | H5-1 — BaseItemTypes.json SHA256 drift 런타임 체크 공용 유틸 (경고 dedupe) | 아니오 |
 | python/tests/test_data_integrity.py | H5-1 — drift check 5건 (match/mismatch/pin-less/dedupe/normalizer 통합) | 아니오 |
 | scripts/compare_coach_trace.py | H4-1 — 코치 A/B 비교 도구 (trace/warnings/match_type breakdown 수동 수집 JSON 기반) | 아니오 |
+| .claude/verify.json | Stop hook (~/.claude/hooks/verify_on_stop.py) 프로젝트 오버라이드 설정 파일 (skip_tests / test_cmd 등) | 아니오 |
 | src/components/CoachBlockedBanner.tsx | H6 L4 — 풀스크린 terminal block (drop 발견 시 결과 전체 차단 + 재분석 only) | 아니오 |
 | src/components/CoachBlockedBanner.test.ts | H6 L4 — isCoachBlocked 5 케이스 단위 테스트 | 아니오 |
 | python/tests/test_build_coach_retry.py | H6 L3 — Gate + Auto-retry 3 시나리오 (no-drop / recover / still-drop) | 아니오 |

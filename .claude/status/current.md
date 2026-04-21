@@ -1,10 +1,16 @@
 ## 지금
 - **세션 종료 (2026-04-21)** — Phase H6 4-Layer 방어 + transfigured 갭 해결 + Stop hook 자동 검증 도입 + stale syndicate 테스트 fix. L3 인게임 미검증 상태로 마감
 - **이번 세션 주요 학습:** Phase F 감사 "완료" 를 "데이터 정확" 으로 일반화한 게 과장이었음 → `feedback_no_data_completeness_overclaim.md` 기록
-- **Stop hook 도입 (전역):** `~/.claude/hooks/verify_on_stop.py` — 범용, 모든 프로젝트 적용. 자동 감지(pytest/tsc/vitest/jest) + $CLAUDE_PROJECT_DIR 기반. bypass: `CLAUDE_SKIP_STOP_VERIFY=1` 또는 `.claude/skip-stop-verify` 파일
+- **Stop hook 도입 (전역, v2):** `~/.claude/hooks/verify_on_stop.py` — 범용, 모든 프로젝트 적용. 자동 감지(pytest/tsc/vitest/jest) + $CLAUDE_PROJECT_DIR 기반. v2: changed-files 타겟팅 + `.claude/verify.json` 오버라이드 (test_cmd/skip_tests) + risk-weighted Meta-audit + 증상 덮기 금지 경고. bypass: `CLAUDE_SKIP_STOP_VERIFY=1` 또는 `.claude/skip-stop-verify` 파일
 
 ## 다음 할 것 (우선순위순)
 
+0. [ ] **Self-audit leak 방어 v3 설계** — 피어 리뷰 3건(Gemini+Grok+GPT) 공통 지적 남은 Tier 2 3개:
+   - **Claim-gate hook** (GPT v2 최우선): 응답 생성 직전 "구현/완료/검증" 단어 + evidence 부재 시 차단. Stop hook 보다 더 근본. 구현 포인트 (UserPromptSubmit? PostToolUse? 커스텀?) 확정 필요
+   - **Audit subagent 분리**: `/audit-all` 끝단에 `Agent(subagent_type=feature-dev:code-reviewer)` 외부 감사. 자가 편향 10-15% 마지막 leak 제거
+   - **Fast / Strict 모드 분리**: 기본 fast (changed-files만), 완료 선언 시에만 strict (full suite)
+   - 셋 중 **어느 것부터 할지** 먼저 결정
+   - 관련 peer-review 문서: `D:/tmp/claude_peer_review/README.md`
 1. [ ] **L3 auto-retry 인게임 검증** — 재분석 시 Onslaught Support 같은 hallucination 재발 시 교정 프롬프트로 자동 복구하는지 확인. 복구 성공률 + `_retry_info.final_dropped=[]` 비율 수집
 2. [ ] **alias 맵 / valid_gems 누락 카테고리 재감사** — transfigured 발견 계기로 다른 카테고리(meta gems? awakened? vaal alt quality?) 도 누락 가능성. GGPK 테이블별 gem 소스 전수 확인
 3. [ ] **DoD 수동 검증 (미검증 대기)** — 기존 Tauri 창 `Ctrl+R` 후:
