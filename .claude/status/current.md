@@ -1,7 +1,7 @@
 ## 지금
 - **세션 종료 (2026-04-21)** — Phase H6 4-Layer 방어 + transfigured 갭 해결 + Stop hook 자동 검증 도입 + stale syndicate 테스트 fix. L3 인게임 미검증 상태로 마감
 - **이번 세션 주요 학습:** Phase F 감사 "완료" 를 "데이터 정확" 으로 일반화한 게 과장이었음 → `feedback_no_data_completeness_overclaim.md` 기록
-- **Stop hook 도입:** `.claude/hooks/verify_on_stop.py` — .py/.ts/.tsx 변경 있으면 응답 종료 직전 자동 pytest/tsc/vitest. bypass 는 `PATHCRAFT_SKIP_STOP_VERIFY=1`
+- **Stop hook 도입 (전역):** `~/.claude/hooks/verify_on_stop.py` — 범용, 모든 프로젝트 적용. 자동 감지(pytest/tsc/vitest/jest) + $CLAUDE_PROJECT_DIR 기반. bypass: `CLAUDE_SKIP_STOP_VERIFY=1` 또는 `.claude/skip-stop-verify` 파일
 
 ## 다음 할 것 (우선순위순)
 

@@ -164,5 +164,3 @@
 | src/components/CoachBlockedBanner.tsx | H6 L4 — 풀스크린 terminal block (drop 발견 시 결과 전체 차단 + 재분석 only) | 아니오 |
 | src/components/CoachBlockedBanner.test.ts | H6 L4 — isCoachBlocked 5 케이스 단위 테스트 | 아니오 |
 | python/tests/test_build_coach_retry.py | H6 L3 — Gate + Auto-retry 3 시나리오 (no-drop / recover / still-drop) | 아니오 |
-| .claude/hooks/verify_on_stop.py | Stop hook — .py/.ts/.tsx 변경 시 응답 종료 전 자동 pytest/tsc/vitest (PATHCRAFT_SKIP_STOP_VERIFY 로 bypass) | 아니오 |
-| .claude/settings.json | 프로젝트 공용 settings — Stop hook 등록 (team-wide) | 아니오 |
