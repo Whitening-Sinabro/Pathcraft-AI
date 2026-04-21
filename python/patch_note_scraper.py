@@ -470,7 +470,13 @@ if __name__ == "__main__":
     ap.add_argument("--latest", action="store_true", help="최신 메이저 패치 요약")
     ap.add_argument("--version", type=str, help="특정 버전 조회")
     ap.add_argument("--track", type=str, help="특정 메카닉 변경사항 추적")
+    # POE2 D0 — Rust 가 --game poe1|poe2 전달. POE2 패치노트 소스/URL 분기는 D8 별도.
+    ap.add_argument("--game", choices=["poe1", "poe2"], default="poe1",
+                    help="대상 게임 (POE2 패치노트 소스 분기는 D8 에서 구현 예정)")
     args = ap.parse_args()
+
+    if args.game == "poe2":
+        logger.warning("--game poe2 는 D0 플래그 수용 단계 — POE1 패치노트 URL 로 처리 (D8 미완)")
 
     if args.collect:
         pages = 5 if args.all else args.pages

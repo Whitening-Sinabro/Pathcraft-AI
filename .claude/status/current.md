@@ -1,14 +1,20 @@
 ## 지금
-- **세션 종료 (2026-04-21, Priority 0+1+2+4 세션)** — current.md 우선순위 0/1/2 완결 + 4(POE2) 착수. Tier 2 C Fast/Strict 분리(훅 11건 테스트), L3_RETRY_METRIC 로그(코치 테스트 2건), valid_gems pollution 4건 제거(refresh 테스트 11건), extract_data.rs --game 플래그(Rust 테스트 8건). 전체 pytest 639/639 green.
+- **세션 종료 (2026-04-21)** — Priority 0+1+2+4(D0) 전부 완결. 2 커밋: (1) 66f1306 Tier 2 C + L3 metric + valid_gems pollution + extract_data --game, (2) POE2 D0 잔여 (schema::Game serde + lib.rs 7 커맨드 game: Option<Game> + Python 4 스크립트 --game). Rust 44건(lib 36 + extract_data 8) + Python 639건 green.
+
+## 다음 세션 진입 절차
+1. POE2 작업 이어갈지 결정 — D1(POB 포맷)/D2(젬 drift)/D6(코치 PRD) 중 어디부터. **D6 는 PRD 필요** (backlog 7.3)
+2. 아니면 POE1 측 남은 작업 (L3 인게임 검증, DoD 수동 검증) 선택
+3. Strict 모드는 자동 발동 — TEST_CLAIM 발언 세션에서 자동으로 full pytest 트리거 확인됨
 
 ## 다음 할 것 (우선순위순)
 
 0. [ ] **L3 auto-retry 인게임 검증 (미검증)** — Tauri 에서 Onslaught Support 같은 hallucination 재분석 시 `L3_RETRY_METRIC success=true` 로그 찍히는지 확인. `_retry_info.final_dropped=[]` 비율 수집
 1. [ ] **DoD 수동 검증 (미검증 대기)** — Tauri 창 `Ctrl+R` 후 FilterPanel / 오버레이 / 히스토리 각 항목
-2. [ ] **POE2 D0 잔여** — `src-tauri/src/lib.rs` 10개 Tauri 커맨드 `game: Game` 인자 추가 + Python 스크립트(ai_build_analyzer/build_coach/pob_parser) `--game` 플래그. `extract_data.rs` 는 완료.
+2. [ ] **POE2 D1 (POB POE2 포맷)** — `SnosMe/PathOfBuilding-PoE2` fork 포맷 조사 + `pob_parser.py` 분기. 추정 1~2 세션
 3. [ ] **POE2 D2/D3 drift 선해결** — Mods POE2 +24B / SkillGems POE2 +32B. backlog 4번 Option B (로컬 override) 권장
 4. [ ] **POE2 D6 PRD** — 코치 프롬프트/support 재설계. backlog 7.3 요구
-5. [ ] **Strict 모드 실측** — TEST_CLAIM ("all tests pass") 발언 세션에서 full pytest 실제 트리거 확인 (30~60s 예상)
+5. [ ] **프론트엔드 activeGame → invoke 연결** — ActiveGameContext 를 useBuildAnalyzer/FilterPanel 등에 주입해서 `invoke(..., { ..., game })` 전달. 현재 Option::None 이라 POE1 기본
+6. [ ] **Strict 모드 실측** — TEST_CLAIM ("all tests pass") 발언 세션에서 full pytest 실제 트리거 확인 (30~60s 예상)
 5. [ ] **필터 생성 인게임 검증**
 6. [ ] **P1 인게임 검증** — `npm run tauri dev`
 7. [ ] **Passive P2~P6** — DAT 경로 추출 + DDS→PNG + manifest + renderer + UX

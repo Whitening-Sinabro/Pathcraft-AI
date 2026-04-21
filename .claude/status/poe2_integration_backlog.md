@@ -50,8 +50,15 @@
 
 **D0 진행 상황 (2026-04-21 세션):**
 - [x] `extract_data.rs` — `--game poe1|poe2` 플래그, 게임별 출력 디렉터리(data/game_data_poe2/), `SchemaStore::load_for_game` 사용, POE2 경로 auto-detect (Daum/Grinding Gear/Steam). 단위 테스트 8건 추가.
-- [ ] `lib.rs` 10개 Tauri 커맨드 game 인자 미적용
-- [ ] Python 스크립트 --game 플래그 미적용
+- [x] `schema::Game` serde `Serialize/Deserialize` + `rename_all="lowercase"` + `as_cli_flag()` + `Default=Poe1`.
+- [x] `lib.rs` Tauri 커맨드 7개에 `game: Option<Game>` 전파:
+  - Python subprocess 호출 커맨드 (parse_pob / coach_build / generate_filter / generate_filter_multi / collect_patch_notes / get_latest_patch) → `--game <value>` 인자 전달
+  - `extract_game_data` → 게임별 출력 디렉터리 분기 (data/game_data | data/game_data_poe2)
+  - `syndicate_recommend` + `analyze_syndicate_image` → game==poe2 시 거부 (D7 POE1 전용)
+  - lib 단위 테스트 5건 추가 (Game serde + game_or_default)
+- [x] Python 스크립트 `--game` 플래그: `pob_parser.py` / `build_coach.py` / `filter_generator.py` / `patch_note_scraper.py` — argparse choices=["poe1","poe2"] + poe2 시 warning 로그. 실제 POE2 분기 로직은 D1/D5/D6/D8 별도.
+- [ ] 프론트엔드 `activeGame` → invoke 호출 인자 연결 (useBuildAnalyzer / FilterPanel / App / useSyndicateBoard). 현재는 Option::None 으로 POE1 기본 동작. D1 이상 착수 시 필요.
+- [ ] SchemaStore 게임별 lazy 캐시 — 현 시점 불필요 (단일 게임당 1회 로드). POE1+POE2 동시 로드 시나리오 생길 때 추가.
 
 **D1. POB 포맷 POE2 대응**
 - POE2용 Path of Building fork (SnosMe: PathOfBuilding-PoE2) 포맷 확인

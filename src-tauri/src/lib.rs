@@ -5,6 +5,7 @@ pub mod ggpk;
 pub mod oodle;
 pub mod schema;
 
+use schema::Game;
 use std::process::{Child, Command};
 use std::path::PathBuf;
 use std::sync::{Mutex, OnceLock};
@@ -81,18 +82,29 @@ fn run_python(script: &str, args: &[&str]) -> Result<String, String> {
     }
 }
 
+/// 프론트엔드가 game 인자 생략 시 기본값 POE1. POE2 통합 전 후방 호환.
+fn game_or_default(game: Option<Game>) -> Game {
+    game.unwrap_or_default()
+}
+
 #[tauri::command]
-async fn parse_pob(link: String) -> Result<String, String> {
+async fn parse_pob(link: String, game: Option<Game>) -> Result<String, String> {
     // 블로킹 서브프로세스 → tokio blocking pool에서 실행 → UI 프리즈 방지
+    let g = game_or_default(game);
     tauri::async_runtime::spawn_blocking(move || {
-        run_python("pob_parser.py", &[&link])
+        run_python("pob_parser.py", &["--game", g.as_cli_flag(), &link])
     })
     .await
     .map_err(|e| format!("작업 스케줄 실패: {}", e))?
 }
 
 #[tauri::command]
-async fn coach_build(build_json: String, model: Option<String>) -> Result<String, String> {
+async fn coach_build(
+    build_json: String,
+    model: Option<String>,
+    game: Option<Game>,
+) -> Result<String, String> {
+    let g = game_or_default(game);
     tauri::async_runtime::spawn_blocking(move || {
         // 허용 모델 화이트리스트 — 임의 값 주입 차단 (subprocess 인자 인젝션 방지).
         let model_arg = match model.as_deref() {
@@ -105,6 +117,7 @@ async fn coach_build(build_json: String, model: Option<String>) -> Result<String
         let mut cmd = new_python_cmd();
         cmd.arg(python_dir().join("build_coach.py"))
             .arg("-")
+            .arg("--game").arg(g.as_cli_flag())
             .env("PYTHONIOENCODING", "utf-8")
             .current_dir(project_root())
             .stdin(std::process::Stdio::piped())
@@ -190,14 +203,20 @@ fn cancel_coach() -> Result<bool, String> {
 }
 
 #[tauri::command]
-fn extract_game_data(poe_path: String) -> Result<String, String> {
+fn extract_game_data(poe_path: String, game: Option<Game>) -> Result<String, String> {
+    let g = game_or_default(game);
     let poe_dir = std::path::Path::new(&poe_path);
 
     // 번들 파이프라인 시도
     let oodle = oodle::OodleLib::load(poe_dir)?;
     let mut index = bundle_index::BundleIndex::load(poe_dir, &oodle)?;
 
-    let output_dir = project_root().join("data").join("game_data");
+    // 게임별 출력 디렉터리 분리 (POE1: game_data / POE2: game_data_poe2)
+    let output_subdir = match g {
+        Game::Poe1 => "game_data",
+        Game::Poe2 => "game_data_poe2",
+    };
+    let output_dir = project_root().join("data").join(output_subdir);
     std::fs::create_dir_all(&output_dir)
         .map_err(|e| format!("출력 디렉토리 생성 실패: {}", e))?;
 
@@ -259,8 +278,13 @@ fn extract_game_data(poe_path: String) -> Result<String, String> {
 }
 
 #[tauri::command]
-async fn generate_filter(build_json: String, coaching_json: String, strictness: u8) -> Result<String, String> {
-    generate_filter_multi(vec![build_json], coaching_json, strictness, false, "ssf".to_string(), 67).await
+async fn generate_filter(
+    build_json: String,
+    coaching_json: String,
+    strictness: u8,
+    game: Option<Game>,
+) -> Result<String, String> {
+    generate_filter_multi(vec![build_json], coaching_json, strictness, false, "ssf".to_string(), 67, game).await
 }
 
 #[tauri::command]
@@ -271,7 +295,9 @@ async fn generate_filter_multi(
     stage: bool,
     mode: String,
     al_split: u8,
+    game: Option<Game>,
 ) -> Result<String, String> {
+    let g = game_or_default(game);
     tauri::async_runtime::spawn_blocking(move || {
         if build_jsons.is_empty() {
             return Err("빌드 JSON이 비어있습니다".to_string());
@@ -299,6 +325,7 @@ async fn generate_filter_multi(
             .arg("--strictness").arg(strictness.to_string())
             .arg("--mode").arg(&mode)
             .arg("--al-split").arg(al_split.to_string())
+            .arg("--game").arg(g.as_cli_flag())
             .arg("--json");
         if stage {
             cmd.arg("--stage");
@@ -326,7 +353,11 @@ async fn generate_filter_multi(
 }
 
 #[tauri::command]
-async fn syndicate_recommend(build_json: String) -> Result<String, String> {
+async fn syndicate_recommend(build_json: String, game: Option<Game>) -> Result<String, String> {
+    // Syndicate = Betrayal 리그 POE1 전용 메커닉 (backlog D7). POE2 요청 거부.
+    if game_or_default(game) == Game::Poe2 {
+        return Err("Syndicate 는 POE1 전용입니다 (POE2 미지원)".to_string());
+    }
     tauri::async_runtime::spawn_blocking(move || {
         let mut child = new_python_cmd()
             .arg(python_dir().join("syndicate_advisor.py"))
@@ -357,9 +388,16 @@ async fn syndicate_recommend(build_json: String) -> Result<String, String> {
 }
 
 #[tauri::command]
-async fn analyze_syndicate_image(image_base64: String) -> Result<String, String> {
+async fn analyze_syndicate_image(
+    image_base64: String,
+    game: Option<Game>,
+) -> Result<String, String> {
     // Claude Vision API 호출 — 큰 base64 페이로드는 stdin 전달.
     // .env 파일에서 ANTHROPIC_API_KEY 자동 로드 (프로젝트 루트).
+    // Syndicate POE1 전용 (backlog D7).
+    if game_or_default(game) == Game::Poe2 {
+        return Err("Syndicate 는 POE1 전용입니다 (POE2 미지원)".to_string());
+    }
     tauri::async_runtime::spawn_blocking(move || {
         let mut child = new_python_cmd()
             .arg(python_dir().join("syndicate_vision.py"))
@@ -388,13 +426,16 @@ async fn analyze_syndicate_image(image_base64: String) -> Result<String, String>
 }
 
 #[tauri::command]
-fn collect_patch_notes() -> Result<String, String> {
-    run_python("patch_note_scraper.py", &["--collect"])
+fn collect_patch_notes(game: Option<Game>) -> Result<String, String> {
+    // D8 별도 프로세스 전까지는 플래그만 전달, 실제 소스 분기는 Python 측 책임.
+    let g = game_or_default(game);
+    run_python("patch_note_scraper.py", &["--collect", "--game", g.as_cli_flag()])
 }
 
 #[tauri::command]
-fn get_latest_patch() -> Result<String, String> {
-    run_python("patch_note_scraper.py", &["--latest"])
+fn get_latest_patch(game: Option<Game>) -> Result<String, String> {
+    let g = game_or_default(game);
+    run_python("patch_note_scraper.py", &["--latest", "--game", g.as_cli_flag()])
 }
 
 #[cfg(test)]
@@ -424,6 +465,37 @@ mod tests {
     fn run_python_invalid_script_returns_err() {
         let result = run_python("nonexistent_script_xyz.py", &[]);
         assert!(result.is_err(), "존재하지 않는 스크립트인데 Ok 반환");
+    }
+
+    #[test]
+    fn game_or_default_none_is_poe1() {
+        assert_eq!(game_or_default(None), Game::Poe1);
+    }
+
+    #[test]
+    fn game_or_default_some_preserves_value() {
+        assert_eq!(game_or_default(Some(Game::Poe2)), Game::Poe2);
+        assert_eq!(game_or_default(Some(Game::Poe1)), Game::Poe1);
+    }
+
+    #[test]
+    fn game_deserializes_from_lowercase_string() {
+        let g: Game = serde_json::from_str(r#""poe1""#).unwrap();
+        assert_eq!(g, Game::Poe1);
+        let g: Game = serde_json::from_str(r#""poe2""#).unwrap();
+        assert_eq!(g, Game::Poe2);
+    }
+
+    #[test]
+    fn game_serializes_to_lowercase_string() {
+        assert_eq!(serde_json::to_string(&Game::Poe1).unwrap(), r#""poe1""#);
+        assert_eq!(serde_json::to_string(&Game::Poe2).unwrap(), r#""poe2""#);
+    }
+
+    #[test]
+    fn game_cli_flag_matches_lowercase() {
+        assert_eq!(Game::Poe1.as_cli_flag(), "poe1");
+        assert_eq!(Game::Poe2.as_cli_flag(), "poe2");
     }
 }
 

@@ -4,7 +4,7 @@
 //! https://github.com/poe-tool-dev/dat-schema
 
 use crate::dat64::{FieldDef, FieldType, TableSchema};
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::path::Path;
 
@@ -41,7 +41,10 @@ struct SchemaRef {
 
 /// 대상 게임 — schema.min.json의 `validFor` 비트마스크 필터링에 사용.
 /// bit 0 (1) = POE1, bit 1 (2) = POE2. validFor=3는 양쪽 공용.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+///
+/// Serde rename_all="lowercase" 로 프론트엔드/CLI 에서 "poe1"/"poe2" 문자열 호환.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
 pub enum Game {
     Poe1,
     Poe2,
@@ -59,6 +62,20 @@ impl Game {
             Game::Poe1 => 2,
             Game::Poe2 => 1,
         }
+    }
+
+    /// Python CLI 플래그 값 ("poe1"/"poe2"). Python 서브프로세스 인자 전달용.
+    pub fn as_cli_flag(self) -> &'static str {
+        match self {
+            Game::Poe1 => "poe1",
+            Game::Poe2 => "poe2",
+        }
+    }
+}
+
+impl Default for Game {
+    fn default() -> Self {
+        Game::Poe1
     }
 }
 

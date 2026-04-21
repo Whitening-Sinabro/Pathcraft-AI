@@ -382,7 +382,14 @@ if __name__ == "__main__":
     ap.add_argument("url", nargs="?", help="POB URL (pobb.in, pastebin, etc.)")
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--export", type=str, help="export JSON path")
+    # POE2 통합 D0 (backlog) — Rust Tauri 측이 --game poe1|poe2 전달. 현재는 POE1 전용 로직만
+    # 동작하고 POE2 값은 warning 후 POE1 처리. POE2 POB 포맷 분기는 D1 별도.
+    ap.add_argument("--game", choices=["poe1", "poe2"], default="poe1",
+                    help="대상 게임 (POE2 POB 파싱 분기는 D1 에서 구현 예정)")
     args, _ = ap.parse_known_args()
+
+    if args.game == "poe2":
+        logger.warning("--game poe2 는 D0 단계에서 플래그만 수용 — POE1 POB 파서로 처리 (D1 미완)")
 
     if args.selftest:
         print("SELFTEST OK")

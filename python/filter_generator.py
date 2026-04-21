@@ -44,11 +44,17 @@ if __name__ == "__main__":
                     help="2-POB stage 모드의 레벨링→엔드게임 전환 AL (기본: 67, 범위: 14~85)")
     ap.add_argument("--json", action="store_true",
                     help="Tauri용 JSON 출력 (overlay + stats + divcards + chanceable)")
+    # POE2 D0 — Rust 가 --game poe1|poe2 전달. POE2 필터 문법/ItemClass 매핑은 D5 구현 예정.
+    ap.add_argument("--game", choices=["poe1", "poe2"], default="poe1",
+                    help="대상 게임 (POE2 필터 분기는 D5 에서 구현 예정)")
     args = ap.parse_args()
 
     if args.strictness < 0 or args.strictness > 4:
         logger.error("--strictness는 0~4 범위 (실제: %d)", args.strictness)
         sys.exit(2)
+
+    if args.game == "poe2":
+        logger.warning("--game poe2 는 D0 플래그 수용 단계 — POE1 필터 포맷으로 생성 (D5 미완)")
 
     build_inputs = args.build_json or []
     coaching_data: Optional[dict] = None

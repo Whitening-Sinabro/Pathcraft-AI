@@ -878,7 +878,14 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="PathcraftAI Build Coach")
     ap.add_argument("input", help="POB JSON 파일 경로 또는 '-' (stdin)")
     ap.add_argument("--model", default="claude-sonnet-4-6", help="Claude 모델")
+    # POE2 D0 — Rust 가 --game poe1|poe2 전달. 현재는 POE1 전용 prompt/valid_gems 사용.
+    # POE2 전용 prompt 재설계는 D6 (별도 PRD 필요, backlog 7.3).
+    ap.add_argument("--game", choices=["poe1", "poe2"], default="poe1",
+                    help="대상 게임 (POE2 코치 프롬프트는 D6 에서 구현 예정)")
     args = ap.parse_args()
+
+    if args.game == "poe2":
+        logger.warning("--game poe2 는 D0 플래그 수용 단계 — POE1 prompt/valid_gems 로 처리 (D6 미완, PRD 필요)")
 
     if args.input == "-":
         build_data = json.load(sys.stdin)
