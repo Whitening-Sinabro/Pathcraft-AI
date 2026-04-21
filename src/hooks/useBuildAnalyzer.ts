@@ -15,8 +15,11 @@ function hashString(s: string): string {
 
 /** 코치 캐시 스키마 버전 — SYSTEM_PROMPT/validator 변경 시 bump.
  * v1 → v2: POE1 제약 + support 젬 화이트리스트 + validator 젬 검증 추가 (2026-04-20)
+ * v2 → v3: Phase H6 L2 — normalizer strict allowlist (unmatched 젬 드롭) (2026-04-21)
+ * v3 → v4: valid_gems 에 transfigured 211개 추가 (3.22+ "of X" 변종) (2026-04-21)
+ * v4 → v5: Phase H6 L3 — Gate + Auto-retry (drop 발견 시 교정 프롬프트로 1회 재호출) (2026-04-21)
  * 기존 `pathcraftai_coach_<hash>` 엔트리는 prefix 불일치로 자동 무시됨. */
-const COACH_CACHE_VERSION = "v2";
+const COACH_CACHE_VERSION = "v5";
 
 export interface SyndicateRec {
   layout_id: string;

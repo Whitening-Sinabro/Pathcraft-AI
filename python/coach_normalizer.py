@@ -146,7 +146,12 @@ def normalize_gem_list(
 ) -> tuple[list, list[str]]:
     """젬 배열 정규화. (교체된 리스트, 경고 리스트) 반환. 비-str 요소는 그대로 통과.
 
-    trace 가 주어지면 매칭 성공 + 실제 변경된 건을 {field, from, to, match_type} 로 기록.
+    L2 Strict allowlist (Phase H6): valid_gems/alias/fuzzy 어느 것에도 매칭되지
+    않으면 **배열에서 제거** (pass-through 금지). hallucination 젬이 UI까지
+    관통하던 pass-through 허점 차단. change 필드는 자연어라 적용 제외.
+
+    trace 가 주어지면 교정/드롭 이력을 {field, from, to, match_type} 로 기록.
+    드롭은 match_type='dropped', to=None.
     """
     warnings: list[str] = []
     out: list = []
@@ -156,8 +161,16 @@ def normalize_gem_list(
             continue
         canon, match_type = normalize_gem(g)
         if canon is None:
-            out.append(g)
-            warnings.append(f"[정규화] 젬 '{g}' — 매칭 실패 (원본 유지)")
+            # L2: pass-through 제거, 배열에서 drop
+            warnings.append(f"[차단] 젬 '{g}' — valid_gems 미존재로 배열에서 제거")
+            logger.warning("젬 drop: '%s' (unmatched, allowlist 밖)", g)
+            if trace is not None:
+                trace.append({
+                    "field": f"{path}[{i}]" if path else f"[{i}]",
+                    "from": g,
+                    "to": None,
+                    "match_type": "dropped",
+                })
             continue
         out.append(canon)
         changed = match_type != "exact" or canon != g.strip()

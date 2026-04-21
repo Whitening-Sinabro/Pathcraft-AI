@@ -114,14 +114,34 @@ def test_unmatched_non_string():
 
 
 def test_gem_list_mixed():
+    # L2 Strict allowlist: unmatched gem은 배열에서 drop됨
     gems = ["Cleave", "bleed chance", "Ruthless Support", "NotAGem"]
     out, warnings = normalize_gem_list(gems)
-    assert out[0] == "Cleave"
-    assert out[1] == "Chance to Bleed Support"
-    assert out[2] == "Ruthless Support"
-    assert out[3] == "NotAGem"  # 원본 유지
+    assert out == ["Cleave", "Chance to Bleed Support", "Ruthless Support"]
     assert len(warnings) == 1
     assert "NotAGem" in warnings[0]
+    assert "차단" in warnings[0]
+
+
+def test_gem_list_drops_hallucination():
+    # L2 회귀: Onslaught Support (존재하지 않는 젬) 은 drop
+    gems = ["Cleave", "Onslaught Support", "Multistrike Support"]
+    out, warnings = normalize_gem_list(gems)
+    assert "Onslaught Support" not in out
+    assert out == ["Cleave", "Multistrike Support"]
+    assert any("Onslaught Support" in w for w in warnings)
+
+
+def test_gem_list_drop_recorded_in_trace():
+    # L2: drop도 trace에 match_type='dropped'로 기록 — UI/디버깅에서 "무엇이 제거됐는지" 가시화
+    trace: list[dict] = []
+    gems = ["Cleave", "FakeGem", "Multistrike Support"]
+    out, _ = normalize_gem_list(gems, trace=trace, path="test")
+    dropped = [t for t in trace if t["match_type"] == "dropped"]
+    assert len(dropped) == 1
+    assert dropped[0]["from"] == "FakeGem"
+    assert dropped[0]["to"] is None
+    assert dropped[0]["field"] == "test[1]"
 
 
 def test_gem_list_preserves_non_string():

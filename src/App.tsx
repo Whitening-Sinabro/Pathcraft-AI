@@ -20,6 +20,7 @@ import { PassivePrioritySection } from "./components/sections/PassivePriority";
 import { DangerZonesSection } from "./components/sections/DangerZones";
 import { FarmingStrategySection } from "./components/sections/FarmingStrategy";
 import { ValidationWarningsBanner } from "./components/ValidationWarningsBanner";
+import { CoachBlockedBanner, isCoachBlocked } from "./components/CoachBlockedBanner";
 import { useBuildAnalyzer } from "./hooks/useBuildAnalyzer";
 import { ChecklistProvider } from "./contexts/ChecklistContext";
 import { useActiveGame } from "./contexts/ActiveGameContext";
@@ -70,10 +71,11 @@ function App() {
   // 단축키 Ctrl/Cmd+Shift+O = 오버레이 열기
   useToggleShortcut(() => { openOverlay(); });
 
-  // 오버레이 창 동기 — coaching 변경 시 emit + 오버레이 request 시 재전송
+  // 오버레이 창 동기 — coaching 변경 시 emit + 오버레이 request 시 재전송.
+  // L4 blocked 상태면 오버레이에도 반쪽 결과가 가지 않도록 차단.
   const latestSnapshotRef = useRef<ReturnType<typeof buildSnapshot> | null>(null);
   useEffect(() => {
-    if (!coaching) {
+    if (!coaching || isCoachBlocked(coaching)) {
       latestSnapshotRef.current = null;
       return;
     }
@@ -176,57 +178,69 @@ function App() {
         </div>
       )}
 
-      <ValidationWarningsBanner
-        warnings={coaching?._validation_warnings}
-        trace={coaching?._normalization_trace}
-      />
+      {coaching && isCoachBlocked(coaching) ? (
+        <CoachBlockedBanner
+          droppedEntries={(coaching._normalization_trace ?? []).filter(
+            (t) => t.match_type === "dropped",
+          )}
+          onReanalyze={analyzeBuild}
+          analyzing={loading}
+        />
+      ) : (
+        <>
+          <ValidationWarningsBanner
+            warnings={coaching?._validation_warnings}
+            trace={coaching?._normalization_trace}
+          />
 
-      {coaching && (
-        <ChecklistProvider buildKey={buildKey}>
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            <BuildSummarySection
-              tier={coaching.tier}
-              buildSummary={coaching.build_summary}
-              strengths={coaching.strengths}
-              weaknesses={coaching.weaknesses}
-            />
+          {coaching && (
+            <ChecklistProvider buildKey={buildKey}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <BuildSummarySection
+                  tier={coaching.tier}
+                  buildSummary={coaching.build_summary}
+                  strengths={coaching.strengths}
+                  weaknesses={coaching.weaknesses}
+                />
 
-            <BuildRatingSection rating={coaching.build_rating} />
-            <VariantTabs snapshots={coaching.variant_snapshots} />
+                <BuildRatingSection rating={coaching.build_rating} />
+                <VariantTabs snapshots={coaching.variant_snapshots} />
 
-            <LevelingGuideSection guide={coaching.leveling_guide} />
-            <LevelingSkillsSection skills={coaching.leveling_skills} />
+                <LevelingGuideSection guide={coaching.leveling_guide} />
+                <LevelingSkillsSection skills={coaching.leveling_skills} />
 
-            <AuraUtilitySection progression={coaching.aura_utility_progression} />
+                <AuraUtilitySection progression={coaching.aura_utility_progression} />
 
-            <GearTimeline progression={coaching.gear_progression} />
+                <GearTimeline progression={coaching.gear_progression} />
 
-            {/* 핵심 장비 폴백: gear_progression 비면 key_items로 대체 */}
-            {(!coaching.gear_progression || coaching.gear_progression.length === 0) && (
-              <KeyItemsSection items={coaching.key_items} />
-            )}
+                {/* 핵심 장비 폴백: gear_progression 비면 key_items로 대체 */}
+                {(!coaching.gear_progression || coaching.gear_progression.length === 0) && (
+                  <KeyItemsSection items={coaching.key_items} />
+                )}
 
-            <PassivePrioritySection priorities={coaching.passive_priority} />
+                <PassivePrioritySection priorities={coaching.passive_priority} />
 
-            <MapWarnings warnings={coaching.map_mod_warnings} />
+                <MapWarnings warnings={coaching.map_mod_warnings} />
 
-            <DangerZonesSection zones={coaching.danger_zones} />
+                <DangerZonesSection zones={coaching.danger_zones} />
 
-            <FarmingStrategySection strategy={coaching.farming_strategy} />
+                <FarmingStrategySection strategy={coaching.farming_strategy} />
 
-            {/* 필터 생성 */}
-            {rawBuildJson && (
-              <FilterPanel
-                buildJson={rawBuildJson}
-                coachingJson={rawCoachJson}
-                extraBuildJsons={extraBuildJsons}
-                stageMode={stageMode}
-                alSplit={alSplit}
-              />
-            )}
+                {/* 필터 생성 */}
+                {rawBuildJson && (
+                  <FilterPanel
+                    buildJson={rawBuildJson}
+                    coachingJson={rawCoachJson}
+                    extraBuildJsons={extraBuildJsons}
+                    stageMode={stageMode}
+                    alSplit={alSplit}
+                  />
+                )}
 
-          </div>
-        </ChecklistProvider>
+              </div>
+            </ChecklistProvider>
+          )}
+        </>
       )}
       </>}
       </main>

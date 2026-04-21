@@ -74,7 +74,9 @@ export function ValidationWarningsBanner({ warnings, trace, compact }: Props) {
                   <li key={i} className="validation-banner__trace-item">
                     <code className="validation-banner__trace-from">{t.from}</code>
                     <span className="validation-banner__trace-arrow">→</span>
-                    <code className="validation-banner__trace-to">{t.to}</code>
+                    {t.match_type === "dropped"
+                      ? <span className="validation-banner__trace-to validation-banner__trace-to--dropped">(drop)</span>
+                      : <code className="validation-banner__trace-to">{t.to}</code>}
                     <span className="validation-banner__trace-type">
                       ({t.match_type})
                     </span>

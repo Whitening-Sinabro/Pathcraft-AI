@@ -77,6 +77,45 @@ def collect_ggpk_gem_names(base_item_types_path: Path) -> set[str]:
     return names
 
 
+def collect_transfigured_gems(active_skills_path: Path) -> set[str]:
+    """ActiveSkills.json 에서 transfigured gem (3.22+ alternate variant) 추출.
+
+    BaseItemTypes 에는 base gem 만 있고 transfigured variant (_alt_x/_alt_y Id, " of X"
+    DisplayedName) 는 ActiveSkills 에 따로 기록됨. 이 단계 없으면 "Boneshatter of
+    Complex Trauma" 같은 정상 젬이 allowlist 밖으로 떨어짐.
+
+    필터:
+    - TransfigureBase 가 sentinel(-72340172838076674) 또는 None 이면 base gem → 제외
+      (base gem 은 BaseItemTypes 경로에서 이미 수집됨)
+    - DisplayedName 에 " of " 포함 (transfigured naming convention, 몬스터 변종 배제)
+    - [DNT] 접두어 제외 (미출시 placeholder)
+    """
+    TB_SENTINEL = -72340172838076674
+    try:
+        rows = json.loads(active_skills_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning("ActiveSkills.json 로드 실패: %s — transfigured 건너뜀", e)
+        return set()
+
+    names: set[str] = set()
+    for r in rows:
+        if not isinstance(r, dict):
+            continue
+        name = r.get("DisplayedName", "")
+        tb = r.get("TransfigureBase")
+        if not isinstance(name, str) or not name.strip():
+            continue
+        name = name.strip()
+        if name.startswith("[DNT]"):
+            continue
+        if " of " not in name:
+            continue
+        if tb is None or tb == TB_SENTINEL:
+            continue
+        names.add(name)
+    return names
+
+
 def derive_bare_support_forms(gem_names: set[str]) -> set[str]:
     """'... Support' → '...' (suffix 제거). LLM 단축 표기 커버용."""
     bare: set[str] = set()
@@ -88,24 +127,36 @@ def derive_bare_support_forms(gem_names: set[str]) -> set[str]:
     return bare
 
 
-def build_output(league: str, base_path: Path) -> dict:
+def build_output(league: str, base_path: Path, active_skills_path: Path) -> dict:
     ggpk_gems = collect_ggpk_gem_names(base_path)
+    transfigured = collect_transfigured_gems(active_skills_path)
     bare_support = derive_bare_support_forms(ggpk_gems)
-    all_names = sorted(ggpk_gems | bare_support)
+    all_names = sorted(ggpk_gems | transfigured | bare_support)
     return {
         "_meta": {
-            "description": "POE1 유효 젬·서포트 이름 화이트리스트 (GGPK 전용).",
-            "source": "data/game_data/BaseItemTypes.json",
-            "source_filter": "Id startswith 'Metadata/Items/Gems/' AND NOT Name startswith '[UNUSED]'",
+            "description": "POE1 유효 젬·서포트·Transfigured 이름 화이트리스트 (GGPK 전용).",
+            "sources_files": [
+                "data/game_data/BaseItemTypes.json",
+                "data/game_data/ActiveSkills.json",
+            ],
+            "source_filter": (
+                "BaseItems: Id startswith 'Metadata/Items/Gems/' AND NOT Name startswith '[UNUSED]'. "
+                "ActiveSkills: TransfigureBase != sentinel AND ' of ' in DisplayedName AND NOT [DNT]."
+            ),
             "league": league,
             "collected_at": date.today().isoformat(),
             "source_sha256": _sha256(base_path),
+            "active_skills_sha256": _sha256(active_skills_path),
             "sources": {
                 "ggpk_gems": len(ggpk_gems),
+                "transfigured_gems": len(transfigured),
                 "bare_support_names": len(bare_support),
             },
             "total": len(all_names),
-            "note": "bare_support_names 는 'Added Fire Damage Support' → 'Added Fire Damage' 단축 형태. LLM 단축 표기 매칭용.",
+            "note": (
+                "bare_support_names 는 'Added Fire Damage Support' → 'Added Fire Damage' 단축 형태. "
+                "transfigured_gems 는 3.22+ 도입된 alt variant ('Boneshatter of Complex Trauma')."
+            ),
             "refresh_script": "scripts/refresh_valid_gems.py",
         },
         "gems": all_names,
@@ -121,13 +172,17 @@ def main() -> None:
 
     root = _repo_root()
     base_path = root / "data" / "game_data" / "BaseItemTypes.json"
+    active_skills_path = root / "data" / "game_data" / "ActiveSkills.json"
     out_path = root / "data" / "valid_gems.json"
 
     if not base_path.exists():
         logger.error("BaseItemTypes.json 없음: %s — 먼저 extract_data.exe 실행 필요", base_path)
         sys.exit(2)
+    if not active_skills_path.exists():
+        logger.error("ActiveSkills.json 없음: %s — 먼저 extract_data.exe 실행 필요", active_skills_path)
+        sys.exit(2)
 
-    new_out = build_output(args.league, base_path)
+    new_out = build_output(args.league, base_path, active_skills_path)
     new_gems = set(new_out["gems"])
 
     if out_path.exists():

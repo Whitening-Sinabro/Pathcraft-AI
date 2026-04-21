@@ -72,12 +72,12 @@ export interface BuildRating {
 // AI 검증 경고 (coach_validator.py 출력)
 export type ValidationWarnings = string[];
 
-// 코치 출력 자동 교정 이력 (coach_normalizer.py 출력) — H2 trace
+// 코치 출력 자동 교정 이력 (coach_normalizer.py 출력) — H2 trace, H6 L2 drop
 export interface NormalizationTraceEntry {
   field: string;          // 경로 (예: "leveling_skills.recommended.links_progression[0].gems[1]")
   from: string;           // LLM 원본
-  to: string;             // 교정 결과 (valid_gems 기준)
-  match_type: "alias" | "exact" | "fuzzy";
+  to: string | null;      // 교정 결과 (valid_gems 기준). dropped면 null
+  match_type: "alias" | "exact" | "fuzzy" | "dropped";
 }
 
 export interface GearPhase {
@@ -145,6 +145,17 @@ export interface CoachResult {
   farming_strategy: string | FarmingStrategy;
   _validation_warnings?: ValidationWarnings;
   _normalization_trace?: NormalizationTraceEntry[];
+  _retry_info?: CoachRetryInfo;
+}
+
+// L3 Gate + Auto-retry 메타 (Phase H6)
+// 1차 응답에 drop 발견 → 교정 프롬프트로 1회 재호출. attempts=2 면 재시도 1회 수행.
+// recovered_from: 1차에서 drop됐던 이름들 (재시도 유발 원인).
+// final_dropped: 재시도 후에도 남은 drop (비어있으면 회복 성공, 있으면 L4 차단).
+export interface CoachRetryInfo {
+  attempts: number;
+  recovered_from: string[];
+  final_dropped: string[];
 }
 
 export interface FarmingStrategy {

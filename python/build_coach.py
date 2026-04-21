@@ -727,6 +727,96 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
     except ImportError:
         pass
 
+    # L3 Gate + Auto-retry (Phase H6) — drop 발견 시 1회 교정 재시도
+    # blind retry 아님: 이전 응답의 invalid 젬을 구체적으로 명시한 corrective prompt.
+    # Haiku 기본 모델 기준 최악 2x API call — 전형 케이스는 1회로 종결.
+    first_attempt_dropped: list[str] = [
+        t["from"] for t in norm_trace if t.get("match_type") == "dropped"
+    ]
+    retry_info: dict | None = None
+
+    if first_attempt_dropped:
+        logger.warning(
+            "L3 retry 시작 — %d건 drop: %s",
+            len(first_attempt_dropped), first_attempt_dropped,
+        )
+        corrective_text = (
+            f"이전 응답에 POE1에 존재하지 않는 젬 {len(first_attempt_dropped)}개가 포함돼 자동 제거됐습니다: "
+            f"{', '.join(repr(g) for g in first_attempt_dropped)}. "
+            f"이 젬들은 valid_gems 화이트리스트에 없습니다 (hallucination). "
+            f"이들을 제거하거나 유효한 대체 젬으로 바꿔서, 같은 JSON 스키마로 처음부터 다시 작성하세요. "
+            f"확신 없는 젬은 추측하지 말고 생략하세요."
+        )
+        user_content_retry = list(user_content) + [{"type": "text", "text": corrective_text}]
+        messages_retry = [{"role": "user", "content": user_content_retry}]
+
+        if use_streaming:
+            raw_text = ""
+            stop_reason = None
+            with client.messages.stream(
+                model=model,
+                max_tokens=max_out,
+                system=system_blocks,
+                messages=messages_retry,
+            ) as stream:
+                for text_chunk in stream.text_stream:
+                    raw_text += text_chunk
+                final_msg = stream.get_final_message()
+                stop_reason = getattr(final_msg, "stop_reason", None)
+                response = final_msg
+        else:
+            response = client.messages.create(
+                model=model,
+                max_tokens=max_out,
+                system=system_blocks,
+                messages=messages_retry,
+            )
+            raw_text = response.content[0].text
+            stop_reason = getattr(response, "stop_reason", None)
+
+        retry_result = _parse_or_repair(raw_text)
+        retry_result.setdefault("aura_utility_progression", [])
+        retry_result.setdefault("leveling_skills", {})
+        retry_result.setdefault("build_rating", {})
+        retry_result.setdefault("gear_progression", [])
+        retry_result.setdefault("map_mod_warnings", {})
+        retry_result.setdefault("variant_snapshots", [])
+
+        retry_warnings: list[str] = []
+        retry_trace: list[dict] = []
+        try:
+            from coach_normalizer import normalize_coach_output
+            w, t = normalize_coach_output(retry_result)
+            retry_warnings.extend(w)
+            retry_trace.extend(t)
+        except ImportError:
+            pass
+        try:
+            from gear_normalizer import normalize_gear
+            w, t = normalize_gear(retry_result)
+            retry_warnings.extend(w)
+            retry_trace.extend(t)
+        except ImportError:
+            pass
+
+        final_dropped = [
+            t["from"] for t in retry_trace if t.get("match_type") == "dropped"
+        ]
+        logger.info(
+            "L3 retry 완료 — drop %d → %d",
+            len(first_attempt_dropped), len(final_dropped),
+        )
+
+        # 재시도 결과 채택 — 교정 성공이든 실패든 두 번째 응답이 더 나은 근거
+        result = retry_result
+        norm_warnings = retry_warnings
+        norm_trace = retry_trace
+        retry_info = {
+            "attempts": 2,
+            "recovered_from": first_attempt_dropped,
+            "final_dropped": final_dropped,
+        }
+
     if norm_trace:
         logger.info("코치 출력 자동 교정 %d건:", len(norm_trace))
         for t in norm_trace:
@@ -735,6 +825,8 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
         result["_normalization_trace"] = norm_trace
     if norm_warnings:
         logger.info("코치 출력 정규화 — 매칭 실패 %d건", len(norm_warnings))
+    if retry_info:
+        result["_retry_info"] = retry_info
 
     # AI 출력 검증 — quest_rewards cross-check + 스키마 + 범위
     try:
