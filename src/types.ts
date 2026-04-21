@@ -72,6 +72,14 @@ export interface BuildRating {
 // AI 검증 경고 (coach_validator.py 출력)
 export type ValidationWarnings = string[];
 
+// 코치 출력 자동 교정 이력 (coach_normalizer.py 출력) — H2 trace
+export interface NormalizationTraceEntry {
+  field: string;          // 경로 (예: "leveling_skills.recommended.links_progression[0].gems[1]")
+  from: string;           // LLM 원본
+  to: string;             // 교정 결과 (valid_gems 기준)
+  match_type: "alias" | "exact" | "fuzzy";
+}
+
 export interface GearPhase {
   phase: string;
   item: string;
@@ -136,6 +144,7 @@ export interface CoachResult {
   danger_zones: string[];
   farming_strategy: string | FarmingStrategy;
   _validation_warnings?: ValidationWarnings;
+  _normalization_trace?: NormalizationTraceEntry[];
 }
 
 export interface FarmingStrategy {

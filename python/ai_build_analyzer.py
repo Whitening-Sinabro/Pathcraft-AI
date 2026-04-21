@@ -23,7 +23,7 @@ if sys.platform == 'win32':
 # .env 파일 지원
 try:
     from dotenv import load_dotenv
-    load_dotenv()
+    load_dotenv(override=True)
 except ImportError:
     pass
 

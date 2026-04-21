@@ -14,7 +14,7 @@ import argparse
 # .env 파일 지원
 try:
     from dotenv import load_dotenv
-    load_dotenv()
+    load_dotenv(override=True)
 except ImportError:
     pass  # python-dotenv가 없어도 환경변수는 사용 가능
 
