@@ -1,10 +1,13 @@
 ## 지금
-- **POE2 D3 완료 (2026-04-22 S2)** — `data/base_items_poe2.json` (283 무기 / 562 방어구 / 98 기타) + `data/uniques_poe2.json` (393 visible + 10 hidden = 403 total) 생성.
-- **POE2 JSON 19/20 생성 완료** — Words.json 3213 rows 추가. Mods 14841 rows 포함. Tags/SpawnWeight 3 list 만 schema 오인지로 빈값, 주 데이터 정상.
-- **dat64 파서 방어 로직** — List count garbage (`> 10k` or `> bytes_remaining/8`) → 빈 리스트 즉시 반환. 45 GB OOM 차단.
-- **drift override 적용** — `SchemaStore::load_for_game(Poe2)` 에 `schema_poe2_override.json` auto-merge. Mods 677B / SkillGems 239B 일치.
+- **세션 종료 (2026-04-22 S2)** — 커밋 2개 로컬 (origin/master 대비 ahead 2, push 대기).
+  - `3547553` feat: 디자인 enforcement 설치 (tokens + stylelint + husky + tailwind)
+  - `2dcbb80` feat: POE2 D6 코치 + D3 데이터 + drift override + dat64 방어
+- **POE2 D3 완료** — `data/base_items_poe2.json` (283 무기 / 562 방어구 / 98 기타) + `data/uniques_poe2.json` (393 visible + 10 hidden = 403 total).
+- **POE2 JSON 19/20 완비** — Words.json 3213 rows 추가. Mods 14841 rows (Tags/SpawnWeight 3 list 만 schema 오인지로 공백, 주 데이터 정상).
+- **dat64 파서 방어 로직** — List count garbage reject (MAX_LIST_ITEMS=10k, 물리 용량 초과) → 45 GB OOM 차단. cap-and-push 가 오히려 OOM 유발했음을 식별 후 reject 로 수정.
+- **drift override auto-merge** — `SchemaStore::load_for_game(Poe2)` 가 `schema_poe2_override.json` 자동 로드. Mods 677B / SkillGems 239B 일치.
 - **`--reuse-datc64` 플래그** — GGPK 로드 skip + schema 적용 + JSON 재생성. drift/schema 수정 사이클 단축.
-- 42/42 cargo lib + 651/651 pytest PASS, regression 0.
+- 42/42 cargo lib + 651/651 pytest PASS, regression 0. working tree clean.
 
 ## 다음 세션 진입 절차
 - **세션 계획 (사용자 확정 2026-04-22 S2)**: D4 = 새 세션 / D5 = 또 다른 새 세션. 한 세션당 하나씩.
