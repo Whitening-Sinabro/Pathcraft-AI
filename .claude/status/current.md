@@ -1,22 +1,21 @@
 ## 지금
-- **세션 종료 (2026-04-22 S2)** — 커밋 2개 로컬 (origin/master 대비 ahead 2, push 대기).
-  - `3547553` feat: 디자인 enforcement 설치 (tokens + stylelint + husky + tailwind)
-  - `2dcbb80` feat: POE2 D6 코치 + D3 데이터 + drift override + dat64 방어
-- **POE2 D3 완료** — `data/base_items_poe2.json` (283 무기 / 562 방어구 / 98 기타) + `data/uniques_poe2.json` (393 visible + 10 hidden = 403 total).
-- **POE2 JSON 19/20 완비** — Words.json 3213 rows 추가. Mods 14841 rows (Tags/SpawnWeight 3 list 만 schema 오인지로 공백, 주 데이터 정상).
-- **dat64 파서 방어 로직** — List count garbage reject (MAX_LIST_ITEMS=10k, 물리 용량 초과) → 45 GB OOM 차단. cap-and-push 가 오히려 OOM 유발했음을 식별 후 reject 로 수정.
-- **drift override auto-merge** — `SchemaStore::load_for_game(Poe2)` 가 `schema_poe2_override.json` 자동 로드. Mods 677B / SkillGems 239B 일치.
-- **`--reuse-datc64` 플래그** — GGPK 로드 skip + schema 적용 + JSON 재생성. drift/schema 수정 사이클 단축.
-- 42/42 cargo lib + 651/651 pytest PASS, regression 0. working tree clean.
+- **POE2 D4 데이터 레이어 완료 (2026-04-22 S3)** — 어댑터 + 테스트 커밋. Canvas 통합은 후속.
+  - 데이터 소스: `PathOfBuildingCommunity/PathOfBuilding-PoE2` 의 `TreeData/0_4/tree.json` (1.8 MB, 4701 노드/1497 그룹/8 클래스/21 어센던시)
+  - `data/skilltree-export-poe2/` gitignored (POE1 동일 정책)
+  - `normalizePoe2Tree()` 어댑터: groups list→dict, connections→out[], classesStart 보존
+  - `POE2_CLASS_START_IDS` / `POE2_CLASS_NAMES` 상수 추가
+  - vitest 22/22 (+9 POE2), tsc clean, pytest 651/651, cargo 42/42 PASS. 회귀 0.
+- **직전 세션 완료분 (S2)** — origin/master 푸시 완료 (c1c4ba0).
+  - `3547553` feat: 디자인 enforcement 설치 / `2dcbb80` feat: POE2 D6 코치 + D3 / `c1c4ba0` chore: 세션 종료
 
 ## 다음 세션 진입 절차
-- **세션 계획 (사용자 확정 2026-04-22 S2)**: D4 = 새 세션 / D5 = 또 다른 새 세션. 한 세션당 하나씩.
+- **세션 계획**: D4 Canvas 통합 = 새 세션 / D5 = 또 다른 새 세션. 한 세션당 하나씩.
 - 어느 세션이든 시작 시 `poe2_d6_dod.md` §4 해제 조건 3건 관찰 여부 먼저 체크 가능 (Tauri 실클릭 준비된 경우)
 
 ## 다음 할 것 (우선순위순)
 
 0. [ ] **D6 해제 조건 수집** — Tauri 창 POE2 실사용. `_normalization_trace` / `_retry_info` 로그 수집 (백엔드는 이미 게재 중). 사용자 실클릭만 있으면 즉시 가능
-1. [ ] **POE2 D4 passive tree** (별도 세션) — 1500+ 노드, 22 어센던시. PassiveSkills 7676 rows 외에 **트리 좌표/연결 데이터 소스 리서치** 가 첫 단계. 구현 + 검증 3~5시간 scope
+1. [ ] **POE2 D4 Canvas 통합** (별도 세션) — 데이터 레이어 완료, 남은 것: `PassiveTreeCanvas` `game` prop + 동적 `dataUrl` + `PassiveTreeView` activeGame 전파. POE2 는 ASCENDANCIES 재매핑 필요 (21 어센던시). Tauri 실렌더 확인까지. 2~3시간 scope. 플랜: `.claude/status/passive_tree_poe2_plan.md` §4
 2. [ ] **POE2 D5 필터** (또 다른 세션) — NeverSink POE2 공식 import + ItemClass 명칭 매핑 (Focus/Charm/Spear/Quarterstaff 신규). 2~3시간 scope
 3. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
 4. [ ] (후속, 선택) uniques stash_type 매핑 — UniqueStashTypes 테이블 extract → stash type id → 유형 이름 (Weapons/Armour/etc)
@@ -36,6 +35,7 @@
 - [POE2 D6 DoD](poe2_d6_dod.md) — 인프라 체크리스트 + 해제 조건 3건
 - [코치 품질 Phase H 백로그](coach_quality_backlog.md) — H1~H6 완료, L3 인게임/alias 누적
 - [POE2 통합 backlog](poe2_integration_backlog.md) — D0+D6(CONDITIONAL) / D1/D2/D3/D4/D5/D7/D8 대기
+- [POE2 D4 패시브 트리 계획](passive_tree_poe2_plan.md) — 데이터 소스/schema 매핑/Canvas 통합 단계 (2026-04-22 S3)
 - [디자인 Phase 0~5 플랜](design_phase_plan.md) — P5 미완. **Design enforcement 2026-04-22 설치 완료** (contract 4필드 기입)
 - [Syndicate 전면 개편 S1~S4](syndicate_phase_plan.md) — S1~S3 완료
 - [패시브 asset 플랜](passive_tree_assets_plan.md) — P1 완료, P2~P6 대기

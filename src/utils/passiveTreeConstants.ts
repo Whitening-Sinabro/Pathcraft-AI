@@ -23,6 +23,26 @@ export const CLASS_NAMES = [
   "Scion", "Marauder", "Ranger", "Witch", "Duelist", "Templar", "Shadow",
 ];
 
+// POE2 class start node IDs. GGG reused POE1 node IDs, just remapping classes
+// (Scion 58833 is unused in POE2). Two classes share each start node.
+// Source: data/skilltree-export-poe2/tree_0_4.json nodes with `classesStart`.
+export const POE2_CLASS_START_IDS: Record<string, string> = {
+  Warrior:   "47175",
+  Huntress:  "50459",
+  Mercenary: "50986",
+  Sorceress: "54447",
+  Druid:     "61525",
+  Monk:      "44683",
+  Witch:     "54447",  // shared with Sorceress
+  Ranger:    "50459",  // shared with Huntress
+};
+
+// POE2 official classes (8) — integerIds are non-contiguous in tree.json.
+// Order here follows Warrior-first canonical Pathcraft UI ordering.
+export const POE2_CLASS_NAMES = [
+  "Warrior", "Monk", "Ranger", "Huntress", "Sorceress", "Witch", "Mercenary", "Druid",
+];
+
 // Ascendancy 구성 (data.classes 구조 기준, bloodline 제외)
 export const ASCENDANCIES: Record<number, string[]> = {
   0: ["Ascendant", "Reliquarian"],

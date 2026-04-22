@@ -1,5 +1,6 @@
 // Passive tree geometry + data loader.
-// Source: data/skilltree-export/data.json (GGG official export, 3.20+ format)
+// POE1 source: data/skilltree-export/data.json (GGG official export, 3.20+ format)
+// POE2 source: data/skilltree-export-poe2/tree_0_4.json (PoB-PoE2 derived)
 // Coordinate convention: angle 0 = north (up), clockwise. y-axis grows downward.
 
 export interface TreeNode {
@@ -22,6 +23,9 @@ export interface TreeNode {
   expansionJewel?: unknown;
   ascendancyName?: string;
   classStartIndex?: number;
+  // POE2 extension: tree.json uses classesStart: string[] (class names).
+  // normalizePoe2Tree preserves this alongside synthesized classStartIndex.
+  classesStart?: string[];
 }
 
 export interface TreeGroup {
@@ -221,4 +225,97 @@ export function shortestPath(
     }
   }
   return [];
+}
+
+// ---------------------------------------------------------------------------
+// POE2 adapter
+// ---------------------------------------------------------------------------
+// POE2 tree.json (PoB-PoE2 0.4) differs from POE1 in three ways that matter
+// for the existing consumer code (PassiveTreeCanvas, buildAdjacency, etc.):
+//
+//   1. groups: list (0-indexed) vs dict keyed by id
+//   2. node connections: [{id, orbit}] vs in/out: string[]
+//   3. no classStartIndex; uses classesStart: ["Warrior", ...] with class name
+//
+// normalizePoe2Tree returns a POE1-shaped TreeData, preserving the raw
+// classesStart on each start node so consumers can resolve POE2 class names.
+
+export interface Poe2RawConnection {
+  id: number;
+  orbit: number;
+}
+
+export interface Poe2RawNode extends Omit<TreeNode, "in" | "out"> {
+  connections?: Poe2RawConnection[];
+}
+
+export interface Poe2RawGroup {
+  x: number;
+  y: number;
+  orbits: number[];
+  nodes: number[];  // POE2 stores node ids as numbers
+  background?: TreeGroup["background"];
+}
+
+export interface Poe2RawTree {
+  nodes: Record<string, Poe2RawNode>;
+  groups: Poe2RawGroup[];
+  classes: Array<{
+    name: string;
+    integerId?: number;
+    base_str?: number;
+    base_dex?: number;
+    base_int?: number;
+    ascendancies?: Array<{ name: string; id?: string; internalId?: string }>;
+  }>;
+  constants: TreeConstants;
+  min_x: number;
+  min_y: number;
+  max_x: number;
+  max_y: number;
+  tree?: string;
+}
+
+/**
+ * Convert PoB-PoE2 tree.json to the POE1-shaped TreeData consumed by the
+ * existing renderer. Preserves `classesStart` on nodes that have it.
+ *
+ * Shape changes:
+ *   - groups: list → dict (key = stringified index)
+ *   - node.connections → node.out (string ids); bidirectional edges are
+ *     left to buildAdjacency to deduplicate, matching POE1 semantics.
+ *   - node.group: number → number (same), but group reference string keys
+ *     are synthesized to match POE1 `groups[String(node.group)]` lookup.
+ */
+export function normalizePoe2Tree(raw: Poe2RawTree): TreeData {
+  const groups: Record<string, TreeGroup> = {};
+  raw.groups.forEach((g, i) => {
+    groups[String(i)] = {
+      x: g.x,
+      y: g.y,
+      orbits: g.orbits,
+      nodes: g.nodes.map(String),
+      background: g.background,
+    };
+  });
+
+  const nodes: Record<string, TreeNode> = {};
+  for (const [id, n] of Object.entries(raw.nodes)) {
+    const out = (n.connections ?? []).map((c) => String(c.id));
+    // Drop connections from the output shape; keep everything else that the
+    // POE1 schema recognizes. classesStart is carried through verbatim.
+    const { connections: _dropped, ...rest } = n;
+    void _dropped;
+    nodes[id] = { ...rest, out, in: [] };
+  }
+
+  return {
+    nodes,
+    groups,
+    constants: raw.constants,
+    min_x: raw.min_x,
+    min_y: raw.min_y,
+    max_x: raw.max_x,
+    max_y: raw.max_y,
+  };
 }
