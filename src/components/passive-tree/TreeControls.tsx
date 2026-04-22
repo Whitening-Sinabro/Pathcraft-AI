@@ -1,13 +1,16 @@
 // UI controls overlay — class/ascendancy dropdowns, search, points counter, guide.
 // Pure presentational component: reads props, dispatches callbacks.
+// classNames / ascendancies 는 game-aware (POE1 7 + POE2 8) 로 Canvas 에서 주입.
 
 import type { RefObject } from "react";
-import { ASCENDANCIES, CLASS_NAMES } from "../../utils/passiveTreeConstants";
 
 interface Props {
   // state
   loaded: boolean;
   nodeCount: number;
+  // game-aware tables
+  classNames: readonly string[];
+  ascendancies: Record<number, string[]>;
   selectedClass: number | null;
   selectedAscendancy: string | null;
   searchQuery: string;
@@ -23,6 +26,7 @@ interface Props {
 
 export function TreeControls({
   loaded, nodeCount,
+  classNames, ascendancies,
   selectedClass, selectedAscendancy,
   searchQuery, searchMatchCount,
   pointsUsed, jewelSockets,
@@ -58,11 +62,11 @@ export function TreeControls({
           }}
         >
           <option value="" disabled>클래스 선택</option>
-          {CLASS_NAMES.map((name, i) => (
+          {classNames.map((name, i) => (
             <option key={i} value={i}>{name}</option>
           ))}
         </select>
-        {selectedClass != null && ASCENDANCIES[selectedClass] && (
+        {selectedClass != null && ascendancies[selectedClass] && (
           <select
             value={selectedAscendancy ?? ""}
             onChange={(e) => onPickAscendancy(e.target.value || null)}
@@ -77,7 +81,7 @@ export function TreeControls({
             }}
           >
             <option value="">어센던시 없음</option>
-            {ASCENDANCIES[selectedClass].map((asc) => (
+            {ascendancies[selectedClass].map((asc) => (
               <option key={asc} value={asc}>{asc}</option>
             ))}
           </select>

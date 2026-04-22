@@ -43,6 +43,32 @@ export const POE2_CLASS_NAMES = [
   "Warrior", "Monk", "Ranger", "Huntress", "Sorceress", "Witch", "Mercenary", "Druid",
 ];
 
+// POE2_CLASS_START_IDS_BY_INDEX: POE2_CLASS_NAMES 순서 기준 start 노드.
+// Canvas 는 selectedClass: number 로 취급하므로 index 기반 look-up 이 필요.
+export const POE2_CLASS_START_IDS_BY_INDEX: Record<number, string> = {
+  0: "47175", // Warrior
+  1: "44683", // Monk
+  2: "50459", // Ranger   (shared with Huntress)
+  3: "50459", // Huntress (shared with Ranger)
+  4: "54447", // Sorceress (shared with Witch)
+  5: "54447", // Witch (shared with Sorceress)
+  6: "50986", // Mercenary
+  7: "61525", // Druid
+};
+
+// POE2 어센던시 — classes[].ascendancies 에서 추출 (2026-04-22 실측).
+// POE2_CLASS_NAMES 순서 기준. 총 21 어센던시.
+export const POE2_ASCENDANCIES: Record<number, string[]> = {
+  0: ["Titan", "Warbringer", "Smith of Kitava"],                  // Warrior (3)
+  1: ["Invoker", "Acolyte of Chayula"],                           // Monk (2)
+  2: ["Deadeye", "Pathfinder"],                                   // Ranger (2)
+  3: ["Amazon", "Ritualist"],                                     // Huntress (2)
+  4: ["Stormweaver", "Chronomancer", "Disciple of Varashta"],     // Sorceress (3)
+  5: ["Infernalist", "Blood Mage", "Lich", "Abyssal Lich"],       // Witch (4)
+  6: ["Tactician", "Witchhunter", "Gemling Legionnaire"],         // Mercenary (3)
+  7: ["Oracle", "Shaman"],                                        // Druid (2)
+};
+
 // Ascendancy 구성 (data.classes 구조 기준, bloodline 제외)
 export const ASCENDANCIES: Record<number, string[]> = {
   0: ["Ascendant", "Reliquarian"],

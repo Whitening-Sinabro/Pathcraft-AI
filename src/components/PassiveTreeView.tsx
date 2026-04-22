@@ -1,18 +1,25 @@
 import { useMemo, useState } from "react";
 import { PassiveTreeCanvas } from "./PassiveTreeCanvas";
 import { decodeTreeUrl } from "../utils/passiveTreeUrl";
+import { useActiveGame } from "../contexts/ActiveGameContext";
 
 interface Props {
   // PoB 빌드에서 추출된 passive_tree_url. 있으면 자동 디코드 → 할당 노드 하이라이트.
+  // POE1 URL 인코딩 전용 — POE2 는 decoded 무시.
   url?: string;
 }
 
 export function PassiveTreeView({ url }: Props) {
+  const { game } = useActiveGame();
   const [expanded, setExpanded] = useState(false);
   const w = expanded ? 1400 : 900;
   const h = expanded ? 900 : 600;
 
-  const decoded = useMemo(() => (url ? decodeTreeUrl(url) : null), [url]);
+  // POE2 는 POE1-form PoB URL 디코드를 적용하지 않음.
+  const decoded = useMemo(
+    () => (url && game === "poe1" ? decodeTreeUrl(url) : null),
+    [url, game],
+  );
   const initialAllocated = useMemo(
     () => (decoded ? new Set(decoded.nodes) : undefined),
     [decoded],
@@ -47,7 +54,8 @@ export function PassiveTreeView({ url }: Props) {
       </div>
 
       <PassiveTreeCanvas
-        key={url || "empty"}
+        key={`${game}:${url || "empty"}`}
+        game={game}
         width={w}
         height={h}
         initialAllocated={initialAllocated}

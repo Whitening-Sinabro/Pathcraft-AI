@@ -1,12 +1,15 @@
 ## 지금
-- **세션 종료 (2026-04-22 S3)** — POE2 D4 데이터 레이어 완료 + push.
-  - `83c805c` feat: POE2 D4 데이터 레이어 — tree.json 어댑터 + 테스트 (origin 반영)
-- **D4 데이터 레이어 요약**
-  - 데이터 소스: PoB-PoE2 `TreeData/0_4/tree.json` (4701 노드/1497 그룹/8 클래스/21 어센던시)
-  - `data/skilltree-export-poe2/` gitignored
-  - `normalizePoe2Tree()` 어댑터: groups list→dict, connections→out[], classesStart 보존
-  - `POE2_CLASS_START_IDS` / `POE2_CLASS_NAMES` 상수
-  - vitest 96/96 (+9 POE2), tsc clean, pytest 651/651, cargo 42/42. 회귀 0
+- **POE2 D4 Canvas 통합 완료 (2026-04-22 S4)** — 데이터 레이어 + UI 통합 통합 커밋 대기.
+  - `PassiveTreeCanvas` `game?: "poe1"|"poe2"` prop, `poe1DataUrl`/`poe2DataUrl` 분기, `normalizePoe2Tree` 적용
+  - `TreeControls` classNames/ascendancies 를 props 로 받도록 리팩터 (POE1 7 / POE2 8)
+  - `POE2_CLASS_START_IDS_BY_INDEX` + `POE2_ASCENDANCIES` (21 어센던시, Abyssal Lich / Disciple of Varashta 포함)
+  - `PassiveTreeView` `useActiveGame` 연결, key 에 `${game}:${url}` 반영, POE1-only decodeTreeUrl
+  - Portrait overlay POE1 전용 가드 (POE2 는 disc 만)
+  - `localStorage` 키 game 별 분리 (`pathcraftai_passive_class_poe2` 등)
+  - 앵커 계산 `classesStart` fallback 추가
+  - 테스트 107/107 PASS (+11 POE2 상수 케이스), tsc clean
+- **이전 세션 (S3)**
+  - `83c805c` feat: POE2 D4 데이터 레이어 — tree.json 어댑터 + 테스트
 - **직전 세션 (S2, 이미 push 완료)**
   - `3547553` 디자인 enforcement / `2dcbb80` POE2 D6 코치 + D3 / `c1c4ba0` S2 종료 기록
 
@@ -16,9 +19,9 @@
 
 ## 다음 할 것 (우선순위순)
 
-0. [ ] **D6 해제 조건 수집** — Tauri 창 POE2 실사용. `_normalization_trace` / `_retry_info` 로그 수집 (백엔드는 이미 게재 중). 사용자 실클릭만 있으면 즉시 가능
-1. [ ] **POE2 D4 Canvas 통합** (별도 세션) — 데이터 레이어 완료, 남은 것: `PassiveTreeCanvas` `game` prop + 동적 `dataUrl` + `PassiveTreeView` activeGame 전파. POE2 는 ASCENDANCIES 재매핑 필요 (21 어센던시). Tauri 실렌더 확인까지. 2~3시간 scope. 플랜: `.claude/status/passive_tree_poe2_plan.md` §4
-2. [ ] **POE2 D5 필터** (또 다른 세션) — NeverSink POE2 공식 import + ItemClass 명칭 매핑 (Focus/Charm/Spear/Quarterstaff 신규). 2~3시간 scope
+0. [ ] **D4 Canvas Tauri 실렌더 검증** — POE2 모드 전환 시 tree_0_4.json 로딩 / 클래스 드롭다운 8개 / 어센던시 21개 / Abyssal Lich 선택 후 앵커 반영 확인. 사용자 실클릭.
+1. [ ] **D6 해제 조건 수집** — Tauri 창 POE2 실사용. `_normalization_trace` / `_retry_info` 로그 수집 (백엔드는 이미 게재 중). 사용자 실클릭만 있으면 즉시 가능
+2. [ ] **POE2 D5 필터** (별도 세션) — NeverSink POE2 공식 import + ItemClass 명칭 매핑 (Focus/Charm/Spear/Quarterstaff 신규). 2~3시간 scope
 3. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
 4. [ ] (후속, 선택) uniques stash_type 매핑 — UniqueStashTypes 테이블 extract → stash type id → 유형 이름 (Weapons/Armour/etc)
 5. [ ] (후속, 선택) base_items 필드 확장 — requirements (Str/Dex/Int) / damage / armour 추가

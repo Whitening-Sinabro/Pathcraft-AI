@@ -1,17 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   resolveNodePosition,
   buildAdjacency,
   shortestPath,
   deallocWithCascade,
+  normalizePoe2Tree,
   type TreeData,
   type TreeNode,
+  type Poe2RawTree,
 } from "../utils/passiveTree";
 import { createUndoHandler, type UndoHandler } from "../utils/passiveTreeUndo";
 import { loadSpriteAtlas, type SpriteAtlas } from "../utils/passiveTreeSprites";
 import {
   ATLAS_ZOOM,
-  CLASS_START_IDS, ASCENDANCIES,
+  CLASS_START_IDS, ASCENDANCIES, CLASS_NAMES,
+  POE2_CLASS_START_IDS_BY_INDEX, POE2_ASCENDANCIES, POE2_CLASS_NAMES,
   CLASS_STORAGE_KEY, ASCENDANCY_STORAGE_KEY,
   NODE_RADIUS_WORLD,
   classifyNode,
@@ -27,14 +30,18 @@ import {
 import { TreeControls } from "./passive-tree/TreeControls";
 import { ClassPortrait } from "./passive-tree/ClassPortrait";
 import { logger } from "../utils/logger";
-import dataUrl from "../../data/skilltree-export/data.json?url";
+import poe1DataUrl from "../../data/skilltree-export/data.json?url";
+import poe2DataUrl from "../../data/skilltree-export-poe2/tree_0_4.json?url";
 import translationsUrl from "../../data/skilltree-export/passive_tree_translations.json?url";
 
+type Game = "poe1" | "poe2";
 
 interface Props {
   width?: number;
   height?: number;
   showAscendancy?: boolean;
+  // POE1/POE2 분기. 기본 "poe1" 유지 (기존 호출부 무변경).
+  game?: Game;
   // 외부(Phase 2: PoB URL 디코드)에서 사전 할당된 노드 ID 주입 가능
   initialAllocated?: Set<string>;
   // 빌드에서 추출된 class/ascendancy index (주입 시 사용자 선택 무시)
@@ -59,9 +66,31 @@ function computeBounds(nodes: ResolvedNode[]): {
 
 export function PassiveTreeCanvas({
   width = 900, height = 600, showAscendancy = false,
+  game = "poe1",
   initialAllocated, buildClass, buildAscendancy, onAllocationChange,
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  // Game-aware look-up tables. POE2 는 classesStart[] 기반이라 POE1 의 0~6 index
+  // 와 다른 0~7 레인지. 모든 소비 코드는 여기서 받은 테이블만 참조.
+  const gameTables = useMemo(() => {
+    if (game === "poe2") {
+      return {
+        classStartIds: POE2_CLASS_START_IDS_BY_INDEX,
+        ascendancies: POE2_ASCENDANCIES,
+        classNames: POE2_CLASS_NAMES,
+        dataUrl: poe2DataUrl,
+        maxClassIdx: POE2_CLASS_NAMES.length - 1,
+      };
+    }
+    return {
+      classStartIds: CLASS_START_IDS,
+      ascendancies: ASCENDANCIES,
+      classNames: CLASS_NAMES,
+      dataUrl: poe1DataUrl,
+      maxClassIdx: CLASS_NAMES.length - 1,
+    };
+  }, [game]);
 
   // Mutable state lives in refs to avoid React re-renders on every interaction.
   const cameraRef = useRef<Camera>({ cx: 0, cy: 0, scale: 0.1 });
@@ -88,7 +117,7 @@ export function PassiveTreeCanvas({
   const [tooltip, setTooltip] = useState<{ name: string; stats: string[]; sx: number; sy: number } | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  // 한국어 stat 템플릿 사전 — 로드 실패 시 영문 fallback
+  // 한국어 stat 템플릿 사전 — 로드 실패 시 영문 fallback (POE1 전용)
   const [translations, setTranslations] = useState<TranslationTable | null>(null);
   const [nodeCount, setNodeCount] = useState(0);
   // 포인트 카운터 (classStart/ascendancyStart 제외 + jewel sockets)
@@ -98,22 +127,26 @@ export function PassiveTreeCanvas({
   const [searchQuery, setSearchQuery] = useState("");
   const searchMatchesRef = useRef<Set<string>>(new Set());
   const searchInputRef = useRef<HTMLInputElement>(null);
+  // localStorage 키는 game 별 분리 — POE1/POE2 클래스 index 공간이 다르기 때문.
+  const classStorageKey = game === "poe2" ? `${CLASS_STORAGE_KEY}_poe2` : CLASS_STORAGE_KEY;
+  const ascStorageKey = game === "poe2" ? `${ASCENDANCY_STORAGE_KEY}_poe2` : ASCENDANCY_STORAGE_KEY;
   // 선택된 클래스 — buildClass가 있으면 그 값 우선, 없으면 localStorage
   const [selectedClass, setSelectedClass] = useState<number | null>(() => {
-    if (buildClass != null && buildClass >= 0 && buildClass <= 6) return buildClass;
+    const max = gameTables.maxClassIdx;
+    if (buildClass != null && buildClass >= 0 && buildClass <= max) return buildClass;
     try {
-      const saved = localStorage.getItem(CLASS_STORAGE_KEY);
+      const saved = localStorage.getItem(classStorageKey);
       if (saved == null) return null;
       const n = parseInt(saved, 10);
-      return Number.isFinite(n) && n >= 0 && n <= 6 ? n : null;
+      return Number.isFinite(n) && n >= 0 && n <= max ? n : null;
     } catch { return null; }
   });
   const [selectedAscendancy, setSelectedAscendancy] = useState<string | null>(() => {
     if (buildClass != null && buildAscendancy != null && buildAscendancy > 0) {
-      const list = ASCENDANCIES[buildClass];
+      const list = gameTables.ascendancies[buildClass];
       if (list && list[buildAscendancy - 1]) return list[buildAscendancy - 1];
     }
-    try { return localStorage.getItem(ASCENDANCY_STORAGE_KEY); } catch { return null; }
+    try { return localStorage.getItem(ascStorageKey); } catch { return null; }
   });
   // 어센던시 start 노드 ID 맵 (ascendancyName → node id), 로드 후 채움
   const ascStartIdsRef = useRef<Record<string, string>>({});
@@ -137,7 +170,7 @@ export function PassiveTreeCanvas({
 
   // 클래스 변경 시 트리 완전 리셋. class start는 **anchor**로만 유지 (캐릭터 마커), 할당 세트는 비움.
   function pickClass(classIdx: number) {
-    const startId = CLASS_START_IDS[classIdx];
+    const startId = gameTables.classStartIds[classIdx];
     if (!startId) return;
     const prevSize = allocatedRef.current.size;
     undoRef.current.push(allocatedRef.current);
@@ -147,13 +180,13 @@ export function PassiveTreeCanvas({
     hoveredIdRef.current = null;
     searchMatchesRef.current = new Set();
     setSearchQuery("");
-    logger.info(`[passiveTree] pickClass ${classIdx} → startId=${startId} (anchor only), allocated ${prevSize} → 0`);
+    logger.info(`[passiveTree:${game}] pickClass ${classIdx} → startId=${startId} (anchor only), allocated ${prevSize} → 0`);
 
     setSelectedClass(classIdx);
     setSelectedAscendancy(null);
     try {
-      localStorage.setItem(CLASS_STORAGE_KEY, String(classIdx));
-      localStorage.removeItem(ASCENDANCY_STORAGE_KEY);
+      localStorage.setItem(classStorageKey, String(classIdx));
+      localStorage.removeItem(ascStorageKey);
     } catch { /* quota full */ }
     anchorsRef.current = new Set([startId]);
 
@@ -183,7 +216,7 @@ export function PassiveTreeCanvas({
       if (n?.ascendancyName) alloc.delete(id);
     }
     // ascendancy start는 anchors에 포함, 할당에 넣지 않음
-    const startClassId = selectedClass != null ? CLASS_START_IDS[selectedClass] : null;
+    const startClassId = selectedClass != null ? gameTables.classStartIds[selectedClass] : null;
     const nextAnchors = new Set<string>();
     if (startClassId) nextAnchors.add(startClassId);
     if (ascName) {
@@ -193,8 +226,8 @@ export function PassiveTreeCanvas({
     anchorsRef.current = nextAnchors;
     setSelectedAscendancy(ascName);
     try {
-      if (ascName) localStorage.setItem(ASCENDANCY_STORAGE_KEY, ascName);
-      else localStorage.removeItem(ASCENDANCY_STORAGE_KEY);
+      if (ascName) localStorage.setItem(ascStorageKey, ascName);
+      else localStorage.removeItem(ascStorageKey);
     } catch { /* quota full */ }
     dirtyRef.current = true;
     recomputePoints();
@@ -218,9 +251,10 @@ export function PassiveTreeCanvas({
     setJewelSockets(sockets);
   }
 
-  // Load Korean translation table once. Failure is non-fatal — tooltip falls
-  // back to English source strings (translateStat handles null table).
+  // Load Korean translation table once (POE1 전용 — POE2 번역은 D4 범위 밖).
+  // Failure is non-fatal — tooltip falls back to English source strings.
   useEffect(() => {
+    if (game !== "poe1") { setTranslations(null); return; }
     let cancelled = false;
     fetch(translationsUrl)
       .then((r) => {
@@ -237,18 +271,22 @@ export function PassiveTreeCanvas({
         logger.warn("[passiveTree] translation load failed:", err);
       });
     return () => { cancelled = true; };
-  }, []);
+  }, [game]);
 
-  // Load tree data — reload nodes when ascendancy changes (filter dependency)
+  // Load tree data — reload nodes when ascendancy changes (filter dependency).
+  // POE2 tree.json 은 normalizePoe2Tree 로 POE1-shape 로 변환 후 동일 파이프라인.
   useEffect(() => {
     let cancelled = false;
-    fetch(dataUrl)
+    fetch(gameTables.dataUrl)
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json() as Promise<TreeData>;
+        return r.json() as Promise<TreeData | Poe2RawTree>;
       })
-      .then((d) => {
+      .then((raw) => {
         if (cancelled) return;
+        const d: TreeData = game === "poe2"
+          ? normalizePoe2Tree(raw as Poe2RawTree)
+          : (raw as TreeData);
         const nodes: ResolvedNode[] = [];
         for (const id in d.nodes) {
           const node = d.nodes[id];
@@ -284,16 +322,20 @@ export function PassiveTreeCanvas({
 
         // Dealloc cascade 앵커 = class start + 선택된 ascendancy start
         // 앵커는 "할당 세트"와 별도 — 시각만 active로 렌더, 할당 카운트 0 유지
-        if (selectedClass != null && CLASS_START_IDS[selectedClass]) {
-          const startId = CLASS_START_IDS[selectedClass];
+        if (selectedClass != null && gameTables.classStartIds[selectedClass]) {
+          const startId = gameTables.classStartIds[selectedClass];
           const anchors = new Set<string>([startId]);
           if (selectedAscendancy && ascMap[selectedAscendancy]) {
             anchors.add(ascMap[selectedAscendancy]);
           }
           anchorsRef.current = anchors;
         } else {
+          // POE1: classStartIndex 로 앵커. POE2: classesStart 존재로 앵커.
           const anchors = new Set<string>();
-          for (const n of nodes) if (n.node.classStartIndex != null) anchors.add(n.id);
+          for (const n of nodes) {
+            if (n.node.classStartIndex != null) anchors.add(n.id);
+            else if (n.node.classesStart && n.node.classesStart.length > 0) anchors.add(n.id);
+          }
           anchorsRef.current = anchors;
         }
 
@@ -326,7 +368,7 @@ export function PassiveTreeCanvas({
         // 선택된 클래스가 있으면 시작점으로 줌인, 아니면 전체 뷰
         const nodeMap = new Map(nodes.map((n) => [n.id, n]));
         if (selectedClass != null) {
-          const startId = CLASS_START_IDS[selectedClass];
+          const startId = gameTables.classStartIds[selectedClass];
           const startNode = startId ? nodeMap.get(startId) : null;
           if (startNode) {
             cameraRef.current = {
@@ -355,7 +397,7 @@ export function PassiveTreeCanvas({
       .catch((e) => { if (!cancelled) setError(String(e)); });
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showAscendancy, width, height, selectedAscendancy]);
+  }, [showAscendancy, width, height, selectedAscendancy, game]);
 
   // Single rAF loop — only redraws when dirtyRef is set.
   useEffect(() => {
@@ -387,33 +429,41 @@ export function PassiveTreeCanvas({
         orbitRadii: orbitRadiiRef.current,
       });
 
-      // P1: class portrait overlay 재배치. NODE_RADIUS_WORLD.classStart=70 대비
-      // 직경 = 2*radius*portraitScale. portraitScale 1.0 = 포트레이트가 node disc와 동일.
+      // P1: class portrait overlay 재배치. POE1 전용 — POE2 portrait 은 D4 범위 밖.
+      // NODE_RADIUS_WORLD.classStart=70 대비 직경 = 2*radius*portraitScale.
       // 호버 링이 1.4x 반경이므로 포트레이트 < 호버 링이어야 함.
-      const cam = cameraRef.current;
-      const nodeMap = nodeByIdRef.current;
-      for (let i = 0; i < 7; i++) {
-        const el = portraitRefs.current[i];
-        if (!el) continue;
-        const nodeId = CLASS_START_IDS[i];
-        const node = nodeId ? nodeMap.get(nodeId) : null;
-        if (!node) {
-          el.style.display = "none";
-          continue;
+      if (game === "poe1") {
+        const cam = cameraRef.current;
+        const nodeMap = nodeByIdRef.current;
+        for (let i = 0; i < 7; i++) {
+          const el = portraitRefs.current[i];
+          if (!el) continue;
+          const nodeId = CLASS_START_IDS[i];
+          const node = nodeId ? nodeMap.get(nodeId) : null;
+          if (!node) {
+            el.style.display = "none";
+            continue;
+          }
+          const diameter = node.radius * 2 * cam.scale;
+          const sx = (node.x - cam.cx) * cam.scale + width / 2;
+          const sy = (node.y - cam.cy) * cam.scale + height / 2;
+          const offscreen = sx < -diameter || sx > width + diameter
+                         || sy < -diameter || sy > height + diameter;
+          if (offscreen || diameter < 6) {
+            el.style.display = "none";
+          } else {
+            el.style.display = "block";
+            el.style.width = `${diameter}px`;
+            el.style.height = `${diameter}px`;
+            el.style.transform =
+              `translate3d(${sx - diameter / 2}px, ${sy - diameter / 2}px, 0)`;
+          }
         }
-        const diameter = node.radius * 2 * cam.scale;
-        const sx = (node.x - cam.cx) * cam.scale + width / 2;
-        const sy = (node.y - cam.cy) * cam.scale + height / 2;
-        const offscreen = sx < -diameter || sx > width + diameter
-                       || sy < -diameter || sy > height + diameter;
-        if (offscreen || diameter < 6) {
-          el.style.display = "none";
-        } else {
-          el.style.display = "block";
-          el.style.width = `${diameter}px`;
-          el.style.height = `${diameter}px`;
-          el.style.transform =
-            `translate3d(${sx - diameter / 2}px, ${sy - diameter / 2}px, 0)`;
+      } else {
+        // POE2: portrait refs 모두 숨김
+        for (let i = 0; i < 7; i++) {
+          const el = portraitRefs.current[i];
+          if (el) el.style.display = "none";
         }
       }
 
@@ -422,7 +472,7 @@ export function PassiveTreeCanvas({
 
     rafRef.current = requestAnimationFrame(draw);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [loaded, width, height]);
+  }, [loaded, width, height, game]);
 
 
   // Keyboard: Ctrl+Z / Ctrl+Y → undo / redo
@@ -509,7 +559,7 @@ export function PassiveTreeCanvas({
         const hit = pickNode(sx, sy);
         if (hit && hit.kind !== "mastery") {
           // 선택된 class/ascendancy start는 해제 불가
-          if (selectedClass != null && hit.id === CLASS_START_IDS[selectedClass]) {
+          if (selectedClass != null && hit.id === gameTables.classStartIds[selectedClass]) {
             return;
           }
           if (selectedAscendancy && hit.id === ascStartIdsRef.current[selectedAscendancy]) {
@@ -618,7 +668,7 @@ export function PassiveTreeCanvas({
     };
     // dragMoved is local; tooltip read intentionally tracked.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loaded, width, height]);
+  }, [loaded, width, height, game]);
 
   if (error) {
     return (
@@ -672,6 +722,8 @@ export function PassiveTreeCanvas({
       <TreeControls
         loaded={loaded}
         nodeCount={nodeCount}
+        classNames={gameTables.classNames}
+        ascendancies={gameTables.ascendancies}
         selectedClass={selectedClass}
         selectedAscendancy={selectedAscendancy}
         searchQuery={searchQuery}
