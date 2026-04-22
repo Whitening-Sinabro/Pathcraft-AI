@@ -1,0 +1,51 @@
+#!/usr/bin/env sh
+# Design enforcement pre-commit hook
+# - Stylelint: gradient/blur 선언 차단
+# - design-exception 카운트 cap 2
+# - design-contract.md 필수 필드 공란 여부
+
+set -e
+
+# 1. Stylelint (CSS/SCSS 파일이 있을 때만)
+if git diff --cached --name-only --diff-filter=ACMR | grep -qE '\.(css|scss)$'; then
+  if ! npx --no-install stylelint "**/*.{css,scss}" --cache 2>/dev/null; then
+    echo "[pre-commit] Stylelint failed — design enforcement violation"
+    echo "  Fix violations or add /* design-exception: <reason> */ above the line"
+    exit 1
+  fi
+fi
+
+# 2. design-exception 카운트
+count=$(git grep -cE 'design-exception:' -- \
+    '*.tsx' '*.jsx' '*.vue' '*.svelte' '*.css' '*.scss' '*.astro' '*.mdx' 2>/dev/null \
+    | awk -F: '{sum+=$NF} END {print sum+0}')
+
+if [ "${count:-0}" -gt 2 ]; then
+  echo "[pre-commit] design-exception count: $count (cap: 2)"
+  echo "  제거하거나 .claude/status/design-exceptions.md에서 승인 기록 후 cap 조정 논의"
+  exit 1
+fi
+
+# 3. design-contract.md 필수 필드
+contract=".claude/status/design-contract.md"
+if [ -f "$contract" ]; then
+  for field in "Primary Action" "Reference URL" "Accent Color" "Font Family"; do
+    # 필드 헤더 다음 비어있지 않은 라인이 있는지
+    value=$(awk -v f="## $field:" '
+      $0 ~ f {found=1; next}
+      found && /^##/ {exit}
+      found && NF>0 {print; exit}
+    ' "$contract")
+    if [ -z "$value" ] || echo "$value" | grep -qE '^<.*>$'; then
+      echo "[pre-commit] design-contract.md missing: $field"
+      echo "  Fill required fields before committing"
+      exit 1
+    fi
+  done
+else
+  echo "[pre-commit] .claude/status/design-contract.md not found"
+  echo "  Run: install.sh (or install.ps1) from ~/.claude/templates/design-enforcement/"
+  exit 1
+fi
+
+exit 0

@@ -1,0 +1,18 @@
+/* Design tokens — 팔레트·타이포 단일 소스.
+   이 외 hex 직접 사용은 design-guard 훅 + stylelint에서 BLOCK.
+   브랜드 accent가 다르면 --color-accent 값만 변경. */
+
+:root {
+  --color-bg: #FFFFFF;
+  --color-fg: #000000;
+  --color-accent: #0A84FF; /* iOS system blue — 기본값. 브랜드에 따라 override. */
+
+  --font-sans: 'Inter', 'Pretendard', system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+}

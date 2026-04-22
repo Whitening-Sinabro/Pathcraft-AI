@@ -1,0 +1,21 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "declaration-property-value-disallowed-list": {
+      "background": ["/linear-gradient/", "/radial-gradient/", "/conic-gradient/"],
+      "background-image": ["/linear-gradient/", "/radial-gradient/", "/conic-gradient/"],
+      "filter": ["/\\bblur\\b/"],
+      "box-shadow": ["/\\b0\\s+0\\s+/"]
+    },
+    "color-no-invalid-hex": true,
+    "font-family-no-missing-generic-family-keyword": true,
+    "no-duplicate-selectors": true
+  },
+  "ignoreFiles": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    ".next/**",
+    "out/**"
+  ]
+}
