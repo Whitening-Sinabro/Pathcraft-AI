@@ -17,7 +17,19 @@ from typing import Optional
 
 logger = logging.getLogger("game_data")
 
-GAME_DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "game_data"
+DATA_ROOT = Path(__file__).resolve().parent.parent / "data"
+GAME_DATA_DIR_POE1 = DATA_ROOT / "game_data"
+GAME_DATA_DIR_POE2 = DATA_ROOT / "game_data_poe2"
+
+# Legacy alias — 기존 소비자 호환. coach_build 등 game 미지정 경로는 POE1 기본.
+GAME_DATA_DIR = GAME_DATA_DIR_POE1
+
+
+def _resolve_data_dir(game: str) -> Path:
+    if game == "poe2":
+        return GAME_DATA_DIR_POE2
+    return GAME_DATA_DIR_POE1
+
 
 CLASS_NAMES = {
     0: "Marauder", 1: "Witch", 2: "Ranger",
@@ -27,10 +39,17 @@ CLASS_IDS = {v: k for k, v in CLASS_NAMES.items()}
 
 
 class GameData:
-    """추출된 게임 데이터를 로드하고 이름 기반 조회를 제공."""
+    """추출된 게임 데이터를 로드하고 이름 기반 조회를 제공.
 
-    def __init__(self, data_dir: Optional[Path] = None):
-        self.data_dir = data_dir or GAME_DATA_DIR
+    game="poe1" (기본): data/game_data/ (POE1 BaseItemTypes/SkillGems/QuestRewards/Maps)
+    game="poe2": data/game_data_poe2/ (POE2 동일 테이블, Huntress/Druid 포함)
+
+    data_dir 을 명시적으로 전달하면 game 파라미터 무시하고 그 경로 사용.
+    """
+
+    def __init__(self, data_dir: Optional[Path] = None, game: str = "poe1"):
+        self.game = game
+        self.data_dir = data_dir or _resolve_data_dir(game)
         self._items: list = []
         self._gems: list = []
         self._quest_rewards: list = []
@@ -56,9 +75,11 @@ class GameData:
                 self._item_name_idx[name] = i
 
         # 젬 이름 → 젬 데이터 매핑 (BaseItemTypes에서 이름 해석)
+        # POE1 SkillGems: BaseItemTypesKey
+        # POE2 SkillGems: BaseItemType (이름 단축)
         self._gem_item_indices: set[int] = set()
         for gem in self._gems:
-            idx = gem.get("BaseItemTypesKey", -1)
+            idx = gem.get("BaseItemTypesKey", gem.get("BaseItemType", -1))
             if 0 <= idx < len(self._items):
                 item = self._items[idx]
                 name = item.get("Name", "")

@@ -3,6 +3,7 @@ import { invoke } from "@tauri-apps/api/core";
 import type { BuildData, CoachResult } from "../types";
 import { logger } from "../utils/logger";
 import { useBuildHistory, type SavedBuild } from "./useBuildHistory";
+import { useActiveGame } from "../contexts/ActiveGameContext";
 
 // 간단 hash (POB raw JSON → 32-bit int) — coach 캐시 키 생성용
 function hashString(s: string): string {
@@ -18,8 +19,9 @@ function hashString(s: string): string {
  * v2 → v3: Phase H6 L2 — normalizer strict allowlist (unmatched 젬 드롭) (2026-04-21)
  * v3 → v4: valid_gems 에 transfigured 211개 추가 (3.22+ "of X" 변종) (2026-04-21)
  * v4 → v5: Phase H6 L3 — Gate + Auto-retry (drop 발견 시 교정 프롬프트로 1회 재호출) (2026-04-21)
+ * v5 → v6: D6 POE2 분기 — SYSTEM_PROMPT_POE2 + valid_gems_poe2.json + Spear 21 화이트리스트 (2026-04-22)
  * 기존 `pathcraftai_coach_<hash>` 엔트리는 prefix 불일치로 자동 무시됨. */
-const COACH_CACHE_VERSION = "v5";
+const COACH_CACHE_VERSION = "v6";
 
 export interface SyndicateRec {
   layout_id: string;
@@ -49,6 +51,7 @@ export const COACH_MODEL_LABEL: Record<CoachModel, string> = {
 
 export function useBuildAnalyzer() {
   const { history, latest, addOrUpdate, remove: removeFromHistory, getById } = useBuildHistory();
+  const { game } = useActiveGame();
 
   // 새로고침 복원: 최신 빌드가 있으면 rawJson에서 즉시 파싱 (parse_pob/coach 호출 없이).
   const initial = latest;
@@ -57,9 +60,28 @@ export function useBuildAnalyzer() {
     try { return JSON.parse(raw) as T; } catch { return null; }
   }
 
+  // Coach 결과 필수 필드 sanity check — 구 버전 / 스키마 변경 / 부분 저장으로
+  // 핵심 필드 누락된 경우 null 처리 → 섹션 렌더링 skip (crash 방지).
+  function parseCoachOrNull(raw?: string): CoachResult | null {
+    const parsed = parseOrNull<CoachResult>(raw);
+    if (!parsed) return null;
+    const hasCore = (
+      typeof parsed.tier === "string"
+      && typeof parsed.build_summary === "string"
+      && Array.isArray(parsed.strengths)
+      && Array.isArray(parsed.weaknesses)
+      && parsed.leveling_guide && typeof parsed.leveling_guide === "object"
+    );
+    if (!hasCore) {
+      logger.warn("[useBuildAnalyzer] 복원된 coaching 이 필수 필드 누락 — drop");
+      return null;
+    }
+    return parsed;
+  }
+
   const [pobLink, setPobLink] = useState(initial?.pobLink ?? "");
   const [buildData, setBuildData] = useState<BuildData | null>(() => parseOrNull<BuildData>(initial?.rawBuildJson));
-  const [coaching, setCoaching] = useState<CoachResult | null>(() => parseOrNull<CoachResult>(initial?.rawCoachJson));
+  const [coaching, setCoaching] = useState<CoachResult | null>(() => parseCoachOrNull(initial?.rawCoachJson));
   const [rawBuildJson, setRawBuildJson] = useState(initial?.rawBuildJson ?? "");
   const [rawCoachJson, setRawCoachJson] = useState(initial?.rawCoachJson ?? "");
   const [loading, setLoading] = useState("");
@@ -176,7 +198,7 @@ export function useBuildAnalyzer() {
 
     try {
       setLoading("1번 POB 파싱 중...");
-      const raw = await invoke<string>("parse_pob", { link: trimmed });
+      const raw = await invoke<string>("parse_pob", { link: trimmed, game });
       if (isStale()) return;
       const parsed: BuildData = JSON.parse(raw);
       setBuildData(parsed);
@@ -188,7 +210,7 @@ export function useBuildAnalyzer() {
       if (extras.length > 0) {
         setLoading(`2단계 POB ${extras.length}개 병렬 파싱 중...`);
         parsedExtras = await Promise.all(
-          extras.map((link) => invoke<string>("parse_pob", { link }))
+          extras.map((link) => invoke<string>("parse_pob", { link, game }))
         );
         if (isStale()) return;
         setExtraBuildJsons(parsedExtras);
@@ -200,9 +222,9 @@ export function useBuildAnalyzer() {
         __extra_builds__: parsedExtras.map((j) => JSON.parse(j)),
       });
 
-      // Coach 캐시 — 전체 입력(extras 포함) hash + 스키마 버전 키.
+      // Coach 캐시 — 전체 입력(extras 포함) hash + 스키마 버전 키 + 게임 분리.
       // 모델 선택도 키에 포함 (Haiku/Sonnet/Opus 결과 분리 캐시).
-      const cacheKey = `pathcraftai_coach_${COACH_CACHE_VERSION}_${coachModel}_${hashString(coachInput)}`;
+      const cacheKey = `pathcraftai_coach_${COACH_CACHE_VERSION}_${game}_${coachModel}_${hashString(coachInput)}`;
       const cached = localStorage.getItem(cacheKey);
       if (cached) {
         setLoading("캐시 적중 — 이전 분석 결과 로드 중...");
@@ -231,6 +253,7 @@ export function useBuildAnalyzer() {
       const coachRaw = await invoke<string>("coach_build", {
         buildJson: coachInput,
         model: coachModel,
+        game,
       });
       if (isStale()) return;
       const coachSec = Math.round((Date.now() - coachStartTs) / 1000);
@@ -243,9 +266,9 @@ export function useBuildAnalyzer() {
       } catch { /* quota, ignore */ }
       saveToHistory(parsed, parsedCoach, raw, coachRaw, parsedExtras);
 
-      // Syndicate 레이아웃 추천 (휴리스틱, <1초)
+      // Syndicate 레이아웃 추천 (휴리스틱, <1초) — POE2 시 backend 에서 거부됨 (D7)
       try {
-        const synRaw = await invoke<string>("syndicate_recommend", { buildJson: raw });
+        const synRaw = await invoke<string>("syndicate_recommend", { buildJson: raw, game });
         if (isStale()) return;
         const synParsed = JSON.parse(synRaw);
         if (synParsed.layout_id) {
@@ -253,6 +276,80 @@ export function useBuildAnalyzer() {
         }
       } catch { /* Syndicate 추천 실패는 무시 (선택 기능) */ }
 
+      setLoading("");
+    } catch (e) {
+      if (isStale()) return;
+      setError(String(e));
+      setLoading("");
+    }
+  }
+
+  /** POB 없이 구두/폼 입력으로 코치 직행 (POE2 PoB2 없는 경로).
+   *  parse_pob 건너뛰고 VerbalBuildInput → BuildData 최소 JSON → coach_build 호출. */
+  async function analyzeVerbalBuild(input: {
+    class: string;
+    ascendancy: string;
+    level: number;
+    mainSkill: string;
+    supports: string[];
+    secondarySkills: string[];
+    notes: string;
+  }) {
+    const runId = ++runIdRef.current;
+    const isStale = () => runIdRef.current !== runId;
+
+    setError("");
+    setBuildData(null);
+    setCoaching(null);
+    setRawBuildJson("");
+    setRawCoachJson("");
+    setExtraBuildJsons([]);
+    setPobLink("");
+
+    // 폼 → build_coach 가 기대하는 JSON 스키마로 변환
+    const gemSetups: Record<string, { supports: string[] }> = {
+      [input.mainSkill]: { supports: input.supports },
+    };
+    for (const sk of input.secondarySkills) {
+      gemSetups[sk] = { supports: [] };
+    }
+
+    const verbalBuild = {
+      meta: {
+        build_name: `${input.class} / ${input.ascendancy || "?"} — ${input.mainSkill}`,
+        class: input.class,
+        ascendancy: input.ascendancy,
+        class_level: input.level,
+      },
+      progression_stages: [
+        {
+          level_range: `current (Lv ${input.level})`,
+          gem_setups: gemSetups,
+        },
+      ],
+      build_notes: input.notes,
+      __source__: "verbal_input",
+    };
+
+    const buildJson = JSON.stringify(verbalBuild);
+    setBuildData(verbalBuild as unknown as BuildData);
+    setRawBuildJson(buildJson);
+
+    try {
+      setLoading("코치 분석 중 (구두 입력 모드)...");
+      const coachStartTs = Date.now();
+      const coachRaw = await invoke<string>("coach_build", {
+        buildJson,
+        model: coachModel,
+        game,
+      });
+      if (isStale()) return;
+      const coachSec = Math.round((Date.now() - coachStartTs) / 1000);
+      logger.info(`[coach verbal] completed in ${coachSec}s`);
+      const parsedCoach: CoachResult = JSON.parse(coachRaw);
+      setCoaching(parsedCoach);
+      setRawCoachJson(coachRaw);
+      saveToHistory(verbalBuild as unknown as BuildData, parsedCoach, buildJson, coachRaw, []);
       setLoading("");
     } catch (e) {
       if (isStale()) return;
@@ -286,6 +383,7 @@ export function useBuildAnalyzer() {
     alSplit, setAlSplit,
     syndicateRec,
     analyzeBuild,
+    analyzeVerbalBuild,
     cancelAnalyze,
     mode, setMode,
     coachModel, setCoachModel,

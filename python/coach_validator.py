@@ -25,8 +25,31 @@ def _load_quest_rewards() -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _load_valid_gems() -> set[str]:
-    """POE1 유효 젬 이름 set (대소문자 무시 키). hallucination 탐지용."""
+def _load_valid_gems(game: str = "poe1") -> set[str]:
+    """유효 젬 이름 set (대소문자 무시 키). hallucination 탐지용.
+
+    POE1: data/valid_gems.json {"gems": [...]}
+    POE2: data/valid_gems_poe2.json {"active"/"support"/"spirit": [{name, ...}]}
+    """
+    if game == "poe2":
+        path = Path(__file__).resolve().parent.parent / "data" / "valid_gems_poe2.json"
+        if not path.exists():
+            return set()
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as e:
+            logger.warning(f"valid_gems_poe2.json 로드 실패: {e}")
+            return set()
+        names: set[str] = set()
+        for bucket in ("active", "support", "spirit"):
+            for entry in data.get(bucket, []) or []:
+                if isinstance(entry, dict):
+                    n = entry.get("name")
+                    if isinstance(n, str) and n.strip():
+                        names.add(n.strip().lower())
+        return names
+
+    # POE1 기본 경로
     path = Path(__file__).resolve().parent.parent / "data" / "valid_gems.json"
     if not path.exists():
         return set()
@@ -41,14 +64,13 @@ def _load_valid_gems() -> set[str]:
     return {g.strip().lower() for g in gems if isinstance(g, str) and g.strip()}
 
 
-_VALID_GEMS_CACHE: set[str] | None = None
+_VALID_GEMS_BY_GAME: dict[str, set[str]] = {}
 
 
-def _get_valid_gems() -> set[str]:
-    global _VALID_GEMS_CACHE
-    if _VALID_GEMS_CACHE is None:
-        _VALID_GEMS_CACHE = _load_valid_gems()
-    return _VALID_GEMS_CACHE
+def _get_valid_gems(game: str = "poe1") -> set[str]:
+    if game not in _VALID_GEMS_BY_GAME:
+        _VALID_GEMS_BY_GAME[game] = _load_valid_gems(game)
+    return _VALID_GEMS_BY_GAME[game]
 
 
 def _extract_gem_strings(obj: Any, out: list[str]) -> None:
@@ -123,31 +145,40 @@ REQUIRED_FIELDS = {
 }
 
 
-def validate_coach_output(result: dict, build_data: dict | None = None) -> list[str]:
-    """Coach 결과 JSON 검증. 경고 메시지 리스트 반환 (빈 리스트 = OK)."""
+def validate_coach_output(
+    result: dict,
+    build_data: dict | None = None,
+    game: str = "poe1",
+) -> list[str]:
+    """Coach 결과 JSON 검증. 경고 메시지 리스트 반환 (빈 리스트 = OK).
+
+    game="poe1": 기존 검증 (스키마 + 범위 + quest_rewards cross-check + POE1 valid_gems 젬 대조)
+    game="poe2": 스키마 + 범위 + POE2 valid_gems 젬 대조. quest_rewards 는 POE2 구조 미확정으로 skip.
+    """
     warnings: list[str] = []
 
-    # 1. 스키마 — 필수 필드 + 타입
-    for field, expected_type in REQUIRED_FIELDS.items():
-        if field not in result:
-            warnings.append(f"[스키마] 필수 필드 누락: {field}")
-        elif not isinstance(result[field], expected_type):
-            warnings.append(
-                f"[스키마] {field} 타입 불일치: "
-                f"기대 {expected_type.__name__}, 실제 {type(result[field]).__name__}"
-            )
+    # 1. 스키마 — 필수 필드 + 타입 (POE2 는 일부 필드 다름, 경고 레벨로만)
+    if game == "poe1":
+        for field, expected_type in REQUIRED_FIELDS.items():
+            if field not in result:
+                warnings.append(f"[스키마] 필수 필드 누락: {field}")
+            elif not isinstance(result[field], expected_type):
+                warnings.append(
+                    f"[스키마] {field} 타입 불일치: "
+                    f"기대 {expected_type.__name__}, 실제 {type(result[field]).__name__}"
+                )
 
-    # 2. build_rating 값 범위 (1~5)
+    # 2. build_rating 값 범위 (1~5) — 양 게임 공통 (POE2 JSON 스키마도 rating 유지)
     rating = result.get("build_rating", {})
     if isinstance(rating, dict):
         for key, val in rating.items():
             if isinstance(val, (int, float)) and not (1 <= val <= 5):
                 warnings.append(f"[범위] build_rating.{key}={val} (1~5 기대)")
 
-    # 3. skill_transitions 레벨 범위 + quest_rewards cross-check
+    # 3. skill_transitions 레벨 범위 + quest_rewards cross-check (POE1 전용, POE2 는 퀘스트 구조 다름)
     lvl_skills = result.get("leveling_skills", {})
     transitions = lvl_skills.get("skill_transitions", [])
-    if isinstance(transitions, list):
+    if isinstance(transitions, list) and game == "poe1":
         _build_gem_quest_index()
         build_class = (build_data or {}).get("meta", {}).get("class", "")
         for i, t in enumerate(transitions):
@@ -188,8 +219,8 @@ def validate_coach_output(result: dict, build_data: dict | None = None) -> list[
     if isinstance(tier, str) and tier and tier not in ("S", "A", "B", "C", "D", "F"):
         warnings.append(f"[값] tier='{tier}' (S/A/B/C/D/F 기대)")
 
-    # 5. 젬 이름 hallucination 검증 — POE1 valid_gems.json 대조
-    valid_gems = _get_valid_gems()
+    # 5. 젬 이름 hallucination 검증 — 게임별 valid_gems 대조
+    valid_gems = _get_valid_gems(game)
     if valid_gems:
         gem_candidates: list[str] = []
         _extract_gem_strings(result, gem_candidates)
@@ -220,23 +251,27 @@ def validate_coach_output(result: dict, build_data: dict | None = None) -> list[
             if paren and paren != norm and paren in valid_gems:
                 continue
             seen_invalid.add(norm)
-            warnings.append(f"[젬] '{cand}' — POE1 valid_gems.json에 없음 (hallucination 의심)")
+            game_label = "POE2" if game == "poe2" else "POE1"
+            warnings.append(f"[젬] '{cand}' — {game_label} valid_gems 에 없음 (hallucination 의심)")
 
     return warnings
 
 
 if __name__ == "__main__":
-    import sys
-    if len(sys.argv) < 2:
-        print("usage: coach_validator.py <coach_result.json> [build.json]")
-        sys.exit(2)
-    with open(sys.argv[1], encoding="utf-8") as f:
+    import argparse
+    ap = argparse.ArgumentParser(description="Coach output validator")
+    ap.add_argument("coach_result", help="coach JSON output 파일")
+    ap.add_argument("build", nargs="?", help="(선택) 빌드 JSON (quest cross-check 용)")
+    ap.add_argument("--game", choices=["poe1", "poe2"], default="poe1")
+    args = ap.parse_args()
+
+    with open(args.coach_result, encoding="utf-8") as f:
         result = json.load(f)
     build_data = None
-    if len(sys.argv) >= 3:
-        with open(sys.argv[2], encoding="utf-8") as f:
+    if args.build:
+        with open(args.build, encoding="utf-8") as f:
             build_data = json.load(f)
-    warnings = validate_coach_output(result, build_data)
+    warnings = validate_coach_output(result, build_data, game=args.game)
     if warnings:
         print(f"⚠️ {len(warnings)}개 경고:")
         for w in warnings:

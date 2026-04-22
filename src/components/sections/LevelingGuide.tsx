@@ -14,13 +14,14 @@ const PHASE_LABEL: Record<string, string> = {
 
 export function LevelingGuideSection({ guide }: Props) {
   const { checked, toggle, ck } = useChecklist();
+  const safeGuide = guide && typeof guide === "object" ? guide : {};
 
   return (
     <section className="ui-card">
       <h3 className="ui-section-title">
         레벨링 가이드 <span className="ui-section-title__hint">(체크로 진행도 추적)</span>
       </h3>
-      {Object.entries(guide).map(([key, val]) => {
+      {Object.entries(safeGuide).map(([key, val]) => {
         const chkKey = ck(`lvguide_${key}`);
         const done = !!checked[chkKey];
         return (
@@ -43,7 +44,7 @@ export function LevelingGuideSection({ guide }: Props) {
                 >
                   {PHASE_LABEL[key] ?? "엔드게임"}
                 </strong>
-                <p className="ui-text-secondary" style={{ margin: "2px 0 0", fontSize: 14 }}>{val}</p>
+                <p className="ui-text-secondary" style={{ margin: "2px 0 0", fontSize: 14 }}>{typeof val === "string" ? val : JSON.stringify(val)}</p>
               </div>
             </label>
           </div>

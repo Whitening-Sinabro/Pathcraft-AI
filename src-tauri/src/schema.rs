@@ -39,6 +39,31 @@ struct SchemaRef {
     column: Option<String>,
 }
 
+/// POE2 drift override (schema_poe2_override.json)
+///
+/// schema.min.json 에 누락된 끝 컬럼을 테이블별로 append.
+/// 현재 대상: Mods +24B / SkillGems +32B (2026-04-22 byte pattern 역추적).
+#[derive(Deserialize)]
+struct OverrideFile {
+    #[serde(flatten)]
+    entries: HashMap<String, OverrideEntry>,
+}
+
+#[derive(Deserialize)]
+struct OverrideEntry {
+    #[serde(default)]
+    fields: Vec<OverrideField>,
+}
+
+#[derive(Deserialize)]
+struct OverrideField {
+    name: String,
+    #[serde(rename = "type")]
+    col_type: String,
+    #[serde(default)]
+    array: bool,
+}
+
 /// 대상 게임 — schema.min.json의 `validFor` 비트마스크 필터링에 사용.
 /// bit 0 (1) = POE1, bit 1 (2) = POE2. validFor=3는 양쪽 공용.
 ///
@@ -95,12 +120,40 @@ impl SchemaStore {
     /// - POE1 요청 시: validFor & 1 인 테이블만 유지 (POE2 전용 305건 스킵)
     /// - POE2 요청 시: validFor & 2 인 테이블만 유지 (POE1 전용 174건 스킵)
     /// - 같은 이름 2버전 공존 시 (예: Mods POE1=78컬럼 / POE2=74컬럼) → 요청 게임 쪽 선택
+    /// - POE2 요청 시 `schema_poe2_override.json` 이 schema 파일 옆에 있으면 자동 merge.
+    ///   drift 보정 컬럼을 각 테이블 끝에 append (ex: Mods +24B, SkillGems +32B).
     pub fn load_for_game(path: &Path, game: Game) -> Result<Self, String> {
         let content = std::fs::read_to_string(path)
             .map_err(|e| format!("스키마 파일 읽기 실패: {}", e))?;
 
         let schema_file: SchemaFile = serde_json::from_str(&content)
             .map_err(|e| format!("스키마 JSON 파싱 실패: {}", e))?;
+
+        // POE2 시 drift override 자동 로드. 없으면 graceful skip.
+        let override_entries: HashMap<String, OverrideEntry> = if game == Game::Poe2 {
+            let override_path = path
+                .parent()
+                .map(|p| p.join("schema_poe2_override.json"))
+                .filter(|p| p.exists());
+            match override_path {
+                Some(p) => match std::fs::read_to_string(&p) {
+                    Ok(txt) => match serde_json::from_str::<OverrideFile>(&txt) {
+                        Ok(of) => of.entries,
+                        Err(e) => {
+                            log::warn!("POE2 override 파싱 실패 ({}): {}", p.display(), e);
+                            HashMap::new()
+                        }
+                    },
+                    Err(e) => {
+                        log::warn!("POE2 override 읽기 실패 ({}): {}", p.display(), e);
+                        HashMap::new()
+                    }
+                },
+                None => HashMap::new(),
+            }
+        } else {
+            HashMap::new()
+        };
 
         let mut tables = HashMap::new();
         let include_bit = game.bit();
@@ -118,7 +171,7 @@ impl SchemaStore {
             // 공용 entry가 먼저 insert된 뒤 전용이 와도 덮어씀. HashMap insert 특성 활용.
             let _ = exclude_only_bit; // reserved for future per-game dedup logic
 
-            let fields: Vec<FieldDef> = table.columns.iter().enumerate().map(|(i, col)| {
+            let mut fields: Vec<FieldDef> = table.columns.iter().enumerate().map(|(i, col)| {
                 let name = col.name.clone()
                     .unwrap_or_else(|| format!("Unknown{}", i));
 
@@ -145,6 +198,36 @@ impl SchemaStore {
 
                 FieldDef { name, field_type }
             }).collect();
+
+            // POE2 drift override merge — {TableName}_poe2_extra.fields 를 끝에 append.
+            // 대상: Mods (+24B), SkillGems (+32B). 2026-04-22 byte pattern 역추적.
+            if game == Game::Poe2 {
+                let override_key = format!("{}_poe2_extra", table.name);
+                if let Some(entry) = override_entries.get(&override_key) {
+                    for extra in &entry.fields {
+                        let field_type = if extra.array {
+                            FieldType::List
+                        } else {
+                            match extra.col_type.as_str() {
+                                "bool" => FieldType::Bool,
+                                "i8" | "u8" => FieldType::U8,
+                                "i16" | "u16" => FieldType::I16,
+                                "i32" | "u32" | "enum" | "enumrow" => FieldType::I32,
+                                "i64" | "u64" => FieldType::I64,
+                                "f32" => FieldType::F32,
+                                "string" => FieldType::Str,
+                                "foreignrow" => FieldType::Key,
+                                "row" | "rid" => FieldType::Row,
+                                _ => FieldType::I32,
+                            }
+                        };
+                        fields.push(FieldDef {
+                            name: extra.name.clone(),
+                            field_type,
+                        });
+                    }
+                }
+            }
 
             // 같은 이름 2버전 공존 처리: 전용 엔트리(vf == include_bit)가 공용(vf==3)보다 우선.
             // 순회 순서는 schema.min.json 순 — 공용이 먼저 오면 전용이 덮음, 전용이 먼저 오면 공용으로 덮여 정보 손실.
@@ -306,5 +389,138 @@ mod tests {
             "스키마/실제 행 크기 불일치:\n{}",
             failures.join("\n")
         );
+    }
+
+    /// POE2 drift override merge — Mods / SkillGems 에 extra 필드가 append 되어야 함.
+    /// 기대값: Mods 653 + 24 = 677B, SkillGems 207 + 32 = 239B.
+    #[test]
+    fn test_poe2_override_merges_extra_fields() {
+        let Some(schema_path) = schema_path_or_skip() else { return };
+
+        let override_path = schema_path.parent().unwrap().join("schema_poe2_override.json");
+        if !override_path.exists() {
+            return; // override 파일 없으면 스킵 (개발 환경별 선택 적용)
+        }
+
+        let poe2 = SchemaStore::load_for_game(&schema_path, Game::Poe2).unwrap();
+
+        let mods = poe2.get("Mods").expect("POE2 Mods 누락");
+        assert_eq!(
+            mods.row_size(),
+            677,
+            "POE2 Mods row_size 653+24=677 기대, 실제 {}B",
+            mods.row_size()
+        );
+
+        let skill_gems = poe2.get("SkillGems").expect("POE2 SkillGems 누락");
+        assert_eq!(
+            skill_gems.row_size(),
+            239,
+            "POE2 SkillGems row_size 207+32=239 기대, 실제 {}B",
+            skill_gems.row_size()
+        );
+    }
+
+    /// POE1 로드 시 override 적용 안 됨 — Mods 는 schema.min.json 원본 컬럼만.
+    #[test]
+    fn test_poe1_load_skips_poe2_override() {
+        let Some(schema_path) = schema_path_or_skip() else { return };
+
+        let poe1 = SchemaStore::load_for_game(&schema_path, Game::Poe1).unwrap();
+        let poe2 = SchemaStore::load_for_game(&schema_path, Game::Poe2).unwrap();
+
+        let override_path = schema_path.parent().unwrap().join("schema_poe2_override.json");
+        if !override_path.exists() {
+            return;
+        }
+
+        let mods_poe1 = poe1.get("Mods").expect("POE1 Mods 누락");
+        let mods_poe2 = poe2.get("Mods").expect("POE2 Mods 누락");
+
+        // Override 는 POE2 에만 적용. POE1 컬럼 수는 override extra 를 받지 않아야 함.
+        // POE1 Mods 필드 어느 이름도 "Unknown_List" / "Unknown_Row" (override 에서 부여한 이름) 이면 안 됨.
+        let has_override_name = mods_poe1.fields.iter().any(|f| {
+            f.name == "Unknown_List" || f.name == "Unknown_Row"
+        });
+        assert!(
+            !has_override_name,
+            "POE1 Mods 에 POE2 override 필드가 섞였음"
+        );
+
+        // POE2 Mods 는 override 필드를 끝에 포함해야 함.
+        let poe2_has_override = mods_poe2
+            .fields
+            .iter()
+            .any(|f| f.name == "Unknown_List" || f.name == "Unknown_Row");
+        assert!(
+            poe2_has_override,
+            "POE2 Mods 에 override 필드 누락"
+        );
+    }
+
+    /// POE2 실 .datc64 파일 row_size 일치 검증 (override 적용 후).
+    /// Mods 677B, SkillGems 239B — drift 해소 증명.
+    #[test]
+    fn test_poe2_schema_matches_actual_after_override() {
+        let project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).parent().unwrap().to_path_buf();
+        let schema_path = project_root.join("data").join("schema").join("schema.min.json");
+        let poe2_data_dir = project_root.join("data").join("game_data_poe2");
+        let override_path = project_root.join("data").join("schema").join("schema_poe2_override.json");
+
+        if !schema_path.exists() || !poe2_data_dir.exists() || !override_path.exists() {
+            return;
+        }
+
+        let store = SchemaStore::load_for_game(&schema_path, Game::Poe2).unwrap();
+
+        // drift 대상 2 테이블
+        let test_tables = [("Mods", "Mods.datc64"), ("SkillGems", "SkillGems.datc64")];
+
+        for (table_name, filename) in &test_tables {
+            let file_path = poe2_data_dir.join(filename);
+            if !file_path.exists() {
+                continue;
+            }
+            let data = std::fs::read(&file_path).unwrap();
+            let parser = crate::dat64::Dat64Parser::load(data).unwrap();
+            let actual = parser.estimated_row_size();
+            let schema = store.get(table_name).expect("POE2 테이블 누락");
+            let expected = schema.row_size();
+            assert_eq!(
+                expected, actual,
+                "{} drift 미해소: schema={}B, actual={}B",
+                table_name, expected, actual
+            );
+        }
+    }
+
+    /// override 필드 타입 파싱 — foreignrow(array) = List(16B), row = Row(8B).
+    /// schema_poe2_override.json 의 _meta 에 따라 각 필드 size 가 올바르게 매핑돼야 함.
+    #[test]
+    fn test_poe2_override_field_type_mapping() {
+        let Some(schema_path) = schema_path_or_skip() else { return };
+
+        let override_path = schema_path.parent().unwrap().join("schema_poe2_override.json");
+        if !override_path.exists() {
+            return;
+        }
+
+        let poe2 = SchemaStore::load_for_game(&schema_path, Game::Poe2).unwrap();
+
+        // Mods 끝 3 컬럼: Unknown_List (foreignrow+array=List=16B) + Unknown_Row (row=Row=8B)
+        let mods = poe2.get("Mods").unwrap();
+        let last_two = &mods.fields[mods.fields.len() - 2..];
+        assert_eq!(last_two[0].name, "Unknown_List");
+        assert_eq!(last_two[0].field_type.size(), 16, "Unknown_List=List 16B");
+        assert_eq!(last_two[1].name, "Unknown_Row");
+        assert_eq!(last_two[1].field_type.size(), 8, "Unknown_Row=Row 8B");
+
+        // SkillGems 끝 2 컬럼: Unknown_List1 + Unknown_List2 (각 16B)
+        let sg = poe2.get("SkillGems").unwrap();
+        let last_two_sg = &sg.fields[sg.fields.len() - 2..];
+        assert_eq!(last_two_sg[0].name, "Unknown_List1");
+        assert_eq!(last_two_sg[0].field_type.size(), 16);
+        assert_eq!(last_two_sg[1].name, "Unknown_List2");
+        assert_eq!(last_two_sg[1].field_type.size(), 16);
     }
 }

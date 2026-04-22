@@ -165,3 +165,23 @@
 | src/components/CoachBlockedBanner.tsx | H6 L4 — 풀스크린 terminal block (drop 발견 시 결과 전체 차단 + 재분석 only) | 아니오 |
 | src/components/CoachBlockedBanner.test.ts | H6 L4 — isCoachBlocked 5 케이스 단위 테스트 | 아니오 |
 | python/tests/test_build_coach_retry.py | H6 L3 — Gate + Auto-retry 3 시나리오 (no-drop / recover / still-drop) | 아니오 |
+| data/valid_gems_poe2.json | POE2 유효 젬 화이트리스트 (1079 gems, Spear 21 WeaponReq=25) — L1/L2 anchor | 아니오 |
+| data/schema/schema_poe2_override.json | POE2 drift 보정 정의 (SkillGems +32B List×2 / Mods +24B List+Row) — `SchemaStore::load_for_game(Poe2)` auto-merge (S2) | 아니오 |
+| scripts/build_valid_gems_poe2.py | valid_gems_poe2 재생성 (BaseItemTypes + SkillGems + ActiveSkills 조인) | 아니오 |
+| scripts/drift_reverse_poe2.py | drift 역추적 분석 도구 (datc64 끝 바이트 패턴 분석) | 예 (재사용 시만) |
+| src/components/VerbalBuildInput.tsx | D6 UI — POB 없이 POE2 빌드 구두 입력 폼 (class/ascendancy/main/supports) | 아니오 |
+| python/tests/test_coach_poe2_branch.py | D6 — POE2 분기 단위 테스트 12건 (normalizer/validator/cache isolation/L2 drop) | 아니오 |
+| .claude/status/poe2_integration_diff.md | D6 세션 세부 기록 (§0 scope-bounded claim / §6~§8 diff / §10 빌드 방향) | 아니오 |
+| .claude/status/poe2_d6_dod.md | POE2 D6 공식 DoD 체크리스트 + 해제 조건 3건 (CONDITIONAL DONE) | 아니오 |
+| data/game_data_poe2/*.datc64 (19) | POE2 GGPK 추출 (ActiveSkills/BaseItemTypes/SkillGems/PassiveSkills/Ascendancy/Characters/Words 등) | 아니오 |
+| data/game_data_poe2/*.json (19) | 위 datc64 의 JSON 변환 (Mods 14841 rows 포함, Tags/SpawnWeight 3 list 만 schema 오인지로 빈값) | 아니오 |
+| data/base_items_poe2.json | D3 — 무기 283 (15 classes) + 방어구 562 (6 classes) + 기타 98 (Amulets/Belts/Charms/Flasks/Jewels/Quivers/Rings) | 아니오 |
+| data/uniques_poe2.json | D3 — 유니크 393 visible + 10 hidden (403 total, UniqueStashLayout × Words JOIN) | 아니오 |
+| scripts/build_base_items_poe2.py | D3 — base_items_poe2.json 재생성 (BaseItemTypes 분류 + DNT 필터) | 아니오 |
+| scripts/build_uniques_poe2.py | D3 — uniques_poe2.json 재생성 (UniqueStashLayout × Words JOIN) | 아니오 |
+| .claude/status/design-contract.md | Design enforcement contract 4필드 (2026-04-22 install) | 아니오 |
+| .claude/status/design-exceptions.md | Design enforcement 예외 로그 (빈 상태) | 아니오 |
+| design-tokens.css | Design tokens — `--color-bg/fg/accent` 3변수 | 아니오 |
+| .stylelintrc.json | Stylelint gradient/blur 금지 룰 | 아니오 |
+| .husky/pre-commit | pre-commit hook (stylelint + exception cap) | 아니오 |
+| tailwind.config.js | Tailwind corePlugins 4개 false (backgroundImage/gradientColorStops/boxShadow/dropShadow) | 아니오 |

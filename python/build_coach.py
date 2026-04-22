@@ -28,7 +28,7 @@ except ImportError:
     sys.exit(1)
 
 
-SYSTEM_PROMPT = """너는 Path of Exile 1 (현재 리그: 3.28 Mirage) 전용 빌드 코치다.
+SYSTEM_PROMPT_POE1 = """너는 Path of Exile 1 (현재 리그: 3.28 Mirage) 전용 빌드 코치다.
 
 **필수 제약 — 절대 위반 금지**:
 - POE1 데이터만 사용. POE2는 별도 게임으로 젬/스킬/메커닉이 다름. POE2 이름 (예: "Fire Wall", "Shock Burst Rounds") 사용 금지.
@@ -212,6 +212,140 @@ variant_snapshots 규칙:
 """
 
 
+SYSTEM_PROMPT_POE2 = """너는 Path of Exile 2 (0.4.0d "The Last of the Druids" / 리그: Fate of the Vaal) 전용 빌드 코치다.
+
+**필수 제약 — 절대 위반 금지**:
+- POE2 데이터만 사용. POE1 젬·스킬·메커닉 (예: "Cast when Damage Taken", "Spell Echo", "Greater Multiple Projectiles", "Cyclone", "Vaal Ancestral Warchief") 참조 금지.
+- 제공된 "POE2 화이트리스트"에 없는 스킬/support 젬 추천 금지.
+- POE2 에 없는 콘텐츠 언급 금지: Delve, Heist, Betrayal/Syndicate, Incursion, Legion, Blight, Harvest, Ritual(POE2에는 다른 Ritual), Expedition(POE2에 Expedition 있음 — 혼동 주의), Sanctum(Trial of Sekhemas 로 변형).
+- **정식 영문명 사용**: 젬/스킬/유닉/베이스 이름은 poe2wiki 정식 표기. 한국어 응답 시도 영문 이름 병기.
+
+**POE2 핵심 시스템 (POE1 과 다른 점)**:
+
+1. **젬 시스템 — 근본 변경**:
+   - 젬은 기어 소켓이 아닌 **캐릭터 스킬 슬롯**에 직접 부착 (링크 개념 폐기)
+   - 스킬당 support 슬롯 **2→3→4→5** 확장 (Lesser/Greater/Perfect Jeweller's Orb)
+   - **support 젬은 캐릭터당 단 1회만 사용 가능** (동일 support 를 여러 스킬에 중복 불가)
+   - Uncut 3종: Skill / Support / Spirit Gem (gemcutting UI 로 원하는 젬 engrave)
+   - Lineage Supports 58개 (0.4 신규 endgame-tier, 일반 support 대체 고려)
+
+2. **Spirit 시스템** (POE1 마나 예약 대체):
+   - 기본 100, 가슴 갑옷 implicit +50, Sceptres / Solar Amulet / quest bosses 로 추가
+   - Heralds / Meta gems / Persistent buffs / Minions 소비 (마나 예약 % 아님)
+   - 빌드당 총 Spirit 배분 최적화 필수
+
+3. **Meta gems** (트리거):
+   - Cast on Critical, Cast on Elemental Ailment (0.3/0.4 에서 CoF/CoS/CoI 통합), Cast on Dodge, Cast on Block, Cast on Minion Death, Cast on Death
+   - Energy 시스템 (trigger 당 누적), 낮은 레벨 연쇄 트리거 루프 차단됨 (0.3 trigger rework)
+
+4. **Bleed 공식** (POE2 핵심):
+   - `bleed_dps = hit_physical_damage × 0.15 × (2 if moving_or_aggravated else 1)`
+   - 기본 5초 지속. **Magnitude of Damaging Ailments** (Deterioration 등) 가 직접 스케일 축
+   - "increased physical damage" 는 hit 1회만 적용 (double-dip 방지)
+   - Crimson Assault 키스톤 = "Aggravated bleed; 1s base; +50% magnitude" (Bleed 메타 핵심)
+
+5. **Charges — POE1 과 다름**:
+   - Frenzy / Power / Endurance 보유 중 passive 보너스 **없음**. 오직 consume 시 스킬 강화
+   - 예: Frenzy = 소비당 +4 dmg 등
+
+6. **무기 스왑**: 2 세트 instant auto-swap (0.3+), Book of Specialization 로 set-specific passive points
+
+7. **어센던시**: 최대 8 포인트. Trial of Sekhemas / Trial of Chaos 2 경로. 첫 어센 Act 2 끝
+
+8. **엔드게임**: Waystone T1~T15 (구 맵), Atlas Passive Tree, Precursor Towers + Tablets, 3 Citadels (Copper/Iron/Stone), Arbiter of Ash pinnacle
+
+**클래스 8개 (0.4 출시)**:
+- Warrior (STR, 2H mace): Titan / Warbringer / Smith of Kitava
+- Monk (DEX/INT, quarterstaff): Invoker / Acolyte of Chayula
+- Ranger (DEX, bow): **Deadeye / Pathfinder** (3번째 미출시)
+- Mercenary (STR/DEX, crossbow): Witchhunter / Gemling Legionnaire / Tactician
+- Sorceress (INT, wand/staff/sceptre): Stormweaver / Chronomancer / Disciple of Varashta
+- Witch (INT, wand/staff/sceptre): Infernalist / Blood Mage / Lich / **Abyssal Lich (0.4 신규)**
+- Huntress (DEX, spear+buckler, 0.2 추가): Amazon / Ritualist
+- Druid (STR/INT, quarterstaff/maul, 0.4 추가): Shaman / Oracle
+
+**Spear 전용 스킬 21개 (GGPK ground truth, WeaponRequirements=25)**:
+Blood Hunt, Cull The Weak, Disengage, Elemental Siphon, Elemental Sundering, Explosive Spear, Fangs of Frost, Glacial Lance, Lightning Spear, Primal Strikes, **Rake**, Rapid Assault, Shattering Spite, **Spear of Solaris**, Spearfield, Storm Lance, Thunderous Leap, **Twister**, **Whirling Slash**, **Whirlwind Lance**, Wind Serpent's Fury
+
+**메타 경고 규칙 (반드시 빌드에 적용)**:
+- "Deadeye Bleed Twister" — 0.4 커뮤니티 레퍼런스 부재. 성립은 가능하나 sprEEEzy Amazon Bleed Twister / Bleed Rake Amazon (maxroll) 권고
+- "Whirling Slash Twister Deadeye (travic)" — Elemental (Cold+Lightning) 전용, 생존 취약 ("dead in the name")
+- "Bleed 메타 정석": Ritualist Rake / Amazon Bleed Twister (sprEEEzy) / Bleed Rake Amazon (maxroll)
+- "Twister 메타 정석": Amazon Phys+Fire (Big Ducks 2026-01) or Amazon Bleed (sprEEEzy)
+
+**0.4 에서 죽은 빌드 (추천 금지)**:
+- Hollow Palm (attack speed 스케일링 파괴)
+- Whirlwind Warrior (이동속도 페널티 리워크로 기반 유닉 제거)
+- Frenzy Consuming Bow/Spear (차지 리워크)
+- Pure Crossbow (global AS 너프 + rune stacking 제한)
+- Life Stacker (명시적 "not recommended" 커뮤니티 컨센서스)
+- 구형 Cast-on-Freeze low-trigger (0.3 trigger rework)
+- Bleed Bonk Titan / Hammer of the Gods Titan (0.3 버전 outdated)
+
+**출력 형식 (반드시 valid JSON 객체 하나만 — 다른 텍스트 금지)**:
+
+절대 규칙:
+- 응답 전체는 `{` 로 시작하고 `}` 로 끝나는 단일 JSON 객체여야 한다.
+- JSON 이전/이후에 어떤 텍스트/설명/markdown 코드블록(```)/주석도 붙이지 마라.
+- "# 빌드 코칭" 같은 헤더, "궁금한 점 있으면..." 같은 맺음말 금지.
+- JSON 내부에서도 주석(`// ...`) 금지 — 표준 JSON 만 허용.
+- ✗ 잘못된 예: `# POE2 빌드\n\n```json\n{...}\n```\n\n추가 설명...`
+- ✓ 올바른 예: `{"build_summary": "...", ...}`
+
+출력 스키마:
+{
+  "build_summary": "한줄 요약 (클래스/어센 + 메인 스킬 + 데미지 유형)",
+  "meta_compatibility": "meta / off-meta / 커뮤니티 레퍼런스 부재 / 죽은 빌드",
+  "tier": "S/A/B/C/D",
+  "strengths": ["강점 (구체 수치/메커닉)"],
+  "weaknesses": ["약점 (DPS/생존/기어링/플레이난이도)"],
+  "leveling_guide": {
+    "acts_1_3_normal": "Lv 1~40 전략 (Act 1-3 normal 진행)",
+    "acts_1_3_cruel": "Lv 40~65 전략 (Cruel 재진행, Ascendancy 확보)",
+    "endgame_maps": "Waystone T1+ Atlas 전략 (Lv 65+)"
+  },
+  "skill_setup": {
+    "main_skill": "정식 영문명",
+    "weapon_required": "Spear / Bow / Quarterstaff / etc",
+    "support_gems": ["화이트리스트 준수", "..."],
+    "support_slot_target": "2 / 3 / 4 / 5 (어느 시점에 어느 소켓 수)"
+  },
+  "spirit_allocation": {
+    "total_target": 150,
+    "reservations": [
+      {"source": "Herald of Blood", "cost": 30},
+      {"source": "Combat Frenzy", "cost": 20}
+    ],
+    "available_for_future": 100
+  },
+  "ascendancy_path": {
+    "ascendancy": "Amazon / Deadeye / etc",
+    "pts_1_2_nodes": ["노드명"],
+    "pts_3_4_nodes": ["노드명"],
+    "pts_5_6_nodes": ["노드명"],
+    "pts_7_8_nodes": ["노드명"]
+  },
+  "key_items": [
+    {"name": "유닉 또는 레어 템플릿", "slot": "body/helm/gloves/boots/weapon/offhand/amulet/ring/belt/jewel/charm", "priority": "필수/권장/사치"}
+  ],
+  "meta_warnings": [
+    "빌드 조합에 대한 커뮤니티 컨센서스 경고",
+    "특정 선택의 off-meta 리스크"
+  ],
+  "alternatives": {
+    "if_struggling": "이 빌드가 잘 안 풀리면 전환 추천 (명확한 이유 + 메타 빌드 이름)"
+  }
+}
+
+**출력 규칙**:
+- 모든 스킬/유닉 이름은 **영문 정식**. 한국어 응답이어도 영문 병기 필수.
+- `support_gems` 는 반드시 화이트리스트 준수. 확신 없으면 생략.
+- `meta_warnings` 는 최소 1개 이상 (사용자가 off-meta 빌드를 원할 때도 경고 필수).
+- Spear 스킬 사용 시 `weapon_required: "Spear"` 명시. Deadeye 빌드라면 Deadeye 는 bow 기본이지만 Spear 장착 가능 점 명시.
+- Bleed 빌드라면 Bleed 공식 (15% × 5s × 2x) 과 Crimson Assault 키스톤 언급.
+"""
+
+
 def detect_archetype(build_data: dict) -> str:
     gems = build_data.get("progression_stages", [{}])[0].get("gem_setups", {})
     gem_names = " ".join(gems.keys()).lower()
@@ -242,10 +376,33 @@ def load_quest_rewards() -> dict:
     return {}
 
 
-def load_valid_support_gems() -> list[str]:
-    """POE1 유효 support 젬 이름 리스트 (data/valid_gems.json). hallucination 차단용 화이트리스트.
-    빈 리스트 반환 시 제약 생략 (코치는 무제약 모드로 동작)."""
-    path = Path(__file__).resolve().parent.parent / "data" / "valid_gems.json"
+def load_valid_support_gems(game: str = "poe1") -> list[str]:
+    """유효 support 젬 이름 리스트. hallucination 차단용 화이트리스트.
+
+    POE1: data/valid_gems.json (기존 gems: [...] 스키마, "... Support" 접미사 필터)
+    POE2: data/valid_gems_poe2.json (active/support/spirit 3 카테고리, support.name 필드)
+
+    빈 리스트 반환 시 제약 생략.
+    """
+    root = Path(__file__).resolve().parent.parent / "data"
+
+    if game == "poe2":
+        path = root / "valid_gems_poe2.json"
+        if not path.exists():
+            logger.warning("valid_gems_poe2.json 부재 — POE2 화이트리스트 비활성")
+            return []
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as e:
+            logger.warning(f"valid_gems_poe2.json 로드 실패: {e}")
+            return []
+        supports = data.get("support", [])
+        if not isinstance(supports, list):
+            return []
+        return sorted([g.get("name", "") for g in supports if isinstance(g, dict) and g.get("name")])
+
+    # POE1 기본 경로
+    path = root / "valid_gems.json"
     if not path.exists():
         return []
     try:
@@ -257,6 +414,18 @@ def load_valid_support_gems() -> list[str]:
     if not isinstance(gems, list):
         return []
     return sorted([g for g in gems if isinstance(g, str) and g.endswith(" Support")])
+
+
+def load_valid_active_skills_poe2() -> list[dict]:
+    """POE2 active skill 화이트리스트 (이름 + weapon_requirements + skill_id)."""
+    path = Path(__file__).resolve().parent.parent / "data" / "valid_gems_poe2.json"
+    if not path.exists():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+    return data.get("active", []) if isinstance(data.get("active"), list) else []
 
 
 def load_patch_context() -> dict:
@@ -362,22 +531,26 @@ def _trim_build_for_prompt(build: dict) -> dict:
     return trimmed
 
 
-def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
+def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = "poe1") -> dict:
     client = anthropic.Anthropic()
 
+    # 게임별 system prompt 선택 (D6 분기)
+    system_prompt = SYSTEM_PROMPT_POE2 if game == "poe2" else SYSTEM_PROMPT_POE1
+    logger.info(f"코치 모드: {game} (prompt={len(system_prompt)}자)")
+
     archetype = detect_archetype(build_data)
-    archetype_data = load_archetype_data(archetype)
+    archetype_data = load_archetype_data(archetype) if game == "poe1" else {}
 
     logger.info(f"아키타입 감지: {archetype}")
 
-    # 게임 데이터 로드 (추출된 .datc64 기반)
+    # 게임 데이터 로드 (추출된 .datc64 기반) — 게임별 디렉터리 분기 (I4 leak 차단)
     game_data_context = ""
     try:
         from game_data_provider import GameData
-        gd = GameData()
+        gd = GameData(game=game)
         game_data_context = gd.build_context_for_coach(build_data)
         if game_data_context:
-            logger.info("게임 데이터 컨텍스트 로드 완료")
+            logger.info("게임 데이터 컨텍스트 로드 완료 (%s)", game)
     except ImportError:
         logger.info("game_data_provider 없음 — 게임 데이터 스킵")
     except (OSError, json.JSONDecodeError) as e:
@@ -526,32 +699,58 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
         stable_class_parts.append(f"\n\n{char_class} 클래스 퀘스트 젬 보상:\n{json.dumps(class_rewards, ensure_ascii=False)}")
 
     # (1) STABLE_GLOBAL — 전 사용자 공통 (support gems + 보이드스톤 + 패치노트)
-    support_gems = load_valid_support_gems()
+    support_gems = load_valid_support_gems(game=game)
     if support_gems:
+        game_label = "POE2" if game == "poe2" else "POE1"
         stable_global_parts.append(
-            f"\n\n**POE1 Support 젬 화이트리스트 ({len(support_gems)}개)** — "
+            f"\n\n**{game_label} Support 젬 화이트리스트 ({len(support_gems)}개)** — "
             f"아래 목록에 없는 support 젬은 **절대 추천하지 마라**. "
             f"기본/각성(Awakened)/디바전트(Divergent) 등 quality variant은 이름이 다르면 별도 젬으로 취급:\n"
             + ", ".join(support_gems)
         )
-        logger.info(f"Support 젬 화이트리스트 주입: {len(support_gems)}개")
+        logger.info(f"{game_label} Support 젬 화이트리스트 주입: {len(support_gems)}개")
 
-    # 공통 템플릿에서 보이드스톤/장비 타이밍 로드 (GLOBAL)
-    common_path = Path(__file__).resolve().parent.parent / "data" / "guide_templates" / "common_template.json"
-    common_data = {}
-    if common_path.exists():
-        with open(common_path, "r", encoding="utf-8") as f:
-            common_data = json.load(f)
-    if common_data:
-        vs_data = common_data.get("voidstone_progression", {})
-        gear_data = common_data.get("gear_upgrade_timeline", {})
-        if vs_data:
-            stable_global_parts.append(f"\n\n보이드스톤 진행 (3.28 미라지):\n{json.dumps(vs_data, ensure_ascii=False)}")
-        if gear_data:
-            stable_global_parts.append(f"\n장비 업그레이드 타이밍:\n{json.dumps(gear_data, ensure_ascii=False)}")
+    # POE2 전용: Active 스킬 화이트리스트 + Spear 21 anchor
+    if game == "poe2":
+        active_skills = load_valid_active_skills_poe2()
+        if active_skills:
+            names = [s.get("name", "") for s in active_skills if s.get("name")]
+            spear_skills = sorted(
+                s.get("name", "") for s in active_skills
+                if s.get("weapon_requirements") == 25
+            )
+            stable_global_parts.append(
+                f"\n\n**POE2 Active 스킬 화이트리스트 ({len(names)}개)** — "
+                f"이 목록에 없는 액티브 스킬 이름 절대 사용 금지:\n"
+                + ", ".join(names[:300])  # 처음 300개 (나머지는 truncate, 토큰 절약)
+            )
+            stable_global_parts.append(
+                f"\n\n**Spear 전용 스킬 {len(spear_skills)}개 (WeaponRequirements=25 GGPK 실측)** — "
+                f"이 스킬 사용 시 반드시 Spear 장착 필요. Bow/Quarterstaff/기타 조합 추천 금지:\n"
+                + ", ".join(spear_skills)
+            )
+            logger.info(
+                "POE2 Active 화이트리스트 주입: %d개 (Spear %d)",
+                len(names), len(spear_skills),
+            )
 
-    # 최신 패치 컨텍스트 주입 (GLOBAL, 리그 전환 시만 변경)
-    patch_context = load_patch_context()
+    # 공통 템플릿에서 보이드스톤/장비 타이밍 로드 (GLOBAL, POE1 전용)
+    if game == "poe1":
+        common_path = Path(__file__).resolve().parent.parent / "data" / "guide_templates" / "common_template.json"
+        common_data = {}
+        if common_path.exists():
+            with open(common_path, "r", encoding="utf-8") as f:
+                common_data = json.load(f)
+        if common_data:
+            vs_data = common_data.get("voidstone_progression", {})
+            gear_data = common_data.get("gear_upgrade_timeline", {})
+            if vs_data:
+                stable_global_parts.append(f"\n\n보이드스톤 진행 (3.28 미라지):\n{json.dumps(vs_data, ensure_ascii=False)}")
+            if gear_data:
+                stable_global_parts.append(f"\n장비 업그레이드 타이밍:\n{json.dumps(gear_data, ensure_ascii=False)}")
+
+    # 최신 패치 컨텍스트 주입 (GLOBAL, 리그 전환 시만 변경) — POE1 전용 (POE2 는 SYSTEM_PROMPT 에 내장)
+    patch_context = load_patch_context() if game == "poe1" else {}
     if patch_context:
         patch_ver = patch_context.get("version", "")
         logger.info(f"패치 컨텍스트 로드: {patch_ver}")
@@ -566,7 +765,7 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
     user_message = stable_global + stable_class + variable_text
 
     # 프롬프트 크기에 따라 max_tokens 동적 조정 (4-stage 같은 큰 컨텍스트 → 출력도 커짐)
-    prompt_chars = len(user_message) + len(SYSTEM_PROMPT)
+    prompt_chars = len(user_message) + len(system_prompt)
     # 대략 8192(기본) ~ 32000 (Sonnet 4.6 최대 output 64k까지 가능하나 32k로 안전)
     max_out = 32000 if prompt_chars > 30000 else 16384
     # 큰 요청은 SDK가 스트리밍 강제 (>10분 가능성). 30k자 또는 max_out>=16384면 스트리밍 사용.
@@ -584,7 +783,7 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
     # 같은 POB 재분석 / 같은 클래스 재분석 시 cache_read 경로로 입력 ~90% 할인.
     system_blocks = [{
         "type": "text",
-        "text": SYSTEM_PROMPT,
+        "text": system_prompt,
         "cache_control": {"type": "ephemeral"},
     }]
 
@@ -713,19 +912,21 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
     norm_trace: list[dict] = []
     try:
         from coach_normalizer import normalize_coach_output
-        gem_warnings, gem_trace = normalize_coach_output(result)
+        gem_warnings, gem_trace = normalize_coach_output(result, game=game)
         norm_warnings.extend(gem_warnings)
         norm_trace.extend(gem_trace)
     except ImportError:
         pass
 
-    try:
-        from gear_normalizer import normalize_gear
-        gear_warnings, gear_trace = normalize_gear(result)
-        norm_warnings.extend(gear_warnings)
-        norm_trace.extend(gear_trace)
-    except ImportError:
-        pass
+    # gear_normalizer 는 POE1 베이스/유닉 DB 기반 — POE2 DB 미구축 → skip.
+    if game == "poe1":
+        try:
+            from gear_normalizer import normalize_gear
+            gear_warnings, gear_trace = normalize_gear(result)
+            norm_warnings.extend(gear_warnings)
+            norm_trace.extend(gear_trace)
+        except ImportError:
+            pass
 
     # L3 Gate + Auto-retry (Phase H6) — drop 발견 시 1회 교정 재시도
     # blind retry 아님: 이전 응답의 invalid 젬을 구체적으로 명시한 corrective prompt.
@@ -740,10 +941,11 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
             "L3 retry 시작 — %d건 drop: %s",
             len(first_attempt_dropped), first_attempt_dropped,
         )
+        game_label = "POE2" if game == "poe2" else "POE1"
         corrective_text = (
-            f"이전 응답에 POE1에 존재하지 않는 젬 {len(first_attempt_dropped)}개가 포함돼 자동 제거됐습니다: "
+            f"이전 응답에 {game_label}에 존재하지 않는 젬 {len(first_attempt_dropped)}개가 포함돼 자동 제거됐습니다: "
             f"{', '.join(repr(g) for g in first_attempt_dropped)}. "
-            f"이 젬들은 valid_gems 화이트리스트에 없습니다 (hallucination). "
+            f"이 젬들은 {game_label} valid_gems 화이트리스트에 없습니다 (hallucination). "
             f"이들을 제거하거나 유효한 대체 젬으로 바꿔서, 같은 JSON 스키마로 처음부터 다시 작성하세요. "
             f"확신 없는 젬은 추측하지 말고 생략하세요."
         )
@@ -786,18 +988,19 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
         retry_trace: list[dict] = []
         try:
             from coach_normalizer import normalize_coach_output
-            w, t = normalize_coach_output(retry_result)
+            w, t = normalize_coach_output(retry_result, game=game)
             retry_warnings.extend(w)
             retry_trace.extend(t)
         except ImportError:
             pass
-        try:
-            from gear_normalizer import normalize_gear
-            w, t = normalize_gear(retry_result)
-            retry_warnings.extend(w)
-            retry_trace.extend(t)
-        except ImportError:
-            pass
+        if game == "poe1":
+            try:
+                from gear_normalizer import normalize_gear
+                w, t = normalize_gear(retry_result)
+                retry_warnings.extend(w)
+                retry_trace.extend(t)
+            except ImportError:
+                pass
 
         final_dropped = [
             t["from"] for t in retry_trace if t.get("match_type") == "dropped"
@@ -841,7 +1044,7 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6") -> dict:
     # AI 출력 검증 — quest_rewards cross-check + 스키마 + 범위
     try:
         from coach_validator import validate_coach_output
-        validation_warnings = validate_coach_output(result, primary_build)
+        validation_warnings = validate_coach_output(result, primary_build, game=game)
         combined = norm_warnings + validation_warnings
         if combined:
             logger.warning("AI 코치 출력 경고 %d건 (정규화 %d + 검증 %d):",
@@ -878,14 +1081,10 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="PathcraftAI Build Coach")
     ap.add_argument("input", help="POB JSON 파일 경로 또는 '-' (stdin)")
     ap.add_argument("--model", default="claude-sonnet-4-6", help="Claude 모델")
-    # POE2 D0 — Rust 가 --game poe1|poe2 전달. 현재는 POE1 전용 prompt/valid_gems 사용.
-    # POE2 전용 prompt 재설계는 D6 (별도 PRD 필요, backlog 7.3).
+    # D6: --game poe1|poe2 분기 — POE2 시 SYSTEM_PROMPT_POE2 + valid_gems_poe2.json 사용
     ap.add_argument("--game", choices=["poe1", "poe2"], default="poe1",
-                    help="대상 게임 (POE2 코치 프롬프트는 D6 에서 구현 예정)")
+                    help="대상 게임 (poe1=POE1 3.28 Mirage / poe2=POE2 0.4.0d Fate of the Vaal)")
     args = ap.parse_args()
-
-    if args.game == "poe2":
-        logger.warning("--game poe2 는 D0 플래그 수용 단계 — POE1 prompt/valid_gems 로 처리 (D6 미완, PRD 필요)")
 
     if args.input == "-":
         build_data = json.load(sys.stdin)
@@ -893,5 +1092,5 @@ if __name__ == "__main__":
         with open(args.input, 'r', encoding='utf-8') as f:
             build_data = json.load(f)
 
-    result = coach_build(build_data, model=args.model)
+    result = coach_build(build_data, model=args.model, game=args.game)
     print(json.dumps(result, ensure_ascii=False))

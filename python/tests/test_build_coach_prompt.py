@@ -9,7 +9,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from build_coach import SYSTEM_PROMPT  # noqa: E402
+# POE1 prompt 대상 (POE2 는 별도 SYSTEM_PROMPT_POE2 로 분기됨)
+from build_coach import SYSTEM_PROMPT_POE1 as SYSTEM_PROMPT  # noqa: E402
 
 
 def test_prompt_has_canonical_name_constraint():

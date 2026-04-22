@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import type { FilterResult } from "../types";
+import { useActiveGame } from "../contexts/ActiveGameContext";
 
 const STRICTNESS_OPTIONS = [
   { value: 0, label: "Soft", desc: "전부 표시" },
@@ -22,6 +23,7 @@ export function FilterPanel({
   buildJson, coachingJson,
   extraBuildJsons = [], stageMode = false, alSplit = 67,
 }: FilterPanelProps) {
+  const { game } = useActiveGame();
   const [strictness, setStrictness] = useState(3);
   const [mode, setMode] = useState<"ssf" | "hcssf" | "trade">("ssf");
   const [filterResult, setFilterResult] = useState<FilterResult | null>(null);
@@ -42,6 +44,7 @@ export function FilterPanel({
         stage: stageMode,
         mode,
         alSplit,
+        game,
       });
       setFilterResult(JSON.parse(raw));
     } catch (e) {

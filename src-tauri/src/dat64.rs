@@ -10,6 +10,16 @@ use std::collections::HashMap;
 
 const MARKER: [u8; 8] = [0xBB; 8];
 
+/// List 요소 수 상한 — schema 불일치 시 count 가 garbage (수십억) 이면 파싱 hang + OOM.
+/// POE 실 데이터 중 단일 List 가 10000 항목 넘기는 경우는 사실상 없음 (가장 긴 tag list 도 수백 수준).
+/// count 가 이 값 초과거나 물리 용량 초과 → **가짜 값으로 판단 후 빈 리스트 반환** (cap push 아님).
+/// 이유: 잘못된 schema 해석으로 매 row 마다 1만 entries 쌓으면 12MB file 파싱에 수십 GB 메모리 소비.
+const MAX_LIST_ITEMS: usize = 10_000;
+
+/// UTF-16LE 문자열 최대 길이 (u16 기준). garbage offset 으로 EOF 까지 scan 방지.
+/// POE 최장 문자열 (설명문) 도 1KB 를 넘지 않음. 여유 두고 4096.
+const MAX_STR_U16: usize = 4096;
+
 /// DAT64 필드 타입
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub enum FieldType {
@@ -241,35 +251,57 @@ impl Dat64Parser {
                 let count = i64::from_le_bytes(d[offset..offset + 8].try_into().unwrap());
                 let list_offset = i64::from_le_bytes(d[offset + 8..offset + 16].try_into().unwrap());
                 if count <= 0 {
-                    Value::List(vec![])
-                } else {
-                    // 리스트 요소 타입은 컨텍스트 필요 — 기본 i64로 처리
-                    let abs_offset = self.variable_data_start + list_offset as usize;
-                    let mut items = Vec::new();
-                    for i in 0..count as usize {
-                        let item_offset = abs_offset + i * 8;
-                        if item_offset + 8 <= self.data.len() {
-                            let val = i64::from_le_bytes(
-                                self.data[item_offset..item_offset + 8].try_into().unwrap(),
-                            );
-                            items.push(Value::I64(val));
-                        }
-                    }
-                    Value::List(items)
+                    return Ok(Value::List(vec![]));
                 }
+
+                let count_usize = count as usize;
+                let abs_offset = self.variable_data_start.saturating_add(list_offset as usize);
+
+                // 물리 용량 초과 (count * 8 > 남은 바이트) → garbage 판정, 빈 리스트.
+                // 단일 row × 수만 컬럼이 이 경로 타면 GB 단위 메모리 폭증 방지.
+                let bytes_remaining = self.data.len().saturating_sub(abs_offset);
+                let plausible_items = bytes_remaining / 8;
+                if count_usize > plausible_items {
+                    return Ok(Value::List(vec![]));
+                }
+
+                // 상한 초과 → garbage 의심, 빈 리스트. POE 실 list 는 수백 수준.
+                if count_usize > MAX_LIST_ITEMS {
+                    return Ok(Value::List(vec![]));
+                }
+
+                let mut items = Vec::with_capacity(count_usize);
+                for i in 0..count_usize {
+                    let item_offset = abs_offset + i * 8;
+                    if item_offset + 8 > self.data.len() {
+                        break;
+                    }
+                    let val = i64::from_le_bytes(
+                        self.data[item_offset..item_offset + 8].try_into().unwrap(),
+                    );
+                    items.push(Value::I64(val));
+                }
+                Value::List(items)
             }
         })
     }
 
-    /// 가변 데이터 섹션에서 UTF-16LE 문자열 읽기
+    /// 가변 데이터 섹션에서 UTF-16LE 문자열 읽기.
+    /// garbage offset 으로 null terminator 없이 EOF 까지 scan 하는 것을 방지하기 위해
+    /// MAX_STR_U16 (u16 단위) 길이로 상한 두고 중단.
     fn read_string(&self, relative_offset: usize) -> String {
         let abs_offset = self.variable_data_start + relative_offset;
         if abs_offset >= self.data.len() {
             return String::new();
         }
 
+        let max_end = self
+            .data
+            .len()
+            .min(abs_offset + MAX_STR_U16 * 2);
+
         let mut end = abs_offset;
-        while end + 1 < self.data.len() {
+        while end + 1 < max_end {
             if self.data[end] == 0 && self.data[end + 1] == 0 {
                 break;
             }
@@ -403,5 +435,89 @@ mod tests {
     fn test_load_too_short() {
         let result = Dat64Parser::load(vec![0, 0]);
         assert!(result.is_err());
+    }
+
+    /// pathological List count (schema 불일치 시 garbage 거대값) 에도 hang / OOM 없어야 함.
+    /// 행에 count=10^9, offset=0 으로 된 List 를 넣고 파싱. garbage 판정 → 빈 리스트 즉시 반환.
+    #[test]
+    fn test_list_garbage_count_does_not_hang() {
+        let mut data = Vec::new();
+        // row_count = 1
+        data.extend_from_slice(&1u32.to_le_bytes());
+        // row 0: List count = 10^9 (garbage), list_offset = 0
+        data.extend_from_slice(&1_000_000_000i64.to_le_bytes());
+        data.extend_from_slice(&0i64.to_le_bytes());
+        // marker
+        data.extend_from_slice(&MARKER);
+        // variable data 넉넉히 (8B × 100) — 일부는 read 가능하지만 전체 10^9 는 절대 아님
+        for _ in 0..100 {
+            data.extend_from_slice(&0i64.to_le_bytes());
+        }
+
+        let parser = Dat64Parser::load(data).unwrap();
+        let schema = TableSchema {
+            name: "Test".into(),
+            fields: vec![FieldDef {
+                name: "badlist".into(),
+                field_type: FieldType::List,
+            }],
+        };
+
+        // 핵심: 실시간 hang 없이 return. garbage count (10^9) 는 물리 용량 초과 → 빈 리스트.
+        let start = std::time::Instant::now();
+        let rows = parser.parse_table(&schema).unwrap();
+        let elapsed = start.elapsed();
+        assert!(
+            elapsed.as_secs() < 2,
+            "List garbage count 파싱이 2초 초과 — 방어 로직 미동작: {:?}",
+            elapsed
+        );
+        assert_eq!(rows.len(), 1);
+        // garbage → 빈 리스트 (MAX_LIST_ITEMS 초과 + 물리 용량 초과 둘 중 하나로 reject)
+        match &rows[0]["badlist"] {
+            Value::List(items) => assert!(
+                items.is_empty(),
+                "garbage List 가 빈 리스트로 처리 안 됨: {} items",
+                items.len()
+            ),
+            other => panic!("List 타입 아님: {:?}", other),
+        }
+    }
+
+    /// pathological string offset (garbage) 으로 EOF 까지 scan 하지 않아야 함.
+    /// 마커 뒤로 null terminator 없이 non-null bytes 채운 뒤 read_string 호출.
+    /// MAX_STR_U16 cap 으로 빠르게 종료.
+    #[test]
+    fn test_string_garbage_offset_caps_at_max_len() {
+        let mut data = Vec::new();
+        // row_count = 1
+        data.extend_from_slice(&1u32.to_le_bytes());
+        // row 0: str offset = 0 (가변 데이터 시작부터)
+        data.extend_from_slice(&0i64.to_le_bytes());
+        // marker
+        data.extend_from_slice(&MARKER);
+        // variable data: 10000 non-null u16 chars (no null terminator)
+        for _ in 0..10_000 {
+            data.extend_from_slice(&0x0041u16.to_le_bytes()); // 'A'
+        }
+
+        let parser = Dat64Parser::load(data).unwrap();
+        let schema = TableSchema {
+            name: "Test".into(),
+            fields: vec![FieldDef {
+                name: "name".into(),
+                field_type: FieldType::Str,
+            }],
+        };
+
+        let rows = parser.parse_table(&schema).unwrap();
+        let s = rows[0]["name"].as_str().unwrap();
+        // MAX_STR_U16=4096 u16 chars cap. 실 char count (BMP 기준) 가 cap 이하여야.
+        let char_count = s.chars().count();
+        assert!(
+            char_count <= MAX_STR_U16,
+            "문자열 char count cap 미동작: {} chars",
+            char_count
+        );
     }
 }

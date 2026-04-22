@@ -8,6 +8,7 @@ import { MapWarnings } from "./components/MapWarnings";
 import { FilterPanel } from "./components/FilterPanel";
 import { SyndicateBoard } from "./components/SyndicateBoard";
 import { PobInputSection } from "./components/PobInputSection";
+import { VerbalBuildInputSection } from "./components/VerbalBuildInput";
 import { PassiveTreeView } from "./components/PassiveTreeView";
 import { TopBar } from "./components/shell/TopBar";
 import { Sidebar, isTabId, type TabId } from "./components/shell/Sidebar";
@@ -42,6 +43,7 @@ function App() {
     alSplit, setAlSplit,
     syndicateRec,
     analyzeBuild,
+    analyzeVerbalBuild,
     cancelAnalyze,
     mode, setMode,
     coachModel, setCoachModel,
@@ -110,7 +112,7 @@ function App() {
   async function updatePatchNotes() {
     setPatchStatus("수집 중...");
     try {
-      await invoke("collect_patch_notes");
+      await invoke("collect_patch_notes", { game });
       setPatchStatus("완료");
       setTimeout(() => setPatchStatus(""), 3000);
     } catch (e) {
@@ -153,15 +155,24 @@ function App() {
       )}
 
       {activeTab === "build" && <>
-        <PobInputSection
-        pobLink={pobLink} setPobLink={setPobLink}
-        extraPobLinks={extraPobLinks} setExtraPobLinks={setExtraPobLinks}
-        stageMode={stageMode} setStageMode={setStageMode}
-        alSplit={alSplit} setAlSplit={setAlSplit}
-        loading={loading} onAnalyze={analyzeBuild} onCancel={cancelAnalyze}
-        mode={mode} setMode={setMode}
-        coachModel={coachModel} setCoachModel={setCoachModel}
-      />
+        {game === "poe2" ? (
+          <VerbalBuildInputSection
+            loading={loading}
+            onSubmit={analyzeVerbalBuild}
+            onCancel={cancelAnalyze}
+            game={game}
+          />
+        ) : (
+          <PobInputSection
+            pobLink={pobLink} setPobLink={setPobLink}
+            extraPobLinks={extraPobLinks} setExtraPobLinks={setExtraPobLinks}
+            stageMode={stageMode} setStageMode={setStageMode}
+            alSplit={alSplit} setAlSplit={setAlSplit}
+            loading={loading} onAnalyze={analyzeBuild} onCancel={cancelAnalyze}
+            mode={mode} setMode={setMode}
+            coachModel={coachModel} setCoachModel={setCoachModel}
+          />
+        )}
 
       {error && (
         <div className="ui-alert ui-alert--danger" style={{ marginBottom: 12 }}>{error}</div>
@@ -184,7 +195,7 @@ function App() {
             (t) => t.match_type === "dropped",
           )}
           onReanalyze={analyzeBuild}
-          analyzing={loading}
+          analyzing={loading !== ""}
         />
       ) : (
         <>

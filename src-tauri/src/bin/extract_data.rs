@@ -6,6 +6,8 @@
 //!   cargo run --bin extract_data -- --json                # POE1 + JSON 변환
 //!   cargo run --bin extract_data -- --game poe2           # POE2 자동탐지
 //!   cargo run --bin extract_data -- --game poe2 --json    # POE2 + JSON
+//!   cargo run --bin extract_data -- --game poe2 --json --reuse-datc64
+//!     → data/game_data_poe2/*.datc64 재사용, GGPK 로드 skip, schema+JSON 만 재생성
 //!
 //! POE 설치 경로를 자동 탐지하거나, 인자로 직접 지정.
 //! .datc64 파일을 추출하고 스키마 기반 JSON 변환까지 수행.
@@ -13,8 +15,12 @@
 //! --game 플래그 (POE2 확장, D0):
 //! - poe1 (기본): data/game_data/ 에 출력, SchemaStore::load_for_game(Poe1) 필터
 //! - poe2: data/game_data_poe2/ 에 출력, SchemaStore::load_for_game(Poe2) 필터
-//!   주의: Mods POE2 +24B / SkillGems POE2 +32B drift 미해결 (backlog 4번). 추출
-//!   자체는 성공하나 해당 2테이블 끝 컬럼 파싱 누락.
+//!   drift 2건 (Mods +24B / SkillGems +32B) 은 schema_poe2_override.json 로 보정 (2026-04-22).
+//!
+//! --reuse-datc64 플래그 (검증 사이클 단축):
+//! - 기존 .datc64 파일이 output_dir 에 있다고 가정. GGPK/Oodle/BundleIndex 로드 생략.
+//! - --json 과 조합 시 schema 적용 + JSON 만 재생성. drift override 수정 → 재검증 루프에 적합.
+//! - 원본 .datc64 는 git clean 대상이 아니므로 로컬 cache 로 활용.
 
 use std::path::{Path, PathBuf};
 
@@ -58,6 +64,20 @@ impl CliGame {
             CliGame::Poe2 => "POE2",
         }
     }
+
+    /// POE1 TARGETS (`Data/X.datc64`) 를 게임별 실제 번들 경로로 변환.
+    ///
+    /// POE2 는 `data/balance/<lowercase>.datc64` 레이아웃 (probe_poe2_schema.rs 확정).
+    /// POE1 은 `Data/X.datc64` 원본 유지.
+    fn resolve_table_path(self, target: &str) -> String {
+        match self {
+            CliGame::Poe1 => target.to_string(),
+            CliGame::Poe2 => {
+                let filename = target.rsplit('/').next().unwrap_or(target).to_lowercase();
+                format!("data/balance/{}", filename)
+            }
+        }
+    }
 }
 
 /// 추출 대상 테이블.
@@ -79,11 +99,8 @@ const TARGETS: &[&str] = &[
     "Data/UniqueStashLayout.datc64",
     // Tier 1 — Critical (F0 감사 Critical 1/2/3 해결)
     "Data/Tags.datc64",          // load_ggpk_items TagsKeys 해결
-    "Data/Mods.datc64",          // HasExplicitMod 검증 (Phase B/D/E/F7)
-    "Data/ModType.datc64",       // Mods 보조
-    "Data/ModFamily.datc64",     // Mods 보조
-    "Data/Characters.datc64",    // 클래스 start node 자동 매핑
-    "Data/Ascendancy.datc64",    // 어센던시 자동 매핑
+    "Data/Characters.datc64",    // 클래스 start node 자동 매핑 (POE2 드리프트 없음, 우선 처리)
+    "Data/Ascendancy.datc64",    // 어센던시 자동 매핑 (POE2 드리프트 없음, 우선 처리)
     // Tier 2 — 다중 feature 활용
     "Data/GemTags.datc64",       // Phase E damage_type 대체 후보
     "Data/ArmourTypes.datc64",   // Phase D BaseItemTypes.Id 휴리스틱 업그레이드
@@ -91,6 +108,14 @@ const TARGETS: &[&str] = &[
     "Data/ScarabTypes.datc64",
     "Data/Essences.datc64",      // GGPKItems.essence_* 대체
     "Data/Flasks.datc64",
+    // Words: UniqueStashLayout.WordsKey 참조용 (POE2 uniques 이름 매핑)
+    "Data/Words.datc64",
+    // POE2 Mods 는 schema 중간 필드 misinterpret 가능성 — 순서 맨 끝으로 이동.
+    // 2026-04-22 관찰: drift override 적용 후에도 parse_table 25분+ CPU 소모 (POE2 backlog).
+    // ModType/ModFamily 는 drift 없음 — Mods 앞으로 이동해 JSON 생성 보장.
+    "Data/ModType.datc64",       // Mods 보조 (drift 없음)
+    "Data/ModFamily.datc64",     // Mods 보조 (drift 없음)
+    "Data/Mods.datc64",          // HasExplicitMod 검증. POE2 parse_table 느림 — 맨 마지막.
 ];
 
 fn main() {
@@ -100,6 +125,7 @@ fn main() {
 
     let args: Vec<String> = std::env::args().skip(1).collect();
     let json_mode = args.iter().any(|a| a == "--json");
+    let reuse_datc64 = args.iter().any(|a| a == "--reuse-datc64");
 
     // --game poe1|poe2 파싱. 공백 형식 (--game poe2) 및 등호 형식 (--game=poe2) 둘 다 지원.
     let game = match parse_game_arg(&args) {
@@ -110,10 +136,16 @@ fn main() {
         }
     };
 
-    // custom_path: --game / --json 과 그 다음 값을 제외한 첫 positional 인자
+    // custom_path: --game / --json / --reuse-datc64 와 그 다음 값을 제외한 첫 positional 인자
     let custom_path = positional_path_arg(&args);
 
     eprintln!("[게임] {}", game.label());
+
+    // --reuse-datc64 모드: GGPK 로드 skip, 기존 .datc64 재사용
+    if reuse_datc64 {
+        run_reuse_mode(game, json_mode);
+        return;
+    }
 
     // 1. POE 경로 결정
     let poe_path = match custom_path {
@@ -192,16 +224,20 @@ fn main() {
     let mut failed = 0;
 
     for target in TARGETS {
+        // table_name: 스키마/출력파일명용 (원본 POE1 경로 기준 — 대소문자 보존)
         let table_name = target
             .rsplit('/')
             .next()
             .unwrap_or(target)
             .trim_end_matches(".datc64");
 
-        let file = match index.find_file(target) {
+        // resolved: 실제 번들 내부 경로 (POE2는 data/balance/<lowercase>.datc64)
+        let resolved = game.resolve_table_path(target);
+
+        let file = match index.find_file(&resolved) {
             Some(f) => f.clone(),
             None => {
-                eprintln!("  [-] {} — 파일 없음", table_name);
+                eprintln!("  [-] {} — 파일 없음 ({})", table_name, resolved);
                 failed += 1;
                 continue;
             }
@@ -273,6 +309,118 @@ fn main() {
 
     eprintln!("\n=== 완료 ===");
     eprintln!("성공: {}/{}, 실패: {}", success, TARGETS.len(), failed);
+    eprintln!("출력: {}", output_dir.display());
+}
+
+/// --reuse-datc64 모드 본체.
+/// 기존 output_dir 의 .datc64 파일을 읽어 schema 적용 + JSON 변환만 수행.
+/// GGPK/Oodle/BundleIndex 로드 단계를 건너뛰어 drift override 수정 → 재검증 루프 단축.
+fn run_reuse_mode(game: CliGame, json_mode: bool) {
+    let output_dir = project_data_dir(game);
+    if !output_dir.exists() {
+        eprintln!("[오류] 재사용 대상 디렉토리 없음: {}", output_dir.display());
+        eprintln!("먼저 GGPK 에서 추출: cargo run --bin extract_data -- --game {}",
+            if game == CliGame::Poe2 { "poe2" } else { "poe1" });
+        std::process::exit(1);
+    }
+
+    let schema_store = if json_mode {
+        eprintln!("[1/2] 스키마 로드 ({} validFor 필터 + drift override)...", game.label());
+        let schema_path = project_root().join("data").join("schema").join("schema.min.json");
+        match SchemaStore::load_for_game(&schema_path, game.as_schema_game()) {
+            Ok(s) => {
+                eprintln!("       테이블 {} 개", s.table_count());
+                Some(s)
+            }
+            Err(e) => {
+                eprintln!("[경고] 스키마 로드 실패 (JSON 변환 생략): {}", e);
+                None
+            }
+        }
+    } else {
+        eprintln!("[1/2] 스키마 (--json 미사용, 재사용 모드에선 할 일 없음 — 종료)");
+        return;
+    };
+
+    eprintln!("[2/2] .datc64 재사용 + JSON 재생성...");
+    let mut success = 0;
+    let mut failed = 0;
+
+    for target in TARGETS {
+        let table_name = target
+            .rsplit('/')
+            .next()
+            .unwrap_or(target)
+            .trim_end_matches(".datc64");
+
+        let datc_path = output_dir.join(format!("{}.datc64", table_name));
+        if !datc_path.exists() {
+            eprintln!("  [-] {} — .datc64 없음 (skip)", table_name);
+            failed += 1;
+            continue;
+        }
+
+        let data = match std::fs::read(&datc_path) {
+            Ok(d) => d,
+            Err(e) => {
+                eprintln!("  [-] {} — 읽기 실패: {}", table_name, e);
+                failed += 1;
+                continue;
+            }
+        };
+
+        let row_info = match Dat64Parser::load(data.clone()) {
+            Ok(parser) => format!("{} rows, {}B/row", parser.row_count(), parser.estimated_row_size()),
+            Err(_) => "파싱 불가".into(),
+        };
+        eprintln!("  [+] {} — {}KB, {}", table_name, data.len() / 1024, row_info);
+
+        if let Some(ref store) = schema_store {
+            if let Some(schema) = store.get(table_name) {
+                match Dat64Parser::load(data) {
+                    Ok(parser) => match parser.parse_table(schema) {
+                        Ok(rows) => {
+                            let json_rows: Vec<serde_json::Value> = rows
+                                .iter()
+                                .map(|row| {
+                                    let mut obj = serde_json::Map::new();
+                                    for field in &schema.fields {
+                                        if let Some(val) = row.get(&field.name) {
+                                            obj.insert(field.name.clone(), val.to_json());
+                                        }
+                                    }
+                                    serde_json::Value::Object(obj)
+                                })
+                                .collect();
+
+                            let json_path = output_dir.join(format!("{}.json", table_name));
+                            let json_str = serde_json::to_string_pretty(&json_rows)
+                                .unwrap_or_else(|_| "[]".into());
+                            if let Err(e) = std::fs::write(&json_path, &json_str) {
+                                eprintln!("       JSON 저장 실패: {}", e);
+                            } else {
+                                eprintln!("       → {}.json ({} rows)", table_name, json_rows.len());
+                                success += 1;
+                            }
+                        }
+                        Err(e) => {
+                            eprintln!("       JSON 변환 실패: {}", e);
+                            failed += 1;
+                        }
+                    },
+                    Err(e) => {
+                        eprintln!("       파서 로드 실패: {}", e);
+                        failed += 1;
+                    }
+                }
+            } else {
+                eprintln!("       스키마에 {} 없음 (JSON 생략)", table_name);
+            }
+        }
+    }
+
+    eprintln!("\n=== 재사용 완료 ===");
+    eprintln!("JSON 성공: {}, 실패: {}", success, failed);
     eprintln!("출력: {}", output_dir.display());
 }
 

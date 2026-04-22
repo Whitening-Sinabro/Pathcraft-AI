@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "purpose": "POE2 0.4.0d drift 해결 — schema.min.json 에 누락된 끝 컬럼 추가",
+    "source": "scripts/drift_reverse_poe2.py 실측 byte pattern 분석 (2026-04-22)",
+    "apply": "SchemaStore::load_for_game(Poe2) 후 이 override 의 _poe2_extra 를 각 테이블 끝에 append",
+    "validation": "row_size = schema + extra 합이 실 actual 과 일치해야",
+    "cross_ref": "probe_poe2_schema.rs 측정: Mods actual 677B / SkillGems actual 239B"
+  },
+  "SkillGems_poe2_extra": {
+    "description": "schema_row_size 207B + 32B = actual 239B. 끝 32B = List × 2. 첫 List 두 개 모두 null pattern (count=0, offset=default). 의미 후보: 내부 지원 스킬 참조 / alt gem variant / removed support-level tags.",
+    "fields": [
+      {"name": "Unknown_List1", "type": "foreignrow", "array": true, "size_bytes": 16, "notes": "count=0, offset=~332..96856 범위 (monotonic-ish, row 간 중복 있음)"},
+      {"name": "Unknown_List2", "type": "foreignrow", "array": true, "size_bytes": 16, "notes": "Unknown_List1 과 값 완전 동일 — 중복 또는 duplicate reference"}
+    ],
+    "sample_row0_hex": "0000000000000000 4c01000000000000 0000000000000000 4c01000000000000"
+  },
+  "Mods_poe2_extra": {
+    "description": "schema_row_size 653B + 24B = actual 677B. 끝 24B = List + Row. List 는 null pattern (count=0, offset small). Row 는 varied small uint (0..21986) — Mods 자체 또는 관련 테이블 rowid 추정.",
+    "fields": [
+      {"name": "Unknown_List", "type": "foreignrow", "array": true, "size_bytes": 16, "notes": "count=0, offset=0..16 (작은 default)"},
+      {"name": "Unknown_Row", "type": "row", "size_bytes": 8, "notes": "small uint (0x0 ~ 0x55e2 = 21986). ArchnemesisMinionMod 잔존 또는 신규 내부 ref"}
+    ],
+    "sample_row0_hex": "0000000000000000 1000000000000000 5e01000000000000"
+  }
+}

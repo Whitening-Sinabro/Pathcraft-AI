@@ -1,74 +1,92 @@
 ## 지금
-- **세션 종료 (2026-04-21)** — Priority 0+1+2+4(D0) 전부 완결. 2 커밋: (1) 66f1306 Tier 2 C + L3 metric + valid_gems pollution + extract_data --game, (2) POE2 D0 잔여 (schema::Game serde + lib.rs 7 커맨드 game: Option<Game> + Python 4 스크립트 --game). Rust 44건(lib 36 + extract_data 8) + Python 639건 green.
+- **POE2 D3 완료 (2026-04-22 S2)** — `data/base_items_poe2.json` (283 무기 / 562 방어구 / 98 기타) + `data/uniques_poe2.json` (393 visible + 10 hidden = 403 total) 생성.
+- **POE2 JSON 19/20 생성 완료** — Words.json 3213 rows 추가. Mods 14841 rows 포함. Tags/SpawnWeight 3 list 만 schema 오인지로 빈값, 주 데이터 정상.
+- **dat64 파서 방어 로직** — List count garbage (`> 10k` or `> bytes_remaining/8`) → 빈 리스트 즉시 반환. 45 GB OOM 차단.
+- **drift override 적용** — `SchemaStore::load_for_game(Poe2)` 에 `schema_poe2_override.json` auto-merge. Mods 677B / SkillGems 239B 일치.
+- **`--reuse-datc64` 플래그** — GGPK 로드 skip + schema 적용 + JSON 재생성. drift/schema 수정 사이클 단축.
+- 42/42 cargo lib + 651/651 pytest PASS, regression 0.
 
 ## 다음 세션 진입 절차
-1. POE2 작업 이어갈지 결정 — D1(POB 포맷)/D2(젬 drift)/D6(코치 PRD) 중 어디부터. **D6 는 PRD 필요** (backlog 7.3)
-2. 아니면 POE1 측 남은 작업 (L3 인게임 검증, DoD 수동 검증) 선택
-3. Strict 모드는 자동 발동 — TEST_CLAIM 발언 세션에서 자동으로 full pytest 트리거 확인됨
+- **세션 계획 (사용자 확정 2026-04-22 S2)**: D4 = 새 세션 / D5 = 또 다른 새 세션. 한 세션당 하나씩.
+- 어느 세션이든 시작 시 `poe2_d6_dod.md` §4 해제 조건 3건 관찰 여부 먼저 체크 가능 (Tauri 실클릭 준비된 경우)
 
 ## 다음 할 것 (우선순위순)
 
-0. [ ] **L3 auto-retry 인게임 검증 (미검증)** — Tauri 에서 Onslaught Support 같은 hallucination 재분석 시 `L3_RETRY_METRIC success=true` 로그 찍히는지 확인. `_retry_info.final_dropped=[]` 비율 수집
-1. [ ] **DoD 수동 검증 (미검증 대기)** — Tauri 창 `Ctrl+R` 후 FilterPanel / 오버레이 / 히스토리 각 항목
-2. [ ] **POE2 D1 (POB POE2 포맷)** — `SnosMe/PathOfBuilding-PoE2` fork 포맷 조사 + `pob_parser.py` 분기. 추정 1~2 세션
-3. [ ] **POE2 D2/D3 drift 선해결** — Mods POE2 +24B / SkillGems POE2 +32B. backlog 4번 Option B (로컬 override) 권장
-4. [ ] **POE2 D6 PRD** — 코치 프롬프트/support 재설계. backlog 7.3 요구
-5. [ ] **프론트엔드 activeGame → invoke 연결** — ActiveGameContext 를 useBuildAnalyzer/FilterPanel 등에 주입해서 `invoke(..., { ..., game })` 전달. 현재 Option::None 이라 POE1 기본
-6. [ ] **Strict 모드 실측** — TEST_CLAIM ("all tests pass") 발언 세션에서 full pytest 실제 트리거 확인 (30~60s 예상)
-5. [ ] **필터 생성 인게임 검증**
-6. [ ] **P1 인게임 검증** — `npm run tauri dev`
-7. [ ] **Passive P2~P6** — DAT 경로 추출 + DDS→PNG + manifest + renderer + UX
-8. [ ] **Mode 승격 마무리** — FilterPanel mode state → useBuildAnalyzer 마이그레이션
-9. [ ] **메인 창 LevelingGuide A형 적용 여부 결정**
-10. [ ] **Syndicate empty state + mode 필터**
-11. [ ] **Syndicate S4** — 골든 OCR + SHA-256 캐시 + Mastermind 추적
-12. [ ] **Phase 5b/5c** — 오버레이 콘텐츠 + 위치 영속
-13. [ ] **alias 맵 재감사 다음 스텝** — 이번 세션에서 valid_gems 는 깨끗함 확인(Awakened 38/38, Vaal 61/61, transfigured 210, meta 전부 커버). 다음은 `data/gem_aliases.json` 103개 엔트리 재검증 + POE2 alias 맵 설계
+0. [ ] **D6 해제 조건 수집** — Tauri 창 POE2 실사용. `_normalization_trace` / `_retry_info` 로그 수집 (백엔드는 이미 게재 중). 사용자 실클릭만 있으면 즉시 가능
+1. [ ] **POE2 D4 passive tree** (별도 세션) — 1500+ 노드, 22 어센던시. PassiveSkills 7676 rows 외에 **트리 좌표/연결 데이터 소스 리서치** 가 첫 단계. 구현 + 검증 3~5시간 scope
+2. [ ] **POE2 D5 필터** (또 다른 세션) — NeverSink POE2 공식 import + ItemClass 명칭 매핑 (Focus/Charm/Spear/Quarterstaff 신규). 2~3시간 scope
+3. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
+4. [ ] (후속, 선택) uniques stash_type 매핑 — UniqueStashTypes 테이블 extract → stash type id → 유형 이름 (Weapons/Armour/etc)
+5. [ ] (후속, 선택) base_items 필드 확장 — requirements (Str/Dex/Int) / damage / armour 추가
+6. [ ] **VerbalBuildInput POE1 fallback 설계 명시** — 컴포넌트가 game prop 받지만 POE1 렌더 경로 없음 (audit medium 이슈)
+7. [ ] **기존 POE1 잔여** (이월):
+   - L3 auto-retry 인게임 검증 (POE1)
+   - DoD 수동 검증 (FilterPanel / 오버레이 / 히스토리)
+   - Strict 모드 실측
+   - 필터 생성 인게임 검증
+   - Passive P2~P6 / Syndicate S4 / Phase 5b/5c
+   - alias 맵 재감사 + POE2 alias 맵 설계
 
 ## 도메인 파일 포인터
 
-- [코치 품질 Phase H 백로그](coach_quality_backlog.md) — H1~H5 + H6 완료, L3 인게임/alias 누적
-- [POE2 통합 backlog](poe2_integration_backlog.md) — feasibility 완료, D0~D8 (제품 요구 확정 전 착수 금지)
-- [디자인 Phase 0~5 플랜](design_phase_plan.md) — P5 미완
+- [POE2 통합 Diff (2026-04-22)](poe2_integration_diff.md) — 오늘 세션 세부. §0 scope-bounded claim 8항 / §6.6 spirit gems 의도 / §7 마이닝 실측 / §8 drift / §10 빌드 방향
+- [POE2 D6 DoD](poe2_d6_dod.md) — 인프라 체크리스트 + 해제 조건 3건
+- [코치 품질 Phase H 백로그](coach_quality_backlog.md) — H1~H6 완료, L3 인게임/alias 누적
+- [POE2 통합 backlog](poe2_integration_backlog.md) — D0+D6(CONDITIONAL) / D1/D2/D3/D4/D5/D7/D8 대기
+- [디자인 Phase 0~5 플랜](design_phase_plan.md) — P5 미완. **Design enforcement 2026-04-22 설치 완료** (contract 4필드 기입)
 - [Syndicate 전면 개편 S1~S4](syndicate_phase_plan.md) — S1~S3 완료
 - [패시브 asset 플랜](passive_tree_assets_plan.md) — P1 완료, P2~P6 대기
-- [Syndicate 리서치 1/2차](../../../_analysis/syndicate_research_2026-04-20.md / syndicate_ux_research_2026-04-20.md)
-- [POE2 테이블 카탈로그](../../../_analysis/poe2_tables.json)
 - [Continue 아키텍처](continue_architecture.md)
-- [패시브 트리 원 플랜](passive_tree_plan.md)
 - _analysis/ggpk_truth_reference.json — POE1 19 테이블 진실 anchor
+- _analysis/poe2_tables.json — POE2 942 테이블 카탈로그
+- data/game_data_poe2/ — GGPK 실측 19 datc64 + **19 JSON** (Words 3213 rows 추가, Mods 14841 rows 포함, Tags/SpawnWeight 3 list 만 schema 오인지로 공백)
+- data/base_items_poe2.json — 283 무기 (15 classes) + 562 방어구 (6 classes) + 98 기타 (Amulets/Belts/Charms/Flasks/Jewels/Quivers/Rings)
+- data/uniques_poe2.json — 393 visible uniques + 10 hidden (total 403, 리서치 일치)
+- data/valid_gems_poe2.json — 1079 gems (active 477 / support 600 / spirit 2)
+- data/schema/schema_poe2_override.json — drift 보정 정의 (SchemaStore auto-merge 적용 완료 2026-04-22 S2)
 - docs/league_refresh.md
 
-## Class Start 노드 매핑 (data.json 수동)
+## Class Start 노드 매핑 (POE1, data.json 수동)
 - 0: Scion (58833) / 1: Marauder (47175) / 2: Ranger (50459)
 - 3: Witch (54447) / 4: Duelist (50986) / 5: Templar (61525) / 6: Shadow (44683)
 
+## POE2 클래스·어센던시 실측 (2026-04-22 GGPK)
+- 출시 8: Warrior / Monk / Ranger / Mercenary / Sorceress / Witch / Huntress (0.2) / Druid (0.4)
+- 미출시 4 (Characters 테이블 잔존): Marauder / Duelist / Shadow / Templar
+- 정식 어센 21: Warrior 3 / Ranger 2 / Huntress 2 / Witch 4 (**Abyssal Lich 확정**) / Sorceress 3 (**Disciple of Varashta 확정**) / Mercenary 3 / Druid 2 / Monk 2
+
 ## 잔존 이슈 (허용/추후 처리)
 
-- **valid_gems 다른 카테고리 누락 가능성** — transfigured 발견 사례로 meta/awakened/vaal alt 등 추가 감사 필요 (우선순위 2)
-- **L3 인게임 미검증** — 재시도 교정 프롬프트 실제 효과 측정 필요
-- **Phase E subagent 제기 미패치 5건** — (1) ACTIVE_EVIDENCE_TOOLS 에 Task 미포함 의도적이지만 문서화 없음 (2) `_is_real_user_prompt` mixed event turn boundary (3) git status `line[3:]` rename/공백 파일명 (4) 한국어 문장 경계 edge case (5) Claude Code Stop 훅 실제 stdin 스키마 미확정 — 다음 세션 `CLAUDE_CLAIM_GATE_DEBUG=1` 켜고 hook_input.log 실측 대기
-- **Tier 2 C 대기** — Fast/Strict 분리, 현 테스트 부하 문제 없으면 연기 가능
-- **SyndicateBoard 내부 일관성** — ss22 deprecated flag UI 확인 (Tauri 실측)
-- **Cmd+K palette UX** — 초보자 부적합 결정 보류
-- **PassiveTreeCanvas 623줄** — 300 룰 초과, 복잡도로 허용
-- **Syndicate Vision OCR** — 골든 스크린샷 테스트 부재 (S4)
-- **Coach 좀비 cleanup on window close**
-- **Model toggle frontend 테스트 부재**
+- **D6 해제 조건 3건 중 2건 이상 관찰 대기** (우선순위 0, 다음 세션)
+- **Mods Tags/SpawnWeight_Tags/SpawnWeight_Values 3 list 공백** — 주 데이터는 정상. schema field 위치/타입 재매핑 필요 (upstream schema.min.json POE2 Mods 엔트리 이슈)
+- **GameData POE2 QuestRewards 구조 차이** — `Characters` / `Reward` 필드 호환성 미검증
+- **GameData POE2 SkillGems `is_support` 판별** — POE2 는 `IsSupport` 필드 없음, `GemType` 으로 판별 추후
+- **VerbalBuildInput POE1 fallback** — 컴포넌트가 game prop 받지만 POE1 렌더 경로 없음 (audit medium)
+- **valid_gems 다른 카테고리 누락 가능성** — POE1 transfigured 사례, POE2 도 awakened/vaal alt 조사 필요
+- **L3 인게임 미검증** (POE1) — 재시도 교정 프롬프트 실 효과 측정 필요
+- **Phase E subagent 제기 미패치 5건** (이전 세션 이월) — Claim gate / hook stdin 스키마 실측 대기
+- **Tier 2 C / SyndicateBoard ss22 / Cmd+K / PassiveTreeCanvas 623줄 / Syndicate OCR / Coach zombie / Model toggle test** — 전부 이전 이월
 
 ## UX 결정 기록 (누적)
 - 우클릭 dealloc 분리 → 되돌림 (왼클릭 토글 유지)
 - 수동 URL import UI 스킵 (자동 디코드 대체)
 - AI 이모지 제거, UI 이모지 → SVG 아이콘
 - 전면 리디자인 = 다크 단일 + POE Rarity + Linear 레이아웃 + 2-창 오버레이
-- 기본 리그 모드 = SC (SSF/HCSSF/Trade 3모드는 Wreckers 스타일 단일 파일 위에 경제·철학 조정만 차이)
+- 기본 리그 모드 = SC
 - **빌드 분석 = 진입점** 원칙
 - 패시브 class start = anchor only
-- **코치 모델 기본 Haiku** — "빠름 / 느리지만 디테일 / 심층 분석" 3버튼
-- **게임 토글 TopBar** (startup modal 아님) — POE1 기본, POE2는 경고 배너
-- **빌드 히스토리 (pobb 스타일)** — localStorage 최근 20개, 자동 최신 복원
-- **오버레이 레벨링 = 탭 네비 + 활성 phase bullet** — 4 phase 각 Lv range
-- **FilterPanel 3모드 유지** — SSF/HCSSF/TRADE 공통 Wreckers 스타일 + 경제·철학 조정
+- **코치 모델 기본 Haiku** — 3버튼
+- **게임 토글 TopBar** — POE1 기본, POE2는 경고 배너 + VerbalBuildInput 폼
+- **빌드 히스토리 (pobb 스타일)** — localStorage 최근 20개
+- **오버레이 레벨링 = 탭 네비 + 활성 phase bullet**
+- **FilterPanel 3모드 유지**
 - **코치 정식화 = 코드 레이어 hard constraint** — normalizer 가 주 제약 (Phase H)
-- **4-Layer hallucination 방어** — L1 prompt + L2 strict + L3 retry + L4 풀스크린 블록 (Phase H6). **L3_RETRY_METRIC 로그 grep-friendly** (2026-04-21).
-- **자가-PASS 방어 Tier 2** — A(Claim-gate) + B(Phase E audit-all subagent) + C(Fast/Strict 모드 분리: 기본 fast = changed-files, TEST_CLAIM 감지 시 strict = full suite). 전부 완료 (2026-04-21).
+- **4-Layer hallucination 방어** — L1 prompt + L2 strict + L3 retry + L4 풀스크린 블록. **POE2 이식 완료 (2026-04-22)**
+- **자가-PASS 방어 Tier 2** — Claim-gate + Phase E audit-all subagent + Fast/Strict 모드 분리 (2026-04-21)
+- **POE2 D6 인프라** — SYSTEM_PROMPT_POE2 + valid_gems_poe2 + normalizer/validator POE2 분기 + VerbalBuildInput + activeGame invoke 전파 + GameData POE2 분기 (2026-04-22, CONDITIONAL DONE)
+- **schema drift override auto-merge** — `schema_poe2_override.json` 을 `SchemaStore::load_for_game(Poe2)` 가 자동 로드 + append. Mods/SkillGems 끝 컬럼 보정 (2026-04-22 S2)
+- **extract_data `--reuse-datc64`** — GGPK 재파싱 없이 schema 적용 + JSON 만 재생성. drift/schema 수정 사이클 단축 (2026-04-22 S2)
+- **dat64 List/String 방어적 reject** — count/offset garbage (MAX_LIST_ITEMS=10k, MAX_STR_U16=4096, 물리 용량 초과) 시 빈 값 즉시 반환. 45 GB OOM 차단 (2026-04-22 S2)
+- **POE2 D3 base_items / uniques** — BaseItemTypes 에서 무기/방어구 분류, UniqueStashLayout × Words JOIN. `scripts/build_base_items_poe2.py` / `build_uniques_poe2.py` (2026-04-22 S2)
+- **POE2 구두 빌드 입력 경로** — POB 없이 VerbalBuildInput 폼 → analyzeVerbalBuild → coach_build 직행. D6 통합 UI (2026-04-22)
+- **Design enforcement** 2026-04-22 설치 (contract 4필드: Primary Action / mobalytics ref / #0A84FF / Pretendard)

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
+import { useActiveGame } from "../../contexts/ActiveGameContext";
 import {
   computeRecommendations,
   summarizeBoardDelta,
@@ -25,6 +26,7 @@ interface Options {
 }
 
 export function useSyndicateBoard({ recommendation }: Options) {
+  const { game } = useActiveGame();
   const [members, setMembers] = useState<SyndicateMember[]>([]);
   const [layouts, setLayouts] = useState<SyndicateLayout[]>([]);
 
@@ -213,7 +215,7 @@ export function useSyndicateBoard({ recommendation }: Options) {
     try {
       const b64 = await fileToBase64(file);
       if (isStale()) return;
-      const raw = await invoke<string>("analyze_syndicate_image", { imageBase64: b64 });
+      const raw = await invoke<string>("analyze_syndicate_image", { imageBase64: b64, game });
       if (isStale()) return;
       const parsed = JSON.parse(raw) as VisionResult;
       if (parsed.error) {

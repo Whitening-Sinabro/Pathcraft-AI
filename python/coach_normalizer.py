@@ -38,7 +38,33 @@ def _data_dir() -> Path:
     return Path(__file__).resolve().parent.parent / "data"
 
 
-def _load_valid_gems() -> list[str]:
+def _load_valid_gems(game: str = "poe1") -> list[str]:
+    """유효 젬 이름 리스트 로드.
+
+    POE1: data/valid_gems.json {"gems": [...]} 스키마
+    POE2: data/valid_gems_poe2.json {"active": [...], "support": [...], "spirit": [...]} 스키마 flatten
+    """
+    if game == "poe2":
+        path = _data_dir() / "valid_gems_poe2.json"
+        if not path.exists():
+            logger.warning("valid_gems_poe2.json 없음 — POE2 normalizer 비활성")
+            return []
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as e:
+            logger.warning(f"valid_gems_poe2.json 로드 실패: {e}")
+            return []
+        # active + support + spirit flatten. 각 엔트리 {name, metadata_id, skill_id, ...}
+        names: list[str] = []
+        for bucket in ("active", "support", "spirit"):
+            for entry in data.get(bucket, []) or []:
+                if isinstance(entry, dict):
+                    n = entry.get("name")
+                    if isinstance(n, str) and n.strip():
+                        names.append(n.strip())
+        return names
+
+    # POE1 기본 경로
     path = _data_dir() / "valid_gems.json"
     if not path.exists():
         logger.warning("valid_gems.json 없음 — normalizer 비활성")
@@ -58,14 +84,19 @@ def _load_valid_gems() -> list[str]:
     return [g for g in gems if isinstance(g, str) and g.strip()]
 
 
-def _load_aliases() -> dict[str, str]:
-    path = _data_dir() / "gem_aliases.json"
+def _load_aliases(game: str = "poe1") -> dict[str, str]:
+    """game_aliases_<game>.json 로드. POE2 는 파일 없으면 빈 dict (fuzzy + allowlist 로 충분)."""
+    filename = "gem_aliases_poe2.json" if game == "poe2" else "gem_aliases.json"
+    path = _data_dir() / filename
     if not path.exists():
+        # POE2 alias 는 별도 작업, 없으면 정상 (경고 레벨 낮춤)
+        if game == "poe2":
+            logger.info("gem_aliases_poe2.json 부재 — alias 단계 skip (fuzzy + allowlist 로 동작)")
         return {}
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError) as e:
-        logger.warning(f"gem_aliases.json 로드 실패: {e}")
+        logger.warning(f"{filename} 로드 실패: {e}")
         return {}
     aliases = data.get("aliases", {})
     return {
@@ -75,29 +106,33 @@ def _load_aliases() -> dict[str, str]:
     }
 
 
-_VALID_GEMS: list[str] | None = None
-_LOWER_TO_CANON: dict[str, str] | None = None
-_ALIASES: dict[str, str] | None = None
+# 게임별 module-level cache — POE1 / POE2 독립
+_VALID_GEMS_BY_GAME: dict[str, list[str]] = {}
+_LOWER_TO_CANON_BY_GAME: dict[str, dict[str, str]] = {}
+_ALIASES_BY_GAME: dict[str, dict[str, str]] = {}
 
 
-def _ensure_loaded() -> tuple[list[str], dict[str, str], dict[str, str]]:
-    global _VALID_GEMS, _LOWER_TO_CANON, _ALIASES
-    if _VALID_GEMS is None:
-        _VALID_GEMS = _load_valid_gems()
-        _LOWER_TO_CANON = {g.strip().lower(): g for g in _VALID_GEMS}
-        _ALIASES = _load_aliases()
-    return _VALID_GEMS, _LOWER_TO_CANON, _ALIASES  # type: ignore[return-value]
+def _ensure_loaded(game: str = "poe1") -> tuple[list[str], dict[str, str], dict[str, str]]:
+    if game not in _VALID_GEMS_BY_GAME:
+        gems = _load_valid_gems(game)
+        _VALID_GEMS_BY_GAME[game] = gems
+        _LOWER_TO_CANON_BY_GAME[game] = {g.strip().lower(): g for g in gems}
+        _ALIASES_BY_GAME[game] = _load_aliases(game)
+    return (
+        _VALID_GEMS_BY_GAME[game],
+        _LOWER_TO_CANON_BY_GAME[game],
+        _ALIASES_BY_GAME[game],
+    )
 
 
 def _reset_caches() -> None:
-    """테스트 전용 — 데이터 파일 교체 후 재로드 강제."""
-    global _VALID_GEMS, _LOWER_TO_CANON, _ALIASES
-    _VALID_GEMS = None
-    _LOWER_TO_CANON = None
-    _ALIASES = None
+    """테스트 전용 — 데이터 파일 교체 후 재로드 강제. 전 게임 cache 동시 clear."""
+    _VALID_GEMS_BY_GAME.clear()
+    _LOWER_TO_CANON_BY_GAME.clear()
+    _ALIASES_BY_GAME.clear()
 
 
-def normalize_gem(name: str) -> tuple[str | None, str]:
+def normalize_gem(name: str, game: str = "poe1") -> tuple[str | None, str]:
     """젬 이름 → (canonical, match_type).
 
     match_type:
@@ -109,7 +144,7 @@ def normalize_gem(name: str) -> tuple[str | None, str]:
     if not isinstance(name, str) or not name.strip():
         return None, "unmatched"
 
-    valid_gems, lower_map, aliases = _ensure_loaded()
+    valid_gems, lower_map, aliases = _ensure_loaded(game)
     if not valid_gems:
         return None, "unmatched"
 
@@ -143,6 +178,7 @@ def normalize_gem_list(
     gems: list,
     trace: list[dict] | None = None,
     path: str = "",
+    game: str = "poe1",
 ) -> tuple[list, list[str]]:
     """젬 배열 정규화. (교체된 리스트, 경고 리스트) 반환. 비-str 요소는 그대로 통과.
 
@@ -159,7 +195,7 @@ def normalize_gem_list(
         if not isinstance(g, str):
             out.append(g)
             continue
-        canon, match_type = normalize_gem(g)
+        canon, match_type = normalize_gem(g, game=game)
         if canon is None:
             # L2: pass-through 제거, 배열에서 drop
             warnings.append(f"[차단] 젬 '{g}' — valid_gems 미존재로 배열에서 제거")
@@ -190,6 +226,7 @@ def normalize_change_field(
     change: str,
     trace: list[dict] | None = None,
     path: str = "",
+    game: str = "poe1",
 ) -> tuple[str, list[str]]:
     """skill_transitions[].change 필드. 구분자 보존하며 각 토큰 정규화.
 
@@ -215,7 +252,7 @@ def normalize_change_field(
         if not part:
             normalized_parts.append(part)
             continue
-        canon, match_type = normalize_gem(part)
+        canon, match_type = normalize_gem(part, game=game)
         if canon is None:
             normalized_parts.append(part)
             # change 문구는 설명 텍스트 혼합 가능 (예: "Cleave로 전환") — 경고 약화
@@ -240,7 +277,7 @@ def normalize_change_field(
     return new_change, warnings
 
 
-def normalize_coach_output(result: dict) -> tuple[list[str], list[dict]]:
+def normalize_coach_output(result: dict, game: str = "poe1") -> tuple[list[str], list[dict]]:
     """Coach JSON 인플레이스 정규화. (경고 리스트, trace 리스트) 반환.
 
     trace: 자동 교정된 필드 이력. {field, from, to, match_type} 각 항목.
@@ -261,14 +298,14 @@ def normalize_coach_output(result: dict) -> tuple[list[str], list[dict]]:
         return all_warnings, trace
 
     all_warnings.extend(_normalize_skill_block(
-        lvl_skills.get("recommended"), "leveling_skills.recommended", trace
+        lvl_skills.get("recommended"), "leveling_skills.recommended", trace, game=game
     ))
 
     options = lvl_skills.get("options")
     if isinstance(options, list):
         for i, opt in enumerate(options):
             all_warnings.extend(_normalize_skill_block(
-                opt, f"leveling_skills.options[{i}]", trace
+                opt, f"leveling_skills.options[{i}]", trace, game=game
             ))
 
     transitions = lvl_skills.get("skill_transitions")
@@ -279,7 +316,7 @@ def normalize_coach_output(result: dict) -> tuple[list[str], list[dict]]:
             change = t.get("change")
             if isinstance(change, str):
                 path = f"leveling_skills.skill_transitions[{i}].change"
-                new_change, ws = normalize_change_field(change, trace=trace, path=path)
+                new_change, ws = normalize_change_field(change, trace=trace, path=path, game=game)
                 t["change"] = new_change
                 for w in ws:
                     all_warnings.append(w.replace(
@@ -289,7 +326,7 @@ def normalize_coach_output(result: dict) -> tuple[list[str], list[dict]]:
     return all_warnings, trace
 
 
-def _normalize_skill_block(block: Any, label: str, trace: list[dict]) -> list[str]:
+def _normalize_skill_block(block: Any, label: str, trace: list[dict], game: str = "poe1") -> list[str]:
     """recommended / options[i] 공용 — name + links_progression.gems 정규화.
 
     trace 에 교정 이력 누적.
@@ -300,7 +337,7 @@ def _normalize_skill_block(block: Any, label: str, trace: list[dict]) -> list[st
 
     name = block.get("name")
     if isinstance(name, str) and name.strip():
-        canon, match_type = normalize_gem(name)
+        canon, match_type = normalize_gem(name, game=game)
         if canon is None:
             warnings.append(f"[정규화] {label}.name '{name}' — 매칭 실패 (원본 유지)")
         else:
@@ -323,7 +360,7 @@ def _normalize_skill_block(block: Any, label: str, trace: list[dict]) -> list[st
             gems = prog.get("gems")
             if isinstance(gems, list):
                 new_gems, ws = normalize_gem_list(
-                    gems, trace=trace, path=f"{label}.links_progression[{j}].gems"
+                    gems, trace=trace, path=f"{label}.links_progression[{j}].gems", game=game
                 )
                 prog["gems"] = new_gems
                 for w in ws:
