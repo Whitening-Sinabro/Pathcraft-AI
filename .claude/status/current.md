@@ -1,12 +1,14 @@
 ## 지금
-- **POE2 D4 데이터 레이어 완료 (2026-04-22 S3)** — 어댑터 + 테스트 커밋. Canvas 통합은 후속.
-  - 데이터 소스: `PathOfBuildingCommunity/PathOfBuilding-PoE2` 의 `TreeData/0_4/tree.json` (1.8 MB, 4701 노드/1497 그룹/8 클래스/21 어센던시)
-  - `data/skilltree-export-poe2/` gitignored (POE1 동일 정책)
+- **세션 종료 (2026-04-22 S3)** — POE2 D4 데이터 레이어 완료 + push.
+  - `83c805c` feat: POE2 D4 데이터 레이어 — tree.json 어댑터 + 테스트 (origin 반영)
+- **D4 데이터 레이어 요약**
+  - 데이터 소스: PoB-PoE2 `TreeData/0_4/tree.json` (4701 노드/1497 그룹/8 클래스/21 어센던시)
+  - `data/skilltree-export-poe2/` gitignored
   - `normalizePoe2Tree()` 어댑터: groups list→dict, connections→out[], classesStart 보존
-  - `POE2_CLASS_START_IDS` / `POE2_CLASS_NAMES` 상수 추가
-  - vitest 22/22 (+9 POE2), tsc clean, pytest 651/651, cargo 42/42 PASS. 회귀 0.
-- **직전 세션 완료분 (S2)** — origin/master 푸시 완료 (c1c4ba0).
-  - `3547553` feat: 디자인 enforcement 설치 / `2dcbb80` feat: POE2 D6 코치 + D3 / `c1c4ba0` chore: 세션 종료
+  - `POE2_CLASS_START_IDS` / `POE2_CLASS_NAMES` 상수
+  - vitest 96/96 (+9 POE2), tsc clean, pytest 651/651, cargo 42/42. 회귀 0
+- **직전 세션 (S2, 이미 push 완료)**
+  - `3547553` 디자인 enforcement / `2dcbb80` POE2 D6 코치 + D3 / `c1c4ba0` S2 종료 기록
 
 ## 다음 세션 진입 절차
 - **세션 계획**: D4 Canvas 통합 = 새 세션 / D5 = 또 다른 새 세션. 한 세션당 하나씩.
