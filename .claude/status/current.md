@@ -1,5 +1,6 @@
 ## 지금
-- **POE2 D4 Canvas 통합 완료 (2026-04-22 S4)** — 데이터 레이어 + UI 통합 통합 커밋 대기.
+- **POE2 D4 Canvas 통합 완료 (2026-04-22 S4, push 대기)**
+  - `38131ab` feat: POE2 D4 Canvas 통합 — game prop + normalizePoe2Tree + TreeControls 분리
   - `PassiveTreeCanvas` `game?: "poe1"|"poe2"` prop, `poe1DataUrl`/`poe2DataUrl` 분기, `normalizePoe2Tree` 적용
   - `TreeControls` classNames/ascendancies 를 props 로 받도록 리팩터 (POE1 7 / POE2 8)
   - `POE2_CLASS_START_IDS_BY_INDEX` + `POE2_ASCENDANCIES` (21 어센던시, Abyssal Lich / Disciple of Varashta 포함)
@@ -8,13 +9,14 @@
   - `localStorage` 키 game 별 분리 (`pathcraftai_passive_class_poe2` 등)
   - 앵커 계산 `classesStart` fallback 추가
   - 테스트 107/107 PASS (+11 POE2 상수 케이스), tsc clean
-- **이전 세션 (S3)**
+- **이전 세션 (S3, push 완료)**
   - `83c805c` feat: POE2 D4 데이터 레이어 — tree.json 어댑터 + 테스트
-- **직전 세션 (S2, 이미 push 완료)**
+  - `1c0133b` chore: S3 종료 기록
+- **직전 세션 (S2, push 완료)**
   - `3547553` 디자인 enforcement / `2dcbb80` POE2 D6 코치 + D3 / `c1c4ba0` S2 종료 기록
 
 ## 다음 세션 진입 절차
-- **세션 계획**: D4 Canvas 통합 = 새 세션 / D5 = 또 다른 새 세션. 한 세션당 하나씩.
+- **세션 계획**: D4 Canvas 통합 = 이번 세션(S4) / D5 = 또 다른 새 세션. 한 세션당 하나씩.
 - 어느 세션이든 시작 시 `poe2_d6_dod.md` §4 해제 조건 3건 관찰 여부 먼저 체크 가능 (Tauri 실클릭 준비된 경우)
 
 ## 다음 할 것 (우선순위순)
