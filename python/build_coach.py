@@ -299,11 +299,7 @@ Blood Hunt, Cull The Weak, Disengage, Elemental Siphon, Elemental Sundering, Exp
   "tier": "S/A/B/C/D",
   "strengths": ["강점 (구체 수치/메커닉)"],
   "weaknesses": ["약점 (DPS/생존/기어링/플레이난이도)"],
-  "leveling_guide": {
-    "acts_1_3_normal": "Lv 1~40 전략 (Act 1-3 normal 진행)",
-    "acts_1_3_cruel": "Lv 40~65 전략 (Cruel 재진행, Ascendancy 확보)",
-    "endgame_maps": "Waystone T1+ Atlas 전략 (Lv 65+)"
-  },
+  "leveling_guide": @@LEVELING_GUIDE_SCHEMA@@,
   "skill_setup": {
     "main_skill": "정식 영문명",
     "weapon_required": "Spear / Bow / Quarterstaff / etc",
@@ -531,11 +527,67 @@ def _trim_build_for_prompt(build: dict) -> dict:
     return trimmed
 
 
+def _build_leveling_guide_schema_poe2() -> str:
+    """POE2 leveling_guide example JSON 을 campaign_structure_poe2.json 에서 동적 조립.
+
+    패치 버전마다 Act 구조가 바뀌어도 GGPK 재추출 + build_poe2_campaign_structure.py 재실행 만으로
+    SYSTEM_PROMPT 자동 갱신. 파일 없으면 최소 fallback (1-3 + endgame) 반환 — LLM 이 오작동
+    하지 않도록 유효 JSON 유지.
+    """
+    struct_path = Path(__file__).resolve().parent.parent / "data" / "campaign_structure_poe2.json"
+    if not struct_path.exists():
+        logger.warning(
+            "[campaign_structure_poe2.json 부재] — scripts/build_poe2_campaign_structure.py 재실행 필요. fallback 사용."
+        )
+        return (
+            '{\n'
+            '    "acts_1_3": "Act 1-3 전반 캠페인 (Lv 1~40)",\n'
+            '    "endgame_maps": "Waystone / Atlas 엔드게임 (Lv 65+)"\n'
+            '  }'
+        )
+    try:
+        with struct_path.open(encoding="utf-8") as f:
+            struct = json.load(f)
+    except (OSError, json.JSONDecodeError) as e:
+        logger.warning(f"[campaign_structure_poe2.json 로드 실패: {e}] — fallback 사용")
+        return (
+            '{\n'
+            '    "acts_1_3": "Act 1-3 전반 캠페인 (Lv 1~40)",\n'
+            '    "endgame_maps": "Waystone / Atlas 엔드게임 (Lv 65+)"\n'
+            '  }'
+        )
+    lines = ["{"]
+    phases = struct.get("phases", [])
+    for i, p in enumerate(phases):
+        key = p["key"]
+        lvl = p.get("level_range") or [0, 0]
+        towns = p.get("towns") or []
+        note = p.get("note") or ""
+        transient_tag = " (transient — 다음 패치 재편 가능)" if p.get("transient") else ""
+        town_hint = f", towns: {', '.join(towns[:3])}" if towns else ""
+        hint = f"Lv {lvl[0]}~{lvl[1]} 전략{town_hint}{': ' + note if note else ''}{transient_tag}"
+        # JSON 문자열 escape
+        hint_escaped = hint.replace("\\", "\\\\").replace('"', '\\"')
+        comma = "," if i < len(phases) - 1 else ""
+        lines.append(f'    "{key}": "{hint_escaped}"{comma}')
+    lines.append("  }")
+    return "\n".join(lines)
+
+
+def get_system_prompt(game: str) -> str:
+    """게임별 system prompt. POE2 는 campaign_structure 로부터 leveling_guide 스키마 동적 치환."""
+    if game == "poe2":
+        return SYSTEM_PROMPT_POE2.replace(
+            "@@LEVELING_GUIDE_SCHEMA@@", _build_leveling_guide_schema_poe2()
+        )
+    return SYSTEM_PROMPT_POE1
+
+
 def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = "poe1") -> dict:
     client = anthropic.Anthropic()
 
-    # 게임별 system prompt 선택 (D6 분기)
-    system_prompt = SYSTEM_PROMPT_POE2 if game == "poe2" else SYSTEM_PROMPT_POE1
+    # 게임별 system prompt — POE2 는 GGPK 파생 campaign_structure 로 leveling_guide 동적 치환
+    system_prompt = get_system_prompt(game)
     logger.info(f"코치 모드: {game} (prompt={len(system_prompt)}자)")
 
     archetype = detect_archetype(build_data)
@@ -905,6 +957,7 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
     result.setdefault("gear_progression", [])
     result.setdefault("map_mod_warnings", {})
     result.setdefault("variant_snapshots", [])
+    result.setdefault("passive_priority", [])
 
     # AI 출력 정규화 — 젬 이름 canonical 강제 (Phase H2) + gear (Phase H3)
     # 정규화 후 검증이라 hallucination 경고 대폭 감소.

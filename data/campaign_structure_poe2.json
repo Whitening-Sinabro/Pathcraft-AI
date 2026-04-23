@@ -1,0 +1,136 @@
+{
+  "game": "poe2",
+  "generated_at": null,
+  "source": {
+    "world_areas": "data/game_data_poe2/WorldAreas.json",
+    "quest": "data/game_data_poe2/Quest.json"
+  },
+  "phases": [
+    {
+      "key": "act_1",
+      "label": "Act 1 (Clearfell Encampment)",
+      "acts": [
+        1
+      ],
+      "level_range": [
+        1,
+        15
+      ],
+      "towns": [
+        "Clearfell Encampment"
+      ],
+      "area_count": 18,
+      "note": ""
+    },
+    {
+      "key": "act_2",
+      "label": "Act 2 (The Ardura Caravan)",
+      "acts": [
+        2
+      ],
+      "level_range": [
+        16,
+        32
+      ],
+      "towns": [
+        "The Ardura Caravan"
+      ],
+      "area_count": 44,
+      "note": ""
+    },
+    {
+      "key": "act_3",
+      "label": "Act 3 (Ziggurat Encampment)",
+      "acts": [
+        3
+      ],
+      "level_range": [
+        33,
+        46
+      ],
+      "towns": [
+        "Ziggurat Encampment"
+      ],
+      "area_count": 21,
+      "note": ""
+    },
+    {
+      "key": "act_4",
+      "label": "Act 4 (Kingsmarch)",
+      "acts": [
+        4
+      ],
+      "level_range": [
+        46,
+        53
+      ],
+      "towns": [
+        "Kingsmarch"
+      ],
+      "area_count": 22,
+      "note": ""
+    },
+    {
+      "key": "interlude_acts",
+      "label": "Interlude (P1/P2/P3)",
+      "acts": [
+        6
+      ],
+      "level_range": [
+        54,
+        64
+      ],
+      "towns": [
+        "The Glade",
+        "The Khari Bazaar",
+        "The Refuge"
+      ],
+      "area_count": 22,
+      "note": "Cruel 대체 임시 콘텐츠 (향후 패치에서 재편 가능)",
+      "transient": true
+    },
+    {
+      "key": "endgame_maps",
+      "label": "엔드게임 (Atlas)",
+      "acts": [
+        10
+      ],
+      "level_range": [
+        65,
+        82
+      ],
+      "towns": [
+        "The Ziggurat Refuge"
+      ],
+      "area_count": 133,
+      "map_area_count": 120,
+      "note": "Waystone / Atlas"
+    }
+  ],
+  "raw_act_distribution": {
+    "world_areas": {
+      "1": 18,
+      "2": 44,
+      "3": 21,
+      "4": 22,
+      "6": 22,
+      "10": 133
+    },
+    "quests": {
+      "0": 10,
+      "1": 16,
+      "2": 17,
+      "3": 7,
+      "4": 22,
+      "5": 7,
+      "6": 11,
+      "10": 27
+    }
+  },
+  "notes": {
+    "unreleased_acts": [
+      5
+    ],
+    "explanation": "area_count=0 + quest_count>0 인 Act 는 미출시/파편 으로 스킵. transient=true phase 는 다음 패치에서 제거/재편 가능 (예: Interlude → Act 5/6 정식화)."
+  }
+}

@@ -110,6 +110,9 @@ const TARGETS: &[&str] = &[
     "Data/Flasks.datc64",
     // Words: UniqueStashLayout.WordsKey 참조용 (POE2 uniques 이름 매핑)
     "Data/Words.datc64",
+    // S4 (2026-04-22) — POE2 Act 구조 실증용. LevelingGuide PHASE_LABEL POE2 키 검증.
+    "Data/WorldAreas.datc64",
+    "Data/Quest.datc64",
     // POE2 Mods 는 schema 중간 필드 misinterpret 가능성 — 순서 맨 끝으로 이동.
     // 2026-04-22 관찰: drift override 적용 후에도 parse_table 25분+ CPU 소모 (POE2 backlog).
     // ModType/ModFamily 는 drift 없음 — Mods 앞으로 이동해 JSON 생성 보장.

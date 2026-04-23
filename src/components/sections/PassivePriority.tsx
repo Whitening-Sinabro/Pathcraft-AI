@@ -5,6 +5,8 @@ interface Props {
 }
 
 export function PassivePrioritySection({ priorities }: Props) {
+  if (!priorities?.length) return null;
+
   return (
     <section className="ui-card">
       <h3 className="ui-section-title">패시브 트리 우선순위</h3>

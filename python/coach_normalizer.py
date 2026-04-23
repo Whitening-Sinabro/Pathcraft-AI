@@ -280,13 +280,15 @@ def normalize_change_field(
 def normalize_coach_output(result: dict, game: str = "poe1") -> tuple[list[str], list[dict]]:
     """Coach JSON 인플레이스 정규화. (경고 리스트, trace 리스트) 반환.
 
+    POE1/POE2 는 SYSTEM_PROMPT 응답 스키마가 다르므로 경로 분리.
+    - POE1: leveling_skills.recommended / options / skill_transitions
+    - POE2: skill_setup.main_skill / support_gems (spear-centric, progression 결합 문자열 포함)
+
     trace: 자동 교정된 필드 이력. {field, from, to, match_type} 각 항목.
-           UI/디버깅에서 "무엇이 어떻게 바뀌었는지" 보이기 위함.
-    대상:
-      leveling_skills.recommended.name / links_progression[].gems
-      leveling_skills.options[].name / links_progression[].gems
-      leveling_skills.skill_transitions[].change
     """
+    if game == "poe2":
+        return _normalize_coach_output_poe2(result)
+
     all_warnings: list[str] = []
     trace: list[dict] = []
 
@@ -324,6 +326,90 @@ def normalize_coach_output(result: dict, game: str = "poe1") -> tuple[list[str],
                     ))
 
     return all_warnings, trace
+
+
+import re as _re
+
+# POE2 support_gems 안의 결합 문자열 split 구분자.
+# LLM 이 "Bleed I → II → III" / "Martial Tempo -> Deep Cuts" / "A / B" / "A, B" 혼용.
+_POE2_GEM_SPLIT_RE = _re.compile(r"\s*(?:→|->|\||/|,|;)\s*")
+
+
+def _normalize_coach_output_poe2(result: dict) -> tuple[list[str], list[dict]]:
+    """POE2 전용 정규화. skill_setup.main_skill + skill_setup.support_gems 순회.
+
+    POE1 과 분리한 이유: POE2 SYSTEM_PROMPT 응답 스키마 (skill_setup 중심) 가 POE1
+    (leveling_skills 중심) 과 다름. POE1 normalizer 는 POE2 필드를 아예 안 봄 → L2 방어층
+    실효 0. "비슷하지만 다르다" 원칙에 따라 별도 경로.
+
+    결합 문자열 처리:
+      "Martial Tempo (Lv 15부터)"           → ["Martial Tempo"]
+      "Bleed I → II → III → IV"             → ["Bleed I", "II", "III", "IV"] → 전부 drop (POE2 에 없음)
+      "Martial Tempo / Deep Cuts"           → ["Martial Tempo", "Deep Cuts"]
+    """
+    warnings: list[str] = []
+    trace: list[dict] = []
+
+    if not isinstance(result, dict):
+        return warnings, trace
+
+    ss = result.get("skill_setup")
+    if not isinstance(ss, dict):
+        return warnings, trace
+
+    # main_skill — 단일 이름 기대. "Twister" 같은 형태.
+    main = ss.get("main_skill")
+    if isinstance(main, str) and main.strip():
+        head = main.split("(")[0].strip()  # 괄호 주석 제거
+        canon, mt = normalize_gem(head, game="poe2")
+        if canon is None:
+            warnings.append(f"[정규화 POE2] skill_setup.main_skill '{main}' 매칭 실패 (POE2 화이트리스트 부재)")
+            trace.append({
+                "field": "skill_setup.main_skill",
+                "from": main, "to": None, "match_type": "dropped",
+            })
+        else:
+            if mt != "exact" or canon != head:
+                trace.append({
+                    "field": "skill_setup.main_skill",
+                    "from": main, "to": canon, "match_type": mt,
+                })
+            ss["main_skill"] = canon
+
+    # support_gems — 리스트. 각 항목이 "Name (note)" / "A → B → C" / 단순 이름 혼재.
+    sg = ss.get("support_gems")
+    if isinstance(sg, list):
+        new_sg: list[str] = []
+        seen: set[str] = set()
+        for raw in sg:
+            if not isinstance(raw, str) or not raw.strip():
+                continue
+            head = raw.split("(")[0].strip()
+            candidates = [p.strip() for p in _POE2_GEM_SPLIT_RE.split(head) if p.strip()]
+            if not candidates:
+                continue
+            for cand in candidates:
+                canon, mt = normalize_gem(cand, game="poe2")
+                if canon is None:
+                    warnings.append(
+                        f"[정규화 POE2] support_gem '{cand}' 매칭 실패 → drop (원본 항목 '{raw[:60]}')"
+                    )
+                    trace.append({
+                        "field": "skill_setup.support_gems",
+                        "from": cand, "to": None, "match_type": "dropped",
+                    })
+                    continue
+                if mt != "exact" or canon != cand:
+                    trace.append({
+                        "field": "skill_setup.support_gems",
+                        "from": cand, "to": canon, "match_type": mt,
+                    })
+                if canon not in seen:
+                    seen.add(canon)
+                    new_sg.append(canon)
+        ss["support_gems"] = new_sg
+
+    return warnings, trace
 
 
 def _normalize_skill_block(block: Any, label: str, trace: list[dict], game: str = "poe1") -> list[str]:
