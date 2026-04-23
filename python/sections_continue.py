@@ -213,6 +213,138 @@ _DEFAULT_INFLUENCE_TYPES = (
 )
 
 
+# ---------------------------------------------------------------------------
+# POE1/POE2 ItemClass 매핑 — D5 2단계 (필터 생성 게임 분기)
+# ---------------------------------------------------------------------------
+#
+# POE1 하드코딩 Class 상수를 game 인자에 따라 POE2 로 변환한다.
+# 매핑 소스: data/item_class_map_poe2.json (NeverSink POE2 필터 0.9.1 ground truth)
+# POE2 변경점:
+#   - Shields → Shields + Bucklers (분할)
+#   - Warstaves → Quarterstaves (rename)
+#   - Claws/Daggers/Rune Daggers/One Hand Axes/Swords/Thrusting Swords/
+#     Two Hand Axes/Swords → 미릴리스 (drop)
+
+_ITEM_CLASS_MAP_POE2_CACHE: Optional[dict] = None
+
+
+def _load_item_class_map_poe2() -> dict:
+    global _ITEM_CLASS_MAP_POE2_CACHE
+    if _ITEM_CLASS_MAP_POE2_CACHE is not None:
+        return _ITEM_CLASS_MAP_POE2_CACHE
+    path = _DATA_DIR / "item_class_map_poe2.json"
+    if not path.exists():
+        logger.warning("item_class_map_poe2.json 미발견: %s — POE2 클래스 매핑은 빈 결과", path)
+        _ITEM_CLASS_MAP_POE2_CACHE = {}
+        return _ITEM_CLASS_MAP_POE2_CACHE
+    _ITEM_CLASS_MAP_POE2_CACHE = json.loads(path.read_text(encoding="utf-8"))
+    return _ITEM_CLASS_MAP_POE2_CACHE
+
+
+# L9 blanket Normal/Magic hide 용. 기존 layer_progressive_hide 내부 _EQUIP_CLASSES 원본.
+_POE1_EQUIP_CLASSES: tuple[str, ...] = (
+    "Body Armours", "Helmets", "Gloves", "Boots", "Shields",
+    "Amulets", "Belts", "Rings", "Quivers",
+    "One Hand Axes", "One Hand Maces", "One Hand Swords", "Thrusting One Hand Swords",
+    "Two Hand Axes", "Two Hand Maces", "Two Hand Swords",
+    "Bows", "Claws", "Daggers", "Rune Daggers", "Sceptres", "Staves", "Wands", "Warstaves",
+)
+
+# L11 layer_endgame_rare / endgame_rare_hide Normal·Magic blanket 용. 알파벳 정렬된 24 classes.
+_POE1_RARE_EQUIP_CLASSES: tuple[str, ...] = (
+    "Amulets", "Belts", "Body Armours", "Boots", "Bows", "Claws", "Daggers",
+    "Gloves", "Helmets", "One Hand Axes", "One Hand Maces", "One Hand Swords",
+    "Quivers", "Rings", "Rune Daggers", "Sceptres", "Shields", "Staves",
+    "Thrusting One Hand Swords", "Two Hand Axes", "Two Hand Maces", "Two Hand Swords",
+    "Wands", "Warstaves",
+)
+
+# [[2000]] Amulets/Belts/Rings 제외 no-implicit 레어 대상.
+_POE1_ENDGAME_RARE_NOIMPL: tuple[str, ...] = (
+    "Body Armours", "Boots", "Bows", "Claws", "Daggers",
+    "Gloves", "Helmets", "One Hand Axes", "One Hand Maces", "One Hand Swords",
+    "Quivers", "Rune Daggers", "Sceptres", "Shields", "Staves",
+    "Thrusting One Hand Swords", "Two Hand Axes", "Two Hand Maces", "Two Hand Swords",
+    "Wands", "Warstaves",
+)
+
+# [[2200]] 4-slot droplevel hide. POE1/POE2 공통.
+_POE1_DROPLEVEL_HIDE: tuple[str, ...] = ("Body Armours", "Boots", "Gloves", "Helmets")
+
+# L10 Re-Show 용. Wreckers Levelling Help 의 1H/2H 무기·4-slot 방어구.
+_POE1_WEAPON_1H: tuple[str, ...] = (
+    "Claws", "Daggers", "One Hand Axes", "One Hand Maces",
+    "One Hand Swords", "Rune Daggers", "Sceptres", "Shields",
+    "Thrusting One Hand Swords", "Wands",
+)
+_POE1_WEAPON_2H: tuple[str, ...] = (
+    "Bows", "Staves", "Two Hand Axes", "Two Hand Maces",
+    "Two Hand Swords", "Warstaves",
+)
+_POE1_ARMOR_4SLOT: tuple[str, ...] = ("Body Armours", "Boots", "Gloves", "Helmets")
+
+# L10 T1 보더 재Show. Wreckers L172 메인 장비 (Rings/Gloves/Helmets 제외 21 classes).
+_POE1_T1_RESHOW_RING_GLOVE_HELM: tuple[str, ...] = ("Rings", "Gloves", "Helmets")
+_POE1_T1_RESHOW_MAIN_EQUIP: tuple[str, ...] = (
+    "Amulets", "Belts", "Body Armours", "Boots", "Bows", "Claws", "Daggers",
+    "One Hand Axes", "One Hand Maces", "One Hand Swords", "Quivers", "Rune Daggers",
+    "Sceptres", "Shields", "Staves", "Thrusting One Hand Swords", "Two Hand Axes",
+    "Two Hand Maces", "Two Hand Swords", "Wands", "Warstaves",
+)
+
+
+def _map_poe1_classes(poe1_classes: "tuple[str, ...] | list[str]", game: str) -> list[str]:
+    """POE1 클래스 → 지정 게임의 클래스.
+
+    - game="poe1": 입력 그대로.
+    - game="poe2": poe1_to_poe2 맵 적용. 빈 매핑(Claws 등)은 drop.
+                   Shields → [Shields, Bucklers] 다중 매핑은 순서 보존해 확장.
+    """
+    if game == "poe1":
+        return list(poe1_classes)
+    if game != "poe2":
+        raise ValueError(f"unsupported game: {game!r}")
+    mapping = _load_item_class_map_poe2().get("poe1_to_poe2", {})
+    out: list[str] = []
+    seen: set[str] = set()
+    for c in poe1_classes:
+        for mapped in mapping.get(c, []):
+            if mapped and mapped not in seen:
+                seen.add(mapped)
+                out.append(mapped)
+    return out
+
+
+def _join_classes_quoted(classes: "list[str] | tuple[str, ...]") -> str:
+    return " ".join(f'"{c}"' for c in classes)
+
+
+def _equip_classes_for(game: str = "poe1") -> str:
+    """L9 blanket Normal/Magic hide 용. 'Class {...}' 의 뒷부분 (Class 키워드 없음)."""
+    return _join_classes_quoted(_map_poe1_classes(_POE1_EQUIP_CLASSES, game))
+
+
+def _rare_equip_exact_for(game: str = "poe1") -> str:
+    """L11 layer_endgame_rare 용 'Class == "..." "..." ' 조건 full string."""
+    classes = _map_poe1_classes(_POE1_RARE_EQUIP_CLASSES, game)
+    return "Class == " + _join_classes_quoted(classes)
+
+
+def _endgame_rare_equip_for(game: str = "poe1") -> str:
+    """layer_endgame_rare_hide Normal/Magic blanket용 클래스 문자열. Class == prefix 없음."""
+    return _join_classes_quoted(_map_poe1_classes(_POE1_RARE_EQUIP_CLASSES, game))
+
+
+def _endgame_rare_noimpl_for(game: str = "poe1") -> str:
+    """Amulets/Belts/Rings 제외 no-implicit 레어 클래스 문자열."""
+    return _join_classes_quoted(_map_poe1_classes(_POE1_ENDGAME_RARE_NOIMPL, game))
+
+
+def _droplevel_hide_for(game: str = "poe1") -> str:
+    """[[2200]] 4-slot droplevel hide 클래스 문자열."""
+    return _join_classes_quoted(_map_poe1_classes(_POE1_DROPLEVEL_HIDE, game))
+
+
 @dataclass(frozen=True)
 class T1Bases:
     """T1 크래프팅 베이스 로드 결과.
@@ -789,6 +921,7 @@ def layer_progressive_hide(
     strictness: int = 3,
     data: Optional[ProgressiveHideData] = None,
     mode: str = "ssf",
+    game: str = "poe1",
 ) -> str:
     """L9 Progressive Hide — AL 기반 단계적 숨김.
 
@@ -826,21 +959,15 @@ def layer_progressive_hide(
                 category_tag="supply",
             ))
 
-    # Normal 전체 (AL >= 14) — 장비 클래스만 대상 (젬/맵/커런시/디비카/프래그먼트/퀘스트 아이템 제외)
+    # Normal/Magic 전체 — 장비 클래스만 대상 (젬/맵/커런시/디비카/프래그먼트/퀘스트 아이템 제외)
     # NeverSink 관례: blanket Rarity hide는 Class 제약 필수. 안 그러면 젬/커런시까지 숨겨짐.
-    _EQUIP_CLASSES = (
-        '"Body Armours" "Helmets" "Gloves" "Boots" "Shields"'
-        ' "Amulets" "Belts" "Rings" "Quivers"'
-        ' "One Hand Axes" "One Hand Maces" "One Hand Swords" "Thrusting One Hand Swords"'
-        ' "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"'
-        ' "Bows" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Wands" "Warstaves"'
-    )
+    equip_classes = _equip_classes_for(game)
     if strictness >= 1:
         blocks.append(_hide_block(
             f"Normal 장비 AL>={d.normal_all_al}",
             conditions=[
                 "Rarity Normal",
-                f"Class {_EQUIP_CLASSES}",
+                f"Class {equip_classes}",
                 f"AreaLevel >= {d.normal_all_al}",
             ],
             category_tag="normal_all",
@@ -852,7 +979,7 @@ def layer_progressive_hide(
             f"Magic 장비 AL>={d.magic_all_al}",
             conditions=[
                 "Rarity Magic",
-                f"Class {_EQUIP_CLASSES}",
+                f"Class {equip_classes}",
                 f"AreaLevel >= {d.magic_all_al}",
             ],
             category_tag="magic_all",
@@ -904,12 +1031,18 @@ def layer_progressive_hide(
                 category_tag="level_mid",
             ))
 
-    # Flask (AL >= 73, strictness >= 3)
+    # Flask (AL >= 73, strictness >= 3). POE2 에는 Hybrid Flasks 없음 — Life/Mana 만.
     if strictness >= 3:
+        if game == "poe1":
+            flask_classes = 'Class "Life Flasks" "Mana Flasks" "Hybrid Flasks"'
+            flask_label = "Life/Mana/Hybrid"
+        else:
+            flask_classes = 'Class "Life Flasks" "Mana Flasks"'
+            flask_label = "Life/Mana"
         blocks.append(_hide_block(
-            f"기본 Life/Mana/Hybrid 플라스크 AL>={d.flask_hide_al}",
+            f"기본 {flask_label} 플라스크 AL>={d.flask_hide_al}",
             conditions=[
-                'Class "Life Flasks" "Mana Flasks" "Hybrid Flasks"',
+                flask_classes,
                 f"AreaLevel >= {d.flask_hide_al}",
                 "Rarity Normal",
             ],
@@ -3185,15 +3318,6 @@ def layer_splinters(mode: str = "ssf", items: Optional[GGPKItems] = None) -> str
     return "".join(blocks)
 
 
-_RARE_EQUIP_CLASSES_EXACT = (
-    'Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Claws" "Daggers"'
-    ' "Gloves" "Helmets" "One Hand Axes" "One Hand Maces" "One Hand Swords"'
-    ' "Quivers" "Rings" "Rune Daggers" "Sceptres" "Shields" "Staves"'
-    ' "Thrusting One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"'
-    ' "Wands" "Warstaves"'
-)
-
-
 _UNIQUE_TIERS_CACHE: Optional[dict] = None
 
 
@@ -3404,15 +3528,27 @@ def layer_uniques(mode: str = "ssf") -> str:
     return "".join(blocks)
 
 
-def layer_endgame_rare(mode: str = "ssf") -> str:
+def layer_endgame_rare(mode: str = "ssf", game: str = "poe1") -> str:
     """L8 Endgame Rare — NeverSink [[1600]] 구조 + Aurora Glow 스타일.
 
     NeverSink 조건(ilvl 68+, 사이즈 분류, 링크, T1 ilvl, 부패)은 그대로 복사하되
     스타일은 Aurora 팔레트("base" 카테고리 Turquoise 그라데이션)로 치환.
     모든 블록 Continue=True → L6/L7이 상위 덮어씀.
+
+    game="poe2": ItemClass 는 poe1_to_poe2 매핑 적용 (Shields → Shields+Bucklers,
+                 Warstaves → Quarterstaves, Claws/Daggers/O1Axes/Swords drop).
+                 매핑 결과가 빈 리스트인 T1 블록은 생성하지 않음.
     """
     if mode not in VALID_MODES:
         raise ValueError(f"mode must be in {VALID_MODES}, got {mode!r}")
+
+    rare_exact = _rare_equip_exact_for(game)
+
+    def _class_eq_or_none(poe1_classes: "tuple[str, ...]") -> Optional[str]:
+        mapped = _map_poe1_classes(poe1_classes, game)
+        if not mapped:
+            return None
+        return "Class == " + _join_classes_quoted(mapped)
 
     blocks: list[str] = []
 
@@ -3423,7 +3559,7 @@ def layer_endgame_rare(mode: str = "ssf") -> str:
         conditions=[
             "Width >= 2", "Height >= 3",
             "ItemLevel >= 68", "Rarity Rare",
-            _RARE_EQUIP_CLASSES_EXACT,
+            rare_exact,
         ],
         style=style_from_palette("base", "P2_CORE"),
         continue_=True,
@@ -3437,7 +3573,7 @@ def layer_endgame_rare(mode: str = "ssf") -> str:
         conditions=[
             "Width 1", "Height >= 3",
             "ItemLevel >= 68", "Rarity Rare",
-            _RARE_EQUIP_CLASSES_EXACT,
+            rare_exact,
         ],
         style=style_from_palette("base", "P3_USEFUL"),
         continue_=True,
@@ -3451,7 +3587,7 @@ def layer_endgame_rare(mode: str = "ssf") -> str:
         conditions=[
             "Width 2", "Height 2",
             "ItemLevel >= 68", "Rarity Rare",
-            _RARE_EQUIP_CLASSES_EXACT,
+            rare_exact,
         ],
         style=style_from_palette("base", "P3_USEFUL"),
         continue_=True,
@@ -3465,7 +3601,7 @@ def layer_endgame_rare(mode: str = "ssf") -> str:
         conditions=[
             "Width <= 2", "Height 1",
             "ItemLevel >= 68", "Rarity Rare",
-            _RARE_EQUIP_CLASSES_EXACT,
+            rare_exact,
         ],
         style=style_from_palette("base", "P4_SUPPORT"),
         continue_=True,
@@ -3479,7 +3615,7 @@ def layer_endgame_rare(mode: str = "ssf") -> str:
         conditions=[
             "LinkedSockets >= 4",
             "ItemLevel >= 68", "Rarity Rare",
-            _RARE_EQUIP_CLASSES_EXACT,
+            rare_exact,
         ],
         style=style_from_palette("links", "P3_USEFUL"),
         continue_=True,
@@ -3487,52 +3623,67 @@ def layer_endgame_rare(mode: str = "ssf") -> str:
     ))
 
     # 6~9. T1 ilvl 별 Class — Aurora "base" P1 (최상위)
-    blocks.append(make_layer_block(
-        LAYER_CATEGORY_SHOW,
-        "레어 T1 ilvl>=83 근접 무기",
-        conditions=[
-            "ItemLevel >= 83", "Rarity Rare",
-            'Class == "Claws" "Daggers" "One Hand Axes" "One Hand Maces"'
-            ' "One Hand Swords" "Thrusting One Hand Swords"'
-            ' "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Warstaves"',
-        ],
-        style=style_from_palette("base", "P1_KEYSTONE"),
-        continue_=True,
-        category_tag="rare_t1_melee",
+    # POE2 에서 매핑 결과가 빈 리스트인 블록은 skip.
+    t1_melee_cond = _class_eq_or_none((
+        "Claws", "Daggers", "One Hand Axes", "One Hand Maces",
+        "One Hand Swords", "Thrusting One Hand Swords",
+        "Two Hand Axes", "Two Hand Maces", "Two Hand Swords", "Warstaves",
     ))
-    blocks.append(make_layer_block(
-        LAYER_CATEGORY_SHOW,
-        "레어 T1 ilvl>=84 반지/스태프",
-        conditions=[
-            "ItemLevel >= 84", "Rarity Rare",
-            'Class == "Rings" "Rune Daggers" "Sceptres" "Staves" "Wands"',
-        ],
-        style=style_from_palette("base", "P1_KEYSTONE"),
-        continue_=True,
-        category_tag="rare_t1_caster",
+    if t1_melee_cond is not None:
+        blocks.append(make_layer_block(
+            LAYER_CATEGORY_SHOW,
+            "레어 T1 ilvl>=83 근접 무기",
+            conditions=[
+                "ItemLevel >= 83", "Rarity Rare",
+                t1_melee_cond,
+            ],
+            style=style_from_palette("base", "P1_KEYSTONE"),
+            continue_=True,
+            category_tag="rare_t1_melee",
+        ))
+    t1_caster_cond = _class_eq_or_none((
+        "Rings", "Rune Daggers", "Sceptres", "Staves", "Wands",
     ))
-    blocks.append(make_layer_block(
-        LAYER_CATEGORY_SHOW,
-        "레어 T1 ilvl>=85 목걸이/장갑/헬멧",
-        conditions=[
-            "ItemLevel >= 85", "Rarity Rare",
-            'Class == "Amulets" "Gloves" "Helmets"',
-        ],
-        style=style_from_palette("base", "P1_KEYSTONE"),
-        continue_=True,
-        category_tag="rare_t1_amulet_gloves_helm",
+    if t1_caster_cond is not None:
+        blocks.append(make_layer_block(
+            LAYER_CATEGORY_SHOW,
+            "레어 T1 ilvl>=84 반지/스태프",
+            conditions=[
+                "ItemLevel >= 84", "Rarity Rare",
+                t1_caster_cond,
+            ],
+            style=style_from_palette("base", "P1_KEYSTONE"),
+            continue_=True,
+            category_tag="rare_t1_caster",
+        ))
+    t1_amulet_cond = _class_eq_or_none(("Amulets", "Gloves", "Helmets"))
+    if t1_amulet_cond is not None:
+        blocks.append(make_layer_block(
+            LAYER_CATEGORY_SHOW,
+            "레어 T1 ilvl>=85 목걸이/장갑/헬멧",
+            conditions=[
+                "ItemLevel >= 85", "Rarity Rare",
+                t1_amulet_cond,
+            ],
+            style=style_from_palette("base", "P1_KEYSTONE"),
+            continue_=True,
+            category_tag="rare_t1_amulet_gloves_helm",
+        ))
+    t1_armor_cond = _class_eq_or_none((
+        "Belts", "Body Armours", "Boots", "Bows", "Quivers", "Shields",
     ))
-    blocks.append(make_layer_block(
-        LAYER_CATEGORY_SHOW,
-        "레어 T1 ilvl>=86 방어구/벨트/보우/쉴드",
-        conditions=[
-            "ItemLevel >= 86", "Rarity Rare",
-            'Class == "Belts" "Body Armours" "Boots" "Bows" "Quivers" "Shields"',
-        ],
-        style=style_from_palette("base", "P1_KEYSTONE"),
-        continue_=True,
-        category_tag="rare_t1_armor",
-    ))
+    if t1_armor_cond is not None:
+        blocks.append(make_layer_block(
+            LAYER_CATEGORY_SHOW,
+            "레어 T1 ilvl>=86 방어구/벨트/보우/쉴드",
+            conditions=[
+                "ItemLevel >= 86", "Rarity Rare",
+                t1_armor_cond,
+            ],
+            style=style_from_palette("base", "P1_KEYSTONE"),
+            continue_=True,
+            category_tag="rare_t1_armor",
+        ))
 
     # 10. 부패 레어 (무효 임플리싯) — Aurora "currency" P4 (Faded Coral)
     blocks.append(make_layer_block(
@@ -3541,7 +3692,7 @@ def layer_endgame_rare(mode: str = "ssf") -> str:
         conditions=[
             "Corrupted True", "CorruptedMods 0",
             "ItemLevel >= 68", "Rarity Rare",
-            _RARE_EQUIP_CLASSES_EXACT,
+            rare_exact,
         ],
         style=style_from_palette("currency", "P4_SUPPORT"),
         continue_=True,
@@ -3555,7 +3706,7 @@ def layer_endgame_rare(mode: str = "ssf") -> str:
         conditions=[
             "Corrupted True", "CorruptedMods >= 1",
             "ItemLevel >= 68", "Rarity Rare",
-            _RARE_EQUIP_CLASSES_EXACT,
+            rare_exact,
         ],
         style=style_from_palette("currency", "P1_KEYSTONE"),
         continue_=True,
@@ -4459,7 +4610,9 @@ _RESHOW_CYAN_BG = "0 40 60 220"
 # 우리 L10이 L9 Hide / L11 blanket 뒤에 위치하므로 동일 시맨틱.
 # Continue=False → POE top-down 첫 매칭이 승리 → L11 blanket으로부터 T1 보호.
 
-_T1_RESHOW_GROUPS: "list[tuple[str, list[str], int, str]]" = [
+# T1 재Show 그룹. POE1 은 7 카테고리, POE2 는 2 카테고리 (Trinkets/Heist/Utility Flasks/
+# Tinctures/Cluster Jewels 는 POE1 전용). 각 그룹의 Class 조건은 game 에 따라 매핑.
+_T1_RESHOW_GROUPS_POE1: "list[tuple[str, list[str], int, str]]" = [
     # (tag_base, conditions_list, ilvl, comment_prefix)
     ("ring_glove_helm",
      ['Class == "Rings" "Gloves" "Helmets"'],
@@ -4488,6 +4641,36 @@ _T1_RESHOW_GROUPS: "list[tuple[str, list[str], int, str]]" = [
      84, "Medium/Large Cluster Jewel T1 보더"),
 ]
 
+
+def _t1_reshow_groups_for(game: str) -> "list[tuple[str, list[str], int, str]]":
+    """game 별 T1 재Show 그룹.
+
+    - POE1: 7 카테고리 그대로.
+    - POE2: ring_glove_helm / main_equip 만 POE2 ItemClass 로 변환하고
+            Trinket/Heist/Flask/Tincture/Cluster Jewel 은 POE1 전용이라 skip.
+    """
+    if game == "poe1":
+        return _T1_RESHOW_GROUPS_POE1
+    if game != "poe2":
+        raise ValueError(f"unsupported game: {game!r}")
+
+    out: "list[tuple[str, list[str], int, str]]" = []
+    rgh = _map_poe1_classes(_POE1_T1_RESHOW_RING_GLOVE_HELM, "poe2")
+    if rgh:
+        out.append((
+            "ring_glove_helm",
+            [f"Class == {_join_classes_quoted(rgh)}"],
+            85, "반지/장갑/헬멧 T1 보더",
+        ))
+    main = _map_poe1_classes(_POE1_T1_RESHOW_MAIN_EQUIP, "poe2")
+    if main:
+        out.append((
+            "main_equip",
+            [f"Class == {_join_classes_quoted(main)}"],
+            86, "메인 장비 T1 보더",
+        ))
+    return out
+
 # Wreckers L172 표준 색 (rarity → border)
 _T1_RESHOW_RARITY_BORDER: "list[tuple[str, str]]" = [
     ("Normal", "255 255 255"),
@@ -4498,19 +4681,29 @@ _T1_RESHOW_RARITY_BORDER: "list[tuple[str, str]]" = [
 
 # Wreckers L936~977 Levelling Help + Sanavi 사운드 (5Link.mp3 / ProbPickUp.mp3)
 # 빌드 무관 범용 — 캠페인 AL<=67 레벨링 중 링크/화이트 소켓 자원 자동 강조.
-_WEAPON_1H_CLASSES = (
-    'Class "Claws" "Daggers" "One Hand Axes" "One Hand Maces" '
-    '"One Hand Swords" "Rune Daggers" "Sceptres" "Shields" '
-    '"Thrusting One Hand Swords" "Wands"'
-)
-_WEAPON_2H_CLASSES = (
-    'Class "Bows" "Staves" "Two Hand Axes" "Two Hand Maces" '
-    '"Two Hand Swords" "Warstaves"'
-)
-_ARMOR_4SLOT_CLASSES = '"Body Armours" "Boots" "Gloves" "Helmets"'
 
 
-def _leveling_help_blocks() -> list[str]:
+def _weapon_1h_cond_for(game: str) -> Optional[str]:
+    """'Class "..." "..."' (== 없는 느슨한 match). 매핑 결과 비면 None."""
+    cls = _map_poe1_classes(_POE1_WEAPON_1H, game)
+    if not cls:
+        return None
+    return "Class " + _join_classes_quoted(cls)
+
+
+def _weapon_2h_cond_for(game: str) -> Optional[str]:
+    cls = _map_poe1_classes(_POE1_WEAPON_2H, game)
+    if not cls:
+        return None
+    return "Class " + _join_classes_quoted(cls)
+
+
+def _armor_4slot_classes_for(game: str) -> str:
+    """'Class == "..." "..."' 용 클래스 문자열 (Class == prefix 없음). POE1/POE2 공통."""
+    return _join_classes_quoted(_map_poe1_classes(_POE1_ARMOR_4SLOT, game))
+
+
+def _leveling_help_blocks(game: str = "poe1") -> list[str]:
     """Wreckers L936 Levelling Help + Sanavi CustomAlertSound 이식.
 
     캠페인 AL<=67 전용. 링크/화이트 소켓 장비를 빌드 무관으로 강조 —
@@ -4518,6 +4711,9 @@ def _leveling_help_blocks() -> list[str]:
     전부 Continue=False (최종 Show, L11 blanket 방어).
     """
     blocks: list[str] = []
+    weapon_1h_cond = _weapon_1h_cond_for(game)
+    weapon_2h_cond = _weapon_2h_cond_for(game)
+    armor_4slot_classes = _armor_4slot_classes_for(game)
 
     # 3-link 초반 (AL<=25) — Cyan Temp decoration
     blocks.append(make_layer_block(
@@ -4530,17 +4726,18 @@ def _leveling_help_blocks() -> list[str]:
         category_tag="lvl_3link_early",
     ))
 
-    # 3-link 무기 (AL<=67) — 1h weapons only (작은 크기 우선)
-    blocks.append(make_layer_block(
-        LAYER_RE_SHOW,
-        "Levelling 3-link 무기 1h (AL<=67)",
-        conditions=[_WEAPON_1H_CLASSES, "LinkedSockets >= 3",
-                    "AreaLevel <= 67"],
-        style=LayerStyle(font=38, border="0 120 120",
-                         effect="Grey Temp"),
-        continue_=False,
-        category_tag="lvl_3link_weapon",
-    ))
+    # 3-link 무기 (AL<=67) — 1h weapons only. POE2 에서 매핑 결과 비면 skip.
+    if weapon_1h_cond is not None:
+        blocks.append(make_layer_block(
+            LAYER_RE_SHOW,
+            "Levelling 3-link 무기 1h (AL<=67)",
+            conditions=[weapon_1h_cond, "LinkedSockets >= 3",
+                        "AreaLevel <= 67"],
+            style=LayerStyle(font=38, border="0 120 120",
+                             effect="Grey Temp"),
+            continue_=False,
+            category_tag="lvl_3link_weapon",
+        ))
 
     # 4-link 장비 (AL<=67) — any class, Blue border
     blocks.append(make_layer_block(
@@ -4569,23 +4766,24 @@ def _leveling_help_blocks() -> list[str]:
         category_tag="lvl_5link",
     ))
 
-    # 3x White 무기 1h (AL<79) — 4-링크 준비용
-    blocks.append(make_layer_block(
-        LAYER_RE_SHOW,
-        "Levelling 3x White 무기 1h (AL<79, 화이트 소켓 자원)",
-        conditions=[_WEAPON_1H_CLASSES, "Sockets >= 3WWW",
-                    "AreaLevel < 79"],
-        style=LayerStyle(font=36, border="0 240 190",
-                         effect="Blue Temp"),
-        continue_=False,
-        category_tag="lvl_3ww_weapon",
-    ))
+    # 3x White 무기 1h (AL<79) — 4-링크 준비용. POE2 에서 매핑 결과 비면 skip.
+    if weapon_1h_cond is not None:
+        blocks.append(make_layer_block(
+            LAYER_RE_SHOW,
+            "Levelling 3x White 무기 1h (AL<79, 화이트 소켓 자원)",
+            conditions=[weapon_1h_cond, "Sockets >= 3WWW",
+                        "AreaLevel < 79"],
+            style=LayerStyle(font=36, border="0 240 190",
+                             effect="Blue Temp"),
+            continue_=False,
+            category_tag="lvl_3ww_weapon",
+        ))
 
     # 4x White 방어구 (helm/glove/boot/body) — built-in sound 1
     blocks.append(make_layer_block(
         LAYER_RE_SHOW,
-        f"Levelling 4x White 방어구 ({_ARMOR_4SLOT_CLASSES.count(chr(34)) // 2}종 class)",
-        conditions=[f"Class == {_ARMOR_4SLOT_CLASSES}",
+        f"Levelling 4x White 방어구 ({armor_4slot_classes.count(chr(34)) // 2}종 class)",
+        conditions=[f"Class == {armor_4slot_classes}",
                     "Sockets >= 4WWWW"],
         style=LayerStyle(font=42, border="0 240 190",
                          bg="0 75 30 255", effect="Blue",
@@ -4594,34 +4792,35 @@ def _leveling_help_blocks() -> list[str]:
         category_tag="lvl_4ww_armor",
     ))
 
-    # 6x White 2h 무기 — Sanavi ProbPickUp.mp3 (귀중)
-    blocks.append(make_layer_block(
-        LAYER_RE_SHOW,
-        "Levelling 6x White 2h 무기 (Sanavi ProbPickUp.mp3)",
-        conditions=[_WEAPON_2H_CLASSES, "Sockets >= 6WWWWWW"],
-        style=LayerStyle(
-            font=45, text="0 240 190", border="0 240 190",
-            bg="0 75 30 255", effect="Blue",
-            icon="0 Blue Diamond",
-            custom_sound=("ProbPickUp.mp3", 300),
-        ),
-        continue_=False,
-        category_tag="lvl_6ww_2h",
-    ))
+    # 6x White 2h 무기 — Sanavi ProbPickUp.mp3 (귀중). POE2 에서 매핑 결과 비면 skip.
+    if weapon_2h_cond is not None:
+        blocks.append(make_layer_block(
+            LAYER_RE_SHOW,
+            "Levelling 6x White 2h 무기 (Sanavi ProbPickUp.mp3)",
+            conditions=[weapon_2h_cond, "Sockets >= 6WWWWWW"],
+            style=LayerStyle(
+                font=45, text="0 240 190", border="0 240 190",
+                bg="0 75 30 255", effect="Blue",
+                icon="0 Blue Diamond",
+                custom_sound=("ProbPickUp.mp3", 300),
+            ),
+            continue_=False,
+            category_tag="lvl_6ww_2h",
+        ))
 
     return blocks
 
 
-def _unconditional_re_show_blocks() -> list[str]:
+def _unconditional_re_show_blocks(game: str = "poe1") -> list[str]:
     """Wreckers L172/L237 T1 보더 + L936 Levelling Help 재Show — build_data 무관.
 
-    T1 보더 7 카테고리 × 3 Rarity = 21 블록 + Levelling Help 7 블록 = 28 블록.
+    POE1: T1 보더 7 카테고리 × 3 Rarity = 21 블록 + Levelling Help 7 블록.
+    POE2: T1 보더 2 카테고리 (ring_glove_helm/main_equip) × 3 Rarity = 6 블록 +
+          Levelling Help 중 무기 관련은 매핑 결과에 따라 일부 skip.
     전부 Continue=False (최종 Show).
-    L11 normalmagic_blanket에서 해당 카테고리는 Class 일부 겹치나 POE top-down
-    시맨틱으로 L10 먼저 매칭 → Continue=False → L11 미도달.
     """
     blocks: list[str] = []
-    for tag_base, base_conds, ilvl, comment_prefix in _T1_RESHOW_GROUPS:
+    for tag_base, base_conds, ilvl, comment_prefix in _t1_reshow_groups_for(game):
         for rarity, border in _T1_RESHOW_RARITY_BORDER:
             blocks.append(make_layer_block(
                 LAYER_RE_SHOW,
@@ -4636,13 +4835,14 @@ def _unconditional_re_show_blocks() -> list[str]:
                 category_tag=f"{tag_base}_{rarity.lower()}",
             ))
     # Levelling help — T1 뒤에 위치 (T1이 ilvl>=75~86 endgame, lvl help는 AL<=67 campaign → 겹침 없음)
-    blocks.extend(_leveling_help_blocks())
+    blocks.extend(_leveling_help_blocks(game))
     return blocks
 
 
 def layer_re_show(
     build_data: "Optional[dict | list[dict]]" = None,
     coaching_data: Optional[dict] = None,
+    game: str = "poe1",
 ) -> str:
     """L10 Re-Show — Unconditional T1 보더 재Show + 빌드 타겟 재Show.
 
@@ -4653,7 +4853,7 @@ def layer_re_show(
     빌드 타겟 블록 (build_data 있을 때만): chanceable/base/skill/support/unique_target/all_gems.
     다중 POB 입력은 union (RE_SHOW는 AL 분기 불필요).
     """
-    blocks: list[str] = _unconditional_re_show_blocks()
+    blocks: list[str] = _unconditional_re_show_blocks(game)
 
     if not build_data:
         return "".join(blocks)
@@ -4843,40 +5043,27 @@ def layer_re_show(
 #
 # 모든 블록 action=Hide, continue=False → 최종 결정. L12 REST_EX는 아직 미구현.
 
-_ENDGAME_RARE_EQUIP = (
-    '"Amulets" "Belts" "Body Armours" "Boots" "Bows" "Claws" "Daggers" '
-    '"Gloves" "Helmets" "One Hand Axes" "One Hand Maces" "One Hand Swords" '
-    '"Quivers" "Rings" "Rune Daggers" "Sceptres" "Shields" "Staves" '
-    '"Thrusting One Hand Swords" "Two Hand Axes" "Two Hand Maces" '
-    '"Two Hand Swords" "Wands" "Warstaves"'
-)
-
-# [[2000]] 부패/미러 블록은 Amulets/Belts/Rings 제외 (Cobalt Strict L3483)
-# 이유: [[2100]] Amulets/Rings/Belts 별도 Show가 해당 카테고리의 hide 책임
-_ENDGAME_RARE_NOIMPL_CLASSES = (
-    '"Body Armours" "Boots" "Bows" "Claws" "Daggers" '
-    '"Gloves" "Helmets" "One Hand Axes" "One Hand Maces" "One Hand Swords" '
-    '"Quivers" "Rune Daggers" "Sceptres" "Shields" "Staves" '
-    '"Thrusting One Hand Swords" "Two Hand Axes" "Two Hand Maces" '
-    '"Two Hand Swords" "Wands" "Warstaves"'
-)
-
-# [[2200]] droplevel hiding 4-slot classes (Cobalt Strict 기준)
-_DROPLEVEL_HIDE_CLASSES = '"Body Armours" "Boots" "Gloves" "Helmets"'
-
-# NormalMagic blanket hide 클래스 — Cobalt L4223 기반이되 Utility Flasks 제외.
-# 이유: Wreckers L232 "Always Show Class Flask Tincture..." 철학 따름. L8 layer_flasks_quality
-# (Utility Flask Magic Continue=True 데코) 덮어쓰기 회귀 방지. 원칙 6 적용.
-_ENDGAME_NORMAL_MAGIC_CLASSES = _ENDGAME_RARE_EQUIP
+# [[2200]] droplevel 는 POE1/POE2 공히 Body Armours/Boots/Gloves/Helmets 4-slot.
+# [[2700]] Normal/Magic blanket 은 Cobalt L4223 기반이되 Utility Flasks 제외.
+#   이유: Wreckers L232 "Always Show Class Flask Tincture..." 철학. L8 layer_flasks_quality
+#   (Utility Flask Magic Continue=True 데코) 덮어쓰기 회귀 방지.
+# [[2000]] no-implicit 부패/미러 블록은 Amulets/Belts/Rings 제외 (Cobalt Strict L3483)
+#   이유: [[2100]] Amulets/Rings/Belts 별도 Show가 해당 카테고리의 hide 책임.
 
 
-def layer_endgame_rare_hide(mode: str = "ssf") -> str:
+def layer_endgame_rare_hide(mode: str = "ssf", game: str = "poe1") -> str:
     """L11 Endgame Rare Hide — Cobalt Strict [[2000]]/[[2200]]/[[2700]].
 
     모드 무관 동일 규칙. mode 인자는 다른 layer 시그니처와 통일을 위한 것.
+    game="poe2": Class 목록은 poe1_to_poe2 매핑 (Shields+Bucklers, Warstaves→Quarterstaves,
+                 Claws/Daggers/One Hand Axes 등 제거).
     """
     if mode not in VALID_MODES:
         raise ValueError(f"mode must be in {VALID_MODES}, got {mode!r}")
+
+    noimpl_classes = _endgame_rare_noimpl_for(game)
+    droplevel_classes = _droplevel_hide_for(game)
+    normalmagic_classes = _endgame_rare_equip_for(game)
 
     hide_style = LayerStyle(
         font=18,
@@ -4897,7 +5084,7 @@ def layer_endgame_rare_hide(mode: str = "ssf") -> str:
             "CorruptedMods 0",
             "ItemLevel >= 68",
             "Rarity Rare",
-            f"Class == {_ENDGAME_RARE_NOIMPL_CLASSES}",
+            f"Class == {noimpl_classes}",
         ],
         style=hide_style,
         action="Hide",
@@ -4915,7 +5102,7 @@ def layer_endgame_rare_hide(mode: str = "ssf") -> str:
             "CorruptedMods 0",
             "ItemLevel >= 68",
             "Rarity Rare",
-            f"Class == {_ENDGAME_RARE_NOIMPL_CLASSES}",
+            f"Class == {noimpl_classes}",
         ],
         style=hide_style,
         action="Hide",
@@ -4932,7 +5119,7 @@ def layer_endgame_rare_hide(mode: str = "ssf") -> str:
                 "ItemLevel >= 68",
                 f"DropLevel < {drop_level}",
                 "Rarity Rare",
-                f"Class == {_DROPLEVEL_HIDE_CLASSES}",
+                f"Class == {droplevel_classes}",
                 f"AreaLevel >= {al}",
             ],
             style=hide_style,
@@ -4956,7 +5143,7 @@ def layer_endgame_rare_hide(mode: str = "ssf") -> str:
         "[[2700]] 엔드게임 Normal/Magic 장비 blanket Hide",
         conditions=[
             "Rarity Normal Magic",
-            f"Class == {_ENDGAME_NORMAL_MAGIC_CLASSES}",
+            f"Class == {normalmagic_classes}",
             "AreaLevel >= 68",
         ],
         style=hide_style,
@@ -4988,6 +5175,7 @@ def generate_beta_overlay(
     stage: bool = False,
     mode: str = "ssf",
     al_split: int = 67,
+    game: str = "poe1",
 ) -> str:
     """β 아키텍처 오버레이 생성. L0~L10 전 레이어.
 
@@ -4995,7 +5183,10 @@ def generate_beta_overlay(
     - build_data=list[dict] → 다중 POB (기본 union, stage=True면 uniques+chanceable AL 분기)
     - mode: trade|ssf|hcssf — L8 SSF 카테고리(Lifeforce/Splinter/Scarabs) 티어링 기준
     - al_split: 2-POB stage의 레벨링→엔드게임 전환 AL (기본 67 = Kitava 후)
+    - game: "poe1"|"poe2" — ItemClass 매핑. POE2 는 data/item_class_map_poe2.json 사용.
     """
+    if game not in ("poe1", "poe2"):
+        raise ValueError(f"game must be poe1|poe2, got {game!r}")
     if mode not in VALID_MODES:
         raise ValueError(f"mode must be in {VALID_MODES}, got {mode!r}")
     parts: list[str] = [_BETA_HEADER]
@@ -5022,7 +5213,7 @@ def generate_beta_overlay(
     parts.append(layer_atlas_and_memory(mode=mode))
     parts.append(layer_stacked_currency(mode=mode))
     parts.append(layer_ssf_currency_extras(mode=mode))
-    parts.append(layer_endgame_rare(mode=mode))
+    parts.append(layer_endgame_rare(mode=mode, game=game))
     parts.append(layer_uniques(mode=mode))
     parts.append(layer_gold(mode=mode))
     parts.append(layer_flasks_quality(mode=mode))
@@ -5037,7 +5228,7 @@ def generate_beta_overlay(
     parts.append(layer_id_mod_filtering(mode=mode, strictness=strictness))
     parts.append(layer_leveling_supplies(mode=mode))
     parts.append(layer_basic_orbs(mode=mode))
-    parts.append(layer_progressive_hide(strictness, mode=mode))
-    parts.append(layer_re_show(build_data, coaching_data))
-    parts.append(layer_endgame_rare_hide(mode=mode))
+    parts.append(layer_progressive_hide(strictness, mode=mode, game=game))
+    parts.append(layer_re_show(build_data, coaching_data, game=game))
+    parts.append(layer_endgame_rare_hide(mode=mode, game=game))
     return "".join(parts)

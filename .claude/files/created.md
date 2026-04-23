@@ -185,3 +185,7 @@
 | .stylelintrc.json | Stylelint gradient/blur 금지 룰 | 아니오 |
 | .husky/pre-commit | pre-commit hook (stylelint + exception cap) | 아니오 |
 | tailwind.config.js | Tailwind corePlugins 4개 false (backgroundImage/gradientColorStops/boxShadow/dropShadow) | 아니오 |
+| data/item_class_map_poe2.json | D5 1단계 — POE2 40 ItemClass + POE1 24→POE2 매핑 (NeverSink POE2 0.9.1 ground truth) | 아니오 |
+| scripts/verify_item_class_map_poe2.py | D5 1단계 — NeverSink POE2 필터 drift 검증 (online/--local) | 아니오 |
+| python/tests/test_item_class_map_poe2.py | D5 1단계 — item_class_map_poe2.json 스키마/partition/매핑 테스트 11건 | 아니오 |
+| python/tests/test_filter_poe2_class_mapping.py | D5 2단계 — POE2 필터 생성 Class 매핑 테스트 21건 (매핑 헬퍼/오버레이/레이어별 누수) | 아니오 |

@@ -1,11 +1,18 @@
 ## 지금
-- **POE2 D5 1단계 (2026-04-23 S6, push 완료)**
-  - `741e732` feat: POE2 D5 1단계 — ItemClass 매핑 + 드리프트 검증
-  - NeverSink POE2 0.9.1 (0-SOFT / 3-STRICT) 에서 40 Class 추출 — 두 파일 교차 일치
-  - `data/item_class_map_poe2.json`: 10 카테고리 partition / POE1 24 → POE2 매핑 / POE2 신규 13 / notes (Shields split, Warstaves rename, 미릴리스 8 클래스 빈 리스트)
-  - `scripts/verify_item_class_map_poe2.py`: online fetch 또는 `--local` drift 체크 (urllib stdlib)
-  - `python/tests/test_item_class_map_poe2.py`: 11 테스트 (스키마·partition·POE1 커버·Shields 분할·Warstaves rename·미릴리스 empty·provenance)
-  - 검증: Python 676/676 (+11), drift 0
+- **POE2 D5 2단계 (2026-04-23 S7)**
+  - `python/sections_continue.py` — POE1 하드코딩 Class 상수 5개 제거 + game-aware 헬퍼 신설
+    - 모듈 레벨 헬퍼: `_load_item_class_map_poe2` / `_map_poe1_classes` / `_join_classes_quoted` / 5개 `_*_for(game)` 문자열 빌더 + 무기·방어구 헬퍼 + T1 보더 그룹 선택기
+    - 시그니처 `game: str = "poe1"` 추가: `generate_beta_overlay` / `layer_progressive_hide` / `layer_endgame_rare` / `layer_endgame_rare_hide` / `layer_re_show` / `_unconditional_re_show_blocks` / `_leveling_help_blocks`
+    - POE2 분기: Shields → Shields+Bucklers / Warstaves → Quarterstaves / Claws·Daggers·O1 Axes·O1 Swords·O2 Axes·O2 Swords·Thrusting·Rune Daggers drop / Hybrid Flasks drop / T1 보더 POE1 7 카테고리 → POE2 2 카테고리 (Trinket/Heist/Flask/Tincture/Cluster Jewel 은 POE1 전용이라 skip) / 매핑 결과 빈 리스트인 T1 melee 블록 skip
+  - `python/filter_generator.py` — `args.game` 을 `generate_beta_overlay(game=)` 로 전달, D5 미완 경고 로그 제거
+  - Rust `generate_filter_multi` — D0/D6 에서 이미 `game: Option<Game>` + `--game` CLI 전달 구현됨. 검증만
+  - `python/tests/test_filter_poe2_class_mapping.py`: 21 테스트 (매핑 헬퍼 8 + 문자열 빌더 6 + 오버레이 E2E 7) — Shields/Bucklers 공존·Warstaves→Quarterstaves·POE1 기본값 regression·빈 Class 조건 부재·레이어별 POE1-only 누수
+  - 검증: Python 697/697 (+21), cargo 42, vitest 110, CLI smoke PASS
+  - **후속 D7 스코프로 이월**: `layer_id_mod_filtering` / `layer_heist` / `layer_flasks_quality` / `layer_special_uniques` 등 POE1 native 데이터 의존 레이어의 Class 조건 — POE2 native 데이터(top-mod / 리그 아이템) 수집 필요. 실런타임 파싱 실패는 없으나 dead block 남음
+- **이전 세션 (S6, push 완료)**
+  - `1d6e9d6` chore: current.md push 상태 반영 / `6e5f390` chore: 세션 종료 기록 / `741e732` feat: POE2 D5 1단계 — ItemClass 매핑 + 드리프트 검증
+  - NeverSink POE2 0.9.1 (0-SOFT / 3-STRICT) 에서 40 Class 추출 (두 파일 교차 일치)
+  - `data/item_class_map_poe2.json` + `scripts/verify_item_class_map_poe2.py` + `python/tests/test_item_class_map_poe2.py` (11)
 - **이전 세션 (S5, push 완료)**
   - `b336016` POE2 D6 강화 / `cc4b201` D6 debug dump / `4ab9bb7` patch 3.28.0g / `5e1d4f7` S5 종료 기록 / `176238b` push 상태 반영
   - `b336016` feat: POE2 D6 강화 — campaign 구조 자동 파생 + normalizer 분기 + PassivePriority guard
@@ -32,7 +39,7 @@
 1. [ ] **D6 해제 조건 수집** — Tauri 창 POE2 실사용. `_normalization_trace` / `_retry_info` 로그 수집 (백엔드는 이미 게재 중). 사용자 실클릭만 있으면 즉시 가능
    - S5 에서 `_debug/coach_last_{game}.json` 덤프 인프라 추가 — 관찰 후 `python/build_coach.py:1148-1158` 블록 제거 + `_debug/` 디렉토리 삭제
    - S5 추가: POE2 campaign 구조 자동 파생 + normalizer POE2 분기 완료 (L2 방어 공백 메움)
-2. [ ] **POE2 D5 2단계** (별도 세션) — `sections_continue.py` POE1 하드코딩 `_EQUIP_CLASSES` / `_RARE_EQUIP_CLASSES_EXACT` / `_ENDGAME_RARE_NOIMPL_CLASSES` 를 game-aware 로 분기 + `filter_generator.py` `--game poe2` 실분기 + Rust `generate_filter_multi` POE2 경로. `data/item_class_map_poe2.json` 사용.
+2. [x] **POE2 D5 2단계** — 2026-04-23 S7 완료 (sections_continue.py game-aware / filter_generator / Rust / 21 테스트). **후속 D7**: POE1 native 데이터 의존 레이어(id_mod_filtering·heist·flasks_quality·special_uniques 등) Class 조건 — POE2 native 데이터 수집 필요
 3. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
 4. [ ] (후속, 선택) uniques stash_type 매핑 — UniqueStashTypes 테이블 extract → stash type id → 유형 이름 (Weapons/Armour/etc)
 5. [ ] (후속, 선택) base_items 필드 확장 — requirements (Str/Dex/Int) / damage / armour 추가
