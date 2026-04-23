@@ -1,5 +1,5 @@
 ## 지금
-- **POE2 D6 강화 + D5 S5 세션 (2026-04-23, push 대기)**
+- **POE2 D6 강화 + D5 S5 세션 (2026-04-23, push 완료)**
   - `b336016` feat: POE2 D6 강화 — campaign 구조 자동 파생 + normalizer 분기 + PassivePriority guard
   - `cc4b201` chore: D6 관찰용 debug dump 인프라 (임시)
   - `4ab9bb7` chore: POE1 patch notes 3.28.0g 수집
