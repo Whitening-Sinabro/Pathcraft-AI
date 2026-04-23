@@ -1,0 +1,70 @@
+{
+  "version": "3.28.0g",
+  "title": "3.28.0g Patch Notes",
+  "url": "https://www.pathofexile.com/forum/view-thread/3928888",
+  "patch_type": "minor",
+  "collected_at": "2026-04-23T09:46:15.234123",
+  "all_changes": [
+    "3.28.0g Patch Notes",
+    "3.28.0g Patch Notes",
+    "Asynchronous Trade",
+    "Fixed a bug where the \"This item's price differs from the one you initially travelled to this shop for\" warning was not appearing in certain situations.",
+    "The Mirage Challenge League",
+    "Mirage Entrances can no longer generate in the Boss Arenas of the Haunted Mansion or Underground Sea Maps.",
+    "Fixed a bug where Mirages could spawn things in inaccessible areas.",
+    "Fixed a rare bug where Saresh could sometimes fail to phase transition, causing him to vanish.",
+    "Fixed a bug where the City Square Map Bosses were not fightable if only one of the Bosses was caught in the Mirage.",
+    "General Improvements",
+    "Variants of Sirus that appear outside the Eye of the Storm, such as in Maps or the Feared fight no longer create walls when using the projectile barrage skill. Sirus will instead track the player while using this skill.",
+    "Lowered the minimum time the Infinite Hunger will spend underground when burrowing to 3 seconds (from 10).",
+    "Updated descriptions on Maps slightly to clarify that Map items can be used on areas of the items tier or lower.",
+    "Foulgrasp Support now has a buff icon to display how many grasping hands you currently have active.",
+    "Dead Spectres which follow you as a Wisp can no longer be hit by enemy Projectiles.",
+    "Added a secondary tier to the Curator of Wisdom Armour Set and Travelling Wisdom Back Attachment that have persistent visual effects.",
+    "Fixed a bug where after completing the quest Incarnation bosses, Memory Tears could spawn in any tier of Maps, instead of only tier 16 Maps.",
+    "Fixed a bug where the Death Zones summoned by the apparition in the Uber Sirus fight could be taunted by player Warcries, making them more aggressive than intended at following players.",
+    "Fixed a rare bug in the Uber Sirus fight where a Death Zone could be created by the apparition while the player was in a Meteor Maze.",
+    "Fixed a bug where Divine Blast was not interacting with The Monastery Bell Unique Mace corectly.",
+    "Fixed a bug where Reduced Recovery of Leech could also prevent Recovery from other sources such as Flasks and Regeneration.",
+    "Fixed a bug where Kaom's Binding's \"Nearby Enemies convert a percentage of their Physical Damage to Fire damage\" would be visually be changed by Volatile Vaal Orbs but not actually change the amount of Physical Damage converted. The modifier is now unscalable and cannot be changed by a Volatile Vaal Orb outcome.",
+    "Fixed a display bug when previewing Volatile Vaal Orb outcomes for negative values.",
+    "Fixed a bug where Taunt would cause Enemies to deal 1% less Damage rather than 10% less Damage.",
+    "Fixed a bug where spiders from the Unique Strange Barrel Strongbox would sometimes become permanently undamageable.",
+    "Fixed a bug where various Fire, Cold and Lightning Damage Modifiers were unable to be swapped for their counterparts when using the new change a Modifier Harvest crafts.",
+    "Fixed a bug where the appearance of the Voidbane Shield Microtransaction would not scale based on the highest level chaos spell you have used in the area.",
+    "Fixed a bug where the Paladin Weapon Effect did not work correctly when applied to the Lich's Gaze Shield microtransaction.",
+    "Fixed a client crash that could occur with The Gull Unique in PvP areas.",
+    "Fixed 2 other client crashes.",
+    "Fixed an instance crash.",
+    "Last bumped on Apr 22, 2026, 6:46:14 PM"
+  ],
+  "skill_buffs": [
+    {
+      "raw": "Foulgrasp Support now has a buff icon to display how many grasping hands you currently have active.",
+      "type": "buff"
+    }
+  ],
+  "skill_nerfs": [
+    {
+      "raw": "Mirage Entrances can no longer generate in the Boss Arenas of the Haunted Mansion or Underground Sea Maps.",
+      "type": "nerf"
+    },
+    {
+      "raw": "Lowered the minimum time the Infinite Hunger will spend underground when burrowing to 3 seconds (from 10).",
+      "type": "nerf"
+    },
+    {
+      "raw": "Dead Spectres which follow you as a Wisp can no longer be hit by enemy Projectiles.",
+      "type": "nerf"
+    },
+    {
+      "raw": "Fixed a bug where Reduced Recovery of Leech could also prevent Recovery from other sources such as Flasks and Regeneration.",
+      "type": "nerf"
+    },
+    {
+      "raw": "Fixed a bug where Taunt would cause Enemies to deal 1% less Damage rather than 10% less Damage.",
+      "type": "nerf"
+    }
+  ],
+  "total_changes": 32
+}
