@@ -1,19 +1,18 @@
 ## 지금
-- **POE2 D4 Canvas 통합 완료 (2026-04-22 S4, push 대기)**
-  - `38131ab` feat: POE2 D4 Canvas 통합 — game prop + normalizePoe2Tree + TreeControls 분리
-  - `PassiveTreeCanvas` `game?: "poe1"|"poe2"` prop, `poe1DataUrl`/`poe2DataUrl` 분기, `normalizePoe2Tree` 적용
-  - `TreeControls` classNames/ascendancies 를 props 로 받도록 리팩터 (POE1 7 / POE2 8)
-  - `POE2_CLASS_START_IDS_BY_INDEX` + `POE2_ASCENDANCIES` (21 어센던시, Abyssal Lich / Disciple of Varashta 포함)
-  - `PassiveTreeView` `useActiveGame` 연결, key 에 `${game}:${url}` 반영, POE1-only decodeTreeUrl
-  - Portrait overlay POE1 전용 가드 (POE2 는 disc 만)
-  - `localStorage` 키 game 별 분리 (`pathcraftai_passive_class_poe2` 등)
-  - 앵커 계산 `classesStart` fallback 추가
-  - 테스트 107/107 PASS (+11 POE2 상수 케이스), tsc clean
-- **이전 세션 (S3, push 완료)**
-  - `83c805c` feat: POE2 D4 데이터 레이어 — tree.json 어댑터 + 테스트
-  - `1c0133b` chore: S3 종료 기록
-- **직전 세션 (S2, push 완료)**
-  - `3547553` 디자인 enforcement / `2dcbb80` POE2 D6 코치 + D3 / `c1c4ba0` S2 종료 기록
+- **POE2 D6 강화 + D5 S5 세션 (2026-04-23, push 대기)**
+  - `b336016` feat: POE2 D6 강화 — campaign 구조 자동 파생 + normalizer 분기 + PassivePriority guard
+  - `cc4b201` chore: D6 관찰용 debug dump 인프라 (임시)
+  - `4ab9bb7` chore: POE1 patch notes 3.28.0g 수집
+  - A. campaign 구조: `extract_data.rs` WorldAreas/Quest 추출 + `scripts/build_poe2_campaign_structure.py` + `data/campaign_structure_poe2.json` (6 phase, Act 1-4 + Interlude transient + Atlas) + `build_coach.py` `@@LEVELING_GUIDE_SCHEMA@@` 치환 + `LevelingGuide.tsx` POE2 phase 자동 매핑
+  - B. normalizer POE2: `_normalize_coach_output_poe2` — skill_setup.main_skill / support_gems, `→/->/|/,/;` split + valid_gems_poe2 검증 + dedupe
+  - C. PassivePriority guard: 빈 priorities 시 null 반환 + `setdefault("passive_priority", [])`
+  - D. D6 debug dump: `_debug/coach_last_{game}.json` 덤프 (관찰용 임시)
+  - E. POE1 patch 3.28.0g 수집 (orthogonal)
+  - 검증: Python 665/665 (+14), vitest 110/110 (+3), tsc clean
+- **이전 세션 (S4, push 완료)**
+  - `38131ab` feat: POE2 D4 Canvas 통합 / `ec84680` chore: S4 종료 기록
+- **직전 세션 (S3, push 완료)**
+  - `83c805c` feat: POE2 D4 데이터 레이어 / `1c0133b` chore: S3 종료 기록
 
 ## 다음 세션 진입 절차
 - **세션 계획**: D4 Canvas 통합 = 이번 세션(S4) / D5 = 또 다른 새 세션. 한 세션당 하나씩.
@@ -23,7 +22,8 @@
 
 0. [ ] **D4 Canvas Tauri 실렌더 검증** — POE2 모드 전환 시 tree_0_4.json 로딩 / 클래스 드롭다운 8개 / 어센던시 21개 / Abyssal Lich 선택 후 앵커 반영 확인. 사용자 실클릭.
 1. [ ] **D6 해제 조건 수집** — Tauri 창 POE2 실사용. `_normalization_trace` / `_retry_info` 로그 수집 (백엔드는 이미 게재 중). 사용자 실클릭만 있으면 즉시 가능
-   - 관찰 완료 시 **반드시 `python/build_coach.py:1096-1106` debug dump 블록 제거 + `_debug/` 디렉토리 삭제** (임시 S4 debug 코드)
+   - S5 에서 `_debug/coach_last_{game}.json` 덤프 인프라 추가 — 관찰 후 `python/build_coach.py:1148-1158` 블록 제거 + `_debug/` 디렉토리 삭제
+   - S5 추가: POE2 campaign 구조 자동 파생 + normalizer POE2 분기 완료 (L2 방어 공백 메움)
 2. [ ] **POE2 D5 필터** (별도 세션) — NeverSink POE2 공식 import + ItemClass 명칭 매핑 (Focus/Charm/Spear/Quarterstaff 신규). 2~3시간 scope
 3. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
 4. [ ] (후속, 선택) uniques stash_type 매핑 — UniqueStashTypes 테이블 extract → stash type id → 유형 이름 (Weapons/Armour/etc)
