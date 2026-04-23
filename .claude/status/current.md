@@ -23,6 +23,7 @@
 
 0. [ ] **D4 Canvas Tauri 실렌더 검증** — POE2 모드 전환 시 tree_0_4.json 로딩 / 클래스 드롭다운 8개 / 어센던시 21개 / Abyssal Lich 선택 후 앵커 반영 확인. 사용자 실클릭.
 1. [ ] **D6 해제 조건 수집** — Tauri 창 POE2 실사용. `_normalization_trace` / `_retry_info` 로그 수집 (백엔드는 이미 게재 중). 사용자 실클릭만 있으면 즉시 가능
+   - 관찰 완료 시 **반드시 `python/build_coach.py:1096-1106` debug dump 블록 제거 + `_debug/` 디렉토리 삭제** (임시 S4 debug 코드)
 2. [ ] **POE2 D5 필터** (별도 세션) — NeverSink POE2 공식 import + ItemClass 명칭 매핑 (Focus/Charm/Spear/Quarterstaff 신규). 2~3시간 scope
 3. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
 4. [ ] (후속, 선택) uniques stash_type 매핑 — UniqueStashTypes 테이블 extract → stash type id → 유형 이름 (Weapons/Armour/etc)

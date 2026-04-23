@@ -1146,4 +1146,14 @@ if __name__ == "__main__":
             build_data = json.load(f)
 
     result = coach_build(build_data, model=args.model, game=args.game)
+    # DEBUG (2026-04-22 S4): D6 해제 조건 관찰용 파일 덤프. 검증 끝나면 제거.
+    try:
+        import pathlib as _pl
+        _dbg = _pl.Path(__file__).resolve().parent.parent / "_debug"
+        _dbg.mkdir(exist_ok=True)
+        (_dbg / f"coach_last_{args.game}.json").write_text(
+            json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+    except OSError as _e:
+        logger.warning(f"[debug-dump] failed: {_e}")
     print(json.dumps(result, ensure_ascii=False))
