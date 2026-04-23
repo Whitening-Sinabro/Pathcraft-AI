@@ -1,5 +1,5 @@
 ## 지금
-- **POE2 D5 1단계 (2026-04-23 S6, push 대기)**
+- **POE2 D5 1단계 (2026-04-23 S6, push 완료)**
   - `741e732` feat: POE2 D5 1단계 — ItemClass 매핑 + 드리프트 검증
   - NeverSink POE2 0.9.1 (0-SOFT / 3-STRICT) 에서 40 Class 추출 — 두 파일 교차 일치
   - `data/item_class_map_poe2.json`: 10 카테고리 partition / POE1 24 → POE2 매핑 / POE2 신규 13 / notes (Shields split, Warstaves rename, 미릴리스 8 클래스 빈 리스트)
