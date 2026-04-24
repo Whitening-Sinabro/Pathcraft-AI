@@ -1596,7 +1596,8 @@ def _load_id_mod_filtering() -> dict:
 LOW_LIFE_SUFFIX_MODS = ("Hale", "Healthy", "Sanguine")
 
 
-def layer_id_mod_filtering(mode: str = "ssf", strictness: int = 0) -> str:
+def layer_id_mod_filtering(mode: str = "ssf", strictness: int = 0,
+                           game: str = "poe1") -> str:
     """L8 ID Mod Filtering — NeverSink [[0600]/[0700]/[0800]] 패턴 (Identified rare 가치 mod).
 
     각 클래스별 top mod 리스트로 Identified Rare 우선 Show.
@@ -1609,9 +1610,17 @@ def layer_id_mod_filtering(mode: str = "ssf", strictness: int = 0) -> str:
     `HasExplicitMod 0 "Hale" "Healthy" "Sanguine"` 추가. 저급 생명력 접미사가
     섞인 rare는 top mod가 있어도 Show 탈락 → Hide로 흘러가 숨김. 혼합 mod
     rare 일부 missed 리스크 있음 (아키텍처 Phase 7 audit 참조).
+
+    POE2 는 Recombinator Mods ([[0400]]) 시스템으로 패턴은 유사하나 per-class
+    top mod 데이터가 POE1 전용. Phase 2 에서 `data/id_mod_filtering_poe2.json`
+    추출 + POE2 전용 블록으로 교체 예정. Phase 1 에서는 임시로 빈 반환 —
+    POE2 overlay 에 POE1 Class ("Claws"/"Warstaves"/"Rune Daggers" 등) 누수
+    방지. D7-C Phase 1.
     """
     if mode not in VALID_MODES:
         raise ValueError(f"mode must be in {VALID_MODES}, got {mode!r}")
+    if game == "poe2":
+        return ""
 
     by_class = _load_id_mod_filtering()
     if not by_class:
@@ -2010,14 +2019,19 @@ def layer_special_modifiers(mode: str = "ssf") -> str:
     return "".join(blocks)
 
 
-def layer_special_uniques(mode: str = "ssf") -> str:
+def layer_special_uniques(mode: str = "ssf", game: str = "poe1") -> str:
     """L8 Special Uniques — Replica/Foulborn 변형 유니크 (NeverSink [[3100]] 패턴).
 
     Replica True / Foulborn True 조건으로 변형 유니크 강조.
     BaseType 리스트는 NeverSink에서 추출 가능하지만 단순 조건만으로도 충분 강조.
+
+    POE2 는 Replica/Foulborn 시스템 부재 (NeverSink POE2 0.9.1 0건 실측) →
+    빈 반환. D7-D.
     """
     if mode not in VALID_MODES:
         raise ValueError(f"mode must be in {VALID_MODES}, got {mode!r}")
+    if game == "poe2":
+        return ""
 
     blocks: list[str] = []
 
@@ -2326,15 +2340,67 @@ def layer_gold(mode: str = "ssf") -> str:
     return "".join(blocks)
 
 
-def layer_flasks_quality(mode: str = "ssf") -> str:
+def layer_flasks_quality(mode: str = "ssf", game: str = "poe1") -> str:
     """L8 Flasks Quality — Wreckers/NeverSink 패턴 (Q10/Q20/Q21).
 
     Class "Gem" "Flask" 동일하게 Quality 임계로 강조 (NeverSink는 Class==, Wreckers는 Class).
+
+    POE2 는 Hybrid/Utility Flask 부재, Ultimate Life/Mana Flask + Charm 시스템
+    (NeverSink POE2 0.9.1 [[0800]] Endgame Flasks / [[0900]] Endgame Charms
+    실측). POE1 Class "Flasks"/"Utility Flasks" 는 POE2 Class 목록에 없어 빈
+    조건이 되므로 대체 블록 필요. D7-B.
     """
     if mode not in VALID_MODES:
         raise ValueError(f"mode must be in {VALID_MODES}, got {mode!r}")
 
     blocks: list[str] = []
+
+    if game == "poe2":
+        # POE2 Ultimate Life/Mana Flask + Quality > 10 — top-quality
+        blocks.append(make_layer_block(
+            LAYER_CATEGORY_SHOW,
+            "POE2 Ultimate 플라스크 Q11+ (top quality)",
+            conditions=[
+                "Rarity Normal Magic",
+                'BaseType == "Ultimate Life Flask" "Ultimate Mana Flask"',
+                "ItemLevel >= 83",
+                "AreaLevel >= 65",
+                "Quality > 10",
+            ],
+            style=LayerStyle(font=40, border="255 0 200", effect="Cyan"),
+            continue_=True,
+            category_tag="poe2_flask_ultimate_quality",
+        ))
+        # POE2 Ultimate Life/Mana Flask baseline (no Quality 조건)
+        blocks.append(make_layer_block(
+            LAYER_CATEGORY_SHOW,
+            "POE2 Ultimate 플라스크 (baseline)",
+            conditions=[
+                "Rarity Normal Magic",
+                'BaseType == "Ultimate Life Flask" "Ultimate Mana Flask"',
+                "ItemLevel >= 83",
+                "AreaLevel >= 65",
+            ],
+            style=LayerStyle(font=37, border="200 100 200"),
+            continue_=True,
+            category_tag="poe2_flask_ultimate_baseline",
+        ))
+        # POE2 Charm Q18+ — POE1 Utility Flask 대체
+        blocks.append(make_layer_block(
+            LAYER_CATEGORY_SHOW,
+            "POE2 Charm Q18+ (top quality, Utility Flask 대체)",
+            conditions=[
+                "Rarity Normal Magic",
+                'Class == "Charms"',
+                "ItemLevel >= 82",
+                "AreaLevel >= 65",
+                "Quality >= 18",
+            ],
+            style=LayerStyle(font=40, border="255 0 200", effect="Cyan"),
+            continue_=True,
+            category_tag="poe2_charm_quality",
+        ))
+        return "".join(blocks)
 
     # Q10+ — 약한 강조 (Gemcutter's Prism 후보)
     blocks.append(make_layer_block(
@@ -2386,14 +2452,19 @@ _HEIST_HANDPICKED_AREAS: "list[str]" = [
 ]
 
 
-def layer_heist(mode: str = "ssf") -> str:
+def layer_heist(mode: str = "ssf", game: str = "poe1") -> str:
     """L8 Heist — Contract/Blueprint/Trinket Class 기반 (Wreckers 단순 패턴).
 
     Heist 아이템 전체 표시 (SSF 자급자족: Heist 보상 = 유니크/쿼리).
     Handpicked 9개 area는 고가 수익 영역 — 최상위 강조.
+
+    POE2 는 Heist 리그 미존재 (NeverSink POE2 0.9.1 Trinket/Blueprint/Contract
+    0건 실측) → 빈 반환. D7-A.
     """
     if mode not in VALID_MODES:
         raise ValueError(f"mode must be in {VALID_MODES}, got {mode!r}")
+    if game == "poe2":
+        return ""
 
     blocks: list[str] = []
 
@@ -5216,16 +5287,16 @@ def generate_beta_overlay(
     parts.append(layer_endgame_rare(mode=mode, game=game))
     parts.append(layer_uniques(mode=mode))
     parts.append(layer_gold(mode=mode))
-    parts.append(layer_flasks_quality(mode=mode))
-    parts.append(layer_heist(mode=mode))
+    parts.append(layer_flasks_quality(mode=mode, game=game))
+    parts.append(layer_heist(mode=mode, game=game))
     parts.append(layer_quest_items(mode=mode))
     parts.append(layer_special_maps(mode=mode))
     parts.append(layer_jewels(mode=mode))
-    parts.append(layer_special_uniques(mode=mode))
+    parts.append(layer_special_uniques(mode=mode, game=game))
     parts.append(layer_influenced_extra(mode=mode))
     parts.append(layer_special_modifiers(mode=mode))
     parts.append(layer_hcssf_safety(mode=mode))
-    parts.append(layer_id_mod_filtering(mode=mode, strictness=strictness))
+    parts.append(layer_id_mod_filtering(mode=mode, strictness=strictness, game=game))
     parts.append(layer_leveling_supplies(mode=mode))
     parts.append(layer_basic_orbs(mode=mode))
     parts.append(layer_progressive_hide(strictness, mode=mode, game=game))
