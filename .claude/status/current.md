@@ -1,37 +1,30 @@
 ## 지금
-- **POE2 D5 2단계 (2026-04-23 S7)**
-  - `python/sections_continue.py` — POE1 하드코딩 Class 상수 5개 제거 + game-aware 헬퍼 신설
-    - 모듈 레벨 헬퍼: `_load_item_class_map_poe2` / `_map_poe1_classes` / `_join_classes_quoted` / 5개 `_*_for(game)` 문자열 빌더 + 무기·방어구 헬퍼 + T1 보더 그룹 선택기
-    - 시그니처 `game: str = "poe1"` 추가: `generate_beta_overlay` / `layer_progressive_hide` / `layer_endgame_rare` / `layer_endgame_rare_hide` / `layer_re_show` / `_unconditional_re_show_blocks` / `_leveling_help_blocks`
-    - POE2 분기: Shields → Shields+Bucklers / Warstaves → Quarterstaves / Claws·Daggers·O1 Axes·O1 Swords·O2 Axes·O2 Swords·Thrusting·Rune Daggers drop / Hybrid Flasks drop / T1 보더 POE1 7 카테고리 → POE2 2 카테고리 (Trinket/Heist/Flask/Tincture/Cluster Jewel 은 POE1 전용이라 skip) / 매핑 결과 빈 리스트인 T1 melee 블록 skip
-  - `python/filter_generator.py` — `args.game` 을 `generate_beta_overlay(game=)` 로 전달, D5 미완 경고 로그 제거
-  - Rust `generate_filter_multi` — D0/D6 에서 이미 `game: Option<Game>` + `--game` CLI 전달 구현됨. 검증만
-  - `python/tests/test_filter_poe2_class_mapping.py`: 21 테스트 (매핑 헬퍼 8 + 문자열 빌더 6 + 오버레이 E2E 7) — Shields/Bucklers 공존·Warstaves→Quarterstaves·POE1 기본값 regression·빈 Class 조건 부재·레이어별 POE1-only 누수
-  - 검증: Python 697/697 (+21), cargo 42, vitest 110, CLI smoke PASS
-  - **후속 D7 스코프로 이월**: `layer_id_mod_filtering` / `layer_heist` / `layer_flasks_quality` / `layer_special_uniques` 등 POE1 native 데이터 의존 레이어의 Class 조건 — POE2 native 데이터(top-mod / 리그 아이템) 수집 필요. 실런타임 파싱 실패는 없으나 dead block 남음
+- **POE2 D7 (2026-04-24 진입)** — POE1 native 데이터 의존 4레이어 game 분기 조사·설계
+  - A. `layer_heist` — POE2 미지원 추정 → game 분기 skip
+  - B. `layer_flasks_quality` — POE2 Charm 시스템 대응 재설계
+  - C. `layer_id_mod_filtering` — POE2 Mods (14841 rows) top-mod 추출
+  - D. `layer_special_uniques` — `uniques_poe2.json` 기반 카테고리 재분류
+  - 현재 조사 단계, 구현 전 `poe2_d7_plan.md` 작성 후 사용자 승인
+- **이전 세션 (S7, push 완료)**
+  - `3f36164` chore: S7 종료 기록 / `9b2b475` feat: POE2 D5 2단계 — 필터 생성 game-aware ItemClass 분기
+  - `sections_continue.py` POE1 Class 하드코딩 5개 → `game: str = "poe1"` 시그니처 + 헬퍼 10개
+  - POE2 분기: Shields+Bucklers / Warstaves→Quarterstaves / 8종 drop (Claws·Daggers·O1/O2 Axes/Swords·Thrusting·Rune Daggers) / Hybrid Flasks drop / T1 보더 POE1 7→POE2 2 카테고리
+  - `filter_generator.py` `args.game` 전파, Rust `generate_filter_multi` D0/D6에서 이미 구현
+  - 21 테스트 (매핑 8 + 빌더 6 + 오버레이 E2E 7). 검증: Python 697/697 cargo 42 vitest 110
 - **이전 세션 (S6, push 완료)**
-  - `1d6e9d6` chore: current.md push 상태 반영 / `6e5f390` chore: 세션 종료 기록 / `741e732` feat: POE2 D5 1단계 — ItemClass 매핑 + 드리프트 검증
-  - NeverSink POE2 0.9.1 (0-SOFT / 3-STRICT) 에서 40 Class 추출 (두 파일 교차 일치)
-  - `data/item_class_map_poe2.json` + `scripts/verify_item_class_map_poe2.py` + `python/tests/test_item_class_map_poe2.py` (11)
+  - `1d6e9d6` push 반영 / `6e5f390` S6 종료 / `741e732` feat: POE2 D5 1단계 — ItemClass 매핑 + 드리프트 검증
+  - NeverSink POE2 0.9.1 (0-SOFT / 3-STRICT) 40 Class 추출. `data/item_class_map_poe2.json` + `scripts/verify_item_class_map_poe2.py` + 11 테스트
 - **이전 세션 (S5, push 완료)**
-  - `b336016` POE2 D6 강화 / `cc4b201` D6 debug dump / `4ab9bb7` patch 3.28.0g / `5e1d4f7` S5 종료 기록 / `176238b` push 상태 반영
-  - `b336016` feat: POE2 D6 강화 — campaign 구조 자동 파생 + normalizer 분기 + PassivePriority guard
-  - `cc4b201` chore: D6 관찰용 debug dump 인프라 (임시)
-  - `4ab9bb7` chore: POE1 patch notes 3.28.0g 수집
-  - A. campaign 구조: `extract_data.rs` WorldAreas/Quest 추출 + `scripts/build_poe2_campaign_structure.py` + `data/campaign_structure_poe2.json` (6 phase, Act 1-4 + Interlude transient + Atlas) + `build_coach.py` `@@LEVELING_GUIDE_SCHEMA@@` 치환 + `LevelingGuide.tsx` POE2 phase 자동 매핑
-  - B. normalizer POE2: `_normalize_coach_output_poe2` — skill_setup.main_skill / support_gems, `→/->/|/,/;` split + valid_gems_poe2 검증 + dedupe
-  - C. PassivePriority guard: 빈 priorities 시 null 반환 + `setdefault("passive_priority", [])`
-  - D. D6 debug dump: `_debug/coach_last_{game}.json` 덤프 (관찰용 임시)
-  - E. POE1 patch 3.28.0g 수집 (orthogonal)
-  - 검증: Python 665/665 (+14), vitest 110/110 (+3), tsc clean
+  - `176238b` push 반영 / `5e1d4f7` S5 종료 / `4ab9bb7` patch 3.28.0g / `cc4b201` D6 debug dump / `b336016` feat: POE2 D6 강화
+  - campaign 구조 자동 파생 + normalizer POE2 분기 + PassivePriority guard. 검증: Python 665 vitest 110
 - **이전 세션 (S4, push 완료)**
   - `38131ab` feat: POE2 D4 Canvas 통합 / `ec84680` chore: S4 종료 기록
 - **직전 세션 (S3, push 완료)**
   - `83c805c` feat: POE2 D4 데이터 레이어 / `1c0133b` chore: S3 종료 기록
 
 ## 다음 세션 진입 절차
-- **세션 계획**: D4 Canvas 통합 = 이번 세션(S4) / D5 = 또 다른 새 세션. 한 세션당 하나씩.
-- 어느 세션이든 시작 시 `poe2_d6_dod.md` §4 해제 조건 3건 관찰 여부 먼저 체크 가능 (Tauri 실클릭 준비된 경우)
+- 한 세션당 주제 하나. 현재 D7 진입
+- 세션 시작 시 `poe2_d6_dod.md` §4 해제 조건 3건 관찰 여부 먼저 체크 가능 (Tauri 실클릭 준비된 경우)
 
 ## 다음 할 것 (우선순위순)
 
