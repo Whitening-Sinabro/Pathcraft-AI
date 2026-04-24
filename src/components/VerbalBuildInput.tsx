@@ -15,7 +15,6 @@ interface Props {
   loading: string;
   onSubmit: (input: VerbalBuildInput) => void;
   onCancel: () => void;
-  game: "poe1" | "poe2";
 }
 
 const POE2_CLASSES = [
@@ -37,21 +36,23 @@ const POE2_ASCENDANCIES: Record<string, string[]> = {
 /**
  * POE2 전용 — POB 없이 구두/폼으로 빌드 정보를 직접 입력해 코치 분석 요청.
  * D6 + L2 + L3 파이프라인 위에서 PoB2 없는 사용자 경로 제공.
+ *
+ * POE1 은 이미 POB URL 입력이 메인 경로 (`PobInputSection`) 로 정착해 구두 입력
+ * 필요가 없음. 호출부 `App.tsx` 는 `game === "poe2"` 에서만 이 컴포넌트를 렌더.
+ * POE1 fallback 경로는 의도적으로 제공하지 않음 — PoB2 fork 포맷 확정(D1) 전까지의
+ * POE2 임시 우회로라는 스코프가 분명해야 기능 경계가 깨지지 않음.
  */
-export function VerbalBuildInputSection({ loading, onSubmit, onCancel, game }: Props) {
-  const [charClass, setCharClass] = useState(game === "poe2" ? "Huntress" : "");
-  const [ascendancy, setAscendancy] = useState(game === "poe2" ? "Amazon" : "");
+export function VerbalBuildInputSection({ loading, onSubmit, onCancel }: Props) {
+  const [charClass, setCharClass] = useState("Huntress");
+  const [ascendancy, setAscendancy] = useState("Amazon");
   const [level, setLevel] = useState(45);
   const [mainSkill, setMainSkill] = useState("");
   const [supportsRaw, setSupportsRaw] = useState("");
   const [secondaryRaw, setSecondaryRaw] = useState("");
   const [notes, setNotes] = useState("");
 
-  const ascendancyOptions = game === "poe2" && charClass
-    ? POE2_ASCENDANCIES[charClass] ?? []
-    : [];
-
-  const classOptions = game === "poe2" ? POE2_CLASSES : [];
+  const ascendancyOptions = charClass ? POE2_ASCENDANCIES[charClass] ?? [] : [];
+  const classOptions = POE2_CLASSES;
 
   function handleSubmit() {
     const supports = supportsRaw
@@ -84,21 +85,17 @@ export function VerbalBuildInputSection({ loading, onSubmit, onCancel, game }: P
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: space.md }}>
         <label style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: font.sm }}>
           <span style={{ fontWeight: 600 }}>클래스</span>
-          {classOptions.length > 0 ? (
-            <select
-              value={charClass}
-              onChange={(e) => {
-                setCharClass(e.target.value);
-                setAscendancy(POE2_ASCENDANCIES[e.target.value]?.[0] ?? "");
-              }}
-              style={selectStyle}
-            >
-              <option value="">선택...</option>
-              {classOptions.map((c) => <option key={c} value={c}>{c}</option>)}
-            </select>
-          ) : (
-            <input type="text" value={charClass} onChange={(e) => setCharClass(e.target.value)} style={inputStyle} />
-          )}
+          <select
+            value={charClass}
+            onChange={(e) => {
+              setCharClass(e.target.value);
+              setAscendancy(POE2_ASCENDANCIES[e.target.value]?.[0] ?? "");
+            }}
+            style={selectStyle}
+          >
+            <option value="">선택...</option>
+            {classOptions.map((c) => <option key={c} value={c}>{c}</option>)}
+          </select>
         </label>
 
         <label style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: font.sm }}>
@@ -130,7 +127,7 @@ export function VerbalBuildInputSection({ loading, onSubmit, onCancel, game }: P
         <span style={{ fontWeight: 600 }}>메인 스킬 <span className="ui-text-danger">*</span></span>
         <input
           type="text"
-          placeholder={game === "poe2" ? "예: Twister / Rake / Lightning Arrow" : "예: Lightning Arrow"}
+          placeholder="예: Twister / Rake / Lightning Arrow"
           value={mainSkill}
           onChange={(e) => setMainSkill(e.target.value)}
           style={inputStyle}
@@ -141,9 +138,7 @@ export function VerbalBuildInputSection({ loading, onSubmit, onCancel, game }: P
         <span style={{ fontWeight: 600 }}>서포트 젬 (쉼표/줄바꿈 구분)</span>
         <textarea
           rows={2}
-          placeholder={game === "poe2"
-            ? "예: Chance to Bleed Support, Retreating Assault Support, Deep Cuts Support"
-            : "예: Elemental Damage with Attacks Support, Added Cold Damage Support"}
+          placeholder="예: Chance to Bleed Support, Retreating Assault Support, Deep Cuts Support"
           value={supportsRaw}
           onChange={(e) => setSupportsRaw(e.target.value)}
           style={{ ...inputStyle, resize: "vertical", fontFamily: "var(--font-mono)" }}
@@ -154,9 +149,7 @@ export function VerbalBuildInputSection({ loading, onSubmit, onCancel, game }: P
         <span style={{ fontWeight: 600 }}>보조 스킬 (선택)</span>
         <textarea
           rows={2}
-          placeholder={game === "poe2"
-            ? "예: Whirling Slash, Whirlwind Lance, Herald of Blood"
-            : "예: Herald of Ice, Blink Arrow"}
+          placeholder="예: Whirling Slash, Whirlwind Lance, Herald of Blood"
           value={secondaryRaw}
           onChange={(e) => setSecondaryRaw(e.target.value)}
           style={{ ...inputStyle, resize: "vertical", fontFamily: "var(--font-mono)" }}

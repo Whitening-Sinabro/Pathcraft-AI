@@ -160,7 +160,6 @@ function App() {
             loading={loading}
             onSubmit={analyzeVerbalBuild}
             onCancel={cancelAnalyze}
-            game={game}
           />
         ) : (
           <PobInputSection
