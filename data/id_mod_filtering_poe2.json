@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "description": "NeverSink POE2 0.9.1 IDENTIFIED MODS: RECOMBINATOR MODS [[0400]] 추출. Identified rare/normal/magic + top mod 리스트 (POE2 Recombinator 강조용).",
+    "source_soft": "_analysis/neversink_poe2_0.9.1/NeverSink's filter 2 - 0-SOFT.filter",
+    "source_strict": "_analysis/neversink_poe2_0.9.1/NeverSink's filter 2 - 3-STRICT.filter",
+    "source_soft_sha256": "01661a7b380abb0146f68e64c2184c2f990eedaaeeeb0e91c90c8cf3d471fc10",
+    "source_strict_sha256": "ee8400bc3e21809b66e5af069044447ac367a7b573373d3a736f9b9f37ebd1e7",
+    "cross_verified": true,
+    "collected_at": "2026-04-24T11:51:10+00:00",
+    "extractor": "scripts/extract_id_mod_filtering_poe2.py",
+    "total_blocks": 7,
+    "total_unique_mods": 19,
+    "notes": "SOFT/STRICT 동일 (2026-04-24 실측). Rarity Normal Magic Rare + HasExplicitMod >=1 + Mirrored/Corrupted False 패턴."
+  },
+  "by_class": {
+    "Amulets": [
+      "Countess'",
+      "of the Sharpshooter"
+    ],
+    "Boots": [
+      "Hellion's"
+    ],
+    "Bows": [
+      "Merciless",
+      "of Many",
+      "of the Sniper"
+    ],
+    "Crossbows": [
+      "Merciless",
+      "of Many",
+      "of the Sniper"
+    ],
+    "Quarterstaves": [
+      "Merciless",
+      "of War"
+    ],
+    "Sceptres": [
+      "Empowering",
+      "King's",
+      "of the Slavedriver"
+    ],
+    "Spears": [
+      "Amazon's",
+      "Flaring",
+      "Merciless",
+      "of the Sniper"
+    ],
+    "Staves": [
+      "Runic",
+      "of Armageddon",
+      "of Frostbite",
+      "of Grief",
+      "of Inferno",
+      "of Thunder",
+      "of the Wizard"
+    ],
+    "Talismans": [
+      "Merciless",
+      "of War"
+    ],
+    "Two Hand Maces": [
+      "Merciless",
+      "of War"
+    ],
+    "Wands": [
+      "Runic",
+      "of Armageddon",
+      "of Frostbite",
+      "of Grief",
+      "of Inferno",
+      "of Thunder",
+      "of the Wizard"
+    ]
+  }
+}

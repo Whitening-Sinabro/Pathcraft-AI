@@ -136,3 +136,41 @@ NeverSink POE2 필터 0-SOFT 전수 스캔 (5075 lines, Python count 기준):
 | 테스트 | id_mod per-class 기본 출력 + POE1 regression + POE2 Recombinator 패턴 검증 |
 
 Phase 2 는 본 세션 범위 외. Phase 1 완료 후 별도 plan 문서 확장.
+
+## §7. Phase 2 완료 (2026-04-24 S9)
+
+**구현 요약**
+- `scripts/extract_id_mod_filtering_poe2.py` 신규. NeverSink POE2 0.9.1 SOFT/STRICT 두 필터 [[0400]] 섹션을 파싱해 교차 검증. 실측 SOFT/STRICT 동일 확정.
+- `data/id_mod_filtering_poe2.json` 생성. 11 classes (Amulets, Boots, Bows, Crossbows, Quarterstaves, Sceptres, Spears, Staves, Talismans, Two Hand Maces, Wands), 7 blocks, 19 unique mods. `_meta.cross_verified=true` + 두 소스 sha256 보존.
+- `python/sections_continue.py`:
+  - `_ID_MOD_POE2_CACHE` 전역 + `_load_id_mod_filtering_poe2()` 로더 추가 (POE1 패턴 거울).
+  - `layer_id_mod_filtering(game="poe2")` 의 `return ""` 제거 → `_layer_id_mod_filtering_poe2()` 호출. Phase 1 임시 skip 교체.
+  - `_layer_id_mod_filtering_poe2()` 신규 헬퍼 — NeverSink POE2 실측 조건 (Mirrored False / Corrupted False / Identified True / Rarity Normal Magic Rare / Class == / HasExplicitMod >=1) + 실측 스타일 (font 42, 청록 text/border, 보라 bg 47 0 74 255, sound "3 300", effect Blue, icon 0 Blue Diamond). Hide 블록 없음 (NeverSink POE2 [[0400]] 미포함).
+- `python/tests/test_filter_poe2_d7.py`:
+  - `TestLayerIdModFilteringGameBranch` → `TestLayerIdModFilteringPoe2` 로 대체. Phase 1 `test_id_mod_poe2_empty` 제거.
+  - 신규 테스트 7건 추가: per-class 블록 존재 / Recombinator 조건 / ItemLevel 부재 / Final Hide 부재 / ground truth mod 문자열 매칭 / 스타일 attribute / POE1 전용 Class 누수 부재 + POE1 regression 유지.
+
+**검증**
+- `pytest python/tests/test_filter_poe2_d7.py` — 22/22 PASS (15 → 22, +7).
+- 전체 pytest — 719 PASS (S8 712 → 719, +7).
+- `python filter_generator.py --game poe2` — 6394 lines 정상 출력, id_mod_poe2 블록 11개 확인, POE1-only 키워드 누수 0 (grep 검증).
+- `python filter_generator.py --game poe1` — 6760 lines 정상 출력 (regression 없음).
+- cargo/vitest 변경 없음 (Python only).
+
+**PASS 조건 (DoD Phase 2)**
+- [x] `layer_id_mod_filtering(game="poe2")` 에 11 클래스 Show 블록 전부 존재
+- [x] POE2 출력에 `Rarity Normal Magic Rare` + `HasExplicitMod >=1` + `Mirrored False` + `Corrupted False` 포함
+- [x] POE2 출력에 `ItemLevel` / `Hide ` / `id_mod_hide_junk` 전무
+- [x] POE2 출력에 POE1-only Class (`Claws`/`Rune Daggers`/`Warstaves`/`Thrusting One Hand Swords`/`Utility Flasks`) 전무
+- [x] POE1 `layer_id_mod_filtering` 기존 블록 regression 없음 (strictness 0 + 4 케이스)
+- [x] 전체 pytest 719/719 PASS
+- [x] CLI smoke — POE1 6760줄 / POE2 6394줄 + 11 Recombinator 블록
+
+**Phase 2 수정 파일**
+| 파일 | 변경 |
+|---|---|
+| `scripts/extract_id_mod_filtering_poe2.py` | 신규 — SOFT/STRICT 교차 검증 extractor |
+| `data/id_mod_filtering_poe2.json` | 신규 — 11 classes / 7 blocks / 19 mods |
+| `python/sections_continue.py` | `_ID_MOD_POE2_CACHE` + `_load_id_mod_filtering_poe2` + `layer_id_mod_filtering` POE2 분기 + `_layer_id_mod_filtering_poe2` 헬퍼. docstring 갱신 |
+| `python/tests/test_filter_poe2_d7.py` | `TestLayerIdModFilteringPoe2` 대체 (8 테스트: 기존 2 유지 + 신규 6 + POE1 strictness 4 추가) |
+| `.claude/files/created.md` | 3 신규 파일 기록 |

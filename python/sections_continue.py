@@ -1578,6 +1578,7 @@ def load_ggpk_items(filepath: Optional[Path] = None) -> GGPKItems:
 
 
 _ID_MOD_CACHE: Optional[dict] = None
+_ID_MOD_POE2_CACHE: Optional[dict] = None
 
 
 def _load_id_mod_filtering() -> dict:
@@ -1591,6 +1592,19 @@ def _load_id_mod_filtering() -> dict:
         return _ID_MOD_CACHE
     _ID_MOD_CACHE = json.loads(path.read_text(encoding="utf-8")).get("by_class", {})
     return _ID_MOD_CACHE
+
+
+def _load_id_mod_filtering_poe2() -> dict:
+    """data/id_mod_filtering_poe2.json 로드 (NeverSink POE2 [[0400]] Recombinator Mods)."""
+    global _ID_MOD_POE2_CACHE
+    if _ID_MOD_POE2_CACHE is not None:
+        return _ID_MOD_POE2_CACHE
+    path = _DATA_DIR / "id_mod_filtering_poe2.json"
+    if not path.exists():
+        _ID_MOD_POE2_CACHE = {}
+        return _ID_MOD_POE2_CACHE
+    _ID_MOD_POE2_CACHE = json.loads(path.read_text(encoding="utf-8")).get("by_class", {})
+    return _ID_MOD_POE2_CACHE
 
 
 LOW_LIFE_SUFFIX_MODS = ("Hale", "Healthy", "Sanguine")
@@ -1612,15 +1626,20 @@ def layer_id_mod_filtering(mode: str = "ssf", strictness: int = 0,
     rare 일부 missed 리스크 있음 (아키텍처 Phase 7 audit 참조).
 
     POE2 는 Recombinator Mods ([[0400]]) 시스템으로 패턴은 유사하나 per-class
-    top mod 데이터가 POE1 전용. Phase 2 에서 `data/id_mod_filtering_poe2.json`
-    추출 + POE2 전용 블록으로 교체 예정. Phase 1 에서는 임시로 빈 반환 —
-    POE2 overlay 에 POE1 Class ("Claws"/"Warstaves"/"Rune Daggers" 등) 누수
-    방지. D7-C Phase 1.
+    top mod 데이터가 POE1 과 다름 (11 classes / 7 blocks / 19 mods 실측).
+    POE2 분기는 `data/id_mod_filtering_poe2.json` 로드 후 NeverSink POE2 0.9.1
+    실측 조건으로 Show 블록 생성:
+      - `Rarity Normal Magic Rare` (POE1 = Rare only)
+      - `Mirrored False` + `Corrupted False` 명시
+      - `HasExplicitMod >=1 "..."` 고정
+      - ItemLevel 조건 없음
+      - Final Hide 블록 없음 (NeverSink POE2 [[0400]] 미포함)
+    D7-C Phase 2.
     """
     if mode not in VALID_MODES:
         raise ValueError(f"mode must be in {VALID_MODES}, got {mode!r}")
     if game == "poe2":
-        return ""
+        return _layer_id_mod_filtering_poe2()
 
     by_class = _load_id_mod_filtering()
     if not by_class:
@@ -1683,6 +1702,54 @@ def layer_id_mod_filtering(mode: str = "ssf", strictness: int = 0,
         action="Hide",
         category_tag="id_mod_hide_junk",
     ))
+
+    return "".join(blocks)
+
+
+def _layer_id_mod_filtering_poe2() -> str:
+    """POE2 Recombinator Mods ([[0400]]) per-class Show 블록 생성.
+
+    NeverSink POE2 0.9.1 실측 조건 그대로:
+      Mirrored False / Corrupted False / Identified True / Rarity Normal Magic Rare
+      / Class == "..." / HasExplicitMod >=1 "..."
+    스타일: SetFontSize 42, 청록 텍스트/보더 (0 240 190), 보라 배경 (47 0 74 255),
+    PlayAlertSound 3 300, PlayEffect Blue, MinimapIcon 0 Blue Diamond.
+    """
+    by_class = _load_id_mod_filtering_poe2()
+    if not by_class:
+        return ""
+
+    style = LayerStyle(
+        font=42,
+        border="0 240 190 255",
+        text="0 240 190 255",
+        bg="47 0 74 255",
+        sound="3 300",
+        effect="Blue",
+        icon="0 Blue Diamond",
+    )
+
+    blocks: list[str] = []
+    for cls, mods in sorted(by_class.items()):
+        if not mods:
+            continue
+        quoted_mods = " ".join(f'"{m}"' for m in mods)
+        conditions = [
+            "Mirrored False",
+            "Corrupted False",
+            "Identified True",
+            "Rarity Normal Magic Rare",
+            f'Class == "{cls}"',
+            f"HasExplicitMod >=1 {quoted_mods}",
+        ]
+        blocks.append(make_layer_block(
+            LAYER_CATEGORY_SHOW,
+            f"POE2 Recombinator {cls} (top mod {len(mods)}종)",
+            conditions=conditions,
+            style=style,
+            continue_=True,
+            category_tag=f"id_mod_poe2_{cls.lower().replace(' ', '_')}",
+        ))
 
     return "".join(blocks)
 

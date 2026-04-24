@@ -1,11 +1,17 @@
-"""POE2 D7 Phase 1 — POE1 native 의존 4레이어 중 3레이어 game 분기 검증.
+"""POE2 D7 Phase 1 + 2 — POE1 native 의존 4레이어 game 분기 검증.
 
-D7-A: layer_heist(game="poe2") → 빈 반환 (Heist 리그 POE2 미존재)
-D7-D: layer_special_uniques(game="poe2") → 빈 반환 (Replica/Foulborn POE2 부재)
-D7-B: layer_flasks_quality(game="poe2") → Ultimate Life/Mana Flask + Charm Quality 재설계
+Phase 1:
+- D7-A: layer_heist(game="poe2") → 빈 반환 (Heist 리그 POE2 미존재)
+- D7-D: layer_special_uniques(game="poe2") → 빈 반환 (Replica/Foulborn POE2 부재)
+- D7-B: layer_flasks_quality(game="poe2") → Ultimate Life/Mana Flask + Charm Quality 재설계
 
-Ground truth: NeverSink POE2 필터 0.9.1 실측 ([[0800]] Endgame Flasks,
-[[0900]] Endgame Charms, Trinket/Blueprint/Contract/Replica/Foulborn 0건).
+Phase 2:
+- D7-C: layer_id_mod_filtering(game="poe2") → POE2 Recombinator Mods per-class 실구현
+  Ground truth: NeverSink POE2 0.9.1 [[0400]] (SOFT/STRICT 동일 11 classes / 7 blocks).
+
+Ground truth: NeverSink POE2 필터 0.9.1 실측 ([[0400]] Recombinator,
+[[0800]] Endgame Flasks, [[0900]] Endgame Charms, Trinket/Blueprint/Contract/
+Replica/Foulborn 0건).
 """
 
 from __future__ import annotations
@@ -88,18 +94,88 @@ class TestLayerFlasksQualityPoe2:
         assert 'Class "Flasks"' in text
 
 
-class TestLayerIdModFilteringGameBranch:
-    """D7-C Phase 1 임시 skip — Phase 2 에서 POE2 Recombinator Mods 데이터로 대체."""
+class TestLayerIdModFilteringPoe2:
+    """D7-C Phase 2 — POE2 Recombinator Mods per-class Show 블록 실구현 검증."""
 
-    def test_id_mod_poe2_empty(self):
-        assert layer_id_mod_filtering(mode="ssf", strictness=0, game="poe2") == ""
-        assert layer_id_mod_filtering(mode="ssf", strictness=3, game="poe2") == ""
+    # NeverSink POE2 0.9.1 [[0400]] 실측 11 classes
+    POE2_CLASSES = (
+        "Amulets", "Boots", "Bows", "Crossbows", "Quarterstaves",
+        "Sceptres", "Spears", "Staves", "Talismans", "Two Hand Maces", "Wands",
+    )
 
-    def test_id_mod_poe1_regression(self):
+    def test_poe2_all_classes_have_blocks(self):
+        text = layer_id_mod_filtering(mode="ssf", strictness=0, game="poe2")
+        for cls in self.POE2_CLASSES:
+            tag = f"id_mod_poe2_{cls.lower().replace(' ', '_')}"
+            assert f"[L8|{tag}]" in text, f"POE2 Recombinator {cls} 블록 누락"
+
+    def test_poe2_recombinator_conditions(self):
+        """POE2 고유 조건: Rarity Normal Magic Rare + HasExplicitMod >=1 + Mirrored/Corrupted False."""
+        text = layer_id_mod_filtering(mode="ssf", strictness=0, game="poe2")
+        assert "Rarity Normal Magic Rare" in text
+        assert "HasExplicitMod >=1 " in text
+        assert "Mirrored False" in text
+        assert "Corrupted False" in text
+        assert "Identified True" in text
+
+    def test_poe2_no_item_level_condition(self):
+        """POE2 Recombinator 블록은 ItemLevel 조건 사용하지 않음 (POE1 과 차이)."""
+        text = layer_id_mod_filtering(mode="ssf", strictness=0, game="poe2")
+        # POE2 Show 블록에만 ItemLevel 이 없으면 됨 — 전체 출력에 ItemLevel 이 있어선 안 됨 (POE2 는 Hide 블록 자체 없음)
+        assert "ItemLevel" not in text, "POE2 Recombinator 블록에 ItemLevel 조건 누수"
+
+    def test_poe2_no_final_hide_block(self):
+        """POE2 [[0400]] 은 final Hide 블록 없음 (POE1 은 AreaLevel>=75 Hide)."""
+        text = layer_id_mod_filtering(mode="ssf", strictness=0, game="poe2")
+        assert "Hide #" not in text
+        assert "[L8|id_mod_hide_junk]" not in text
+
+    def test_poe2_specific_mods_match_ground_truth(self):
+        """NeverSink 0.9.1 [[0400]] 실측 mod 문자열 반영 검증 (pure-data invariant)."""
+        text = layer_id_mod_filtering(mode="ssf", strictness=0, game="poe2")
+        # Boots — "Hellion's"
+        assert '"Hellion\'s"' in text
+        # Amulets — Countess' + of the Sharpshooter
+        assert '"Countess\'"' in text
+        assert '"of the Sharpshooter"' in text
+        # Staves/Wands 공통 — Runic + 6 of-suffix mods
+        for mod in ('"Runic"', '"of Armageddon"', '"of Frostbite"',
+                    '"of Grief"', '"of Inferno"', '"of Thunder"', '"of the Wizard"'):
+            assert mod in text, f"POE2 caster mod {mod} 누락"
+        # Quarterstaves/Talismans/Two Hand Maces 공통 — Merciless + of War
+        assert '"of War"' in text
+
+    def test_poe2_style_attributes(self):
+        """POE2 Recombinator 블록 스타일: font 42 / 청록 text / 보라 bg / PlayAlertSound 3 300 / PlayEffect Blue / MinimapIcon 0 Blue Diamond."""
+        text = layer_id_mod_filtering(mode="ssf", strictness=0, game="poe2")
+        assert "SetFontSize 42" in text
+        assert "SetTextColor 0 240 190 255" in text
+        assert "SetBorderColor 0 240 190 255" in text
+        assert "SetBackgroundColor 47 0 74 255" in text
+        assert "PlayAlertSound 3 300" in text
+        assert "PlayEffect Blue" in text
+        assert "MinimapIcon 0 Blue Diamond" in text
+
+    def test_poe2_no_poe1_only_classes_in_id_mod(self):
+        """POE2 id_mod 출력에 POE1 전용 Class 누수 없음."""
+        text = layer_id_mod_filtering(mode="ssf", strictness=0, game="poe2")
+        for kw in ("Claws", "Rune Daggers", "Warstaves",
+                   "Thrusting One Hand Swords", "Utility Flasks"):
+            assert kw not in text, f"POE2 id_mod 블록에 POE1-only {kw} 누수"
+
+    def test_poe1_regression(self):
+        """POE1 기존 per-class Show + final Hide 블록 유지."""
         text = layer_id_mod_filtering(mode="ssf", strictness=0, game="poe1")
         assert "Identified True" in text
-        assert "HasExplicitMod" in text
+        assert "Rarity Rare" in text  # POE1 은 Rare only
+        assert "ItemLevel >= 68" in text
         assert "[L8|id_mod_" in text
+        assert "[L8|id_mod_hide_junk]" in text
+
+    def test_poe1_strictness_4_low_life_exclusion(self):
+        """POE1 strictness>=4 low-life suffix mod 제외 회귀."""
+        text = layer_id_mod_filtering(mode="ssf", strictness=4, game="poe1")
+        assert 'HasExplicitMod 0 "Hale" "Healthy" "Sanguine"' in text
 
 
 class TestOverlayE2EPoe2:
