@@ -228,6 +228,7 @@ fn extract_game_data(poe_path: String, game: Option<Game>) -> Result<String, Str
         "Data/QuestRewards.datc64",
         "Data/PassiveSkills.datc64",
         "Data/UniqueStashLayout.datc64",
+        "Data/UniqueStashTypes.datc64",
     ];
 
     let mut extracted = Vec::new();
