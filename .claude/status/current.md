@@ -1,20 +1,20 @@
 ## 지금
-- **POE2 D7 Phase 1 (2026-04-24 S8, push 완료)** — `f49520c` feat: POE2 D7 Phase 1 — 4레이어 POE2 game 분기
-  - A. `layer_heist` POE2 skip (NeverSink POE2 0.9.1 실측 Heist 0건 확정)
-  - B. `layer_flasks_quality` POE2 재설계 — Ultimate Life/Mana Flask Q11+/baseline + Charm Q18+ ([[0800]]/[[0900]])
-  - C. `layer_id_mod_filtering` POE2 **임시 skip** (Phase 2 에서 Recombinator Mods 실구현으로 교체 예정, POE1 Class 누수 차단)
-  - D. `layer_special_uniques` POE2 skip (Replica/Foulborn 0건 실측)
-  - `generate_beta_overlay` 호출부 4개 game 전파
-  - 15 테스트 신규 (skip + POE1 regression + overlay E2E leak)
-  - Ground truth: `_analysis/neversink_poe2_0.9.1/*.filter` 5075 lines 직접 스캔
-  - 검증: Python 697→712 (+15) / cargo 50 / vitest 110 / CLI smoke PASS
-- **Phase 2 대기** — `scripts/extract_id_mod_filtering_poe2.py` + `data/id_mod_filtering_poe2.json` + `_load_id_mod_filtering_poe2()` + layer 분기. 별도 세션 권장 (데이터 추출 규모)
+- **다음 세션 예정: POE2 D7 Phase 2** — `layer_id_mod_filtering` POE2 Recombinator Mods 실구현
+  - Ground truth: `_analysis/neversink_poe2_0.9.1/` (gitignored, 로컬 보존) [[0400]] ~ [[0500]] 섹션
+  - 시작점: `scripts/extract_id_mod_filtering_poe2.py` (NeverSink 0-SOFT / 3-STRICT 두 파일 교차 검증, S6 방식)
+  - 산출: `data/id_mod_filtering_poe2.json` (by_class 구조)
+  - 코드: `_load_id_mod_filtering_poe2()` + `layer_id_mod_filtering(game="poe2")` skip 제거, 실 블록 생성
+  - POE2 조건 특이점: `Rarity Normal Magic Rare` / ItemLevel 없음 / Mirrored False + Corrupted False / HasExplicitMod `>=1` (POE1 은 count 생략)
+- **이전 세션 (S8, push 완료)**
+  - `58ae093` S8 반영 / `f49520c` feat: POE2 D7 Phase 1 — 4레이어 POE2 game 분기 / `24c2d31` push 반영 + D7 진입 / `3f36164` S7 종료
+  - heist / special_uniques / id_mod POE2 skip + flasks_quality POE2 재설계 (Ultimate Life/Mana Flask Q11+/baseline + Charm Q18+, NeverSink [[0800]]/[[0900]])
+  - `generate_beta_overlay` 호출부 4개 game 전파. 15 테스트 신규 (skip + POE1 regression + overlay E2E leak)
+  - 검증: Python 697→712 (+15) / cargo 50 / vitest 110 / CLI smoke PASS. Plan: `poe2_d7_plan.md`
 - **이전 세션 (S7, push 완료)**
   - `3f36164` chore: S7 종료 기록 / `9b2b475` feat: POE2 D5 2단계 — 필터 생성 game-aware ItemClass 분기
   - `sections_continue.py` POE1 Class 하드코딩 5개 → `game: str = "poe1"` 시그니처 + 헬퍼 10개
   - POE2 분기: Shields+Bucklers / Warstaves→Quarterstaves / 8종 drop (Claws·Daggers·O1/O2 Axes/Swords·Thrusting·Rune Daggers) / Hybrid Flasks drop / T1 보더 POE1 7→POE2 2 카테고리
-  - `filter_generator.py` `args.game` 전파, Rust `generate_filter_multi` D0/D6에서 이미 구현
-  - 21 테스트 (매핑 8 + 빌더 6 + 오버레이 E2E 7). 검증: Python 697/697 cargo 42 vitest 110
+  - 21 테스트. 검증: Python 697/697 cargo 42 vitest 110
 - **이전 세션 (S6, push 완료)**
   - `1d6e9d6` push 반영 / `6e5f390` S6 종료 / `741e732` feat: POE2 D5 1단계 — ItemClass 매핑 + 드리프트 검증
   - NeverSink POE2 0.9.1 (0-SOFT / 3-STRICT) 40 Class 추출. `data/item_class_map_poe2.json` + `scripts/verify_item_class_map_poe2.py` + 11 테스트
@@ -36,16 +36,15 @@
 1. [ ] **D6 해제 조건 수집** — Tauri 창 POE2 실사용. `_normalization_trace` / `_retry_info` 로그 수집 (백엔드는 이미 게재 중). 사용자 실클릭만 있으면 즉시 가능
    - S5 에서 `_debug/coach_last_{game}.json` 덤프 인프라 추가 — 관찰 후 `python/build_coach.py:1148-1158` 블록 제거 + `_debug/` 디렉토리 삭제
    - S5 추가: POE2 campaign 구조 자동 파생 + normalizer POE2 분기 완료 (L2 방어 공백 메움)
-2. [x] **POE2 D7 Phase 1** — 2026-04-24 S8 완료 (heist/special_uniques/id_mod skip + flasks_quality 재설계, 15 테스트). `f49520c`
-3. [ ] **POE2 D7 Phase 2** — `layer_id_mod_filtering` POE2 Recombinator Mods 실구현
+2. [ ] **POE2 D7 Phase 2** — `layer_id_mod_filtering` POE2 Recombinator Mods 실구현
    - NeverSink POE2 [[0400]] per-class mod 추출 스크립트
    - `data/id_mod_filtering_poe2.json`
-   - `_load_id_mod_filtering_poe2()` + game 분기 블록 생성
-4. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
-5. [ ] (후속, 선택) uniques stash_type 매핑 — UniqueStashTypes 테이블 extract → stash type id → 유형 이름 (Weapons/Armour/etc)
-6. [ ] (후속, 선택) base_items 필드 확장 — requirements (Str/Dex/Int) / damage / armour 추가
-7. [ ] **VerbalBuildInput POE1 fallback 설계 명시** — 컴포넌트가 game prop 받지만 POE1 렌더 경로 없음 (audit medium 이슈)
-8. [ ] **기존 POE1 잔여** (이월):
+   - `_load_id_mod_filtering_poe2()` + game 분기 블록 생성 (Phase 1 임시 skip 교체)
+3. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
+4. [ ] (후속, 선택) uniques stash_type 매핑 — UniqueStashTypes 테이블 extract → stash type id → 유형 이름 (Weapons/Armour/etc)
+5. [ ] (후속, 선택) base_items 필드 확장 — requirements (Str/Dex/Int) / damage / armour 추가
+6. [ ] **VerbalBuildInput POE1 fallback 설계 명시** — 컴포넌트가 game prop 받지만 POE1 렌더 경로 없음 (audit medium 이슈)
+7. [ ] **기존 POE1 잔여** (이월):
    - L3 auto-retry 인게임 검증 (POE1)
    - DoD 수동 검증 (FilterPanel / 오버레이 / 히스토리)
    - Strict 모드 실측
