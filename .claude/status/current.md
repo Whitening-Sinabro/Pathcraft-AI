@@ -39,7 +39,11 @@
 1. [ ] **D6 해제 조건 수집** — Tauri 창 POE2 실사용. `_normalization_trace` / `_retry_info` 로그 수집 (백엔드는 이미 게재 중). 사용자 실클릭만 있으면 즉시 가능
    - S5 에서 `_debug/coach_last_{game}.json` 덤프 인프라 추가 — 관찰 후 `python/build_coach.py:1148-1158` 블록 제거 + `_debug/` 디렉토리 삭제
    - S5 추가: POE2 campaign 구조 자동 파생 + normalizer POE2 분기 완료 (L2 방어 공백 메움)
-2. [x] **POE2 D5 2단계** — 2026-04-23 S7 완료 (sections_continue.py game-aware / filter_generator / Rust / 21 테스트). **후속 D7**: POE1 native 데이터 의존 레이어(id_mod_filtering·heist·flasks_quality·special_uniques 등) Class 조건 — POE2 native 데이터 수집 필요
+2. [ ] **POE2 D7** — POE1 native 데이터 의존 4레이어 game 분기 (D5 2단계 후속)
+   - `layer_id_mod_filtering`: POE2 Mods (14841 rows) top-mod 추출 후 대응
+   - `layer_heist`: POE2 미지원 → game 분기로 호출 skip
+   - `layer_flasks_quality`: POE2 Charm 시스템 대응 재설계
+   - `layer_special_uniques`: `uniques_poe2.json` 기반 카테고리 재분류
 3. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
 4. [ ] (후속, 선택) uniques stash_type 매핑 — UniqueStashTypes 테이블 extract → stash type id → 유형 이름 (Weapons/Armour/etc)
 5. [ ] (후속, 선택) base_items 필드 확장 — requirements (Str/Dex/Int) / damage / armour 추가
