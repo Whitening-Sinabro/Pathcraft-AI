@@ -1,11 +1,21 @@
 ## 지금
-- **현재 세션 (S10, 진행 중): base_items_poe2 Str/Dex/Int requirements 선행 + valid_gems 회귀 가드 (2026-04-25)**
-  - **[2] AttributeRequirements 추출 + base_items 필드 확장 선행**:
-    - `src-tauri/src/bin/extract_data.rs` TARGETS + `src-tauri/src/lib.rs` `extract_game_data` 에 `Data/AttributeRequirements.datc64` 추가. 다음 GGPK 추출 사이클부터 자동 (`data/balance/attributerequirements.datc64`, 892 rows, schema validFor=2 POE2 전용).
-    - `scripts/build_base_items_poe2.py`: `load_optional` + `build_attribute_requirements` 헬퍼 + `simplify(base_index, attr_req)` 시그니처 확장. 매핑 활성 시 `req_str`/`req_dex`/`req_int` 부착, 부재 시 기존 동작 유지 (graceful). `_meta` 에 `attribute_requirements_count` 조건부.
-    - `data/base_items_poe2.json` 재생성 — 283/562/98 변동 없음, 현재 req 필드 없는 graceful 상태.
-    - `python/tests/test_build_base_items_poe2.py` 신규 — 헬퍼 단위 6 + simplify 통합 3 + load_optional 2 + 무결성 2 = 13 테스트.
-    - cargo check 통과.
+- **현재 세션 (S10, 진행 중): GGPK 추출 트리거 → 두 선행 데이터 자동 부착 + valid_gems 회귀 가드 (2026-04-25)**
+  - **[GGPK 추출 실행 — S9/S10 선행 작업 일괄 검증]**:
+    - `cargo run --bin extract_data --release -- --game poe2 --json` 실행. 23/24 성공 (ScarabTypes POE2 미존재 1건만 실패, 의도된 동작).
+    - `UniqueStashTypes.datc64` 추출 → `data/game_data_poe2/UniqueStashTypes.json` 34 rows.
+    - `AttributeRequirements.datc64` 추출 → `data/game_data_poe2/AttributeRequirements.json` 892 rows.
+  - **[1단계 자동 활성] uniques_poe2.json**:
+    - `python scripts/build_uniques_poe2.py` 재실행. **393 uniques 전부 stash_type_label 부착** (`stash_type_labels_count: 34`, `unknown_label: 0`).
+    - 예시: Ab Aeterno → Boots / Adonia's Ego → Wand / Aerisvane's Wings → Gloves.
+  - **[2단계 자동 활성] base_items_poe2.json**:
+    - `python scripts/build_base_items_poe2.py` 재실행. **791 entry 에 `req_str`/`req_dex`/`req_int` 부착** (`attribute_requirements_count: 839`, drop_level=1 starter 의 0/0/0 자동 필터).
+    - 분포 검증: Bow=Dex만 / Corsair Coat (BodyArmour 80lvl)=Dex 121 / Thane Mail=Str+Dex hybrid / Austere Garb=Dex+Int hybrid — POE2 어트리뷰트 분류 모두 정상.
+  - **[2.5단계] catalog 생성기 hardening (local-only, gitignored)**:
+    - `src-tauri/src/bin/catalog_poe2_tables.rs` `_meta.ggpk` 에 GGPK file size + mtime fingerprint 추가. sha2 의존성 회피 (size+mtime 만으로 패치 stale 탐지 충분). `_meta.generated_at_unix` 도 추가. 차후 카탈로그 재생성 시 자동 기록.
+  - **[1] valid_gems_poe2 카테고리 완전성 회귀 가드** (이번 세션 초반):
+    - GGPK 2026-04-22 0.4.0d 기준 Awakened 0건 / Vaal 0건 확정. GemType=2 메타 젬 36건 active 카테고리 포함 (consumer 평탄화 → 기능 누락 0).
+    - `python/tests/test_valid_gems_poe2_categories.py` 5 회귀 가드.
+  - 검증: pytest 727 → **745** (+18) / cargo check / tsc 0 / vitest 110.
   - **[1] valid_gems_poe2 카테고리 완전성 회귀 가드**:
     - 조사: GGPK 2026-04-22 poe2 0.4.0d `SkillGems.json` 1103 행 — `Awakened` 전부 sentinel(`-72340172838076674`), `IsVaalVariant=False` 전부, `VaalVariant_BaseItemType` 전부 sentinel. POE2 0.4.x Awakened/Vaal 메커닉 부재 확정.
     - GemType=2 메타 젬 (42행 / 유효 36행, Cast on X / Totem 류) 전부 valid_gems_poe2 `active` 포함. consumer 평탄화 → 기능 누락 0.
@@ -44,8 +54,8 @@
    - S5 에서 `_debug/coach_last_{game}.json` 덤프 인프라 추가 — 관찰 후 `python/build_coach.py:1148-1158` 블록 제거 + `_debug/` 디렉토리 삭제
    - S5 추가: POE2 campaign 구조 자동 파생 + normalizer POE2 분기 완료 (L2 방어 공백 메움)
 2. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
-3. [~] **uniques stash_type 라벨 매핑** — 선행 준비 완료 (2026-04-25). 남은 것: 다음 Tauri `extract_game_data` 실행 시 `UniqueStashTypes.datc64` 자동 추출 → `python scripts/build_uniques_poe2.py` 재실행 → 393 uniques 에 `stash_type_label` 자동 부착
-4. [~] **base_items 필드 확장** — requirements (Str/Dex/Int) 선행 준비 완료 (2026-04-25). 다음 Tauri `extract_game_data` → `python scripts/build_base_items_poe2.py` 재실행 → `req_str`/`req_dex`/`req_int` 자동 부착. damage / armour 는 후속 (별도 GGPK 테이블 필요)
+3. [x] ~~**uniques stash_type 라벨 매핑**~~ — **완료 (2026-04-25 S10)**. 393 uniques 전부 `stash_type_label` 부착, 34 라벨, unknown 0
+4. [x] ~~**base_items 필드 확장 (Str/Dex/Int)**~~ — **완료 (2026-04-25 S10)**. 791 entry 에 `req_str`/`req_dex`/`req_int` 부착. damage / armour 는 후속 (별도 GGPK 테이블 필요)
 5. [ ] **기존 POE1 잔여** (이월):
    - L3 auto-retry 인게임 검증 (POE1)
    - DoD 수동 검증 (FilterPanel / 오버레이 / 히스토리)

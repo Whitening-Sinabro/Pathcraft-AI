@@ -1,11 +1,13 @@
 {
   "_meta": {
-    "source": "GGPK UniqueStashLayout + Words JOIN",
+    "source": "GGPK UniqueStashLayout + Words + UniqueStashTypes JOIN",
     "game": "poe2",
     "generator": "scripts/build_uniques_poe2.py",
     "total": 393,
     "skipped_hidden": 10,
-    "skipped_badref": 0
+    "skipped_badref": 0,
+    "stash_type_labels_count": 34,
+    "skipped_unknown_label": 0
   },
   "uniques": [
     {
@@ -13,2751 +15,3144 @@
       "name_alt": "Ab Aeterno",
       "visual_id": 15677,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Adonia's Ego",
       "name_alt": "Adonia's Ego",
       "visual_id": 15551,
       "is_alt_art": false,
-      "stash_type": 5
+      "stash_type": 5,
+      "stash_type_label": "Wand"
     },
     {
       "name": "Aerisvane's Wings",
       "name_alt": "Aerisvane's Wings",
       "visual_id": 15120,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Against the Darkness",
       "name_alt": "Against the Darkness",
       "visual_id": 15722,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Alkem Eira",
       "name_alt": "Alkem Eira",
       "visual_id": 15201,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Alpha's Howl",
       "name_alt": "Alpha's Howl",
       "visual_id": 15056,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Amor Mandragora",
       "name_alt": "Amor Mandragora",
       "visual_id": 15646,
       "is_alt_art": false,
-      "stash_type": 33
+      "stash_type": 33,
+      "stash_type_label": "Talisman"
     },
     {
       "name": "Andvarius",
       "name_alt": "Andvarius",
       "visual_id": 15315,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Apep's Supremacy",
       "name_alt": "Apep's Supremacy",
       "visual_id": 15232,
       "is_alt_art": false,
-      "stash_type": 28
+      "stash_type": 28,
+      "stash_type_label": "Focus"
     },
     {
       "name": "Apron of Emiran",
       "name_alt": "Apron of Emiran",
       "visual_id": 15019,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Arakaali's Gift",
       "name_alt": "Arakaali's Gift",
       "visual_id": 15664,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "Arvil's Wheel",
       "name_alt": "Arvil's Wheel",
       "visual_id": 15190,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Ashrend",
       "name_alt": "Ashrend",
       "visual_id": 14963,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Asphyxia's Wrath",
       "name_alt": "Asphyxia's Wrath",
       "visual_id": 15239,
       "is_alt_art": false,
-      "stash_type": 11
+      "stash_type": 11,
+      "stash_type_label": "Quiver"
     },
     {
       "name": "Assailum",
       "name_alt": "Assailum",
       "visual_id": 15693,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Astramentis",
       "name_alt": "Astramentis",
       "visual_id": 15277,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Atsak's Sight",
       "name_alt": "Atsak's Sight",
       "visual_id": 15087,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Atziri's Acuity",
       "name_alt": "Atziri's Acuity",
       "visual_id": 15096,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Atziri's Contempt",
       "name_alt": "Atziri's Contempt",
       "visual_id": 15471,
       "is_alt_art": false,
-      "stash_type": 30
+      "stash_type": 30,
+      "stash_type_label": "Spear"
     },
     {
       "name": "Atziri's Disdain",
       "name_alt": "Atziri's Disdain",
       "visual_id": 15062,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Atziri's Rule",
       "name_alt": "Atziri's Rule",
       "visual_id": 15579,
       "is_alt_art": false,
-      "stash_type": 10
+      "stash_type": 10,
+      "stash_type_label": "Staff"
     },
     {
       "name": "Atziri's Splendour",
       "name_alt": "Atziri's Splendour",
       "visual_id": 15033,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Atziri's Step",
       "name_alt": "Atziri's Step",
       "visual_id": 15150,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Aurseize",
       "name_alt": "Aurseize",
       "visual_id": 15117,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Beacon of Azis",
       "name_alt": "Beacon of Azis",
       "visual_id": 15279,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Beetlebite",
       "name_alt": "Beetlebite",
       "visual_id": 15699,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Beira's Anguish",
       "name_alt": "Beira's Anguish",
       "visual_id": 15665,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "Belly of the Beast",
       "name_alt": "Belly of the Beast",
       "visual_id": 14996,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Beyond Reach",
       "name_alt": "Beyond Reach",
       "visual_id": 15704,
       "is_alt_art": false,
-      "stash_type": 11
+      "stash_type": 11,
+      "stash_type_label": "Quiver"
     },
     {
       "name": "Bijouborne",
       "name_alt": "Bijouborne",
       "visual_id": 15338,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Birth of Fury",
       "name_alt": "Birth of Fury",
       "visual_id": 15138,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Birthright Buckle",
       "name_alt": "Birthright Buckle",
       "visual_id": 15328,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Bitterbloom",
       "name_alt": "Bitterbloom",
       "visual_id": 14978,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Black Sun Crest",
       "name_alt": "Black Sun Crest",
       "visual_id": 15037,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Blackbraid",
       "name_alt": "Blackbraid",
       "visual_id": 14947,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Blackflame",
       "name_alt": "Blackflame",
       "visual_id": 15301,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Blackgleam",
       "name_alt": "Blackgleam",
       "visual_id": 15240,
       "is_alt_art": false,
-      "stash_type": 11
+      "stash_type": 11,
+      "stash_type_label": "Quiver"
     },
     {
       "name": "Blackheart",
       "name_alt": "Blackheart",
       "visual_id": 15284,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Blessed Bonds",
       "name_alt": "Blessed Bonds",
       "visual_id": 15681,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Blistering Bond",
       "name_alt": "Blistering Bond",
       "visual_id": 15292,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Blood Price",
       "name_alt": "Blood Price",
       "visual_id": 15042,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Blood of the Warrior",
       "name_alt": "Blood of the Warrior",
       "visual_id": 15347,
       "is_alt_art": false,
-      "stash_type": 0
+      "stash_type": 0,
+      "stash_type_label": "Flask"
     },
     {
       "name": "Bloodbarrier",
       "name_alt": "Bloodbarrier",
       "visual_id": 15215,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Blueflame Bracers",
       "name_alt": "Blueflame Bracers",
       "visual_id": 15124,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Bones of Ullr",
       "name_alt": "Bones of Ullr",
       "visual_id": 15153,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Brain Rattler",
       "name_alt": "Brain Rattler",
       "visual_id": 15443,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Bramblejack",
       "name_alt": "Bramblejack",
       "visual_id": 14946,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Breath of the Mountains",
       "name_alt": "Breath of the Mountains",
       "visual_id": 15670,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "Briarpatch",
       "name_alt": "Briarpatch",
       "visual_id": 15143,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Briskwrap",
       "name_alt": "Briskwrap",
       "visual_id": 14965,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Bristleboar",
       "name_alt": "Bristleboar",
       "visual_id": 14961,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Bronzebeard",
       "name_alt": "Bronzebeard",
       "visual_id": 15077,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Brynabas",
       "name_alt": "Byrnabas",
       "visual_id": 15329,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Brynhand's Mark",
       "name_alt": "Brynhand's Mark",
       "visual_id": 15422,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Bursting Decay",
       "name_alt": "Bursting Decay",
       "visual_id": 15711,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Bushwhack",
       "name_alt": "Bushwhack",
       "visual_id": 15146,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Cadiro's Gambit",
       "name_alt": "Cadiro's Gambit",
       "visual_id": 15246,
       "is_alt_art": false,
-      "stash_type": 11
+      "stash_type": 11,
+      "stash_type_label": "Quiver"
     },
     {
       "name": "Calgyra's Arc",
       "name_alt": "Calgyra's Arc",
       "visual_id": 15222,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Call of the Brotherhood",
       "name_alt": "Call of the Brotherhood",
       "visual_id": 15299,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Candlemaker",
       "name_alt": "Candlemaker",
       "visual_id": 15109,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Carnage Heart",
       "name_alt": "Carnage Heart",
       "visual_id": 15268,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Carrion Call",
       "name_alt": "Carrion Call",
       "visual_id": 15229,
       "is_alt_art": false,
-      "stash_type": 28
+      "stash_type": 28,
+      "stash_type_label": "Focus"
     },
     {
       "name": "Chainsting",
       "name_alt": "Chainsting",
       "visual_id": 15460,
       "is_alt_art": false,
-      "stash_type": 30
+      "stash_type": 30,
+      "stash_type_label": "Spear"
     },
     {
       "name": "Chernobog's Pillar",
       "name_alt": "Chernobog's Pillar",
       "visual_id": 15189,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Chober Chaber",
       "name_alt": "Chober Chaber",
       "visual_id": 15446,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Choir of the Storm",
       "name_alt": "Choir of the Storm",
       "visual_id": 15706,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Cloak of Defiance",
       "name_alt": "Cloak of Defiance",
       "visual_id": 14989,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Cloak of Flame",
       "name_alt": "Cloak of Flame",
       "visual_id": 14981,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Coat of Red",
       "name_alt": "Coat of Red",
       "visual_id": 14992,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Collapsing Horizon",
       "name_alt": "Collapsing Horizon",
       "visual_id": 15696,
       "is_alt_art": false,
-      "stash_type": 32
+      "stash_type": 32,
+      "stash_type_label": "Quarterstaff"
     },
     {
       "name": "Constricting Command",
       "name_alt": "Constricting Command",
       "visual_id": 15051,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Controlled Metamorphosis",
       "name_alt": "Controlled Metamorphosis",
       "visual_id": 15719,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Cornathaum",
       "name_alt": "Cornathaum",
       "visual_id": 15080,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Corona of the Red Sun",
       "name_alt": "Corona of the Red Sun",
       "visual_id": 15040,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Corpsewade",
       "name_alt": "Corpsewade",
       "visual_id": 15135,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Cospri's Will",
       "name_alt": "Cospri's Will",
       "visual_id": 15031,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Couture of Crimson",
       "name_alt": "Couture of Crimson",
       "visual_id": 15013,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Coward's Legacy",
       "name_alt": "Coward's Legacy",
       "visual_id": 15336,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Cracklecreep",
       "name_alt": "Cracklecreep",
       "visual_id": 15291,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Crest of Ardura",
       "name_alt": "Crest of Ardura",
       "visual_id": 15204,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Crown of Eyes",
       "name_alt": "Crown of Eyes",
       "visual_id": 15063,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Crown of Thorns",
       "name_alt": "Crown of Thorns",
       "visual_id": 15057,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Crown of the Pale King",
       "name_alt": "Crown of the Pale King",
       "visual_id": 15078,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Crown of the Victor",
       "name_alt": "Crown of the Victor",
       "visual_id": 15076,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Cursecarver",
       "name_alt": "Cursecarver",
       "visual_id": 15554,
       "is_alt_art": false,
-      "stash_type": 5
+      "stash_type": 5,
+      "stash_type_label": "Wand"
     },
     {
       "name": "Daevata's Wind",
       "name_alt": "Daevata's Wind",
       "visual_id": 15462,
       "is_alt_art": false,
-      "stash_type": 30
+      "stash_type": 30,
+      "stash_type_label": "Spear"
     },
     {
       "name": "Darkness Enthroned",
       "name_alt": "Darkness Enthroned",
       "visual_id": 15346,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Darkray Vectors",
       "name_alt": "Darkray Vectors",
       "visual_id": 15160,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Death Articulated",
       "name_alt": "Death Articulated",
       "visual_id": 15712,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Death Rush",
       "name_alt": "Death Rush",
       "visual_id": 15304,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Death's Harp",
       "name_alt": "Death's Harp",
       "visual_id": 15585,
       "is_alt_art": false,
-      "stash_type": 9
+      "stash_type": 9,
+      "stash_type_label": "Bow"
     },
     {
       "name": "Deathblow",
       "name_alt": "Deathblow",
       "visual_id": 15118,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Deathrattle",
       "name_alt": "Deathrattle",
       "visual_id": 15226,
       "is_alt_art": false,
-      "stash_type": 28
+      "stash_type": 28,
+      "stash_type_label": "Focus"
     },
     {
       "name": "Defiance of Destiny",
       "name_alt": "Defiance of Destiny",
       "visual_id": 15270,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Deidbell",
       "name_alt": "Deidbell",
       "visual_id": 15039,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Demon Stitcher",
       "name_alt": "Demon Stitcher",
       "visual_id": 15112,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Dionadair",
       "name_alt": "Dionadair",
       "visual_id": 15177,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Doedre's Damning",
       "name_alt": "Doedre's Damning",
       "visual_id": 15289,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Doedre's Tenure",
       "name_alt": "Doedre's Tenure",
       "visual_id": 15110,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Doomfletch",
       "name_alt": "Doomfletch",
       "visual_id": 15584,
       "is_alt_art": false,
-      "stash_type": 9
+      "stash_type": 9,
+      "stash_type_label": "Bow"
     },
     {
       "name": "Doomgate",
       "name_alt": "Doomgate",
       "visual_id": 15179,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Doryani's Prototype",
       "name_alt": "Doryani's Prototype",
       "visual_id": 14997,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Double Vision",
       "name_alt": "Double Vision",
       "visual_id": 15602,
       "is_alt_art": false,
-      "stash_type": 26
+      "stash_type": 26,
+      "stash_type_label": "Crossbow"
     },
     {
       "name": "Dreadfist",
       "name_alt": "Dreadfist",
       "visual_id": 15095,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Dream Fragments",
       "name_alt": "Dream Fragments",
       "visual_id": 15295,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Drillneck",
       "name_alt": "Drillneck",
       "visual_id": 15250,
       "is_alt_art": false,
-      "stash_type": 11
+      "stash_type": 11,
+      "stash_type_label": "Quiver"
     },
     {
       "name": "Dunkelhalt",
       "name_alt": "Dunkelhalt",
       "visual_id": 15212,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Dusk Vigil",
       "name_alt": "Dusk Vigil",
       "visual_id": 15563,
       "is_alt_art": false,
-      "stash_type": 10
+      "stash_type": 10,
+      "stash_type_label": "Staff"
     },
     {
       "name": "Dustbloom",
       "name_alt": "Dustbloom",
       "visual_id": 14966,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Earthbound",
       "name_alt": "Earthbound",
       "visual_id": 15565,
       "is_alt_art": false,
-      "stash_type": 10
+      "stash_type": 10,
+      "stash_type_label": "Staff"
     },
     {
       "name": "Edyrn's Tusks",
       "name_alt": "Edyrn's Tusks",
       "visual_id": 14948,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Effigy of Cruelty",
       "name_alt": "Effigy of Cruelty",
       "visual_id": 15228,
       "is_alt_art": false,
-      "stash_type": 28
+      "stash_type": 28,
+      "stash_type_label": "Focus"
     },
     {
       "name": "Elevore",
       "name_alt": "Elevore",
       "visual_id": 15050,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Empire's Grasp",
       "name_alt": "Empire's Grasp",
       "visual_id": 15098,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Enezun's Charge",
       "name_alt": "Enezun's Charge",
       "visual_id": 15552,
       "is_alt_art": false,
-      "stash_type": 5
+      "stash_type": 5,
+      "stash_type_label": "Wand"
     },
     {
       "name": "Enfolding Dawn",
       "name_alt": "Enfolding Dawn",
       "visual_id": 15005,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Erian's Cobble",
       "name_alt": "Erian's Cobble",
       "visual_id": 15069,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Essentia Sanguis",
       "name_alt": "Essentia Sanguis",
       "visual_id": 15132,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Evergrasping Ring",
       "name_alt": "Evergrasping Ring",
       "visual_id": 15306,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Eye of Chayula",
       "name_alt": "Eye of Chayula",
       "visual_id": 15281,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Ezomyte Peak",
       "name_alt": "Ezomyte Peak",
       "visual_id": 15036,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Fairgraves' Curse",
       "name_alt": "Fairgraves' Curse",
       "visual_id": 15588,
       "is_alt_art": false,
-      "stash_type": 9
+      "stash_type": 9,
+      "stash_type_label": "Bow"
     },
     {
       "name": "Feathered Fortress",
       "name_alt": "Feathered Fortress",
       "visual_id": 15193,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Fireflower",
       "name_alt": "Fireflower",
       "visual_id": 15280,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Fixation of Yix",
       "name_alt": "Fixation of Yix",
       "visual_id": 15278,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Flesh Crucible",
       "name_alt": "Flesh Crucible",
       "visual_id": 15725,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Font of Power",
       "name_alt": "Font of Power",
       "visual_id": 15619,
       "is_alt_art": false,
-      "stash_type": 29
+      "stash_type": 29,
+      "stash_type_label": "Sceptre"
     },
     {
       "name": "For Utopia",
       "name_alt": "For Utopia",
       "visual_id": 15667,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "Forsaken Bangle",
       "name_alt": "Forsaken Bangle",
       "visual_id": 15672,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "Foxshade",
       "name_alt": "Foxshade",
       "visual_id": 14962,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "From Nothing",
       "name_alt": "From Nothing",
       "visual_id": 15718,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Frostbreath",
       "name_alt": "Frostbreath",
       "visual_id": 15424,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Fury of the King",
       "name_alt": "Fury of the King",
       "visual_id": 15659,
       "is_alt_art": false,
-      "stash_type": 33
+      "stash_type": 33,
+      "stash_type_label": "Talisman"
     },
     {
       "name": "Gamblesprint",
       "name_alt": "Gamblesprint",
       "visual_id": 15144,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Ghostmarch",
       "name_alt": "Ghostmarch",
       "visual_id": 15172,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Ghostwrithe",
       "name_alt": "Ghostwrithe",
       "visual_id": 14977,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Gifts from Above",
       "name_alt": "Gifts from Above",
       "visual_id": 15309,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Glimpse of Chaos",
       "name_alt": "Glimpse of Chaos",
       "visual_id": 15685,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Gloamgown",
       "name_alt": "Gloamgown",
       "visual_id": 14985,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Gloomform",
       "name_alt": "Gloomform",
       "visual_id": 15020,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Glowswarm",
       "name_alt": "Glowswarm",
       "visual_id": 15288,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Goldrim",
       "name_alt": "Goldrim",
       "visual_id": 15047,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Goregirdle",
       "name_alt": "Goregirdle",
       "visual_id": 15333,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Grand Spectrum",
       "name_alt": "Grand Spectrum",
       "visual_id": 15713,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Grand Spectrum",
       "name_alt": "Grand Spectrum",
       "visual_id": 15714,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Grand Spectrum",
       "name_alt": "Grand Spectrum",
       "visual_id": 15715,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Gravebind",
       "name_alt": "Gravebind",
       "visual_id": 15122,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Greed's Embrace",
       "name_alt": "Greed's Embrace",
       "visual_id": 14953,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Greymake",
       "name_alt": "Greymake",
       "visual_id": 15068,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Grip of Kulemak",
       "name_alt": "Grip of Kulemak",
       "visual_id": 15319,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Grip of Winter",
       "name_alt": "Grip of Winter",
       "visual_id": 15101,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Guiding Palm",
       "name_alt": "Guiding Palm",
       "visual_id": 15621,
       "is_alt_art": false,
-      "stash_type": 29
+      "stash_type": 29,
+      "stash_type_label": "Sceptre"
     },
     {
       "name": "Guiding Palm of the Eye",
       "name_alt": "Guiding Palm of the Eye",
       "visual_id": 15622,
       "is_alt_art": false,
-      "stash_type": 29
+      "stash_type": 29,
+      "stash_type_label": "Sceptre"
     },
     {
       "name": "Guiding Palm of the Heart",
       "name_alt": "Guiding Palm of the Heart",
       "visual_id": 15621,
       "is_alt_art": false,
-      "stash_type": 29
+      "stash_type": 29,
+      "stash_type_label": "Sceptre"
     },
     {
       "name": "Guiding Palm of the Mind",
       "name_alt": "Guiding Palm of the Mind",
       "visual_id": 15623,
       "is_alt_art": false,
-      "stash_type": 29
+      "stash_type": 29,
+      "stash_type_label": "Sceptre"
     },
     {
       "name": "Hand of Wisdom and Action",
       "name_alt": "Hand of Wisdom and Action",
       "visual_id": 15703,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Hateforge",
       "name_alt": "Hateforge",
       "visual_id": 15688,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Headhunter",
       "name_alt": "Headhunter",
       "visual_id": 15341,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Heart of the Well",
       "name_alt": "Heart of the Well",
       "visual_id": 15724,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Heartbound Loop",
       "name_alt": "Heartbound Loop",
       "visual_id": 15307,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Heatshiver",
       "name_alt": "Heatshiver",
       "visual_id": 15054,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Heroic Tragedy",
       "name_alt": "Heroic Tragedy",
       "visual_id": 15717,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Hinekora's Sight",
       "name_alt": "Hinekora's Sight",
       "visual_id": 15283,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Hoghunt",
       "name_alt": "Hoghunt",
       "visual_id": 15440,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Horns of Bynden",
       "name_alt": "Horns of Bynden",
       "visual_id": 15034,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Hrimnor's Hymn",
       "name_alt": "Hrimnor's Hymn",
       "visual_id": 15441,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Husk of Dreams",
       "name_alt": "Husk of Dreams",
       "visual_id": 15008,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Hyrri's Ire",
       "name_alt": "Hyrri's Ire",
       "visual_id": 14975,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Hysseg's Claw",
       "name_alt": "Hysseg's Claw",
       "visual_id": 15649,
       "is_alt_art": false,
-      "stash_type": 33
+      "stash_type": 33,
+      "stash_type_label": "Talisman"
     },
     {
       "name": "Icefang Orbit",
       "name_alt": "Icefang Orbit",
       "visual_id": 15285,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Icetomb",
       "name_alt": "Icetomb",
       "visual_id": 15007,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Idle Hands",
       "name_alt": "Idle Hands",
       "visual_id": 15103,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Idol of Uldurn",
       "name_alt": "Idol of Uldurn",
       "visual_id": 15264,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Igniferis",
       "name_alt": "Igniferis",
       "visual_id": 15263,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Indigon",
       "name_alt": "Indigon",
       "visual_id": 15067,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Ingenuity",
       "name_alt": "Ingenuity",
       "visual_id": 15700,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Innsmouth",
       "name_alt": "Innsmouth",
       "visual_id": 15046,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Irongrasp",
       "name_alt": "Irongrasp",
       "visual_id": 14994,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Ironride",
       "name_alt": "Ironride",
       "visual_id": 15070,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Jarngreipr",
       "name_alt": "Jarngreipr",
       "visual_id": 15116,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Kalandra's Touch",
       "name_alt": "Kalandra's Touch",
       "visual_id": 15318,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Kaltenhalt",
       "name_alt": "Kaltenhalt",
       "visual_id": 15216,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Kaom's Heart",
       "name_alt": "Kaom's Heart",
       "visual_id": 14959,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Keelhaul",
       "name_alt": "Keelhaul",
       "visual_id": 15326,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Keeper of the Arc",
       "name_alt": "Keeper of the Arc",
       "visual_id": 15690,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Killjoy",
       "name_alt": "Killjoy",
       "visual_id": 15129,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Kingsguard",
       "name_alt": "Kingsguard",
       "visual_id": 14952,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Kitoko's Current",
       "name_alt": "Kitoko's Current",
       "visual_id": 15111,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Lavianga's Spirits",
       "name_alt": "Lavianga's Spirits",
       "visual_id": 15348,
       "is_alt_art": false,
-      "stash_type": 0
+      "stash_type": 0,
+      "stash_type_label": "Flask"
     },
     {
       "name": "Leer Cast",
       "name_alt": "Leer Cast",
       "visual_id": 15086,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Legionstride",
       "name_alt": "Legionstride",
       "visual_id": 15134,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Leopold's Applause",
       "name_alt": "Leopold's Applause",
       "visual_id": 15114,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Levinstone",
       "name_alt": "Levinstone",
       "visual_id": 15297,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Lifesprig",
       "name_alt": "Lifesprig",
       "visual_id": 15550,
       "is_alt_art": false,
-      "stash_type": 5
+      "stash_type": 5,
+      "stash_type_label": "Wand"
     },
     {
       "name": "Lightning Coil",
       "name_alt": "Lightning Coil",
       "visual_id": 14999,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Ligurium Talisman",
       "name_alt": "Ligurium Talisman",
       "visual_id": 15272,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Lioneye's Glare",
       "name_alt": "Lioneye's Glare",
       "visual_id": 15592,
       "is_alt_art": false,
-      "stash_type": 9
+      "stash_type": 9,
+      "stash_type_label": "Bow"
     },
     {
       "name": "Lochtonial Caress",
       "name_alt": "Lochtonial Caress",
       "visual_id": 15094,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Luminous Pace",
       "name_alt": "Luminous Pace",
       "visual_id": 15151,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Lycosidae",
       "name_alt": "Lycosidae",
       "visual_id": 15182,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Mahuxotl's Machination",
       "name_alt": "Mahuxotl's Machination",
       "visual_id": 15687,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Maligaro's Virtuosity",
       "name_alt": "Maligaro's Virtuosity",
       "visual_id": 15105,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Marohi Erqi",
       "name_alt": "Marohi Erqi",
       "visual_id": 15449,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Mask of the Sanguimancer",
       "name_alt": "Mask of the Sanguimancer",
       "visual_id": 15085,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Mask of the Stitched Demon",
       "name_alt": "Mask of the Stitched Demon",
       "visual_id": 15061,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Matsya",
       "name_alt": "Matsya",
       "visual_id": 15516,
       "is_alt_art": false,
-      "stash_type": 32
+      "stash_type": 32,
+      "stash_type_label": "Quarterstaff"
     },
     {
       "name": "Megalomaniac",
       "name_alt": "Megalomaniac",
       "visual_id": 15716,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Meginord's Girdle",
       "name_alt": "Meginord's Girdle",
       "visual_id": 15324,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Melting Maelstrom",
       "name_alt": "Melting Maelstrom",
       "visual_id": 15695,
       "is_alt_art": false,
-      "stash_type": 0
+      "stash_type": 0,
+      "stash_type_label": "Flask"
     },
     {
       "name": "Midnight Braid",
       "name_alt": "Midnight Braid",
       "visual_id": 15325,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Mind of the Council",
       "name_alt": "Mind of the Council",
       "visual_id": 15091,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Ming's Heart",
       "name_alt": "Ming's Heart",
       "visual_id": 15300,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Mist Whisper",
       "name_alt": "Mist Whisper",
       "visual_id": 15598,
       "is_alt_art": false,
-      "stash_type": 26
+      "stash_type": 26,
+      "stash_type_label": "Crossbow"
     },
     {
       "name": "Mjölner",
       "name_alt": "Mjölner",
       "visual_id": 15434,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Morior Invictus",
       "name_alt": "Morior Invictus",
       "visual_id": 15674,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Murkshaft",
       "name_alt": "Murkshaft",
       "visual_id": 15244,
       "is_alt_art": false,
-      "stash_type": 11
+      "stash_type": 11,
+      "stash_type_label": "Quiver"
     },
     {
       "name": "Myris Uxor",
       "name_alt": "Myris Uxor",
       "visual_id": 15055,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Nascent Hope",
       "name_alt": "Nascent Hope",
       "visual_id": 15662,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "Nazir's Judgement",
       "name_alt": "Nazir's Judgement",
       "visual_id": 15517,
       "is_alt_art": false,
-      "stash_type": 32
+      "stash_type": 32,
+      "stash_type_label": "Quarterstaff"
     },
     {
       "name": "Nebuloch",
       "name_alt": "Nebuloch",
       "visual_id": 15428,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Necromantle",
       "name_alt": "Necromantle",
       "visual_id": 14980,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Ngamahu's Chosen",
       "name_alt": "Ngamahu's Chosen",
       "visual_id": 15669,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "Nightscale",
       "name_alt": "Nightscale",
       "visual_id": 15113,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Nocturne",
       "name_alt": "Nocturne",
       "visual_id": 15213,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Northpaw",
       "name_alt": "Northpaw",
       "visual_id": 15100,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Oaksworn",
       "name_alt": "Oaksworn",
       "visual_id": 15202,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Obern's Bastion",
       "name_alt": "Obern's Bastion",
       "visual_id": 15161,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Olroth's Resolve",
       "name_alt": "Olroth's Resolve",
       "visual_id": 15691,
       "is_alt_art": false,
-      "stash_type": 0
+      "stash_type": 0,
+      "stash_type_label": "Flask"
     },
     {
       "name": "Olrovasara",
       "name_alt": "Olrovasara",
       "visual_id": 15692,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Original Sin",
       "name_alt": "Original Sin",
       "visual_id": 15302,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Painter's Servant",
       "name_alt": "Painter's Servant",
       "visual_id": 15108,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Palm of the Dreamer",
       "name_alt": "Palm of the Dreamer",
       "visual_id": 15624,
       "is_alt_art": false,
-      "stash_type": 29
+      "stash_type": 29,
+      "stash_type_label": "Sceptre"
     },
     {
       "name": "Pariah's Embrace",
       "name_alt": "Pariah's Embrace",
       "visual_id": 14995,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Perandus Seal",
       "name_alt": "Perandus Seal",
       "visual_id": 15314,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Perfidy",
       "name_alt": "Perfidy",
       "visual_id": 15694,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Pillar of the Caged God",
       "name_alt": "Pillar of the Caged God",
       "visual_id": 15513,
       "is_alt_art": false,
-      "stash_type": 32
+      "stash_type": 32,
+      "stash_type_label": "Quarterstaff"
     },
     {
       "name": "Plaguefinger",
       "name_alt": "Plaguefinger",
       "visual_id": 15128,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Polcirkeln",
       "name_alt": "Polcirkeln",
       "visual_id": 15294,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Powertread",
       "name_alt": "Powertread",
       "visual_id": 15173,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Pragmatism",
       "name_alt": "Pragmatism",
       "visual_id": 15701,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Prayers for Rain",
       "name_alt": "Prayers for Rain",
       "visual_id": 14982,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Prism Guardian",
       "name_alt": "Prism Guardian",
       "visual_id": 15205,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Prism of Belief",
       "name_alt": "Prism of Belief",
       "visual_id": 15720,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Prized Pain",
       "name_alt": "Prized Pain",
       "visual_id": 15287,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Quatl's Molt",
       "name_alt": "Quatl's Molt",
       "visual_id": 14968,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Quecholli",
       "name_alt": "Quecholli",
       "visual_id": 15447,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Queen of the Forest",
       "name_alt": "Queen of the Forest",
       "visual_id": 14970,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Quill Rain",
       "name_alt": "Quill Rain",
       "visual_id": 15581,
       "is_alt_art": false,
-      "stash_type": 9
+      "stash_type": 9,
+      "stash_type_label": "Bow"
     },
     {
       "name": "Radiant Grief",
       "name_alt": "Radiant Grief",
       "visual_id": 15048,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Rampart Raptor",
       "name_alt": "Rampart Raptor",
       "visual_id": 15599,
       "is_alt_art": false,
-      "stash_type": 26
+      "stash_type": 26,
+      "stash_type_label": "Crossbow"
     },
     {
       "name": "Rathpith Globe",
       "name_alt": "Rathpith Globe",
       "visual_id": 15233,
       "is_alt_art": false,
-      "stash_type": 28
+      "stash_type": 28,
+      "stash_type_label": "Focus"
     },
     {
       "name": "Rearguard",
       "name_alt": "Rearguard",
       "visual_id": 15243,
       "is_alt_art": false,
-      "stash_type": 11
+      "stash_type": 11,
+      "stash_type_label": "Quiver"
     },
     {
       "name": "Redblade Banner",
       "name_alt": "Redblade Banner",
       "visual_id": 15183,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Redflare Conduit",
       "name_alt": "Redflare Conduit",
       "visual_id": 15023,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Revered Resin",
       "name_alt": "Revered Resin",
       "visual_id": 15267,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Rise of the Phoenix",
       "name_alt": "Rise of the Phoenix",
       "visual_id": 15206,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Rite of Passage",
       "name_alt": "Rite of Passage",
       "visual_id": 15709,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "Rondel de Ezo",
       "name_alt": "Rondel de Ezo",
       "visual_id": 15214,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Rondel of Fragility",
       "name_alt": "Rondel of Fragility",
       "visual_id": 15274,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Ryslatha's Coil",
       "name_alt": "Ryslatha's Coil",
       "visual_id": 15335,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Sacred Flame",
       "name_alt": "Sacred Flame",
       "visual_id": 15678,
       "is_alt_art": false,
-      "stash_type": 29
+      "stash_type": 29,
+      "stash_type_label": "Sceptre"
     },
     {
       "name": "Sacrosanctum",
       "name_alt": "Sacrosanctum",
       "visual_id": 15016,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Saffell's Frame",
       "name_alt": "Saffell's Frame",
       "visual_id": 15203,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Saitha's Spear",
       "name_alt": "Saitha's Spear",
       "visual_id": 15464,
       "is_alt_art": false,
-      "stash_type": 30
+      "stash_type": 30,
+      "stash_type_label": "Spear"
     },
     {
       "name": "Sands of Silk",
       "name_alt": "Sands of Silk",
       "visual_id": 14964,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Sandstorm Visage",
       "name_alt": "Sandstorm Visage",
       "visual_id": 15680,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Sanguine Diviner",
       "name_alt": "Sanguine Diviner",
       "visual_id": 15549,
       "is_alt_art": false,
-      "stash_type": 5
+      "stash_type": 5,
+      "stash_type_label": "Wand"
     },
     {
       "name": "Sanguis Heroum",
       "name_alt": "Sanguis Heroum",
       "visual_id": 15663,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "Scold's Bridle",
       "name_alt": "Scold's Bridle",
       "visual_id": 15064,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Sculpted Suffering",
       "name_alt": "Sculpted Suffering",
       "visual_id": 15426,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Seed of Cataclysm",
       "name_alt": "Seed of Cataclysm",
       "visual_id": 15290,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Seeing Stars",
       "name_alt": "Seeing Stars",
       "visual_id": 15427,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Sekhema's Resolve Cold",
       "name_alt": "Sekhema's Resolve",
       "visual_id": 15683,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Sekhema's Resolve Fire",
       "name_alt": "Sekhema's Resolve",
       "visual_id": 15682,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Sekhema's Resolve Lightning",
       "name_alt": "Sekhema's Resolve",
       "visual_id": 15684,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Serpent's Egg",
       "name_alt": "Serpent's Egg",
       "visual_id": 15282,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Serpent's Lesson",
       "name_alt": "Serpent's Lesson",
       "visual_id": 15230,
       "is_alt_art": false,
-      "stash_type": 28
+      "stash_type": 28,
+      "stash_type_label": "Focus"
     },
     {
       "name": "Shackles of the Wretched",
       "name_alt": "Shackles of the Wretched",
       "visual_id": 15123,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Shankgonne",
       "name_alt": "Shankgonne",
       "visual_id": 15162,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Shavronne's Satchel",
       "name_alt": "Shavronne's Satchel",
       "visual_id": 15344,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Shyaba",
       "name_alt": "Shyaba",
       "visual_id": 15445,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Sierran Inheritance",
       "name_alt": "Sierran Inheritance",
       "visual_id": 15021,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Silks of Veneration",
       "name_alt": "Silks of Veneration",
       "visual_id": 14990,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Silverthorne",
       "name_alt": "Silverthorne",
       "visual_id": 15217,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Sine Aequo",
       "name_alt": "Sine Aequo",
       "visual_id": 15676,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Sire of Shards",
       "name_alt": "Sire of Shards",
       "visual_id": 15568,
       "is_alt_art": false,
-      "stash_type": 10
+      "stash_type": 10,
+      "stash_type_label": "Staff"
     },
     {
       "name": "Skin of the Loyal",
       "name_alt": "Skin of the Loyal",
       "visual_id": 15702,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Skysliver",
       "name_alt": "Skysliver",
       "visual_id": 15461,
       "is_alt_art": false,
-      "stash_type": 30
+      "stash_type": 30,
+      "stash_type_label": "Spear"
     },
     {
       "name": "Slivertongue",
       "name_alt": "Slivertongue",
       "visual_id": 15587,
       "is_alt_art": false,
-      "stash_type": 9
+      "stash_type": 9,
+      "stash_type_label": "Bow"
     },
     {
       "name": "Snakebite",
       "name_alt": "Snakebite",
       "visual_id": 15104,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Snakepit",
       "name_alt": "Snakepit",
       "visual_id": 15308,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Solus Ipse",
       "name_alt": "Solus Ipse",
       "visual_id": 15675,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Soul Mantle",
       "name_alt": "Soul Mantle",
       "visual_id": 15010,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Soul Tether",
       "name_alt": "Soul Tether",
       "visual_id": 15331,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Spire of Ire",
       "name_alt": "Spire of Ire",
       "visual_id": 15470,
       "is_alt_art": false,
-      "stash_type": 30
+      "stash_type": 30,
+      "stash_type_label": "Spear"
     },
     {
       "name": "Splinter of Loratta",
       "name_alt": "Splinter of Lorrata",
       "visual_id": 15458,
       "is_alt_art": false,
-      "stash_type": 30
+      "stash_type": 30,
+      "stash_type_label": "Spear"
     },
     {
       "name": "Splinterheart",
       "name_alt": "Splinterheart",
       "visual_id": 15583,
       "is_alt_art": false,
-      "stash_type": 9
+      "stash_type": 9,
+      "stash_type_label": "Bow"
     },
     {
       "name": "Starkonja's Head",
       "name_alt": "Starkonja's Head",
       "visual_id": 15053,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Stone of Lazhwar",
       "name_alt": "Stone of Lazhwar",
       "visual_id": 15271,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Strugglescream",
       "name_alt": "Strugglescream",
       "visual_id": 15697,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Sunsplinter",
       "name_alt": "Sunsplinter",
       "visual_id": 15223,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Surefooted Sigil",
       "name_alt": "Surefooted Sigil",
       "visual_id": 15269,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Svalinn",
       "name_alt": "Svalinn",
       "visual_id": 15689,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Tabula Rasa",
       "name_alt": "Tabula Rasa",
       "visual_id": 15032,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Tangletongue",
       "name_alt": "Tangletongue",
       "visual_id": 15463,
       "is_alt_art": false,
-      "stash_type": 30
+      "stash_type": 30,
+      "stash_type_label": "Spear"
     },
     {
       "name": "Taryn's Shiver",
       "name_alt": "Taryn's Shiver",
       "visual_id": 15564,
       "is_alt_art": false,
-      "stash_type": 10
+      "stash_type": 10,
+      "stash_type_label": "Staff"
     },
     {
       "name": "Temporalis",
       "name_alt": "Temporalis",
       "visual_id": 15679,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Tetzlapokal's Desire",
       "name_alt": "Tetzlapokal's Desire",
       "visual_id": 14983,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "The Adorned",
       "name_alt": "The Adorned",
       "visual_id": 15721,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "The Anvil",
       "name_alt": "The Anvil",
       "visual_id": 15275,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "The Barrow Dweller",
       "name_alt": "The Barrow Dweller",
       "visual_id": 14993,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "The Black Cat",
       "name_alt": "The Black Cat",
       "visual_id": 15666,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "The Black Doubt",
       "name_alt": "The Black Doubt",
       "visual_id": 14979,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "The Black Insignia",
       "name_alt": "The Black Insignia",
       "visual_id": 15052,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "The Blood Thorn",
       "name_alt": "The Blood Thorn",
       "visual_id": 15512,
       "is_alt_art": false,
-      "stash_type": 32
+      "stash_type": 32,
+      "stash_type_label": "Quarterstaff"
     },
     {
       "name": "The Brass Dome",
       "name_alt": "The Brass Dome",
       "visual_id": 14957,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "The Bringer of Rain",
       "name_alt": "The Bringer of Rain",
       "visual_id": 15074,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "The Burden of Shadows",
       "name_alt": "The Burden of Shadows",
       "visual_id": 15698,
       "is_alt_art": false,
-      "stash_type": 10
+      "stash_type": 10,
+      "stash_type_label": "Staff"
     },
     {
       "name": "The Burrower",
       "name_alt": "The Burrower",
       "visual_id": 15298,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "The Coming Calamity",
       "name_alt": "The Coming Calamity",
       "visual_id": 15002,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "The Covenant",
       "name_alt": "The Covenant",
       "visual_id": 14984,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "The Dancing Mirage",
       "name_alt": "The Dancing Mirage",
       "visual_id": 15022,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "The Dark Defiler",
       "name_alt": "The Dark Defiler",
       "visual_id": 15616,
       "is_alt_art": false,
-      "stash_type": 29
+      "stash_type": 29,
+      "stash_type_label": "Sceptre"
     },
     {
       "name": "The Devouring Diadem",
       "name_alt": "The Devouring Diadem",
       "visual_id": 15058,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "The Empty Roar",
       "name_alt": "The Empty Roar",
       "visual_id": 15444,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "The Eternal Spark",
       "name_alt": "The Eternal Spark",
       "visual_id": 15231,
       "is_alt_art": false,
-      "stash_type": 28
+      "stash_type": 28,
+      "stash_type_label": "Focus"
     },
     {
       "name": "The Everlasting Gaze",
       "name_alt": "The Everlasting Gaze",
       "visual_id": 15265,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "The Fall of the Axe",
       "name_alt": "The Fall of the Axe",
       "visual_id": 15668,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "The Flesh Poppet",
       "name_alt": "The Flesh Poppet",
       "visual_id": 15653,
       "is_alt_art": false,
-      "stash_type": 33
+      "stash_type": 33,
+      "stash_type_label": "Talisman"
     },
     {
       "name": "The Gnashing Sash",
       "name_alt": "The Gnashing Sash",
       "visual_id": 15710,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "The Hammer of Faith",
       "name_alt": "The Hammer of Faith",
       "visual_id": 15452,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "The Hollow Mask",
       "name_alt": "The Hollow Mask",
       "visual_id": 15084,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "The Immortan",
       "name_alt": "The Road Warrior",
       "visual_id": 14949,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "The Infinite Pursuit",
       "name_alt": "The Infinite Pursuit",
       "visual_id": 15136,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "The Knight-errant",
       "name_alt": "The Knight-errant",
       "visual_id": 15159,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "The Last Lament",
       "name_alt": "The Last Lament",
       "visual_id": 15610,
       "is_alt_art": false,
-      "stash_type": 26
+      "stash_type": 26,
+      "stash_type_label": "Crossbow"
     },
     {
       "name": "The Lethal Draw",
       "name_alt": "The Lethal Draw",
       "visual_id": 15241,
       "is_alt_art": false,
-      "stash_type": 11
+      "stash_type": 11,
+      "stash_type_label": "Quiver"
     },
     {
       "name": "The Mutable Star",
       "name_alt": "The Mutable Star",
       "visual_id": 15011,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "The Pandemonius",
       "name_alt": "The Pandemonius",
       "visual_id": 15707,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "The Prisoner's Manacles",
       "name_alt": "The Prisoner's Manacles",
       "visual_id": 15125,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "The Rat Cage",
       "name_alt": "The Rat Cage",
       "visual_id": 14967,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "The Searing Touch",
       "name_alt": "The Searing Touch",
       "visual_id": 15567,
       "is_alt_art": false,
-      "stash_type": 10
+      "stash_type": 10,
+      "stash_type_label": "Staff"
     },
     {
       "name": "The Sentry",
       "name_alt": "The Sentry",
       "visual_id": 15514,
       "is_alt_art": false,
-      "stash_type": 32
+      "stash_type": 32,
+      "stash_type_label": "Quarterstaff"
     },
     {
       "name": "The Smiling Knight",
       "name_alt": "The Smiling Knight",
       "visual_id": 15071,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "The Surrender",
       "name_alt": "The Surrender",
       "visual_id": 15184,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "The Three Dragons",
       "name_alt": "The Three Dragons",
       "visual_id": 15089,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "The Unborn Lich",
       "name_alt": "The Unborn Lich",
       "visual_id": 15575,
       "is_alt_art": false,
-      "stash_type": 10
+      "stash_type": 10,
+      "stash_type_label": "Staff"
     },
     {
       "name": "The Vertex",
       "name_alt": "The Vertex",
       "visual_id": 15088,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "The Vile Knight",
       "name_alt": "The Vile Knight",
       "visual_id": 15072,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "The Whispering Ice",
       "name_alt": "The Whispering Ice",
       "visual_id": 15576,
       "is_alt_art": false,
-      "stash_type": 10
+      "stash_type": 10,
+      "stash_type_label": "Staff"
     },
     {
       "name": "The Wicked Quill",
       "name_alt": "The Wicked Quill",
       "visual_id": 15548,
       "is_alt_art": false,
-      "stash_type": 5
+      "stash_type": 5,
+      "stash_type_label": "Wand"
     },
     {
       "name": "Thief's Torment",
       "name_alt": "Thief's Torment",
       "visual_id": 15305,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Threaded Light",
       "name_alt": "Threaded Light",
       "visual_id": 15227,
       "is_alt_art": false,
-      "stash_type": 28
+      "stash_type": 28,
+      "stash_type_label": "Focus"
     },
     {
       "name": "Thrillsteel",
       "name_alt": "Thrillsteel",
       "visual_id": 15038,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Thunderfist",
       "name_alt": "Thunderfist",
       "visual_id": 15133,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Tidebreaker",
       "name_alt": "Tidebreaker",
       "visual_id": 15448,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Titanrot Cataphract",
       "name_alt": "Titanrot Cataphract",
       "visual_id": 14950,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Trampletoe",
       "name_alt": "Trampletoe",
       "visual_id": 15137,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Treefingers",
       "name_alt": "Treefingers",
       "visual_id": 15093,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Trenchtimbre",
       "name_alt": "Trenchtimbre",
       "visual_id": 15425,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Trephina",
       "name_alt": "Trephina",
       "visual_id": 15442,
       "is_alt_art": false,
-      "stash_type": 8
+      "stash_type": 8,
+      "stash_type_label": "Mace"
     },
     {
       "name": "Tyranny's Grip",
       "name_alt": "Tyranny's Grip",
       "visual_id": 15459,
       "is_alt_art": false,
-      "stash_type": 30
+      "stash_type": 30,
+      "stash_type_label": "Spear"
     },
     {
       "name": "Umbilicus Immortalis",
       "name_alt": "Umbilicus Immortalis",
       "visual_id": 15327,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Undying Hate",
       "name_alt": "Undying Hate",
       "visual_id": 15723,
       "is_alt_art": false,
-      "stash_type": 19
+      "stash_type": 19,
+      "stash_type_label": "Jewel"
     },
     {
       "name": "Ungil's Harmony",
       "name_alt": "Ungil's Harmony",
       "visual_id": 15266,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Valako's Roar",
       "name_alt": "Valako's Roar",
       "visual_id": 15671,
       "is_alt_art": false,
-      "stash_type": 25
+      "stash_type": 25,
+      "stash_type_label": "Charm"
     },
     {
       "name": "Valako's Vice",
       "name_alt": "Valako's Vice",
       "visual_id": 15119,
       "is_alt_art": false,
-      "stash_type": 13
+      "stash_type": 13,
+      "stash_type_label": "Gloves"
     },
     {
       "name": "Veil of the Night",
       "name_alt": "Veil of the Night",
       "visual_id": 15079,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Venopuncture",
       "name_alt": "Venopuncture",
       "visual_id": 15286,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Ventor's Gamble",
       "name_alt": "Ventor's Gamble",
       "visual_id": 15316,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Vigilant View",
       "name_alt": "Vigilant View",
       "visual_id": 15303,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Vis Mortis",
       "name_alt": "Vis Mortis",
       "visual_id": 14988,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Visage of Ayah",
       "name_alt": "Visage of Ayah",
       "visual_id": 15059,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Voll's Protector",
       "name_alt": "Voll's Protector",
       "visual_id": 15009,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Voltaxic Rift",
       "name_alt": "Voltaxic Rift",
       "visual_id": 15586,
       "is_alt_art": false,
-      "stash_type": 9
+      "stash_type": 9,
+      "stash_type_label": "Bow"
     },
     {
       "name": "Waistgate",
       "name_alt": "Waistgate",
       "visual_id": 15340,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Wake of Destruction",
       "name_alt": "Wake of Destruction",
       "visual_id": 15166,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Wandering Reliquary",
       "name_alt": "Wandering Reliquary",
       "visual_id": 14951,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Wanderlust",
       "name_alt": "Wanderlust",
       "visual_id": 15152,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Waveshaper",
       "name_alt": "Waveshaper",
       "visual_id": 15012,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Whisper of the Brotherhood",
       "name_alt": "Whisper of the Brotherhood",
       "visual_id": 15296,
       "is_alt_art": false,
-      "stash_type": 2
+      "stash_type": 2,
+      "stash_type_label": "Ring"
     },
     {
       "name": "Widow's Reign",
       "name_alt": "Widow's Reign",
       "visual_id": 14998,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Widowhail",
       "name_alt": "Widowhail",
       "visual_id": 15580,
       "is_alt_art": false,
-      "stash_type": 9
+      "stash_type": 9,
+      "stash_type_label": "Bow"
     },
     {
       "name": "Window to Paradise",
       "name_alt": "Window to Paradise",
       "visual_id": 15180,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Windscream",
       "name_alt": "Windscream",
       "visual_id": 15155,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Wings of Caelyn",
       "name_alt": "Wings of Caelyn",
       "visual_id": 15035,
       "is_alt_art": false,
-      "stash_type": 16
+      "stash_type": 16,
+      "stash_type_label": "Helmet"
     },
     {
       "name": "Wondertrap",
       "name_alt": "Wondertrap",
       "visual_id": 15154,
       "is_alt_art": false,
-      "stash_type": 14
+      "stash_type": 14,
+      "stash_type_label": "Boots"
     },
     {
       "name": "Wulfsbane",
       "name_alt": "Wulfsbane",
       "visual_id": 15178,
       "is_alt_art": false,
-      "stash_type": 17
+      "stash_type": 17,
+      "stash_type_label": "Shield"
     },
     {
       "name": "Xoph's Blood",
       "name_alt": "Xoph's Blood",
       "visual_id": 15705,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Yoke of Suffering",
       "name_alt": "Yoke of Suffering",
       "visual_id": 15276,
       "is_alt_art": false,
-      "stash_type": 1
+      "stash_type": 1,
+      "stash_type_label": "Amulet"
     },
     {
       "name": "Yriel's Fostering",
       "name_alt": "Yriel's Fostering",
       "visual_id": 14971,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     },
     {
       "name": "Zerphi's Genesis",
       "name_alt": "Zerphi's Genesis",
       "visual_id": 15686,
       "is_alt_art": false,
-      "stash_type": 12
+      "stash_type": 12,
+      "stash_type_label": "Belt"
     },
     {
       "name": "Zerphi's Serape",
       "name_alt": "Zerphi's Serape",
       "visual_id": 15024,
       "is_alt_art": false,
-      "stash_type": 15
+      "stash_type": 15,
+      "stash_type_label": "Body Armour"
     }
   ]
 }
