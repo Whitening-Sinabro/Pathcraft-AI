@@ -3,12 +3,19 @@
     "category_counts": {
       "balance": 942
     },
+    "generated_at_unix": 1777121323,
+    "ggpk": {
+      "mtime_unix": 1776699234,
+      "path": "C:\\Daum Games\\Path of Exile2\\Content.ggpk",
+      "size_bytes": 136674639570
+    },
     "ggpk_size_bytes": 136674639570,
     "notes": [
       "POE1 Rust 파이프라인 100% 재사용 — Oodle/GGPK/Bundle/BundleIndex/parse_paths/dat64 전부 호환.",
       "POE2 경로 소문자 + data/<category>/<table>.datc64 구조 (POE1은 Data/<table>.datc64).",
       "언어 variant은 data/<category>/<locale>/<table>.datc64 로 분리 — base와 동일 구조, locale_variants 필드에 수 집계.",
-      "schema.rs는 재작성 필요 — POE2 테이블 컬럼 정의 없음."
+      "schema.rs는 재작성 필요 — POE2 테이블 컬럼 정의 없음.",
+      "_meta.ggpk: GGPK 파일 fingerprint (size + mtime). 패치마다 변경 → 카탈로그 stale 탐지용."
     ],
     "source": "POE2 Content.ggpk",
     "source_path": "C:\\Daum Games\\Path of Exile2",
