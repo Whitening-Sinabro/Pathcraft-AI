@@ -1,26 +1,13 @@
 ## 지금
-- **현재 세션 (S10, 진행 중): GGPK 추출 트리거 → 두 선행 데이터 자동 부착 + valid_gems 회귀 가드 (2026-04-25)**
-  - **[GGPK 추출 실행 — S9/S10 선행 작업 일괄 검증]**:
-    - `cargo run --bin extract_data --release -- --game poe2 --json` 실행. 23/24 성공 (ScarabTypes POE2 미존재 1건만 실패, 의도된 동작).
-    - `UniqueStashTypes.datc64` 추출 → `data/game_data_poe2/UniqueStashTypes.json` 34 rows.
-    - `AttributeRequirements.datc64` 추출 → `data/game_data_poe2/AttributeRequirements.json` 892 rows.
-  - **[1단계 자동 활성] uniques_poe2.json**:
-    - `python scripts/build_uniques_poe2.py` 재실행. **393 uniques 전부 stash_type_label 부착** (`stash_type_labels_count: 34`, `unknown_label: 0`).
-    - 예시: Ab Aeterno → Boots / Adonia's Ego → Wand / Aerisvane's Wings → Gloves.
-  - **[2단계 자동 활성] base_items_poe2.json**:
-    - `python scripts/build_base_items_poe2.py` 재실행. **791 entry 에 `req_str`/`req_dex`/`req_int` 부착** (`attribute_requirements_count: 839`, drop_level=1 starter 의 0/0/0 자동 필터).
-    - 분포 검증: Bow=Dex만 / Corsair Coat (BodyArmour 80lvl)=Dex 121 / Thane Mail=Str+Dex hybrid / Austere Garb=Dex+Int hybrid — POE2 어트리뷰트 분류 모두 정상.
-  - **[2.5단계] catalog 생성기 hardening (local-only, gitignored)**:
-    - `src-tauri/src/bin/catalog_poe2_tables.rs` `_meta.ggpk` 에 GGPK file size + mtime fingerprint 추가. sha2 의존성 회피 (size+mtime 만으로 패치 stale 탐지 충분). `_meta.generated_at_unix` 도 추가. 차후 카탈로그 재생성 시 자동 기록.
-  - **[1] valid_gems_poe2 카테고리 완전성 회귀 가드** (이번 세션 초반):
-    - GGPK 2026-04-22 0.4.0d 기준 Awakened 0건 / Vaal 0건 확정. GemType=2 메타 젬 36건 active 카테고리 포함 (consumer 평탄화 → 기능 누락 0).
-    - `python/tests/test_valid_gems_poe2_categories.py` 5 회귀 가드.
+- **세션 종료 대기** — S10 종료 (`7761c39`) push 완료. 다음 세션 진입 시 "다음 할 것" 우선순위 0~5 중 택일.
+- **이전 세션 (S10, 종료 commit `7761c39`, push 완료, 2026-04-25)**: GGPK 추출 트리거 → 두 선행 데이터 자동 부착 + valid_gems 회귀 가드 + catalog fingerprint hardening
+  - GGPK 추출 (`cargo run --bin extract_data --release -- --game poe2 --json`) 23/24 성공. UniqueStashTypes 34 rows + AttributeRequirements 892 rows 신규.
+  - `uniques_poe2.json`: 393 uniques 전부 `stash_type_label` 부착 (34 labels, unknown 0).
+  - `base_items_poe2.json`: 791 entry 에 `req_str/req_dex/req_int` 부착 (`attribute_requirements_count: 839`).
+  - `valid_gems_poe2`: Awakened/Vaal 부재 확정 + GemType=2 메타 젬 36건 active 포함 — 5 회귀 가드 (`test_valid_gems_poe2_categories.py`).
+  - `_analysis/poe2_tables.json`: `_meta.ggpk` (size + mtime) + `_meta.generated_at_unix` fingerprint. catalog 생성기 hardening 은 .gitignore (로컬 전용).
+  - 커밋: `39a89d4` (valid_gems 가드) → `7ae77d8` (AttributeRequirements 선행) → `35c9c8d` (data 자동 부착) → `7761c39` (catalog 재생성).
   - 검증: pytest 727 → **745** (+18) / cargo check / tsc 0 / vitest 110.
-  - **[1] valid_gems_poe2 카테고리 완전성 회귀 가드**:
-    - 조사: GGPK 2026-04-22 poe2 0.4.0d `SkillGems.json` 1103 행 — `Awakened` 전부 sentinel(`-72340172838076674`), `IsVaalVariant=False` 전부, `VaalVariant_BaseItemType` 전부 sentinel. POE2 0.4.x Awakened/Vaal 메커닉 부재 확정.
-    - GemType=2 메타 젬 (42행 / 유효 36행, Cast on X / Totem 류) 전부 valid_gems_poe2 `active` 포함. consumer 평탄화 → 기능 누락 0.
-    - `python/tests/test_valid_gems_poe2_categories.py` 신규 5 회귀 가드 (Awakened sentinel / IsVaalVariant False / VaalVariant_BaseItemType sentinel / 메타 젬 valid_gems 포함 / 메타 젬 30~60 범위).
-  - 검증: pytest 727 → **745** (+18, S10 계: valid_gems 5 + base_items 13). cargo check / tsc 0 / vitest 110.
 - **이전 세션 (S9, 종료 commit `6d041b9`)**: D7 Phase 2 + VerbalBuildInput POE2 전용 + uniques stash_type 선행 + audit-all POE2 fix (silent failure logger + '7 blocks' 이중 의미 해소). 검증 pytest 727 / tsc 0 / vitest 110.
 - **이전 세션 (S8, push 완료)**
   - `58ae093` S8 반영 / `f49520c` feat: POE2 D7 Phase 1 — 4레이어 POE2 game 분기 / `24c2d31` push 반영 + D7 진입 / `3f36164` S7 종료
