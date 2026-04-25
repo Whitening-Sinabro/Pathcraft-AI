@@ -1,9 +1,16 @@
 ## 지금
-- **현재 세션 (S10, 진행 중): valid_gems_poe2 카테고리 완전성 회귀 가드 (2026-04-25)**
-  - 조사: GGPK 2026-04-22 poe2 0.4.0d `SkillGems.json` 1103 행 — `Awakened` 전부 sentinel(`-72340172838076674`), `IsVaalVariant=False` 전부, `VaalVariant_BaseItemType` 전부 sentinel. POE2 0.4.x 에 Awakened/Vaal 메커닉 부재 확정.
-  - GemType=2 (메타 젬, 42행 / 유효 36행, Cast on X / Totem 류) 전부 valid_gems_poe2 `active` 카테고리 포함. consumer 가 active+support+spirit 평탄화하므로 기능 누락 0.
-  - `python/tests/test_valid_gems_poe2_categories.py` 신규 5 회귀 가드 — Awakened sentinel / IsVaalVariant False / VaalVariant_BaseItemType sentinel / 메타 젬 36건 valid_gems 포함 / 메타 젬 수 30~60 범위. 미래 POE2 GGPK 패치가 가정을 깨면 즉시 실패.
-  - 검증: pytest 727 → **732** (+5).
+- **현재 세션 (S10, 진행 중): base_items_poe2 Str/Dex/Int requirements 선행 + valid_gems 회귀 가드 (2026-04-25)**
+  - **[2] AttributeRequirements 추출 + base_items 필드 확장 선행**:
+    - `src-tauri/src/bin/extract_data.rs` TARGETS + `src-tauri/src/lib.rs` `extract_game_data` 에 `Data/AttributeRequirements.datc64` 추가. 다음 GGPK 추출 사이클부터 자동 (`data/balance/attributerequirements.datc64`, 892 rows, schema validFor=2 POE2 전용).
+    - `scripts/build_base_items_poe2.py`: `load_optional` + `build_attribute_requirements` 헬퍼 + `simplify(base_index, attr_req)` 시그니처 확장. 매핑 활성 시 `req_str`/`req_dex`/`req_int` 부착, 부재 시 기존 동작 유지 (graceful). `_meta` 에 `attribute_requirements_count` 조건부.
+    - `data/base_items_poe2.json` 재생성 — 283/562/98 변동 없음, 현재 req 필드 없는 graceful 상태.
+    - `python/tests/test_build_base_items_poe2.py` 신규 — 헬퍼 단위 6 + simplify 통합 3 + load_optional 2 + 무결성 2 = 13 테스트.
+    - cargo check 통과.
+  - **[1] valid_gems_poe2 카테고리 완전성 회귀 가드**:
+    - 조사: GGPK 2026-04-22 poe2 0.4.0d `SkillGems.json` 1103 행 — `Awakened` 전부 sentinel(`-72340172838076674`), `IsVaalVariant=False` 전부, `VaalVariant_BaseItemType` 전부 sentinel. POE2 0.4.x Awakened/Vaal 메커닉 부재 확정.
+    - GemType=2 메타 젬 (42행 / 유효 36행, Cast on X / Totem 류) 전부 valid_gems_poe2 `active` 포함. consumer 평탄화 → 기능 누락 0.
+    - `python/tests/test_valid_gems_poe2_categories.py` 신규 5 회귀 가드 (Awakened sentinel / IsVaalVariant False / VaalVariant_BaseItemType sentinel / 메타 젬 valid_gems 포함 / 메타 젬 30~60 범위).
+  - 검증: pytest 727 → **745** (+18, S10 계: valid_gems 5 + base_items 13). cargo check / tsc 0 / vitest 110.
 - **이전 세션 (S9, 종료 commit `6d041b9`)**: D7 Phase 2 + VerbalBuildInput POE2 전용 + uniques stash_type 선행 + audit-all POE2 fix (silent failure logger + '7 blocks' 이중 의미 해소). 검증 pytest 727 / tsc 0 / vitest 110.
 - **이전 세션 (S8, push 완료)**
   - `58ae093` S8 반영 / `f49520c` feat: POE2 D7 Phase 1 — 4레이어 POE2 game 분기 / `24c2d31` push 반영 + D7 진입 / `3f36164` S7 종료
@@ -38,7 +45,7 @@
    - S5 추가: POE2 campaign 구조 자동 파생 + normalizer POE2 분기 완료 (L2 방어 공백 메움)
 2. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
 3. [~] **uniques stash_type 라벨 매핑** — 선행 준비 완료 (2026-04-25). 남은 것: 다음 Tauri `extract_game_data` 실행 시 `UniqueStashTypes.datc64` 자동 추출 → `python scripts/build_uniques_poe2.py` 재실행 → 393 uniques 에 `stash_type_label` 자동 부착
-4. [ ] (후속, 선택) base_items 필드 확장 — requirements (Str/Dex/Int) / damage / armour 추가
+4. [~] **base_items 필드 확장** — requirements (Str/Dex/Int) 선행 준비 완료 (2026-04-25). 다음 Tauri `extract_game_data` → `python scripts/build_base_items_poe2.py` 재실행 → `req_str`/`req_dex`/`req_int` 자동 부착. damage / armour 는 후속 (별도 GGPK 테이블 필요)
 5. [ ] **기존 POE1 잔여** (이월):
    - L3 auto-retry 인게임 검증 (POE1)
    - DoD 수동 검증 (FilterPanel / 오버레이 / 히스토리)

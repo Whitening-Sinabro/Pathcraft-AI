@@ -98,6 +98,7 @@ const TARGETS: &[&str] = &[
     "Data/SkillGems.datc64",
     "Data/UniqueStashLayout.datc64",
     "Data/UniqueStashTypes.datc64",  // stash type id → 라벨 매핑 (uniques_poe2.json stash_type_label)
+    "Data/AttributeRequirements.datc64",  // BaseItemType → ReqStr/Dex/Int (base_items_poe2.json req_*)
     // Tier 1 — Critical (F0 감사 Critical 1/2/3 해결)
     "Data/Tags.datc64",          // load_ggpk_items TagsKeys 해결
     "Data/Characters.datc64",    // 클래스 start node 자동 매핑 (POE2 드리프트 없음, 우선 처리)

@@ -194,3 +194,4 @@
 | python/tests/test_filter_poe2_d7.py | D7 Phase 1+2 — heist/special_uniques/flasks_quality/id_mod POE2 분기 테스트 22건 | 아니오 |
 | python/tests/test_build_uniques_poe2.py | stash_type 라벨 매핑 헬퍼 단위 + uniques_poe2.json 무결성 테스트 8건 | 아니오 |
 | python/tests/test_valid_gems_poe2_categories.py | POE2 valid_gems 카테고리 완전성 회귀 가드 — Awakened/Vaal sentinel + GemType=2 메타 젬 active 포함 검증 5건 | 아니오 |
+| python/tests/test_build_base_items_poe2.py | AttributeRequirements 매핑 헬퍼 단위 + simplify(req_*) + base_items_poe2.json 무결성 13건 | 아니오 |
