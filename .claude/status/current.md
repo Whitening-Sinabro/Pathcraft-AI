@@ -1,21 +1,10 @@
 ## 지금
-- **현재 세션 (S9, 진행 중): uniques stash_type 라벨 매핑 선행 준비 (2026-04-25)**
-  - `src-tauri/src/bin/extract_data.rs` TARGETS + `src-tauri/src/lib.rs` `extract_game_data` target_tables 에 `Data/UniqueStashTypes.datc64` 추가. 다음 GGPK 추출 시점부터 자동으로 추출됨 (`data/balance/uniquestashtypes.datc64`, 34 rows, size 53B, schema `validFor=3` POE1/POE2 공용).
-  - `scripts/build_uniques_poe2.py`: `load_optional` 헬퍼 + `build_stash_type_labels` 헬퍼 추가. UniqueStashTypes.json 이 있으면 `stash_type_label` 필드 부착, 없으면 기존 동작 유지 (graceful degradation). `_meta` 에 `stash_type_labels_count`/`skipped_unknown_label` 조건부 필드.
-  - `python/tests/test_build_uniques_poe2.py` 신규 — 헬퍼 단위 테스트 6건 + uniques_poe2.json 무결성 2건. 현재 테이블 없음 상태도 활성 상태도 assert.
-  - `data/uniques_poe2.json` 재생성 — 393 visible uniques 유지, 현재 label 없는 상태. stash_type id 분포 0~33 (22종 관찰). Rust 변경은 `cargo check --lib --bin extract_data` 0 warn (prev) + compile OK.
-  - 검증: pytest 719 → **727** (+8). cargo check 통과.
-- **현재 세션 (S9): POE2 D7 Phase 2 + VerbalBuildInput POE2 전용화 (audit medium 해소)**
-  - `src/components/VerbalBuildInput.tsx`: `game` prop 제거 + POE2 상수 고정. 클래스/어센던시/placeholder 전부 POE2 값. POE1 fallback dead code 삭제.
-  - JSDoc 에 "POE1 경로 의도적으로 없음 — PoB2 포맷 확정(D1) 전 POE2 임시 우회로" 스코프 명시.
-  - `src/App.tsx:158-164` 호출부 `game={game}` prop 전달 제거.
-  - 검증: `tsc --noEmit` 클린 / vitest 110/110 PASS.
-- **현재 세션 (S9): POE2 D7 Phase 2 완료 — `layer_id_mod_filtering` POE2 Recombinator Mods 실구현**
-  - `scripts/extract_id_mod_filtering_poe2.py` 신규. NeverSink POE2 0.9.1 SOFT/STRICT 두 필터 [[0400]] 파싱 + 교차 검증 (SOFT==STRICT 확정).
-  - `data/id_mod_filtering_poe2.json`: 11 classes / 소스 7 Show 블록 → 출력 11 블록 / 19 mods (`_meta.cross_verified=true` + 양쪽 sha256 보존).
-  - `python/sections_continue.py`: `_ID_MOD_POE2_CACHE` + `_load_id_mod_filtering_poe2` + `_layer_id_mod_filtering_poe2` 헬퍼. `layer_id_mod_filtering(game="poe2")` Phase 1 임시 skip → 실 블록 생성으로 교체. 조건: Mirrored/Corrupted False + Rarity Normal Magic Rare + HasExplicitMod >=1 (NeverSink POE2 [[0400]] 실측). Hide 블록 없음.
-  - Phase 1 `test_id_mod_poe2_empty` 제거 → `TestLayerIdModFilteringPoe2` 8 테스트 신규 (per-class 블록 / Recombinator 조건 / ItemLevel 부재 / Final Hide 부재 / ground truth mod 매칭 / 스타일 attribute / POE1 전용 Class 누수 부재 / POE1 regression + strictness 4 low-life 제외).
-  - 검증: D7 파일 22/22 PASS (15→22, +7). 전체 pytest **719/719** (S8 712 → S9 719). cargo/vitest 변경 없음. `filter_generator.py --game poe2` 6394줄 + id_mod_poe2 블록 11개, POE1-only 누수 0 grep 확인. `--game poe1` 6760줄 regression 없음.
+- **현재 세션 (S10, 진행 중): valid_gems_poe2 카테고리 완전성 회귀 가드 (2026-04-25)**
+  - 조사: GGPK 2026-04-22 poe2 0.4.0d `SkillGems.json` 1103 행 — `Awakened` 전부 sentinel(`-72340172838076674`), `IsVaalVariant=False` 전부, `VaalVariant_BaseItemType` 전부 sentinel. POE2 0.4.x 에 Awakened/Vaal 메커닉 부재 확정.
+  - GemType=2 (메타 젬, 42행 / 유효 36행, Cast on X / Totem 류) 전부 valid_gems_poe2 `active` 카테고리 포함. consumer 가 active+support+spirit 평탄화하므로 기능 누락 0.
+  - `python/tests/test_valid_gems_poe2_categories.py` 신규 5 회귀 가드 — Awakened sentinel / IsVaalVariant False / VaalVariant_BaseItemType sentinel / 메타 젬 36건 valid_gems 포함 / 메타 젬 수 30~60 범위. 미래 POE2 GGPK 패치가 가정을 깨면 즉시 실패.
+  - 검증: pytest 727 → **732** (+5).
+- **이전 세션 (S9, 종료 commit `6d041b9`)**: D7 Phase 2 + VerbalBuildInput POE2 전용 + uniques stash_type 선행 + audit-all POE2 fix (silent failure logger + '7 blocks' 이중 의미 해소). 검증 pytest 727 / tsc 0 / vitest 110.
 - **이전 세션 (S8, push 완료)**
   - `58ae093` S8 반영 / `f49520c` feat: POE2 D7 Phase 1 — 4레이어 POE2 game 분기 / `24c2d31` push 반영 + D7 진입 / `3f36164` S7 종료
   - heist / special_uniques / id_mod POE2 skip + flasks_quality POE2 재설계 (Ultimate Life/Mana Flask Q11+/baseline + Charm Q18+, NeverSink [[0800]]/[[0900]])
@@ -95,7 +84,7 @@
 - **Mods Tags/SpawnWeight_Tags/SpawnWeight_Values 3 list 공백** — 주 데이터는 정상. schema field 위치/타입 재매핑 필요 (upstream schema.min.json POE2 Mods 엔트리 이슈)
 - **GameData POE2 QuestRewards 구조 차이** — `Characters` / `Reward` 필드 호환성 미검증
 - **GameData POE2 SkillGems `is_support` 판별** — POE2 는 `IsSupport` 필드 없음, `GemType` 으로 판별 추후
-- **valid_gems 다른 카테고리 누락 가능성** — POE1 transfigured 사례, POE2 도 awakened/vaal alt 조사 필요
+- ~~**valid_gems 다른 카테고리 누락 가능성**~~ — POE2 부분 해소 (2026-04-25): GGPK 2026-04-22 0.4.0d 기준 Awakened 0건 / Vaal 0건 확정. `python/tests/test_valid_gems_poe2_categories.py` 5 회귀 가드 (sentinel 깨질 시 즉시 탐지). POE1 transfigured 사례는 별도 추적
 - **L3 인게임 미검증** (POE1) — 재시도 교정 프롬프트 실 효과 측정 필요
 - **Phase E subagent 제기 미패치 5건** (이전 세션 이월) — Claim gate / hook stdin 스키마 실측 대기
 - **Tier 2 C / SyndicateBoard ss22 / Cmd+K / PassiveTreeCanvas 623줄 / Syndicate OCR / Coach zombie / Model toggle test** — 전부 이전 이월
