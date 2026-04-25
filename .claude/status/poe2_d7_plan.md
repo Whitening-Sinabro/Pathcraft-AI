@@ -141,7 +141,7 @@ Phase 2 는 본 세션 범위 외. Phase 1 완료 후 별도 plan 문서 확장.
 
 **구현 요약**
 - `scripts/extract_id_mod_filtering_poe2.py` 신규. NeverSink POE2 0.9.1 SOFT/STRICT 두 필터 [[0400]] 섹션을 파싱해 교차 검증. 실측 SOFT/STRICT 동일 확정.
-- `data/id_mod_filtering_poe2.json` 생성. 11 classes (Amulets, Boots, Bows, Crossbows, Quarterstaves, Sceptres, Spears, Staves, Talismans, Two Hand Maces, Wands), 7 blocks, 19 unique mods. `_meta.cross_verified=true` + 두 소스 sha256 보존.
+- `data/id_mod_filtering_poe2.json` 생성. 11 classes (Amulets, Boots, Bows, Crossbows, Quarterstaves, Sceptres, Spears, Staves, Talismans, Two Hand Maces, Wands), NeverSink 소스 [[0400]] 7 Show 블록 → 출력은 class 당 1 블록으로 재구성해 총 11 출력 블록, 19 unique mods. `_meta.cross_verified=true` + 두 소스 sha256 보존.
 - `python/sections_continue.py`:
   - `_ID_MOD_POE2_CACHE` 전역 + `_load_id_mod_filtering_poe2()` 로더 추가 (POE1 패턴 거울).
   - `layer_id_mod_filtering(game="poe2")` 의 `return ""` 제거 → `_layer_id_mod_filtering_poe2()` 호출. Phase 1 임시 skip 교체.
@@ -170,7 +170,7 @@ Phase 2 는 본 세션 범위 외. Phase 1 완료 후 별도 plan 문서 확장.
 | 파일 | 변경 |
 |---|---|
 | `scripts/extract_id_mod_filtering_poe2.py` | 신규 — SOFT/STRICT 교차 검증 extractor |
-| `data/id_mod_filtering_poe2.json` | 신규 — 11 classes / 7 blocks / 19 mods |
+| `data/id_mod_filtering_poe2.json` | 신규 — 11 classes / NeverSink 소스 7 Show 블록 → 출력 11 블록 / 19 mods |
 | `python/sections_continue.py` | `_ID_MOD_POE2_CACHE` + `_load_id_mod_filtering_poe2` + `layer_id_mod_filtering` POE2 분기 + `_layer_id_mod_filtering_poe2` 헬퍼. docstring 갱신 |
 | `python/tests/test_filter_poe2_d7.py` | `TestLayerIdModFilteringPoe2` 대체 (8 테스트: 기존 2 유지 + 신규 6 + POE1 strictness 4 추가) |
 | `.claude/files/created.md` | 3 신규 파일 기록 |

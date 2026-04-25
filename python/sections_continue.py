@@ -1588,6 +1588,9 @@ def _load_id_mod_filtering() -> dict:
         return _ID_MOD_CACHE
     path = _DATA_DIR / "id_mod_filtering.json"
     if not path.exists():
+        logger.warning(
+            "id_mod_filtering.json 미발견: %s — POE1 ID Mod 블록 생성 불가", path,
+        )
         _ID_MOD_CACHE = {}
         return _ID_MOD_CACHE
     _ID_MOD_CACHE = json.loads(path.read_text(encoding="utf-8")).get("by_class", {})
@@ -1601,6 +1604,9 @@ def _load_id_mod_filtering_poe2() -> dict:
         return _ID_MOD_POE2_CACHE
     path = _DATA_DIR / "id_mod_filtering_poe2.json"
     if not path.exists():
+        logger.warning(
+            "id_mod_filtering_poe2.json 미발견: %s — POE2 Recombinator 블록 생성 불가", path,
+        )
         _ID_MOD_POE2_CACHE = {}
         return _ID_MOD_POE2_CACHE
     _ID_MOD_POE2_CACHE = json.loads(path.read_text(encoding="utf-8")).get("by_class", {})
@@ -1626,7 +1632,7 @@ def layer_id_mod_filtering(mode: str = "ssf", strictness: int = 0,
     rare 일부 missed 리스크 있음 (아키텍처 Phase 7 audit 참조).
 
     POE2 는 Recombinator Mods ([[0400]]) 시스템으로 패턴은 유사하나 per-class
-    top mod 데이터가 POE1 과 다름 (11 classes / 7 blocks / 19 mods 실측).
+    top mod 데이터가 POE1 과 다름 (11 classes, NeverSink 소스 7 Show 블록 → 출력 11 블록, 19 mods).
     POE2 분기는 `data/id_mod_filtering_poe2.json` 로드 후 NeverSink POE2 0.9.1
     실측 조건으로 Show 블록 생성:
       - `Rarity Normal Magic Rare` (POE1 = Rare only)

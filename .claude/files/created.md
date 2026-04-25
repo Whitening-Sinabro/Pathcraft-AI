@@ -190,6 +190,6 @@
 | python/tests/test_item_class_map_poe2.py | D5 1단계 — item_class_map_poe2.json 스키마/partition/매핑 테스트 11건 | 아니오 |
 | python/tests/test_filter_poe2_class_mapping.py | D5 2단계 — POE2 필터 생성 Class 매핑 테스트 21건 (매핑 헬퍼/오버레이/레이어별 누수) | 아니오 |
 | scripts/extract_id_mod_filtering_poe2.py | D7 Phase 2 — NeverSink POE2 0.9.1 [[0400]] Recombinator Mods 추출 (SOFT/STRICT 교차 검증) | 아니오 |
-| data/id_mod_filtering_poe2.json | D7 Phase 2 — POE2 Recombinator Mods per-class top mod (11 classes / 7 blocks / 19 mods) | 아니오 |
+| data/id_mod_filtering_poe2.json | D7 Phase 2 — POE2 Recombinator Mods per-class top mod (11 classes, 소스 7 Show 블록 → 출력 11 블록, 19 mods) | 아니오 |
 | python/tests/test_filter_poe2_d7.py | D7 Phase 1+2 — heist/special_uniques/flasks_quality/id_mod POE2 분기 테스트 22건 | 아니오 |
 | python/tests/test_build_uniques_poe2.py | stash_type 라벨 매핑 헬퍼 단위 + uniques_poe2.json 무결성 테스트 8건 | 아니오 |

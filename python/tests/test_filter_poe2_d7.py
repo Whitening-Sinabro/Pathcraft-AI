@@ -7,7 +7,7 @@ Phase 1:
 
 Phase 2:
 - D7-C: layer_id_mod_filtering(game="poe2") → POE2 Recombinator Mods per-class 실구현
-  Ground truth: NeverSink POE2 0.9.1 [[0400]] (SOFT/STRICT 동일 11 classes / 7 blocks).
+  Ground truth: NeverSink POE2 0.9.1 [[0400]] (SOFT/STRICT 동일 11 classes, 소스 7 Show 블록 → 출력 11 블록).
 
 Ground truth: NeverSink POE2 필터 0.9.1 실측 ([[0400]] Recombinator,
 [[0800]] Endgame Flasks, [[0900]] Endgame Charms, Trinket/Blueprint/Contract/

@@ -12,7 +12,7 @@
   - 검증: `tsc --noEmit` 클린 / vitest 110/110 PASS.
 - **현재 세션 (S9): POE2 D7 Phase 2 완료 — `layer_id_mod_filtering` POE2 Recombinator Mods 실구현**
   - `scripts/extract_id_mod_filtering_poe2.py` 신규. NeverSink POE2 0.9.1 SOFT/STRICT 두 필터 [[0400]] 파싱 + 교차 검증 (SOFT==STRICT 확정).
-  - `data/id_mod_filtering_poe2.json`: 11 classes / 7 blocks / 19 mods (`_meta.cross_verified=true` + 양쪽 sha256 보존).
+  - `data/id_mod_filtering_poe2.json`: 11 classes / 소스 7 Show 블록 → 출력 11 블록 / 19 mods (`_meta.cross_verified=true` + 양쪽 sha256 보존).
   - `python/sections_continue.py`: `_ID_MOD_POE2_CACHE` + `_load_id_mod_filtering_poe2` + `_layer_id_mod_filtering_poe2` 헬퍼. `layer_id_mod_filtering(game="poe2")` Phase 1 임시 skip → 실 블록 생성으로 교체. 조건: Mirrored/Corrupted False + Rarity Normal Magic Rare + HasExplicitMod >=1 (NeverSink POE2 [[0400]] 실측). Hide 블록 없음.
   - Phase 1 `test_id_mod_poe2_empty` 제거 → `TestLayerIdModFilteringPoe2` 8 테스트 신규 (per-class 블록 / Recombinator 조건 / ItemLevel 부재 / Final Hide 부재 / ground truth mod 매칭 / 스타일 attribute / POE1 전용 Class 누수 부재 / POE1 regression + strictness 4 low-life 제외).
   - 검증: D7 파일 22/22 PASS (15→22, +7). 전체 pytest **719/719** (S8 712 → S9 719). cargo/vitest 변경 없음. `filter_generator.py --game poe2` 6394줄 + id_mod_poe2 블록 11개, POE1-only 누수 0 grep 확인. `--game poe1` 6760줄 regression 없음.
@@ -77,7 +77,7 @@
 - data/uniques_poe2.json — 393 visible uniques + 10 hidden (total 403, 리서치 일치)
 - data/valid_gems_poe2.json — 1079 gems (active 477 / support 600 / spirit 2)
 - data/schema/schema_poe2_override.json — drift 보정 정의 (SchemaStore auto-merge 적용 완료 2026-04-22 S2)
-- data/id_mod_filtering_poe2.json — D7 Phase 2: NeverSink POE2 0.9.1 [[0400]] Recombinator Mods (11 classes / 7 blocks / 19 mods, SOFT/STRICT cross-verified)
+- data/id_mod_filtering_poe2.json — D7 Phase 2: NeverSink POE2 0.9.1 [[0400]] Recombinator Mods (11 classes / 소스 7 Show 블록 → 출력 11 블록 / 19 mods, SOFT/STRICT cross-verified)
 - docs/league_refresh.md
 
 ## Class Start 노드 매핑 (POE1, data.json 수동)
@@ -123,5 +123,5 @@
 - **POE2 D3 base_items / uniques** — BaseItemTypes 에서 무기/방어구 분류, UniqueStashLayout × Words JOIN. `scripts/build_base_items_poe2.py` / `build_uniques_poe2.py` (2026-04-22 S2)
 - **POE2 구두 빌드 입력 경로** — POB 없이 VerbalBuildInput 폼 → analyzeVerbalBuild → coach_build 직행. D6 통합 UI (2026-04-22)
 - **Design enforcement** 2026-04-22 설치 (contract 4필드: Primary Action / mobalytics ref / #0A84FF / Pretendard)
-- **POE2 D7 필터 레이어 완료** — heist/special_uniques POE2 skip + flasks_quality POE2 재설계 (Ultimate Flask/Charm) + id_mod_filtering POE2 Recombinator [[0400]] 실구현 (11 classes / 7 blocks). Phase 1 (S8) + Phase 2 (S9, 2026-04-24)
+- **POE2 D7 필터 레이어 완료** — heist/special_uniques POE2 skip + flasks_quality POE2 재설계 (Ultimate Flask/Charm) + id_mod_filtering POE2 Recombinator [[0400]] 실구현 (11 classes, 소스 7 Show 블록 → 출력 11 블록). Phase 1 (S8) + Phase 2 (S9, 2026-04-24)
 - **VerbalBuildInput POE2 전용 확정** (2026-04-25 S9) — `game` prop 제거, POE2 상수 고정. POE1 은 `PobInputSection` 유지. PoB2 포맷 확정(D1) 전 POE2 임시 우회로 스코프 JSDoc 명시
