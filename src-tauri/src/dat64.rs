@@ -56,6 +56,23 @@ impl FieldType {
 pub struct FieldDef {
     pub name: String,
     pub field_type: FieldType,
+    /// POE2 schema 의 `interval: true` — i32 가 (min, max) i32 pair 로 저장 → 8B.
+    /// pypoe schema 컨벤션. POE1 에서는 사용 안 함 (validFor=2 테이블 전용).
+    pub interval: bool,
+    /// `field_type == List` 일 때 element 의 base type.
+    /// foreignrow array → 16B per element (rowid_lo_8B, reserved_hi_8B). emit Value::Key.
+    /// i32/enumrow array → 4B. string array → 8B. f32 array → 4B. bool array → 1B.
+    /// None 이면 fallback 으로 8B i64 (legacy / unknown).
+    pub element_type: Option<FieldType>,
+}
+
+impl FieldDef {
+    /// 행 안에서 이 필드가 차지하는 byte 수.
+    /// interval 컬럼은 base type 의 2배 (min/max pair).
+    pub fn size_in_row(&self) -> usize {
+        let base = self.field_type.size();
+        if self.interval { base * 2 } else { base }
+    }
 }
 
 /// 테이블 스키마
@@ -67,7 +84,7 @@ pub struct TableSchema {
 
 impl TableSchema {
     pub fn row_size(&self) -> usize {
-        self.fields.iter().map(|f| f.field_type.size()).sum()
+        self.fields.iter().map(|f| f.size_in_row()).sum()
     }
 }
 
@@ -177,11 +194,11 @@ impl Dat64Parser {
             let mut fields = Vec::new();
             let mut offset = 0;
             for field in &schema.fields {
-                if offset + field.field_type.size() > actual_row_size {
+                if offset + field.size_in_row() > actual_row_size {
                     break;
                 }
                 fields.push(field);
-                offset += field.field_type.size();
+                offset += field.size_in_row();
             }
             log::warn!(
                 "스키마/데이터 행 크기 불일치: schema={}B, actual={}B — {} / {} 필드 사용",
@@ -200,15 +217,137 @@ impl Dat64Parser {
             let mut field_offset = row_offset;
 
             for field in &usable_fields {
-                let value = self.read_field(field_offset, &field.field_type)?;
+                let value = if field.interval {
+                    self.read_interval(field_offset, &field.field_type)?
+                } else if matches!(field.field_type, FieldType::List) {
+                    self.read_list_typed(field_offset, field.element_type.as_ref())?
+                } else {
+                    self.read_field(field_offset, &field.field_type)?
+                };
                 row.insert(field.name.clone(), value);
-                field_offset += field.field_type.size();
+                field_offset += field.size_in_row();
             }
 
             rows.push(row);
         }
 
         Ok(rows)
+    }
+
+    /// element type 인지를 가진 List 파싱.
+    /// foreignrow array (16B per element): low 8B = rowid → Value::Key.
+    /// 기타 base type: type.size() per element. Str array 는 offset → 문자열 resolve.
+    /// `element_type` 가 None 이면 legacy 8B i64 fallback (read_field 의 List branch 사용).
+    fn read_list_typed(&self, offset: usize, element_type: Option<&FieldType>) -> Result<Value, String> {
+        if offset + 16 > self.data.len() {
+            return Ok(Value::List(vec![]));
+        }
+        let count = i64::from_le_bytes(self.data[offset..offset + 8].try_into().unwrap());
+        let list_offset = i64::from_le_bytes(self.data[offset + 8..offset + 16].try_into().unwrap());
+
+        if count <= 0 {
+            return Ok(Value::List(vec![]));
+        }
+        let count_usize = count as usize;
+        if count_usize > MAX_LIST_ITEMS {
+            return Ok(Value::List(vec![]));
+        }
+
+        let elem_type = match element_type {
+            Some(t) => *t,
+            None => {
+                // legacy fallback — 8B i64 stride
+                return self.read_field(offset, &FieldType::List);
+            }
+        };
+        // foreignrow array element 는 16B (low 8B rowid + high 8B reserved). 그 외는 base type size.
+        let elem_size = match elem_type {
+            FieldType::Key => 16,
+            other => other.size(),
+        };
+        let abs_offset = self.variable_data_start.saturating_add(list_offset as usize);
+        let bytes_remaining = self.data.len().saturating_sub(abs_offset);
+        let plausible_items = bytes_remaining / elem_size.max(1);
+        if count_usize > plausible_items {
+            return Ok(Value::List(vec![]));
+        }
+
+        let mut items = Vec::with_capacity(count_usize);
+        for i in 0..count_usize {
+            let item_offset = abs_offset + i * elem_size;
+            if item_offset + elem_size > self.data.len() {
+                break;
+            }
+            let v = match elem_type {
+                FieldType::Key => {
+                    // foreignrow array: rowid 는 element 의 low 8B 슬롯 (POE 0.4.x 실측).
+                    let rid = i64::from_le_bytes(
+                        self.data[item_offset..item_offset + 8].try_into().unwrap(),
+                    );
+                    Value::Key(rid)
+                }
+                FieldType::Str => {
+                    let str_off = i64::from_le_bytes(
+                        self.data[item_offset..item_offset + 8].try_into().unwrap(),
+                    );
+                    if str_off < 0 {
+                        Value::Null
+                    } else {
+                        Value::Str(self.read_string(str_off as usize))
+                    }
+                }
+                FieldType::Bool => Value::Bool(self.data[item_offset] != 0),
+                FieldType::U8 => Value::U8(self.data[item_offset]),
+                FieldType::I16 => Value::I16(i16::from_le_bytes(
+                    self.data[item_offset..item_offset + 2].try_into().unwrap(),
+                )),
+                FieldType::U16 => Value::U16(u16::from_le_bytes(
+                    self.data[item_offset..item_offset + 2].try_into().unwrap(),
+                )),
+                FieldType::I32 => Value::I32(i32::from_le_bytes(
+                    self.data[item_offset..item_offset + 4].try_into().unwrap(),
+                )),
+                FieldType::U32 => Value::U32(u32::from_le_bytes(
+                    self.data[item_offset..item_offset + 4].try_into().unwrap(),
+                )),
+                FieldType::F32 => Value::F32(f32::from_le_bytes(
+                    self.data[item_offset..item_offset + 4].try_into().unwrap(),
+                )),
+                FieldType::I64 => Value::I64(i64::from_le_bytes(
+                    self.data[item_offset..item_offset + 8].try_into().unwrap(),
+                )),
+                FieldType::U64 => Value::U64(u64::from_le_bytes(
+                    self.data[item_offset..item_offset + 8].try_into().unwrap(),
+                )),
+                FieldType::Row => {
+                    let rid = i64::from_le_bytes(
+                        self.data[item_offset..item_offset + 8].try_into().unwrap(),
+                    );
+                    Value::Key(rid)
+                }
+                FieldType::List => {
+                    // List of List 은 schema 미지원 — fallback i64.
+                    Value::I64(i64::from_le_bytes(
+                        self.data[item_offset..item_offset + 8].try_into().unwrap(),
+                    ))
+                }
+            };
+            items.push(v);
+        }
+        Ok(Value::List(items))
+    }
+
+    /// interval 필드 (min, max) pair 읽기 — 결과는 `Value::List([min, max])` 형태로 emit.
+    /// JSON 직렬화 시 `[min, max]` 배열로 출력됨.
+    /// POE2 schema 의 `interval: true` 컬럼 (Mods.Stat*Value 등) 전용.
+    fn read_interval(&self, offset: usize, field_type: &FieldType) -> Result<Value, String> {
+        let base = field_type.size();
+        if offset + base * 2 > self.data.len() {
+            return Ok(Value::Null);
+        }
+        let lo = self.read_field(offset, field_type)?;
+        let hi = self.read_field(offset + base, field_type)?;
+        Ok(Value::List(vec![lo, hi]))
     }
 
     /// 특정 오프셋에서 필드 값 읽기
@@ -391,8 +530,8 @@ mod tests {
         let schema = TableSchema {
             name: "Test".into(),
             fields: vec![
-                FieldDef { name: "flag".into(), field_type: FieldType::Bool },
-                FieldDef { name: "value".into(), field_type: FieldType::I32 },
+                FieldDef { name: "flag".into(), field_type: FieldType::Bool, interval: false, element_type: None },
+                FieldDef { name: "value".into(), field_type: FieldType::I32, interval: false, element_type: None },
             ],
         };
 
@@ -423,7 +562,7 @@ mod tests {
         let schema = TableSchema {
             name: "Test".into(),
             fields: vec![
-                FieldDef { name: "name".into(), field_type: FieldType::Str },
+                FieldDef { name: "name".into(), field_type: FieldType::Str, interval: false, element_type: None },
             ],
         };
 
@@ -460,6 +599,8 @@ mod tests {
             fields: vec![FieldDef {
                 name: "badlist".into(),
                 field_type: FieldType::List,
+                interval: false,
+                element_type: None,
             }],
         };
 
@@ -507,6 +648,8 @@ mod tests {
             fields: vec![FieldDef {
                 name: "name".into(),
                 field_type: FieldType::Str,
+                interval: false,
+                element_type: None,
             }],
         };
 

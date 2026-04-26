@@ -31,6 +31,10 @@ struct SchemaColumn {
     array: Option<bool>,
     unique: Option<bool>,
     references: Option<SchemaRef>,
+    /// pypoe schema 의 interval 표시 — i32 가 (min, max) i32 pair 로 8B 차지.
+    /// 현재 schema.min.json 에서 POE2 (validFor=2) 4 테이블만 사용 (Mods 등). POE1 미사용.
+    #[serde(default)]
+    interval: bool,
 }
 
 #[derive(Deserialize)]
@@ -178,25 +182,31 @@ impl SchemaStore {
                 let is_array = col.array.unwrap_or(false);
                 let base_type = col.col_type.as_deref().unwrap_or("i32");
 
-                let field_type = if is_array {
-                    FieldType::List
-                } else {
-                    match base_type {
-                        "bool" => FieldType::Bool,
-                        "i8" | "u8" => FieldType::U8,
-                        "enumrow" => FieldType::I32,
-                        "i16" | "u16" => FieldType::I16,
-                        "i32" | "u32" | "enum" => FieldType::I32,
-                        "i64" | "u64" => FieldType::I64,
-                        "f32" => FieldType::F32,
-                        "string" => FieldType::Str,
-                        "foreignrow" => FieldType::Key,
-                        "row" | "rid" => FieldType::Row,
-                        _ => FieldType::I32, // 알 수 없는 타입 → i32 폴백
-                    }
+                let base_field_type = match base_type {
+                    "bool" => FieldType::Bool,
+                    "i8" | "u8" => FieldType::U8,
+                    "enumrow" => FieldType::I32,
+                    "i16" | "u16" => FieldType::I16,
+                    "i32" | "u32" | "enum" => FieldType::I32,
+                    "i64" | "u64" => FieldType::I64,
+                    "f32" => FieldType::F32,
+                    "string" => FieldType::Str,
+                    "foreignrow" => FieldType::Key,
+                    "row" | "rid" => FieldType::Row,
+                    _ => FieldType::I32, // 알 수 없는 타입 → i32 폴백
                 };
 
-                FieldDef { name, field_type }
+                let (field_type, element_type) = if is_array {
+                    (FieldType::List, Some(base_field_type))
+                } else {
+                    (base_field_type, None)
+                };
+
+                // interval 은 array=false 인 단순 타입에만 의미 있음 (List/Key 와 결합 불가).
+                // schema.min.json 데이터상으로도 모두 i32 + interval=true.
+                let interval = col.interval && !is_array;
+
+                FieldDef { name, field_type, interval, element_type }
             }).collect();
 
             // POE2 drift override merge — {TableName}_poe2_extra.fields 를 끝에 append.
@@ -221,9 +231,28 @@ impl SchemaStore {
                                 _ => FieldType::I32,
                             }
                         };
+                        // override 도 array 면 element_type 에 base 보존.
+                        let element_type = if extra.array {
+                            Some(match extra.col_type.as_str() {
+                                "bool" => FieldType::Bool,
+                                "i8" | "u8" => FieldType::U8,
+                                "i16" | "u16" => FieldType::I16,
+                                "i32" | "u32" | "enum" | "enumrow" => FieldType::I32,
+                                "i64" | "u64" => FieldType::I64,
+                                "f32" => FieldType::F32,
+                                "string" => FieldType::Str,
+                                "foreignrow" => FieldType::Key,
+                                "row" | "rid" => FieldType::Row,
+                                _ => FieldType::I32,
+                            })
+                        } else {
+                            None
+                        };
                         fields.push(FieldDef {
                             name: extra.name.clone(),
                             field_type,
+                            interval: false,
+                            element_type,
                         });
                     }
                 }
@@ -391,10 +420,11 @@ mod tests {
         );
     }
 
-    /// POE2 drift override merge — Mods / SkillGems 에 extra 필드가 append 되어야 함.
-    /// 기대값: Mods 653 + 24 = 677B, SkillGems 207 + 32 = 239B.
+    /// POE2 row_size 기대값 검증.
+    /// - Mods: 6 interval i32 컬럼 (4B→8B 각각) 으로 base 653B 가 자연스럽게 677B 가 됨. override 불요.
+    /// - SkillGems: interval 없음 → override +32B 적용 후 239B (207+32).
     #[test]
-    fn test_poe2_override_merges_extra_fields() {
+    fn test_poe2_row_size_matches_actual() {
         let Some(schema_path) = schema_path_or_skip() else { return };
 
         let override_path = schema_path.parent().unwrap().join("schema_poe2_override.json");
@@ -408,7 +438,7 @@ mod tests {
         assert_eq!(
             mods.row_size(),
             677,
-            "POE2 Mods row_size 653+24=677 기대, 실제 {}B",
+            "POE2 Mods row_size 677B 기대 (interval 6 컬럼 8B 적용), 실제 {}B",
             mods.row_size()
         );
 
@@ -421,7 +451,74 @@ mod tests {
         );
     }
 
-    /// POE1 로드 시 override 적용 안 됨 — Mods 는 schema.min.json 원본 컬럼만.
+    /// interval=true 컬럼이 8B (i32 min/max pair) 로 처리되는지 회귀 가드.
+    /// schema.min.json POE2 Mods 의 Stat1Value..Stat6Value (6 컬럼) 가 대상.
+    #[test]
+    fn test_poe2_interval_doubles_field_size() {
+        let Some(schema_path) = schema_path_or_skip() else { return };
+
+        let poe2 = SchemaStore::load_for_game(&schema_path, Game::Poe2).unwrap();
+        let mods = poe2.get("Mods").expect("POE2 Mods 누락");
+
+        let interval_fields: Vec<&FieldDef> = mods.fields.iter().filter(|f| f.interval).collect();
+        assert_eq!(
+            interval_fields.len(),
+            6,
+            "POE2 Mods interval 컬럼 6개 (Stat1..6Value) 기대, 실제 {}",
+            interval_fields.len()
+        );
+
+        for f in &interval_fields {
+            assert_eq!(
+                f.size_in_row(),
+                8,
+                "interval 필드 {} size_in_row=8B 기대 (i32 pair), 실제 {}B",
+                f.name,
+                f.size_in_row()
+            );
+        }
+    }
+
+    /// POE1 Mods 는 interval 컬럼이 없어야 함 (validFor=2 전용 컨벤션).
+    /// POE1 회귀 가드: interval 처리 추가로 POE1 row_size 가 변하면 안 됨.
+    #[test]
+    fn test_poe1_no_interval_columns() {
+        let Some(schema_path) = schema_path_or_skip() else { return };
+
+        let poe1 = SchemaStore::load_for_game(&schema_path, Game::Poe1).unwrap();
+        let mods = poe1.get("Mods").expect("POE1 Mods 누락");
+
+        let interval_count = mods.fields.iter().filter(|f| f.interval).count();
+        assert_eq!(interval_count, 0, "POE1 Mods 에 interval 컬럼이 있으면 안 됨");
+    }
+
+    /// array 컬럼은 element_type 을 가져야 함 (List element-aware 파싱 회귀 가드).
+    /// foreignrow array → Some(Key), i32 array → Some(I32), etc.
+    /// element_type=None 이면 read_field 의 legacy 8B i64 로 떨어져 Tags/SpawnWeight_* 가 잘못 읽힘.
+    #[test]
+    fn test_array_columns_carry_element_type() {
+        let Some(schema_path) = schema_path_or_skip() else { return };
+
+        for game in [Game::Poe1, Game::Poe2] {
+            let store = SchemaStore::load_for_game(&schema_path, game).unwrap();
+            let mods = store.get("Mods").expect("Mods 누락");
+
+            let array_fields: Vec<&FieldDef> = mods.fields.iter()
+                .filter(|f| matches!(f.field_type, FieldType::List))
+                .collect();
+            assert!(!array_fields.is_empty(), "{:?} Mods 에 array 필드 없음", game);
+
+            for f in &array_fields {
+                assert!(
+                    f.element_type.is_some(),
+                    "{:?} Mods.{} (List) 에 element_type 미설정 — read_list_typed 가 legacy fallback 으로 떨어짐",
+                    game, f.name
+                );
+            }
+        }
+    }
+
+    /// POE1 로드 시 POE2 override 적용 안 됨 — SkillGems Unknown_List1/2 가 POE1 SkillGems 에 섞이면 안 됨.
     #[test]
     fn test_poe1_load_skips_poe2_override() {
         let Some(schema_path) = schema_path_or_skip() else { return };
@@ -434,27 +531,24 @@ mod tests {
             return;
         }
 
-        let mods_poe1 = poe1.get("Mods").expect("POE1 Mods 누락");
-        let mods_poe2 = poe2.get("Mods").expect("POE2 Mods 누락");
+        let sg_poe1 = poe1.get("SkillGems").expect("POE1 SkillGems 누락");
+        let sg_poe2 = poe2.get("SkillGems").expect("POE2 SkillGems 누락");
 
-        // Override 는 POE2 에만 적용. POE1 컬럼 수는 override extra 를 받지 않아야 함.
-        // POE1 Mods 필드 어느 이름도 "Unknown_List" / "Unknown_Row" (override 에서 부여한 이름) 이면 안 됨.
-        let has_override_name = mods_poe1.fields.iter().any(|f| {
-            f.name == "Unknown_List" || f.name == "Unknown_Row"
+        let has_override_name = sg_poe1.fields.iter().any(|f| {
+            f.name == "Unknown_List1" || f.name == "Unknown_List2"
         });
         assert!(
             !has_override_name,
-            "POE1 Mods 에 POE2 override 필드가 섞였음"
+            "POE1 SkillGems 에 POE2 override 필드가 섞였음"
         );
 
-        // POE2 Mods 는 override 필드를 끝에 포함해야 함.
-        let poe2_has_override = mods_poe2
+        let poe2_has_override = sg_poe2
             .fields
             .iter()
-            .any(|f| f.name == "Unknown_List" || f.name == "Unknown_Row");
+            .any(|f| f.name == "Unknown_List1" || f.name == "Unknown_List2");
         assert!(
             poe2_has_override,
-            "POE2 Mods 에 override 필드 누락"
+            "POE2 SkillGems 에 override 필드 누락"
         );
     }
 
@@ -494,8 +588,8 @@ mod tests {
         }
     }
 
-    /// override 필드 타입 파싱 — foreignrow(array) = List(16B), row = Row(8B).
-    /// schema_poe2_override.json 의 _meta 에 따라 각 필드 size 가 올바르게 매핑돼야 함.
+    /// override 필드 타입 파싱 — SkillGems Unknown_List1/2 가 List(16B) 으로 매핑돼야 함.
+    /// (Mods override 는 2026-04-25 제거 — interval 처리로 대체)
     #[test]
     fn test_poe2_override_field_type_mapping() {
         let Some(schema_path) = schema_path_or_skip() else { return };
@@ -506,14 +600,6 @@ mod tests {
         }
 
         let poe2 = SchemaStore::load_for_game(&schema_path, Game::Poe2).unwrap();
-
-        // Mods 끝 3 컬럼: Unknown_List (foreignrow+array=List=16B) + Unknown_Row (row=Row=8B)
-        let mods = poe2.get("Mods").unwrap();
-        let last_two = &mods.fields[mods.fields.len() - 2..];
-        assert_eq!(last_two[0].name, "Unknown_List");
-        assert_eq!(last_two[0].field_type.size(), 16, "Unknown_List=List 16B");
-        assert_eq!(last_two[1].name, "Unknown_Row");
-        assert_eq!(last_two[1].field_type.size(), 8, "Unknown_Row=Row 8B");
 
         // SkillGems 끝 2 컬럼: Unknown_List1 + Unknown_List2 (각 16B)
         let sg = poe2.get("SkillGems").unwrap();
