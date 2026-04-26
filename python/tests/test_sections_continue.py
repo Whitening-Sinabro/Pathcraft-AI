@@ -1511,12 +1511,15 @@ class TestLoadGGPKItems:
             "Timeless Vaal Splinter",
         )
         assert len(d.scarabs_all) == 190, f"scarabs_all 190 고정, got {len(d.scarabs_all)}"
-        # scarabs_special: GGPK 태그(uber/uniques/influence) UNION 위키 Name prefix = 14
-        # POE Wiki disambiguation 기준 Influencing Scarab 4종 전부 포함 (triple-check).
-        assert len(d.scarabs_special) == 14, (
-            f"scarabs_special 14 고정 (tag∪wiki-name family), got {len(d.scarabs_special)}"
+        # scarabs_special: GGPK 태그(uber/uniques/influence) UNION 위키 Name prefix = 26
+        # 2026-04-25: dat64 List element-type 분기 적용 후 BaseItemTypes.Tags 가 정확히 채워져
+        # Elder/Reliquary/Shaper 각 4티어 (Rusted/Polished/Gilded/Winged) 12 종이 추가 매칭.
+        # 이전 14 → 26. POE Wiki 기준 모두 influence/uber 카테고리.
+        assert len(d.scarabs_special) == 26, (
+            f"scarabs_special 26 고정 (tag∪wiki-name family), got {len(d.scarabs_special)}"
         )
         assert d.scarabs_special == (
+            "Gilded Elder Scarab", "Gilded Reliquary Scarab", "Gilded Shaper Scarab",
             "Horned Scarab of Awakening", "Horned Scarab of Bloodlines",
             "Horned Scarab of Glittering", "Horned Scarab of Nemeses",
             "Horned Scarab of Pandemonium", "Horned Scarab of Preservation",
@@ -1525,7 +1528,10 @@ class TestLoadGGPKItems:
             "Influencing Scarab of Interference",
             "Influencing Scarab of the Elder",
             "Influencing Scarab of the Shaper",
+            "Polished Elder Scarab", "Polished Reliquary Scarab", "Polished Shaper Scarab",
+            "Rusted Elder Scarab", "Rusted Reliquary Scarab", "Rusted Shaper Scarab",
             "Titanic Scarab", "Titanic Scarab of Legend", "Titanic Scarab of Treasures",
+            "Winged Elder Scarab", "Winged Reliquary Scarab", "Winged Shaper Scarab",
         )
 
         # Essence 티어: essence 태그 + Name 접두사
