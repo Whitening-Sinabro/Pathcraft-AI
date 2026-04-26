@@ -26,6 +26,10 @@ export interface TreeNode {
   // POE2 extension: tree.json uses classesStart: string[] (class names).
   // normalizePoe2Tree preserves this alongside synthesized classStartIndex.
   classesStart?: string[];
+  // POE2 extension: connection orbit 메타 (호 렌더용). out[] 와 ID 동일하지만
+  // PoB BuildConnector 알고리즘 — orbit 값으로 외부 호/내부 호/직선 분기 결정.
+  // POE1 은 미정의 (POE1 의 connection 표현은 in/out 만 있고 orbit 메타 없음).
+  outConn?: Array<{ id: string; orbit: number }>;
 }
 
 export interface TreeGroup {
@@ -288,8 +292,13 @@ export interface Poe2RawTree {
  *     are synthesized to match POE1 `groups[String(node.group)]` lookup.
  */
 export function normalizePoe2Tree(raw: Poe2RawTree): TreeData {
+  // PoB-PoE2 tree_0_4.json 의 `groups` 는 sparse list — 일부 슬롯이 null.
+  // (관측: 1497 슬롯 중 16개 null, 그 슬롯을 참조하는 노드 20개)
+  // null 슬롯은 dict 키를 만들지 않음 → resolveNodePosition 이 자연스럽게 null
+  // 반환하고 PassiveTreeCanvas 가 `if (!pos) continue` 로 렌더에서 제외.
   const groups: Record<string, TreeGroup> = {};
   raw.groups.forEach((g, i) => {
+    if (g == null) return;
     groups[String(i)] = {
       x: g.x,
       y: g.y,
@@ -301,12 +310,13 @@ export function normalizePoe2Tree(raw: Poe2RawTree): TreeData {
 
   const nodes: Record<string, TreeNode> = {};
   for (const [id, n] of Object.entries(raw.nodes)) {
-    const out = (n.connections ?? []).map((c) => String(c.id));
-    // Drop connections from the output shape; keep everything else that the
-    // POE1 schema recognizes. classesStart is carried through verbatim.
+    const conns = n.connections ?? [];
+    const out = conns.map((c) => String(c.id));
+    // outConn 은 PoB BuildConnector 의 orbit 메타 보존. 호 렌더 분기에 사용.
+    const outConn = conns.map((c) => ({ id: String(c.id), orbit: c.orbit }));
     const { connections: _dropped, ...rest } = n;
     void _dropped;
-    nodes[id] = { ...rest, out, in: [] };
+    nodes[id] = { ...rest, out, outConn, in: [] };
   }
 
   return {

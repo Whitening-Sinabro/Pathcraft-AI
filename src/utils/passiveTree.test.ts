@@ -4,8 +4,10 @@ import {
   nodePosition,
   normalizePoe2Tree,
   buildAdjacency,
+  resolveNodePosition,
   type TreeConstants,
   type Poe2RawTree,
+  type Poe2RawGroup,
 } from "./passiveTree";
 
 const constants: TreeConstants = {
@@ -179,6 +181,59 @@ describe("normalizePoe2Tree", () => {
     expect(out.nodes["4"]).not.toHaveProperty("connections");
   });
 
+  it("preserves connection.orbit metadata as outConn (PoB BuildConnector ground truth)", () => {
+    // POE2 의 connection.orbit 은 호 반경 인덱스 + 부호 (방향). 직선 fallback 만으로
+    // 그리면 inter-group connection 이 거미줄처럼 보임 — outConn 으로 PoB 알고리즘 적용.
+    const out = normalizePoe2Tree(makePoe2Fixture({
+      nodes: {
+        "1": { skill: 1, name: "A", group: 0, orbit: 0, orbitIndex: 0,
+          connections: [{ id: 2, orbit: 3 }, { id: 3, orbit: -5 }] },
+        "2": { skill: 2, name: "B", group: 1, orbit: 0, orbitIndex: 0, connections: [] },
+        "3": { skill: 3, name: "C", group: 1, orbit: 1, orbitIndex: 0, connections: [] },
+      },
+    }));
+    expect(out.nodes["1"].outConn).toEqual([
+      { id: "2", orbit: 3 },
+      { id: "3", orbit: -5 },
+    ]);
+    // out 도 동일 ID 순서 보존 (buildAdjacency 등 호환)
+    expect(out.nodes["1"].out).toEqual(["2", "3"]);
+  });
+
+  it("guarantees out[] and outConn[] index alignment (drawEdges 가 outs[i]/outConn[i] 동시 참조)", () => {
+    // drawEdges 의 외부 호 분기는 `outs[i]` 의 target ID 와 `outConn[i].orbit` 를 같은
+    // 인덱스로 묶는다. 두 배열의 길이/순서 불일치는 wrong-orbit 으로 잘못된 호를 그리게 됨.
+    const out = normalizePoe2Tree(makePoe2Fixture({
+      nodes: {
+        "100": { skill: 100, name: "Hub", group: 0, orbit: 0, orbitIndex: 0,
+          connections: [
+            { id: 200, orbit: 0 },
+            { id: 300, orbit: 7 },
+            { id: 400, orbit: -3 },
+            { id: 500, orbit: 0 },
+          ] },
+        "200": { skill: 200, name: "A", group: 1, orbit: 1, orbitIndex: 0, connections: [] },
+        "300": { skill: 300, name: "B", group: 2, orbit: 1, orbitIndex: 0, connections: [] },
+        "400": { skill: 400, name: "C", group: 3, orbit: 1, orbitIndex: 0, connections: [] },
+        "500": { skill: 500, name: "D", group: 4, orbit: 1, orbitIndex: 0, connections: [] },
+      },
+      groups: [
+        { x: 0, y: 0, orbits: [0], nodes: [100] },
+        { x: 100, y: 0, orbits: [0, 1], nodes: [200] },
+        { x: 200, y: 0, orbits: [0, 1], nodes: [300] },
+        { x: 300, y: 0, orbits: [0, 1], nodes: [400] },
+        { x: 400, y: 0, orbits: [0, 1], nodes: [500] },
+      ],
+    }));
+    const node = out.nodes["100"];
+    expect(node.out).toBeDefined();
+    expect(node.outConn).toBeDefined();
+    expect(node.out!.length).toBe(node.outConn!.length);
+    for (let i = 0; i < node.out!.length; i++) {
+      expect(node.outConn![i].id).toBe(node.out![i]);
+    }
+  });
+
   it("preserves classesStart on start nodes for POE2 class lookup", () => {
     const out = normalizePoe2Tree(makePoe2Fixture());
     expect(out.nodes["47175"].classesStart).toEqual(["Marauder", "Warrior"]);
@@ -197,6 +252,33 @@ describe("normalizePoe2Tree", () => {
     const adj = buildAdjacency(ids, normalized.nodes);
     expect(adj.get("4")).toEqual(["11578"]);
     expect(adj.get("11578")).toEqual(["4"]);
+  });
+
+  it("skips null group slots — PoB-PoE2 sparse list (실측 16 null / 1497)", () => {
+    // groups 배열에 null 슬롯이 있어도 normalize 가 폭발하지 않아야 함.
+    // null 슬롯은 dict 에 키 자체를 만들지 않아 resolveNodePosition 이 null 반환.
+    const fixture = makePoe2Fixture({
+      groups: [
+        { x: 0, y: 0, orbits: [0], nodes: [47175] },
+        null as unknown as Poe2RawGroup,  // sparse slot
+        { x: 1000, y: 500, orbits: [0, 1], nodes: [4, 11578] },
+      ],
+      nodes: {
+        "47175": { skill: 47175, name: "X", group: 0, orbit: 0, orbitIndex: 0, connections: [] },
+        // group=1 is null — 합법, 다만 좌표 계산은 불가
+        "999": { skill: 999, name: "Orphan", group: 1, orbit: 0, orbitIndex: 0, connections: [] },
+        "4": { skill: 4, name: "Y", group: 2, orbit: 0, orbitIndex: 0, connections: [] },
+        "11578": { skill: 11578, name: "Z", group: 2, orbit: 1, orbitIndex: 3, connections: [] },
+      },
+    });
+    const out = normalizePoe2Tree(fixture);
+    expect(out.groups["0"]).toBeDefined();
+    expect(out.groups["1"]).toBeUndefined();  // null slot — 키 없음
+    expect(out.groups["2"]).toBeDefined();
+    // null group 참조 노드는 nodes 에는 남되, resolveNodePosition 은 null 반환
+    expect(out.nodes["999"]).toBeDefined();
+    expect(resolveNodePosition(out.nodes["999"], out.groups, out.constants)).toBeNull();
+    expect(resolveNodePosition(out.nodes["47175"], out.groups, out.constants)).not.toBeNull();
   });
 });
 
