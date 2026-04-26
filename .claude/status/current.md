@@ -1,5 +1,14 @@
 ## 지금
-- **세션 종료 대기** — S10 종료 (`7761c39`) push 완료. 다음 세션 진입 시 "다음 할 것" 우선순위 0~5 중 택일.
+- **세션 종료 대기** — S11 종료. 다음 세션 진입 시 "다음 할 것" 우선순위 택일.
+- **이전 세션 (S11, 2026-04-26)**: dat64 schema parser fix — POE2 Mods Tags/SpawnWeight 3 list 공백 해소 + List element-type 분기
+  - **근본 원인 1**: `interval: true` 컬럼이 4B 가 아니라 8B (i32 min/max pair). POE2 Mods Stat1..6Value 6 컬럼 × 4B = 24B 누락 → 후속 컬럼 cascading shift → Tags/SpawnWeight_Tags/Values/GenerationWeight_*/ImplicitTags 6 list 공백
+  - **근본 원인 2**: List 파서가 element 를 무조건 8B i64 로 읽음. foreignrow array 는 16B/element (low 8B = rowid), i32 array 는 4B/element. 양쪽 게임 모두 영향
+  - **수정**: `dat64.rs` 에 `FieldDef.interval`/`element_type` 추가, `read_interval`/`read_list_typed` 신설. `schema.rs` 에서 schema.min.json 의 `interval`/`array` 플래그 → FieldDef 전파
+  - **override 정리**: `Mods_poe2_extra` 24B 는 오진 → 제거 (interval 8B 로 자연 해소). SkillGems_poe2_extra +32B 는 interval 무관 → 유지
+  - **검증**: Strength1.Stat1Value=`[5,8]`, SpawnWeight_Tags 16개 모두 정확 매칭 (ring/amulet/belt/str_armour 등). FireDamage Tags=no_cold/lightning/chaos/physical_spell_mods. POE1 도 SpawnWeight_TagsKeys 24185 / TagsKeys 4508 / ImplicitTagsKeys 24861 정상 채워짐
+  - **회귀 가드**: `test_poe2_interval_doubles_field_size` / `test_poe1_no_interval_columns` / `test_array_columns_carry_element_type`
+  - **anchor 재생성**: BaseItemTypes hash 변경 → `valid_gems.json._meta` 갱신 + `ggpk_truth_reference.json` Essences/Scarabs hash 갱신. `scarabs_special` snapshot 14 → 26 (Rusted/Polished/Gilded/Winged Elder/Reliquary/Shaper Scarab 12종 추가 매칭)
+  - **검증**: Rust 45 (+3) / pytest 745 / vitest 110 / tsc 0
 - **이전 세션 (S10, 종료 commit `7761c39`, push 완료, 2026-04-25)**: GGPK 추출 트리거 → 두 선행 데이터 자동 부착 + valid_gems 회귀 가드 + catalog fingerprint hardening
   - GGPK 추출 (`cargo run --bin extract_data --release -- --game poe2 --json`) 23/24 성공. UniqueStashTypes 34 rows + AttributeRequirements 892 rows 신규.
   - `uniques_poe2.json`: 393 uniques 전부 `stash_type_label` 부착 (34 labels, unknown 0).
@@ -40,7 +49,7 @@
 1. [ ] **D6 해제 조건 수집** — Tauri 창 POE2 실사용. `_normalization_trace` / `_retry_info` 로그 수집 (백엔드는 이미 게재 중). 사용자 실클릭만 있으면 즉시 가능
    - S5 에서 `_debug/coach_last_{game}.json` 덤프 인프라 추가 — 관찰 후 `python/build_coach.py:1148-1158` 블록 제거 + `_debug/` 디렉토리 삭제
    - S5 추가: POE2 campaign 구조 자동 파생 + normalizer POE2 분기 완료 (L2 방어 공백 메움)
-2. [ ] (후속, 선택) POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석 — 3개 list 공백값 원인 파악. upstream schema.min.json 이슈라 로컬 override 로 보정 가능
+2. [x] ~~POE2 Mods schema Tags/SpawnWeight 필드 byte 재해석~~ — **완료 (2026-04-26 S11)**. 근본은 schema 위치가 아니라 dat64 파서의 interval/List element-type 미구현. 양쪽 게임 array 컬럼 정확도 향상
 3. [x] ~~**uniques stash_type 라벨 매핑**~~ — **완료 (2026-04-25 S10)**. 393 uniques 전부 `stash_type_label` 부착, 34 라벨, unknown 0
 4. [x] ~~**base_items 필드 확장 (Str/Dex/Int)**~~ — **완료 (2026-04-25 S10)**. 791 entry 에 `req_str`/`req_dex`/`req_int` 부착. damage / armour 는 후속 (별도 GGPK 테이블 필요)
 5. [ ] **기존 POE1 잔여** (이월):
@@ -85,7 +94,7 @@
 ## 잔존 이슈 (허용/추후 처리)
 
 - **D6 해제 조건 3건 중 2건 이상 관찰 대기** (우선순위 0, 다음 세션)
-- **Mods Tags/SpawnWeight_Tags/SpawnWeight_Values 3 list 공백** — 주 데이터는 정상. schema field 위치/타입 재매핑 필요 (upstream schema.min.json POE2 Mods 엔트리 이슈)
+- ~~**Mods Tags/SpawnWeight_Tags/SpawnWeight_Values 3 list 공백**~~ — **해결 (2026-04-26 S11)**. dat64 파서의 interval/List element-type 처리 누락이 근본 원인. POE2 Mods 6 list (+ImplicitTags 등) 정상 채워짐 (Strength1 SpawnWeight_Tags = ring/amulet/belt/str_armour 등 16개). POE1 도 동일 효과 (24185 SpawnWeight_TagsKeys)
 - **GameData POE2 QuestRewards 구조 차이** — `Characters` / `Reward` 필드 호환성 미검증
 - **GameData POE2 SkillGems `is_support` 판별** — POE2 는 `IsSupport` 필드 없음, `GemType` 으로 판별 추후
 - ~~**valid_gems 다른 카테고리 누락 가능성**~~ — POE2 부분 해소 (2026-04-25): GGPK 2026-04-22 0.4.0d 기준 Awakened 0건 / Vaal 0건 확정. `python/tests/test_valid_gems_poe2_categories.py` 5 회귀 가드 (sentinel 깨질 시 즉시 탐지). POE1 transfigured 사례는 별도 추적
