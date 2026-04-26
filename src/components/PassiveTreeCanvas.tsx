@@ -99,6 +99,7 @@ export function PassiveTreeCanvas({
   const groupsRef = useRef<ResolvedGroup[]>([]);
   const atlasRef = useRef<SpriteAtlas | null>(null);
   const orbitRadiiRef = useRef<number[]>([]);
+  const skillsPerOrbitRef = useRef<number[]>([]);
   const hoveredIdRef = useRef<string | null>(null);
   const allocatedRef = useRef<Set<string>>(initialAllocated ?? new Set());
   const adjRef = useRef<Map<string, string[]>>(new Map());
@@ -355,6 +356,7 @@ export function PassiveTreeCanvas({
         }
         groupsRef.current = groups;
         orbitRadiiRef.current = d.constants.orbitRadii;
+        skillsPerOrbitRef.current = d.constants.skillsPerOrbit;
 
         // Kick off sprite atlas load (re-renders on each sheet ready).
         atlasRef.current = loadSpriteAtlas(d, ATLAS_ZOOM, () => {
@@ -427,6 +429,11 @@ export function PassiveTreeCanvas({
         searchMatches: searchMatchesRef.current,
         atlas: atlasRef.current,
         orbitRadii: orbitRadiiRef.current,
+        skillsPerOrbit: skillsPerOrbitRef.current,
+        // 직선 fallback 전용 cutoff. 호 분기는 cutoff 무관 (drawEdges 가 분리 처리).
+        // POE1=1500 (1.7% 잘림 OK). POE2=5000 — 1500-5000 (468) 정당 inter-cluster path 보존,
+        // 5000+ (1043) 거미줄 sweep 만 차단. 실측 직선 fallback 거리 분포 기반.
+        edgeMaxDist: game === "poe2" ? 5000 : 1500,
       });
 
       // P1: class portrait overlay 재배치. POE1 전용 — POE2 portrait 은 D4 범위 밖.
@@ -672,7 +679,7 @@ export function PassiveTreeCanvas({
 
   if (error) {
     return (
-      <div style={{ padding: 16, color: "#ff6b6b" }}>
+      <div style={{ padding: 16, color: "var(--status-danger)" }}>
         패시브 트리 데이터 로드 실패: {error}
       </div>
     );
@@ -686,9 +693,9 @@ export function PassiveTreeCanvas({
         height={height}
         style={{
           display: "block",
-          border: "1px solid #dee2e6",
+          border: "1px solid var(--border-default)",
           borderRadius: 4,
-          background: "#1a1a1a",
+          background: "var(--bg-panel)",
         }}
       />
       {!loaded && (
@@ -696,7 +703,7 @@ export function PassiveTreeCanvas({
           style={{
             position: "absolute", left: 0, top: 0, width, height,
             display: "flex", alignItems: "center", justifyContent: "center",
-            color: "#868e96", fontSize: 13, pointerEvents: "none",
+            color: "var(--text-muted)", fontSize: 13, pointerEvents: "none",
           }}
         >
           패시브 트리 데이터 로드 중…
@@ -748,18 +755,18 @@ export function PassiveTreeCanvas({
             fontSize: 12,
             maxWidth: 320,
             pointerEvents: "none",
-            border: "1px solid #4a3f2a",
+            border: "1px solid var(--passive-notable-border)",
             zIndex: 10,
           }}
         >
-          <div style={{ fontWeight: "bold", marginBottom: 4, color: "#e8c068" }}>
+          <div style={{ fontWeight: "bold", marginBottom: 4, color: "var(--passive-notable)" }}>
             {tooltip.name || "(unnamed)"}
           </div>
           {tooltip.stats.length === 0 ? (
-            <div style={{ color: "#666", fontStyle: "italic" }}>(no stats)</div>
+            <div style={{ color: "var(--text-muted)", fontStyle: "italic" }}>(no stats)</div>
           ) : (
             tooltip.stats.map((s, i) => (
-              <div key={i} style={{ color: "#bbb" }}>
+              <div key={i} style={{ color: "var(--text-secondary)" }}>
                 {translateStat(s, translations)}
               </div>
             ))

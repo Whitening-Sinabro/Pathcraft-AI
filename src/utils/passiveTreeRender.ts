@@ -5,7 +5,7 @@ import type { TreeGroup, TreeNode } from "./passiveTree";
 import type { SpriteAtlas } from "./passiveTreeSprites";
 import { drawSpriteNative } from "./passiveTreeSprites";
 import {
-  SKILLS_PER_ORBIT, FRAME_UNALLOCATED, FRAME_ALLOCATED,
+  FRAME_UNALLOCATED, FRAME_ALLOCATED,
   NODE_COLORS,
   type NodeKind,
 } from "./passiveTreeConstants";
@@ -47,6 +47,14 @@ export interface RenderState {
   searchMatches: Set<string>;
   atlas: SpriteAtlas | null;
   orbitRadii: number[];
+  /** 게임별 슬롯 분포. POE1 7-orbit / POE2 10-orbit. 같은 group/같은 orbit 인접 판정에 사용. */
+  skillsPerOrbit: number[];
+  /**
+   * 직선 fallback 전용 cutoff (world units). 호 분기는 cutoff 무관 (drawEdges 가 분리 처리).
+   * POE1=1500 (직선 fallback 1.7% 잘림). POE2=5000 — 1500-5000 거리 inter-cluster path 보존,
+   * 5000+ 거리 거미줄 sweep 차단. 실측 직선 fallback 거리 분포 기반.
+   */
+  edgeMaxDist: number;
 }
 
 const ICON_SCALE = 0.55;
@@ -135,7 +143,9 @@ function drawEdges(
   w2sx: (x: number) => number,
   w2sy: (y: number) => number,
 ): void {
-  const { ctx, nodes, nodeById, groups, allocated, anchors, camera, atlas, orbitRadii } = state;
+  const { ctx, width, height, nodes, nodeById, groups, allocated, anchors, camera, atlas, orbitRadii, skillsPerOrbit, edgeMaxDist } = state;
+  // Viewport culling margin (화면 밖 N px 까지 허용 — 호의 일부가 boundary 걸쳐도 자연스럽게).
+  const VIEWPORT_MARGIN = 100;
   const isLit = (id: string) => allocated.has(id) || anchors.has(id);
 
   const dimStyle = "rgba(95, 80, 60, 0.85)";
@@ -155,15 +165,27 @@ function drawEdges(
   for (const r of nodes) {
     const outs = r.node.out;
     if (!outs) continue;
+    // POE2 의 connection orbit 메타. PoB-PoE2 BuildConnector 알고리즘 — 직선 대신 호.
+    // POE1 은 미정의 → 기존 isAdjacentOrbit 분기 + 직선 fallback.
+    const outConn = r.node.outConn;
     const sax = w2sx(r.x);
     const say = w2sy(r.y);
-    for (const targetId of outs) {
+    for (let i = 0; i < outs.length; i++) {
+      const targetId = outs[i];
       const t = nodeById.get(targetId);
       if (!t) continue;
-      if (r.kind === "classStart" && t.kind === "classStart") continue;
+      // PoB-PoE2 PassiveTree.lua:282-288 전처리 filter — 거미줄 방지의 핵심.
+      //  - 한쪽이라도 class start (classStartIndex 또는 classesStart) 면 connection skip
+      //  - 두 노드의 ascendancyName 이 다르면 skip (main ↔ ascendancy boundary 직선 방지)
+      const rIsClassStart = r.node.classStartIndex != null
+        || (r.node.classesStart != null && r.node.classesStart.length > 0);
+      const tIsClassStart = t.node.classStartIndex != null
+        || (t.node.classesStart != null && t.node.classesStart.length > 0);
+      if (rIsClassStart || tIsClassStart) continue;
+      if ((r.node.ascendancyName ?? null) !== (t.node.ascendancyName ?? null)) continue;
       if (r.kind === "mastery" || t.kind === "mastery") continue;
-      const dxw = r.x - t.x, dyw = r.y - t.y;
-      if (dxw * dxw + dyw * dyw > 1500 * 1500) continue;
+      const connOrbit = outConn?.[i]?.orbit;
+      const isPoe2Arc = connOrbit != null;
 
       const sbx = w2sx(t.x);
       const sby = w2sy(t.y);
@@ -173,10 +195,81 @@ function drawEdges(
       const bothAllocated = isLit(r.id) && isLit(t.id);
       ctx.strokeStyle = bothAllocated ? activeStyle : dimStyle;
 
+      // [POE2] 외부 호: connection.orbit != 0 + 그 orbit 반경 정의 + dist < r*2.
+      // PoB-PoE2 PassiveTree.lua:574-622 BuildConnector 분기 1.
+      if (isPoe2Arc && connOrbit !== 0) {
+        const arcR = orbitRadii[Math.abs(connOrbit)];
+        if (arcR) {
+          const dxw = t.x - r.x, dyw = t.y - r.y;
+          const dist = Math.hypot(dxw, dyw);
+          if (dist > 0 && dist < arcR * 2) {
+            const perpSign = connOrbit > 0 ? 1 : -1;
+            const perp = Math.sqrt(arcR * arcR - (dist * dist) / 4) * perpSign;
+            const cxW = r.x + dxw / 2 + perp * (dyw / dist);
+            const cyW = r.y + dyw / 2 - perp * (dxw / dist);
+            const a1 = Math.atan2(r.y - cyW, r.x - cxW);
+            const a2 = Math.atan2(t.y - cyW, t.x - cxW);
+            let diff = a2 - a1;
+            while (diff > Math.PI) diff -= Math.PI * 2;
+            while (diff < -Math.PI) diff += Math.PI * 2;
+            if (Math.abs(diff) <= Math.PI) {
+              const anticlockwise = diff < 0;
+              const cxs = w2sx(cxW), cys = w2sy(cyW);
+              const radius = arcR * camera.scale;
+              ctx.beginPath();
+              ctx.arc(cxs, cys, radius, a1, a2, anticlockwise);
+              ctx.stroke();
+              continue;
+            }
+          }
+        }
+      }
+
+      // [POE2] 내부 호: 같은 group + 같은 orbit + connection.orbit == 0.
+      // PoB-PoE2 PassiveTree.lua:625-657 BuildConnector 분기 2.
+      // POE1 의 기존 isAdjacentOrbit 와 별개로 outConn 메타가 있을 때만 적용.
+      let didInnerArc = false;
+      if (isPoe2Arc && connOrbit === 0 && sameGroup && sameOrbit && r.node.orbit != null) {
+        const orbR = orbitRadii[r.node.orbit];
+        const g = groupById.get(String(r.node.group));
+        if (orbR && g) {
+          const gcx = w2sx(g.x);
+          const gcy = w2sy(g.y);
+          const radius = orbR * camera.scale;
+          const a1 = Math.atan2(say - gcy, sax - gcx);
+          const a2 = Math.atan2(sby - gcy, sbx - gcx);
+          let diff = a2 - a1;
+          while (diff > Math.PI) diff -= Math.PI * 2;
+          while (diff < -Math.PI) diff += Math.PI * 2;
+          if (Math.abs(diff) <= Math.PI) {
+            const anticlockwise = diff < 0;
+            ctx.beginPath();
+            ctx.arc(gcx, gcy, radius, a1, a2, anticlockwise);
+            ctx.stroke();
+            didInnerArc = true;
+          }
+        }
+      }
+      if (didInnerArc) continue;
+
+      // 직선 fallback 대상에만 cutoff 적용 — 호 분기는 PoB 처럼 거리 무관.
+      {
+        const dxw = r.x - t.x, dyw = r.y - t.y;
+        if (dxw * dxw + dyw * dyw > edgeMaxDist * edgeMaxDist) continue;
+        // Viewport culling — 양 끝점 모두 화면 밖이면 skip. PoB 의 줌 인 기본값으로 화면 밖
+        // sweep 가 자연스레 안 보이는 효과를 명시적 clip 으로 재현. 짧은 직선/호는 영향 없음.
+        const inR = sax >= -VIEWPORT_MARGIN && sax <= width + VIEWPORT_MARGIN
+          && say >= -VIEWPORT_MARGIN && say <= height + VIEWPORT_MARGIN;
+        const inT = sbx >= -VIEWPORT_MARGIN && sbx <= width + VIEWPORT_MARGIN
+          && sby >= -VIEWPORT_MARGIN && sby <= height + VIEWPORT_MARGIN;
+        if (!inR && !inT) continue;
+      }
+
+      // [POE1 호환] orbitIndex 차이 1 이면 group orbit 호. POE1 은 outConn 없음.
       let isAdjacentOrbit = false;
-      if (sameGroup && sameOrbit && r.node.orbit != null
+      if (!isPoe2Arc && sameGroup && sameOrbit && r.node.orbit != null
           && r.node.orbitIndex != null && t.node.orbitIndex != null) {
-        const slots = SKILLS_PER_ORBIT[r.node.orbit];
+        const slots = skillsPerOrbit[r.node.orbit];
         if (slots) {
           let sd = Math.abs(r.node.orbitIndex - t.node.orbitIndex);
           if (sd > slots / 2) sd = slots - sd;
