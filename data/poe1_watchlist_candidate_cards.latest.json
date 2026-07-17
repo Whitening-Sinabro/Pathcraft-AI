@@ -1,0 +1,1173 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_watchlist_candidate_cards",
+  "generated_at": "2026-07-17",
+  "summary": {
+    "card_count": 15,
+    "default_recommendation_count": 0,
+    "source": "expanded_collection_queue_plus_user_focus_lanes"
+  },
+  "cards": [
+    {
+      "candidate_id": "3.28_exsanguinate_reap_mines_trickster",
+      "display_name": "Exsanguinate Reap Mines Trickster",
+      "patch": "3.28",
+      "main_skill": "Exsanguinate Mines",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "lane_id": "trap_mine_totem",
+      "lane_label": "마인/토템",
+      "player_label": "연습해도 됨",
+      "default_recommendation": false,
+      "reason": "Cptn Garbage/FearlessDumb0 계열 Exsanguinate Miner 라인입니다. 3.29 마인 보조 수치 재검증 전까지는 기본 추천이 아니라 연습 후보로 둡니다.",
+      "tags": [
+        "3.28",
+        "마인/토템",
+        "Shadow",
+        "Trickster"
+      ],
+      "source_count": 7,
+      "sources": [
+        {
+          "source_id": "reddit_328_index",
+          "label": "3.28 Mirage League Start Build Index",
+          "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1rk0s9m/328_mirage_league_start_build_index/",
+          "family": "reddit"
+        },
+        {
+          "source_id": "youtube_328_fearlessdumb0_exsanguinate_reap_miner",
+          "label": "FearlessDumb0 Exsanguinate Reap Miner league start build guide for 3.28",
+          "url": "https://www.youtube.com/watch?v=ZEvuQ5krLwQ",
+          "family": "youtube"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "poe_vault_328",
+          "label": "PoE Vault 3.28 Mirage league starters",
+          "url": "https://www.poe-vault.com/guides/mirage-league-starters",
+          "family": "build_site"
+        },
+        {
+          "source_id": "odealo_328",
+          "label": "Odealo 3.28 Mirage starter builds",
+          "url": "https://odealo.com/articles/best-starter-builds-for-mirage-league-and-patch-3-28",
+          "family": "build_site"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.28_poison_carrion_golem_witch",
+      "display_name": "Poison Carrion Golem Necromancer",
+      "patch": "3.28",
+      "main_skill": "Summon Carrion Golem",
+      "class_name": "Witch",
+      "ascendancy": "Necromancer",
+      "lane_id": "minion_trigger_autobomber_special",
+      "lane_label": "소환수/트리거",
+      "player_label": "연습해도 됨",
+      "default_recommendation": false,
+      "reason": "토리센세가 이번 시즌 준비 중이라고 제보된 소환수 라인입니다. 현재 시즌 PoB를 확보하면 우선 승격 검토합니다.",
+      "tags": [
+        "3.28",
+        "소환수/트리거",
+        "Witch",
+        "Necromancer"
+      ],
+      "source_count": 8,
+      "sources": [
+        {
+          "source_id": "youtube_tori_sensei_poison_carrion_golem",
+          "label": "Tori-sensei current-season Poison Carrion Golem source hunt",
+          "url": "https://www.youtube.com/@torisense",
+          "family": "youtube"
+        },
+        {
+          "source_id": "youtube_328_poison_carrion_golem_necromancer",
+          "label": "PoE 3.28 Poison Carrion Golem Necromancer league start guide",
+          "url": "https://www.youtube.com/watch?v=WMHepc5VN4M",
+          "family": "youtube"
+        },
+        {
+          "source_id": "youtube_326_tori_poison_carrion_golem",
+          "label": "Tori-sensei 3.26 Poison Carrion Golem reference with public PoB",
+          "url": "https://www.youtube.com/watch?v=WO2bjIZMrtQ",
+          "family": "youtube"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "poe_vault_328",
+          "label": "PoE Vault 3.28 Mirage league starters",
+          "url": "https://www.poe-vault.com/guides/mirage-league-starters",
+          "family": "build_site"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.28_ignite_slamentalist_elementalist",
+      "display_name": "Ignite Slamentalist Elementalist",
+      "patch": "3.28",
+      "main_skill": "Sunder",
+      "class_name": "Witch",
+      "ascendancy": "Elementalist",
+      "lane_id": "melee_strike_slam",
+      "lane_label": "근접/슬램",
+      "player_label": "연습해도 됨",
+      "default_recommendation": false,
+      "reason": "Master T 쪽 Witch ignite/slam 전환 라인입니다. 레벨링 흐름은 참고하되 3.29 최종 수치와 패시브를 다시 봐야 합니다.",
+      "tags": [
+        "3.28",
+        "근접/슬램",
+        "Witch",
+        "Elementalist"
+      ],
+      "source_count": 6,
+      "sources": [
+        {
+          "source_id": "youtube_328_mastert_ignite_slamentalist",
+          "label": "MasterT 3.28 Ignite Slamentalist Elementalist build guide",
+          "url": "https://www.youtube.com/watch?v=0dJFLujq-tc",
+          "family": "youtube"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "poe_vault_328",
+          "label": "PoE Vault 3.28 Mirage league starters",
+          "url": "https://www.poe-vault.com/guides/mirage-league-starters",
+          "family": "build_site"
+        },
+        {
+          "source_id": "odealo_328",
+          "label": "Odealo 3.28 Mirage starter builds",
+          "url": "https://odealo.com/articles/best-starter-builds-for-mirage-league-and-patch-3-28",
+          "family": "build_site"
+        },
+        {
+          "source_id": "youtube_328_top10",
+          "label": "PoE 3.28 ten league starter builds video",
+          "url": "https://www.youtube.com/watch?v=jLxxjmg6xy0",
+          "family": "youtube"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.28_righteous_cold_dot_autobomber_elementalist",
+      "display_name": "Righteous Cold Dot Autobomber Elementalist",
+      "patch": "3.28",
+      "main_skill": "Vaal Cold Snap",
+      "class_name": "Witch",
+      "ascendancy": "Elementalist",
+      "lane_id": "dot_ailment_dot",
+      "lane_label": "DoT/상태이상",
+      "player_label": "손봐야 가능",
+      "default_recommendation": false,
+      "reason": "Master T Righteous Cold DoT Autobomber 전환 후보입니다. 엔드게임 전환용으로 보고, 스타터 추천과는 분리합니다.",
+      "tags": [
+        "3.28",
+        "DoT/상태이상",
+        "Witch",
+        "Elementalist"
+      ],
+      "source_count": 7,
+      "sources": [
+        {
+          "source_id": "mobalytics_328_mastert_righteous_cold_autobomber",
+          "label": "MasterT 3.28 Righteous Cold Dot Autobomber Mobalytics guide",
+          "url": "https://mobalytics.gg/poe/builds/righteous-cold-dot-autobomber",
+          "family": "build_site"
+        },
+        {
+          "source_id": "youtube_328_mastert_righteous_cold_autobomber",
+          "label": "MasterT 3.28 Righteous Cold Dot Autobomber transition guide video",
+          "url": "https://www.youtube.com/watch?v=gJF4EKLpIag",
+          "family": "youtube"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "poe_vault_328",
+          "label": "PoE Vault 3.28 Mirage league starters",
+          "url": "https://www.poe-vault.com/guides/mirage-league-starters",
+          "family": "build_site"
+        },
+        {
+          "source_id": "odealo_328",
+          "label": "Odealo 3.28 Mirage starter builds",
+          "url": "https://odealo.com/articles/best-starter-builds-for-mirage-league-and-patch-3-28",
+          "family": "build_site"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.29_reliquarian_dawnbreaker_rf",
+      "display_name": "Reliquarian Dawnbreaker RF Fire Conversion",
+      "patch": "3.29",
+      "main_skill": "Righteous Fire",
+      "class_name": "Scion",
+      "ascendancy": "Reliquarian",
+      "lane_id": "dot_ailment_dot",
+      "lane_label": "DoT/상태이상",
+      "player_label": "구경만",
+      "default_recommendation": false,
+      "reason": "3.29 신규/복귀 메커니즘 후보라 PoB, 패시브, 실제 플레이 확인 전까지 관찰 대상으로 둡니다.",
+      "tags": [
+        "3.29",
+        "DoT/상태이상",
+        "Scion",
+        "Reliquarian"
+      ],
+      "source_count": 8,
+      "sources": [
+        {
+          "source_id": "official_329_reliquarian",
+          "label": "Official 3.29 Reliquarian Ascendancy Changes announcement",
+          "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+          "family": "official"
+        },
+        {
+          "source_id": "reddit_329_reliquarian",
+          "label": "3.29 Reliquarian Ascendancy Changes discussion",
+          "url": "https://www.reddit.com/r/pathofexile/comments/1uwtvuy/329_reliquarian_ascendancy_changes/",
+          "family": "reddit"
+        },
+        {
+          "source_id": "youtube_329_goratha_reliquarian",
+          "label": "Goratha 3.29 Reliquarian build shells",
+          "url": "https://www.youtube.com/watch?v=kHbzCW57Unw",
+          "family": "youtube"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "mobalytics_329_reliquarian",
+          "label": "Mobalytics Reliquarian starter builds hub",
+          "url": "https://mobalytics.gg/poe/reliquarian-starter-builds",
+          "family": "build_site"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.29_reliquarian_hot_autobomber",
+      "display_name": "Reliquarian Herald of Thunder Autobomber",
+      "patch": "3.29",
+      "main_skill": "Herald of Thunder",
+      "class_name": "Scion",
+      "ascendancy": "Reliquarian",
+      "lane_id": "minion_trigger_autobomber_special",
+      "lane_label": "소환수/트리거",
+      "player_label": "구경만",
+      "default_recommendation": false,
+      "reason": "3.29 신규/복귀 메커니즘 후보라 PoB, 패시브, 실제 플레이 확인 전까지 관찰 대상으로 둡니다.",
+      "tags": [
+        "3.29",
+        "소환수/트리거",
+        "Scion",
+        "Reliquarian"
+      ],
+      "source_count": 7,
+      "sources": [
+        {
+          "source_id": "official_329_reliquarian",
+          "label": "Official 3.29 Reliquarian Ascendancy Changes announcement",
+          "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+          "family": "official"
+        },
+        {
+          "source_id": "reddit_329_reliquarian",
+          "label": "3.29 Reliquarian Ascendancy Changes discussion",
+          "url": "https://www.reddit.com/r/pathofexile/comments/1uwtvuy/329_reliquarian_ascendancy_changes/",
+          "family": "reddit"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "mobalytics_329_reliquarian",
+          "label": "Mobalytics Reliquarian starter builds hub",
+          "url": "https://mobalytics.gg/poe/reliquarian-starter-builds",
+          "family": "build_site"
+        },
+        {
+          "source_id": "reddit_329_text_nodes",
+          "label": "Text-based 3.29 Reliquarian ascendancy node community transcription",
+          "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1uwuqtn/text_based_list_of_329_reliquarian_ascendancy/",
+          "family": "reddit"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.29_reliquarian_blight_contagion",
+      "display_name": "Reliquarian Blight of Contagion",
+      "patch": "3.29",
+      "main_skill": "Blight of Contagion",
+      "class_name": "Scion",
+      "ascendancy": "Reliquarian",
+      "lane_id": "dot_ailment_dot",
+      "lane_label": "DoT/상태이상",
+      "player_label": "구경만",
+      "default_recommendation": false,
+      "reason": "3.29 신규/복귀 메커니즘 후보라 PoB, 패시브, 실제 플레이 확인 전까지 관찰 대상으로 둡니다.",
+      "tags": [
+        "3.29",
+        "DoT/상태이상",
+        "Scion",
+        "Reliquarian"
+      ],
+      "source_count": 7,
+      "sources": [
+        {
+          "source_id": "official_329_reliquarian",
+          "label": "Official 3.29 Reliquarian Ascendancy Changes announcement",
+          "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+          "family": "official"
+        },
+        {
+          "source_id": "reddit_329_specialists",
+          "label": "3.29 specialist league starter discussion by mechanic",
+          "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1upopd1/the_specialists_index_best_329_league_starter_for/",
+          "family": "reddit"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "mobalytics_329_reliquarian",
+          "label": "Mobalytics Reliquarian starter builds hub",
+          "url": "https://mobalytics.gg/poe/reliquarian-starter-builds",
+          "family": "build_site"
+        },
+        {
+          "source_id": "reddit_329_text_nodes",
+          "label": "Text-based 3.29 Reliquarian ascendancy node community transcription",
+          "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1uwuqtn/text_based_list_of_329_reliquarian_ascendancy/",
+          "family": "reddit"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.29_reliquarian_static_strike",
+      "display_name": "Reliquarian Static Strike Mapper",
+      "patch": "3.29",
+      "main_skill": "Static Strike",
+      "class_name": "Scion",
+      "ascendancy": "Reliquarian",
+      "lane_id": "melee_strike_slam",
+      "lane_label": "근접/슬램",
+      "player_label": "구경만",
+      "default_recommendation": false,
+      "reason": "3.29 신규/복귀 메커니즘 후보라 PoB, 패시브, 실제 플레이 확인 전까지 관찰 대상으로 둡니다.",
+      "tags": [
+        "3.29",
+        "근접/슬램",
+        "Scion",
+        "Reliquarian"
+      ],
+      "source_count": 7,
+      "sources": [
+        {
+          "source_id": "official_329_reliquarian",
+          "label": "Official 3.29 Reliquarian Ascendancy Changes announcement",
+          "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+          "family": "official"
+        },
+        {
+          "source_id": "reddit_329_reliquarian",
+          "label": "3.29 Reliquarian Ascendancy Changes discussion",
+          "url": "https://www.reddit.com/r/pathofexile/comments/1uwtvuy/329_reliquarian_ascendancy_changes/",
+          "family": "reddit"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "mobalytics_329_reliquarian",
+          "label": "Mobalytics Reliquarian starter builds hub",
+          "url": "https://mobalytics.gg/poe/reliquarian-starter-builds",
+          "family": "build_site"
+        },
+        {
+          "source_id": "reddit_329_text_nodes",
+          "label": "Text-based 3.29 Reliquarian ascendancy node community transcription",
+          "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1uwuqtn/text_based_list_of_329_reliquarian_ascendancy/",
+          "family": "reddit"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.29_reliquarian_lightning_strike",
+      "display_name": "Reliquarian Lightning Strike Fire-Taken Defense",
+      "patch": "3.29",
+      "main_skill": "Lightning Strike",
+      "class_name": "Scion",
+      "ascendancy": "Reliquarian",
+      "lane_id": "melee_strike_slam",
+      "lane_label": "근접/슬램",
+      "player_label": "구경만",
+      "default_recommendation": false,
+      "reason": "3.29 신규/복귀 메커니즘 후보라 PoB, 패시브, 실제 플레이 확인 전까지 관찰 대상으로 둡니다.",
+      "tags": [
+        "3.29",
+        "근접/슬램",
+        "Scion",
+        "Reliquarian"
+      ],
+      "source_count": 7,
+      "sources": [
+        {
+          "source_id": "official_329_reliquarian",
+          "label": "Official 3.29 Reliquarian Ascendancy Changes announcement",
+          "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+          "family": "official"
+        },
+        {
+          "source_id": "reddit_329_reliquarian",
+          "label": "3.29 Reliquarian Ascendancy Changes discussion",
+          "url": "https://www.reddit.com/r/pathofexile/comments/1uwtvuy/329_reliquarian_ascendancy_changes/",
+          "family": "reddit"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "mobalytics_329_reliquarian",
+          "label": "Mobalytics Reliquarian starter builds hub",
+          "url": "https://mobalytics.gg/poe/reliquarian-starter-builds",
+          "family": "build_site"
+        },
+        {
+          "source_id": "reddit_329_text_nodes",
+          "label": "Text-based 3.29 Reliquarian ascendancy node community transcription",
+          "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1uwuqtn/text_based_list_of_329_reliquarian_ascendancy/",
+          "family": "reddit"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.29_reliquarian_gloomfang_wander",
+      "display_name": "Reliquarian Gloomfang Wander",
+      "patch": "3.29",
+      "main_skill": "Kinetic Blast",
+      "class_name": "Scion",
+      "ascendancy": "Reliquarian",
+      "lane_id": "bow_projectile_attack_mapper",
+      "lane_label": "활/투사체",
+      "player_label": "구경만",
+      "default_recommendation": false,
+      "reason": "3.29 신규/복귀 메커니즘 후보라 PoB, 패시브, 실제 플레이 확인 전까지 관찰 대상으로 둡니다.",
+      "tags": [
+        "3.29",
+        "활/투사체",
+        "Scion",
+        "Reliquarian"
+      ],
+      "source_count": 7,
+      "sources": [
+        {
+          "source_id": "official_329_reliquarian",
+          "label": "Official 3.29 Reliquarian Ascendancy Changes announcement",
+          "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+          "family": "official"
+        },
+        {
+          "source_id": "reddit_329_reliquarian",
+          "label": "3.29 Reliquarian Ascendancy Changes discussion",
+          "url": "https://www.reddit.com/r/pathofexile/comments/1uwtvuy/329_reliquarian_ascendancy_changes/",
+          "family": "reddit"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "mobalytics_329_reliquarian",
+          "label": "Mobalytics Reliquarian starter builds hub",
+          "url": "https://mobalytics.gg/poe/reliquarian-starter-builds",
+          "family": "build_site"
+        },
+        {
+          "source_id": "reddit_329_text_nodes",
+          "label": "Text-based 3.29 Reliquarian ascendancy node community transcription",
+          "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1uwuqtn/text_based_list_of_329_reliquarian_ascendancy/",
+          "family": "reddit"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.29_reliquarian_black_cane_spell",
+      "display_name": "Reliquarian Black Cane Spell Shell",
+      "patch": "3.29",
+      "main_skill": "Self-Cast Spell",
+      "class_name": "Scion",
+      "ascendancy": "Reliquarian",
+      "lane_id": "spell_hit_brand_selfcast",
+      "lane_label": "주문/브랜드",
+      "player_label": "구경만",
+      "default_recommendation": false,
+      "reason": "3.29 신규/복귀 메커니즘 후보라 PoB, 패시브, 실제 플레이 확인 전까지 관찰 대상으로 둡니다.",
+      "tags": [
+        "3.29",
+        "주문/브랜드",
+        "Scion",
+        "Reliquarian"
+      ],
+      "source_count": 8,
+      "sources": [
+        {
+          "source_id": "official_329_reliquarian",
+          "label": "Official 3.29 Reliquarian Ascendancy Changes announcement",
+          "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+          "family": "official"
+        },
+        {
+          "source_id": "reddit_329_reliquarian",
+          "label": "3.29 Reliquarian Ascendancy Changes discussion",
+          "url": "https://www.reddit.com/r/pathofexile/comments/1uwtvuy/329_reliquarian_ascendancy_changes/",
+          "family": "reddit"
+        },
+        {
+          "source_id": "youtube_329_goratha_reliquarian",
+          "label": "Goratha 3.29 Reliquarian build shells",
+          "url": "https://www.youtube.com/watch?v=kHbzCW57Unw",
+          "family": "youtube"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "mobalytics_329_reliquarian",
+          "label": "Mobalytics Reliquarian starter builds hub",
+          "url": "https://mobalytics.gg/poe/reliquarian-starter-builds",
+          "family": "build_site"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.29_reliquarian_sacred_chalice_bladefall",
+      "display_name": "Reliquarian Sacred Chalice Bladefall",
+      "patch": "3.29",
+      "main_skill": "Bladefall / Blade Blast",
+      "class_name": "Scion",
+      "ascendancy": "Reliquarian",
+      "lane_id": "spell_hit_brand_selfcast",
+      "lane_label": "주문/브랜드",
+      "player_label": "구경만",
+      "default_recommendation": false,
+      "reason": "3.29 신규/복귀 메커니즘 후보라 PoB, 패시브, 실제 플레이 확인 전까지 관찰 대상으로 둡니다.",
+      "tags": [
+        "3.29",
+        "주문/브랜드",
+        "Scion",
+        "Reliquarian"
+      ],
+      "source_count": 8,
+      "sources": [
+        {
+          "source_id": "official_329_reliquarian",
+          "label": "Official 3.29 Reliquarian Ascendancy Changes announcement",
+          "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+          "family": "official"
+        },
+        {
+          "source_id": "reddit_329_reliquarian",
+          "label": "3.29 Reliquarian Ascendancy Changes discussion",
+          "url": "https://www.reddit.com/r/pathofexile/comments/1uwtvuy/329_reliquarian_ascendancy_changes/",
+          "family": "reddit"
+        },
+        {
+          "source_id": "youtube_329_goratha_reliquarian",
+          "label": "Goratha 3.29 Reliquarian build shells",
+          "url": "https://www.youtube.com/watch?v=kHbzCW57Unw",
+          "family": "youtube"
+        },
+        {
+          "source_id": "pob_archives_global",
+          "label": "PoB Archives daily updated builds from YouTube and Reddit",
+          "url": "https://pobarchives.com/",
+          "family": "community_archive"
+        },
+        {
+          "source_id": "mobalytics_329_reliquarian",
+          "label": "Mobalytics Reliquarian starter builds hub",
+          "url": "https://mobalytics.gg/poe/reliquarian-starter-builds",
+          "family": "build_site"
+        }
+      ],
+      "next_actions": [
+        "PoB/PoBB 원본 확보",
+        "레벨링/맵핑 상태 분리",
+        "3.29 패치 영향 검증",
+        "초보자 실패 포인트 기록"
+      ]
+    },
+    {
+      "candidate_id": "3.29_cws_chieftain_emiracle_watch",
+      "display_name": "Cast When Stunned Chieftain",
+      "patch": "3.29",
+      "main_skill": "Cast when Stunned",
+      "class_name": "Marauder",
+      "ascendancy": "Chieftain",
+      "lane_id": "cws",
+      "lane_label": "CWS",
+      "player_label": "연습해도 됨",
+      "default_recommendation": false,
+      "reason": "emiracles 3.28 Mirage CWS Chieftain 가이드 기반 저입력 고밀도 파밍 빌드입니다. 3.29에서는 일반 추천이 아니라 연습 후보로 둡니다.",
+      "tags": [
+        "3.29",
+        "CWS",
+        "Marauder",
+        "Chieftain",
+        "고밀도 파밍",
+        "Simulacrum"
+      ],
+      "sources": [
+        {
+          "source_id": "mobalytics_328_emiracles_cws_chieftain",
+          "label": "emiracles CWS Chieftain 3.28 Mobalytics guide",
+          "url": "https://mobalytics.gg/poe/builds/cws-chieftain-3-28",
+          "family": "build_site"
+        },
+        {
+          "source_id": "emiracle_328_progression_sheet",
+          "label": "emiracle 3.28 CWS/RF progression spreadsheet",
+          "url": "https://docs.google.com/spreadsheets/d/1l0GjDUVlyVplxAys7vOQZao6LdbghU3SLQg6NzL9m6A/edit?gid=1312910424#gid=1312910424",
+          "family": "spreadsheet"
+        },
+        {
+          "source_id": "pohx_rf_wiki",
+          "label": "Pohx RF Wiki / FAQ",
+          "url": "https://pohx.net/",
+          "family": "creator_guide"
+        },
+        {
+          "source_id": "pohx_rf_chieftain_mobalytics",
+          "label": "Pohx Righteous Fire Chieftain guide",
+          "url": "https://mobalytics.gg/poe/builds/pohx-righteous-fire-chieftain",
+          "family": "build_site"
+        },
+        {
+          "source_id": "pohx_rf_act_walkthrough_video",
+          "label": "Pohx RF Chief Act 1-10 walkthrough",
+          "url": "https://www.youtube.com/watch?v=1H6S9X4eyzY",
+          "family": "youtube"
+        }
+      ],
+      "source_count": 5,
+      "practice_route": [
+        {
+          "stage": "레벨링 / Campaign",
+          "goal": "Level as Pohx RF through campaign and early maps.",
+          "source_note": "Life/res/recovery stable; test CWS swap ~L78, conservative L87+.",
+          "pob_url": null,
+          "source_links": [
+            {
+              "source_id": "pohx_rf_wiki",
+              "label": "Pohx RF Wiki / FAQ",
+              "url": "https://pohx.net/",
+              "family": "creator_guide"
+            },
+            {
+              "source_id": "pohx_rf_chieftain_mobalytics",
+              "label": "Pohx Righteous Fire Chieftain guide",
+              "url": "https://mobalytics.gg/poe/builds/pohx-righteous-fire-chieftain",
+              "family": "build_site"
+            },
+            {
+              "source_id": "pohx_rf_act_walkthrough_video",
+              "label": "Pohx RF Chief Act 1-10 walkthrough",
+              "url": "https://www.youtube.com/watch?v=1H6S9X4eyzY",
+              "family": "youtube"
+            }
+          ],
+          "skill_setups": [
+            "Righteous Fire",
+            "Fire Trap",
+            "Purity of Fire / Vitality",
+            "Shield Charge or Flame Dash",
+            "Pohx RF campaign setup",
+            "Experienced: Sunder until 19 RF swap or ~55 swap"
+          ],
+          "checks": [
+            "Record which act life/res/fire-res-cap/recovery falls short",
+            "New RF players follow Pohx RF for acts and early maps",
+            "Test No Bloodnotch CWS at L78 and L87+",
+            "Separate SSF-unobtainable gems/items from trade buy points"
+          ]
+        },
+        {
+          "stage": "No Bloodnotch Swap",
+          "goal": "No-Bloodnotch gateway CWS until Bloodnotch drops.",
+          "source_note": "Stun loop holds; Brine King off.",
+          "pob_url": "https://pobb.in/JK3kksNTM0Fq",
+          "source_links": [
+            {
+              "source_id": "mobalytics_328_emiracles_cws_chieftain",
+              "label": "emiracles CWS Chieftain 3.28 Mobalytics guide",
+              "url": "https://mobalytics.gg/poe/builds/cws-chieftain-3-28",
+              "family": "build_site"
+            }
+          ],
+          "skill_setups": [
+            "Punishment - Cast when Stunned - Purifying Flame - Flame Surge - Cold Snap",
+            "Detonate Dead of Scavenging - Cast when Stunned - Burning Damage - Deadly Ailments",
+            "Righteous Fire",
+            "Purity of Fire - Eternal Blessing"
+          ],
+          "checks": [
+            "Pantheon Lunaris + Tukohama, never Brine King",
+            "Silo Map boss recipe unlocks 3% regen / damage-taken-leeched crafts",
+            "Alt-spam flasks for +3 prefix + open suffix, finish at menagerie"
+          ]
+        },
+        {
+          "stage": "Bloodnotch Initial Swap",
+          "goal": "Bloodnotch acquired: trade some defense for offense while getting tankier.",
+          "source_note": "Life Recoup over 3 seconds mastery removed (mandatory from here on).",
+          "pob_url": "https://pobb.in/PmBU7tMlln4I",
+          "source_links": [
+            {
+              "source_id": "mobalytics_328_emiracles_cws_chieftain",
+              "label": "emiracles CWS Chieftain 3.28 Mobalytics guide",
+              "url": "https://mobalytics.gg/poe/builds/cws-chieftain-3-28",
+              "family": "build_site"
+            }
+          ],
+          "skill_setups": [
+            "CWS utility links",
+            "CWS - Firestorm of Pelting - Cremation of the Volcano - Cascade - Frost Bomb - Flame Surge",
+            "Righteous Fire damage setup",
+            "Do not enable stun-immunity sources",
+            "Optional degen bandaid: Brink of Death"
+          ],
+          "checks": [
+            "Drop Life Recoup over 3 seconds mastery now and onward",
+            "No stun immunity / Brine King / Vaal Breach loop-breakers",
+            "Compare EHP, death frequency, recovery loop before/after Bloodnotch"
+          ]
+        },
+        {
+          "stage": "Midgame 1 - Nebulis",
+          "goal": "Get Nebulis asap; roll/implicit do not matter to start.",
+          "source_note": "",
+          "pob_url": "https://pobb.in/TEx-3of-uWyu",
+          "source_links": [],
+          "skill_setups": [
+            "Righteous Fire core",
+            "CWS utility trigger package",
+            "Nebulis setup"
+          ],
+          "checks": [
+            "Nebulis 도입 전/후 피해, 최대 저항, 사망 빈도를 비교",
+            "SSF에서는 획득 난이도를 별도 기록하고 trade 전용 전환으로 분리"
+          ]
+        },
+        {
+          "stage": "Midgame 2 - Initial Large Cluster",
+          "goal": "8-passive Fire cluster: Burning Bright + Widespread Destruction + 1 of Cremator/Master of Fire/Smoking Remains; never the rear notable. Buy outright or ilvl 50-67 fire-mod spam.",
+          "source_note": "",
+          "pob_url": "https://pobb.in/fVUctZSotofO",
+          "source_links": [],
+          "skill_setups": [
+            "8 passive Fire Large Cluster",
+            "Burning Bright + Widespread Destruction",
+            "1 of Cremator / Master of Fire / Smoking Remains"
+          ],
+          "checks": [
+            "후방 notable은 찍지 않음",
+            "ilvl 50-67 cluster fire mod spam/exalt crafting 비용과 실패율 기록",
+            "Life %, Fire DoT Multi, max fire res jewel socket 확장 가치 확인"
+          ]
+        },
+        {
+          "stage": "Midgame 3 - Triple Large Cluster",
+          "goal": "Tree restructure, more jewel sockets and large clusters.",
+          "source_note": "",
+          "pob_url": "https://pobb.in/yv82lEh8PTQB",
+          "source_links": [],
+          "skill_setups": [
+            "Triple Large Cluster tree restructure",
+            "Life %, Fire Multi, max fire res jewel scaling"
+          ],
+          "checks": [
+            "전환 전 regret/cluster 비용을 기록",
+            "SSF 재현 불가능 구간은 trade 전용으로 분리"
+          ]
+        },
+        {
+          "stage": "Midgame 4 - Prism Guardian Malevolence Aura",
+          "goal": "Malevolence+Eternal Blessing OUTSIDE Prism Guardian; Petrified Blood + Flesh and Stone inside. Keep reservation topped: Champion of the Cause / Leader of the Pack / Runegraft of Treachery.",
+          "source_note": "",
+          "pob_url": "https://pobb.in/1aIufgwcXUTx",
+          "source_links": [],
+          "skill_setups": [
+            "Malevolence - Eternal Blessing outside Prism Guardian",
+            "Prism Guardian: Petrified Blood + Flesh and Stone",
+            "Optional Vitality if Watcher's Eye life gain on hit and HP remains above 55%"
+          ],
+          "checks": [
+            "HP가 55% 아래로 떨어지지 않는지 확인",
+            "Champion of the Cause / Leader of the Pack anoint / Runegraft of Treachery 중 reservation 보정 비교"
+          ]
+        },
+        {
+          "stage": "Midgame 5 - Unearth/DD",
+          "goal": "Skippable if you prefer 7L RF. Unearth+Honourhome/Viridi's Veil +2 AoE/Proj + Enhance + Empower -> 100k corpse -> Detonate Dead (NOT of Scavenging).",
+          "source_note": "",
+          "pob_url": "https://pobb.in/AJfx7FUUUGzv",
+          "source_links": [],
+          "skill_setups": [
+            "Unearth + Enhance Support + Empower Support",
+            "Honourhome or Viridi's Veil with +2 AoE and/or +2 Projectile corruption",
+            "Detonate Dead, not Detonate Dead of Scavenging",
+            "The Hateful Accuser for phantasms into Hinekora single target"
+          ],
+          "checks": [
+            "Defiance of Destiny 선확보 권장 여부 확인",
+            "level 30+ Unearth와 100k corpse threshold 달성 여부 기록",
+            "Detonate Dead of Chain Reaction은 초고투자에서 clear/proc rate용 대안으로만 기록"
+          ]
+        },
+        {
+          "stage": "Aspirational",
+          "goal": "Hybrid Mageblood/Imbue ultra-endgame; research only, never a default recommendation.",
+          "source_note": "",
+          "pob_url": "https://pobb.in/u6FAWcUhvvGh",
+          "source_links": [
+            {
+              "source_id": "mobalytics_328_emiracles_cws_chieftain",
+              "label": "emiracles CWS Chieftain 3.28 Mobalytics guide",
+              "url": "https://mobalytics.gg/poe/builds/cws-chieftain-3-28",
+              "family": "build_site"
+            }
+          ],
+          "skill_setups": [],
+          "checks": []
+        },
+        {
+          "stage": "Ultra Aspirational - Hybrid Mageblood/Imbue",
+          "goal": "Hybrid Mageblood/Imbue ultra-endgame; research only, never a default recommendation.",
+          "source_note": "",
+          "pob_url": "https://pobb.in/GUKwCsAq5x-g",
+          "source_links": [],
+          "skill_setups": [
+            "Malevolence includes Eternal Blessing imbue",
+            "CWS is on Punishment",
+            "Each skill gem may have +1 imbue",
+            "Gold Flask + Divination Distillate + Wondertrap rarity package"
+          ],
+          "checks": [
+            "PoB gem extra links/imbue not misread by parser",
+            "Pantheon may change to Arakaali if degenning",
+            "DoT mastery less-DoT-damage condition"
+          ]
+        }
+      ],
+      "anytime_upgrades": [
+        {
+          "node_id": "defiance_of_destiny",
+          "label": "Anytime - Defiance of Destiny",
+          "note": "Un-nerfs Bloodnotch changes; single biggest tank upgrade."
+        },
+        {
+          "node_id": "watchers_eye",
+          "label": "Anytime - Watcher's Eye",
+          "note": "Vitality life-on-hit, Malevolence multiplier, faster ailments."
+        },
+        {
+          "node_id": "good_jewels",
+          "label": "Anytime - Good Jewels",
+          "note": "Life %, max fire res, fire DoT multiplier."
+        },
+        {
+          "node_id": "ignite_tattoos",
+          "label": "Anytime - Ignite Tattoos",
+          "note": "Reach 100% ignite chance when cheap."
+        }
+      ],
+      "pob_urls": [
+        "https://pobb.in/JK3kksNTM0Fq",
+        "https://pobb.in/PmBU7tMlln4I",
+        "https://pobb.in/TEx-3of-uWyu",
+        "https://pobb.in/fVUctZSotofO",
+        "https://pobb.in/yv82lEh8PTQB",
+        "https://pobb.in/1aIufgwcXUTx",
+        "https://pobb.in/AJfx7FUUUGzv",
+        "https://pobb.in/u6FAWcUhvvGh",
+        "https://pobb.in/GUKwCsAq5x-g",
+        "https://pobb.in/AALRvyYQX1m3"
+      ],
+      "alt_pob_urls": [
+        "https://pobb.in/AALRvyYQX1m3"
+      ],
+      "additional_pob_urls": [
+        "https://pobb.in/9212xFSq-G5F",
+        "https://pobb.in/ehTCpUVi7R-r",
+        "https://pobb.in/BpM0iMtsockI",
+        "https://pobb.in/O4h_6xiv16qU",
+        "https://pobb.in/83jDAs_FU6yw",
+        "https://pobb.in/5Hg9A4xs551V",
+        "https://pobb.in/AWE7B52jlfU9",
+        "https://pobb.in/64dgdrr_bJGi",
+        "https://pobb.in/yArLLjF38Okt",
+        "https://pobb.in/GeJadlUEQKWh",
+        "https://pobb.in/TI-0ONKZ01yo",
+        "https://pobb.in/P_UAMkLYmeQa",
+        "https://pobb.in/nbj8xpivJWg0",
+        "https://pobb.in/KGE_0r4hKFNZ",
+        "https://pobb.in/UDacQpI_bcqZ",
+        "https://pobb.in/ucthVjf32qsF",
+        "https://pobb.in/bQID9S1k8R9-",
+        "https://pobb.in/nb_J5wihjJBe",
+        "https://pobb.in/U4p4NeBqH-jP"
+      ],
+      "map_mods_to_avoid": [
+        {
+          "severity": "extremely_bad",
+          "label": "항상 피하기",
+          "mods": [
+            "avoid ignite",
+            "less effect of curses on monsters",
+            "- maximum resistances",
+            "less recovery rate of Life and ES"
+          ]
+        },
+        {
+          "severity": "very_bad",
+          "label": "대부분 피하기",
+          "mods": [
+            "less area of effect",
+            "cannot regenerate life/mana/es",
+            "steal endurance charges",
+            "consecrated ground for Trialmaster",
+            "less flask charges"
+          ]
+        },
+        {
+          "severity": "bad",
+          "label": "가능하면 피하기",
+          "mods": [
+            "monster impale on hit",
+            "critical strike multiplier",
+            "less flask effect"
+          ]
+        },
+        {
+          "severity": "t17_worst",
+          "label": "T17 최악",
+          "mods": [
+            "Searing Exarch runes",
+            "Drowning orbs",
+            "gain as random extra element",
+            "monster remove % Life on hit before Defiance"
+          ]
+        }
+      ],
+      "playstyle_summary": [
+        "Non-bossing high-density farmer (Simulacrum/Ritual/Ultimatum/Harvest/Strongbox/Abyss); low input, walk-away-able but not literally AFK; weak at bosses (no Maven); farm currency + Mageblood then reroll."
+      ],
+      "mirage_notes": [
+        "Recommend level 87+ for CWS swap.",
+        "Bloodnotch nerf hurts early (~8 points to mitigate); by endgame Defiance of Destiny removes the impact.",
+        "Keep Lori's Lantern in small arenas; swap to The Hateful Accuser for single target (trialmaster/map boss).",
+        "Hideout RF tooltip 400k is the Simulacrum first-stable benchmark (3.26 handbook's 250k is a lower legacy comfort bar)."
+      ],
+      "upgrade_notes": [
+        "Defiance of Destiny effectively cancels the Bloodnotch nerf and is the core tank upgrade.",
+        "DD imbue priority: Cruelty > Swift Affliction > Deadly Ailments > Lifetap(?) > Burning Damage > Sadism > Efficacy > Unbound Ailments. Unearth imbue is weak; needs L21 for even thresholds (28=29, 30=31...)."
+      ],
+      "red_flags": [
+        "Brine King, stun immunity, and Vaal Breach can turn off the Bloodnotch/CWS loop; warn separately.",
+        "Drop Life Recoup over 3 seconds mastery after Bloodnotch.",
+        "Vaal Breach risks disabling Bloodnotch before Defiance of Destiny.",
+        "The Hateful Accuser is curse-based: curse-immune / reduced-curse maps are fatal.",
+        "Maven-class bosses are out of scope for this build."
+      ],
+      "promotion_checks": [
+        "No Bloodnotch is a gateway only; guide recommends L87+ swap.",
+        "Many PoBs exist, but 3.29 survivability, price, and SSF reproducibility are unproven.",
+        "CWS is not a beginner default; it is an internal-bar build and practice candidate.",
+        "3.29: re-verify Cast when Stunned, Bloodnotch, RF, and recovery/on-hit changes.",
+        "SSF: reproduce Pohx RF leveling and L87+ No-Bloodnotch swap across two runs.",
+        "Verify the No Bloodnotch -> Bloodnotch -> Nebulis -> Cluster -> Prism -> Unearth/DD stage PoBs all parse.",
+        "Accumulate current cases from poe.ninja or real user PoBs."
+      ],
+      "next_actions": [
+        "3.28 Mobalytics 단계별 PoB 전체 파싱",
+        "3.29 패치 영향 재검증",
+        "Pohx RF 레벨링 루트 연결",
+        "87+ No Bloodnotch 전환 조건 검증",
+        "맵 모드 금지 목록 UI 반영"
+      ]
+    },
+    {
+      "candidate_id": "3.29_luminary_destructive_link_crit_merc",
+      "display_name": "Destructive Link crit Mercenary",
+      "patch": "3.29",
+      "main_skill": "Link Skill",
+      "class_name": "Scion",
+      "ascendancy": "Luminary",
+      "lane_id": "luminary_link",
+      "lane_label": "루미너리 링크",
+      "player_label": "구경만",
+      "default_recommendation": false,
+      "reason": "Requires exact Mercenary skill list and whether Mercenary can exploit the granted crit package. 노드명, 용병 스킬, PoB 지원이 확인되기 전까지 관찰 후보입니다.",
+      "tags": [
+        "3.29",
+        "Luminary",
+        "Mercenary",
+        "Link"
+      ],
+      "source_count": 1,
+      "sources": [
+        {
+          "source_id": "user_luminary_notes",
+          "label": "사용자 제공 Luminary 메모 요약",
+          "url": null,
+          "family": "user_notes"
+        }
+      ],
+      "next_actions": [
+        "루미너리 노드명 확인",
+        "용병 스킬/장비 제한 확인",
+        "PoB 지원 여부 확인"
+      ]
+    },
+    {
+      "candidate_id": "3.29_luminary_intuitive_link_trigger_merc",
+      "display_name": "Intuitive Link trigger Mercenary",
+      "patch": "3.29",
+      "main_skill": "Link Skill",
+      "class_name": "Scion",
+      "ascendancy": "Luminary",
+      "lane_id": "luminary_link",
+      "lane_label": "루미너리 링크",
+      "player_label": "구경만",
+      "default_recommendation": false,
+      "reason": "Needs PoB/tooling support and live testing; may fail if trigger rules or Mercenary AI are restrictive. 노드명, 용병 스킬, PoB 지원이 확인되기 전까지 관찰 후보입니다.",
+      "tags": [
+        "3.29",
+        "Luminary",
+        "Mercenary",
+        "Link"
+      ],
+      "source_count": 1,
+      "sources": [
+        {
+          "source_id": "user_luminary_notes",
+          "label": "사용자 제공 Luminary 메모 요약",
+          "url": null,
+          "family": "user_notes"
+        }
+      ],
+      "next_actions": [
+        "루미너리 노드명 확인",
+        "용병 스킬/장비 제한 확인",
+        "PoB 지원 여부 확인"
+      ]
+    }
+  ]
+}
