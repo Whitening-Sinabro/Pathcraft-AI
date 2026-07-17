@@ -154,3 +154,12 @@ def test_projected_map_mods_and_knowledge_cards():
     assert any("87+" in x for x in card["mirage_notes"])
     assert any("Defiance of Destiny" in x for x in card["upgrade_notes"])
     assert any("DD imbue" in x for x in card["upgrade_notes"])
+
+
+def test_projected_promotion_guardrails_not_in_red_flags():
+    card = load_cws_card()
+    joined_red = " ".join(card["red_flags"])
+    assert "beginner default" not in joined_red
+    assert "gateway only" not in joined_red
+    assert any("beginner default" in x for x in card["promotion_checks"])
+    assert any("gateway only" in x for x in card["promotion_checks"])

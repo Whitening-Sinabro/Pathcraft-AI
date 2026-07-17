@@ -109,7 +109,9 @@ def _stage_from_node(guide: dict[str, Any], node: dict[str, Any], role_url: dict
     return {
         "stage": node["label"],
         "goal": node.get("gate", {}).get("note", ""),
-        "source_note": node.get("gate", {}).get("note", ""),
+        # goal already carries the gate note; no distinct second field, so leave source_note
+        # empty and let the dashboard's `stage.source_note && ...` guard suppress the duplicate line.
+        "source_note": "",
         "pob_url": role_url.get(node.get("pob_role")) if node.get("pob_role") else None,
         "source_links": [],
         "skill_setups": [],
@@ -156,13 +158,13 @@ def load_cws_card(guide: dict[str, Any] | None = None) -> dict[str, Any]:
     route.extend(_stage_from_node(guide, n, role_url) for n in midgame)
     asp = phases["aspirational_endgame"]
     route.append({
-        "stage": "Aspirational", "goal": asp.get("goal", ""), "source_note": asp.get("goal", ""),
+        "stage": "Aspirational", "goal": asp.get("goal", ""), "source_note": "",
         "pob_url": role_url.get("aspirational"), "source_links": _source_cards(guide, asp.get("source_links", [])),
         "skill_setups": [], "checks": [],
     })
     route.append({
         "stage": "Ultra Aspirational - Hybrid Mageblood/Imbue", "goal": asp.get("goal", ""),
-        "source_note": asp.get("goal", ""), "pob_url": role_url.get("aspirational_hybrid"),
+        "source_note": "", "pob_url": role_url.get("aspirational_hybrid"),
         "source_links": [], "skill_setups": asp.get("skill_setups", []), "checks": asp.get("checks", []),
     })
 
@@ -184,7 +186,7 @@ def load_cws_card(guide: dict[str, Any] | None = None) -> dict[str, Any]:
     alt_pobs = [p["url"] for p in guide["pob_links"] if p.get("role", "").endswith("_alt")]
     guardrails = guide.get("guardrails", [])
     red_flags = [g for g in guardrails if any(k in g for k in
-                 ("Brine King", "Life Recoup", "Vaal Breach", "Hateful Accuser", "Maven", "beginner", "gateway"))]
+                 ("Brine King", "Life Recoup", "Vaal Breach", "Hateful Accuser", "Maven"))]
     promotion_checks = [g for g in guardrails if g not in red_flags]
 
     return {
@@ -208,7 +210,9 @@ def load_cws_card(guide: dict[str, Any] | None = None) -> dict[str, Any]:
         "pob_urls": stage_pobs + alt_pobs,
         "alt_pob_urls": alt_pobs,
         "map_mods_to_avoid": guide.get("map_mods_to_avoid", []),
-        "playstyle_summary": _knowledge_summaries(guide, "playstyle") + _knowledge_summaries(guide, "content_fit"),
+        "playstyle_summary": list(dict.fromkeys(
+            _knowledge_summaries(guide, "playstyle") + _knowledge_summaries(guide, "content_fit")
+        )),
         "mirage_notes": _mirage_notes(guide),
         "upgrade_notes": _knowledge_summaries(guide, "upgrade"),
         "red_flags": red_flags,
