@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_external_guide_source",
+  "source_id": "TEMPLATE_replace_me",
+  "imported_at": "YYYY-MM-DD",
+  "generated_by": "manual_import",
+  "_field_notes": {
+    "source_file": "provenance: local file (path/bytes/sha256) OR a paste/import note.",
+    "source": "who made the guide (title/author/channels/confidence/copyright_handling).",
+    "scope": "game, patch_mentions[], class, ascendancy, primary/related skills, content_scope[].",
+    "links": "every non-PoB reference; each needs a stable source_id used by phase.source_links.",
+    "pob_links": "every PoB; each MUST have a role (validator rejects orphan PoBs).",
+    "phase_model": "player progression states in order: leveling -> ... -> endgame. Each: phase, main_skill, goal, entry, exit, pob_roles[], source_links[], skill_setups[], checks[]. Use foreign_build when leveling is a different build.",
+    "upgrade_nodes": "upgrades. timing='midgame_sequence' (ordered via source_order_hint, prereq[] for hard deps) or 'anytime' (order-free). optional=true if skippable; soft_recommend[] for non-blocking advice.",
+    "knowledge_cards": "atomic facts. Each: card_id, patch, tags[], summary, coach_use.",
+    "map_mods_to_avoid": "severity groups (extremely_bad/very_bad/bad/t17_worst) with mods[].",
+    "guardrails": "warnings + promotion/verification checks."
+  },
+  "source_file": { "local_path": "", "bytes": 0, "sha256": "", "note": "" },
+  "source": { "title": "", "author": "", "creator_channels": [], "source_family": "", "confidence": "", "copyright_handling": "structured summaries and links only; full source text is not stored verbatim" },
+  "scope": { "game": "poe1", "patch_mentions": [], "primary_archetype_ids": [], "primary_skills": [], "related_skills": [], "primary_class": "", "primary_ascendancy": "", "content_scope": [] },
+  "links": [],
+  "pob_links": [],
+  "phase_model": [],
+  "upgrade_nodes": [],
+  "knowledge_cards": [],
+  "map_mods_to_avoid": [],
+  "guardrails": []
+}
