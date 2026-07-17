@@ -156,6 +156,15 @@ def test_projected_map_mods_and_knowledge_cards():
     assert any("DD imbue" in x for x in card["upgrade_notes"])
 
 
+def test_projected_mirage_notes_keep_all_guide_facts():
+    card = load_cws_card()
+    joined = " ".join(card["mirage_notes"])
+    for fact in ["87+", "Hinekora", "Bloodnotch nerf", "Defiled Forces",
+                 "Brink of Death", "Bound Flesh", "Cull the Weak",
+                 "Lori's Lantern", "400k"]:
+        assert fact in joined, f"mirage fact lost: {fact}"
+
+
 def test_projected_additional_pobs_preserved_separately():
     card = load_cws_card()
     assert len(card["additional_pob_urls"]) == 19
