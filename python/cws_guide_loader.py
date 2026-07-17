@@ -209,6 +209,9 @@ def load_cws_card(guide: dict[str, Any] | None = None) -> dict[str, Any]:
         "anytime_upgrades": anytime,
         "pob_urls": stage_pobs + alt_pobs,
         "alt_pob_urls": alt_pobs,
+        # Prior-session collection PoBs NOT in the emiracles guide: preserved, but kept
+        # out of the clean guide pob_urls so the guide's 10 role-bound PoBs stay authoritative.
+        "additional_pob_urls": guide.get("additional_pob_urls", []),
         "map_mods_to_avoid": guide.get("map_mods_to_avoid", []),
         "playstyle_summary": list(dict.fromkeys(
             _knowledge_summaries(guide, "playstyle") + _knowledge_summaries(guide, "content_fit")

@@ -156,6 +156,15 @@ def test_projected_map_mods_and_knowledge_cards():
     assert any("DD imbue" in x for x in card["upgrade_notes"])
 
 
+def test_projected_additional_pobs_preserved_separately():
+    card = load_cws_card()
+    assert len(card["additional_pob_urls"]) == 19
+    assert "https://pobb.in/9212xFSq-G5F" in card["additional_pob_urls"]
+    assert "https://pobb.in/ehTCpUVi7R-r" in card["additional_pob_urls"]
+    # the clean guide list must NOT contain the collection extras
+    assert "https://pobb.in/9212xFSq-G5F" not in card["pob_urls"]
+
+
 def test_projected_midgame_stages_keep_skill_setups():
     card = load_cws_card()
     stages = {s["stage"]: s for s in card["practice_route"]}
