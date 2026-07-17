@@ -33,7 +33,8 @@
     { "url": "https://docs.google.com/spreadsheets/d/1l0GjDUVlyVplxAys7vOQZao6LdbghU3SLQg6NzL9m6A/edit?gid=1312910424#gid=1312910424", "family": "spreadsheet", "source_id": "emiracle_328_progression_sheet", "label": "emiracle 3.28 CWS/RF progression spreadsheet" },
     { "url": "https://pohx.net/", "family": "creator_guide", "source_id": "pohx_rf_wiki", "label": "Pohx RF Wiki / FAQ" },
     { "url": "https://mobalytics.gg/poe/builds/pohx-righteous-fire-chieftain", "family": "build_site", "source_id": "pohx_rf_chieftain_mobalytics", "label": "Pohx Righteous Fire Chieftain guide" },
-    { "url": "https://www.youtube.com/watch?v=1H6S9X4eyzY", "family": "youtube", "source_id": "pohx_rf_act_walkthrough_video", "label": "Pohx RF Chief Act 1-10 walkthrough" }
+    { "url": "https://www.youtube.com/watch?v=1H6S9X4eyzY", "family": "youtube", "source_id": "pohx_rf_act_walkthrough_video", "label": "Pohx RF Chief Act 1-10 walkthrough" },
+    { "url": "https://pobb.in/Sit6hlQU1uuZ", "family": "pob", "source_id": "pohx_rf_chieftain_pob", "label": "Pohx RF Chieftain PoB (Marauder Lv100, full leveling skillsets)" }
   ],
   "pob_links": [
     { "url": "https://pobb.in/JK3kksNTM0Fq", "role": "cws_swap_gateway", "label": "No Bloodnotch Swap" },
@@ -49,12 +50,12 @@
   ],
   "phase_model": [
     { "phase": "campaign_leveling", "main_skill": "Righteous Fire",
-      "foreign_build": { "creator": "Pohx", "display_name": "Pohx RF Chieftain", "role": "leveling" },
-      "goal": "Level as Pohx RF through campaign and early maps.",
+      "foreign_build": { "creator": "Pohx", "display_name": "Pohx RF Chieftain", "role": "leveling", "pob_url": "https://pobb.in/Sit6hlQU1uuZ" },
+      "goal": "Level as Pohx RF through campaign and early maps; do not swap to CWS before 87+.",
       "entry": null,
-      "exit": "Life/res/recovery stable; test CWS swap ~L78, conservative L87+.",
+      "exit": "Life/res/recovery stable; conservative CWS swap at L87+ (L78 only as an experienced early-swap test).",
       "pob_roles": [],
-      "source_links": ["pohx_rf_wiki", "pohx_rf_chieftain_mobalytics", "pohx_rf_act_walkthrough_video"],
+      "source_links": ["pohx_rf_wiki", "pohx_rf_chieftain_mobalytics", "pohx_rf_act_walkthrough_video", "pohx_rf_chieftain_pob"],
       "skill_setups": ["Righteous Fire", "Fire Trap", "Purity of Fire / Vitality", "Shield Charge or Flame Dash", "Pohx RF campaign setup", "Experienced: Sunder until 19 RF swap or ~55 swap"],
       "checks": ["Record which act life/res/fire-res-cap/recovery falls short", "New RF players follow Pohx RF for acts and early maps", "Test No Bloodnotch CWS at L78 and L87+", "Separate SSF-unobtainable gems/items from trade buy points"] },
     { "phase": "cws_swap_gateway", "main_skill": "Cast when Stunned",

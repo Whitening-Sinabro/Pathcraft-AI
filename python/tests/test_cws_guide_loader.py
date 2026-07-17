@@ -119,6 +119,11 @@ def test_projected_leveling_stage_has_pohx_source_links():
     assert "87+" in " ".join(leveling["checks"] + [leveling["source_note"]])
     assert "Righteous Fire" in leveling["skill_setups"]
     assert any("Pohx RF" in s for s in leveling["skill_setups"])
+    # Pohx RF Chieftain PoB is linked as the pre-87+ leveling reference (a foreign build,
+    # so the CWS stage pob_url stays None — the PoB rides in source_links).
+    assert "pohx_rf_chieftain_pob" in ids
+    pohx_pob = next(s for s in leveling["source_links"] if s["source_id"] == "pohx_rf_chieftain_pob")
+    assert pohx_pob["url"] == "https://pobb.in/Sit6hlQU1uuZ"
 
 
 def test_projected_anytime_upgrades_are_order_free():
