@@ -156,6 +156,20 @@ def test_projected_map_mods_and_knowledge_cards():
     assert any("DD imbue" in x for x in card["upgrade_notes"])
 
 
+def test_projected_midgame_stages_keep_skill_setups():
+    card = load_cws_card()
+    stages = {s["stage"]: s for s in card["practice_route"]}
+    unearth = stages["Midgame 5 - Unearth/DD"]
+    assert any("Detonate Dead, not Detonate Dead of Scavenging" in s for s in unearth["skill_setups"])
+    prism = stages["Midgame 4 - Prism Guardian Malevolence Aura"]
+    assert any("Malevolence" in s for s in prism["skill_setups"])
+    # every midgame stage carries non-empty skill_setups (no silent loss)
+    for name in ["Midgame 1 - Nebulis", "Midgame 2 - Initial Large Cluster",
+                 "Midgame 3 - Triple Large Cluster", "Midgame 4 - Prism Guardian Malevolence Aura",
+                 "Midgame 5 - Unearth/DD"]:
+        assert stages[name]["skill_setups"], f"{name} lost skill_setups"
+
+
 def test_projected_promotion_guardrails_not_in_red_flags():
     card = load_cws_card()
     joined_red = " ".join(card["red_flags"])

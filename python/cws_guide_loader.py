@@ -114,8 +114,8 @@ def _stage_from_node(guide: dict[str, Any], node: dict[str, Any], role_url: dict
         "source_note": "",
         "pob_url": role_url.get(node.get("pob_role")) if node.get("pob_role") else None,
         "source_links": [],
-        "skill_setups": [],
-        "checks": [],
+        "skill_setups": node.get("skill_setups", []),
+        "checks": node.get("checks", []),
     }
 
 
