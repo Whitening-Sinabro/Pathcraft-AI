@@ -130,3 +130,15 @@ data/atlastree-export/
 data/skilltree-export/
 data/skilltree-export-poe2/
 data/pob_skills_cache/
+
+# Build corpus derived indices (재생성 가능 — GGPK 파이프라인, 69MB)
+data/ggpk_derived/
+
+# Claude 런타임 상태가 data/ 로 누수된 것 (로컬 전용)
+data/.claude/
+
+# Temp working files (probe stdout, research images 등)
+tmp/
+
+# 검증 스크린샷 (재생성 가능)
+_analysis/poe2_tree_after_fix.png
