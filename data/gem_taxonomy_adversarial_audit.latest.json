@@ -1,0 +1,103 @@
+{
+  "dataset_kind": "poe1_gem_taxonomy_adversarial_audit",
+  "schema_version": "1.0.0",
+  "generated_by": "python/gem_taxonomy_adversarial_audit.py",
+  "status": "passed",
+  "summary": {
+    "lens_count": 5,
+    "taxonomy_entry_count": 1447,
+    "finding_count": 0,
+    "failure_count": 0,
+    "warning_count": 0
+  },
+  "lenses": [
+    {
+      "lens": "source_integrity",
+      "checked_entries": 1447,
+      "support_alias_entries": 268,
+      "finding_count": 0,
+      "failure_count": 0,
+      "warning_count": 0
+    },
+    {
+      "lens": "name_collision",
+      "active_support_sibling_collisions": [
+        "Barrage"
+      ],
+      "finding_count": 0,
+      "failure_count": 0,
+      "warning_count": 0
+    },
+    {
+      "lens": "socketability_pipeline",
+      "synthetic_result": {
+        "main_skill": "Static Strike",
+        "build_type": "attack",
+        "skills": [
+          "Static Strike"
+        ],
+        "supports": [
+          "Faster Attacks Support",
+          "Greater Multiple Projectiles Support",
+          "Minion Damage Support",
+          "Shockwave Support",
+          "Summon Phantasm Support"
+        ]
+      },
+      "finding_count": 0,
+      "failure_count": 0,
+      "warning_count": 0
+    },
+    {
+      "lens": "context_scoring",
+      "synthetic_result": {
+        "main_skill": "Barrage",
+        "build_type": "attack",
+        "profile_identity": {
+          "build_name": "Ranger Deadeye adversarial audit",
+          "patch": "3.29",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "main_skill": "Barrage",
+          "leveling_skill": "Barrage",
+          "damage_tags": [
+            "attack"
+          ],
+          "weapon_preferences": [
+            "Bows",
+            "Wands"
+          ]
+        },
+        "weapon_requirements": [
+          "Bows",
+          "Wands"
+        ],
+        "damage_flags": {
+          "attack": true,
+          "caster": false,
+          "dot": false,
+          "minion": false
+        }
+      },
+      "finding_count": 0,
+      "failure_count": 0,
+      "warning_count": 0
+    },
+    {
+      "lens": "season_crosscheck",
+      "checked_candidates": 25,
+      "selected_branch_ids": [
+        "black_cane_arakaali_spell_hybrid",
+        "blight_of_contagion_fallback",
+        "gloomfang_bow",
+        "hot_autobomber",
+        "static_strike_ngamahu"
+      ],
+      "context_taxonomy_entry_count": 24,
+      "finding_count": 0,
+      "failure_count": 0,
+      "warning_count": 0
+    }
+  ],
+  "findings": []
+}

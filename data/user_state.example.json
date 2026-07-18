@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_kind": "poe1_user_state",
+  "character_state": {
+    "patch": "3.25",
+    "class_name": "Ranger",
+    "ascendancy": "Deadeye",
+    "level": 71,
+    "character_locked": true
+  },
+  "currency_state": {
+    "liquid_divines": 3.2,
+    "liquid_chaos": 180.0,
+    "owned_uniques": [],
+    "can_self_link_5l": false,
+    "can_self_craft_basic_rares": true
+  },
+  "preferences": {
+    "desired_main_skill": "Lightning Arrow",
+    "max_input_style": "1_click_plus_movement",
+    "target_contents": ["mapping", "expedition"],
+    "trade_mode": "trade_league_start",
+    "death_tolerance": "medium",
+    "respec_tolerance_points": 30
+  },
+  "constraints": {
+    "must_use_skill": "Lightning Arrow",
+    "forbidden_skills": [],
+    "require_confirmed_leveling": false,
+    "forbid_reroll": true
+  }
+}

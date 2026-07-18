@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_build_corpus_collection_targets",
+  "updated_at": "2026-07-16",
+  "decision": {
+    "scope": "Patch 3.22 onward. Patches 3.22 through 3.28 are confirmed collection targets. Patch 3.29 is a watchlist target until launch data and patch notes are available.",
+    "primary_goal": "Calibrate deterministic build readiness, transition detection, item pressure, passive tree routing, and coach explanations. This is not a seasonal popularity ranking.",
+    "counting_units": {
+      "build_case": "One build shell for one patch with enough evidence to classify class, ascendancy, main skill, damage engine, defense engine, item gates, tree shape, and progression state.",
+      "state_snapshot": "One distinct PoB, parsed PoB state, or manually normalized state for a budget/progression point such as maps entry, mid endgame, or high end.",
+      "complete_case_minimum": "A complete build case has at least two state snapshots: entry/progression and T16-capable or intended endgame."
+    }
+  },
+  "patch_range": {
+    "confirmed_collection_patches": [
+      "3.22",
+      "3.23",
+      "3.24",
+      "3.25",
+      "3.26",
+      "3.27",
+      "3.28"
+    ],
+    "watchlist_patches": [
+      "3.29"
+    ],
+    "operational_patch_count_including_watchlist": 8
+  },
+  "per_patch_target": {
+    "canonical_build_cases": 20,
+    "minimum_state_snapshots_per_case": 2,
+    "minimum_state_snapshots_per_patch": 40,
+    "composition": {
+      "stable_shells": 12,
+      "transition_cases": 4,
+      "failure_edge_cases": 4
+    }
+  },
+  "archetype_lanes": [
+    {
+      "lane_id": "bow_projectile_attack_mapper",
+      "stable_shells_per_patch": 2,
+      "examples": [
+        "Lightning Arrow",
+        "Ice Shot",
+        "Kinetic Blast or Kinetic Fusillade"
+      ]
+    },
+    {
+      "lane_id": "melee_strike_slam",
+      "stable_shells_per_patch": 2,
+      "examples": [
+        "Boneshatter",
+        "Lacerate",
+        "Lightning Strike",
+        "Earthquake"
+      ]
+    },
+    {
+      "lane_id": "spell_hit_brand_selfcast",
+      "stable_shells_per_patch": 2,
+      "examples": [
+        "Penance Brand",
+        "Ice Nova",
+        "Ball Lightning",
+        "Spark"
+      ]
+    },
+    {
+      "lane_id": "dot_ailment_dot",
+      "stable_shells_per_patch": 2,
+      "examples": [
+        "Toxic Rain",
+        "Righteous Fire",
+        "Detonate Dead Ignite",
+        "Corrupting Fever"
+      ]
+    },
+    {
+      "lane_id": "trap_mine_totem",
+      "stable_shells_per_patch": 2,
+      "examples": [
+        "Hexblast Mine",
+        "Pyroclast Mine",
+        "Shockwave Totem",
+        "Explosive Arrow Ballista"
+      ]
+    },
+    {
+      "lane_id": "minion_trigger_autobomber_special",
+      "stable_shells_per_patch": 2,
+      "examples": [
+        "Raise Spectre",
+        "Dominating Blow",
+        "Cast on Critical Strike",
+        "Herald of Thunder autobomber"
+      ]
+    }
+  ],
+  "required_case_lenses": [
+    "skill_and_support_tagging",
+    "damage_engine",
+    "defense_engine",
+    "item_gate_and_affix_pressure",
+    "passive_tree_route_and_cluster_pressure",
+    "content_fit_mapping_bossing_atlas_farm",
+    "beginner_failure_reason"
+  ],
+  "snapshot_requirements": {
+    "minimum": [
+      "maps_entry_or_day_2",
+      "mid_endgame_or_t16_ready"
+    ],
+    "preferred_extra_when_available": [
+      "campaign_or_leveling",
+      "late_endgame_or_expensive_swap",
+      "failed_or_bricked_variant"
+    ]
+  },
+  "totals": {
+    "confirmed_3_22_to_3_28": {
+      "patch_count": 7,
+      "build_cases": 140,
+      "state_snapshots": 280,
+      "stable_shells": 84,
+      "transition_cases": 28,
+      "failure_edge_cases": 28
+    },
+    "operational_including_3_29_watchlist": {
+      "patch_count": 8,
+      "build_cases": 160,
+      "state_snapshots": 320,
+      "stable_shells": 96,
+      "transition_cases": 32,
+      "failure_edge_cases": 32
+    },
+    "phase_1_floor_including_3_29_watchlist": {
+      "build_cases_per_patch": 12,
+      "state_snapshots_per_patch": 24,
+      "build_cases": 96,
+      "state_snapshots": 192,
+      "note": "This is enough to start UI and deterministic guard testing, but not enough for final readiness calibration."
+    }
+  },
+  "current_local_baseline": {
+    "source": "data/build_variant_real_cases_v1.json",
+    "measured_at": "2026-07-16",
+    "patches": [
+      {
+        "patch": "3.22",
+        "current_build_cases": 5,
+        "current_state_snapshots": 14,
+        "target_build_cases": 20,
+        "target_state_snapshots": 40,
+        "case_deficit": 15,
+        "snapshot_deficit": 26
+      },
+      {
+        "patch": "3.23",
+        "current_build_cases": 6,
+        "current_state_snapshots": 17,
+        "target_build_cases": 20,
+        "target_state_snapshots": 40,
+        "case_deficit": 14,
+        "snapshot_deficit": 23
+      },
+      {
+        "patch": "3.24",
+        "current_build_cases": 9,
+        "current_state_snapshots": 26,
+        "target_build_cases": 20,
+        "target_state_snapshots": 40,
+        "case_deficit": 11,
+        "snapshot_deficit": 14
+      },
+      {
+        "patch": "3.25",
+        "current_build_cases": 8,
+        "current_state_snapshots": 21,
+        "target_build_cases": 20,
+        "target_state_snapshots": 40,
+        "case_deficit": 12,
+        "snapshot_deficit": 19
+      },
+      {
+        "patch": "3.26",
+        "current_build_cases": 7,
+        "current_state_snapshots": 19,
+        "target_build_cases": 20,
+        "target_state_snapshots": 40,
+        "case_deficit": 13,
+        "snapshot_deficit": 21
+      },
+      {
+        "patch": "3.27",
+        "current_build_cases": 6,
+        "current_state_snapshots": 14,
+        "target_build_cases": 20,
+        "target_state_snapshots": 40,
+        "case_deficit": 14,
+        "snapshot_deficit": 26
+      },
+      {
+        "patch": "3.28",
+        "current_build_cases": 8,
+        "current_state_snapshots": 22,
+        "target_build_cases": 20,
+        "target_state_snapshots": 40,
+        "case_deficit": 12,
+        "snapshot_deficit": 18
+      }
+    ],
+    "confirmed_total": {
+      "current_build_cases": 49,
+      "current_state_snapshots": 133,
+      "target_build_cases": 140,
+      "target_state_snapshots": 280,
+      "case_deficit": 91,
+      "snapshot_deficit": 147
+    },
+    "including_3_29_watchlist_target": {
+      "target_build_cases": 160,
+      "target_state_snapshots": 320,
+      "remaining_build_cases_if_3_29_empty": 111,
+      "remaining_state_snapshots_if_3_29_empty": 187
+    }
+  }
+}

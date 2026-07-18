@@ -1,0 +1,169 @@
+{
+  "dataset_kind": "poe1_early_season_patch_adjustment_policy",
+  "schema_version": 1,
+  "base_version": "3.29.0",
+  "source_url": "https://www.pathofexile.com/forum/view-thread/3985332",
+  "structured_at": "2026-07-17T07:06:22.608422",
+  "patch_flow": [
+    {
+      "stage": "base_patch_notes",
+      "source": "official_forum_patch_notes",
+      "role": "Initial text truth for changed systems and numeric intent.",
+      "confidence": "official_text"
+    },
+    {
+      "stage": "launch_client_ggpk",
+      "source": "local_ggpk_extract_after_patch",
+      "role": "Machine-readable implementation truth. Confirms or corrects patch-note numbers.",
+      "confidence": "implementation_truth"
+    },
+    {
+      "stage": "post_launch_ggpk_refresh",
+      "source": "local_ggpk_extract_after_each_client_update",
+      "role": "Repeatable implementation overlays for 3.29.0b, hotfix client pushes, server/client restarts, and silent data corrections.",
+      "confidence": "implementation_truth_with_snapshot_manifest"
+    },
+    {
+      "stage": "day0_hotfix",
+      "source": "official_forum_hotfix_threads_and_client_restarts",
+      "role": "Immediate overrides for broken drops, crashes, disabled cards/items, or severe balance issues.",
+      "confidence": "official_hotfix_text_until_ggpk_refresh"
+    },
+    {
+      "stage": "minor_patch",
+      "source": "official_3_29_0b_or_later_patch_notes",
+      "role": "Stable overlay that supersedes base patch lines for the affected entity/stat only.",
+      "confidence": "official_text_then_ggpk_confirmed"
+    },
+    {
+      "stage": "tooling_confirmation",
+      "source": "Path of Building, PoEWiki, live trade/economy samples, measured map runs",
+      "role": "Coach recommendation confidence upgrade. Does not override official/GGPK values by itself.",
+      "confidence": "secondary_validation"
+    }
+  ],
+  "numeric_overlay_rules": [
+    "Never mutate the base patch note entry in place; append an overlay record with patch_version, source_url, affected_entry_id, old_value, new_value, unit, and reason.",
+    "If GGPK and patch-note text disagree after launch, store both and mark effective_value_source as ggpk unless GGG publishes a correction.",
+    "Hotfix entries may temporarily disable an item/card/gem/mechanic. Represent this as state_override=disabled instead of numeric_value=0.",
+    "For ranges such as 10-15%, preserve min/max. Do not collapse to an average for build advice unless a separate expected-value model asks for it.",
+    "For 'increased/reduced by X%' without an explicit previous value, store operation=relative_multiplier and require a base value from GGPK or prior patch DB.",
+    "For 'now has X (previously Y)', store operation=set_value and compute delta only when units and token counts match.",
+    "Apply overlays by newest semantic patch order, then hotfix number, then collected_at. Scope must match entity plus stat; unrelated lines remain inherited from base 3.29.0."
+  ],
+  "ggpk_snapshot_rules": [
+    "Every post-launch GGPK extract must be stored as a versioned snapshot before promotion. Do not overwrite the previous effective extract without a manifest and diff.",
+    "Snapshot identity must include patch_version, client_build or collected_at, source_path, table row counts, file hashes, and extractor_version.",
+    "Diff raw tables by stable semantic keys where possible: Id for Mods/BaseItemTypes/ActiveSkills, displayed name plus metadata id for SkillGems, graph id for PassiveSkills, map id/name for Maps.",
+    "A GGPK value can supersede patch-note text only for the affected entity/stat and only after the table diff identifies the source row.",
+    "If a hotfix is server-only and the GGPK tables do not change, keep the hotfix overlay as official_text_pending_client_data instead of inventing a GGPK value.",
+    "Keep patch-note delta, GGPK row diff, PoB support state, and live measurement as separate evidence layers. The coach must report which layer it is using."
+  ],
+  "ggpk_diff_targets": [
+    {
+      "table": "SkillGems",
+      "purpose": "Gem level requirements, supportability, tags, quality/stat scaling, new or changed gems.",
+      "stable_keys": [
+        "BaseItemTypesKey",
+        "Id",
+        "DisplayedName"
+      ]
+    },
+    {
+      "table": "ActiveSkills",
+      "purpose": "Skill ids, stat references, weapon requirements, granted/triggered skills, behaviour flags.",
+      "stable_keys": [
+        "Id",
+        "DisplayedName",
+        "ActiveSkillTypes"
+      ]
+    },
+    {
+      "table": "BaseItemTypes",
+      "purpose": "New bases, item classes, tags, drop levels, sockets and crafting base gates.",
+      "stable_keys": [
+        "Id",
+        "Name"
+      ]
+    },
+    {
+      "table": "Mods",
+      "purpose": "Explicit/implicit/enchantment modifier ranges, item mod eligibility, affix pool changes.",
+      "stable_keys": [
+        "Id",
+        "Name",
+        "StatsKey1",
+        "StatsKey2",
+        "StatsKey3",
+        "StatsKey4"
+      ]
+    },
+    {
+      "table": "PassiveSkills",
+      "purpose": "Passive tree, ascendancy, atlas/passive values, graph connectivity and stat text.",
+      "stable_keys": [
+        "Id",
+        "GraphId",
+        "Name"
+      ]
+    },
+    {
+      "table": "Ascendancy",
+      "purpose": "Class/ascendancy availability, Scion branch separation, Bloodline-related class data.",
+      "stable_keys": [
+        "Id",
+        "Name"
+      ]
+    },
+    {
+      "table": "Maps",
+      "purpose": "Atlas rotation, map tiers, map ids, special map availability.",
+      "stable_keys": [
+        "Id",
+        "Name"
+      ]
+    },
+    {
+      "table": "QuestRewards",
+      "purpose": "Campaign/league-start gem access and vendor reward changes.",
+      "stable_keys": [
+        "Quest",
+        "CharactersKey",
+        "BaseItemTypesKey"
+      ]
+    },
+    {
+      "table": "Scarabs",
+      "purpose": "Atlas farming and mechanic access changes.",
+      "stable_keys": [
+        "Id",
+        "Name"
+      ]
+    }
+  ],
+  "coach_rules": [
+    "When giving early-season advice, say whether the number is patch-note-only, GGPK-confirmed, PoB-confirmed, or live-measured.",
+    "Do not promote a build solely because a line is a buff; require interaction checks, item access, passive pathing, and early economy.",
+    "Keep Scion Ascendant, Reliquarian, and Luminary branches separated unless a build explicitly uses that branch.",
+    "For farming strategy, do not rank Allflame, Fossil, Guardian Map, or Scrying paths until reward samples and map-time samples exist."
+  ],
+  "required_overlay_fields": [
+    "overlay_id",
+    "patch_version",
+    "patch_type",
+    "source_url",
+    "affected_entry_id",
+    "entity",
+    "stat",
+    "operation",
+    "old_value",
+    "new_value",
+    "unit",
+    "effective_value_source",
+    "verification_state",
+    "ggpk_snapshot_id",
+    "ggpk_table",
+    "ggpk_row_key",
+    "notes"
+  ]
+}

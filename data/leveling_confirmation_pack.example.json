@@ -1,0 +1,126 @@
+{
+  "dataset_kind": "poe1_leveling_confirmation_pack",
+  "build_identity": {
+    "build_name": "Example Build",
+    "patch": "3.28",
+    "class_name": "Templar",
+    "ascendancy": "Hierophant",
+    "build_mode": "trade_league_start"
+  },
+  "final_pob": {
+    "url": "https://pobb.in/example",
+    "notes_present": false
+  },
+  "stage_pobs": [
+    {
+      "stage": "campaign_start",
+      "level_range": "1-28",
+      "url": "https://pobb.in/example-start"
+    },
+    {
+      "stage": "campaign_mid",
+      "level_range": "28-55",
+      "url": "https://pobb.in/example-mid"
+    },
+    {
+      "stage": "campaign_end_or_early_maps",
+      "level_range": "55-70",
+      "url": "https://pobb.in/example-end"
+    }
+  ],
+  "skill_timeline": [
+    {
+      "level_range": "1-11",
+      "main_skill": "Stormblast Mine",
+      "support_links": ["Swift Assembly Support"],
+      "quest_source": "Act 1 quest reward",
+      "swap_reason": "Strong early single target"
+    },
+    {
+      "level_range": "12-27",
+      "main_skill": "Arc",
+      "support_links": ["Added Lightning Damage Support", "Controlled Destruction Support"],
+      "vendor_source": "Act 1/2 vendors",
+      "swap_reason": "Better clear"
+    },
+    {
+      "level_range": "28+",
+      "main_skill": "Ball Lightning",
+      "support_links": ["Spell Echo Support", "Controlled Destruction Support", "Lightning Penetration Support"],
+      "quest_source": "Act 3/4 access",
+      "swap_reason": "Final skill online"
+    }
+  ],
+  "passive_milestones": [
+    {
+      "stage": "act_2_end",
+      "tree_url": "https://www.pathofexile.com/passive-skill-tree/AAA",
+      "priority": ["spell damage", "mana", "life"]
+    },
+    {
+      "stage": "act_4_end",
+      "tree_url": "https://www.pathofexile.com/passive-skill-tree/BBB",
+      "priority": ["cast speed", "reservation", "life"]
+    },
+    {
+      "stage": "act_7_end",
+      "tree_url": "https://www.pathofexile.com/passive-skill-tree/CCC",
+      "priority": ["critical", "life", "mana"]
+    },
+    {
+      "stage": "act_10_end",
+      "tree_url": "https://www.pathofexile.com/passive-skill-tree/DDD",
+      "priority": ["final travel path", "life wheel", "damage cluster"]
+    }
+  ],
+  "aura_utility_timeline": [
+    {
+      "stage": "act_1_3",
+      "auras": ["Clarity"],
+      "utility": ["Flame Dash"],
+      "guard": []
+    },
+    {
+      "stage": "act_4_6",
+      "auras": ["Wrath", "Clarity"],
+      "utility": ["Flame Dash", "Wave of Conviction"],
+      "guard": ["Steelskin"]
+    },
+    {
+      "stage": "act_7_10",
+      "auras": ["Wrath", "Herald of Thunder"],
+      "utility": ["Flame Dash", "Sigil of Power"],
+      "guard": ["Cast when Damage Taken Support + Steelskin"]
+    }
+  ],
+  "gear_checkpoints": [
+    {
+      "stage": "act_3",
+      "requirements": ["3-link weapon or body armour", "movement speed boots"]
+    },
+    {
+      "stage": "act_5",
+      "requirements": ["resist refresh after penalty", "life on all rares"]
+    },
+    {
+      "stage": "act_8",
+      "requirements": ["4-link main skill", "weapon upgrade"]
+    },
+    {
+      "stage": "maps",
+      "requirements": ["75 all elemental resistances", "life threshold met"]
+    }
+  ],
+  "transition_triggers": [
+    {
+      "from_skill": "Arc",
+      "to_skill": "Ball Lightning",
+      "level": 28,
+      "conditions": ["4-link available", "mana sustain stable"]
+    }
+  ],
+  "creator_notes": {
+    "text": "Optional manual notes",
+    "vod_timestamps": []
+  }
+}

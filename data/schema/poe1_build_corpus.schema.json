@@ -1,0 +1,435 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathcraft-ai.local/schema/poe1_build_corpus.schema.json",
+  "title": "POE1 Build Corpus",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dataset_kind",
+    "records"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "dataset_kind": {
+      "const": "poe1_build_corpus"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/archetypeRecord"
+      }
+    }
+  },
+  "$defs": {
+    "namedStep": {
+      "type": "object",
+      "required": [
+        "phase",
+        "summary"
+      ],
+      "properties": {
+        "phase": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidenceItem": {
+      "type": "object",
+      "required": [
+        "type",
+        "label",
+        "confidence"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "pob",
+            "video_transcript",
+            "video_description",
+            "poe_ninja",
+            "forum_guide",
+            "manual_curated"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "local_path": {
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "speculative"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "switchCondition": {
+      "type": "object",
+      "required": [
+        "kind",
+        "description"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "level",
+            "quest",
+            "first_lab",
+            "maps_entry",
+            "item_acquired",
+            "currency_threshold",
+            "manual"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "level": {
+          "type": "integer"
+        },
+        "item_name": {
+          "type": "string"
+        },
+        "currency_amount": {
+          "type": "number"
+        },
+        "currency_unit": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "phaseVariant": {
+      "type": "object",
+      "required": [
+        "league_window",
+        "build_phase",
+        "main_skill",
+        "summary"
+      ],
+      "properties": {
+        "league_window": {
+          "enum": [
+            "early",
+            "mid",
+            "late"
+          ]
+        },
+        "build_phase": {
+          "enum": [
+            "campaign_start",
+            "campaign_mid",
+            "campaign_late",
+            "maps_entry",
+            "early_endgame",
+            "mid_endgame",
+            "late_endgame",
+            "high_end"
+          ]
+        },
+        "level_range": {
+          "type": "string"
+        },
+        "main_skill": {
+          "type": "string"
+        },
+        "support_links": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "auras": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "utility": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gear_priority": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "passive_focus": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "defense_targets": {
+          "type": "object",
+          "properties": {
+            "life": {
+              "type": "integer"
+            },
+            "energy_shield": {
+              "type": "integer"
+            },
+            "resists": {
+              "type": "string"
+            },
+            "armour_or_evasion": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "coachCompat": {
+      "type": "object",
+      "properties": {
+        "leveling_skill_progression": {
+          "type": "object"
+        },
+        "aura_progression": {
+          "type": "object"
+        },
+        "aura_herald_utility_by_level": {
+          "type": "array"
+        },
+        "curse_setup": {
+          "type": "object"
+        },
+        "movement_skill": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "archetypeRecord": {
+      "type": "object",
+      "required": [
+        "id",
+        "canonical_name",
+        "class",
+        "ascendancy",
+        "patch",
+        "role_tags",
+        "reconstruction_template",
+        "phase_variants",
+        "evidence",
+        "coach_compat"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "canonical_name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "era_key": {
+          "type": "string"
+        },
+        "patch": {
+          "type": "string"
+        },
+        "league_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "class": {
+          "type": "string"
+        },
+        "ascendancy": {
+          "type": "string"
+        },
+        "archetype_family": {
+          "type": "string"
+        },
+        "role_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "content_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mechanic_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "meta_summary": {
+          "type": "object",
+          "properties": {
+            "early": {
+              "type": "string"
+            },
+            "mid": {
+              "type": "string"
+            },
+            "late": {
+              "type": "string"
+            },
+            "popularity_basis": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "meta_window_lock": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "reconstruction_template": {
+          "type": "object",
+          "required": [
+            "campaign_primary_skill",
+            "campaign_fallback_skill",
+            "first_lab_power_spike",
+            "switch_conditions",
+            "aura_priority_early",
+            "aura_priority_mid",
+            "link_priority_3l",
+            "link_priority_4l",
+            "weapon_upgrade_rules",
+            "gear_checkpoints"
+          ],
+          "properties": {
+            "campaign_primary_skill": {
+              "type": "string"
+            },
+            "campaign_fallback_skill": {
+              "type": "string"
+            },
+            "first_lab_power_spike": {
+              "type": "string"
+            },
+            "switch_conditions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/switchCondition"
+              }
+            },
+            "aura_priority_early": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "aura_priority_mid": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "link_priority_3l": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "link_priority_4l": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "weapon_upgrade_rules": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "gear_checkpoints": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/namedStep"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "phase_variants": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "$ref": "#/$defs/phaseVariant"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidenceItem"
+          }
+        },
+        "coach_compat": {
+          "$ref": "#/$defs/coachCompat"
+        },
+        "patch_status": {
+          "enum": [
+            "historical_supported",
+            "current_live",
+            "watchlist",
+            "announced_only",
+            "speculative_only"
+          ]
+        },
+        "official_release_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "official_source_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "collection_enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

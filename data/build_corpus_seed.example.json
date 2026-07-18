@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_build_corpus",
+  "records": [
+    {
+      "id": "strength_stacker_juggernaut_3_28",
+      "canonical_name": "strength_stacker_juggernaut",
+      "display_name": "Strength Stack Juggernaut",
+      "era_key": "modern_current",
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "class": "Marauder",
+      "ascendancy": "Juggernaut",
+      "archetype_family": "attribute_stacker_melee",
+      "role_tags": [
+        "tanky",
+        "high_ceiling",
+        "reroll_target"
+      ],
+      "content_tags": [
+        "boss_rush_good",
+        "delve_good"
+      ],
+      "mechanic_tags": [
+        "attribute_stacker",
+        "melee",
+        "attack",
+        "hybrid_defense",
+        "requires_unique_to_function",
+        "requires_respec"
+      ],
+      "meta_summary": {
+        "early": "초반 스타터로는 약한 편이지만 핵심 스태킹 장비를 먼저 선점하는 전략형 아키타입.",
+        "mid": "Replica Alberon's 확보 후 딜이 크게 상승하며 Static Strike 또는 Zenith 단계가 실전 파밍 구간이 된다.",
+        "late": "Heavy Strike 헬멧과 고급 반지, 클러스터를 갖추면 매우 높은 탱킹과 고난도 콘텐츠 적성이 생긴다.",
+        "popularity_basis": [
+          "creator_coverage",
+          "manual_curator_weight"
+        ],
+        "meta_window_lock": true
+      },
+      "reconstruction_template": {
+        "campaign_primary_skill": "Holy Strike",
+        "campaign_fallback_skill": "Holy Sweep",
+        "first_lab_power_spike": "Undeniable로 정확도 문제를 해결하고 공격속도 스케일을 시작한다.",
+        "switch_conditions": [
+          {
+            "kind": "first_lab",
+            "description": "첫 랩 후 정확도 문제가 해결되면 Static Strike of Gathering 전환 준비."
+          },
+          {
+            "kind": "item_acquired",
+            "description": "Replica Alberon's 확보 시 본격적인 strength stack 딜 구간 진입.",
+            "item_name": "Replica Alberon's Warpath"
+          },
+          {
+            "kind": "currency_threshold",
+            "description": "Heavy Strike 더블 인플루언스 헬멧 제작 자금이 모이면 최종 전환.",
+            "currency_amount": 70,
+            "currency_unit": "div"
+          }
+        ],
+        "aura_priority_early": [
+          "초반은 저예약 보조 오라 위주로 구성하고 정확도/마나 부담이 적은 조합 우선",
+          "최종 오라 세팅을 캠페인에 억지로 당겨오지 말 것"
+        ],
+        "aura_priority_mid": [
+          "Static Strike 단계에서는 맵핑 안정성과 저항 보정을 우선",
+          "Heavy Strike 최종형은 Purity of Ice, Purity of Fire 기반 저항/방어 세팅을 고려"
+        ],
+        "link_priority_3l": [
+          "Holy Strike",
+          "초반 사용 가능한 근접 피해 보조",
+          "공격속도 또는 명중 보조"
+        ],
+        "link_priority_4l": [
+          "Static Strike of Gathering",
+          "핵심 공격 보조",
+          "핵심 공격 보조",
+          "핵심 공격 보조"
+        ],
+        "weapon_upgrade_rules": [
+          "캠페인 동안은 물리 DPS 또는 공격 속도가 높은 근접 무기를 우선.",
+          "초반 맵핑에서는 chaos sword 또는 Zenith 준비 무기 기준으로 갈아탄다.",
+          "최종 무기는 Awakener Orb 기반 접두 2개 고정 후 멀티모드 마감."
+        ],
+        "gear_checkpoints": [
+          {
+            "phase": "campaign_mid",
+            "summary": "정확도 부족과 소켓 수 부족이 가장 큰 병목."
+          },
+          {
+            "phase": "maps_entry",
+            "summary": "Strength 주얼리와 기본 저항 캡, 이동 속도, Leap Slam 체감 확보."
+          },
+          {
+            "phase": "mid_endgame",
+            "summary": "Replica Alberon's, 무기, 기본 스태킹 장비가 갖춰져야 딜이 정상화."
+          }
+        ]
+      },
+      "phase_variants": [
+        {
+          "league_window": "early",
+          "build_phase": "campaign_start",
+          "level_range": "1-28",
+          "main_skill": "Holy Strike",
+          "support_links": [
+            "early melee support",
+            "early accuracy or attack speed support"
+          ],
+          "auras": [
+            "low-reservation utility aura"
+          ],
+          "utility": [
+            "Leap Slam when available",
+            "guard skill"
+          ],
+          "gear_priority": [
+            "weapon DPS",
+            "3-link",
+            "life and resist rares"
+          ],
+          "passive_focus": [
+            "nearby melee damage",
+            "path toward Spiritual Command and Spiritual Aid"
+          ],
+          "summary": "초반은 마라우더 스타트의 약점을 감수하고 Holy 계열로 버티는 구간.",
+          "defense_targets": {
+            "life": 600,
+            "energy_shield": 0,
+            "resists": "partial",
+            "armour_or_evasion": "basic armour pieces"
+          }
+        },
+        {
+          "league_window": "early",
+          "build_phase": "campaign_late",
+          "level_range": "28-68",
+          "main_skill": "Static Strike of Gathering",
+          "support_links": [
+            "core damage support",
+            "core damage support",
+            "core damage support"
+          ],
+          "auras": [
+            "mid-campaign defensive aura"
+          ],
+          "utility": [
+            "Leap Slam",
+            "guard skill",
+            "mark or curse as available"
+          ],
+          "gear_priority": [
+            "4-link",
+            "accuracy solved by Undeniable",
+            "strength jewelry base"
+          ],
+          "passive_focus": [
+            "Undeniable spike",
+            "Spiritual Command",
+            "Spiritual Aid"
+          ],
+          "summary": "첫 랩 이후 정확도 문제가 풀리고 Static Strike가 실제 진행 스킬이 되는 구간.",
+          "defense_targets": {
+            "life": 3000,
+            "energy_shield": 0,
+            "resists": "75 after Act 10",
+            "armour_or_evasion": "armour stacking begins"
+          }
+        },
+        {
+          "league_window": "mid",
+          "build_phase": "maps_entry",
+          "level_range": "68-90",
+          "main_skill": "Static Strike of Gathering or Zenith",
+          "support_links": [
+            "mapping support",
+            "damage support",
+            "damage support",
+            "damage support"
+          ],
+          "auras": [
+            "mapping defensive aura setup"
+          ],
+          "utility": [
+            "Leap Slam",
+            "guard skill",
+            "mark",
+            "lifetap or mana solution"
+          ],
+          "gear_priority": [
+            "Replica Alberon's Warpath",
+            "chaos sword",
+            "strength rings and amulet"
+          ],
+          "passive_focus": [
+            "strength scaling",
+            "cluster preparation",
+            "map farming sustain"
+          ],
+          "summary": "Alberon's 확보 후 딜이 급등하고 T16, guardian, fragment rush 파밍이 가능해지는 단계.",
+          "defense_targets": {
+            "life": 7000,
+            "energy_shield": 1000,
+            "resists": "75 capped with chaos improving",
+            "armour_or_evasion": "meaningful armour baseline"
+          }
+        },
+        {
+          "league_window": "late",
+          "build_phase": "late_endgame",
+          "level_range": "90+",
+          "main_skill": "Heavy Strike of Tarthus",
+          "support_links": [
+            "final damage support",
+            "final damage support",
+            "final damage support",
+            "final damage support",
+            "final damage support"
+          ],
+          "auras": [
+            "Purity of Ice",
+            "Purity of Fire"
+          ],
+          "utility": [
+            "Leap Slam",
+            "guard skill",
+            "mark",
+            "fortify via cluster"
+          ],
+          "gear_priority": [
+            "double influence helmet",
+            "helical rings",
+            "optimized large clusters"
+          ],
+          "passive_focus": [
+            "crit scaling",
+            "energy shield from strength",
+            "Overlord fortify"
+          ],
+          "summary": "최종 Heavy Strike 세팅은 Zenith보다 약간 덜 공격적이지만 더 단단한 방향을 지향한다.",
+          "defense_targets": {
+            "life": 10000,
+            "energy_shield": 3000,
+            "resists": "high all res with chaos covered",
+            "armour_or_evasion": "high armour"
+          }
+        }
+      ],
+      "evidence": [
+        {
+          "type": "video_transcript",
+          "label": "3.28 Strength Stack Juggernaut transcript",
+          "local_path": "C:\\Users\\User\\Desktop\\3.28 Strength Stack Juggernaut Heav.txt",
+          "confidence": "medium",
+          "notes": "빌드 소개, 레벨링 의도, 예산, 아이템 크래프팅, Heavy Strike vs Zenith 비교 포함."
+        },
+        {
+          "type": "manual_curated",
+          "label": "Pathcraft schema bootstrap sample",
+          "local_path": "D:\\Pathcraft-AI\\data\\build_corpus_seed.example.json",
+          "confidence": "speculative",
+          "notes": "자막 기반 복원용 예시 레코드. 실제 production 데이터는 PoB와 추가 출처로 강화 필요."
+        }
+      ],
+      "coach_compat": {
+        "leveling_skill_progression": {
+          "recommended": "Holy Strike into Static Strike of Gathering",
+          "transitions": [
+            "Holy Strike -> Static Strike of Gathering after first lab power spike",
+            "Static Strike or Zenith -> Heavy Strike after late gearing"
+          ]
+        },
+        "aura_progression": {
+          "campaign": "low-reservation utility first",
+          "endgame": "Purity of Ice and Purity of Fire for Heavy Strike setup"
+        },
+        "aura_herald_utility_by_level": [
+          {
+            "phase": "campaign",
+            "utility": [
+              "Leap Slam",
+              "guard skill"
+            ]
+          },
+          {
+            "phase": "endgame",
+            "auras": [
+              "Purity of Ice",
+              "Purity of Fire"
+            ],
+            "utility": [
+              "Leap Slam",
+              "mark",
+              "guard skill"
+            ]
+          }
+        ],
+        "curse_setup": {
+          "single_target": "Assassin's Mark in crit setup"
+        },
+        "movement_skill": {
+          "primary": "Leap Slam"
+        }
+      },
+      "patch_status": "current_live",
+      "official_release_date": "2026-03-06",
+      "official_source_url": null,
+      "collection_enabled": true
+    }
+  ]
+}

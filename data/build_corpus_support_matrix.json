@@ -1,0 +1,78 @@
+{
+  "patches": [
+    {
+      "patch": "3.22",
+      "status": "historical_supported",
+      "league_name": "Trial of the Ancestors",
+      "collection_enabled": true,
+      "requires_meta_windows": true
+    },
+    {
+      "patch": "3.23",
+      "status": "historical_supported",
+      "league_name": "Affliction",
+      "collection_enabled": true,
+      "requires_meta_windows": true
+    },
+    {
+      "patch": "3.24",
+      "status": "historical_supported",
+      "league_name": "Necropolis",
+      "collection_enabled": true,
+      "requires_meta_windows": true
+    },
+    {
+      "patch": "3.25",
+      "status": "historical_supported",
+      "league_name": "Settlers of Kalguur",
+      "collection_enabled": true,
+      "requires_meta_windows": true
+    },
+    {
+      "patch": "3.26",
+      "status": "historical_supported",
+      "league_name": "Secrets of the Atlas",
+      "collection_enabled": true,
+      "requires_meta_windows": true
+    },
+    {
+      "patch": "3.27",
+      "status": "historical_supported",
+      "league_name": "Keepers of the Flame",
+      "collection_enabled": true,
+      "requires_meta_windows": true
+    },
+    {
+      "patch": "3.28",
+      "status": "current_live",
+      "league_name": "Mirage",
+      "collection_enabled": true,
+      "requires_meta_windows": true
+    },
+    {
+      "patch": "3.29",
+      "status": "watchlist",
+      "league_name": null,
+      "collection_enabled": false,
+      "requires_meta_windows": false
+    }
+  ],
+  "minimum_supported_patch_range": {
+    "from": "3.22",
+    "to": "3.28"
+  },
+  "schema_version": "1.0",
+  "minimum_targets": {
+    "representative_archetypes_per_patch": 12,
+    "minimum_archetypes_per_required_role_tag": 2,
+    "required_role_tags": [
+      "league_starter",
+      "mapper",
+      "bosser",
+      "tanky",
+      "ssf_friendly",
+      "reroll_target"
+    ]
+  },
+  "updated_at": "2026-07-08"
+}

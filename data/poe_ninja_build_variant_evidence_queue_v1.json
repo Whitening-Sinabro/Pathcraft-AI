@@ -1,0 +1,837 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_poe_ninja_build_variant_evidence_queue",
+  "updated_at": "2026-07-17T00:00:00+07:00",
+  "purpose": "Operational queue for bounded poe.ninja build-tab/profile sampling. Rows collected from this queue are variant evidence candidates, not promoted build recommendations.",
+  "source_policy": {
+    "sampling_contract": "data/poe_ninja_build_variant_sampling_plan_v1.json",
+    "official_reference": "https://poe.ninja/docs/api",
+    "source_family": "poe_ninja_profile",
+    "allowed_collection_mode": [
+      "manual_browser_visible_profile",
+      "manually_copied_poe_ninja_pob_url",
+      "small_curated_sample_from_visible_build_tab"
+    ],
+    "disallowed_collection_mode": [
+      "high_volume_internal_build_api_scraping",
+      "replicating_poe_ninja_build_ladder",
+      "treating_private_or_hidden_profiles_as_available"
+    ],
+    "leveling_rule": "poe.ninja endgame character snapshots keep leveling_confidence=inferred unless an external stage PoB, PoB notes timeline, creator guide, or act-by-act snapshot is attached."
+  },
+  "queue_status": {
+    "archetype_target_count": 13,
+    "collection_track_count": 6,
+    "creator_source_track_count": 11,
+    "sample_rows_collected": 0,
+    "promotion_target": "variant_evidence_candidate"
+  },
+  "collection_tracks": [
+    {
+      "track_id": "mirage_current_trade_baseline",
+      "source_leagues": [
+        "Mirage"
+      ],
+      "sample_role": "current_meta",
+      "default_per_archetype": 12,
+      "priority": 1
+    },
+    {
+      "track_id": "mirage_ssf_access_pressure",
+      "source_leagues": [
+        "SSF Mirage"
+      ],
+      "sample_role": "ssf_constraint",
+      "default_per_archetype": 6,
+      "priority": 2
+    },
+    {
+      "track_id": "mirage_hc_survivability",
+      "source_leagues": [
+        "Hardcore Mirage",
+        "HC SSF Mirage"
+      ],
+      "sample_role": "hc_survivability",
+      "default_per_archetype": 6,
+      "priority": 2
+    },
+    {
+      "track_id": "ruthless_constraint_separate",
+      "source_leagues": [
+        "Ruthless Mirage",
+        "SSF R Mirage",
+        "HC Ruthless Mirage",
+        "HC SSF R Mirage",
+        "Ruthless Keepers",
+        "SSF R Keepers",
+        "HC Ruthless Keepers",
+        "HC SSF R Keepers"
+      ],
+      "sample_role": "ruthless_constraint",
+      "default_per_archetype": 3,
+      "priority": 4
+    },
+    {
+      "track_id": "historical_patch_delta",
+      "source_leagues": [
+        "Keepers",
+        "SSF Keepers",
+        "Hardcore Keepers",
+        "HC SSF Keepers",
+        "Ancestors",
+        "SSF Ancestors",
+        "Phrecia 2.0",
+        "SSF Phrecia 2.0"
+      ],
+      "sample_role": "historical_patch_delta",
+      "default_per_archetype": 5,
+      "priority": 3
+    },
+    {
+      "track_id": "gauntlet_stress",
+      "source_leagues": [
+        "Ziz Rapture HCSSF Class Gauntlet"
+      ],
+      "sample_role": "gauntlet_stress",
+      "default_per_archetype": 5,
+      "priority": 3
+    }
+  ],
+  "creator_source_tracks": [
+    {
+      "track_id": "cws_chieftain",
+      "route_family": "cws",
+      "creator_sources": [
+        {
+          "source_id": "youtube_emiracle_cws",
+          "label": "emiracle Cast When Stunned Chieftain materials",
+          "url": "https://www.youtube.com/@HolyFkingShit",
+          "collection_priority": 1
+        },
+        {
+          "source_id": "youtube_jorgen_cws_crosscheck",
+          "label": "Jorgen CWS/delve-oriented cross-checks",
+          "url": "https://www.youtube.com/@JorgenPOE",
+          "collection_priority": 2
+        }
+      ],
+      "promotion_status": "needs_archetype_target_or_manual_pob",
+      "notes": "User-identified CWS lane. Keep pre-swap RF/Fire Trap route separate from expensive AFK/CWS endgame variants."
+    },
+    {
+      "track_id": "mine_general",
+      "route_family": "mine",
+      "creator_sources": [
+        {
+          "source_id": "maxroll_cptn_garbage_exsanguinate_miner",
+          "label": "Cptn Garbage Exsanguinate Miner Trickster",
+          "url": "https://maxroll.gg/poe/build-guides/exsanguinate-miner-trickster-league-starter",
+          "collection_priority": 1
+        },
+        {
+          "source_id": "youtube_fearlessdumb0_exsanguinate_reap_miner",
+          "label": "FearlessDumb0 Exsanguinate/Reap Miner",
+          "url": "https://www.youtube.com/watch?v=ZEvuQ5krLwQ",
+          "collection_priority": 1
+        },
+        {
+          "source_id": "youtube_jorgen_mines",
+          "label": "Jorgen mine build materials",
+          "url": "https://www.youtube.com/@JorgenPOE",
+          "collection_priority": 2
+        },
+        {
+          "source_id": "youtube_conner_converse_mine_theory",
+          "label": "Conner Converse mine/stacker theorycraft cross-checks",
+          "url": "https://www.youtube.com/@ConnerConverse",
+          "collection_priority": 3
+        }
+      ],
+      "promotion_status": "partially_promoted",
+      "notes": "Exsanguinate/Reap Trickster has parser-valid 3.28 staged PoB; other mine families still need direct PoB confirmation."
+    },
+    {
+      "track_id": "experimental_unique_interactions",
+      "route_family": "experimental",
+      "creator_sources": [
+        {
+          "source_id": "youtube_captainlance9_experimental",
+          "label": "CaptainLance9 unusual build shells",
+          "url": "https://www.youtube.com/captainlance9",
+          "collection_priority": 1
+        },
+        {
+          "source_id": "youtube_conner_converse_stacker",
+          "label": "Conner Converse high-budget stacker theorycraft",
+          "url": "https://www.youtube.com/@ConnerConverse",
+          "collection_priority": 2
+        }
+      ],
+      "promotion_status": "source_watch_only",
+      "notes": "Treat as high-risk/high-upside inspiration; require budget gates and parser-validated PoBs before beginner recommendation."
+    },
+    {
+      "track_id": "mastert_witch_autobomber_transitions",
+      "route_family": "autobomber",
+      "creator_sources": [
+        {
+          "source_id": "youtube_mastert_channel",
+          "label": "Master T POE1 Witch Elementalist transition materials",
+          "url": "https://www.youtube.com/@MasterT_",
+          "collection_priority": 1
+        },
+        {
+          "source_id": "poebuilds_mastert_index",
+          "label": "PoEBuilds Master T POE1 index",
+          "url": "https://www.poebuilds.cc/author/mastert/",
+          "collection_priority": 1
+        },
+        {
+          "source_id": "mobalytics_mastert_righteous_cold_autobomber",
+          "label": "MasterT Righteous Cold Dot Autobomber guide",
+          "url": "https://mobalytics.gg/poe/builds/righteous-cold-dot-autobomber",
+          "collection_priority": 1
+        },
+        {
+          "source_id": "youtube_mastert_ignite_slamentalist",
+          "label": "MasterT Ignite Slamentalist staged league-start guide",
+          "url": "https://www.youtube.com/watch?v=0dJFLujq-tc",
+          "collection_priority": 1
+        }
+      ],
+      "promotion_status": "partially_promoted",
+      "notes": "User-added creator track. Use Master T for Witch Elementalist staged leveling, ignite/slam transitions, and Righteous Cold endgame swap evidence. POE2 material remains out of scope."
+    },
+    {
+      "track_id": "minion_broad",
+      "route_family": "minion",
+      "creator_sources": [
+        {
+          "source_id": "youtube_ghazzytv_minion",
+          "label": "GhazzyTV minion guide hub and videos",
+          "url": "https://www.youtube.com/GhazzyTV",
+          "collection_priority": 1
+        },
+        {
+          "source_id": "youtube_tori_sensei_minion",
+          "label": "토리센세 Korean minion guides",
+          "url": "https://www.youtube.com/@torisense",
+          "collection_priority": 1
+        },
+        {
+          "source_id": "youtube_dconnic_wretched_defiler",
+          "label": "Dconnic Wretched Defiler Spectre materials",
+          "url": "https://www.youtube.com/@dconnic",
+          "collection_priority": 1
+        },
+        {
+          "source_id": "youtube_mastert_minion_archive",
+          "label": "Master T Wretched Defiler / minion archive materials",
+          "url": "https://www.poebuilds.cc/author/mastert/",
+          "collection_priority": 3
+        }
+      ],
+      "promotion_status": "partially_promoted",
+      "notes": "Use creator guides for leveling and spectre-specific mechanics; poe.ninja snapshots alone stay inferred."
+    },
+    {
+      "track_id": "current_tori_poison_carrion_golem",
+      "route_family": "minion",
+      "creator_sources": [
+        {
+          "source_id": "youtube_tori_sensei_poison_carrion_golem",
+          "label": "토리센세 current-season Poison Carrion Golem materials",
+          "url": "https://www.youtube.com/@torisense",
+          "collection_priority": 1,
+          "known_public_hits": [
+            {
+              "label": "PoE 3.26 Poison Carrion Golem",
+              "video_url": "https://www.youtube.com/watch?v=WO2bjIZMrtQ",
+              "pob_urls_seen_in_search": [
+                "https://pobb.in/Gji0uiu1Aoog"
+              ]
+            },
+            {
+              "label": "PoE 3.25 Poison Carrion Golem caveat video",
+              "video_url": "https://www.youtube.com/watch?v=klcYMiWPaLw",
+              "pob_urls_seen_in_search": [
+                "https://pobb.in/19sYwElXstEb"
+              ]
+            }
+          ],
+          "notes": "User reports this is Tori-sensei's current-season plan. Collect the current-season PoB before direct promotion."
+        }
+      ],
+      "promotion_status": "needs_current_season_pob",
+      "notes": "Treat older poison Carrion Golem PoBs as mechanical references only until the current PoB or stage notes are ingested."
+    },
+    {
+      "track_id": "hardcore_league_start",
+      "route_family": "hardcore",
+      "creator_sources": [
+        {
+          "source_id": "youtube_zizaran_hcssf",
+          "label": "Zizaran HC/SSF league starters",
+          "url": "https://www.youtube.com/zizaran",
+          "collection_priority": 1
+        }
+      ],
+      "promotion_status": "source_watch_only",
+      "notes": "Use to cross-check defensive baselines, campaign safety, and gauntlet stress evidence."
+    },
+    {
+      "track_id": "variety_creator_watch",
+      "route_family": "variety",
+      "creator_sources": [
+        {
+          "source_id": "youtube_goblin_inc_probable",
+          "label": "Goblin-Inc probable variety source",
+          "url": "https://www.youtube.com/@Goblin-Inc",
+          "collection_priority": 3
+        }
+      ],
+      "promotion_status": "needs_user_disambiguation",
+      "notes": "Recorded as probable match for user alias Goblin; confirm if a different POE1 creator was intended."
+    },
+    {
+      "track_id": "one_build_siege_ballista",
+      "route_family": "totem",
+      "creator_sources": [
+        {
+          "source_id": "youtube_poeguy_siege_ballista",
+          "label": "POEGuy Siege Ballista Hierophant",
+          "url": "https://www.youtube.com/@poeguy007",
+          "collection_priority": 1
+        }
+      ],
+      "promotion_status": "needs_direct_recent_pob",
+      "notes": "One-build specialist lane; repeated patch updates are high-value longitudinal evidence."
+    },
+    {
+      "track_id": "one_build_brand",
+      "route_family": "brand",
+      "creator_sources": [
+        {
+          "source_id": "youtube_zeeboub_brand",
+          "label": "ZeeBoub brand/Penance Brand materials",
+          "url": "https://www.youtube.com/@ZeeboubPOE",
+          "collection_priority": 1
+        }
+      ],
+      "promotion_status": "local_guide_available",
+      "notes": "Local structured ZeeBoub brand guide already exists; prioritize stage PoBs from that source."
+    },
+    {
+      "track_id": "one_build_cyclone_slayer",
+      "route_family": "melee",
+      "creator_sources": [
+        {
+          "source_id": "youtube_sanavixx_cyclone",
+          "label": "Sanavixx Cyclone/Shockwave Slayer materials",
+          "url": "https://www.youtube.com/@SaNaViXX",
+          "collection_priority": 1
+        }
+      ],
+      "promotion_status": "needs_direct_recent_pob",
+      "notes": "One-build melee specialist lane; use for melee leveling and repeated-patch progression evidence."
+    }
+  ],
+  "intake_required_fields": [
+    "league",
+    "mode",
+    "sample_role",
+    "profile_url",
+    "character_name",
+    "class_name",
+    "ascendancy",
+    "level",
+    "main_skill_family",
+    "variant_fingerprint",
+    "customization_notes",
+    "leveling_confidence",
+    "promotion_status"
+  ],
+  "variant_fingerprint_required_fields": [
+    "damage_engine",
+    "defense_engine",
+    "core_unique_gate",
+    "tree_shape_class",
+    "play_pattern",
+    "budget_tier",
+    "gear_package_id",
+    "aura_package_id",
+    "cluster_package_id",
+    "content_specialization"
+  ],
+  "archetype_sampling_targets": [
+    {
+      "target_id": "caster_archmage_hierophant",
+      "route_family": "caster",
+      "main_skill_families": [
+        "Ice Nova of Frostbolts",
+        "Shock Nova of Procession",
+        "Cold Snap of Power"
+      ],
+      "class_filter": [
+        "Templar"
+      ],
+      "ascendancy_filter": [
+        "Hierophant"
+      ],
+      "variant_axes_to_sample": [
+        "mana_stack_budget",
+        "crit_swap",
+        "block_or_suppression_shell",
+        "mageblood_or_no_mageblood"
+      ],
+      "leveling_lane": "caster_archmage_templar"
+    },
+    {
+      "target_id": "caster_brand_inquisitor",
+      "route_family": "caster",
+      "main_skill_families": [
+        "Penance Brand",
+        "Storm Brand"
+      ],
+      "class_filter": [
+        "Templar"
+      ],
+      "ascendancy_filter": [
+        "Inquisitor",
+        "Hierophant"
+      ],
+      "variant_axes_to_sample": [
+        "brand_crit",
+        "sanctum_or_bossing",
+        "budget_caster_rare",
+        "high_end_cluster"
+      ],
+      "leveling_lane": "caster_brand_templar"
+    },
+    {
+      "target_id": "ranger_bow_projectile",
+      "route_family": "ranger",
+      "main_skill_families": [
+        "Lightning Arrow",
+        "Tornado Shot",
+        "Ice Shot"
+      ],
+      "class_filter": [
+        "Ranger"
+      ],
+      "ascendancy_filter": [
+        "Deadeye",
+        "Pathfinder",
+        "Warden"
+      ],
+      "variant_axes_to_sample": [
+        "rare_bow_budget",
+        "omni_or_attribute_stack",
+        "magic_find",
+        "suppression_shell",
+        "headhunter_or_mageblood"
+      ],
+      "leveling_lane": "ranger_attack_bow_projectile"
+    },
+    {
+      "target_id": "ranger_chaos_dot_bow",
+      "route_family": "ranger",
+      "main_skill_families": [
+        "Toxic Rain",
+        "Caustic Arrow"
+      ],
+      "class_filter": [
+        "Ranger"
+      ],
+      "ascendancy_filter": [
+        "Pathfinder"
+      ],
+      "variant_axes_to_sample": [
+        "ssf_bow_craft",
+        "lightning_coil_or_rare_body",
+        "taste_of_hate_or_no_unique",
+        "ballista_variant"
+      ],
+      "leveling_lane": "ranger_chaos_dot_pathfinder"
+    },
+    {
+      "target_id": "melee_strike_duelist",
+      "route_family": "melee",
+      "main_skill_families": [
+        "Lightning Strike",
+        "Frost Blades",
+        "Molten Strike"
+      ],
+      "class_filter": [
+        "Duelist",
+        "Ranger",
+        "Marauder"
+      ],
+      "ascendancy_filter": [
+        "Slayer",
+        "Champion",
+        "Warden",
+        "Juggernaut"
+      ],
+      "variant_axes_to_sample": [
+        "non_crit_to_crit_swap",
+        "svalinn_or_rare_shield",
+        "two_hand_or_claw",
+        "bossing_or_mapper"
+      ],
+      "leveling_lane": "melee_strike_duelist"
+    },
+    {
+      "target_id": "melee_boneshatter",
+      "route_family": "melee",
+      "main_skill_families": [
+        "Boneshatter",
+        "Sunder"
+      ],
+      "class_filter": [
+        "Duelist",
+        "Marauder"
+      ],
+      "ascendancy_filter": [
+        "Slayer",
+        "Juggernaut"
+      ],
+      "variant_axes_to_sample": [
+        "trauma_tank_shell",
+        "two_hand_axe_or_mace",
+        "tainted_pact",
+        "hc_life_armour"
+      ],
+      "leveling_lane": "melee_boneshatter_duelist_marauder"
+    },
+    {
+      "target_id": "minion_srs_guardian_necro",
+      "route_family": "minion",
+      "main_skill_families": [
+        "Summon Raging Spirit",
+        "Poison SRS"
+      ],
+      "class_filter": [
+        "Templar",
+        "Witch"
+      ],
+      "ascendancy_filter": [
+        "Guardian",
+        "Necromancer"
+      ],
+      "variant_axes_to_sample": [
+        "guardian_leveling",
+        "poison_necro",
+        "ssf_budget",
+        "endgame_wand_or_poison_package"
+      ],
+      "preferred_creator_sources": [
+        {
+          "source_id": "youtube_ghazzytv_minion",
+          "label": "GhazzyTV broad minion build materials",
+          "url": "https://www.youtube.com/GhazzyTV",
+          "collection_priority": 1,
+          "notes": "Use as broad minion baseline source, especially when SRS/Spectre/AG support packages need cross-checking."
+        },
+        {
+          "source_id": "youtube_tori_sensei_minion",
+          "label": "토리센세 YouTube minion build materials",
+          "url": "https://www.youtube.com/@torisense",
+          "collection_priority": 2,
+          "notes": "Use for Korean minion leveling route checks, especially SRS-based campaign transitions."
+        }
+      ],
+      "leveling_lane": "minion_srs_templar_witch"
+    },
+    {
+      "target_id": "minion_poison_carrion_golem",
+      "route_family": "minion",
+      "main_skill_families": [
+        "Summon Carrion Golem",
+        "Poison Carrion Golem",
+        "Carrion Golem"
+      ],
+      "class_filter": [
+        "Witch"
+      ],
+      "ascendancy_filter": [
+        "Necromancer",
+        "Occultist",
+        "Elementalist"
+      ],
+      "variant_axes_to_sample": [
+        "poison_chance_package",
+        "golem_count",
+        "primordial_jewel_package",
+        "united_in_dream_or_alternative_weapon",
+        "ci_or_life_shell",
+        "spectre_ag_support_package",
+        "current_season_tori_sensei_setup"
+      ],
+      "preferred_creator_sources": [
+        {
+          "source_id": "youtube_tori_sensei_poison_carrion_golem",
+          "label": "토리센세 current-season Poison Carrion Golem materials",
+          "url": "https://www.youtube.com/@torisense",
+          "collection_priority": 1,
+          "known_public_hits": [
+            {
+              "label": "PoE 3.26 Poison Carrion Golem",
+              "video_url": "https://www.youtube.com/watch?v=WO2bjIZMrtQ",
+              "pob_urls_seen_in_search": [
+                "https://pobb.in/Gji0uiu1Aoog"
+              ]
+            }
+          ],
+          "notes": "User reports Tori-sensei's current-season preparation is Poison Carrion Golem. Current-season PoB is required before recommendation promotion."
+        },
+        {
+          "source_id": "youtube_ghazzytv_minion",
+          "label": "GhazzyTV minion/golem cross-check materials",
+          "url": "https://www.youtube.com/GhazzyTV",
+          "collection_priority": 2,
+          "notes": "Use as broad minion/golem support-package cross-check."
+        }
+      ],
+      "leveling_lane": "minion_poison_carrion_golem"
+    },
+    {
+      "target_id": "minion_spectre_necro",
+      "route_family": "minion",
+      "main_skill_families": [
+        "Raise Spectre",
+        "Forged Frostbearer",
+        "Hydra Spectre"
+      ],
+      "class_filter": [
+        "Witch"
+      ],
+      "ascendancy_filter": [
+        "Necromancer"
+      ],
+      "variant_axes_to_sample": [
+        "spectre_species",
+        "aura_stack",
+        "block_or_suppression",
+        "guardian_setup"
+      ],
+      "preferred_creator_sources": [
+        {
+          "source_id": "youtube_tori_sensei_spectre",
+          "label": "토리센세 Raise Spectre / counter-resistance Spectre materials",
+          "url": "https://www.youtube.com/@torisense",
+          "collection_priority": 1,
+          "known_public_hits": [
+            {
+              "label": "POE 3.26 Nec 가련한모독자 망령",
+              "video_url": "https://www.youtube.com/watch?v=JEUUOgkVvAo",
+              "pob_urls_seen_in_search": [
+                "https://pobb.in/7p4y5j5TYO0n",
+                "https://pobb.in/dTHjbYUrUGVT"
+              ]
+            },
+            {
+              "label": "Poe 3.28 Nec Counter-Resistance Specter",
+              "video_url": "https://www.youtube.com/watch?v=BJZL1t0pglM",
+              "pob_urls_seen_in_search": [
+                "https://pobb.in/oimmJKVwZB2e"
+              ]
+            },
+            {
+              "label": "Poe 3.27 Hydra / Raise Spectre related video",
+              "video_url": "https://www.youtube.com/watch?v=n1XJdZYbpgk",
+              "pob_urls_seen_in_search": []
+            }
+          ]
+        },
+        {
+          "source_id": "youtube_dconnic_wretched_defiler",
+          "label": "Dconnic Wretched Defiler / Raise Spectre materials",
+          "url": "https://www.youtube.com/@dconnic",
+          "collection_priority": 1,
+          "known_public_hits": [
+            {
+              "label": "In-Depth Wretched Defiler Summoner Leaguestart Guide 3.27",
+              "video_url": "https://www.youtube.com/watch?v=UK5i9eW3l7U",
+              "pob_source_url": "https://docs.google.com/spreadsheets/d/1691a_yJd-7efqQGJ2uLkIWPbbhFfrbimUp6HOiX5qQQ/edit?usp=sharing"
+            },
+            {
+              "label": "Wretched Defiler Spectre Summoner Updated Build Guide 3.28",
+              "video_url": "https://www.youtube.com/watch?v=UKpJ4Dzc4dA",
+              "pob_source_url": "https://docs.google.com/spreadsheets/d/1691a_yJd-7efqQGJ2uLkIWPbbhFfrbimUp6HOiX5qQQ/edit?usp=sharing"
+            },
+            {
+              "label": "Wretched Defiler Spectre Summoner Leveling Guide 3.26",
+              "video_url": "https://www.youtube.com/watch?v=h7Nn2QSwG4Y",
+              "pob_source_url": "https://docs.google.com/spreadsheets/d/1691a_yJd-7efqQGJ2uLkIWPbbhFfrbimUp6HOiX5qQQ/edit?usp=sharing"
+            }
+          ],
+          "notes": "YouTube descriptions point to a PoB spreadsheet; extract exact POE1 sheet rows before direct promotion."
+        },
+        {
+          "source_id": "youtube_ghazzytv_spectre",
+          "label": "GhazzyTV Spectre/minion guide hub",
+          "url": "https://www.youtube.com/GhazzyTV",
+          "collection_priority": 2,
+          "notes": "Use as broad minion/Spectre cross-check and written guide hub pairing source."
+        }
+      ],
+      "leveling_lane": "minion_spectre_necro"
+    },
+    {
+      "target_id": "minion_holy_relic_necro",
+      "route_family": "minion",
+      "main_skill_families": [
+        "Summon Holy Relic of Conviction"
+      ],
+      "class_filter": [
+        "Witch"
+      ],
+      "ascendancy_filter": [
+        "Necromancer"
+      ],
+      "variant_axes_to_sample": [
+        "absolution_leveling",
+        "lancing_steel_trigger",
+        "poison_package",
+        "block_or_life_stack"
+      ],
+      "preferred_creator_sources": [
+        {
+          "source_id": "youtube_tori_sensei_minion",
+          "label": "토리센세 YouTube minion build materials",
+          "url": "https://www.youtube.com/@torisense",
+          "collection_priority": 2,
+          "notes": "Use as a minion leveling and spectre/AG support cross-check; keep Holy Relic-specific final PoB evidence separate."
+        }
+      ],
+      "leveling_lane": "minion_holy_relic_necro"
+    },
+    {
+      "target_id": "totem_wander_hierophant",
+      "route_family": "totem",
+      "main_skill_families": [
+        "Kinetic Fusillade",
+        "Kinetic Fusillade Ballistae"
+      ],
+      "class_filter": [
+        "Templar"
+      ],
+      "ascendancy_filter": [
+        "Hierophant"
+      ],
+      "variant_axes_to_sample": [
+        "ssf_gear",
+        "trade_gear",
+        "strength_stack_transition",
+        "wand_attack_reservation"
+      ],
+      "leveling_lane": "totem_wander_hierophant"
+    },
+    {
+      "target_id": "totem_fire_hierophant",
+      "route_family": "totem",
+      "main_skill_families": [
+        "Holy Flame Totem",
+        "Shockwave Totem"
+      ],
+      "class_filter": [
+        "Templar"
+      ],
+      "ascendancy_filter": [
+        "Hierophant"
+      ],
+      "variant_axes_to_sample": [
+        "starter_fire_totem",
+        "physical_spell_totem",
+        "sanctum_or_bossing",
+        "hierophant_defense_shell"
+      ],
+      "leveling_lane": "totem_fire_hierophant"
+    },
+    {
+      "target_id": "mine_exsanguinate_trickster",
+      "route_family": "mine",
+      "main_skill_families": [
+        "Exsanguinate Mine",
+        "Exsanguinate Reap Mines",
+        "Cold Exsanguinate Mine"
+      ],
+      "class_filter": [
+        "Shadow"
+      ],
+      "ascendancy_filter": [
+        "Trickster"
+      ],
+      "variant_axes_to_sample": [
+        "cold_conversion",
+        "reap_single_target_swap",
+        "heatshiver_or_rare_helmet",
+        "hrimsorrow_or_rare_conversion_gloves",
+        "kikazaru_life_regen",
+        "trickster_evasion_energy_shield_suppression",
+        "league_start_to_endgame_budget"
+      ],
+      "preferred_creator_sources": [
+        {
+          "source_id": "maxroll_cptn_garbage_exsanguinate_miner",
+          "label": "Cptn Garbage / Maxroll Exsanguinate Miner Trickster guide",
+          "url": "https://maxroll.gg/poe/build-guides/exsanguinate-miner-trickster-league-starter",
+          "collection_priority": 1,
+          "notes": "User-identified source for Exsanguinate Miner Trickster. Collect exact Maxroll PoB/stage notes manually; do not scrape at scale."
+        },
+        {
+          "source_id": "youtube_tori_sensei",
+          "label": "토리센세 YouTube Exsanguinate/Reap Mine Trickster materials",
+          "url": "https://www.youtube.com/@torisense/playlists",
+          "collection_priority": 2
+        },
+        {
+          "source_id": "youtube_fearlessdumb0_exsanguinate_reap_miner",
+          "label": "FearlessDumb0 Exsanguinate/Reap Miner materials",
+          "url": "https://www.youtube.com/watch?v=ZEvuQ5krLwQ",
+          "collection_priority": 1,
+          "known_public_hits": [
+            {
+              "label": "3.28 Exsanguinate/Reap Miner Trickster league-start PoB",
+              "video_url": "https://www.youtube.com/watch?v=ZEvuQ5krLwQ",
+              "pob_urls_seen_in_search": [
+                "https://pobb.in/3J6Dm6pkA6-5",
+                "https://pobb.in/ZFC1itVixJSB"
+              ]
+            },
+            {
+              "label": "3.27 Exsanguinate/Reap Miner Trickster guide",
+              "video_url": "https://www.youtube.com/watch?v=uHkhSNf91gM",
+              "pob_urls_seen_in_search": [
+                "https://pobb.in/8cJ6kaa0XPZG"
+              ]
+            }
+          ],
+          "notes": "3.28 staged PoB is promoted into the supplemental representative profile."
+        },
+        {
+          "source_id": "youtube_jorgen_mines",
+          "label": "Jorgen mine build materials",
+          "url": "https://www.youtube.com/@JorgenPOE",
+          "collection_priority": 3,
+          "notes": "User-identified general mine source; collect exact build-family PoBs before promotion."
+        },
+        {
+          "source_id": "youtube_conner_converse_mine_theory",
+          "label": "Conner Converse mine/stacker theorycraft cross-checks",
+          "url": "https://www.youtube.com/@ConnerConverse",
+          "collection_priority": 4,
+          "notes": "Use for high-budget scaling and bait-risk checks, not beginner-safe promotion by channel name alone."
+        }
+      ],
+      "secondary_reference_families": [
+        "fearlessdumb0_exsanguinate_reap_miner",
+        "odealo_cold_exsanguinate_miner_trickster",
+        "maxroll_exsanguinate_miner_trickster"
+      ],
+      "leveling_lane": "mine_exsanguinate_trickster"
+    }
+  ],
+  "sample_rows": []
+}

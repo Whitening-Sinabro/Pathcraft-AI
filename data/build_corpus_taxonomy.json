@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-07-08",
+  "description": "Taxonomy for POE1 build corpus records. Used for archetype tagging, phase variants, evidence scoring, and meta snapshots.",
+  "role_tags": [
+    "league_starter",
+    "campaign_smooth",
+    "mapper",
+    "bosser",
+    "tanky",
+    "ssf_friendly",
+    "hc_viable",
+    "cheap_entry",
+    "high_ceiling",
+    "reroll_target"
+  ],
+  "content_tags": [
+    "delve_good",
+    "sanctum_good",
+    "heist_good",
+    "legion_good",
+    "expedition_good",
+    "blight_good",
+    "boss_rush_good"
+  ],
+  "mechanic_tags": [
+    "requires_respec",
+    "requires_unique_to_function",
+    "attribute_stacker",
+    "crit_scaler",
+    "totem",
+    "mine",
+    "dot",
+    "trigger",
+    "minion",
+    "melee",
+    "projectile",
+    "spell",
+    "attack",
+    "hybrid_defense"
+  ],
+  "league_windows": [
+    "early",
+    "mid",
+    "late"
+  ],
+  "build_phases": [
+    "campaign_start",
+    "campaign_mid",
+    "campaign_late",
+    "maps_entry",
+    "early_endgame",
+    "mid_endgame",
+    "late_endgame",
+    "high_end"
+  ],
+  "evidence_types": [
+    "pob",
+    "video_transcript",
+    "video_description",
+    "poe_ninja",
+    "forum_guide",
+    "manual_curated"
+  ],
+  "confidence_levels": [
+    "high",
+    "medium",
+    "low",
+    "speculative"
+  ],
+  "meta_popularity_basis": [
+    "poe_ninja_share",
+    "creator_coverage",
+    "race_presence",
+    "community_index_presence",
+    "manual_curator_weight"
+  ],
+  "recommended_minimums": {
+    "representatives_per_role_tag": 3,
+    "phase_variants_per_archetype": 3,
+    "evidence_items_per_archetype": 2
+  },
+  "patch_statuses": [
+    "historical_supported",
+    "current_live",
+    "watchlist",
+    "announced_only",
+    "speculative_only"
+  ]
+}

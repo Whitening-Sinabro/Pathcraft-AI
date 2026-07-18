@@ -1,0 +1,1698 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_build_corpus_collection_backlog",
+  "target_dataset": "data/build_corpus_collection_targets_v1.json",
+  "real_case_dataset": "data/build_variant_real_cases_v1.json",
+  "per_patch_target": {
+    "canonical_build_cases": 20,
+    "minimum_state_snapshots_per_case": 2,
+    "minimum_state_snapshots_per_patch": 40,
+    "composition": {
+      "stable_shells": 12,
+      "transition_cases": 4,
+      "failure_edge_cases": 4
+    }
+  },
+  "totals": {
+    "confirmed_3_22_to_3_28": {
+      "current_build_cases": 49,
+      "current_state_snapshots": 133,
+      "target_build_cases": 140,
+      "target_state_snapshots": 280,
+      "case_deficit": 91,
+      "snapshot_deficit": 147
+    },
+    "operational_including_watchlist": {
+      "current_build_cases": 49,
+      "current_state_snapshots": 133,
+      "target_build_cases": 160,
+      "target_state_snapshots": 320,
+      "case_deficit": 111,
+      "snapshot_deficit": 187
+    }
+  },
+  "priority_patches": [
+    {
+      "patch": "3.22",
+      "patch_target_status": "confirmed_collection",
+      "case_deficit": 15,
+      "snapshot_deficit": 26,
+      "lane_deficit_total": 7,
+      "planned_slot_count": 15
+    },
+    {
+      "patch": "3.23",
+      "patch_target_status": "confirmed_collection",
+      "case_deficit": 14,
+      "snapshot_deficit": 23,
+      "lane_deficit_total": 6,
+      "planned_slot_count": 14
+    },
+    {
+      "patch": "3.27",
+      "patch_target_status": "confirmed_collection",
+      "case_deficit": 14,
+      "snapshot_deficit": 26,
+      "lane_deficit_total": 6,
+      "planned_slot_count": 14
+    },
+    {
+      "patch": "3.26",
+      "patch_target_status": "confirmed_collection",
+      "case_deficit": 13,
+      "snapshot_deficit": 21,
+      "lane_deficit_total": 6,
+      "planned_slot_count": 13
+    },
+    {
+      "patch": "3.28",
+      "patch_target_status": "confirmed_collection",
+      "case_deficit": 12,
+      "snapshot_deficit": 18,
+      "lane_deficit_total": 6,
+      "planned_slot_count": 12
+    },
+    {
+      "patch": "3.25",
+      "patch_target_status": "confirmed_collection",
+      "case_deficit": 12,
+      "snapshot_deficit": 19,
+      "lane_deficit_total": 5,
+      "planned_slot_count": 12
+    },
+    {
+      "patch": "3.24",
+      "patch_target_status": "confirmed_collection",
+      "case_deficit": 11,
+      "snapshot_deficit": 14,
+      "lane_deficit_total": 4,
+      "planned_slot_count": 11
+    },
+    {
+      "patch": "3.29",
+      "patch_target_status": "watchlist",
+      "case_deficit": 20,
+      "snapshot_deficit": 40,
+      "lane_deficit_total": 12,
+      "planned_slot_count": 20
+    }
+  ],
+  "by_patch": [
+    {
+      "patch": "3.22",
+      "current_build_cases": 5,
+      "current_state_snapshots": 14,
+      "complete_case_count": 5,
+      "transition_signal_count": 4,
+      "failure_edge_signal_count": 0,
+      "source_status_counts": {
+        "needs_patch_verification": 4,
+        "provisional_seeded": 1
+      },
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 1,
+        "melee_strike_slam": 1,
+        "spell_hit_brand_selfcast": 0,
+        "dot_ailment_dot": 2,
+        "trap_mine_totem": 1,
+        "minion_trigger_autobomber_special": 0
+      },
+      "target_build_cases": 20,
+      "target_state_snapshots": 40,
+      "case_deficit": 15,
+      "snapshot_deficit": 26,
+      "patch_target_status": "confirmed_collection",
+      "lane_coverage": [
+        {
+          "lane_id": "bow_projectile_attack_mapper",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "melee_strike_slam",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "spell_hit_brand_selfcast",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "dot_ailment_dot",
+          "current_cases": 2,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "trap_mine_totem",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "minion_trigger_autobomber_special",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        }
+      ],
+      "planned_slots": [
+        {
+          "slot_id": "3.22_stable_shell_backfill_bow_projectile_attack_mapper_01",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "bow_projectile_attack_mapper",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_stable_shell_backfill_melee_strike_slam_02",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "melee_strike_slam",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_stable_shell_backfill_spell_hit_brand_selfcast_03",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "spell_hit_brand_selfcast",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_stable_shell_backfill_spell_hit_brand_selfcast_04",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "spell_hit_brand_selfcast",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_stable_shell_backfill_trap_mine_totem_05",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "trap_mine_totem",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_stable_shell_backfill_minion_trigger_autobomber_special_06",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_stable_shell_backfill_minion_trigger_autobomber_special_07",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_failure_edge_case_backfill_general_01",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_failure_edge_case_backfill_general_02",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_failure_edge_case_backfill_general_03",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_failure_edge_case_backfill_general_04",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_general_case_backfill_general_01",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_general_case_backfill_general_02",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_general_case_backfill_general_03",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.22_general_case_backfill_general_04",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        }
+      ]
+    },
+    {
+      "patch": "3.23",
+      "current_build_cases": 6,
+      "current_state_snapshots": 17,
+      "complete_case_count": 6,
+      "transition_signal_count": 6,
+      "failure_edge_signal_count": 0,
+      "source_status_counts": {
+        "blocked_on_patch_specific_ingest": 1,
+        "needs_patch_verification": 4,
+        "provisional_seeded": 1
+      },
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 2,
+        "melee_strike_slam": 1,
+        "spell_hit_brand_selfcast": 1,
+        "dot_ailment_dot": 0,
+        "trap_mine_totem": 2,
+        "minion_trigger_autobomber_special": 0
+      },
+      "target_build_cases": 20,
+      "target_state_snapshots": 40,
+      "case_deficit": 14,
+      "snapshot_deficit": 23,
+      "patch_target_status": "confirmed_collection",
+      "lane_coverage": [
+        {
+          "lane_id": "bow_projectile_attack_mapper",
+          "current_cases": 2,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "melee_strike_slam",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "spell_hit_brand_selfcast",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "dot_ailment_dot",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "trap_mine_totem",
+          "current_cases": 2,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "minion_trigger_autobomber_special",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        }
+      ],
+      "planned_slots": [
+        {
+          "slot_id": "3.23_stable_shell_backfill_melee_strike_slam_01",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "melee_strike_slam",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_stable_shell_backfill_spell_hit_brand_selfcast_02",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "spell_hit_brand_selfcast",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_stable_shell_backfill_dot_ailment_dot_03",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_stable_shell_backfill_dot_ailment_dot_04",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_stable_shell_backfill_minion_trigger_autobomber_special_05",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_stable_shell_backfill_minion_trigger_autobomber_special_06",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_failure_edge_case_backfill_general_01",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_failure_edge_case_backfill_general_02",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_failure_edge_case_backfill_general_03",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_failure_edge_case_backfill_general_04",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_general_case_backfill_general_01",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_general_case_backfill_general_02",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_general_case_backfill_general_03",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.23_general_case_backfill_general_04",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        }
+      ]
+    },
+    {
+      "patch": "3.24",
+      "current_build_cases": 9,
+      "current_state_snapshots": 26,
+      "complete_case_count": 9,
+      "transition_signal_count": 9,
+      "failure_edge_signal_count": 0,
+      "source_status_counts": {
+        "ready_for_variant_labeling": 7,
+        "needs_patch_verification": 1,
+        "provisional_seeded": 1
+      },
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 1,
+        "melee_strike_slam": 1,
+        "spell_hit_brand_selfcast": 2,
+        "dot_ailment_dot": 0,
+        "trap_mine_totem": 3,
+        "minion_trigger_autobomber_special": 2
+      },
+      "target_build_cases": 20,
+      "target_state_snapshots": 40,
+      "case_deficit": 11,
+      "snapshot_deficit": 14,
+      "patch_target_status": "confirmed_collection",
+      "lane_coverage": [
+        {
+          "lane_id": "bow_projectile_attack_mapper",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "melee_strike_slam",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "spell_hit_brand_selfcast",
+          "current_cases": 2,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "dot_ailment_dot",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "trap_mine_totem",
+          "current_cases": 3,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "minion_trigger_autobomber_special",
+          "current_cases": 2,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        }
+      ],
+      "planned_slots": [
+        {
+          "slot_id": "3.24_stable_shell_backfill_bow_projectile_attack_mapper_01",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "bow_projectile_attack_mapper",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.24_stable_shell_backfill_melee_strike_slam_02",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "melee_strike_slam",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.24_stable_shell_backfill_dot_ailment_dot_03",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.24_stable_shell_backfill_dot_ailment_dot_04",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.24_failure_edge_case_backfill_general_01",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.24_failure_edge_case_backfill_general_02",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.24_failure_edge_case_backfill_general_03",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.24_failure_edge_case_backfill_general_04",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.24_general_case_backfill_general_01",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.24_general_case_backfill_general_02",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.24_general_case_backfill_general_03",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        }
+      ]
+    },
+    {
+      "patch": "3.25",
+      "current_build_cases": 8,
+      "current_state_snapshots": 21,
+      "complete_case_count": 8,
+      "transition_signal_count": 6,
+      "failure_edge_signal_count": 0,
+      "source_status_counts": {
+        "ready_for_cross_patch_labeling": 2,
+        "needs_patch_verification": 6
+      },
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 1,
+        "melee_strike_slam": 3,
+        "spell_hit_brand_selfcast": 2,
+        "dot_ailment_dot": 0,
+        "trap_mine_totem": 2,
+        "minion_trigger_autobomber_special": 0
+      },
+      "target_build_cases": 20,
+      "target_state_snapshots": 40,
+      "case_deficit": 12,
+      "snapshot_deficit": 19,
+      "patch_target_status": "confirmed_collection",
+      "lane_coverage": [
+        {
+          "lane_id": "bow_projectile_attack_mapper",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "melee_strike_slam",
+          "current_cases": 3,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "spell_hit_brand_selfcast",
+          "current_cases": 2,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "dot_ailment_dot",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "trap_mine_totem",
+          "current_cases": 2,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "minion_trigger_autobomber_special",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        }
+      ],
+      "planned_slots": [
+        {
+          "slot_id": "3.25_stable_shell_backfill_bow_projectile_attack_mapper_01",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "bow_projectile_attack_mapper",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_stable_shell_backfill_dot_ailment_dot_02",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_stable_shell_backfill_dot_ailment_dot_03",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_stable_shell_backfill_minion_trigger_autobomber_special_04",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_stable_shell_backfill_minion_trigger_autobomber_special_05",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_failure_edge_case_backfill_general_01",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_failure_edge_case_backfill_general_02",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_failure_edge_case_backfill_general_03",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_failure_edge_case_backfill_general_04",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_general_case_backfill_general_01",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_general_case_backfill_general_02",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.25_general_case_backfill_general_03",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        }
+      ]
+    },
+    {
+      "patch": "3.26",
+      "current_build_cases": 7,
+      "current_state_snapshots": 19,
+      "complete_case_count": 7,
+      "transition_signal_count": 6,
+      "failure_edge_signal_count": 0,
+      "source_status_counts": {
+        "ready_for_variant_labeling": 1,
+        "provisional_seeded": 4,
+        "ready_for_cross_patch_labeling": 2
+      },
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 1,
+        "melee_strike_slam": 2,
+        "spell_hit_brand_selfcast": 3,
+        "dot_ailment_dot": 0,
+        "trap_mine_totem": 1,
+        "minion_trigger_autobomber_special": 0
+      },
+      "target_build_cases": 20,
+      "target_state_snapshots": 40,
+      "case_deficit": 13,
+      "snapshot_deficit": 21,
+      "patch_target_status": "confirmed_collection",
+      "lane_coverage": [
+        {
+          "lane_id": "bow_projectile_attack_mapper",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "melee_strike_slam",
+          "current_cases": 2,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "spell_hit_brand_selfcast",
+          "current_cases": 3,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "dot_ailment_dot",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "trap_mine_totem",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "minion_trigger_autobomber_special",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        }
+      ],
+      "planned_slots": [
+        {
+          "slot_id": "3.26_stable_shell_backfill_bow_projectile_attack_mapper_01",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "bow_projectile_attack_mapper",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_stable_shell_backfill_dot_ailment_dot_02",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_stable_shell_backfill_dot_ailment_dot_03",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_stable_shell_backfill_trap_mine_totem_04",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "trap_mine_totem",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_stable_shell_backfill_minion_trigger_autobomber_special_05",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_stable_shell_backfill_minion_trigger_autobomber_special_06",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_failure_edge_case_backfill_general_01",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_failure_edge_case_backfill_general_02",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_failure_edge_case_backfill_general_03",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_failure_edge_case_backfill_general_04",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_general_case_backfill_general_01",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_general_case_backfill_general_02",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.26_general_case_backfill_general_03",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        }
+      ]
+    },
+    {
+      "patch": "3.27",
+      "current_build_cases": 6,
+      "current_state_snapshots": 14,
+      "complete_case_count": 6,
+      "transition_signal_count": 4,
+      "failure_edge_signal_count": 0,
+      "source_status_counts": {
+        "ready_for_cross_patch_labeling": 1,
+        "needs_patch_verification": 2,
+        "provisional_seeded": 3
+      },
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 0,
+        "melee_strike_slam": 1,
+        "spell_hit_brand_selfcast": 2,
+        "dot_ailment_dot": 1,
+        "trap_mine_totem": 1,
+        "minion_trigger_autobomber_special": 1
+      },
+      "target_build_cases": 20,
+      "target_state_snapshots": 40,
+      "case_deficit": 14,
+      "snapshot_deficit": 26,
+      "patch_target_status": "confirmed_collection",
+      "lane_coverage": [
+        {
+          "lane_id": "bow_projectile_attack_mapper",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "melee_strike_slam",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "spell_hit_brand_selfcast",
+          "current_cases": 2,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "dot_ailment_dot",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "trap_mine_totem",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "minion_trigger_autobomber_special",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        }
+      ],
+      "planned_slots": [
+        {
+          "slot_id": "3.27_stable_shell_backfill_bow_projectile_attack_mapper_01",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "bow_projectile_attack_mapper",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_stable_shell_backfill_bow_projectile_attack_mapper_02",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "bow_projectile_attack_mapper",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_stable_shell_backfill_melee_strike_slam_03",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "melee_strike_slam",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_stable_shell_backfill_dot_ailment_dot_04",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_stable_shell_backfill_trap_mine_totem_05",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "trap_mine_totem",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_stable_shell_backfill_minion_trigger_autobomber_special_06",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_failure_edge_case_backfill_general_01",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_failure_edge_case_backfill_general_02",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_failure_edge_case_backfill_general_03",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_failure_edge_case_backfill_general_04",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_general_case_backfill_general_01",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_general_case_backfill_general_02",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_general_case_backfill_general_03",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.27_general_case_backfill_general_04",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        }
+      ]
+    },
+    {
+      "patch": "3.28",
+      "current_build_cases": 8,
+      "current_state_snapshots": 22,
+      "complete_case_count": 8,
+      "transition_signal_count": 8,
+      "failure_edge_signal_count": 0,
+      "source_status_counts": {
+        "ready_for_variant_labeling": 2,
+        "needs_patch_verification": 2,
+        "provisional_seeded": 4
+      },
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 1,
+        "melee_strike_slam": 1,
+        "spell_hit_brand_selfcast": 3,
+        "dot_ailment_dot": 1,
+        "trap_mine_totem": 0,
+        "minion_trigger_autobomber_special": 1,
+        "unclassified": 1
+      },
+      "target_build_cases": 20,
+      "target_state_snapshots": 40,
+      "case_deficit": 12,
+      "snapshot_deficit": 18,
+      "patch_target_status": "confirmed_collection",
+      "lane_coverage": [
+        {
+          "lane_id": "bow_projectile_attack_mapper",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "melee_strike_slam",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "spell_hit_brand_selfcast",
+          "current_cases": 3,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 0
+        },
+        {
+          "lane_id": "dot_ailment_dot",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        },
+        {
+          "lane_id": "trap_mine_totem",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "minion_trigger_autobomber_special",
+          "current_cases": 1,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 1
+        }
+      ],
+      "planned_slots": [
+        {
+          "slot_id": "3.28_stable_shell_backfill_bow_projectile_attack_mapper_01",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "bow_projectile_attack_mapper",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_stable_shell_backfill_melee_strike_slam_02",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "melee_strike_slam",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_stable_shell_backfill_dot_ailment_dot_03",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_stable_shell_backfill_trap_mine_totem_04",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "trap_mine_totem",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_stable_shell_backfill_trap_mine_totem_05",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "trap_mine_totem",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_stable_shell_backfill_minion_trigger_autobomber_special_06",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_failure_edge_case_backfill_general_01",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_failure_edge_case_backfill_general_02",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_failure_edge_case_backfill_general_03",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_failure_edge_case_backfill_general_04",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_general_case_backfill_general_01",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.28_general_case_backfill_general_02",
+          "slot_type": "general_case_backfill",
+          "lane_id": null,
+          "reason": "patch_total_case_target_not_met",
+          "status": "needs_source_hunt"
+        }
+      ]
+    },
+    {
+      "patch": "3.29",
+      "current_build_cases": 0,
+      "current_state_snapshots": 0,
+      "complete_case_count": 0,
+      "transition_signal_count": 0,
+      "failure_edge_signal_count": 0,
+      "source_status_counts": {},
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 0,
+        "melee_strike_slam": 0,
+        "spell_hit_brand_selfcast": 0,
+        "dot_ailment_dot": 0,
+        "trap_mine_totem": 0,
+        "minion_trigger_autobomber_special": 0
+      },
+      "target_build_cases": 20,
+      "target_state_snapshots": 40,
+      "case_deficit": 20,
+      "snapshot_deficit": 40,
+      "patch_target_status": "watchlist",
+      "lane_coverage": [
+        {
+          "lane_id": "bow_projectile_attack_mapper",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "melee_strike_slam",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "spell_hit_brand_selfcast",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "dot_ailment_dot",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "trap_mine_totem",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        },
+        {
+          "lane_id": "minion_trigger_autobomber_special",
+          "current_cases": 0,
+          "stable_shell_target": 2,
+          "stable_shell_deficit": 2
+        }
+      ],
+      "planned_slots": [
+        {
+          "slot_id": "3.29_stable_shell_backfill_bow_projectile_attack_mapper_01",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "bow_projectile_attack_mapper",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_bow_projectile_attack_mapper_02",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "bow_projectile_attack_mapper",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_melee_strike_slam_03",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "melee_strike_slam",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_melee_strike_slam_04",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "melee_strike_slam",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_spell_hit_brand_selfcast_05",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "spell_hit_brand_selfcast",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_spell_hit_brand_selfcast_06",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "spell_hit_brand_selfcast",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_dot_ailment_dot_07",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_dot_ailment_dot_08",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "dot_ailment_dot",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_trap_mine_totem_09",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "trap_mine_totem",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_trap_mine_totem_10",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "trap_mine_totem",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_minion_trigger_autobomber_special_11",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_stable_shell_backfill_minion_trigger_autobomber_special_12",
+          "slot_type": "stable_shell_backfill",
+          "lane_id": "minion_trigger_autobomber_special",
+          "reason": "lane_has_fewer_than_two_stable_shell_candidates",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_failure_edge_case_backfill_general_01",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_failure_edge_case_backfill_general_02",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_failure_edge_case_backfill_general_03",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_failure_edge_case_backfill_general_04",
+          "slot_type": "failure_edge_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_negative_or_bricked_build_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_transition_case_backfill_general_01",
+          "slot_type": "transition_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_progression_or_respec_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_transition_case_backfill_general_02",
+          "slot_type": "transition_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_progression_or_respec_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_transition_case_backfill_general_03",
+          "slot_type": "transition_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_progression_or_respec_examples",
+          "status": "needs_source_hunt"
+        },
+        {
+          "slot_id": "3.29_transition_case_backfill_general_04",
+          "slot_type": "transition_case_backfill",
+          "lane_id": null,
+          "reason": "patch_needs_progression_or_respec_examples",
+          "status": "needs_source_hunt"
+        }
+      ]
+    }
+  ],
+  "case_lanes": [
+    {
+      "patch": "3.22",
+      "case_id": "3.22_boneshatter_juggernaut_v1",
+      "archetype_id": "boneshatter_juggernaut",
+      "lane_id": "melee_strike_slam"
+    },
+    {
+      "patch": "3.22",
+      "case_id": "3.22_corrupting_fever_champion_v1",
+      "archetype_id": "corrupting_fever_champion",
+      "lane_id": "dot_ailment_dot"
+    },
+    {
+      "patch": "3.22",
+      "case_id": "3.22_lightning_arrow_deadeye_v1",
+      "archetype_id": "lightning_arrow_deadeye",
+      "lane_id": "bow_projectile_attack_mapper"
+    },
+    {
+      "patch": "3.22",
+      "case_id": "3.22_shockwave_totems_hierophant_v1",
+      "archetype_id": "shockwave_totems_hierophant",
+      "lane_id": "trap_mine_totem"
+    },
+    {
+      "patch": "3.22",
+      "case_id": "3.22_toxic_rain_ranger_v1",
+      "archetype_id": "toxic_rain_ranger",
+      "lane_id": "dot_ailment_dot"
+    },
+    {
+      "patch": "3.23",
+      "case_id": "3.23_boneshatter_juggernaut_v1",
+      "archetype_id": "boneshatter_juggernaut",
+      "lane_id": "melee_strike_slam"
+    },
+    {
+      "patch": "3.23",
+      "case_id": "3.23_hexblast_miner_saboteur_v1",
+      "archetype_id": "hexblast_miner_saboteur",
+      "lane_id": "trap_mine_totem"
+    },
+    {
+      "patch": "3.23",
+      "case_id": "3.23_ice_shot_deadeye_v1",
+      "archetype_id": "ice_shot_deadeye",
+      "lane_id": "bow_projectile_attack_mapper"
+    },
+    {
+      "patch": "3.23",
+      "case_id": "3.23_lightning_arrow_deadeye_v1",
+      "archetype_id": "lightning_arrow_deadeye",
+      "lane_id": "bow_projectile_attack_mapper"
+    },
+    {
+      "patch": "3.23",
+      "case_id": "3.23_penance_brand_inquisitor_v1",
+      "archetype_id": "penance_brand_inquisitor",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.23",
+      "case_id": "3.23_shockwave_totems_hierophant_v1",
+      "archetype_id": "shockwave_totems_hierophant",
+      "lane_id": "trap_mine_totem"
+    },
+    {
+      "patch": "3.24",
+      "case_id": "3.24_boneshatter_juggernaut_v1",
+      "archetype_id": "boneshatter_juggernaut",
+      "lane_id": "melee_strike_slam"
+    },
+    {
+      "patch": "3.24",
+      "case_id": "3.24_detonate_dead_caster_v1",
+      "archetype_id": "detonate_dead_caster",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.24",
+      "case_id": "3.24_explosive_arrow_ballista_champion_v1",
+      "archetype_id": "explosive_arrow_ballista_champion",
+      "lane_id": "trap_mine_totem"
+    },
+    {
+      "patch": "3.24",
+      "case_id": "3.24_exsanguinate_mine_trickster_v1",
+      "archetype_id": "exsanguinate_mine_trickster",
+      "lane_id": "trap_mine_totem"
+    },
+    {
+      "patch": "3.24",
+      "case_id": "3.24_lightning_arrow_deadeye_v1",
+      "archetype_id": "lightning_arrow_deadeye",
+      "lane_id": "bow_projectile_attack_mapper"
+    },
+    {
+      "patch": "3.24",
+      "case_id": "3.24_penance_brand_inquisitor_v1",
+      "archetype_id": "penance_brand_inquisitor",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.24",
+      "case_id": "3.24_raise_spectre_necromancer_v1",
+      "archetype_id": "raise_spectre_necromancer",
+      "lane_id": "minion_trigger_autobomber_special"
+    },
+    {
+      "patch": "3.24",
+      "case_id": "3.24_righteous_fire_chieftain_v1",
+      "archetype_id": "righteous_fire_chieftain",
+      "lane_id": "trap_mine_totem"
+    },
+    {
+      "patch": "3.24",
+      "case_id": "3.24_summon_skeletons_necromancer_v1",
+      "archetype_id": "summon_skeletons_necromancer",
+      "lane_id": "minion_trigger_autobomber_special"
+    },
+    {
+      "patch": "3.25",
+      "case_id": "3.25_ball_lightning_caster_v1",
+      "archetype_id": "ball_lightning_caster",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.25",
+      "case_id": "3.25_boneshatter_juggernaut_v1",
+      "archetype_id": "boneshatter_juggernaut",
+      "lane_id": "melee_strike_slam"
+    },
+    {
+      "patch": "3.25",
+      "case_id": "3.25_hexblast_miner_saboteur_v1",
+      "archetype_id": "hexblast_miner_saboteur",
+      "lane_id": "trap_mine_totem"
+    },
+    {
+      "patch": "3.25",
+      "case_id": "3.25_lacerate_duelist_v1",
+      "archetype_id": "lacerate_duelist",
+      "lane_id": "melee_strike_slam"
+    },
+    {
+      "patch": "3.25",
+      "case_id": "3.25_lightning_arrow_deadeye_v1",
+      "archetype_id": "lightning_arrow_deadeye",
+      "lane_id": "bow_projectile_attack_mapper"
+    },
+    {
+      "patch": "3.25",
+      "case_id": "3.25_lightning_strike_deadeye_or_warden_v1",
+      "archetype_id": "lightning_strike_deadeye_or_warden",
+      "lane_id": "melee_strike_slam"
+    },
+    {
+      "patch": "3.25",
+      "case_id": "3.25_righteous_fire_chieftain_v1",
+      "archetype_id": "righteous_fire_chieftain",
+      "lane_id": "trap_mine_totem"
+    },
+    {
+      "patch": "3.25",
+      "case_id": "3.25_spark_caster_v1",
+      "archetype_id": "spark_caster",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.26",
+      "case_id": "3.26_ball_lightning_caster_v1",
+      "archetype_id": "ball_lightning_caster",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.26",
+      "case_id": "3.26_boneshatter_juggernaut_v1",
+      "archetype_id": "boneshatter_juggernaut",
+      "lane_id": "melee_strike_slam"
+    },
+    {
+      "patch": "3.26",
+      "case_id": "3.26_earthquake_marauder_v1",
+      "archetype_id": "earthquake_marauder",
+      "lane_id": "melee_strike_slam"
+    },
+    {
+      "patch": "3.26",
+      "case_id": "3.26_ice_nova_caster_v1",
+      "archetype_id": "ice_nova_caster",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.26",
+      "case_id": "3.26_lightning_arrow_deadeye_v1",
+      "archetype_id": "lightning_arrow_deadeye",
+      "lane_id": "bow_projectile_attack_mapper"
+    },
+    {
+      "patch": "3.26",
+      "case_id": "3.26_penance_brand_inquisitor_v1",
+      "archetype_id": "penance_brand_inquisitor",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.26",
+      "case_id": "3.26_siege_ballista_hierophant_v1",
+      "archetype_id": "siege_ballista_hierophant",
+      "lane_id": "trap_mine_totem"
+    },
+    {
+      "patch": "3.27",
+      "case_id": "3.27_detonate_dead_caster_v1",
+      "archetype_id": "detonate_dead_caster",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.27",
+      "case_id": "3.27_dominating_blow_guardian_v1",
+      "archetype_id": "dominating_blow_guardian",
+      "lane_id": "minion_trigger_autobomber_special"
+    },
+    {
+      "patch": "3.27",
+      "case_id": "3.27_ice_nova_caster_v1",
+      "archetype_id": "ice_nova_caster",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.27",
+      "case_id": "3.27_lacerate_duelist_v1",
+      "archetype_id": "lacerate_duelist",
+      "lane_id": "melee_strike_slam"
+    },
+    {
+      "patch": "3.27",
+      "case_id": "3.27_pyroclast_mine_saboteur_v1",
+      "archetype_id": "pyroclast_mine_saboteur",
+      "lane_id": "trap_mine_totem"
+    },
+    {
+      "patch": "3.27",
+      "case_id": "3.27_toxic_rain_pathfinder_v1",
+      "archetype_id": "toxic_rain_pathfinder",
+      "lane_id": "dot_ailment_dot"
+    },
+    {
+      "patch": "3.28",
+      "case_id": "3.28_blight_of_contagion_trickster_v1",
+      "archetype_id": "blight_of_contagion_trickster",
+      "lane_id": "dot_ailment_dot"
+    },
+    {
+      "patch": "3.28",
+      "case_id": "3.28_cold_snap_of_power_hierophant_v1",
+      "archetype_id": "cold_snap_of_power_hierophant",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.28",
+      "case_id": "3.28_dominating_blow_guardian_v1",
+      "archetype_id": "dominating_blow_guardian",
+      "lane_id": "minion_trigger_autobomber_special"
+    },
+    {
+      "patch": "3.28",
+      "case_id": "3.28_kinetic_fusillade_of_detonation_v1",
+      "archetype_id": "kinetic_fusillade_of_detonation_wander",
+      "lane_id": "bow_projectile_attack_mapper"
+    },
+    {
+      "patch": "3.28",
+      "case_id": "3.28_penance_brand_inquisitor_v1",
+      "archetype_id": "penance_brand_inquisitor",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.28",
+      "case_id": "3.28_shock_nova_of_procession_hierophant_v1",
+      "archetype_id": "shock_nova_of_procession_hierophant",
+      "lane_id": "spell_hit_brand_selfcast"
+    },
+    {
+      "patch": "3.28",
+      "case_id": "3.28_strength_stacker_juggernaut_v1",
+      "archetype_id": "strength_stacker_juggernaut",
+      "lane_id": "melee_strike_slam"
+    },
+    {
+      "patch": "3.28",
+      "case_id": "3.28_zenith_strength_stacker_juggernaut_v1",
+      "archetype_id": "strength_stacker_juggernaut",
+      "lane_id": "unclassified"
+    }
+  ]
+}

@@ -1,0 +1,965 @@
+{
+  "dataset_kind": "poe1_season_research",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-16",
+  "league": {
+    "patch": "3.29",
+    "name": "Curse of the Allflame",
+    "status": "announced_only",
+    "release_window": "2026-07-24 PDT",
+    "research_status": "pre_patch_notes_hypothesis"
+  },
+  "scope": {
+    "class_name": "Scion",
+    "ascendancy": "Reliquarian",
+    "goal_tags": [
+      "guardian_maps",
+      "delve_fossil",
+      "mapper",
+      "boss_rush",
+      "season_start_planning"
+    ],
+    "skill_policy": "Reliquarian-first candidate comparison. Do not force Blight of Contagion if another skill abuses the revealed node package better."
+  },
+  "sources": [
+    {
+      "id": "official_3_29_reveal",
+      "type": "official",
+      "url": "https://www.pathofexile.com/forum/view-thread/3982050",
+      "usage": "release timing and expansion context"
+    },
+    {
+      "id": "official_reliquarian_reveal",
+      "type": "official",
+      "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+      "usage": "Reliquarian second ascendancy statement and revealed node image links"
+    },
+    {
+      "id": "poedb_blight_of_contagion",
+      "type": "derived_game_data",
+      "url": "https://poedb.tw/us/Blight_of_Contagion",
+      "usage": "active skill name and transfigured Blight reference"
+    },
+    {
+      "id": "local_ggpk_active_skills",
+      "type": "local_ggpk_extract",
+      "url": "data/game_data/ActiveSkills.json",
+      "usage": "ActiveSkill ids, descriptions, type ids, weapon restrictions, minion type ids"
+    },
+    {
+      "id": "local_pob_damage_types",
+      "type": "local_derived_pob",
+      "url": "data/gem_damage_types.json",
+      "usage": "attack/caster/dot/minion lenses"
+    },
+    {
+      "id": "local_pob_weapon_requirements",
+      "type": "local_derived_pob",
+      "url": "data/gem_weapon_requirements.json",
+      "usage": "weapon requirement lens for attack skills"
+    },
+    {
+      "id": "local_support_whitelist",
+      "type": "local_derived_whitelist",
+      "url": "data/valid_gems.json",
+      "usage": "socketable active/support gem name whitelist; triggered ActiveSkills can exist outside this list"
+    }
+  ],
+  "lenses": {
+    "official_node_lens": [
+      {
+        "id": "fidelitas_spike",
+        "item_name": "Fidelitas' Spike",
+        "node_family": "offense_herald_shock",
+        "manual_transcription": [
+          "Hits always Shock",
+          "Deal no Physical Damage",
+          "Herald of Thunder has 100% increased Buff Effect",
+          "Herald of Thunder has 100% increased Mana Reservation Efficiency"
+        ],
+        "mapped_effect_tags": [
+          "shock",
+          "lightning",
+          "herald",
+          "reservation",
+          "autobomber"
+        ],
+        "confidence": "announced_image_manual"
+      },
+      {
+        "id": "ngamahus_flame",
+        "item_name": "Ngamahu's Flame",
+        "node_family": "offense_melee_trigger",
+        "manual_transcription": [
+          "Trigger Level 20 Molten Burst on Melee Hit",
+          "Damage Penetrates 20% Fire Resistance"
+        ],
+        "mapped_effect_tags": [
+          "melee",
+          "trigger",
+          "projectile",
+          "fire",
+          "attack"
+        ],
+        "confidence": "announced_image_manual"
+      },
+      {
+        "id": "gloomfang",
+        "item_name": "Gloomfang",
+        "node_family": "offense_chain_projectile",
+        "manual_transcription": [
+          "Skills Chain +1 times",
+          "Projectiles that have Chained gain 20% of Non-Chaos Damage as Extra Chaos Damage"
+        ],
+        "mapped_effect_tags": [
+          "projectile",
+          "chain",
+          "non_chaos_as_chaos",
+          "mapper"
+        ],
+        "confidence": "announced_image_manual"
+      },
+      {
+        "id": "the_black_cane",
+        "item_name": "The Black Cane",
+        "node_family": "offense_spell_minion_hybrid",
+        "manual_transcription": [
+          "Each Summoned Phantasm grants Phantasmal Might"
+        ],
+        "mapped_effect_tags": [
+          "spell",
+          "physical",
+          "minion",
+          "phantasm"
+        ],
+        "confidence": "announced_image_manual"
+      },
+      {
+        "id": "arakaalis_fang",
+        "item_name": "Arakaali's Fang",
+        "node_family": "offense_minion_trigger",
+        "manual_transcription": [
+          "Trigger Level 20 Raise Spiders on Kill"
+        ],
+        "mapped_effect_tags": [
+          "minion",
+          "poison",
+          "on_kill",
+          "trigger"
+        ],
+        "confidence": "announced_image_manual"
+      },
+      {
+        "id": "defensive_package",
+        "item_name": "Dawnbreaker / Presence of Chayula / Kaom's Roots / Xirgil's Crank / Melding of the Flesh",
+        "node_family": "defense_sustain",
+        "manual_transcription": [
+          "Dawnbreaker: 25% Cold, Lightning, and Physical Damage taken as Fire Damage",
+          "Presence of Chayula: Cannot be Stunned; 20% of Maximum Life converted to Energy Shield",
+          "Kaom's Roots: +100 maximum Life; cannot be Knocked Back, Evaded, Stunned; action speed cannot be modified below base",
+          "Xirgil's Crank: +1 to all Spell Skill Gems; chance for Energy Shield Recharge to start when you Block",
+          "Melding of the Flesh: Elemental Resistance capped by highest maximum Elemental Resistance with max resistance penalty"
+        ],
+        "mapped_effect_tags": [
+          "defense",
+          "stun_immunity",
+          "damage_taken_as",
+          "energy_shield",
+          "block",
+          "max_resistance"
+        ],
+        "confidence": "announced_image_manual"
+      }
+    ],
+    "skill_fact_lens": [
+      {
+        "canonical_skill": "Herald of Thunder",
+        "local_active_skill_id": "herald_of_thunder",
+        "local_skill_gem_metadata_id": "Metadata/Items/Gems/SkillGemHeraldOfThunder",
+        "required_level": 16,
+        "active_skill_type_ids": [
+          1,
+          4,
+          11,
+          6,
+          7,
+          8,
+          30,
+          22,
+          51,
+          63,
+          71,
+          84,
+          85,
+          89
+        ],
+        "damage_flags": {
+          "attack": false,
+          "caster": true,
+          "dot": false,
+          "minion": false
+        },
+        "weapon_requirements": [],
+        "semantic_tags": [
+          "herald",
+          "lightning",
+          "buff",
+          "storm_hit",
+          "autobomber"
+        ]
+      },
+      {
+        "canonical_skill": "Static Strike of Gathering Lightning",
+        "local_active_skill_id": "static_strike_alt_x",
+        "fallback_active_skill_id": "static_strike",
+        "required_level": 12,
+        "active_skill_type_ids": [
+          0,
+          20,
+          23,
+          19,
+          8,
+          30,
+          18,
+          4
+        ],
+        "damage_flags": {
+          "attack": true,
+          "caster": false,
+          "dot": false,
+          "minion": false
+        },
+        "weapon_requirements": [
+          "Claws",
+          "Daggers",
+          "One Hand Axes",
+          "One Hand Maces",
+          "One Hand Swords",
+          "Thrusting One Hand Swords",
+          "Two Hand Axes",
+          "Two Hand Maces",
+          "Two Hand Swords"
+        ],
+        "semantic_tags": [
+          "attack",
+          "melee",
+          "strike",
+          "lightning",
+          "beam",
+          "duration"
+        ]
+      },
+      {
+        "canonical_skill": "Molten Burst",
+        "local_active_skill_id": "molten_burst",
+        "required_level": 20,
+        "active_skill_type_ids": [
+          2,
+          0,
+          7,
+          28,
+          31,
+          36,
+          40,
+          81,
+          89
+        ],
+        "damage_flags": {
+          "attack": true,
+          "caster": false,
+          "dot": false,
+          "minion": false
+        },
+        "weapon_requirements": [],
+        "semantic_tags": [
+          "attack",
+          "projectile",
+          "area",
+          "triggered",
+          "fire_candidate"
+        ],
+        "supportability_override": {
+          "state": "unconfirmed_when_granted_by_reliquarian",
+          "reason": "The local ActiveSkill exists, but the announced ascendancy grants a triggered skill rather than a socketed skill gem. PoB/patch data must confirm whether support gems can modify it."
+        }
+      },
+      {
+        "canonical_skill": "Lightning Arrow",
+        "local_active_skill_id": "lightning_arrow",
+        "local_skill_gem_metadata_id": "Metadata/Items/Gems/SkillGemLightningArrow",
+        "required_level": 12,
+        "active_skill_type_ids": [
+          0,
+          40,
+          57,
+          7,
+          2,
+          56,
+          14,
+          13,
+          15,
+          30,
+          31
+        ],
+        "damage_flags": {
+          "attack": true,
+          "caster": false,
+          "dot": false,
+          "minion": false
+        },
+        "weapon_requirements": [
+          "Bows"
+        ],
+        "semantic_tags": [
+          "attack",
+          "bow",
+          "projectile",
+          "lightning",
+          "chain_scaling"
+        ]
+      },
+      {
+        "canonical_skill": "Blight of Contagion",
+        "local_active_skill_id": "blight_alt_x",
+        "poedb_url": "https://poedb.tw/us/Blight_of_Contagion",
+        "required_level": 1,
+        "active_skill_type_ids": [
+          1,
+          41,
+          7,
+          14,
+          47,
+          8,
+          34,
+          48,
+          71
+        ],
+        "damage_flags": {
+          "attack": false,
+          "caster": true,
+          "dot": true,
+          "minion": false
+        },
+        "weapon_requirements": [],
+        "semantic_tags": [
+          "spell",
+          "chaos",
+          "damage_over_time",
+          "channeling",
+          "hinder",
+          "contagion_spread"
+        ],
+        "supportability_override": {
+          "state": "active_skill_confirmed_but_not_in_local_skillgems_table",
+          "reason": "The local ActiveSkills extract contains blight_alt_x, while SkillGems lookup by name can miss the transfigured display name. Use ActiveSkills + gem_levels fallback."
+        }
+      },
+      {
+        "canonical_skill": "Raise Spiders",
+        "local_active_skill_id": "raise_spiders",
+        "required_level": 20,
+        "active_skill_type_ids": [
+          1,
+          5,
+          31,
+          36,
+          49,
+          76,
+          116,
+          89
+        ],
+        "minion_active_skill_type_ids": [
+          0,
+          19,
+          20,
+          23
+        ],
+        "damage_flags": {
+          "attack": false,
+          "caster": true,
+          "dot": false,
+          "minion": true
+        },
+        "weapon_requirements": [],
+        "semantic_tags": [
+          "minion",
+          "spider",
+          "poison",
+          "on_kill",
+          "triggered"
+        ],
+        "supportability_override": {
+          "state": "unconfirmed_when_granted_by_reliquarian",
+          "reason": "The local ActiveSkill exists, but the ascendancy-granted version may not behave like socketed Arakaali's Fang links."
+        }
+      },
+      {
+        "canonical_skill": "Summon Phantasm",
+        "local_active_skill_id": "triggered_summon_phantasm",
+        "required_level": 5,
+        "active_skill_type_ids": [
+          1,
+          5,
+          8,
+          49,
+          31,
+          36,
+          76
+        ],
+        "minion_active_skill_type_ids": [
+          8,
+          2,
+          1,
+          6,
+          27
+        ],
+        "damage_flags": {
+          "attack": false,
+          "caster": true,
+          "dot": false,
+          "minion": true
+        },
+        "weapon_requirements": [],
+        "semantic_tags": [
+          "minion",
+          "phantasm",
+          "physical_projectile",
+          "spell_minion_hybrid"
+        ]
+      }
+    ],
+    "offensive_gem_lens": [
+      {
+        "branch_id": "hot_autobomber",
+        "branch_role": "primary_reliquarian_engine",
+        "damage_axis": [
+          "lightning",
+          "hit",
+          "herald"
+        ],
+        "primary_offense_gems": [
+          {
+            "skill": "Herald of Thunder",
+            "local_active_skill_id": "herald_of_thunder",
+            "socketable_gem": true,
+            "candidate_role": "main_damage_engine",
+            "why": "Fidelitas' Spike directly scales Herald of Thunder buff effect and reservation efficiency."
+          }
+        ],
+        "enabler_offense_gems": [
+          {
+            "skill": "Storm Brand",
+            "local_active_skill_id": "storm_brand",
+            "socketable_gem": true,
+            "candidate_role": "shock_or_hit_enabler",
+            "why": "Brand-style lightning hit can help start/maintain Herald of Thunder loops before the build is fully automated."
+          },
+          {
+            "skill": "Orb of Storms",
+            "local_active_skill_id": "orb_of_storms",
+            "socketable_gem": true,
+            "candidate_role": "shock_or_hit_enabler",
+            "why": "Stationary lightning hit source for early testing of shock/Herald uptime."
+          },
+          {
+            "skill": "Stormblast Mine",
+            "local_active_skill_id": "stormblast_mine",
+            "socketable_gem": true,
+            "candidate_role": "campaign_leveling_bridge",
+            "why": "Low-level lightning campaign bridge if Herald of Thunder cannot carry immediately."
+          }
+        ],
+        "rejected_or_lower_priority_active_gems": [
+          {
+            "skill": "Blight of Contagion",
+            "reason": "Good fallback skill, but it does not directly use the Fidelitas' Spike Herald/Shock node."
+          }
+        ],
+        "verification_state": "needs_pob_after_3_29_data"
+      },
+      {
+        "branch_id": "static_strike_ngamahu",
+        "branch_role": "melee_hit_trigger_engine",
+        "damage_axis": [
+          "melee",
+          "attack",
+          "lightning",
+          "fire_trigger"
+        ],
+        "primary_offense_gems": [
+          {
+            "skill": "Static Strike of Gathering Lightning",
+            "local_active_skill_id": "static_strike_alt_x",
+            "socketable_gem": true,
+            "candidate_role": "main_melee_autobomber_skill",
+            "why": "Static energy/beam gameplay matches the user's autobomber direction while still being a melee-hit carrier."
+          },
+          {
+            "skill": "Static Strike",
+            "local_active_skill_id": "static_strike",
+            "socketable_gem": true,
+            "candidate_role": "fallback_main_melee_skill",
+            "why": "Base Static Strike is available if the transfigured version is awkward or unavailable early."
+          }
+        ],
+        "carrier_gems": [
+          {
+            "skill": "Cyclone",
+            "local_active_skill_id": "cyclone",
+            "socketable_gem": true,
+            "candidate_role": "melee_hit_trigger_carrier",
+            "why": "Historically reliable melee hit carrier for Ngamahu-style triggered projectiles, but less aligned with Static Strike gameplay."
+          }
+        ],
+        "secondary_offense_gems": [
+          {
+            "skill": "Molten Burst",
+            "local_active_skill_id": "molten_burst",
+            "socketable_gem": false,
+            "candidate_role": "reliquarian_granted_trigger",
+            "why": "Ngamahu's Flame node grants the triggered attack. Treat as a triggered ActiveSkill, not a normal socketed gem."
+          }
+        ],
+        "verification_state": "trigger_support_and_conversion_unconfirmed"
+      },
+      {
+        "branch_id": "gloomfang_bow",
+        "branch_role": "chain_projectile_mapper",
+        "damage_axis": [
+          "bow",
+          "attack",
+          "projectile",
+          "chain"
+        ],
+        "primary_offense_gems": [
+          {
+            "skill": "Lightning Arrow",
+            "local_active_skill_id": "lightning_arrow",
+            "socketable_gem": true,
+            "candidate_role": "default_chain_bow_mapper",
+            "why": "Projectile bow mapper with lightning scaling and existing representative corpus coverage."
+          },
+          {
+            "skill": "Lightning Arrow of Electrocution",
+            "local_active_skill_id": "lightning_arrow_alt_x",
+            "socketable_gem": true,
+            "candidate_role": "alternate_lightning_bow_candidate",
+            "why": "Same bow/lightning family; verify whether the variant solves boss or ailment needs better than base Lightning Arrow."
+          },
+          {
+            "skill": "Tornado Shot",
+            "local_active_skill_id": "tornado_shot",
+            "socketable_gem": true,
+            "candidate_role": "high_ceiling_projectile_mapper",
+            "why": "Strong projectile mapping shell if Gloomfang chain scaling is worth building around."
+          },
+          {
+            "skill": "Ice Shot",
+            "local_active_skill_id": "ice_shot",
+            "socketable_gem": true,
+            "candidate_role": "cold_projectile_mapping_fallback",
+            "why": "Bow projectile fallback if Lightning Arrow does not pair cleanly with Scion Reliquarian defenses."
+          }
+        ],
+        "verification_state": "single_target_and_defense_unconfirmed"
+      },
+      {
+        "branch_id": "black_cane_arakaali_spell_hybrid",
+        "branch_role": "physical_spell_minion_hybrid",
+        "damage_axis": [
+          "physical_spell",
+          "minion",
+          "trigger",
+          "poison_optional"
+        ],
+        "primary_offense_gems": [
+          {
+            "skill": "Ethereal Knives",
+            "local_active_skill_id": "ethereal_knives",
+            "socketable_gem": true,
+            "candidate_role": "physical_projectile_spell_candidate",
+            "why": "Physical spell-hit candidate that can benefit from Phantasmal Might-style added physical damage."
+          },
+          {
+            "skill": "Blade Vortex",
+            "local_active_skill_id": "blade_vortex",
+            "socketable_gem": true,
+            "candidate_role": "physical_spell_hit_candidate",
+            "why": "Physical spell candidate with sustained hit pattern; test if uptime and defenses fit Guardian/Delve goals."
+          },
+          {
+            "skill": "Bladefall",
+            "local_active_skill_id": "bladefall",
+            "socketable_gem": true,
+            "candidate_role": "physical_area_spell_candidate",
+            "why": "Physical spell candidate for Black Cane scaling; needs cast feel and boss coverage testing."
+          },
+          {
+            "skill": "Reap",
+            "local_active_skill_id": "reap",
+            "socketable_gem": true,
+            "candidate_role": "physical_spell_boss_candidate",
+            "why": "Physical spell with bossing potential, but life cost and recovery must be checked."
+          },
+          {
+            "skill": "Exsanguinate",
+            "local_active_skill_id": "exsanguinate",
+            "socketable_gem": true,
+            "candidate_role": "physical_spell_dot_hybrid_candidate",
+            "why": "Physical spell/DoT hybrid candidate if pure hit scaling is not enough."
+          }
+        ],
+        "secondary_offense_gems": [
+          {
+            "skill": "Summon Phantasm",
+            "local_active_skill_id": "triggered_summon_phantasm",
+            "socketable_gem": false,
+            "candidate_role": "phantasmal_might_enabler",
+            "why": "Black Cane branch needs phantasm uptime, but the bare ActiveSkill is not a socketable active gem; use Summon Phantasm Support as the socketed enabler."
+          },
+          {
+            "skill": "Raise Spiders",
+            "local_active_skill_id": "raise_spiders",
+            "socketable_gem": false,
+            "candidate_role": "reliquarian_granted_minion_trigger",
+            "why": "Arakaali's Fang node grants a triggered spider skill; treat as ActiveSkill trigger, not a socketed active gem."
+          }
+        ],
+        "verification_state": "main_spell_selection_unresolved"
+      },
+      {
+        "branch_id": "blight_of_contagion_fallback",
+        "branch_role": "chaos_dot_fallback",
+        "damage_axis": [
+          "chaos",
+          "damage_over_time",
+          "channeling",
+          "spell"
+        ],
+        "primary_offense_gems": [
+          {
+            "skill": "Blight of Contagion",
+            "local_active_skill_id": "blight_alt_x",
+            "socketable_gem": true,
+            "candidate_role": "main_chaos_dot_fallback",
+            "why": "Comfortable mapping/Delve fallback if direct Reliquarian engines fail."
+          }
+        ],
+        "enabler_offense_gems": [
+          {
+            "skill": "Contagion",
+            "local_active_skill_id": "contagion",
+            "socketable_gem": true,
+            "candidate_role": "chaos_spread_or_leveling_bridge",
+            "why": "Chaos spread/leveling bridge depending on final Blight of Contagion mechanics."
+          },
+          {
+            "skill": "Bane",
+            "local_active_skill_id": "bane",
+            "socketable_gem": true,
+            "candidate_role": "curse_dot_utility_bridge",
+            "why": "Chaos/curses bridge if Scion pathing needs a smoother campaign or map-entry setup."
+          },
+          {
+            "skill": "Essence Drain",
+            "local_active_skill_id": "essence_drain",
+            "socketable_gem": true,
+            "candidate_role": "single_target_or_leveling_bridge",
+            "why": "Classic chaos DoT bridge if Blight channeling feels unsafe early."
+          },
+          {
+            "skill": "Wither",
+            "local_active_skill_id": "wither",
+            "socketable_gem": true,
+            "candidate_role": "boss_damage_multiplier_utility",
+            "why": "Wither stacking is a bossing support action for chaos DoT, not the main clear gem."
+          }
+        ],
+        "verification_state": "safe_fallback_but_low_reliquarian_synergy"
+      }
+    ],
+    "support_gem_lens": [
+      {
+        "branch_id": "hot_autobomber",
+        "main_skill": "Herald of Thunder",
+        "supportability_state": "socketed_gem_supports_confirmed_node_scaling_unconfirmed",
+        "safe_candidate_supports": [
+          "Lightning Penetration Support",
+          "Added Lightning Damage Support",
+          "Inspiration Support",
+          "Increased Critical Strikes Support",
+          "Increased Critical Damage Support",
+          "Increased Area of Effect Support"
+        ],
+        "conditional_candidate_supports": [
+          "Elemental Focus Support"
+        ],
+        "avoid_or_verify": [
+          {
+            "support": "Elemental Focus Support",
+            "reason": "Can block the supported skill from inflicting elemental ailments. Only use if shock loop is maintained by another source."
+          }
+        ],
+        "support_notes": "Fidelitas' Spike pushes Herald of Thunder as the cleanest direct Reliquarian engine, but boss shock uptime and Storm Secret/self-damage mitigation still need PoB confirmation."
+      },
+      {
+        "branch_id": "static_strike_ngamahu",
+        "main_skill": "Static Strike of Gathering Lightning",
+        "secondary_trigger_skill": "Molten Burst",
+        "supportability_state": "static_strike_socketed_confirmed_molten_burst_reliquarian_trigger_unconfirmed",
+        "safe_candidate_supports": [
+          "Elemental Damage with Attacks Support",
+          "Trinity Support",
+          "Faster Attacks Support",
+          "Multistrike Support",
+          "Melee Physical Damage Support",
+          "Fortify Support",
+          "Close Combat Support"
+        ],
+        "conditional_candidate_supports": [
+          "Fire Penetration Support",
+          "Combustion Support",
+          "Greater Multiple Projectiles Support"
+        ],
+        "avoid_or_verify": [
+          {
+            "support": "Fire Penetration Support",
+            "reason": "Only valuable for the Molten Burst side after fire conversion/scaling is confirmed."
+          },
+          {
+            "support": "Greater Multiple Projectiles Support",
+            "reason": "Likely relevant to Molten Burst projectiles only if the granted trigger accepts support scaling."
+          }
+        ],
+        "support_notes": "Treat Molten Burst as a bonus engine until patch notes or PoB confirms ascendancy-granted support behavior."
+      },
+      {
+        "branch_id": "gloomfang_bow",
+        "main_skill": "Lightning Arrow",
+        "supportability_state": "socketed_gem_supports_confirmed",
+        "safe_candidate_supports": [
+          "Trinity Support",
+          "Inspiration Support",
+          "Elemental Damage with Attacks Support",
+          "Greater Multiple Projectiles Support",
+          "Mirage Archer Support",
+          "Returning Projectiles Support",
+          "Lightning Penetration Support"
+        ],
+        "conditional_candidate_supports": [
+          "Chain Support"
+        ],
+        "avoid_or_verify": [
+          {
+            "support": "Chain Support",
+            "reason": "Gloomfang already grants chain. More chain may improve clear but can reduce single-target value."
+          }
+        ],
+        "support_notes": "Good mapping lens, but Scion must replace Deadeye's usual speed, projectile, and defense package."
+      },
+      {
+        "branch_id": "black_cane_arakaali_spell_hybrid",
+        "main_skill": "physical_spell_to_be_selected",
+        "secondary_skill": "Summon Phantasm",
+        "secondary_trigger_skill": "Raise Spiders",
+        "supportability_state": "spell_supports_depend_on_selected_spell_spider_trigger_unconfirmed",
+        "safe_candidate_supports": [
+          "Controlled Destruction Support",
+          "Spell Echo Support",
+          "Unleash Support",
+          "Brutality Support",
+          "Cruelty Support",
+          "Minion Damage Support",
+          "Summon Phantasm Support"
+        ],
+        "conditional_candidate_supports": [
+          "Withering Touch Support",
+          "Deadly Ailments Support",
+          "Unbound Ailments Support"
+        ],
+        "avoid_or_verify": [
+          {
+            "support": "Minion Damage Support",
+            "reason": "Only scales the minion side. Black Cane's Phantasmal Might usually asks for a real spell-hit main skill."
+          },
+          {
+            "support": "Deadly Ailments Support",
+            "reason": "Only relevant if the branch becomes a poison/minion variant."
+          }
+        ],
+        "support_notes": "This is a research-lab branch. First choose a physical spell shell, then test phantasm uptime and spider support behavior."
+      },
+      {
+        "branch_id": "blight_of_contagion_fallback",
+        "main_skill": "Blight of Contagion",
+        "supportability_state": "active_skill_confirmed_support_candidates_from_dot_channel_lens",
+        "safe_candidate_supports": [
+          "Void Manipulation Support",
+          "Efficacy Support",
+          "Controlled Destruction Support",
+          "Infused Channelling Support",
+          "Swift Affliction Support",
+          "Empower Support"
+        ],
+        "conditional_candidate_supports": [],
+        "avoid_or_verify": [],
+        "support_notes": "Best conservative fallback for Delve/Fossil comfort, but direct Reliquarian synergy is weak."
+      }
+    ],
+    "farming_lens": [
+      {
+        "branch_id": "hot_autobomber",
+        "guardian_maps": 3,
+        "delve_fossil": 3,
+        "mapping_speed": 5,
+        "starter_risk": 3,
+        "reliquarian_synergy": 5,
+        "phase_gate": "Do not mark Guardian farming ready until boss shock uptime, recovery, and self-damage mitigation are proven."
+      },
+      {
+        "branch_id": "static_strike_ngamahu",
+        "guardian_maps": 3,
+        "delve_fossil": 4,
+        "mapping_speed": 4,
+        "starter_risk": 3,
+        "reliquarian_synergy": 4,
+        "phase_gate": "Promote only after Molten Burst support/conversion and melee uptime are confirmed."
+      },
+      {
+        "branch_id": "gloomfang_bow",
+        "guardian_maps": 3,
+        "delve_fossil": 2,
+        "mapping_speed": 5,
+        "starter_risk": 4,
+        "reliquarian_synergy": 4,
+        "phase_gate": "Fast mapper lens. Down-rank for Delve unless defense package is solved."
+      },
+      {
+        "branch_id": "black_cane_arakaali_spell_hybrid",
+        "guardian_maps": 4,
+        "delve_fossil": 4,
+        "mapping_speed": 3,
+        "starter_risk": 5,
+        "reliquarian_synergy": 4,
+        "phase_gate": "Potentially strong for Guardian/Delve if a stable physical spell and ES/block package are found."
+      },
+      {
+        "branch_id": "blight_of_contagion_fallback",
+        "guardian_maps": 3,
+        "delve_fossil": 4,
+        "mapping_speed": 4,
+        "starter_risk": 2,
+        "reliquarian_synergy": 2,
+        "phase_gate": "Safe fallback. Do not oversell as direct Reliquarian abuse."
+      }
+    ],
+    "candidate_branch_lens": [
+      {
+        "branch_id": "hot_autobomber",
+        "label": "Herald of Thunder Autobomber Scion",
+        "rank": 1,
+        "reliquarian_hooks": [
+          "fidelitas_spike",
+          "defensive_package"
+        ],
+        "verdict": "Top project candidate because the revealed node directly improves Herald of Thunder and shock access.",
+        "next_verification": [
+          "Reservation after Reliquarian Herald efficiency",
+          "Storm Secret availability and self-damage handling",
+          "Boss shock loop without Elementalist"
+        ]
+      },
+      {
+        "branch_id": "static_strike_ngamahu",
+        "label": "Static Strike / Ngamahu melee autobomber Scion",
+        "rank": 2,
+        "reliquarian_hooks": [
+          "ngamahus_flame",
+          "defensive_package"
+        ],
+        "verdict": "High-fun experiment. Keep behind HoT until Molten Burst support behavior is proven.",
+        "next_verification": [
+          "Molten Burst support scaling",
+          "Fire conversion and penetration value",
+          "Static Strike beam uptime in Guardian maps"
+        ]
+      },
+      {
+        "branch_id": "gloomfang_bow",
+        "label": "Gloomfang chain bow Scion",
+        "rank": 3,
+        "reliquarian_hooks": [
+          "gloomfang",
+          "defensive_package"
+        ],
+        "verdict": "Fast mapping candidate, weaker for Delve/Fossil unless defense is solved.",
+        "next_verification": [
+          "Single-target without Deadeye",
+          "Chain count versus damage tradeoff",
+          "Dawnbreaker/Melding defensive path"
+        ]
+      },
+      {
+        "branch_id": "black_cane_arakaali_spell_hybrid",
+        "label": "Black Cane / Arakaali spell-minion hybrid Scion",
+        "rank": 4,
+        "reliquarian_hooks": [
+          "the_black_cane",
+          "arakaalis_fang",
+          "defensive_package"
+        ],
+        "verdict": "Best research-lab candidate after HoT, likely spell hybrid rather than pure minion.",
+        "next_verification": [
+          "Physical spell selection",
+          "Phantasmal Might uptime",
+          "Spider support behavior from ascendancy"
+        ]
+      },
+      {
+        "branch_id": "blight_of_contagion_fallback",
+        "label": "Blight of Contagion Scion fallback",
+        "rank": 5,
+        "reliquarian_hooks": [
+          "defensive_package"
+        ],
+        "verdict": "Conservative fallback for Delve/Fossil comfort. Trickster remains the safer non-Scion version.",
+        "next_verification": [
+          "Scion chaos DoT pathing",
+          "Wither/Bane boss package",
+          "Life/ES or CI transition timing"
+        ]
+      }
+    ],
+    "uncertainty_lens": [
+      {
+        "id": "patch_notes_missing",
+        "severity": "high",
+        "rule": "Until final 3.29 patch notes and PoB data exist, do not present this DB as solved meta."
+      },
+      {
+        "id": "ascendancy_granted_trigger_supports",
+        "severity": "high",
+        "rule": "For Molten Burst, Raise Spiders, and other Reliquarian-granted triggers, separate ActiveSkill existence from socket-link supportability."
+      },
+      {
+        "id": "skillgem_vs_activeskill_name_gap",
+        "severity": "medium",
+        "rule": "Transfigured names such as Blight of Contagion may be present in ActiveSkills/gem_levels but absent from simple SkillGems name lookup."
+      },
+      {
+        "id": "guardian_and_delve_gate",
+        "severity": "medium",
+        "rule": "Guardian maps require boss damage and sustain; Delve/Fossil requires defense, recovery, and mobility. Mapping speed alone is insufficient."
+      }
+    ]
+  },
+  "coach_rules": [
+    "When this dataset is injected, explain candidate ranking as pre-patch research, not deterministic proof.",
+    "Use offensive_gem_lens first when choosing candidate attack/spell/minion damage skills. support_gem_lens is secondary and only explains link/support verification.",
+    "Cross-check every offensive_gem_lens candidate against gem_taxonomy_lens before explaining it; never claim socketable active-gem behavior when taxonomy marks support_alias, support_gem, active_skill_only, or socketable=false.",
+    "For triggered Reliquarian skills such as Molten Burst and Raise Spiders, ActiveSkills existence is enough for candidate tracking but not enough to claim socketability or support scaling.",
+    "Use support_gem_lens to propose support candidates only after selecting an active/offensive gem branch, and preserve supportability_state plus avoid_or_verify warnings.",
+    "If the user asks for a Scion Reliquarian build before PoB patch data exists, recommend a branch plan plus verification checklist instead of one final build.",
+    "For Blight of Contagion, use ActiveSkills/gem_levels fallback if SkillGems lookup misses the transfigured name."
+  ]
+}

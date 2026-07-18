@@ -1,0 +1,269 @@
+{
+  "schema_version": "2.0",
+  "dataset_kind": "poe1_build_variant_model_v2",
+  "archetypes": [
+    {
+      "archetype_id": "strength_stacker_juggernaut",
+      "display_name": "Strength Stacker Juggernaut",
+      "patch": "3.28",
+      "class": "Marauder",
+      "ascendancy": "Juggernaut",
+      "role_tags": [
+        "tanky",
+        "high_ceiling",
+        "reroll_target"
+      ],
+      "sub_archetypes": [
+        {
+          "sub_archetype_id": "holy_static_progression",
+          "display_name": "Holy or Static Progression",
+          "damage_engine": "early melee hit progression into static chain hit",
+          "defense_engine": "life armour with first-lab accuracy spike",
+          "core_unique_gate": "no mandatory unique",
+          "tree_shape_class": "early melee pathing into spiritual command aid bridge",
+          "play_pattern": "campaign progression and early mapping",
+          "forced_split_reason": [
+            "campaign to early mapping progression engine"
+          ],
+          "evidence": [
+            {
+              "type": "video_transcript",
+              "label": "3.28 transcript",
+              "url": null,
+              "local_path": "C:\\Users\\User\\Desktop\\3.28 Strength Stack Juggernaut Heav.txt",
+              "notes": "Holy start, Undeniable, Static Strike progression mentioned."
+            }
+          ],
+          "variants": [
+            {
+              "variant_id": "holy_static_progression.starter",
+              "budget_tier": "starter",
+              "entry_cost_note": "league start or no-reroll path",
+              "gear_package_id": "campaign_rare_melee",
+              "aura_package_id": "low_reservation_campaign",
+              "cluster_package_id": "none",
+              "content_specialization": "generic",
+              "split_reasons": [],
+              "evidence": [
+                {
+                  "type": "video_transcript",
+                  "label": "3.28 transcript",
+                  "url": null,
+                  "local_path": "C:\\Users\\User\\Desktop\\3.28 Strength Stack Juggernaut Heav.txt",
+                  "notes": "Holy start and first lab spike."
+                }
+              ],
+              "phase_states": [
+                {
+                  "phase_id": "holy_static_progression.starter.campaign",
+                  "phase_type": "campaign",
+                  "level_range": "1-67",
+                  "main_skill": "Holy Strike or Holy Sweep into Static Strike of Gathering",
+                  "support_links": [
+                    "early melee support",
+                    "accuracy or attack speed support"
+                  ],
+                  "auras": [
+                    "low reservation campaign aura"
+                  ],
+                  "defense_checkpoint": {
+                    "life": 3000,
+                    "energy_shield": 0,
+                    "resists": "75 after Act 10"
+                  },
+                  "summary": "First-lab Undeniable spike solves accuracy and opens Static progression."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_archetype_id": "zenith_strength_stacker",
+          "display_name": "Zenith Strength Stacker",
+          "damage_engine": "zenith hit or projectile endgame scaling",
+          "defense_engine": "strength-based tank stack with Alberon's package",
+          "core_unique_gate": "Replica Alberon's Warpath",
+          "tree_shape_class": "strength stack with endgame weapon scaling",
+          "play_pattern": "mid-budget all-rounder farming",
+          "forced_split_reason": [
+            "mandatory unique gate",
+            "different damage engine from progression setup"
+          ],
+          "evidence": [
+            {
+              "type": "video_transcript",
+              "label": "3.28 transcript",
+              "url": null,
+              "local_path": "C:\\Users\\User\\Desktop\\3.28 Strength Stack Juggernaut Heav.txt",
+              "notes": "Zenith as mid-budget stage before Heavy Strike."
+            }
+          ],
+          "variants": [
+            {
+              "variant_id": "zenith_strength_stacker.mid",
+              "budget_tier": "mid",
+              "entry_cost_note": "Alberon's plus chaos sword package",
+              "gear_package_id": "alberon_chaos_sword_mid",
+              "aura_package_id": "mapping_mid",
+              "cluster_package_id": "basic_strength_clusters",
+              "content_specialization": "generic",
+              "split_reasons": [
+                "budget tier jump from starter",
+                "core gear package changed"
+              ],
+              "evidence": [
+                {
+                  "type": "video_transcript",
+                  "label": "3.28 transcript",
+                  "url": null,
+                  "local_path": "C:\\Users\\User\\Desktop\\3.28 Strength Stack Juggernaut Heav.txt",
+                  "notes": "Replica Alberon's spike and T17 or Uber viability mentioned."
+                }
+              ],
+              "phase_states": [
+                {
+                  "phase_id": "zenith_strength_stacker.mid.maps_entry",
+                  "phase_type": "maps_entry",
+                  "level_range": "68-85",
+                  "main_skill": "Zenith",
+                  "support_links": [
+                    "damage support",
+                    "damage support",
+                    "damage support",
+                    "damage support"
+                  ],
+                  "auras": [
+                    "mapping defensive aura package"
+                  ],
+                  "defense_checkpoint": {
+                    "life": 7000,
+                    "energy_shield": 1000,
+                    "resists": "75 capped"
+                  },
+                  "summary": "Alberon's gate reached and build becomes a practical farming reroll."
+                },
+                {
+                  "phase_id": "zenith_strength_stacker.mid.early_endgame",
+                  "phase_type": "early_endgame",
+                  "level_range": "85-95",
+                  "main_skill": "Zenith",
+                  "support_links": [
+                    "damage support",
+                    "damage support",
+                    "damage support",
+                    "damage support",
+                    "damage support"
+                  ],
+                  "auras": [
+                    "mapping defensive aura package"
+                  ],
+                  "defense_checkpoint": {
+                    "life": 8000,
+                    "energy_shield": 2000,
+                    "resists": "75 capped with chaos improving"
+                  },
+                  "summary": "Still same engine and same variant, only stronger gear and links."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_archetype_id": "heavy_strike_crit_stacker",
+          "display_name": "Heavy Strike Crit Stacker",
+          "damage_engine": "heavy strike crit hit scaling",
+          "defense_engine": "hybrid strength plus energy shield plus fortify endgame shell",
+          "core_unique_gate": "double influence accuracy and chaos helmet",
+          "tree_shape_class": "crit and cluster optimized strength stack",
+          "play_pattern": "tanky endgame melee bossing",
+          "forced_split_reason": [
+            "damage engine changed",
+            "defense shell changed",
+            "play pattern changed"
+          ],
+          "evidence": [
+            {
+              "type": "video_transcript",
+              "label": "3.28 transcript",
+              "url": null,
+              "local_path": "C:\\Users\\User\\Desktop\\3.28 Strength Stack Juggernaut Heav.txt",
+              "notes": "Heavy Strike endgame target with crit helmet and Overlord fortify."
+            }
+          ],
+          "variants": [
+            {
+              "variant_id": "heavy_strike_crit_stacker.high_end",
+              "budget_tier": "high_end",
+              "entry_cost_note": "late reroll target after helmet craft",
+              "gear_package_id": "heavy_double_influence_high_end",
+              "aura_package_id": "double_purity_endgame",
+              "cluster_package_id": "overlord_and_strength_clusters",
+              "content_specialization": "bossing",
+              "split_reasons": [
+                "sub_archetype split already forced",
+                "high-end gear package"
+              ],
+              "evidence": [
+                {
+                  "type": "video_transcript",
+                  "label": "3.28 transcript",
+                  "url": null,
+                  "local_path": "C:\\Users\\User\\Desktop\\3.28 Strength Stack Juggernaut Heav.txt",
+                  "notes": "Heavy Strike is tankier than Zenith and uses different helmet and ring setup."
+                }
+              ],
+              "phase_states": [
+                {
+                  "phase_id": "heavy_strike_crit_stacker.high_end.early_endgame",
+                  "phase_type": "early_endgame",
+                  "level_range": "90+",
+                  "main_skill": "Heavy Strike of Tarthus",
+                  "support_links": [
+                    "final damage support",
+                    "final damage support",
+                    "final damage support",
+                    "final damage support",
+                    "final damage support"
+                  ],
+                  "auras": [
+                    "Purity of Ice",
+                    "Purity of Fire"
+                  ],
+                  "defense_checkpoint": {
+                    "life": 9000,
+                    "energy_shield": 2500,
+                    "resists": "high all res"
+                  },
+                  "summary": "Heavy Strike crit shell online with fortify-oriented endgame setup."
+                },
+                {
+                  "phase_id": "heavy_strike_crit_stacker.high_end.late_endgame",
+                  "phase_type": "late_endgame",
+                  "level_range": "95+",
+                  "main_skill": "Heavy Strike of Tarthus",
+                  "support_links": [
+                    "final damage support",
+                    "final damage support",
+                    "final damage support",
+                    "final damage support",
+                    "final damage support"
+                  ],
+                  "auras": [
+                    "Purity of Ice",
+                    "Purity of Fire"
+                  ],
+                  "defense_checkpoint": {
+                    "life": 10000,
+                    "energy_shield": 3000,
+                    "resists": "high all res with chaos covered"
+                  },
+                  "summary": "Same variant, later phase, stronger item quality only."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

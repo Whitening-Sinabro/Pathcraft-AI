@@ -1,0 +1,241 @@
+{
+  "schema_version": "1.0",
+  "game": "poe1",
+  "purpose": "Stable atlas/farming strategy knowledge used by PathcraftAI coach. Treat thresholds as calibration heuristics, not official or deterministic proof.",
+  "source_references": [
+    {
+      "id": "poe_atlas_328_overview",
+      "url": "https://poe-atlas.com/",
+      "evidence": "Atlas guides are split into league start, early map farming, endgame, and mechanic-specific trees. The site lists 132 Atlas passive points and says 117 come from map completion bonus objectives."
+    },
+    {
+      "id": "official_328_endgame_changes",
+      "url": "https://www.pathofexile.com/forum/view-thread/3913392",
+      "evidence": "Official 3.28 patch notes reworked Atlas progression, map item usage, Voidstones, Unique Map Atlas Skill Points, Nightmare Maps, and multiple map/league mechanic systems. Farming advice must be patch-aware."
+    },
+    {
+      "id": "official_329_timeline",
+      "url": "https://www.pathofexile.com/forum/view-thread/3955013",
+      "evidence": "Official 3.29 timeline says Path of Exile 3.29 launches July 24, 2026 PDT, with GGG Live on July 16, 2026 PDT. Any league-specific strategy should be refreshed after reveal/patch notes."
+    },
+    {
+      "id": "official_329_patch_notes",
+      "url": "https://www.pathofexile.com/forum/view-thread/3985332",
+      "evidence": "Official 3.29 patch notes are now published. Curse of the Allflame adds Chart/Voyage league systems, Scion Luminary Mercenary planning, Mercenaries core support, Gem Socket Changes, and league/endgame changes that require strategy refresh after launch data."
+    },
+    {
+      "id": "mobalytics_fast_completion_starter_tree",
+      "url": "https://mobalytics.gg/poe/profile/lolcohol/guides/atlas-tree-fast-completion-stater-tree",
+      "evidence": "Fresh league Atlas strategy focuses on map boss kills, connected map drops, Kirac tools, map completion requirements, and first two Voidstones rather than fixed point/time thresholds."
+    },
+    {
+      "id": "poe_vault_atlas_strategies",
+      "url": "https://www.poe-vault.com/guides/atlas-passive-skill-tree-strategies",
+      "evidence": "Atlas trees are suggested strategies, not mandatory rules. Some high-invest strategies require scarabs/orbs and are not recommended for most guide readers."
+    },
+    {
+      "id": "official_forum_maps_for_dummies",
+      "url": "https://www.pathofexile.com/forum/view-thread/3039318",
+      "evidence": "New players ask for simpler Atlas explanations because many guides assume existing PoE knowledge."
+    },
+    {
+      "id": "official_forum_overwhelmed_after_campaign",
+      "url": "https://www.pathofexile.com/forum/view-thread/3469585",
+      "evidence": "A post-campaign new player reports that map and currency guides assume knowledge of Harvest, Essence, Eldritch Altars, and many league mechanics. Replies recommend narrowing focus, such as Essence and Betrayal, before optimizing."
+    }
+  ],
+  "patch_refresh_policy": {
+    "current_research_date": "2026-07-17",
+    "current_confirmed_state": "3.29 Curse of the Allflame patch notes and reveal are live, but league launch is July 24, 2026 PDT. Atlas and farming advice should use patch-note-confirmed system changes while keeping economy and mechanic rankings provisional until launch-week data exists.",
+    "refresh_triggers": [
+      "official patch notes",
+      "atlas tree changes",
+      "scarab or map device changes",
+      "league mechanic reward/risk changes",
+      "new streamer/community consensus after week 1 economy stabilizes"
+    ],
+    "policy": "Keep stable readiness signals, but revalidate mechanic rankings and league-specific farming paths after each expansion. When current patch notes are missing, label mechanic advice as provisional."
+  },
+  "phase_gate": {
+    "source_confidence": {
+      "atlas_completion_and_sustain": "supported_by_current_guides",
+      "mechanic_fit_by_build_type": "community_heuristic",
+      "atlas_passive_100_and_t16_2min": "local_initial_benchmark_needs_user_calibration"
+    },
+    "readiness_signals": [
+      {
+        "id": "atlas_completion_progress",
+        "label": "Atlas completion / passive progress",
+        "interpretation": "More completed bonus objectives and Atlas passive points generally mean more ability to specialize, but no single point count is an official phase boundary.",
+        "early_action": "Prioritize distinct map completion, bonus objectives, Kirac/Maven/Eldritch progression, and map sustain nodes.",
+        "measurement": "atlas_passive_points and atlas_bonus_completion if the user can provide them."
+      },
+      {
+        "id": "highest_comfortable_tier",
+        "label": "Highest comfortable map tier",
+        "interpretation": "The safest practical boundary is what the player can complete consistently without frequent deaths or stalled bosses.",
+        "early_action": "If T16 is not comfortable, farm the highest tier that is stable while fixing gear and map mods.",
+        "measurement": "highest_tier_smooth and death_rate."
+      },
+      {
+        "id": "clear_speed",
+        "label": "Clear speed",
+        "interpretation": "Fast-clear mechanics such as Legion, Breach, and Delirium punish slow builds. A 2-minute T16 clear is a local benchmark for speed farming readiness, not a universal requirement.",
+        "early_action": "If clear speed is slow, prefer consistency mechanics such as Essence, Harvest, Expedition, Blight, or Ritual depending on build safety.",
+        "measurement": "average_clear_time_seconds on a representative map."
+      },
+      {
+        "id": "voidstones_and_investment",
+        "label": "Voidstones and investment recovery",
+        "interpretation": "Late farming usually requires enough Atlas progression, voidstones, scarabs/currency, and a build that can recover the investment.",
+        "early_action": "Before 4 voidstones or stable sustain, avoid full juicing plans and focus on progression or low-invest farming.",
+        "measurement": "voidstones, scarab_supply, preferred_goal."
+      }
+    ],
+    "phase_definitions": {
+      "early_mapping": {
+        "condition": "Atlas progression, comfortable tier, death rate, or clear speed is unknown or weak.",
+        "strategy": "Atlas completion, map sustain, Kirac, Essence, Betrayal bench unlocks, Harvest basics, low-risk Expedition.",
+        "avoid": ["High scarab investment", "Delirium stacking", "Legion/Breach if the build cannot clear quickly", "T16-only profit plans"]
+      },
+      "mid_mapping": {
+        "condition": "Player can repeatedly complete red/T16 maps with low death rate and has enough Atlas progress to support one chosen mechanic.",
+        "strategy": "Choose one primary mechanic and one support mechanic. Invest modest scarabs only when the player can finish maps consistently.",
+        "avoid": ["Full juicing without 4 voidstones", "Mechanics that hard-counter the build damage profile"]
+      },
+      "late_mapping": {
+        "condition": "4 voidstones or equivalent endgame progression, stable high-tier maps, enough currency/scarab supply, and measured profit or target progression.",
+        "strategy": "Specialized farming tree, scarab investment, altar farming, invitation/boss cycles, or high-density mechanics by build type.",
+        "avoid": ["Frequent respecs without a measured profit reason", "High-risk map mods that break the build"]
+      }
+    },
+    "unknown_policy": "If atlas progress, comfortable tier, death rate, or clear time is unknown, do not present a hard phase verdict. Ask for the missing measurement or label the recommendation as a conservative estimate."
+  },
+  "player_state_fields": [
+    {
+      "id": "atlas_passive_points",
+      "type": "number",
+      "question_ko": "현재 아틀라스 패시브 포인트가 몇 개인가?",
+      "benchmark": "Higher is better; 100+ was a local benchmark, not an official phase gate."
+    },
+    {
+      "id": "highest_tier_smooth",
+      "type": "number",
+      "question_ko": "죽지 않고 편하게 반복 가능한 가장 높은 맵 티어는 몇인가?",
+      "benchmark": "Use this before assuming T16 readiness."
+    },
+    {
+      "id": "t16_clear_time_seconds",
+      "type": "number",
+      "question_ko": "일반 T16 맵 1판 평균 클리어 시간이 몇 초인가?",
+      "benchmark": "120 seconds is a speed-farming calibration hint, not a universal requirement."
+    },
+    {
+      "id": "t16_death_rate",
+      "type": "enum",
+      "values": ["none", "rare", "often"],
+      "question_ko": "T16에서 죽는 빈도는 어느 정도인가?"
+    },
+    {
+      "id": "voidstones",
+      "type": "number",
+      "question_ko": "보이드스톤은 몇 개인가?",
+      "threshold": 4
+    },
+    {
+      "id": "preferred_goal",
+      "type": "enum",
+      "values": ["currency", "gear_crafting", "xp", "bossing", "ssf_progression"],
+      "question_ko": "현재 목표는 커런시, 기어 제작, 경험치, 보스, SSF 진행 중 무엇인가?"
+    }
+  ],
+  "mechanic_profiles": {
+    "essence": {
+      "phase": ["early_mapping", "mid_mapping"],
+      "best_for": ["gear_crafting", "ssf_progression", "single_target_ok"],
+      "weak_for": ["fragile_builds_at_high_tier"],
+      "notes_ko": "초반 기어 제작의 기본. T16에서 에센스 몹이 빌드를 터뜨리면 낮은 티어에서 계속 도는 편이 낫다."
+    },
+    "harvest": {
+      "phase": ["early_mapping", "mid_mapping", "late_mapping"],
+      "best_for": ["gear_crafting", "resistance_fixing", "cluster_jewel_crafting"],
+      "weak_for": ["very_slow_single_target"],
+      "notes_ko": "저항 스왑, 리롤, 클러스터/주얼 제작 때문에 SSF와 초기 자본 모두에서 가치가 높다."
+    },
+    "betrayal": {
+      "phase": ["early_mapping", "mid_mapping"],
+      "best_for": ["bench_unlocks", "crafting_setup"],
+      "weak_for": ["players_who_already_unlocked_core_benches"],
+      "notes_ko": "초반에는 Jun 벤치 해금 가치가 높다. 해금 이후에는 목표 보상 없으면 우선순위가 내려간다."
+    },
+    "expedition": {
+      "phase": ["early_mapping", "mid_mapping", "late_mapping"],
+      "best_for": ["ssf_progression", "currency", "tanky_builds", "dot_builds"],
+      "weak_for": ["low_damage_builds", "builds_bad_against_remnant_mods"],
+      "notes_ko": "Rog/Tujen 가치가 높다. Remnant 모드가 빌드 금지 옵션인지 반드시 확인한다."
+    },
+    "legion": {
+      "phase": ["mid_mapping", "late_mapping"],
+      "best_for": ["fast_clear", "wide_aoe", "bow_builds", "chain_projectile_builds"],
+      "weak_for": ["slow_clear", "low_aoe", "low_burst_damage"],
+      "notes_ko": "빠른 클리어가 필요하다. T16 2분은 속도 파밍용 로컬 벤치마크일 뿐이고, 실제 기준은 맵당 시간 대비 보상이다."
+    },
+    "breach": {
+      "phase": ["mid_mapping", "late_mapping"],
+      "best_for": ["fast_clear", "dense_pack_clear", "good_recovery"],
+      "weak_for": ["low_recovery", "slow_clear"],
+      "notes_ko": "밀도는 좋지만 느린 빌드에는 시간 손실이 크다."
+    },
+    "delirium": {
+      "phase": ["late_mapping"],
+      "best_for": ["very_fast_clear", "high_damage", "good_defense_layers"],
+      "weak_for": ["early_mapping", "unstable_t16", "slow_boss_damage"],
+      "notes_ko": "고투자 후반 파밍. 고티어 안정성과 투자 회수 가능성이 확인되기 전에는 추천하지 않는다."
+    },
+    "blight": {
+      "phase": ["early_mapping", "mid_mapping"],
+      "best_for": ["tanky_slow", "minions", "dot_builds", "low_apm"],
+      "weak_for": ["players_optimizing_map_per_hour"],
+      "notes_ko": "느린 빌드도 보상 회수가 가능하다. 맵 클리어 속도가 낮을 때 대안이 된다."
+    },
+    "ritual": {
+      "phase": ["early_mapping", "mid_mapping"],
+      "best_for": ["tanky_builds", "small_arena_control", "steady_rewards"],
+      "weak_for": ["very_fragile_builds", "speed_farming"],
+      "notes_ko": "보상은 안정적이지만 맵당 시간이 늘어난다."
+    },
+    "boss_rush": {
+      "phase": ["mid_mapping", "late_mapping"],
+      "best_for": ["high_single_target", "fast_movement", "invitation_progress"],
+      "weak_for": ["low_single_target", "slow_movement"],
+      "notes_ko": "맵 전체를 돌지 않고 보스/초대장 중심으로 돈다. 단일딜과 이동 속도가 핵심이다."
+    }
+  },
+  "build_archetype_mapping": {
+    "fast_clear": {
+      "signals": ["bow", "projectile_chaining", "screen_clear", "high_movement_speed"],
+      "recommended_mechanics": ["legion", "breach", "delirium"],
+      "early_safe_mechanics": ["essence", "betrayal", "harvest"]
+    },
+    "tanky_slow": {
+      "signals": ["high_ehp", "rf", "minion", "low_burst_clear"],
+      "recommended_mechanics": ["expedition", "blight", "ritual"],
+      "early_safe_mechanics": ["essence", "harvest", "betrayal"]
+    },
+    "dot": {
+      "signals": ["damage_over_time", "poison", "chaos_dot", "ignite"],
+      "recommended_mechanics": ["expedition", "harvest", "essence"],
+      "early_safe_mechanics": ["essence", "harvest", "betrayal"]
+    },
+    "boss_killer": {
+      "signals": ["high_single_target", "trap", "mine", "totem", "melee_burst"],
+      "recommended_mechanics": ["boss_rush", "maven_witness", "guardian_maps"],
+      "early_safe_mechanics": ["essence", "harvest", "betrayal"]
+    }
+  },
+  "learning_notes": [
+    "Record user state before promoting farming phase: atlas_passive_points, highest_tier_smooth, average_clear_time_seconds, death_rate, voidstones.",
+    "Record chosen mechanic and user feedback after a session: profit_feel, deaths, map_time, sustain_ok, fun_score.",
+    "If repeated feedback says a mechanic is slow or deadly for a build archetype, down-rank it for that user's future recommendations."
+  ]
+}

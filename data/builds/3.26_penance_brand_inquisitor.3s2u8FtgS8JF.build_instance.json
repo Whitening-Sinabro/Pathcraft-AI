@@ -1,0 +1,4508 @@
+{
+  "schema_version": 1,
+  "source": {
+    "type": "pob_parser_output",
+    "pob_link": "https://pobb.in/3s2u8FtgS8JF",
+    "parser": "python/pob_parser.py",
+    "raw_available": true
+  },
+  "identity": {
+    "build_name": "Templar Inquisitor Lvl 100",
+    "class": "Templar",
+    "ascendancy": "Inquisitor",
+    "level": 100,
+    "target_version": "3_0"
+  },
+  "tree_state": {
+    "active_tree_url": "https://www.pathofexile.com/passive-skill-tree/AAAABgUBdRzcQYdR-1nzjxoxRfno73w--1-Y6rq2-o5kdKXAZnvXN0e4k533oS91KQSzV8m4XcrycWlyqb4nCQd0EL0nZp4aOBhWU40NfGhYkFWPRuNqiq9M3zwFrImsqij66-6TJx0U34bNFiTAogA1kteWpwjvn6VnFy9uqoCktz5KyILHPC1VqbUEa6z53di9zzKTCbQM5CIyfv4Kkm6XtHvDApY_WpARQ0O_uINfm24fGD8n7DhqAb6KVdaDzGZUvFYYPJ9IFm9k59J8eA1ZbW87occy0S3StfJFR8rT96Ypi-a-idiAMPrShXvAGg4EggSEABACEAQQACACGQASBBIAGgQaAhMAoASABycCPvuAbZ33Rbx1KVxFuF22UO-fIc2TCZY2occ=",
+    "passive_tree_options": [
+      {
+        "id": "",
+        "title": "",
+        "url": "https://www.pathofexile.com/passive-skill-tree/AAAABgUBdRzcQYdR-1nzjxoxRfno73w--1-Y6rq2-o5kdKXAZnvXN0e4k533oS91KQSzV8m4XcrycWlyqb4nCQd0EL0nZp4aOBhWU40NfGhYkFWPRuNqiq9M3zwFrImsqij66-6TJx0U34bNFiTAogA1kteWpwjvn6VnFy9uqoCktz5KyILHPC1VqbUEa6z53di9zzKTCbQM5CIyfv4Kkm6XtHvDApY_WpARQ0O_uINfm24fGD8n7DhqAb6KVdaDzGZUvFYYPJ9IFm9k59J8eA1ZbW87occy0S3StfJFR8rT96Ypi-a-idiAMPrShXvAGg4EggSEABACEAQQACACGQASBBIAGgQaAhMAoASABycCPvuAbZ33Rbx1KVxFuF22UO-fIc2TCZY2occ=",
+        "active": true
+      }
+    ],
+    "raw_spec_count": 1,
+    "raw_active_spec_id": "1",
+    "decoded_active_tree": {
+      "version": 6,
+      "class_index": 5,
+      "ascendancy_index": 1,
+      "fullscreen_flag": 117,
+      "node_count_declared": 28,
+      "nodes": [
+        "56385",
+        "34641",
+        "64345",
+        "62351",
+        "6705",
+        "17913",
+        "59631",
+        "31806",
+        "64351",
+        "39146",
+        "47798",
+        "64142",
+        "25716",
+        "42432",
+        "26235",
+        "55095",
+        "18360",
+        "37789",
+        "63393",
+        "12149",
+        "10500",
+        "45911",
+        "51640",
+        "24010",
+        "62065",
+        "26994",
+        "43454",
+        "9993",
+        "29712",
+        "48423",
+        "26270",
+        "6712",
+        "6230",
+        "21389",
+        "3452"
+      ],
+      "cluster_nodes": [
+        "29712",
+        "48423",
+        "26270",
+        "6712",
+        "6230",
+        "21389",
+        "3452"
+      ],
+      "mastery_effects": {
+        "21903": "22672",
+        "27274": "18147",
+        "57148": "44876",
+        "35244": "1452",
+        "64235": "43560",
+        "10013": "61075",
+        "34509": "5343",
+        "49314": "5668",
+        "37591": "53",
+        "2287": "38567",
+        "26391": "40869",
+        "43648": "12142",
+        "15946": "42167",
+        "51004": "51330",
+        "43445": "11605",
+        "44281": "1131",
+        "48591": "56792",
+        "2484": "12947",
+        "8754": "3300",
+        "2706": "32510",
+        "46203": "28311",
+        "38463": "49922",
+        "4419": "23184",
+        "47235": "17343",
+        "28191": "24475",
+        "10220": "6207",
+        "446": "14442",
+        "54915": "35413",
+        "21692": "52326",
+        "15519": "22040",
+        "28516": "18454",
+        "31864": "59346",
+        "28015": "3417",
+        "50994": "15265",
+        "53941": "53549",
+        "18378": "62021",
+        "42537": "54263",
+        "48777": "35814",
+        "12538": "55424",
+        "31680": "53893",
+        "1154": "6670",
+        "16": "1156",
+        "1040": "528",
+        "537": "32",
+        "1042": "18",
+        "1050": "26",
+        "160": "531",
+        "1831": "1152",
+        "64384": "574",
+        "63301": "28061",
+        "10588": "48245",
+        "23990": "17848",
+        "40737": "20719",
+        "2454": "52627"
+      },
+      "decode_warnings": [
+        "truncated_mastery_effects",
+        "unused_payload_bytes"
+      ]
+    },
+    "graph_summary": {
+      "class_index": 5,
+      "class_start_id": "61525",
+      "allocated_count": 8,
+      "connected_allocated_count": 0,
+      "orphaned_allocated_count": 8,
+      "orphaned_allocated_node_ids": [
+        "12149",
+        "21389",
+        "26270",
+        "29712",
+        "3452",
+        "48423",
+        "6230",
+        "6712"
+      ],
+      "connectivity_status": "has_orphaned_allocations"
+    },
+    "allocated_passives": [
+      "56385",
+      "34641",
+      "64345",
+      "62351",
+      "6705",
+      "17913",
+      "59631",
+      "31806",
+      "64351",
+      "39146",
+      "47798",
+      "64142",
+      "25716",
+      "42432",
+      "26235",
+      "55095",
+      "18360",
+      "37789",
+      "63393",
+      "12149",
+      "10500",
+      "45911",
+      "51640",
+      "24010",
+      "62065",
+      "26994",
+      "43454",
+      "9993",
+      "29712",
+      "48423",
+      "26270",
+      "6712",
+      "6230",
+      "21389",
+      "3452"
+    ],
+    "semantic_nodes": [
+      {
+        "node_id": "64351",
+        "graph_id": -1185,
+        "id": "projectiles_fork_2787",
+        "name": "Projectile Damage",
+        "is_notable": false,
+        "is_keystone": false,
+        "is_jewel_socket": false,
+        "is_ascendancy_starting_node": false,
+        "is_multiple_choice": false,
+        "is_multiple_choice_option": false,
+        "ascendancy_key": -72340172838076674,
+        "mastery_group": -72340172838076674,
+        "stats": [
+          {
+            "stats_key": 500,
+            "value": 14
+          }
+        ],
+        "display_stats": [],
+        "stat_semantics": [
+          {
+            "stats_key": 500,
+            "value": 14,
+            "text": null,
+            "categories": [],
+            "text_match": "unresolved"
+          }
+        ],
+        "stat_categories": [],
+        "stat_text_source": "none",
+        "stats_key_resolution": "aligned_by_value_or_fallback",
+        "source": "poe1:PassiveSkills"
+      },
+      {
+        "node_id": "12149",
+        "graph_id": 12149,
+        "id": "affliction_notable_assert_dominance",
+        "name": "Assert Dominance",
+        "is_notable": true,
+        "is_keystone": false,
+        "is_jewel_socket": false,
+        "is_ascendancy_starting_node": false,
+        "is_multiple_choice": false,
+        "is_multiple_choice_option": false,
+        "ascendancy_key": -72340172838076674,
+        "mastery_group": -72340172838076674,
+        "stats": [
+          {
+            "stats_key": 11193,
+            "value": 25
+          }
+        ],
+        "display_stats": [
+          "25% increased Area of Effect if you've Killed at least 5 Enemies Recently"
+        ],
+        "stat_semantics": [
+          {
+            "stats_key": 11193,
+            "value": 25,
+            "text": "25% increased Area of Effect if you've Killed at least 5 Enemies Recently",
+            "categories": [],
+            "text_match": "matched"
+          }
+        ],
+        "stat_categories": [],
+        "stat_text_source": "skilltree-export:data.json:nodes.stats",
+        "stats_key_resolution": "aligned_by_value_or_fallback",
+        "source": "poe1:PassiveSkills"
+      },
+      {
+        "node_id": "29712",
+        "graph_id": 29712,
+        "id": "affliction_jewel_slot1969_1",
+        "name": "Medium Jewel Socket",
+        "is_notable": false,
+        "is_keystone": false,
+        "is_jewel_socket": true,
+        "is_ascendancy_starting_node": false,
+        "is_multiple_choice": false,
+        "is_multiple_choice_option": false,
+        "ascendancy_key": -72340172838076674,
+        "mastery_group": -72340172838076674,
+        "stats": [],
+        "display_stats": [],
+        "stat_semantics": [],
+        "stat_categories": [],
+        "stat_text_source": "none",
+        "stats_key_resolution": "no_display_stats",
+        "source": "poe1:PassiveSkills"
+      },
+      {
+        "node_id": "48423",
+        "graph_id": -17113,
+        "id": "mana390",
+        "name": "Mana",
+        "is_notable": false,
+        "is_keystone": false,
+        "is_jewel_socket": false,
+        "is_ascendancy_starting_node": false,
+        "is_multiple_choice": false,
+        "is_multiple_choice_option": false,
+        "ascendancy_key": -72340172838076674,
+        "mastery_group": -72340172838076674,
+        "stats": [
+          {
+            "stats_key": 129,
+            "value": 8
+          }
+        ],
+        "display_stats": [
+          "8% increased maximum Mana"
+        ],
+        "stat_semantics": [
+          {
+            "stats_key": 129,
+            "value": 8,
+            "text": "8% increased maximum Mana",
+            "categories": [
+              "mana"
+            ],
+            "text_match": "matched"
+          }
+        ],
+        "stat_categories": [
+          "mana"
+        ],
+        "stat_text_source": "skilltree-export:data.json:nodes.stats",
+        "stats_key_resolution": "aligned_by_value_or_fallback",
+        "source": "poe1:PassiveSkills"
+      },
+      {
+        "node_id": "26270",
+        "graph_id": 26270,
+        "id": "intelligence917",
+        "name": "Intelligence",
+        "is_notable": false,
+        "is_keystone": false,
+        "is_jewel_socket": false,
+        "is_ascendancy_starting_node": false,
+        "is_multiple_choice": false,
+        "is_multiple_choice_option": false,
+        "ascendancy_key": -72340172838076674,
+        "mastery_group": -72340172838076674,
+        "stats": [
+          {
+            "stats_key": 578,
+            "value": 10
+          }
+        ],
+        "display_stats": [
+          "+10 to Intelligence"
+        ],
+        "stat_semantics": [
+          {
+            "stats_key": 578,
+            "value": 10,
+            "text": "+10 to Intelligence",
+            "categories": [
+              "attribute"
+            ],
+            "text_match": "matched"
+          }
+        ],
+        "stat_categories": [
+          "attribute"
+        ],
+        "stat_text_source": "skilltree-export:data.json:nodes.stats",
+        "stats_key_resolution": "aligned_by_value_or_fallback",
+        "source": "poe1:PassiveSkills"
+      },
+      {
+        "node_id": "6712",
+        "graph_id": 6712,
+        "id": "life1209",
+        "name": "Life",
+        "is_notable": false,
+        "is_keystone": false,
+        "is_jewel_socket": false,
+        "is_ascendancy_starting_node": false,
+        "is_multiple_choice": false,
+        "is_multiple_choice_option": false,
+        "ascendancy_key": -72340172838076674,
+        "mastery_group": -72340172838076674,
+        "stats": [
+          {
+            "stats_key": 125,
+            "value": 6
+          }
+        ],
+        "display_stats": [
+          "6% increased maximum Life"
+        ],
+        "stat_semantics": [
+          {
+            "stats_key": 125,
+            "value": 6,
+            "text": "6% increased maximum Life",
+            "categories": [
+              "life"
+            ],
+            "text_match": "matched"
+          }
+        ],
+        "stat_categories": [
+          "life"
+        ],
+        "stat_text_source": "skilltree-export:data.json:nodes.stats",
+        "stats_key_resolution": "aligned_by_value_or_fallback",
+        "source": "poe1:PassiveSkills"
+      },
+      {
+        "node_id": "6230",
+        "graph_id": 6230,
+        "id": "jewel_slot1966",
+        "name": "Basic Jewel Socket",
+        "is_notable": false,
+        "is_keystone": false,
+        "is_jewel_socket": true,
+        "is_ascendancy_starting_node": false,
+        "is_multiple_choice": false,
+        "is_multiple_choice_option": false,
+        "ascendancy_key": -72340172838076674,
+        "mastery_group": -72340172838076674,
+        "stats": [],
+        "display_stats": [],
+        "stat_semantics": [],
+        "stat_categories": [],
+        "stat_text_source": "none",
+        "stats_key_resolution": "no_display_stats",
+        "source": "poe1:PassiveSkills"
+      },
+      {
+        "node_id": "21389",
+        "graph_id": 21389,
+        "id": "sigil_notable2264",
+        "name": "Runesmith",
+        "is_notable": true,
+        "is_keystone": false,
+        "is_jewel_socket": false,
+        "is_ascendancy_starting_node": false,
+        "is_multiple_choice": false,
+        "is_multiple_choice_option": false,
+        "ascendancy_key": -72340172838076674,
+        "mastery_group": -72340172838076674,
+        "stats": [
+          {
+            "stats_key": 11852,
+            "value": 12
+          },
+          {
+            "stats_key": 8821,
+            "value": 5
+          }
+        ],
+        "display_stats": [
+          "12% increased Cast Speed with Brand Skills",
+          "Enemies take 5% increased Damage for each of your Brands Attached to them"
+        ],
+        "stat_semantics": [
+          {
+            "stats_key": 11852,
+            "value": 12,
+            "text": "12% increased Cast Speed with Brand Skills",
+            "categories": [
+              "speed",
+              "brand"
+            ],
+            "text_match": "matched"
+          },
+          {
+            "stats_key": 8821,
+            "value": 5,
+            "text": "Enemies take 5% increased Damage for each of your Brands Attached to them",
+            "categories": [
+              "damage",
+              "brand"
+            ],
+            "text_match": "matched"
+          }
+        ],
+        "stat_categories": [
+          "speed",
+          "brand",
+          "damage"
+        ],
+        "stat_text_source": "skilltree-export:data.json:nodes.stats",
+        "stats_key_resolution": "aligned_by_value_or_fallback",
+        "source": "poe1:PassiveSkills"
+      },
+      {
+        "node_id": "3452",
+        "graph_id": 3452,
+        "id": "energy_shield_notable1698",
+        "name": "Foresight",
+        "is_notable": true,
+        "is_keystone": false,
+        "is_jewel_socket": false,
+        "is_ascendancy_starting_node": false,
+        "is_multiple_choice": false,
+        "is_multiple_choice_option": false,
+        "ascendancy_key": -72340172838076674,
+        "mastery_group": -72340172838076674,
+        "stats": [
+          {
+            "stats_key": 134,
+            "value": 20
+          },
+          {
+            "stats_key": 135,
+            "value": 14
+          },
+          {
+            "stats_key": 139,
+            "value": 10
+          }
+        ],
+        "display_stats": [
+          "+20 to maximum Energy Shield",
+          "14% increased maximum Energy Shield",
+          "10% increased Energy Shield Recharge Rate"
+        ],
+        "stat_semantics": [
+          {
+            "stats_key": 134,
+            "value": 20,
+            "text": "+20 to maximum Energy Shield",
+            "categories": [
+              "energy_shield"
+            ],
+            "text_match": "matched"
+          },
+          {
+            "stats_key": 135,
+            "value": 14,
+            "text": "14% increased maximum Energy Shield",
+            "categories": [
+              "energy_shield"
+            ],
+            "text_match": "matched"
+          },
+          {
+            "stats_key": 139,
+            "value": 10,
+            "text": "10% increased Energy Shield Recharge Rate",
+            "categories": [
+              "energy_shield",
+              "charge"
+            ],
+            "text_match": "matched"
+          }
+        ],
+        "stat_categories": [
+          "energy_shield",
+          "charge"
+        ],
+        "stat_text_source": "skilltree-export:data.json:nodes.stats",
+        "stats_key_resolution": "aligned_by_value_or_fallback",
+        "source": "poe1:PassiveSkills"
+      }
+    ],
+    "missing_semantic_node_ids": [
+      "56385",
+      "34641",
+      "64345",
+      "62351",
+      "6705",
+      "17913",
+      "59631",
+      "31806",
+      "39146",
+      "47798",
+      "64142",
+      "25716",
+      "42432",
+      "26235",
+      "55095",
+      "18360",
+      "37789",
+      "63393",
+      "10500",
+      "45911",
+      "51640",
+      "24010",
+      "62065",
+      "26994",
+      "43454",
+      "9993"
+    ],
+    "semantic_counts": {
+      "total": 35,
+      "resolved": 9,
+      "missing": 26,
+      "notables": 3,
+      "keystones": 0,
+      "jewel_sockets": 2
+    },
+    "stat_category_counts": {
+      "attribute": 1,
+      "brand": 1,
+      "charge": 1,
+      "damage": 1,
+      "energy_shield": 1,
+      "life": 1,
+      "mana": 1,
+      "speed": 1
+    },
+    "notables": [
+      {
+        "node_id": "12149",
+        "name": "Assert Dominance",
+        "id": "affliction_notable_assert_dominance",
+        "stat_categories": []
+      },
+      {
+        "node_id": "21389",
+        "name": "Runesmith",
+        "id": "sigil_notable2264",
+        "stat_categories": [
+          "speed",
+          "brand",
+          "damage"
+        ]
+      },
+      {
+        "node_id": "3452",
+        "name": "Foresight",
+        "id": "energy_shield_notable1698",
+        "stat_categories": [
+          "energy_shield",
+          "charge"
+        ]
+      }
+    ],
+    "masteries": [
+      {
+        "node_id": "10013",
+        "effect_id": "61075",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "10220",
+        "effect_id": "6207",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "1040",
+        "effect_id": "528",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "1042",
+        "effect_id": "18",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "1050",
+        "effect_id": "26",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "10588",
+        "effect_id": "48245",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "1154",
+        "effect_id": "6670",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "12538",
+        "effect_id": "55424",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "15519",
+        "effect_id": "22040",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "15946",
+        "effect_id": "42167",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "16",
+        "effect_id": "1156",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "160",
+        "effect_id": "531",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "1831",
+        "effect_id": "1152",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "18378",
+        "effect_id": "62021",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "21692",
+        "effect_id": "52326",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "21903",
+        "effect_id": "22672",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "2287",
+        "effect_id": "38567",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "23990",
+        "effect_id": "17848",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "2454",
+        "effect_id": "52627",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "2484",
+        "effect_id": "12947",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "26391",
+        "effect_id": "40869",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "2706",
+        "effect_id": "32510",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "27274",
+        "effect_id": "18147",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "28015",
+        "effect_id": "3417",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "28191",
+        "effect_id": "24475",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "28516",
+        "effect_id": "18454",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "31680",
+        "effect_id": "53893",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "31864",
+        "effect_id": "59346",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "34509",
+        "effect_id": "5343",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "35244",
+        "effect_id": "1452",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "37591",
+        "effect_id": "53",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "38463",
+        "effect_id": "49922",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "40737",
+        "effect_id": "20719",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "42537",
+        "effect_id": "54263",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "43445",
+        "effect_id": "11605",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "43648",
+        "effect_id": "12142",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "4419",
+        "effect_id": "23184",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "44281",
+        "effect_id": "1131",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "446",
+        "effect_id": "14442",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "46203",
+        "effect_id": "28311",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "47235",
+        "effect_id": "17343",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "48591",
+        "effect_id": "56792",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "48777",
+        "effect_id": "35814",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "49314",
+        "effect_id": "5668",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "50994",
+        "effect_id": "15265",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "51004",
+        "effect_id": "51330",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "537",
+        "effect_id": "32",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "53941",
+        "effect_id": "53549",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "54915",
+        "effect_id": "35413",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "57148",
+        "effect_id": "44876",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "63301",
+        "effect_id": "28061",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "64235",
+        "effect_id": "43560",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "64384",
+        "effect_id": "574",
+        "node_name": null,
+        "node_found": false
+      },
+      {
+        "node_id": "8754",
+        "effect_id": "3300",
+        "node_name": null,
+        "node_found": false
+      }
+    ],
+    "keystones": [],
+    "jewel_sockets": [
+      {
+        "node_id": "29712",
+        "name": "Medium Jewel Socket",
+        "id": "affliction_jewel_slot1969_1"
+      },
+      {
+        "node_id": "6230",
+        "name": "Basic Jewel Socket",
+        "id": "jewel_slot1966"
+      }
+    ],
+    "parse_status": "decoded_and_mapped_official_tree_url"
+  },
+  "item_state": {
+    "slots": [
+      {
+        "slot": "Gloves",
+        "name": "Grim Hand (Paladin Gloves)",
+        "rarity": "Rare",
+        "base_type": "Paladin Gloves",
+        "sockets": "B B-R A",
+        "explicit_mods": [
+          "Armour: 539",
+          "Energy Shield: 108",
+          "0.4% of Cold Damage Leeched as Life",
+          "+48% to Cold Resistance",
+          "50% increased Damage with Hits against Chilled Enemies",
+          "Has 1 Abyssal Socket",
+          "91% increased Armour and Energy Shield",
+          "+129 to maximum Life",
+          "28% increased Brand Attachment range",
+          "43% increased Damage while Leeching"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Paladin Gloves",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Armours/Gloves/GlovesStrInt10",
+            "drop_level": 84,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              42,
+              1048,
+              33
+            ],
+            "effective_tags": [
+              "armour",
+              "equipment",
+              "gloves",
+              "not_for_sale",
+              "str_int_armour",
+              "top_tier_base_item_type"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 68,
+            "suffix": 107
+          },
+          "effective_tags": [
+            "armour",
+            "equipment",
+            "gloves",
+            "not_for_sale",
+            "str_int_armour",
+            "top_tier_base_item_type"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "32",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Armour: 539",
+            "raw_text": "Armour: 539",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 1,
+            "text": "ArmourBasePercentile: 0.9731",
+            "raw_text": "ArmourBasePercentile: 0.9731",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "Energy Shield: 108",
+            "raw_text": "Energy Shield: 108",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 3,
+            "text": "EnergyShieldBasePercentile: 1",
+            "raw_text": "EnergyShieldBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "0.4% of Cold Damage Leeched as Life",
+            "raw_text": "0.4% of Cold Damage Leeched as Life",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "life",
+              "damage",
+              "leech"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 5,
+            "text": "35% chance to Unnerve Enemies for 4 seconds on Hit",
+            "raw_text": "35% chance to Unnerve Enemies for 4 seconds on Hit",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 6,
+            "text": "+48% to Cold Resistance",
+            "raw_text": "{fractured}+48% to Cold Resistance",
+            "tags": [
+              "fractured"
+            ],
+            "source": "fractured",
+            "categories": [
+              "cold_resistance",
+              "cold",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "cold_resistance": 48
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 7,
+            "text": "50% increased Damage with Hits against Chilled Enemies",
+            "raw_text": "{fractured}50% increased Damage with Hits against Chilled Enemies",
+            "tags": [
+              "fractured"
+            ],
+            "source": "fractured",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "fractured_unknown"
+          },
+          {
+            "index": 8,
+            "text": "Has 1 Abyssal Socket",
+            "raw_text": "Has 1 Abyssal Socket",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 9,
+            "text": "91% increased Armour and Energy Shield",
+            "raw_text": "91% increased Armour and Energy Shield",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield",
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 10,
+            "text": "+129 to maximum Life",
+            "raw_text": "+129 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 129
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 11,
+            "text": "28% increased Brand Attachment range",
+            "raw_text": "28% increased Brand Attachment range",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 12,
+            "text": "43% increased Damage while Leeching",
+            "raw_text": "{crafted}43% increased Damage while Leeching",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [
+              "damage",
+              "leech"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 13,
+          "source_counts": {
+            "crafted": 1,
+            "explicit": 8,
+            "fractured": 2,
+            "implicit": 2
+          },
+          "category_counts": {
+            "armour": 3,
+            "cold": 1,
+            "cold_resistance": 1,
+            "damage": 3,
+            "energy_shield": 2,
+            "leech": 2,
+            "life": 2,
+            "maximum_life": 1,
+            "resistance": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "fractured_unknown": 1,
+            "implicit": 2,
+            "prefix": 5,
+            "suffix": 1,
+            "unknown": 3
+          },
+          "numeric_totals": {
+            "maximum_life": 129,
+            "cold_resistance": 48
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 5,
+          "likely_suffix_mods": 1,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 5,
+          "suffix_pressure_categories": [
+            "resistance",
+            "cold_resistance"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Weapon 1",
+        "name": "Pain Goad (Imbued Wand)",
+        "rarity": "Rare",
+        "base_type": "Imbued Wand",
+        "sockets": "W-W-W",
+        "explicit_mods": [
+          "12% increased Cast Speed",
+          "Enemies you Kill have a 15% chance to Explode, dealing a tenth of their maximum Life as Physical Damage",
+          "Spells have a 10% chance to deal Double Damage",
+          "69% increased Spell Damage",
+          "32% increased Cast Speed",
+          "+38% to Global Critical Strike Multiplier",
+          "+1 to Level of all Spell Skill Gems",
+          "+1 to Level of all Physical Spell Skill Gems",
+          "Gain 5% of Non-Chaos Damage as extra Chaos Damage",
+          "5% chance to deal Double Damage"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Imbued Wand",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Weapons/OneHandWeapons/Wands/Wand13",
+            "drop_level": 59,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              1332
+            ],
+            "effective_tags": [
+              "equipment",
+              "wand",
+              "wand_can_roll_caster_modifiers",
+              "weapon"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 131,
+            "suffix": 137
+          },
+          "effective_tags": [
+            "equipment",
+            "wand",
+            "wand_can_roll_caster_modifiers",
+            "weapon"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "37",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Haunted by Tormented Spirits",
+            "raw_text": "{crafted}Haunted by Tormented Spirits",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 1,
+            "text": "12% increased Cast Speed",
+            "raw_text": "12% increased Cast Speed",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "cast_speed",
+              "speed"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 2,
+            "text": "Enemies you Kill have a 15% chance to Explode, dealing a tenth of their maximum Life as Physical Damage",
+            "raw_text": "Enemies you Kill have a 15% chance to Explode, dealing a tenth of their maximum Life as Physical Damage",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "maximum_life",
+              "life",
+              "physical_damage",
+              "physical",
+              "damage"
+            ],
+            "numeric_totals": {
+              "maximum_life": 15
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 3,
+            "text": "Item sells for much more to vendors",
+            "raw_text": "Item sells for much more to vendors",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 4,
+            "text": "Spells have a 10% chance to deal Double Damage",
+            "raw_text": "Spells have a 10% chance to deal Double Damage",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 5,
+            "text": "69% increased Spell Damage",
+            "raw_text": "69% increased Spell Damage",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "spell_damage",
+              "spell",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 6,
+            "text": "32% increased Cast Speed",
+            "raw_text": "32% increased Cast Speed",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "cast_speed",
+              "speed"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 7,
+            "text": "+38% to Global Critical Strike Multiplier",
+            "raw_text": "+38% to Global Critical Strike Multiplier",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "critical"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 8,
+            "text": "+1 to Level of all Spell Skill Gems",
+            "raw_text": "+1 to Level of all Spell Skill Gems",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 9,
+            "text": "+1 to Level of all Physical Spell Skill Gems",
+            "raw_text": "+1 to Level of all Physical Spell Skill Gems",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 10,
+            "text": "Gain 5% of Non-Chaos Damage as extra Chaos Damage",
+            "raw_text": "Gain 5% of Non-Chaos Damage as extra Chaos Damage",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 11,
+            "text": "5% chance to deal Double Damage",
+            "raw_text": "{crafted}5% chance to deal Double Damage",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 12,
+          "source_counts": {
+            "crafted": 2,
+            "explicit": 5,
+            "implicit": 5
+          },
+          "category_counts": {
+            "cast_speed": 2,
+            "critical": 1,
+            "damage": 5,
+            "gem_level": 2,
+            "life": 1,
+            "maximum_life": 1,
+            "physical": 1,
+            "physical_damage": 1,
+            "speed": 2,
+            "spell": 1,
+            "spell_damage": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 2,
+            "implicit": 5,
+            "prefix": 2,
+            "suffix": 2,
+            "unknown": 1
+          },
+          "numeric_totals": {
+            "maximum_life": 15
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 2,
+          "likely_suffix_mods": 2,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 3,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Flask 3",
+        "name": "Dabbler's Ruby Flask of the Order (Unique ID: 34eba4bc374b616f2dddfeb2a2491b405b16c4a30ae87487be3685fcdc9ee48b)",
+        "rarity": "Magic",
+        "base_type": "Unique ID: 34eba4bc374b616f2dddfeb2a2491b405b16c4a30ae87487be3685fcdc9ee48b",
+        "sockets": "",
+        "explicit_mods": [
+          "70% increased effect",
+          "25% increased effect",
+          "Regenerate 3% of Life per second during Effect"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": null,
+          "affix_candidate_counts": null,
+          "join_status": "base_not_found_or_no_affix_candidates"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "30",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "70% increased effect",
+            "raw_text": "{crafted}70% increased effect",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 1,
+            "text": "Gains no Charges during Effect",
+            "raw_text": "{crafted}Gains no Charges during Effect",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 2,
+            "text": "32% reduced Duration",
+            "raw_text": "32% reduced Duration",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 3,
+            "text": "25% increased effect",
+            "raw_text": "25% increased effect",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 4,
+            "text": "Regenerate 3% of Life per second during Effect",
+            "raw_text": "{crafted}Regenerate 3% of Life per second during Effect",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [
+              "life",
+              "regeneration"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 5,
+          "source_counts": {
+            "crafted": 3,
+            "implicit": 2
+          },
+          "category_counts": {
+            "life": 1,
+            "regeneration": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 3,
+            "implicit": 2
+          },
+          "numeric_totals": {}
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 3,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "candidate_pool_unresolved"
+        }
+      },
+      {
+        "slot": "Helmet",
+        "name": "Damnation Cowl (Archdemon Crown)",
+        "rarity": "Rare",
+        "base_type": "Archdemon Crown",
+        "sockets": "W-W-W-W",
+        "explicit_mods": [
+          "Armour: 254",
+          "Energy Shield: 52",
+          "2 to Level of Socketed Support Gems",
+          "+2 to Level of Socketed Skill Gems",
+          "+2 to Level of Socketed AoE Gems",
+          "Socketed Gems are Supported by Level 25 Concentrated Effect",
+          "Socketed Gems are Supported by Level 25 Hypothermia",
+          "Socketed Gems deal 30% more Elemental Damage",
+          "Socketed Spells have +4% to Critical Strike Chance",
+          "+141 to maximum Life"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Archdemon Crown",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Armours/Helmets/HelmetStrIntRitual3",
+            "drop_level": 75,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              42,
+              33
+            ],
+            "effective_tags": [
+              "armour",
+              "equipment",
+              "helmet",
+              "not_for_sale",
+              "str_int_armour"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 56,
+            "suffix": 89
+          },
+          "effective_tags": [
+            "armour",
+            "equipment",
+            "helmet",
+            "not_for_sale",
+            "str_int_armour"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "15",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Armour: 254",
+            "raw_text": "Armour: 254",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 1,
+            "text": "ArmourBasePercentile: 0.9877",
+            "raw_text": "ArmourBasePercentile: 0.9877",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "Energy Shield: 52",
+            "raw_text": "Energy Shield: 52",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 3,
+            "text": "EnergyShieldBasePercentile: 1",
+            "raw_text": "EnergyShieldBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "Shaper Item",
+            "raw_text": "Shaper Item",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 5,
+            "text": "Elder Item",
+            "raw_text": "Elder Item",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "-2 to Level of Socketed Support Gems",
+            "raw_text": "-2 to Level of Socketed Support Gems",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 7,
+            "text": "+2 to Level of Socketed Skill Gems",
+            "raw_text": "+2 to Level of Socketed Skill Gems",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 8,
+            "text": "+2 to Level of Socketed AoE Gems",
+            "raw_text": "+2 to Level of Socketed AoE Gems",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 9,
+            "text": "Socketed Gems are Supported by Level 25 Concentrated Effect",
+            "raw_text": "Socketed Gems are Supported by Level 25 Concentrated Effect",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 10,
+            "text": "Socketed Gems are Supported by Level 25 Hypothermia",
+            "raw_text": "Socketed Gems are Supported by Level 25 Hypothermia",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 11,
+            "text": "Socketed Gems deal 30% more Elemental Damage",
+            "raw_text": "Socketed Gems deal 30% more Elemental Damage",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "elemental_damage",
+              "elemental",
+              "damage",
+              "gem"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 12,
+            "text": "Socketed Spells have +4% to Critical Strike Chance",
+            "raw_text": "Socketed Spells have +4% to Critical Strike Chance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "critical",
+              "gem"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 13,
+            "text": "+141 to maximum Life",
+            "raw_text": "+141 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 141
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 14,
+            "text": "10% increased Area of Effect",
+            "raw_text": "10% increased Area of Effect",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 15,
+            "text": "25% increased Area Damage",
+            "raw_text": "25% increased Area Damage",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 16,
+            "text": "20% increased Effect of Cold Ailments",
+            "raw_text": "20% increased Effect of Cold Ailments",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 17,
+          "source_counts": {
+            "explicit": 15,
+            "implicit": 2
+          },
+          "category_counts": {
+            "armour": 2,
+            "critical": 1,
+            "damage": 2,
+            "elemental": 1,
+            "elemental_damage": 1,
+            "energy_shield": 1,
+            "gem": 2,
+            "gem_level": 5,
+            "life": 1,
+            "maximum_life": 1
+          },
+          "likely_generation_counts": {
+            "implicit": 2,
+            "prefix": 8,
+            "suffix": 1,
+            "unknown": 6
+          },
+          "numeric_totals": {
+            "maximum_life": 141
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 8,
+          "likely_suffix_mods": 1,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 6,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Belt",
+        "name": "Mageblood",
+        "rarity": "Unknown",
+        "base_type": "Heavy Belt",
+        "sockets": "",
+        "explicit_mods": [
+          "11% increased Movement Speed during any Flask Effect",
+          "Zealotry has 19% increased Aura Effect",
+          "+19% to Fire Resistance",
+          "+25% to Cold Resistance",
+          "Magic Utility Flasks cannot be Used",
+          "Magic Utility Flask Effects cannot be removed"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Heavy Belt",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Belts/BeltRoyale2",
+            "drop_level": 2,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              33
+            ],
+            "effective_tags": [
+              "not_for_sale"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 10,
+            "suffix": 9
+          },
+          "effective_tags": [
+            "not_for_sale"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "18",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "11% increased Movement Speed during any Flask Effect",
+            "raw_text": "11% increased Movement Speed during any Flask Effect",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "movement_speed",
+              "speed",
+              "flask"
+            ],
+            "numeric_totals": {
+              "movement_speed": 11
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 1,
+            "text": "Zealotry has 19% increased Aura Effect",
+            "raw_text": "Zealotry has 19% increased Aura Effect",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 2,
+            "text": "+57 to Dexterity",
+            "raw_text": "+57 to Dexterity",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "dexterity",
+              "attribute"
+            ],
+            "numeric_totals": {
+              "dexterity": 57
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 3,
+            "text": "+19% to Fire Resistance",
+            "raw_text": "+19% to Fire Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "fire_resistance",
+              "fire",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "fire_resistance": 19
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 4,
+            "text": "+25% to Cold Resistance",
+            "raw_text": "+25% to Cold Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "cold_resistance",
+              "cold",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "cold_resistance": 25
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 5,
+            "text": "Magic Utility Flasks cannot be Used",
+            "raw_text": "Magic Utility Flasks cannot be Used",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "Leftmost 4 Magic Utility Flasks constantly apply their Flask Effects to you",
+            "raw_text": "Leftmost 4 Magic Utility Flasks constantly apply their Flask Effects to you",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 7,
+            "text": "Magic Utility Flask Effects cannot be removed",
+            "raw_text": "Magic Utility Flask Effects cannot be removed",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 8,
+          "source_counts": {
+            "explicit": 6,
+            "implicit": 2
+          },
+          "category_counts": {
+            "attribute": 1,
+            "cold": 1,
+            "cold_resistance": 1,
+            "dexterity": 1,
+            "fire": 1,
+            "fire_resistance": 1,
+            "flask": 4,
+            "movement_speed": 1,
+            "resistance": 2,
+            "speed": 1
+          },
+          "likely_generation_counts": {
+            "implicit": 2,
+            "suffix": 3,
+            "unknown": 3
+          },
+          "numeric_totals": {
+            "fire_resistance": 19,
+            "cold_resistance": 25,
+            "dexterity": 57,
+            "movement_speed": 11
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 3,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 3,
+          "suffix_pressure_categories": [
+            "resistance",
+            "fire_resistance",
+            "cold_resistance",
+            "attribute"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Flask 5",
+        "name": "Alchemist's Quicksilver Flask of the Cheetah (Unique ID: c454514909a29bddbdf9f71baf958d868c0ad76d28a2c688abde74d08d8cd39f)",
+        "rarity": "Magic",
+        "base_type": "Unique ID: c454514909a29bddbdf9f71baf958d868c0ad76d28a2c688abde74d08d8cd39f",
+        "sockets": "",
+        "explicit_mods": [
+          "70% increased effect",
+          "25% increased effect",
+          "14% increased Movement Speed during Effect"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": null,
+          "affix_candidate_counts": null,
+          "join_status": "base_not_found_or_no_affix_candidates"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "33",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "70% increased effect",
+            "raw_text": "{crafted}70% increased effect",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 1,
+            "text": "Gains no Charges during Effect",
+            "raw_text": "{crafted}Gains no Charges during Effect",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 2,
+            "text": "24% reduced Duration",
+            "raw_text": "24% reduced Duration",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 3,
+            "text": "25% increased effect",
+            "raw_text": "25% increased effect",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 4,
+            "text": "14% increased Movement Speed during Effect",
+            "raw_text": "14% increased Movement Speed during Effect",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "movement_speed",
+              "speed"
+            ],
+            "numeric_totals": {
+              "movement_speed": 14
+            },
+            "likely_affix_generation": "unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 5,
+          "source_counts": {
+            "crafted": 2,
+            "explicit": 1,
+            "implicit": 2
+          },
+          "category_counts": {
+            "movement_speed": 1,
+            "speed": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 2,
+            "implicit": 2,
+            "unknown": 1
+          },
+          "numeric_totals": {
+            "movement_speed": 14
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 3,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "candidate_pool_unresolved"
+        }
+      },
+      {
+        "slot": "Gloves Abyssal Socket 1",
+        "name": "Whispering Lens (Hypnotic Eye Jewel)",
+        "rarity": "Rare",
+        "base_type": "Hypnotic Eye Jewel",
+        "sockets": "",
+        "explicit_mods": [
+          "2% increased Reservation Efficiency of Skills",
+          "Corrupted Blood cannot be inflicted on you",
+          "+26 to maximum Life",
+          "1 to 3 Added Spell Physical Damage while holding a Shield",
+          "8% chance to gain Phasing for 4 seconds on Kill"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Hypnotic Eye Jewel",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Jewels/JewelAbyssCaster",
+            "drop_level": 1,
+            "mod_domain": 13,
+            "explicit_tag_keys": [
+              33,
+              236,
+              238
+            ],
+            "effective_tags": [
+              "abyss_jewel",
+              "abyss_jewel_caster",
+              "not_for_sale"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 131,
+            "suffix": 87
+          },
+          "effective_tags": [
+            "abyss_jewel",
+            "abyss_jewel_caster",
+            "not_for_sale"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "31",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "2% increased Reservation Efficiency of Skills",
+            "raw_text": "2% increased Reservation Efficiency of Skills",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "reservation"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 1,
+            "text": "+7 to all Attributes",
+            "raw_text": "+7 to all Attributes",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "all_attributes",
+              "attribute"
+            ],
+            "numeric_totals": {
+              "strength": 7,
+              "dexterity": 7,
+              "intelligence": 7
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 2,
+            "text": "+26 to maximum Life",
+            "raw_text": "+26 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 26
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 3,
+            "text": "1 to 3 Added Spell Physical Damage while holding a Shield",
+            "raw_text": "1 to 3 Added Spell Physical Damage while holding a Shield",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "physical_damage",
+              "physical",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 4,
+            "text": "8% chance to gain Phasing for 4 seconds on Kill",
+            "raw_text": "8% chance to gain Phasing for 4 seconds on Kill",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 5,
+          "source_counts": {
+            "explicit": 3,
+            "implicit": 2
+          },
+          "category_counts": {
+            "all_attributes": 1,
+            "attribute": 1,
+            "damage": 1,
+            "life": 1,
+            "maximum_life": 1,
+            "physical": 1,
+            "physical_damage": 1,
+            "reservation": 1
+          },
+          "likely_generation_counts": {
+            "implicit": 2,
+            "prefix": 2,
+            "unknown": 1
+          },
+          "numeric_totals": {
+            "maximum_life": 26,
+            "strength": 7,
+            "dexterity": 7,
+            "intelligence": 7
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 2,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 1,
+          "suffix_pressure_categories": [
+            "attribute"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Flask 1",
+        "name": "Progenesis",
+        "rarity": "Unknown",
+        "base_type": "Amethyst Flask",
+        "sockets": "",
+        "explicit_mods": [
+          "33% increased Duration",
+          "When Hit during effect, 25% of Life loss from Damage taken occurs over 4 seconds instead"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Amethyst Flask",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Flasks/FlaskUtility7",
+            "drop_level": 18,
+            "mod_domain": 2,
+            "explicit_tag_keys": [],
+            "effective_tags": []
+          },
+          "affix_candidate_counts": {
+            "prefix": 66,
+            "suffix": 38
+          },
+          "effective_tags": [],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "29",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Used when Charges reach full",
+            "raw_text": "{crafted}Used when Charges reach full",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 1,
+            "text": "15% reduced Charges per use",
+            "raw_text": "15% reduced Charges per use",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 2,
+            "text": "33% increased Duration",
+            "raw_text": "33% increased Duration",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 3,
+            "text": "When Hit during effect, 25% of Life loss from Damage taken occurs over 4 seconds instead",
+            "raw_text": "When Hit during effect, 25% of Life loss from Damage taken occurs over 4 seconds instead",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "life",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 4,
+          "source_counts": {
+            "crafted": 1,
+            "explicit": 2,
+            "implicit": 1
+          },
+          "category_counts": {
+            "damage": 1,
+            "life": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "implicit": 1,
+            "unknown": 2
+          },
+          "numeric_totals": {}
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 3,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Amulet",
+        "name": "Cataclysm Locket (Focused Amulet)",
+        "rarity": "Rare",
+        "base_type": "Focused Amulet",
+        "sockets": "",
+        "explicit_mods": [
+          "Implicit Modifiers Cannot Be Changed",
+          "100% increased Explicit Modifier magnitudes",
+          "+580 to maximum Life",
+          "+4 to Level of all Skill Gems",
+          "114% increased Brand Attachment range"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Focused Amulet",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Amulets/AmuletE3",
+            "drop_level": 80,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              33,
+              1060
+            ],
+            "effective_tags": [
+              "experimental_base",
+              "not_for_sale"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 10,
+            "suffix": 9
+          },
+          "effective_tags": [
+            "experimental_base",
+            "not_for_sale"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "27",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Allocates Disciple of the Unyielding",
+            "raw_text": "{crafted}Allocates Disciple of the Unyielding",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 1,
+            "text": "-1 Prefix Modifier allowed",
+            "raw_text": "-1 Prefix Modifier allowed",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 2,
+            "text": "-2 Suffix Modifiers allowed",
+            "raw_text": "-2 Suffix Modifiers allowed",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 3,
+            "text": "Implicit Modifiers Cannot Be Changed",
+            "raw_text": "Implicit Modifiers Cannot Be Changed",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 4,
+            "text": "100% increased Explicit Modifier magnitudes",
+            "raw_text": "100% increased Explicit Modifier magnitudes",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 5,
+            "text": "+580 to maximum Life",
+            "raw_text": "+580 to maximum Life",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 580
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 6,
+            "text": "+4 to Level of all Skill Gems",
+            "raw_text": "+4 to Level of all Skill Gems",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 7,
+            "text": "114% increased Brand Attachment range",
+            "raw_text": "114% increased Brand Attachment range",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 8,
+          "source_counts": {
+            "crafted": 1,
+            "explicit": 2,
+            "implicit": 5
+          },
+          "category_counts": {
+            "gem_level": 1,
+            "life": 1,
+            "maximum_life": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "implicit": 5,
+            "prefix": 1,
+            "unknown": 1
+          },
+          "numeric_totals": {
+            "maximum_life": 580
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 1,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 2,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Flask 4",
+        "name": "Alchemist's Sapphire Flask of the Armadillo (Unique ID: 8273fa876e0340fe4f88fe585e6560a76fc4a9172ab8deabda9984070d0d6802)",
+        "rarity": "Magic",
+        "base_type": "Unique ID: 8273fa876e0340fe4f88fe585e6560a76fc4a9172ab8deabda9984070d0d6802",
+        "sockets": "",
+        "explicit_mods": [
+          "70% increased effect",
+          "25% increased effect",
+          "60% increased Armour during Effect"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": null,
+          "affix_candidate_counts": null,
+          "join_status": "base_not_found_or_no_affix_candidates"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "34",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "70% increased effect",
+            "raw_text": "{crafted}70% increased effect",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 1,
+            "text": "Gains no Charges during Effect",
+            "raw_text": "{crafted}Gains no Charges during Effect",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 2,
+            "text": "25% reduced Duration",
+            "raw_text": "25% reduced Duration",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 3,
+            "text": "25% increased effect",
+            "raw_text": "25% increased effect",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 4,
+            "text": "60% increased Armour during Effect",
+            "raw_text": "60% increased Armour during Effect",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 5,
+          "source_counts": {
+            "crafted": 2,
+            "explicit": 1,
+            "implicit": 2
+          },
+          "category_counts": {
+            "armour": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 2,
+            "implicit": 2,
+            "prefix": 1
+          },
+          "numeric_totals": {}
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 1,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 2,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "candidate_pool_unresolved"
+        }
+      },
+      {
+        "slot": "Flask 2",
+        "name": "Alchemist's Topaz Flask of the Rainbow (Unique ID: b6bf206d18c03ff84e0b38a3eee6bc752dc9c6c9cb19debb8a0c2904b5149fc1)",
+        "rarity": "Magic",
+        "base_type": "Unique ID: b6bf206d18c03ff84e0b38a3eee6bc752dc9c6c9cb19debb8a0c2904b5149fc1",
+        "sockets": "",
+        "explicit_mods": [
+          "70% increased effect",
+          "25% increased effect",
+          "20% additional Elemental Resistances during Effect"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": null,
+          "affix_candidate_counts": null,
+          "join_status": "base_not_found_or_no_affix_candidates"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "23",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "70% increased effect",
+            "raw_text": "{crafted}70% increased effect",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 1,
+            "text": "Gains no Charges during Effect",
+            "raw_text": "{crafted}Gains no Charges during Effect",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 2,
+            "text": "25% reduced Duration",
+            "raw_text": "25% reduced Duration",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 3,
+            "text": "25% increased effect",
+            "raw_text": "25% increased effect",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 4,
+            "text": "20% additional Elemental Resistances during Effect",
+            "raw_text": "20% additional Elemental Resistances during Effect",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "all_elemental_resistance",
+              "elemental",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "fire_resistance": 20,
+              "cold_resistance": 20,
+              "lightning_resistance": 20
+            },
+            "likely_affix_generation": "suffix"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 5,
+          "source_counts": {
+            "crafted": 2,
+            "explicit": 1,
+            "implicit": 2
+          },
+          "category_counts": {
+            "all_elemental_resistance": 1,
+            "elemental": 1,
+            "resistance": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 2,
+            "implicit": 2,
+            "suffix": 1
+          },
+          "numeric_totals": {
+            "fire_resistance": 20,
+            "cold_resistance": 20,
+            "lightning_resistance": 20
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 1,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 2,
+          "suffix_pressure_categories": [
+            "resistance"
+          ],
+          "candidate_pool_status": "candidate_pool_unresolved"
+        }
+      },
+      {
+        "slot": "Weapon 2",
+        "name": "Dragon Needle (Imbued Wand)",
+        "rarity": "Rare",
+        "base_type": "Imbued Wand",
+        "sockets": "W-W-W",
+        "explicit_mods": [
+          "12% increased Cast Speed",
+          "Enemies you Kill have a 15% chance to Explode, dealing a tenth of their maximum Life as Physical Damage",
+          "Spells have a 10% chance to deal Double Damage",
+          "69% increased Spell Damage",
+          "32% increased Cast Speed",
+          "+38% to Global Critical Strike Multiplier",
+          "+1 to Level of all Spell Skill Gems",
+          "+1 to Level of all Lightning Spell Skill Gems",
+          "Gain 5% of Non-Chaos Damage as extra Chaos Damage",
+          "5% chance to deal Double Damage"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Imbued Wand",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Weapons/OneHandWeapons/Wands/Wand13",
+            "drop_level": 59,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              1332
+            ],
+            "effective_tags": [
+              "equipment",
+              "wand",
+              "wand_can_roll_caster_modifiers",
+              "weapon"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 131,
+            "suffix": 137
+          },
+          "effective_tags": [
+            "equipment",
+            "wand",
+            "wand_can_roll_caster_modifiers",
+            "weapon"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "21",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Haunted by Tormented Spirits",
+            "raw_text": "{crafted}Haunted by Tormented Spirits",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 1,
+            "text": "12% increased Cast Speed",
+            "raw_text": "12% increased Cast Speed",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "cast_speed",
+              "speed"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 2,
+            "text": "Enemies you Kill have a 15% chance to Explode, dealing a tenth of their maximum Life as Physical Damage",
+            "raw_text": "Enemies you Kill have a 15% chance to Explode, dealing a tenth of their maximum Life as Physical Damage",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "maximum_life",
+              "life",
+              "physical_damage",
+              "physical",
+              "damage"
+            ],
+            "numeric_totals": {
+              "maximum_life": 15
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 3,
+            "text": "Item sells for much more to vendors",
+            "raw_text": "Item sells for much more to vendors",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 4,
+            "text": "Spells have a 10% chance to deal Double Damage",
+            "raw_text": "Spells have a 10% chance to deal Double Damage",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 5,
+            "text": "69% increased Spell Damage",
+            "raw_text": "69% increased Spell Damage",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "spell_damage",
+              "spell",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 6,
+            "text": "32% increased Cast Speed",
+            "raw_text": "32% increased Cast Speed",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "cast_speed",
+              "speed"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 7,
+            "text": "+38% to Global Critical Strike Multiplier",
+            "raw_text": "+38% to Global Critical Strike Multiplier",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "critical"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 8,
+            "text": "+1 to Level of all Spell Skill Gems",
+            "raw_text": "+1 to Level of all Spell Skill Gems",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 9,
+            "text": "+1 to Level of all Lightning Spell Skill Gems",
+            "raw_text": "+1 to Level of all Lightning Spell Skill Gems",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 10,
+            "text": "Gain 5% of Non-Chaos Damage as extra Chaos Damage",
+            "raw_text": "Gain 5% of Non-Chaos Damage as extra Chaos Damage",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 11,
+            "text": "5% chance to deal Double Damage",
+            "raw_text": "{crafted}5% chance to deal Double Damage",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 12,
+          "source_counts": {
+            "crafted": 2,
+            "explicit": 5,
+            "implicit": 5
+          },
+          "category_counts": {
+            "cast_speed": 2,
+            "critical": 1,
+            "damage": 5,
+            "gem_level": 2,
+            "life": 1,
+            "maximum_life": 1,
+            "physical": 1,
+            "physical_damage": 1,
+            "speed": 2,
+            "spell": 1,
+            "spell_damage": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 2,
+            "implicit": 5,
+            "prefix": 2,
+            "suffix": 2,
+            "unknown": 1
+          },
+          "numeric_totals": {
+            "maximum_life": 15
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 2,
+          "likely_suffix_mods": 2,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 3,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Ring 2",
+        "name": "Brimstone Twirl (Moonstone Ring)",
+        "rarity": "Rare",
+        "base_type": "Moonstone Ring",
+        "sockets": "",
+        "explicit_mods": [
+          "9% increased maximum Life",
+          "16% increased Cast Speed",
+          "+25% to Global Critical Strike Multiplier",
+          "+47 to maximum Energy Shield",
+          "+136 to maximum Life"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Moonstone Ring",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Rings/Ring9",
+            "drop_level": 25,
+            "mod_domain": 1,
+            "explicit_tag_keys": [],
+            "effective_tags": []
+          },
+          "affix_candidate_counts": {
+            "prefix": 10,
+            "suffix": 9
+          },
+          "effective_tags": [],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "22",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "9% increased maximum Life",
+            "raw_text": "9% increased maximum Life",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 9
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 1,
+            "text": "+1 to Maximum Endurance Charges",
+            "raw_text": "+1 to Maximum Endurance Charges",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 2,
+            "text": "You gain Onslaught for 4 seconds on Hit",
+            "raw_text": "You gain Onslaught for 4 seconds on Hit",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 3,
+            "text": "Item sells for much more to vendors",
+            "raw_text": "Item sells for much more to vendors",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 4,
+            "text": "16% increased Cast Speed",
+            "raw_text": "16% increased Cast Speed",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "cast_speed",
+              "speed"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 5,
+            "text": "+25% to Global Critical Strike Multiplier",
+            "raw_text": "+25% to Global Critical Strike Multiplier",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "critical"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 6,
+            "text": "+47 to maximum Energy Shield",
+            "raw_text": "+47 to maximum Energy Shield",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield"
+            ],
+            "numeric_totals": {
+              "maximum_energy_shield": 47
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 7,
+            "text": "+136 to maximum Life",
+            "raw_text": "+136 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 136
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 8,
+            "text": "+1 to Minimum Endurance Charges",
+            "raw_text": "+1 to Minimum Endurance Charges",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 9,
+            "text": "4% chance to gain an Endurance Charge on Kill",
+            "raw_text": "4% chance to gain an Endurance Charge on Kill",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 10,
+            "text": "Non-Channelling Skills have -8 to Total Mana Cost",
+            "raw_text": "{crafted}Non-Channelling Skills have -8 to Total Mana Cost",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 11,
+          "source_counts": {
+            "crafted": 1,
+            "explicit": 6,
+            "implicit": 4
+          },
+          "category_counts": {
+            "cast_speed": 1,
+            "critical": 1,
+            "energy_shield": 1,
+            "life": 2,
+            "maximum_life": 2,
+            "speed": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "implicit": 4,
+            "prefix": 2,
+            "suffix": 2,
+            "unknown": 2
+          },
+          "numeric_totals": {
+            "maximum_life": 145,
+            "maximum_energy_shield": 47
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 2,
+          "likely_suffix_mods": 2,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 3,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Body Armour",
+        "name": "Honour Shell (Sacred Chainmail)",
+        "rarity": "Rare",
+        "base_type": "Sacred Chainmail",
+        "sockets": "W-W-W-W-W-W",
+        "explicit_mods": [
+          "Armour: 3529",
+          "Energy Shield: 732",
+          "12% increased Explicit Defence Modifier magnitudes",
+          "50% reduced Explicit Resistance Modifier magnitudes",
+          "12% of Physical Damage from Hits taken as Lightning Damage",
+          "+2% to all maximum Resistances",
+          "120% increased Armour and Energy Shield",
+          "You take 10% reduced Extra Damage from Critical Strikes per Endurance Charge",
+          "+403 to Armour",
+          "+89 to maximum Energy Shield"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Sacred Chainmail",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Armours/BodyArmours/BodyStrInt20",
+            "drop_level": 84,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              42,
+              1048,
+              33
+            ],
+            "effective_tags": [
+              "armour",
+              "body_armour",
+              "equipment",
+              "not_for_sale",
+              "str_int_armour",
+              "top_tier_base_item_type"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 63,
+            "suffix": 77
+          },
+          "effective_tags": [
+            "armour",
+            "body_armour",
+            "equipment",
+            "not_for_sale",
+            "str_int_armour",
+            "top_tier_base_item_type"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "28",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Armour: 3529",
+            "raw_text": "Armour: 3529",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 1,
+            "text": "ArmourBasePercentile: 0.9992",
+            "raw_text": "ArmourBasePercentile: 0.9992",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "Energy Shield: 732",
+            "raw_text": "Energy Shield: 732",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 3,
+            "text": "EnergyShieldBasePercentile: 0.9975",
+            "raw_text": "EnergyShieldBasePercentile: 0.9975",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "12% increased Explicit Defence Modifier magnitudes",
+            "raw_text": "{crafted}12% increased Explicit Defence Modifier magnitudes",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 5,
+            "text": "50% reduced Explicit Resistance Modifier magnitudes",
+            "raw_text": "{crafted}50% reduced Explicit Resistance Modifier magnitudes",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [
+              "resistance"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 6,
+            "text": "12% of Physical Damage from Hits taken as Lightning Damage",
+            "raw_text": "12% of Physical Damage from Hits taken as Lightning Damage",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "physical_damage",
+              "physical",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 7,
+            "text": "+2% to all maximum Resistances",
+            "raw_text": "+2% to all maximum Resistances",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "resistance"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 8,
+            "text": "120% increased Armour and Energy Shield",
+            "raw_text": "{fractured}120% increased Armour and Energy Shield",
+            "tags": [
+              "fractured"
+            ],
+            "source": "fractured",
+            "categories": [
+              "energy_shield",
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 9,
+            "text": "You take 10% reduced Extra Damage from Critical Strikes per Endurance Charge",
+            "raw_text": "You take 10% reduced Extra Damage from Critical Strikes per Endurance Charge",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "critical",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 10,
+            "text": "+403 to Armour",
+            "raw_text": "+403 to Armour",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 11,
+            "text": "+89 to maximum Energy Shield",
+            "raw_text": "+89 to maximum Energy Shield",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield"
+            ],
+            "numeric_totals": {
+              "maximum_energy_shield": 89
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 12,
+            "text": "+185 to maximum Life",
+            "raw_text": "+185 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 185
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 13,
+            "text": "Regenerate 171 Life per second",
+            "raw_text": "Regenerate 171 Life per second",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "life",
+              "regeneration"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 14,
+            "text": "8% additional Physical Damage Reduction",
+            "raw_text": "8% additional Physical Damage Reduction",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "physical_damage",
+              "physical",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 15,
+          "source_counts": {
+            "crafted": 2,
+            "explicit": 8,
+            "fractured": 1,
+            "implicit": 4
+          },
+          "category_counts": {
+            "armour": 4,
+            "critical": 1,
+            "damage": 3,
+            "energy_shield": 3,
+            "life": 2,
+            "maximum_life": 1,
+            "physical": 2,
+            "physical_damage": 2,
+            "regeneration": 1,
+            "resistance": 2
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "implicit": 4,
+            "prefix": 7,
+            "suffix": 1,
+            "unknown": 2
+          },
+          "numeric_totals": {
+            "maximum_life": 185,
+            "maximum_energy_shield": 89
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 7,
+          "likely_suffix_mods": 1,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 3,
+          "suffix_pressure_categories": [
+            "resistance"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Ring 1",
+        "name": "Death Rush",
+        "rarity": "Unknown",
+        "base_type": "Amethyst Ring",
+        "sockets": "",
+        "explicit_mods": [
+          "+27% to Chaos Resistance",
+          "Recover 4% of Life on Kill"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Amethyst Ring",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Rings/Ring10",
+            "drop_level": 38,
+            "mod_domain": 1,
+            "explicit_tag_keys": [],
+            "effective_tags": []
+          },
+          "affix_candidate_counts": {
+            "prefix": 10,
+            "suffix": 9
+          },
+          "effective_tags": [],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "25",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "+27% to Chaos Resistance",
+            "raw_text": "+27% to Chaos Resistance",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "chaos_resistance",
+              "chaos",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "chaos_resistance": 27
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 1,
+            "text": "Recover 4% of Life on Kill",
+            "raw_text": "Recover 4% of Life on Kill",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "life"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 2,
+            "text": "Gain Adrenaline for 3 seconds on Kill",
+            "raw_text": "Gain Adrenaline for 3 seconds on Kill",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 3,
+          "source_counts": {
+            "explicit": 2,
+            "implicit": 1
+          },
+          "category_counts": {
+            "chaos": 1,
+            "chaos_resistance": 1,
+            "life": 1,
+            "resistance": 1
+          },
+          "likely_generation_counts": {
+            "implicit": 1,
+            "unknown": 2
+          },
+          "numeric_totals": {
+            "chaos_resistance": 27
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 2,
+          "suffix_pressure_categories": [
+            "resistance",
+            "chaos_resistance"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Boots",
+        "name": "Ghoul Goad (Paladin Boots)",
+        "rarity": "Rare",
+        "base_type": "Paladin Boots",
+        "sockets": "R-R-R-B",
+        "explicit_mods": [
+          "Armour: 564",
+          "Energy Shield: 112",
+          "11% increased Life Regeneration rate",
+          "6% increased Action Speed",
+          "21% increased Life Regeneration rate",
+          "99% increased Armour and Energy Shield",
+          "+129 to maximum Life",
+          "+35% to Chaos Resistance",
+          "35% increased Movement Speed",
+          "30% increased Effect of Non-Damaging Ailments"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Paladin Boots",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Armours/Boots/BootsStrInt10",
+            "drop_level": 84,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              42,
+              1048,
+              33
+            ],
+            "effective_tags": [
+              "armour",
+              "boots",
+              "equipment",
+              "not_for_sale",
+              "str_int_armour",
+              "top_tier_base_item_type"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 53,
+            "suffix": 76
+          },
+          "effective_tags": [
+            "armour",
+            "boots",
+            "equipment",
+            "not_for_sale",
+            "str_int_armour",
+            "top_tier_base_item_type"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "16",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Armour: 564",
+            "raw_text": "Armour: 564",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 1,
+            "text": "ArmourBasePercentile: 1",
+            "raw_text": "ArmourBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "Energy Shield: 112",
+            "raw_text": "Energy Shield: 112",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 3,
+            "text": "EnergyShieldBasePercentile: 0.9835",
+            "raw_text": "EnergyShieldBasePercentile: 0.9835",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "11% increased Life Regeneration rate",
+            "raw_text": "11% increased Life Regeneration rate",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "life",
+              "regeneration"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 5,
+            "text": "6% increased Action Speed",
+            "raw_text": "6% increased Action Speed",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 6,
+            "text": "21% increased Life Regeneration rate",
+            "raw_text": "{fractured}21% increased Life Regeneration rate",
+            "tags": [
+              "fractured"
+            ],
+            "source": "fractured",
+            "categories": [
+              "life",
+              "regeneration"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "fractured_unknown"
+          },
+          {
+            "index": 7,
+            "text": "99% increased Armour and Energy Shield",
+            "raw_text": "99% increased Armour and Energy Shield",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield",
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 8,
+            "text": "+129 to maximum Life",
+            "raw_text": "+129 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 129
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 9,
+            "text": "+35% to Chaos Resistance",
+            "raw_text": "+35% to Chaos Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "chaos_resistance",
+              "chaos",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "chaos_resistance": 35
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 10,
+            "text": "35% increased Movement Speed",
+            "raw_text": "35% increased Movement Speed",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "movement_speed",
+              "speed"
+            ],
+            "numeric_totals": {
+              "movement_speed": 35
+            },
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 11,
+            "text": "30% increased Effect of Non-Damaging Ailments",
+            "raw_text": "{crafted}30% increased Effect of Non-Damaging Ailments",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 12,
+          "source_counts": {
+            "crafted": 1,
+            "explicit": 8,
+            "fractured": 1,
+            "implicit": 2
+          },
+          "category_counts": {
+            "armour": 3,
+            "chaos": 1,
+            "chaos_resistance": 1,
+            "energy_shield": 2,
+            "life": 3,
+            "maximum_life": 1,
+            "movement_speed": 1,
+            "regeneration": 2,
+            "resistance": 1,
+            "speed": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "fractured_unknown": 1,
+            "implicit": 2,
+            "prefix": 5,
+            "suffix": 1,
+            "unknown": 2
+          },
+          "numeric_totals": {
+            "maximum_life": 129,
+            "chaos_resistance": 35,
+            "movement_speed": 35
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 5,
+          "likely_suffix_mods": 1,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 4,
+          "suffix_pressure_categories": [
+            "resistance",
+            "chaos_resistance"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      }
+    ],
+    "mod_summary": {
+      "mod_count": 140,
+      "source_counts": {
+        "crafted": 20,
+        "explicit": 73,
+        "fractured": 4,
+        "implicit": 43
+      },
+      "category_counts": {
+        "all_attributes": 1,
+        "all_elemental_resistance": 1,
+        "armour": 13,
+        "attribute": 2,
+        "cast_speed": 5,
+        "chaos": 2,
+        "chaos_resistance": 2,
+        "cold": 2,
+        "cold_resistance": 2,
+        "critical": 5,
+        "damage": 20,
+        "dexterity": 1,
+        "elemental": 2,
+        "elemental_damage": 1,
+        "energy_shield": 9,
+        "fire": 1,
+        "fire_resistance": 1,
+        "flask": 4,
+        "gem": 2,
+        "gem_level": 10,
+        "leech": 2,
+        "life": 17,
+        "maximum_life": 10,
+        "movement_speed": 3,
+        "physical": 5,
+        "physical_damage": 5,
+        "regeneration": 4,
+        "reservation": 1,
+        "resistance": 8,
+        "speed": 8,
+        "spell": 2,
+        "spell_damage": 2
+      },
+      "likely_generation_counts": {
+        "crafted_unknown": 19,
+        "fractured_unknown": 2,
+        "implicit": 43,
+        "prefix": 35,
+        "suffix": 14,
+        "unknown": 27
+      },
+      "numeric_totals": {
+        "maximum_life": 1365,
+        "maximum_energy_shield": 136,
+        "fire_resistance": 39,
+        "cold_resistance": 93,
+        "lightning_resistance": 20,
+        "chaos_resistance": 62,
+        "strength": 7,
+        "dexterity": 64,
+        "intelligence": 7,
+        "movement_speed": 60
+      }
+    },
+    "raw_summary": {
+      "item_count": 41,
+      "item_set_count": 1,
+      "active_item_set_id": "1"
+    },
+    "gear_pressure": {
+      "slot_count": 16,
+      "rarity_counts": {
+        "Rare": 9,
+        "Magic": 4,
+        "Unknown": 3
+      },
+      "locked_unique_slots": [],
+      "unique_jewellery_slots": [],
+      "rare_slots": [
+        "Gloves",
+        "Weapon 1",
+        "Helmet",
+        "Gloves Abyssal Socket 1",
+        "Amulet",
+        "Weapon 2",
+        "Ring 2",
+        "Body Armour",
+        "Boots"
+      ],
+      "empty_expected_slots": [],
+      "resolved_affix_slots": [
+        "Gloves",
+        "Weapon 1",
+        "Helmet",
+        "Belt",
+        "Gloves Abyssal Socket 1",
+        "Flask 1",
+        "Amulet",
+        "Weapon 2",
+        "Ring 2",
+        "Body Armour",
+        "Ring 1",
+        "Boots"
+      ],
+      "rare_likely_prefix_mods": 35,
+      "rare_likely_suffix_mods": 11,
+      "gear_numeric_totals": {
+        "maximum_life": 1365,
+        "maximum_energy_shield": 136,
+        "fire_resistance": 39,
+        "cold_resistance": 93,
+        "lightning_resistance": 20,
+        "chaos_resistance": 62,
+        "strength": 7,
+        "dexterity": 64,
+        "intelligence": 7,
+        "movement_speed": 60
+      }
+    }
+  },
+  "gem_state": {
+    "main_skill_group": {
+      "source": "primary",
+      "skill_set_title": "Final Build",
+      "label": "Penance Brand of Dissipation",
+      "links": "Penance Brand of Dissipation - Swiftbrand - Inspiration - Increased Critical Damage",
+      "active_gem": "Penance Brand of Dissipation",
+      "support_gems": [
+        "Swiftbrand",
+        "Inspiration",
+        "Increased Critical Damage"
+      ],
+      "gems": [
+        "Penance Brand of Dissipation",
+        "Swiftbrand",
+        "Inspiration",
+        "Increased Critical Damage"
+      ],
+      "link_count": 4,
+      "role": "damage"
+    },
+    "skill_groups": [
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Penance Brand of Dissipation",
+        "links": "Penance Brand of Dissipation - Swiftbrand - Inspiration - Increased Critical Damage",
+        "active_gem": "Penance Brand of Dissipation",
+        "support_gems": [
+          "Swiftbrand",
+          "Inspiration",
+          "Increased Critical Damage"
+        ],
+        "gems": [
+          "Penance Brand of Dissipation",
+          "Swiftbrand",
+          "Inspiration",
+          "Increased Critical Damage"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Herald of Ash",
+        "links": "Herald of Ash - Arrogance - Vitality - Clarity",
+        "active_gem": "Herald of Ash",
+        "support_gems": [
+          "Arrogance",
+          "Vitality",
+          "Clarity"
+        ],
+        "gems": [
+          "Herald of Ash",
+          "Arrogance",
+          "Vitality",
+          "Clarity"
+        ],
+        "link_count": 4,
+        "role": "aura"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Vaal Haste",
+        "links": "Vaal Haste - Guardian's Blessing - Raise Spectre",
+        "active_gem": "Vaal Haste",
+        "support_gems": [
+          "Guardian's Blessing",
+          "Raise Spectre"
+        ],
+        "gems": [
+          "Vaal Haste",
+          "Guardian's Blessing",
+          "Raise Spectre"
+        ],
+        "link_count": 3,
+        "role": "guard"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Hatred",
+        "links": "Hatred - Awakened Enlighten - Wrath - Zealotry - Precision - Petrified Blood",
+        "active_gem": "Hatred",
+        "support_gems": [
+          "Awakened Enlighten",
+          "Wrath",
+          "Zealotry",
+          "Precision",
+          "Petrified Blood"
+        ],
+        "gems": [
+          "Hatred",
+          "Awakened Enlighten",
+          "Wrath",
+          "Zealotry",
+          "Precision",
+          "Petrified Blood"
+        ],
+        "link_count": 6,
+        "role": "aura"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Righteous Fire",
+        "links": "Righteous Fire",
+        "active_gem": "Righteous Fire",
+        "support_gems": [],
+        "gems": [
+          "Righteous Fire"
+        ],
+        "link_count": 1,
+        "role": "damage"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Automation",
+        "links": "Automation - Steelskin",
+        "active_gem": "Automation",
+        "support_gems": [
+          "Steelskin"
+        ],
+        "gems": [
+          "Automation",
+          "Steelskin"
+        ],
+        "link_count": 2,
+        "role": "utility"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Assassin's Mark",
+        "links": "Assassin's Mark - Arcane Surge - Flame Dash",
+        "active_gem": "Assassin's Mark",
+        "support_gems": [
+          "Arcane Surge",
+          "Flame Dash"
+        ],
+        "gems": [
+          "Assassin's Mark",
+          "Arcane Surge",
+          "Flame Dash"
+        ],
+        "link_count": 3,
+        "role": "damage"
+      }
+    ],
+    "counts": {
+      "groups": 7,
+      "damage_groups": 3,
+      "reservation_damage_groups": 0,
+      "aura_groups": 2,
+      "utility_groups": 1,
+      "guard_groups": 1
+    },
+    "raw_summary": {
+      "skill_set_count": 1,
+      "legacy_skill_count": 0,
+      "active_skill_set_id": "1"
+    }
+  },
+  "config_state": {
+    "bandit": "None",
+    "pantheon": {
+      "major": "Arakaali",
+      "minor": "Ryslatha"
+    },
+    "charges": {
+      "power": null,
+      "frenzy": null,
+      "endurance": null
+    },
+    "enemy": {
+      "pinnacle": null,
+      "guardian": null,
+      "mapping": null
+    },
+    "flasks": {
+      "uptime": null,
+      "guarded_by_pob_config": false
+    },
+    "raw_config_present": true,
+    "raw_inputs": {
+      "1": ""
+    },
+    "assumption_status": "PoB Config raw inputs are preserved but not semantically normalized yet."
+  },
+  "calc_state": {
+    "dps": 190225159,
+    "life": 6866,
+    "energy_shield": 3024,
+    "ehp": 9890,
+    "resistances": {
+      "fire": 86,
+      "cold": 86,
+      "lightning": 86,
+      "chaos": 77
+    },
+    "defences": {
+      "armour": 16770,
+      "evasion": 18,
+      "block": 0,
+      "spell_block": 0,
+      "suppression": null,
+      "ailment_avoidance": null,
+      "recovery": null
+    },
+    "flags": {
+      "elemental_res_capped": true,
+      "chaos_res_negative": false,
+      "has_xml_stats": true
+    }
+  },
+  "lenses": {
+    "gear_pressure": {
+      "slot_count": 16,
+      "rarity_counts": {
+        "Rare": 9,
+        "Magic": 4,
+        "Unknown": 3
+      },
+      "locked_unique_slots": [],
+      "unique_jewellery_slots": [],
+      "rare_slots": [
+        "Gloves",
+        "Weapon 1",
+        "Helmet",
+        "Gloves Abyssal Socket 1",
+        "Amulet",
+        "Weapon 2",
+        "Ring 2",
+        "Body Armour",
+        "Boots"
+      ],
+      "empty_expected_slots": [],
+      "resolved_affix_slots": [
+        "Gloves",
+        "Weapon 1",
+        "Helmet",
+        "Belt",
+        "Gloves Abyssal Socket 1",
+        "Flask 1",
+        "Amulet",
+        "Weapon 2",
+        "Ring 2",
+        "Body Armour",
+        "Ring 1",
+        "Boots"
+      ],
+      "rare_likely_prefix_mods": 35,
+      "rare_likely_suffix_mods": 11,
+      "gear_numeric_totals": {
+        "maximum_life": 1365,
+        "maximum_energy_shield": 136,
+        "fire_resistance": 39,
+        "cold_resistance": 93,
+        "lightning_resistance": 20,
+        "chaos_resistance": 62,
+        "strength": 7,
+        "dexterity": 64,
+        "intelligence": 7,
+        "movement_speed": 60
+      },
+      "suffix_pressure_signals": {
+        "unique_jewellery_slots": 0,
+        "rare_likely_suffix_mods": 11,
+        "gear_numeric_totals": {
+          "maximum_life": 1365,
+          "maximum_energy_shield": 136,
+          "fire_resistance": 39,
+          "cold_resistance": 93,
+          "lightning_resistance": 20,
+          "chaos_resistance": 62,
+          "strength": 7,
+          "dexterity": 64,
+          "intelligence": 7,
+          "movement_speed": 60
+        },
+        "note": "Unique jewellery reduces rare suffix room for resistances/attributes."
+      }
+    },
+    "t16_readiness_inputs": {
+      "life": 6866,
+      "energy_shield": 3024,
+      "ehp": 9890,
+      "dps": 190225159,
+      "elemental_res_capped": true,
+      "chaos_resistance": 77,
+      "missing_runtime_inputs": [
+        "atlas_passives_allocated",
+        "average_t16_clear_time_seconds",
+        "deaths_per_map",
+        "map_mod_policy",
+        "flask_uptime",
+        "suppression_or_max_hit"
+      ],
+      "judgement_status": "inputs_only_not_final_verdict"
+    }
+  },
+  "evidence_quality": {
+    "has_xml_stats": true,
+    "has_pob_raw": true,
+    "item_mod_context": "ggpk_joined",
+    "known_missing_layers": [
+      "passive_mastery_effect_text_lookup",
+      "pob_config_tab_normalizer",
+      "ggpk_stats_table_extraction_for_non_passive_mods",
+      "crafted_influence_fossil_acquisition_lens"
+    ]
+  },
+  "readiness": {
+    "schema_version": 1,
+    "overall": {
+      "status": "unknown_runtime_inputs",
+      "blockers": [],
+      "unknown_runtime_inputs": [
+        "atlas_passives_allocated",
+        "voidstones",
+        "highest_completed_map_tier",
+        "average_t16_clear_time_seconds",
+        "deaths_per_map",
+        "map_mod_failure_cases",
+        "flask_uptime"
+      ],
+      "rule": "deterministic screening; runtime metrics still override static PoB guesses"
+    },
+    "defense": {
+      "status": "candidate",
+      "judgement_type": "deterministic_screen_not_final_verdict",
+      "signals": {
+        "life": 6866,
+        "energy_shield": 3024,
+        "ehp": 9890,
+        "resistances": {
+          "fire": 86,
+          "cold": 86,
+          "lightning": 86,
+          "chaos": 77
+        },
+        "chaos_resistance": 77,
+        "spell_suppression_from_gear": 0,
+        "storm_secret_count": 0
+      },
+      "reasons": [],
+      "next_actions": []
+    },
+    "gear": {
+      "status": "caution",
+      "signals": {
+        "gear_numeric_totals": {
+          "maximum_life": 1365,
+          "maximum_energy_shield": 136,
+          "fire_resistance": 39,
+          "cold_resistance": 93,
+          "lightning_resistance": 20,
+          "chaos_resistance": 62,
+          "strength": 7,
+          "dexterity": 64,
+          "intelligence": 7,
+          "movement_speed": 60
+        },
+        "unique_jewellery_slots": [],
+        "rare_likely_suffix_mods": 11,
+        "resolved_affix_slots": [
+          "Gloves",
+          "Weapon 1",
+          "Helmet",
+          "Belt",
+          "Gloves Abyssal Socket 1",
+          "Flask 1",
+          "Amulet",
+          "Weapon 2",
+          "Ring 2",
+          "Body Armour",
+          "Ring 1",
+          "Boots"
+        ],
+        "empty_expected_slots": []
+      },
+      "reasons": [
+        "rare_suffix_pressure_high:11"
+      ],
+      "next_actions": []
+    },
+    "mapping": {
+      "status": "unknown_runtime_inputs",
+      "phase_screen": "red_map_candidate_screen",
+      "signals": {
+        "dps": 190225159,
+        "ehp": 9890,
+        "elemental_res_capped": true,
+        "defense_status": "candidate"
+      },
+      "missing_runtime_inputs": [
+        "atlas_passives_allocated",
+        "voidstones",
+        "highest_completed_map_tier",
+        "average_t16_clear_time_seconds",
+        "deaths_per_map",
+        "map_mod_failure_cases",
+        "flask_uptime"
+      ],
+      "reasons": [
+        "runtime_mapping_inputs_missing",
+        "static_pob_screen_passed_for_red_map_trial"
+      ],
+      "next_actions": [
+        "Record atlas passive count, voidstones, T16 clear time, and deaths per map before selecting aggressive farming."
+      ]
+    },
+    "bossing": {
+      "status": "candidate",
+      "signals": {
+        "main_skill": "Penance Brand of Dissipation",
+        "storm_secret_count": 0,
+        "has_boss_shock_starter": false,
+        "skill_names_sample": [
+          "Arcane Surge",
+          "Arrogance",
+          "Assassin's Mark",
+          "Automation",
+          "Awakened Enlighten",
+          "Clarity",
+          "Flame Dash",
+          "Guardian's Blessing",
+          "Hatred",
+          "Herald of Ash",
+          "Increased Critical Damage",
+          "Inspiration"
+        ]
+      },
+      "reasons": [],
+      "next_actions": []
+    },
+    "shell": {
+      "status": "unknown_runtime_inputs",
+      "signals": {
+        "class": "Templar",
+        "ascendancy": "Inquisitor",
+        "target_version": "3_0",
+        "main_skill": "Penance Brand of Dissipation",
+        "storm_secret_count": 0
+      },
+      "tags": [],
+      "reasons": [],
+      "next_actions": []
+    }
+  }
+}

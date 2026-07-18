@@ -1,0 +1,4568 @@
+{
+  "dataset_kind": "poe1_representative_source_slot_queue",
+  "schema_version": "1.0",
+  "user_visibility": {
+    "surface": "internal_only",
+    "do_not_render_missing_slots": true,
+    "user_facing_rule": "Show only concrete source URLs in player-facing UI."
+  },
+  "source_inputs": {
+    "representative_profiles": "data/poe1_representative_build_profiles.latest.json",
+    "manual_pob_sources": "data/build_corpus_manual_pob_sources_v1.json"
+  },
+  "summary": {
+    "profile_count": 36,
+    "slot_count": 144,
+    "ready_link_slot_count": 5,
+    "evidence_without_url_slot_count": 31,
+    "missing_slot_count": 108,
+    "ready_by_slot": {
+      "guide": 2,
+      "endgame_pob": 2,
+      "leveling_pob": 1,
+      "poe_ninja": 0
+    },
+    "evidence_without_url_by_slot": {
+      "guide": 30,
+      "endgame_pob": 1,
+      "leveling_pob": 0,
+      "poe_ninja": 0
+    },
+    "missing_by_slot": {
+      "guide": 4,
+      "endgame_pob": 33,
+      "leveling_pob": 35,
+      "poe_ninja": 36
+    }
+  },
+  "by_candidate": [
+    {
+      "candidate_id": "3.22_shockwave_totems_hierophant",
+      "build_name": "Shockwave Totems Hierophant",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.22_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.22_corrupting_fever_champion",
+      "build_name": "Corrupting Fever Champion",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.22_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.22_toxic_rain_ranger",
+      "build_name": "Toxic Rain Ranger",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.23_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.23_hexblast_miner_saboteur",
+      "build_name": "Hexblast Miner Saboteur",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.23_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "ready_slot_ids": [
+        "guide",
+        "endgame_pob"
+      ],
+      "missing_slot_ids": [
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.23_ice_shot_deadeye",
+      "build_name": "Ice Shot Deadeye",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.23_shockwave_totems_hierophant",
+      "build_name": "Shockwave Totems Hierophant",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.24_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.24_explosive_arrow_ballista_champion",
+      "build_name": "Explosive Arrow Ballista Champion",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.24_detonate_dead_ignite_elementalist",
+      "build_name": "Detonate Dead Ignite Elementalist",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.24_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.24_exsanguinate_mine_trickster",
+      "build_name": "Exsanguinate Mine Trickster",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.25_lacerate_duelist",
+      "build_name": "Lacerate Duelist",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.25_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.25_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.25_hexblast_miner_saboteur",
+      "build_name": "Hexblast Miner Saboteur",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.25_lightning_strike_deadeye_or_warden",
+      "build_name": "Lightning Strike Deadeye or Warden",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.26_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.26_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.26_siege_ballista_hierophant",
+      "build_name": "Siege Ballista Hierophant",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.26_ice_nova_caster",
+      "build_name": "Ice Nova Caster",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.26_ball_lightning_caster",
+      "build_name": "Ball Lightning Caster",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.27_lacerate_duelist",
+      "build_name": "Lacerate Duelist",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.27_dominating_blow_guardian",
+      "build_name": "Dominating Blow Guardian",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.27_ice_nova_caster",
+      "build_name": "Ice Nova Caster",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.27_toxic_rain_pathfinder",
+      "build_name": "Toxic Rain Pathfinder",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.27_pyroclast_mine_saboteur",
+      "build_name": "Pyroclast Mine Saboteur",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.28_shock_nova_of_procession_hierophant",
+      "build_name": "Shock Nova of Procession Hierophant",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.28_kinetic_fusillade_of_detonation",
+      "build_name": "Kinetic Fusillade of Detonation",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.28_dominating_blow_guardian",
+      "build_name": "Dominating Blow Guardian",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.28_penance_brand_inquisitor",
+      "build_name": "Penance Brand Inquisitor",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.28_cold_snap_of_power_hierophant",
+      "build_name": "Cold Snap of Power Hierophant",
+      "ready_slot_ids": [],
+      "missing_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob",
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": [
+        "endgame_pob",
+        "leveling_pob"
+      ]
+    },
+    {
+      "candidate_id": "3.28_exsanguinate_reap_mines_trickster",
+      "build_name": "Exsanguinate/Reap Mines Trickster",
+      "ready_slot_ids": [
+        "guide",
+        "endgame_pob",
+        "leveling_pob"
+      ],
+      "missing_slot_ids": [
+        "poe_ninja"
+      ],
+      "high_priority_missing_slot_ids": []
+    }
+  ],
+  "slots": [
+    {
+      "queue_id": "3.22_shockwave_totems_hierophant:guide",
+      "candidate_id": "3.22_shockwave_totems_hierophant",
+      "build_id": "3_22_shockwave_totems_hierophant",
+      "build_name": "Shockwave Totems Hierophant",
+      "patch": "3.22",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shockwave Totem",
+      "leveling_skill": "Holy Flame Totem",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Shockwave Totems Hierophant has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "Ancestor starters single-source confirmation",
+          "url": null,
+          "notes": "poe_vault_3_22"
+        }
+      ],
+      "suggested_queries": [
+        "\"Shockwave Totems Hierophant\" \"3.22\" guide",
+        "site:youtube.com \"Shockwave Totem\" \"Hierophant\" PoE 3.22",
+        "\"3.22 Shockwave Totem Hierophant\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.22_shockwave_totems_hierophant:endgame_pob",
+      "candidate_id": "3.22_shockwave_totems_hierophant",
+      "build_id": "3_22_shockwave_totems_hierophant",
+      "build_name": "Shockwave Totems Hierophant",
+      "patch": "3.22",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shockwave Totem",
+      "leveling_skill": "Holy Flame Totem",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Shockwave Totems Hierophant needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Shockwave Totems Hierophant\" pobb.in",
+        "\"Shockwave Totem\" \"Hierophant\" \"Path of Building\"",
+        "\"3.22 Shockwave Totem Hierophant\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.22_shockwave_totems_hierophant:leveling_pob",
+      "candidate_id": "3.22_shockwave_totems_hierophant",
+      "build_id": "3_22_shockwave_totems_hierophant",
+      "build_name": "Shockwave Totems Hierophant",
+      "patch": "3.22",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shockwave Totem",
+      "leveling_skill": "Holy Flame Totem",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Shockwave Totems Hierophant needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Shockwave Totems Hierophant\" leveling PoB",
+        "\"Shockwave Totem\" \"Hierophant\" campaign PoB",
+        "\"3.22 Shockwave Totem Hierophant\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.22_shockwave_totems_hierophant:poe_ninja",
+      "candidate_id": "3.22_shockwave_totems_hierophant",
+      "build_id": "3_22_shockwave_totems_hierophant",
+      "build_name": "Shockwave Totems Hierophant",
+      "patch": "3.22",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shockwave Totem",
+      "leveling_skill": "Holy Flame Totem",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Shockwave Totems Hierophant needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Shockwave Totem\" \"Hierophant\"",
+        "\"Shockwave Totem\" \"Hierophant\" poe.ninja",
+        "\"3.22 Shockwave Totem Hierophant\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.22_boneshatter_juggernaut:guide",
+      "candidate_id": "3.22_boneshatter_juggernaut",
+      "build_id": "3_22_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.22",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Boneshatter Juggernaut has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Ancestor starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_22"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Ancestor starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_22"
+        }
+      ],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" \"3.22\" guide",
+        "site:youtube.com \"Boneshatter\" \"Juggernaut\" PoE 3.22",
+        "\"3.22 Boneshatter Juggernaut\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.22_boneshatter_juggernaut:endgame_pob",
+      "candidate_id": "3.22_boneshatter_juggernaut",
+      "build_id": "3_22_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.22",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Boneshatter Juggernaut needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" pobb.in",
+        "\"Boneshatter\" \"Juggernaut\" \"Path of Building\"",
+        "\"3.22 Boneshatter Juggernaut\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.22_boneshatter_juggernaut:leveling_pob",
+      "candidate_id": "3.22_boneshatter_juggernaut",
+      "build_id": "3_22_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.22",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Boneshatter Juggernaut needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" leveling PoB",
+        "\"Boneshatter\" \"Juggernaut\" campaign PoB",
+        "\"3.22 Boneshatter Juggernaut\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.22_boneshatter_juggernaut:poe_ninja",
+      "candidate_id": "3.22_boneshatter_juggernaut",
+      "build_id": "3_22_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.22",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Boneshatter Juggernaut needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Boneshatter\" \"Juggernaut\"",
+        "\"Boneshatter\" \"Juggernaut\" poe.ninja",
+        "\"3.22 Boneshatter Juggernaut\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.22_corrupting_fever_champion:guide",
+      "candidate_id": "3.22_corrupting_fever_champion",
+      "build_id": "3_22_corrupting_fever_champion",
+      "build_name": "Corrupting Fever Champion",
+      "patch": "3.22",
+      "class_name": "Duelist",
+      "ascendancy": "Champion",
+      "main_skill": "Corrupting Fever",
+      "leveling_skill": "Splitting Steel",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Corrupting Fever Champion has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Ancestor starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_22"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Ancestor starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_22"
+        }
+      ],
+      "suggested_queries": [
+        "\"Corrupting Fever Champion\" \"3.22\" guide",
+        "site:youtube.com \"Corrupting Fever\" \"Champion\" PoE 3.22",
+        "\"3.22 Corrupting Fever Champion\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.22_corrupting_fever_champion:endgame_pob",
+      "candidate_id": "3.22_corrupting_fever_champion",
+      "build_id": "3_22_corrupting_fever_champion",
+      "build_name": "Corrupting Fever Champion",
+      "patch": "3.22",
+      "class_name": "Duelist",
+      "ascendancy": "Champion",
+      "main_skill": "Corrupting Fever",
+      "leveling_skill": "Splitting Steel",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Corrupting Fever Champion needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Corrupting Fever Champion\" pobb.in",
+        "\"Corrupting Fever\" \"Champion\" \"Path of Building\"",
+        "\"3.22 Corrupting Fever Champion\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.22_corrupting_fever_champion:leveling_pob",
+      "candidate_id": "3.22_corrupting_fever_champion",
+      "build_id": "3_22_corrupting_fever_champion",
+      "build_name": "Corrupting Fever Champion",
+      "patch": "3.22",
+      "class_name": "Duelist",
+      "ascendancy": "Champion",
+      "main_skill": "Corrupting Fever",
+      "leveling_skill": "Splitting Steel",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Corrupting Fever Champion needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Corrupting Fever Champion\" leveling PoB",
+        "\"Corrupting Fever\" \"Champion\" campaign PoB",
+        "\"3.22 Corrupting Fever Champion\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.22_corrupting_fever_champion:poe_ninja",
+      "candidate_id": "3.22_corrupting_fever_champion",
+      "build_id": "3_22_corrupting_fever_champion",
+      "build_name": "Corrupting Fever Champion",
+      "patch": "3.22",
+      "class_name": "Duelist",
+      "ascendancy": "Champion",
+      "main_skill": "Corrupting Fever",
+      "leveling_skill": "Splitting Steel",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Corrupting Fever Champion needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Corrupting Fever\" \"Champion\"",
+        "\"Corrupting Fever\" \"Champion\" poe.ninja",
+        "\"3.22 Corrupting Fever Champion\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.22_lightning_arrow_ranger:guide",
+      "candidate_id": "3.22_lightning_arrow_ranger",
+      "build_id": "3_22_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.22",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Lightning Arrow Ranger has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Maxroll external cross-check",
+          "url": null,
+          "notes": "maxroll_3_22"
+        },
+        {
+          "type": "poe_vault",
+          "label": "PoE Vault external cross-check",
+          "url": null,
+          "notes": "poe_vault_3_22"
+        }
+      ],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" \"3.22\" guide",
+        "site:youtube.com \"Lightning Arrow\" \"Deadeye\" PoE 3.22",
+        "\"3.22 Lightning Arrow Deadeye\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.22_lightning_arrow_ranger:endgame_pob",
+      "candidate_id": "3.22_lightning_arrow_ranger",
+      "build_id": "3_22_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.22",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Arrow Ranger needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" pobb.in",
+        "\"Lightning Arrow\" \"Deadeye\" \"Path of Building\"",
+        "\"3.22 Lightning Arrow Deadeye\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.22_lightning_arrow_ranger:leveling_pob",
+      "candidate_id": "3.22_lightning_arrow_ranger",
+      "build_id": "3_22_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.22",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Arrow Ranger needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" leveling PoB",
+        "\"Lightning Arrow\" \"Deadeye\" campaign PoB",
+        "\"3.22 Lightning Arrow Deadeye\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.22_lightning_arrow_ranger:poe_ninja",
+      "candidate_id": "3.22_lightning_arrow_ranger",
+      "build_id": "3_22_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.22",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Lightning Arrow Ranger needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Lightning Arrow\" \"Deadeye\"",
+        "\"Lightning Arrow\" \"Deadeye\" poe.ninja",
+        "\"3.22 Lightning Arrow Deadeye\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.22_toxic_rain_ranger:guide",
+      "candidate_id": "3.22_toxic_rain_ranger",
+      "build_id": "3_22_toxic_rain_ranger",
+      "build_name": "Toxic Rain Ranger",
+      "patch": "3.22",
+      "class_name": "Ranger",
+      "ascendancy": "Pathfinder",
+      "main_skill": "Toxic Rain",
+      "leveling_skill": "Caustic Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Toxic Rain Ranger has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Maxroll external cross-check",
+          "url": null,
+          "notes": "maxroll_3_22"
+        }
+      ],
+      "suggested_queries": [
+        "\"Toxic Rain Ranger\" \"3.22\" guide",
+        "site:youtube.com \"Toxic Rain\" \"Pathfinder\" PoE 3.22",
+        "\"3.22 Toxic Rain Pathfinder\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.22_toxic_rain_ranger:endgame_pob",
+      "candidate_id": "3.22_toxic_rain_ranger",
+      "build_id": "3_22_toxic_rain_ranger",
+      "build_name": "Toxic Rain Ranger",
+      "patch": "3.22",
+      "class_name": "Ranger",
+      "ascendancy": "Pathfinder",
+      "main_skill": "Toxic Rain",
+      "leveling_skill": "Caustic Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Toxic Rain Ranger needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Toxic Rain Ranger\" pobb.in",
+        "\"Toxic Rain\" \"Pathfinder\" \"Path of Building\"",
+        "\"3.22 Toxic Rain Pathfinder\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.22_toxic_rain_ranger:leveling_pob",
+      "candidate_id": "3.22_toxic_rain_ranger",
+      "build_id": "3_22_toxic_rain_ranger",
+      "build_name": "Toxic Rain Ranger",
+      "patch": "3.22",
+      "class_name": "Ranger",
+      "ascendancy": "Pathfinder",
+      "main_skill": "Toxic Rain",
+      "leveling_skill": "Caustic Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Toxic Rain Ranger needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Toxic Rain Ranger\" leveling PoB",
+        "\"Toxic Rain\" \"Pathfinder\" campaign PoB",
+        "\"3.22 Toxic Rain Pathfinder\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.22_toxic_rain_ranger:poe_ninja",
+      "candidate_id": "3.22_toxic_rain_ranger",
+      "build_id": "3_22_toxic_rain_ranger",
+      "build_name": "Toxic Rain Ranger",
+      "patch": "3.22",
+      "class_name": "Ranger",
+      "ascendancy": "Pathfinder",
+      "main_skill": "Toxic Rain",
+      "leveling_skill": "Caustic Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Toxic Rain Ranger needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Toxic Rain\" \"Pathfinder\"",
+        "\"Toxic Rain\" \"Pathfinder\" poe.ninja",
+        "\"3.22 Toxic Rain Pathfinder\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.23_lightning_arrow_ranger:guide",
+      "candidate_id": "3.23_lightning_arrow_ranger",
+      "build_id": "3_23_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.23",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Lightning Arrow Ranger has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Affliction starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_23"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Affliction starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_23"
+        }
+      ],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" \"3.23\" guide",
+        "site:youtube.com \"Lightning Arrow\" \"Deadeye\" PoE 3.23",
+        "\"3.23 Lightning Arrow Deadeye\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.23_lightning_arrow_ranger:endgame_pob",
+      "candidate_id": "3.23_lightning_arrow_ranger",
+      "build_id": "3_23_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.23",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Arrow Ranger needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" pobb.in",
+        "\"Lightning Arrow\" \"Deadeye\" \"Path of Building\"",
+        "\"3.23 Lightning Arrow Deadeye\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.23_lightning_arrow_ranger:leveling_pob",
+      "candidate_id": "3.23_lightning_arrow_ranger",
+      "build_id": "3_23_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.23",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Arrow Ranger needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" leveling PoB",
+        "\"Lightning Arrow\" \"Deadeye\" campaign PoB",
+        "\"3.23 Lightning Arrow Deadeye\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.23_lightning_arrow_ranger:poe_ninja",
+      "candidate_id": "3.23_lightning_arrow_ranger",
+      "build_id": "3_23_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.23",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Lightning Arrow Ranger needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Lightning Arrow\" \"Deadeye\"",
+        "\"Lightning Arrow\" \"Deadeye\" poe.ninja",
+        "\"3.23 Lightning Arrow Deadeye\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.23_hexblast_miner_saboteur:guide",
+      "candidate_id": "3.23_hexblast_miner_saboteur",
+      "build_id": "3_23_hexblast_miner_saboteur",
+      "build_name": "Hexblast Miner Saboteur",
+      "patch": "3.23",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Hexblast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "hold",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Hexblast Miner Saboteur has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Affliction starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_23"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Affliction starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_23"
+        }
+      ],
+      "suggested_queries": [
+        "\"Hexblast Miner Saboteur\" \"3.23\" guide",
+        "site:youtube.com \"Hexblast Mine\" \"Saboteur\" PoE 3.23",
+        "\"3.23 Hexblast Mine Saboteur\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.23_hexblast_miner_saboteur:endgame_pob",
+      "candidate_id": "3.23_hexblast_miner_saboteur",
+      "build_id": "3_23_hexblast_miner_saboteur",
+      "build_name": "Hexblast Miner Saboteur",
+      "patch": "3.23",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Hexblast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "hold",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Hexblast Miner Saboteur needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Hexblast Miner Saboteur\" pobb.in",
+        "\"Hexblast Mine\" \"Saboteur\" \"Path of Building\"",
+        "\"3.23 Hexblast Mine Saboteur\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.23_hexblast_miner_saboteur:leveling_pob",
+      "candidate_id": "3.23_hexblast_miner_saboteur",
+      "build_id": "3_23_hexblast_miner_saboteur",
+      "build_name": "Hexblast Miner Saboteur",
+      "patch": "3.23",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Hexblast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "hold",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Hexblast Miner Saboteur needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Hexblast Miner Saboteur\" leveling PoB",
+        "\"Hexblast Mine\" \"Saboteur\" campaign PoB",
+        "\"3.23 Hexblast Mine Saboteur\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.23_hexblast_miner_saboteur:poe_ninja",
+      "candidate_id": "3.23_hexblast_miner_saboteur",
+      "build_id": "3_23_hexblast_miner_saboteur",
+      "build_name": "Hexblast Miner Saboteur",
+      "patch": "3.23",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Hexblast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "hold",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Hexblast Miner Saboteur needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Hexblast Mine\" \"Saboteur\"",
+        "\"Hexblast Mine\" \"Saboteur\" poe.ninja",
+        "\"3.23 Hexblast Mine Saboteur\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.23_boneshatter_juggernaut:guide",
+      "candidate_id": "3.23_boneshatter_juggernaut",
+      "build_id": "3_23_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.23",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "ready",
+      "priority": "low",
+      "reason": "Boneshatter Juggernaut already has a concrete link for this slot.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Affliction league starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_23"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Affliction league starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_23"
+        },
+        {
+          "type": "youtube",
+          "label": "Goratha Boneshatter Juggernaut update referenced by league-start index",
+          "url": "https://www.youtube.com/watch?v=u86_1qW8AZQ",
+          "notes": "manual_pob_source_record"
+        }
+      ],
+      "suggested_queries": []
+    },
+    {
+      "queue_id": "3.23_boneshatter_juggernaut:endgame_pob",
+      "candidate_id": "3.23_boneshatter_juggernaut",
+      "build_id": "3_23_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.23",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "ready",
+      "priority": "low",
+      "reason": "Boneshatter Juggernaut already has a concrete link for this slot.",
+      "matched_evidence": [
+        {
+          "type": "youtube",
+          "label": "Goratha Boneshatter Juggernaut update referenced by league-start index",
+          "url": "https://www.youtube.com/watch?v=u86_1qW8AZQ",
+          "notes": "manual_pob_source_record"
+        },
+        {
+          "type": "pobb",
+          "label": "Boneshatter Juggernaut primary PoB",
+          "url": "https://pobb.in/DzhXz0GQoO4o",
+          "notes": "Video description POB link."
+        }
+      ],
+      "suggested_queries": []
+    },
+    {
+      "queue_id": "3.23_boneshatter_juggernaut:leveling_pob",
+      "candidate_id": "3.23_boneshatter_juggernaut",
+      "build_id": "3_23_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.23",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Boneshatter Juggernaut needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" leveling PoB",
+        "\"Boneshatter\" \"Juggernaut\" campaign PoB",
+        "\"3.23 Boneshatter Juggernaut\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.23_boneshatter_juggernaut:poe_ninja",
+      "candidate_id": "3.23_boneshatter_juggernaut",
+      "build_id": "3_23_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.23",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Boneshatter Juggernaut needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Boneshatter\" \"Juggernaut\"",
+        "\"Boneshatter\" \"Juggernaut\" poe.ninja",
+        "\"3.23 Boneshatter Juggernaut\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.23_ice_shot_deadeye:guide",
+      "candidate_id": "3.23_ice_shot_deadeye",
+      "build_id": "3_23_ice_shot_deadeye",
+      "build_name": "Ice Shot Deadeye",
+      "patch": "3.23",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Ice Shot",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Ice Shot Deadeye has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Affliction starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_23"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Affliction starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_23"
+        }
+      ],
+      "suggested_queries": [
+        "\"Ice Shot Deadeye\" \"3.23\" guide",
+        "site:youtube.com \"Ice Shot\" \"Deadeye\" PoE 3.23",
+        "\"3.23 Ice Shot Deadeye\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.23_ice_shot_deadeye:endgame_pob",
+      "candidate_id": "3.23_ice_shot_deadeye",
+      "build_id": "3_23_ice_shot_deadeye",
+      "build_name": "Ice Shot Deadeye",
+      "patch": "3.23",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Ice Shot",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Ice Shot Deadeye needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ice Shot Deadeye\" pobb.in",
+        "\"Ice Shot\" \"Deadeye\" \"Path of Building\"",
+        "\"3.23 Ice Shot Deadeye\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.23_ice_shot_deadeye:leveling_pob",
+      "candidate_id": "3.23_ice_shot_deadeye",
+      "build_id": "3_23_ice_shot_deadeye",
+      "build_name": "Ice Shot Deadeye",
+      "patch": "3.23",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Ice Shot",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Ice Shot Deadeye needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ice Shot Deadeye\" leveling PoB",
+        "\"Ice Shot\" \"Deadeye\" campaign PoB",
+        "\"3.23 Ice Shot Deadeye\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.23_ice_shot_deadeye:poe_ninja",
+      "candidate_id": "3.23_ice_shot_deadeye",
+      "build_id": "3_23_ice_shot_deadeye",
+      "build_name": "Ice Shot Deadeye",
+      "patch": "3.23",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Ice Shot",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Ice Shot Deadeye needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Ice Shot\" \"Deadeye\"",
+        "\"Ice Shot\" \"Deadeye\" poe.ninja",
+        "\"3.23 Ice Shot Deadeye\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.23_shockwave_totems_hierophant:guide",
+      "candidate_id": "3.23_shockwave_totems_hierophant",
+      "build_id": "3_23_shockwave_totems_hierophant",
+      "build_name": "Shockwave Totems Hierophant",
+      "patch": "3.23",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shockwave Totem",
+      "leveling_skill": "Holy Flame Totem",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Shockwave Totems Hierophant has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "Affliction starters single-source confirmation",
+          "url": null,
+          "notes": "poe_vault_3_23"
+        }
+      ],
+      "suggested_queries": [
+        "\"Shockwave Totems Hierophant\" \"3.23\" guide",
+        "site:youtube.com \"Shockwave Totem\" \"Hierophant\" PoE 3.23",
+        "\"3.23 Shockwave Totem Hierophant\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.23_shockwave_totems_hierophant:endgame_pob",
+      "candidate_id": "3.23_shockwave_totems_hierophant",
+      "build_id": "3_23_shockwave_totems_hierophant",
+      "build_name": "Shockwave Totems Hierophant",
+      "patch": "3.23",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shockwave Totem",
+      "leveling_skill": "Holy Flame Totem",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Shockwave Totems Hierophant needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Shockwave Totems Hierophant\" pobb.in",
+        "\"Shockwave Totem\" \"Hierophant\" \"Path of Building\"",
+        "\"3.23 Shockwave Totem Hierophant\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.23_shockwave_totems_hierophant:leveling_pob",
+      "candidate_id": "3.23_shockwave_totems_hierophant",
+      "build_id": "3_23_shockwave_totems_hierophant",
+      "build_name": "Shockwave Totems Hierophant",
+      "patch": "3.23",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shockwave Totem",
+      "leveling_skill": "Holy Flame Totem",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Shockwave Totems Hierophant needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Shockwave Totems Hierophant\" leveling PoB",
+        "\"Shockwave Totem\" \"Hierophant\" campaign PoB",
+        "\"3.23 Shockwave Totem Hierophant\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.23_shockwave_totems_hierophant:poe_ninja",
+      "candidate_id": "3.23_shockwave_totems_hierophant",
+      "build_id": "3_23_shockwave_totems_hierophant",
+      "build_name": "Shockwave Totems Hierophant",
+      "patch": "3.23",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shockwave Totem",
+      "leveling_skill": "Holy Flame Totem",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Shockwave Totems Hierophant needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Shockwave Totem\" \"Hierophant\"",
+        "\"Shockwave Totem\" \"Hierophant\" poe.ninja",
+        "\"3.23 Shockwave Totem Hierophant\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.24_lightning_arrow_ranger:guide",
+      "candidate_id": "3.24_lightning_arrow_ranger",
+      "build_id": "3_24_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.24",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Lightning Arrow Ranger has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Necropolis starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_24"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Necropolis starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_24"
+        }
+      ],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" \"3.24\" guide",
+        "site:youtube.com \"Lightning Arrow\" \"Deadeye\" PoE 3.24",
+        "\"3.24 Lightning Arrow Deadeye\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.24_lightning_arrow_ranger:endgame_pob",
+      "candidate_id": "3.24_lightning_arrow_ranger",
+      "build_id": "3_24_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.24",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Arrow Ranger needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" pobb.in",
+        "\"Lightning Arrow\" \"Deadeye\" \"Path of Building\"",
+        "\"3.24 Lightning Arrow Deadeye\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.24_lightning_arrow_ranger:leveling_pob",
+      "candidate_id": "3.24_lightning_arrow_ranger",
+      "build_id": "3_24_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.24",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Arrow Ranger needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" leveling PoB",
+        "\"Lightning Arrow\" \"Deadeye\" campaign PoB",
+        "\"3.24 Lightning Arrow Deadeye\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.24_lightning_arrow_ranger:poe_ninja",
+      "candidate_id": "3.24_lightning_arrow_ranger",
+      "build_id": "3_24_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.24",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Lightning Arrow Ranger needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Lightning Arrow\" \"Deadeye\"",
+        "\"Lightning Arrow\" \"Deadeye\" poe.ninja",
+        "\"3.24 Lightning Arrow Deadeye\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.24_explosive_arrow_ballista_champion:guide",
+      "candidate_id": "3.24_explosive_arrow_ballista_champion",
+      "build_id": "3_24_explosive_arrow_ballista_champion",
+      "build_name": "Explosive Arrow Ballista Champion",
+      "patch": "3.24",
+      "class_name": "Duelist",
+      "ascendancy": "Champion",
+      "main_skill": "Explosive Arrow Ballista",
+      "leveling_skill": "Shrapnel Ballista",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Explosive Arrow Ballista Champion has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Necropolis starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_24"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Necropolis starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_24"
+        }
+      ],
+      "suggested_queries": [
+        "\"Explosive Arrow Ballista Champion\" \"3.24\" guide",
+        "site:youtube.com \"Explosive Arrow Ballista\" \"Champion\" PoE 3.24",
+        "\"3.24 Explosive Arrow Ballista Champion\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.24_explosive_arrow_ballista_champion:endgame_pob",
+      "candidate_id": "3.24_explosive_arrow_ballista_champion",
+      "build_id": "3_24_explosive_arrow_ballista_champion",
+      "build_name": "Explosive Arrow Ballista Champion",
+      "patch": "3.24",
+      "class_name": "Duelist",
+      "ascendancy": "Champion",
+      "main_skill": "Explosive Arrow Ballista",
+      "leveling_skill": "Shrapnel Ballista",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Explosive Arrow Ballista Champion needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Explosive Arrow Ballista Champion\" pobb.in",
+        "\"Explosive Arrow Ballista\" \"Champion\" \"Path of Building\"",
+        "\"3.24 Explosive Arrow Ballista Champion\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.24_explosive_arrow_ballista_champion:leveling_pob",
+      "candidate_id": "3.24_explosive_arrow_ballista_champion",
+      "build_id": "3_24_explosive_arrow_ballista_champion",
+      "build_name": "Explosive Arrow Ballista Champion",
+      "patch": "3.24",
+      "class_name": "Duelist",
+      "ascendancy": "Champion",
+      "main_skill": "Explosive Arrow Ballista",
+      "leveling_skill": "Shrapnel Ballista",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Explosive Arrow Ballista Champion needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Explosive Arrow Ballista Champion\" leveling PoB",
+        "\"Explosive Arrow Ballista\" \"Champion\" campaign PoB",
+        "\"3.24 Explosive Arrow Ballista Champion\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.24_explosive_arrow_ballista_champion:poe_ninja",
+      "candidate_id": "3.24_explosive_arrow_ballista_champion",
+      "build_id": "3_24_explosive_arrow_ballista_champion",
+      "build_name": "Explosive Arrow Ballista Champion",
+      "patch": "3.24",
+      "class_name": "Duelist",
+      "ascendancy": "Champion",
+      "main_skill": "Explosive Arrow Ballista",
+      "leveling_skill": "Shrapnel Ballista",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Explosive Arrow Ballista Champion needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Explosive Arrow Ballista\" \"Champion\"",
+        "\"Explosive Arrow Ballista\" \"Champion\" poe.ninja",
+        "\"3.24 Explosive Arrow Ballista Champion\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.24_detonate_dead_ignite_elementalist:guide",
+      "candidate_id": "3.24_detonate_dead_ignite_elementalist",
+      "build_id": "3_24_detonate_dead_ignite_elementalist",
+      "build_name": "Detonate Dead Ignite Elementalist",
+      "patch": "3.24",
+      "class_name": "Witch",
+      "ascendancy": "Elementalist",
+      "main_skill": "Detonate Dead",
+      "leveling_skill": "Rolling Magma",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Detonate Dead Ignite Elementalist has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Maxroll external cross-check",
+          "url": null,
+          "notes": "maxroll_3_24"
+        },
+        {
+          "type": "poe_vault",
+          "label": "PoE Vault external cross-check",
+          "url": null,
+          "notes": "poe_vault_3_24"
+        }
+      ],
+      "suggested_queries": [
+        "\"Detonate Dead Ignite Elementalist\" \"3.24\" guide",
+        "site:youtube.com \"Detonate Dead\" \"Elementalist\" PoE 3.24",
+        "\"3.24 Detonate Dead Elementalist\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.24_detonate_dead_ignite_elementalist:endgame_pob",
+      "candidate_id": "3.24_detonate_dead_ignite_elementalist",
+      "build_id": "3_24_detonate_dead_ignite_elementalist",
+      "build_name": "Detonate Dead Ignite Elementalist",
+      "patch": "3.24",
+      "class_name": "Witch",
+      "ascendancy": "Elementalist",
+      "main_skill": "Detonate Dead",
+      "leveling_skill": "Rolling Magma",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Detonate Dead Ignite Elementalist needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Detonate Dead Ignite Elementalist\" pobb.in",
+        "\"Detonate Dead\" \"Elementalist\" \"Path of Building\"",
+        "\"3.24 Detonate Dead Elementalist\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.24_detonate_dead_ignite_elementalist:leveling_pob",
+      "candidate_id": "3.24_detonate_dead_ignite_elementalist",
+      "build_id": "3_24_detonate_dead_ignite_elementalist",
+      "build_name": "Detonate Dead Ignite Elementalist",
+      "patch": "3.24",
+      "class_name": "Witch",
+      "ascendancy": "Elementalist",
+      "main_skill": "Detonate Dead",
+      "leveling_skill": "Rolling Magma",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Detonate Dead Ignite Elementalist needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Detonate Dead Ignite Elementalist\" leveling PoB",
+        "\"Detonate Dead\" \"Elementalist\" campaign PoB",
+        "\"3.24 Detonate Dead Elementalist\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.24_detonate_dead_ignite_elementalist:poe_ninja",
+      "candidate_id": "3.24_detonate_dead_ignite_elementalist",
+      "build_id": "3_24_detonate_dead_ignite_elementalist",
+      "build_name": "Detonate Dead Ignite Elementalist",
+      "patch": "3.24",
+      "class_name": "Witch",
+      "ascendancy": "Elementalist",
+      "main_skill": "Detonate Dead",
+      "leveling_skill": "Rolling Magma",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Detonate Dead Ignite Elementalist needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Detonate Dead\" \"Elementalist\"",
+        "\"Detonate Dead\" \"Elementalist\" poe.ninja",
+        "\"3.24 Detonate Dead Elementalist\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.24_boneshatter_juggernaut:guide",
+      "candidate_id": "3.24_boneshatter_juggernaut",
+      "build_id": "3_24_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.24",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Boneshatter Juggernaut has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Necropolis starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_24"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Necropolis starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_24"
+        }
+      ],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" \"3.24\" guide",
+        "site:youtube.com \"Boneshatter\" \"Juggernaut\" PoE 3.24",
+        "\"3.24 Boneshatter Juggernaut\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.24_boneshatter_juggernaut:endgame_pob",
+      "candidate_id": "3.24_boneshatter_juggernaut",
+      "build_id": "3_24_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.24",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Boneshatter Juggernaut needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" pobb.in",
+        "\"Boneshatter\" \"Juggernaut\" \"Path of Building\"",
+        "\"3.24 Boneshatter Juggernaut\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.24_boneshatter_juggernaut:leveling_pob",
+      "candidate_id": "3.24_boneshatter_juggernaut",
+      "build_id": "3_24_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.24",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Boneshatter Juggernaut needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" leveling PoB",
+        "\"Boneshatter\" \"Juggernaut\" campaign PoB",
+        "\"3.24 Boneshatter Juggernaut\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.24_boneshatter_juggernaut:poe_ninja",
+      "candidate_id": "3.24_boneshatter_juggernaut",
+      "build_id": "3_24_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.24",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Boneshatter Juggernaut needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Boneshatter\" \"Juggernaut\"",
+        "\"Boneshatter\" \"Juggernaut\" poe.ninja",
+        "\"3.24 Boneshatter Juggernaut\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.24_exsanguinate_mine_trickster:guide",
+      "candidate_id": "3.24_exsanguinate_mine_trickster",
+      "build_id": "3_24_exsanguinate_mine_trickster",
+      "build_name": "Exsanguinate Mine Trickster",
+      "patch": "3.24",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Exsanguinate Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Exsanguinate Mine Trickster has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Necropolis starters single-source direct confirmation",
+          "url": null,
+          "notes": "maxroll_3_24"
+        }
+      ],
+      "suggested_queries": [
+        "\"Exsanguinate Mine Trickster\" \"3.24\" guide",
+        "site:youtube.com \"Exsanguinate Mine\" \"Trickster\" PoE 3.24",
+        "\"3.24 Exsanguinate Mine Trickster\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.24_exsanguinate_mine_trickster:endgame_pob",
+      "candidate_id": "3.24_exsanguinate_mine_trickster",
+      "build_id": "3_24_exsanguinate_mine_trickster",
+      "build_name": "Exsanguinate Mine Trickster",
+      "patch": "3.24",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Exsanguinate Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Exsanguinate Mine Trickster needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Exsanguinate Mine Trickster\" pobb.in",
+        "\"Exsanguinate Mine\" \"Trickster\" \"Path of Building\"",
+        "\"3.24 Exsanguinate Mine Trickster\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.24_exsanguinate_mine_trickster:leveling_pob",
+      "candidate_id": "3.24_exsanguinate_mine_trickster",
+      "build_id": "3_24_exsanguinate_mine_trickster",
+      "build_name": "Exsanguinate Mine Trickster",
+      "patch": "3.24",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Exsanguinate Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Exsanguinate Mine Trickster needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Exsanguinate Mine Trickster\" leveling PoB",
+        "\"Exsanguinate Mine\" \"Trickster\" campaign PoB",
+        "\"3.24 Exsanguinate Mine Trickster\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.24_exsanguinate_mine_trickster:poe_ninja",
+      "candidate_id": "3.24_exsanguinate_mine_trickster",
+      "build_id": "3_24_exsanguinate_mine_trickster",
+      "build_name": "Exsanguinate Mine Trickster",
+      "patch": "3.24",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Exsanguinate Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Exsanguinate Mine Trickster needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Exsanguinate Mine\" \"Trickster\"",
+        "\"Exsanguinate Mine\" \"Trickster\" poe.ninja",
+        "\"3.24 Exsanguinate Mine Trickster\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.25_lacerate_duelist:guide",
+      "candidate_id": "3.25_lacerate_duelist",
+      "build_id": "3_25_lacerate_duelist",
+      "build_name": "Lacerate Duelist",
+      "patch": "3.25",
+      "class_name": "Duelist",
+      "ascendancy": "Gladiator",
+      "main_skill": "Lacerate",
+      "leveling_skill": "Cleave",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Lacerate Duelist has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Maxroll external cross-check",
+          "url": null,
+          "notes": "maxroll_3_25"
+        },
+        {
+          "type": "poe_vault",
+          "label": "PoE Vault external cross-check",
+          "url": null,
+          "notes": "poe_vault_3_25"
+        }
+      ],
+      "suggested_queries": [
+        "\"Lacerate Duelist\" \"3.25\" guide",
+        "site:youtube.com \"Lacerate\" \"Gladiator\" PoE 3.25",
+        "\"3.25 Lacerate Gladiator\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.25_lacerate_duelist:endgame_pob",
+      "candidate_id": "3.25_lacerate_duelist",
+      "build_id": "3_25_lacerate_duelist",
+      "build_name": "Lacerate Duelist",
+      "patch": "3.25",
+      "class_name": "Duelist",
+      "ascendancy": "Gladiator",
+      "main_skill": "Lacerate",
+      "leveling_skill": "Cleave",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lacerate Duelist needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lacerate Duelist\" pobb.in",
+        "\"Lacerate\" \"Gladiator\" \"Path of Building\"",
+        "\"3.25 Lacerate Gladiator\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.25_lacerate_duelist:leveling_pob",
+      "candidate_id": "3.25_lacerate_duelist",
+      "build_id": "3_25_lacerate_duelist",
+      "build_name": "Lacerate Duelist",
+      "patch": "3.25",
+      "class_name": "Duelist",
+      "ascendancy": "Gladiator",
+      "main_skill": "Lacerate",
+      "leveling_skill": "Cleave",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lacerate Duelist needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lacerate Duelist\" leveling PoB",
+        "\"Lacerate\" \"Gladiator\" campaign PoB",
+        "\"3.25 Lacerate Gladiator\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.25_lacerate_duelist:poe_ninja",
+      "candidate_id": "3.25_lacerate_duelist",
+      "build_id": "3_25_lacerate_duelist",
+      "build_name": "Lacerate Duelist",
+      "patch": "3.25",
+      "class_name": "Duelist",
+      "ascendancy": "Gladiator",
+      "main_skill": "Lacerate",
+      "leveling_skill": "Cleave",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Lacerate Duelist needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Lacerate\" \"Gladiator\"",
+        "\"Lacerate\" \"Gladiator\" poe.ninja",
+        "\"3.25 Lacerate Gladiator\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.25_lightning_arrow_ranger:guide",
+      "candidate_id": "3.25_lightning_arrow_ranger",
+      "build_id": "3_25_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.25",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Lightning Arrow Ranger has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Maxroll external cross-check",
+          "url": null,
+          "notes": "maxroll_3_25"
+        },
+        {
+          "type": "poe_vault",
+          "label": "PoE Vault external cross-check",
+          "url": null,
+          "notes": "poe_vault_3_25"
+        }
+      ],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" \"3.25\" guide",
+        "site:youtube.com \"Lightning Arrow\" \"Deadeye\" PoE 3.25",
+        "\"3.25 Lightning Arrow Deadeye\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.25_lightning_arrow_ranger:endgame_pob",
+      "candidate_id": "3.25_lightning_arrow_ranger",
+      "build_id": "3_25_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.25",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Arrow Ranger needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" pobb.in",
+        "\"Lightning Arrow\" \"Deadeye\" \"Path of Building\"",
+        "\"3.25 Lightning Arrow Deadeye\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.25_lightning_arrow_ranger:leveling_pob",
+      "candidate_id": "3.25_lightning_arrow_ranger",
+      "build_id": "3_25_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.25",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Arrow Ranger needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" leveling PoB",
+        "\"Lightning Arrow\" \"Deadeye\" campaign PoB",
+        "\"3.25 Lightning Arrow Deadeye\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.25_lightning_arrow_ranger:poe_ninja",
+      "candidate_id": "3.25_lightning_arrow_ranger",
+      "build_id": "3_25_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.25",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Lightning Arrow Ranger needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Lightning Arrow\" \"Deadeye\"",
+        "\"Lightning Arrow\" \"Deadeye\" poe.ninja",
+        "\"3.25 Lightning Arrow Deadeye\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.25_boneshatter_juggernaut:guide",
+      "candidate_id": "3.25_boneshatter_juggernaut",
+      "build_id": "3_25_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.25",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Boneshatter Juggernaut has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Settlers starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_25"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Settlers starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_25"
+        }
+      ],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" \"3.25\" guide",
+        "site:youtube.com \"Boneshatter\" \"Juggernaut\" PoE 3.25",
+        "\"3.25 Boneshatter Juggernaut\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.25_boneshatter_juggernaut:endgame_pob",
+      "candidate_id": "3.25_boneshatter_juggernaut",
+      "build_id": "3_25_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.25",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Boneshatter Juggernaut needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" pobb.in",
+        "\"Boneshatter\" \"Juggernaut\" \"Path of Building\"",
+        "\"3.25 Boneshatter Juggernaut\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.25_boneshatter_juggernaut:leveling_pob",
+      "candidate_id": "3.25_boneshatter_juggernaut",
+      "build_id": "3_25_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.25",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Boneshatter Juggernaut needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" leveling PoB",
+        "\"Boneshatter\" \"Juggernaut\" campaign PoB",
+        "\"3.25 Boneshatter Juggernaut\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.25_boneshatter_juggernaut:poe_ninja",
+      "candidate_id": "3.25_boneshatter_juggernaut",
+      "build_id": "3_25_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.25",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Boneshatter Juggernaut needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Boneshatter\" \"Juggernaut\"",
+        "\"Boneshatter\" \"Juggernaut\" poe.ninja",
+        "\"3.25 Boneshatter Juggernaut\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.25_hexblast_miner_saboteur:guide",
+      "candidate_id": "3.25_hexblast_miner_saboteur",
+      "build_id": "3_25_hexblast_miner_saboteur",
+      "build_name": "Hexblast Miner Saboteur",
+      "patch": "3.25",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Hexblast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "hold",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Hexblast Miner Saboteur has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Settlers starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_25"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Settlers starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_25"
+        }
+      ],
+      "suggested_queries": [
+        "\"Hexblast Miner Saboteur\" \"3.25\" guide",
+        "site:youtube.com \"Hexblast Mine\" \"Saboteur\" PoE 3.25",
+        "\"3.25 Hexblast Mine Saboteur\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.25_hexblast_miner_saboteur:endgame_pob",
+      "candidate_id": "3.25_hexblast_miner_saboteur",
+      "build_id": "3_25_hexblast_miner_saboteur",
+      "build_name": "Hexblast Miner Saboteur",
+      "patch": "3.25",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Hexblast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "hold",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Hexblast Miner Saboteur needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Hexblast Miner Saboteur\" pobb.in",
+        "\"Hexblast Mine\" \"Saboteur\" \"Path of Building\"",
+        "\"3.25 Hexblast Mine Saboteur\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.25_hexblast_miner_saboteur:leveling_pob",
+      "candidate_id": "3.25_hexblast_miner_saboteur",
+      "build_id": "3_25_hexblast_miner_saboteur",
+      "build_name": "Hexblast Miner Saboteur",
+      "patch": "3.25",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Hexblast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "hold",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Hexblast Miner Saboteur needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Hexblast Miner Saboteur\" leveling PoB",
+        "\"Hexblast Mine\" \"Saboteur\" campaign PoB",
+        "\"3.25 Hexblast Mine Saboteur\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.25_hexblast_miner_saboteur:poe_ninja",
+      "candidate_id": "3.25_hexblast_miner_saboteur",
+      "build_id": "3_25_hexblast_miner_saboteur",
+      "build_name": "Hexblast Miner Saboteur",
+      "patch": "3.25",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Hexblast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "hold",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Hexblast Miner Saboteur needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Hexblast Mine\" \"Saboteur\"",
+        "\"Hexblast Mine\" \"Saboteur\" poe.ninja",
+        "\"3.25 Hexblast Mine Saboteur\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.25_lightning_strike_deadeye_or_warden:guide",
+      "candidate_id": "3.25_lightning_strike_deadeye_or_warden",
+      "build_id": "3_25_lightning_strike_deadeye_or_warden",
+      "build_name": "Lightning Strike Deadeye or Warden",
+      "patch": "3.25",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Strike",
+      "leveling_skill": "Splitting Steel",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Lightning Strike Deadeye or Warden has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "maxroll",
+          "label": "maxroll guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "Settlers starters cross-check",
+          "url": null,
+          "notes": "maxroll_3_25"
+        },
+        {
+          "type": "poe_vault",
+          "label": "Settlers starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_25"
+        }
+      ],
+      "suggested_queries": [
+        "\"Lightning Strike Deadeye or Warden\" \"3.25\" guide",
+        "site:youtube.com \"Lightning Strike\" \"Deadeye\" PoE 3.25",
+        "\"3.25 Lightning Strike Deadeye\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.25_lightning_strike_deadeye_or_warden:endgame_pob",
+      "candidate_id": "3.25_lightning_strike_deadeye_or_warden",
+      "build_id": "3_25_lightning_strike_deadeye_or_warden",
+      "build_name": "Lightning Strike Deadeye or Warden",
+      "patch": "3.25",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Strike",
+      "leveling_skill": "Splitting Steel",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Strike Deadeye or Warden needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Strike Deadeye or Warden\" pobb.in",
+        "\"Lightning Strike\" \"Deadeye\" \"Path of Building\"",
+        "\"3.25 Lightning Strike Deadeye\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.25_lightning_strike_deadeye_or_warden:leveling_pob",
+      "candidate_id": "3.25_lightning_strike_deadeye_or_warden",
+      "build_id": "3_25_lightning_strike_deadeye_or_warden",
+      "build_name": "Lightning Strike Deadeye or Warden",
+      "patch": "3.25",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Strike",
+      "leveling_skill": "Splitting Steel",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Strike Deadeye or Warden needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Strike Deadeye or Warden\" leveling PoB",
+        "\"Lightning Strike\" \"Deadeye\" campaign PoB",
+        "\"3.25 Lightning Strike Deadeye\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.25_lightning_strike_deadeye_or_warden:poe_ninja",
+      "candidate_id": "3.25_lightning_strike_deadeye_or_warden",
+      "build_id": "3_25_lightning_strike_deadeye_or_warden",
+      "build_name": "Lightning Strike Deadeye or Warden",
+      "patch": "3.25",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Strike",
+      "leveling_skill": "Splitting Steel",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Lightning Strike Deadeye or Warden needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Lightning Strike\" \"Deadeye\"",
+        "\"Lightning Strike\" \"Deadeye\" poe.ninja",
+        "\"3.25 Lightning Strike Deadeye\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.26_lightning_arrow_ranger:guide",
+      "candidate_id": "3.26_lightning_arrow_ranger",
+      "build_id": "3_26_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.26",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Lightning Arrow Ranger has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "PoE Vault external cross-check",
+          "url": null,
+          "notes": "poe_vault_3_26"
+        }
+      ],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" \"3.26\" guide",
+        "site:youtube.com \"Lightning Arrow\" \"Deadeye\" PoE 3.26",
+        "\"3.26 Lightning Arrow Deadeye\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.26_lightning_arrow_ranger:endgame_pob",
+      "candidate_id": "3.26_lightning_arrow_ranger",
+      "build_id": "3_26_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.26",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Arrow Ranger needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" pobb.in",
+        "\"Lightning Arrow\" \"Deadeye\" \"Path of Building\"",
+        "\"3.26 Lightning Arrow Deadeye\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.26_lightning_arrow_ranger:leveling_pob",
+      "candidate_id": "3.26_lightning_arrow_ranger",
+      "build_id": "3_26_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.26",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lightning Arrow Ranger needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lightning Arrow Ranger\" leveling PoB",
+        "\"Lightning Arrow\" \"Deadeye\" campaign PoB",
+        "\"3.26 Lightning Arrow Deadeye\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.26_lightning_arrow_ranger:poe_ninja",
+      "candidate_id": "3.26_lightning_arrow_ranger",
+      "build_id": "3_26_lightning_arrow_ranger",
+      "build_name": "Lightning Arrow Ranger",
+      "patch": "3.26",
+      "class_name": "Ranger",
+      "ascendancy": "Deadeye",
+      "main_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Lightning Arrow Ranger needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Lightning Arrow\" \"Deadeye\"",
+        "\"Lightning Arrow\" \"Deadeye\" poe.ninja",
+        "\"3.26 Lightning Arrow Deadeye\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.26_boneshatter_juggernaut:guide",
+      "candidate_id": "3.26_boneshatter_juggernaut",
+      "build_id": "3_26_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.26",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Boneshatter Juggernaut has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "Secrets of the Atlas starters single-source confirmation",
+          "url": null,
+          "notes": "poe_vault_3_26"
+        }
+      ],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" \"3.26\" guide",
+        "site:youtube.com \"Boneshatter\" \"Juggernaut\" PoE 3.26",
+        "\"3.26 Boneshatter Juggernaut\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.26_boneshatter_juggernaut:endgame_pob",
+      "candidate_id": "3.26_boneshatter_juggernaut",
+      "build_id": "3_26_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.26",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Boneshatter Juggernaut needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" pobb.in",
+        "\"Boneshatter\" \"Juggernaut\" \"Path of Building\"",
+        "\"3.26 Boneshatter Juggernaut\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.26_boneshatter_juggernaut:leveling_pob",
+      "candidate_id": "3.26_boneshatter_juggernaut",
+      "build_id": "3_26_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.26",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Boneshatter Juggernaut needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Boneshatter Juggernaut\" leveling PoB",
+        "\"Boneshatter\" \"Juggernaut\" campaign PoB",
+        "\"3.26 Boneshatter Juggernaut\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.26_boneshatter_juggernaut:poe_ninja",
+      "candidate_id": "3.26_boneshatter_juggernaut",
+      "build_id": "3_26_boneshatter_juggernaut",
+      "build_name": "Boneshatter Juggernaut",
+      "patch": "3.26",
+      "class_name": "Marauder",
+      "ascendancy": "Juggernaut",
+      "main_skill": "Boneshatter",
+      "leveling_skill": "Ground Slam",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Boneshatter Juggernaut needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Boneshatter\" \"Juggernaut\"",
+        "\"Boneshatter\" \"Juggernaut\" poe.ninja",
+        "\"3.26 Boneshatter Juggernaut\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.26_siege_ballista_hierophant:guide",
+      "candidate_id": "3.26_siege_ballista_hierophant",
+      "build_id": "3_26_siege_ballista_hierophant",
+      "build_name": "Siege Ballista Hierophant",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Siege Ballista",
+      "leveling_skill": "Split Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Siege Ballista Hierophant has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "Secrets of the Atlas starters single-source confirmation",
+          "url": null,
+          "notes": "poe_vault_3_26"
+        }
+      ],
+      "suggested_queries": [
+        "\"Siege Ballista Hierophant\" \"3.26\" guide",
+        "site:youtube.com \"Siege Ballista\" \"Hierophant\" PoE 3.26",
+        "\"3.26 Siege Ballista Hierophant\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.26_siege_ballista_hierophant:endgame_pob",
+      "candidate_id": "3.26_siege_ballista_hierophant",
+      "build_id": "3_26_siege_ballista_hierophant",
+      "build_name": "Siege Ballista Hierophant",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Siege Ballista",
+      "leveling_skill": "Split Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Siege Ballista Hierophant needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Siege Ballista Hierophant\" pobb.in",
+        "\"Siege Ballista\" \"Hierophant\" \"Path of Building\"",
+        "\"3.26 Siege Ballista Hierophant\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.26_siege_ballista_hierophant:leveling_pob",
+      "candidate_id": "3.26_siege_ballista_hierophant",
+      "build_id": "3_26_siege_ballista_hierophant",
+      "build_name": "Siege Ballista Hierophant",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Siege Ballista",
+      "leveling_skill": "Split Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Siege Ballista Hierophant needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Siege Ballista Hierophant\" leveling PoB",
+        "\"Siege Ballista\" \"Hierophant\" campaign PoB",
+        "\"3.26 Siege Ballista Hierophant\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.26_siege_ballista_hierophant:poe_ninja",
+      "candidate_id": "3.26_siege_ballista_hierophant",
+      "build_id": "3_26_siege_ballista_hierophant",
+      "build_name": "Siege Ballista Hierophant",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Siege Ballista",
+      "leveling_skill": "Split Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Siege Ballista Hierophant needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Siege Ballista\" \"Hierophant\"",
+        "\"Siege Ballista\" \"Hierophant\" poe.ninja",
+        "\"3.26 Siege Ballista Hierophant\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.26_ice_nova_caster:guide",
+      "candidate_id": "3.26_ice_nova_caster",
+      "build_id": "3_26_ice_nova_caster",
+      "build_name": "Ice Nova Caster",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ice Nova",
+      "leveling_skill": "Frostbolt",
+      "board_status": "hold",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Ice Nova Caster needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ice Nova Caster\" \"3.26\" guide",
+        "site:youtube.com \"Ice Nova\" \"Hierophant\" PoE 3.26",
+        "\"3.26 Ice Nova Hierophant\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.26_ice_nova_caster:endgame_pob",
+      "candidate_id": "3.26_ice_nova_caster",
+      "build_id": "3_26_ice_nova_caster",
+      "build_name": "Ice Nova Caster",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ice Nova",
+      "leveling_skill": "Frostbolt",
+      "board_status": "hold",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Ice Nova Caster needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ice Nova Caster\" pobb.in",
+        "\"Ice Nova\" \"Hierophant\" \"Path of Building\"",
+        "\"3.26 Ice Nova Hierophant\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.26_ice_nova_caster:leveling_pob",
+      "candidate_id": "3.26_ice_nova_caster",
+      "build_id": "3_26_ice_nova_caster",
+      "build_name": "Ice Nova Caster",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ice Nova",
+      "leveling_skill": "Frostbolt",
+      "board_status": "hold",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Ice Nova Caster needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ice Nova Caster\" leveling PoB",
+        "\"Ice Nova\" \"Hierophant\" campaign PoB",
+        "\"3.26 Ice Nova Hierophant\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.26_ice_nova_caster:poe_ninja",
+      "candidate_id": "3.26_ice_nova_caster",
+      "build_id": "3_26_ice_nova_caster",
+      "build_name": "Ice Nova Caster",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ice Nova",
+      "leveling_skill": "Frostbolt",
+      "board_status": "hold",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Ice Nova Caster needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Ice Nova\" \"Hierophant\"",
+        "\"Ice Nova\" \"Hierophant\" poe.ninja",
+        "\"3.26 Ice Nova Hierophant\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.26_ball_lightning_caster:guide",
+      "candidate_id": "3.26_ball_lightning_caster",
+      "build_id": "3_26_ball_lightning_caster",
+      "build_name": "Ball Lightning Caster",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ball Lightning",
+      "leveling_skill": "Arc",
+      "board_status": "hold",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Ball Lightning Caster needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ball Lightning Caster\" \"3.26\" guide",
+        "site:youtube.com \"Ball Lightning\" \"Hierophant\" PoE 3.26",
+        "\"3.26 Ball Lightning Hierophant\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.26_ball_lightning_caster:endgame_pob",
+      "candidate_id": "3.26_ball_lightning_caster",
+      "build_id": "3_26_ball_lightning_caster",
+      "build_name": "Ball Lightning Caster",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ball Lightning",
+      "leveling_skill": "Arc",
+      "board_status": "hold",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Ball Lightning Caster needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ball Lightning Caster\" pobb.in",
+        "\"Ball Lightning\" \"Hierophant\" \"Path of Building\"",
+        "\"3.26 Ball Lightning Hierophant\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.26_ball_lightning_caster:leveling_pob",
+      "candidate_id": "3.26_ball_lightning_caster",
+      "build_id": "3_26_ball_lightning_caster",
+      "build_name": "Ball Lightning Caster",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ball Lightning",
+      "leveling_skill": "Arc",
+      "board_status": "hold",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Ball Lightning Caster needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ball Lightning Caster\" leveling PoB",
+        "\"Ball Lightning\" \"Hierophant\" campaign PoB",
+        "\"3.26 Ball Lightning Hierophant\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.26_ball_lightning_caster:poe_ninja",
+      "candidate_id": "3.26_ball_lightning_caster",
+      "build_id": "3_26_ball_lightning_caster",
+      "build_name": "Ball Lightning Caster",
+      "patch": "3.26",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ball Lightning",
+      "leveling_skill": "Arc",
+      "board_status": "hold",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Ball Lightning Caster needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Ball Lightning\" \"Hierophant\"",
+        "\"Ball Lightning\" \"Hierophant\" poe.ninja",
+        "\"3.26 Ball Lightning Hierophant\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.27_lacerate_duelist:guide",
+      "candidate_id": "3.27_lacerate_duelist",
+      "build_id": "3_27_lacerate_duelist",
+      "build_name": "Lacerate Duelist",
+      "patch": "3.27",
+      "class_name": "Duelist",
+      "ascendancy": "Gladiator",
+      "main_skill": "Lacerate",
+      "leveling_skill": "Cleave",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Lacerate Duelist has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "PoE Vault external cross-check",
+          "url": null,
+          "notes": "poe_vault_3_27"
+        }
+      ],
+      "suggested_queries": [
+        "\"Lacerate Duelist\" \"3.27\" guide",
+        "site:youtube.com \"Lacerate\" \"Gladiator\" PoE 3.27",
+        "\"3.27 Lacerate Gladiator\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.27_lacerate_duelist:endgame_pob",
+      "candidate_id": "3.27_lacerate_duelist",
+      "build_id": "3_27_lacerate_duelist",
+      "build_name": "Lacerate Duelist",
+      "patch": "3.27",
+      "class_name": "Duelist",
+      "ascendancy": "Gladiator",
+      "main_skill": "Lacerate",
+      "leveling_skill": "Cleave",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lacerate Duelist needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lacerate Duelist\" pobb.in",
+        "\"Lacerate\" \"Gladiator\" \"Path of Building\"",
+        "\"3.27 Lacerate Gladiator\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.27_lacerate_duelist:leveling_pob",
+      "candidate_id": "3.27_lacerate_duelist",
+      "build_id": "3_27_lacerate_duelist",
+      "build_name": "Lacerate Duelist",
+      "patch": "3.27",
+      "class_name": "Duelist",
+      "ascendancy": "Gladiator",
+      "main_skill": "Lacerate",
+      "leveling_skill": "Cleave",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Lacerate Duelist needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Lacerate Duelist\" leveling PoB",
+        "\"Lacerate\" \"Gladiator\" campaign PoB",
+        "\"3.27 Lacerate Gladiator\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.27_lacerate_duelist:poe_ninja",
+      "candidate_id": "3.27_lacerate_duelist",
+      "build_id": "3_27_lacerate_duelist",
+      "build_name": "Lacerate Duelist",
+      "patch": "3.27",
+      "class_name": "Duelist",
+      "ascendancy": "Gladiator",
+      "main_skill": "Lacerate",
+      "leveling_skill": "Cleave",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Lacerate Duelist needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Lacerate\" \"Gladiator\"",
+        "\"Lacerate\" \"Gladiator\" poe.ninja",
+        "\"3.27 Lacerate Gladiator\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.27_dominating_blow_guardian:guide",
+      "candidate_id": "3.27_dominating_blow_guardian",
+      "build_id": "3_27_dominating_blow_guardian",
+      "build_name": "Dominating Blow Guardian",
+      "patch": "3.27",
+      "class_name": "Templar",
+      "ascendancy": "Guardian",
+      "main_skill": "Dominating Blow",
+      "leveling_skill": "Summon Holy Relic",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Dominating Blow Guardian has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "PoE Vault external cross-check",
+          "url": null,
+          "notes": "poe_vault_3_27"
+        }
+      ],
+      "suggested_queries": [
+        "\"Dominating Blow Guardian\" \"3.27\" guide",
+        "site:youtube.com \"Dominating Blow\" \"Guardian\" PoE 3.27",
+        "\"3.27 Dominating Blow Guardian\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.27_dominating_blow_guardian:endgame_pob",
+      "candidate_id": "3.27_dominating_blow_guardian",
+      "build_id": "3_27_dominating_blow_guardian",
+      "build_name": "Dominating Blow Guardian",
+      "patch": "3.27",
+      "class_name": "Templar",
+      "ascendancy": "Guardian",
+      "main_skill": "Dominating Blow",
+      "leveling_skill": "Summon Holy Relic",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Dominating Blow Guardian needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Dominating Blow Guardian\" pobb.in",
+        "\"Dominating Blow\" \"Guardian\" \"Path of Building\"",
+        "\"3.27 Dominating Blow Guardian\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.27_dominating_blow_guardian:leveling_pob",
+      "candidate_id": "3.27_dominating_blow_guardian",
+      "build_id": "3_27_dominating_blow_guardian",
+      "build_name": "Dominating Blow Guardian",
+      "patch": "3.27",
+      "class_name": "Templar",
+      "ascendancy": "Guardian",
+      "main_skill": "Dominating Blow",
+      "leveling_skill": "Summon Holy Relic",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Dominating Blow Guardian needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Dominating Blow Guardian\" leveling PoB",
+        "\"Dominating Blow\" \"Guardian\" campaign PoB",
+        "\"3.27 Dominating Blow Guardian\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.27_dominating_blow_guardian:poe_ninja",
+      "candidate_id": "3.27_dominating_blow_guardian",
+      "build_id": "3_27_dominating_blow_guardian",
+      "build_name": "Dominating Blow Guardian",
+      "patch": "3.27",
+      "class_name": "Templar",
+      "ascendancy": "Guardian",
+      "main_skill": "Dominating Blow",
+      "leveling_skill": "Summon Holy Relic",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Dominating Blow Guardian needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Dominating Blow\" \"Guardian\"",
+        "\"Dominating Blow\" \"Guardian\" poe.ninja",
+        "\"3.27 Dominating Blow Guardian\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.27_ice_nova_caster:guide",
+      "candidate_id": "3.27_ice_nova_caster",
+      "build_id": "3_27_ice_nova_caster",
+      "build_name": "Ice Nova Caster",
+      "patch": "3.27",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ice Nova",
+      "leveling_skill": "Frostbolt",
+      "board_status": "hold",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Ice Nova Caster needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ice Nova Caster\" \"3.27\" guide",
+        "site:youtube.com \"Ice Nova\" \"Hierophant\" PoE 3.27",
+        "\"3.27 Ice Nova Hierophant\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.27_ice_nova_caster:endgame_pob",
+      "candidate_id": "3.27_ice_nova_caster",
+      "build_id": "3_27_ice_nova_caster",
+      "build_name": "Ice Nova Caster",
+      "patch": "3.27",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ice Nova",
+      "leveling_skill": "Frostbolt",
+      "board_status": "hold",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Ice Nova Caster needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ice Nova Caster\" pobb.in",
+        "\"Ice Nova\" \"Hierophant\" \"Path of Building\"",
+        "\"3.27 Ice Nova Hierophant\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.27_ice_nova_caster:leveling_pob",
+      "candidate_id": "3.27_ice_nova_caster",
+      "build_id": "3_27_ice_nova_caster",
+      "build_name": "Ice Nova Caster",
+      "patch": "3.27",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ice Nova",
+      "leveling_skill": "Frostbolt",
+      "board_status": "hold",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Ice Nova Caster needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Ice Nova Caster\" leveling PoB",
+        "\"Ice Nova\" \"Hierophant\" campaign PoB",
+        "\"3.27 Ice Nova Hierophant\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.27_ice_nova_caster:poe_ninja",
+      "candidate_id": "3.27_ice_nova_caster",
+      "build_id": "3_27_ice_nova_caster",
+      "build_name": "Ice Nova Caster",
+      "patch": "3.27",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Ice Nova",
+      "leveling_skill": "Frostbolt",
+      "board_status": "hold",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Ice Nova Caster needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Ice Nova\" \"Hierophant\"",
+        "\"Ice Nova\" \"Hierophant\" poe.ninja",
+        "\"3.27 Ice Nova Hierophant\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.27_toxic_rain_pathfinder:guide",
+      "candidate_id": "3.27_toxic_rain_pathfinder",
+      "build_id": "3_27_toxic_rain_pathfinder",
+      "build_name": "Toxic Rain Pathfinder",
+      "patch": "3.27",
+      "class_name": "Ranger",
+      "ascendancy": "Pathfinder",
+      "main_skill": "Toxic Rain",
+      "leveling_skill": "Caustic Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Toxic Rain Pathfinder has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "Keepers starters single-source confirmation",
+          "url": null,
+          "notes": "poe_vault_3_27"
+        }
+      ],
+      "suggested_queries": [
+        "\"Toxic Rain Pathfinder\" \"3.27\" guide",
+        "site:youtube.com \"Toxic Rain\" \"Pathfinder\" PoE 3.27",
+        "\"3.27 Toxic Rain Pathfinder\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.27_toxic_rain_pathfinder:endgame_pob",
+      "candidate_id": "3.27_toxic_rain_pathfinder",
+      "build_id": "3_27_toxic_rain_pathfinder",
+      "build_name": "Toxic Rain Pathfinder",
+      "patch": "3.27",
+      "class_name": "Ranger",
+      "ascendancy": "Pathfinder",
+      "main_skill": "Toxic Rain",
+      "leveling_skill": "Caustic Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Toxic Rain Pathfinder needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Toxic Rain Pathfinder\" pobb.in",
+        "\"Toxic Rain\" \"Pathfinder\" \"Path of Building\"",
+        "\"3.27 Toxic Rain Pathfinder\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.27_toxic_rain_pathfinder:leveling_pob",
+      "candidate_id": "3.27_toxic_rain_pathfinder",
+      "build_id": "3_27_toxic_rain_pathfinder",
+      "build_name": "Toxic Rain Pathfinder",
+      "patch": "3.27",
+      "class_name": "Ranger",
+      "ascendancy": "Pathfinder",
+      "main_skill": "Toxic Rain",
+      "leveling_skill": "Caustic Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Toxic Rain Pathfinder needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Toxic Rain Pathfinder\" leveling PoB",
+        "\"Toxic Rain\" \"Pathfinder\" campaign PoB",
+        "\"3.27 Toxic Rain Pathfinder\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.27_toxic_rain_pathfinder:poe_ninja",
+      "candidate_id": "3.27_toxic_rain_pathfinder",
+      "build_id": "3_27_toxic_rain_pathfinder",
+      "build_name": "Toxic Rain Pathfinder",
+      "patch": "3.27",
+      "class_name": "Ranger",
+      "ascendancy": "Pathfinder",
+      "main_skill": "Toxic Rain",
+      "leveling_skill": "Caustic Arrow",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Toxic Rain Pathfinder needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Toxic Rain\" \"Pathfinder\"",
+        "\"Toxic Rain\" \"Pathfinder\" poe.ninja",
+        "\"3.27 Toxic Rain Pathfinder\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.27_pyroclast_mine_saboteur:guide",
+      "candidate_id": "3.27_pyroclast_mine_saboteur",
+      "build_id": "3_27_pyroclast_mine_saboteur",
+      "build_name": "Pyroclast Mine Saboteur",
+      "patch": "3.27",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Pyroclast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Pyroclast Mine Saboteur has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "Keepers starters single-source confirmation",
+          "url": null,
+          "notes": "poe_vault_3_27"
+        }
+      ],
+      "suggested_queries": [
+        "\"Pyroclast Mine Saboteur\" \"3.27\" guide",
+        "site:youtube.com \"Pyroclast Mine\" \"Saboteur\" PoE 3.27",
+        "\"3.27 Pyroclast Mine Saboteur\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.27_pyroclast_mine_saboteur:endgame_pob",
+      "candidate_id": "3.27_pyroclast_mine_saboteur",
+      "build_id": "3_27_pyroclast_mine_saboteur",
+      "build_name": "Pyroclast Mine Saboteur",
+      "patch": "3.27",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Pyroclast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Pyroclast Mine Saboteur needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Pyroclast Mine Saboteur\" pobb.in",
+        "\"Pyroclast Mine\" \"Saboteur\" \"Path of Building\"",
+        "\"3.27 Pyroclast Mine Saboteur\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.27_pyroclast_mine_saboteur:leveling_pob",
+      "candidate_id": "3.27_pyroclast_mine_saboteur",
+      "build_id": "3_27_pyroclast_mine_saboteur",
+      "build_name": "Pyroclast Mine Saboteur",
+      "patch": "3.27",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Pyroclast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Pyroclast Mine Saboteur needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Pyroclast Mine Saboteur\" leveling PoB",
+        "\"Pyroclast Mine\" \"Saboteur\" campaign PoB",
+        "\"3.27 Pyroclast Mine Saboteur\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.27_pyroclast_mine_saboteur:poe_ninja",
+      "candidate_id": "3.27_pyroclast_mine_saboteur",
+      "build_id": "3_27_pyroclast_mine_saboteur",
+      "build_name": "Pyroclast Mine Saboteur",
+      "patch": "3.27",
+      "class_name": "Shadow",
+      "ascendancy": "Saboteur",
+      "main_skill": "Pyroclast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Pyroclast Mine Saboteur needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Pyroclast Mine\" \"Saboteur\"",
+        "\"Pyroclast Mine\" \"Saboteur\" poe.ninja",
+        "\"3.27 Pyroclast Mine Saboteur\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.28_shock_nova_of_procession_hierophant:guide",
+      "candidate_id": "3.28_shock_nova_of_procession_hierophant",
+      "build_id": "3_28_shock_nova_of_procession_hierophant",
+      "build_name": "Shock Nova of Procession Hierophant",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shock Nova of Procession",
+      "leveling_skill": "Arc",
+      "board_status": "confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "medium",
+      "reason": "Shock Nova of Procession Hierophant has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "maxroll",
+          "label": "maxroll upgradeable family",
+          "url": null,
+          "notes": "Direct index family match for representative board."
+        },
+        {
+          "type": "poe_vault",
+          "label": "poe_vault upgradeable family",
+          "url": null,
+          "notes": "Direct index family match for representative board."
+        },
+        {
+          "type": "poe_vault",
+          "label": "Mirage starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_28"
+        }
+      ],
+      "suggested_queries": [
+        "\"Shock Nova of Procession Hierophant\" \"3.28\" guide",
+        "site:youtube.com \"Shock Nova of Procession\" \"Hierophant\" PoE 3.28",
+        "\"3.28 Shock Nova of Procession Hierophant\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.28_shock_nova_of_procession_hierophant:endgame_pob",
+      "candidate_id": "3.28_shock_nova_of_procession_hierophant",
+      "build_id": "3_28_shock_nova_of_procession_hierophant",
+      "build_name": "Shock Nova of Procession Hierophant",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shock Nova of Procession",
+      "leveling_skill": "Arc",
+      "board_status": "confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Shock Nova of Procession Hierophant needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Shock Nova of Procession Hierophant\" pobb.in",
+        "\"Shock Nova of Procession\" \"Hierophant\" \"Path of Building\"",
+        "\"3.28 Shock Nova of Procession Hierophant\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.28_shock_nova_of_procession_hierophant:leveling_pob",
+      "candidate_id": "3.28_shock_nova_of_procession_hierophant",
+      "build_id": "3_28_shock_nova_of_procession_hierophant",
+      "build_name": "Shock Nova of Procession Hierophant",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shock Nova of Procession",
+      "leveling_skill": "Arc",
+      "board_status": "confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Shock Nova of Procession Hierophant needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Shock Nova of Procession Hierophant\" leveling PoB",
+        "\"Shock Nova of Procession\" \"Hierophant\" campaign PoB",
+        "\"3.28 Shock Nova of Procession Hierophant\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.28_shock_nova_of_procession_hierophant:poe_ninja",
+      "candidate_id": "3.28_shock_nova_of_procession_hierophant",
+      "build_id": "3_28_shock_nova_of_procession_hierophant",
+      "build_name": "Shock Nova of Procession Hierophant",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Shock Nova of Procession",
+      "leveling_skill": "Arc",
+      "board_status": "confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "medium",
+      "reason": "Shock Nova of Procession Hierophant needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Shock Nova of Procession\" \"Hierophant\"",
+        "\"Shock Nova of Procession\" \"Hierophant\" poe.ninja",
+        "\"3.28 Shock Nova of Procession Hierophant\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.28_kinetic_fusillade_of_detonation:guide",
+      "candidate_id": "3.28_kinetic_fusillade_of_detonation",
+      "build_id": "3_28_kinetic_fusillade_of_detonation",
+      "build_name": "Kinetic Fusillade of Detonation",
+      "patch": "3.28",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Kinetic Fusillade of Detonation",
+      "leveling_skill": "Power Siphon",
+      "board_status": "hold",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Kinetic Fusillade of Detonation needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Kinetic Fusillade of Detonation\" \"3.28\" guide",
+        "site:youtube.com \"Kinetic Fusillade of Detonation\" \"Trickster\" PoE 3.28",
+        "\"3.28 Kinetic Fusillade of Detonation Trickster\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.28_kinetic_fusillade_of_detonation:endgame_pob",
+      "candidate_id": "3.28_kinetic_fusillade_of_detonation",
+      "build_id": "3_28_kinetic_fusillade_of_detonation",
+      "build_name": "Kinetic Fusillade of Detonation",
+      "patch": "3.28",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Kinetic Fusillade of Detonation",
+      "leveling_skill": "Power Siphon",
+      "board_status": "hold",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "low",
+      "reason": "Kinetic Fusillade of Detonation needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Kinetic Fusillade of Detonation\" pobb.in",
+        "\"Kinetic Fusillade of Detonation\" \"Trickster\" \"Path of Building\"",
+        "\"3.28 Kinetic Fusillade of Detonation Trickster\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.28_kinetic_fusillade_of_detonation:leveling_pob",
+      "candidate_id": "3.28_kinetic_fusillade_of_detonation",
+      "build_id": "3_28_kinetic_fusillade_of_detonation",
+      "build_name": "Kinetic Fusillade of Detonation",
+      "patch": "3.28",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Kinetic Fusillade of Detonation",
+      "leveling_skill": "Power Siphon",
+      "board_status": "hold",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Kinetic Fusillade of Detonation needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Kinetic Fusillade of Detonation\" leveling PoB",
+        "\"Kinetic Fusillade of Detonation\" \"Trickster\" campaign PoB",
+        "\"3.28 Kinetic Fusillade of Detonation Trickster\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.28_kinetic_fusillade_of_detonation:poe_ninja",
+      "candidate_id": "3.28_kinetic_fusillade_of_detonation",
+      "build_id": "3_28_kinetic_fusillade_of_detonation",
+      "build_name": "Kinetic Fusillade of Detonation",
+      "patch": "3.28",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Kinetic Fusillade of Detonation",
+      "leveling_skill": "Power Siphon",
+      "board_status": "hold",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "medium",
+      "reason": "Kinetic Fusillade of Detonation needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Kinetic Fusillade of Detonation\" \"Trickster\"",
+        "\"Kinetic Fusillade of Detonation\" \"Trickster\" poe.ninja",
+        "\"3.28 Kinetic Fusillade of Detonation Trickster\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.28_dominating_blow_guardian:guide",
+      "candidate_id": "3.28_dominating_blow_guardian",
+      "build_id": "3_28_dominating_blow_guardian",
+      "build_name": "Dominating Blow Guardian",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Guardian",
+      "main_skill": "Dominating Blow",
+      "leveling_skill": "Summon Holy Relic",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Dominating Blow Guardian has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "Mirage starters cross-check",
+          "url": null,
+          "notes": "poe_vault_3_28"
+        }
+      ],
+      "suggested_queries": [
+        "\"Dominating Blow Guardian\" \"3.28\" guide",
+        "site:youtube.com \"Dominating Blow\" \"Guardian\" PoE 3.28",
+        "\"3.28 Dominating Blow Guardian\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.28_dominating_blow_guardian:endgame_pob",
+      "candidate_id": "3.28_dominating_blow_guardian",
+      "build_id": "3_28_dominating_blow_guardian",
+      "build_name": "Dominating Blow Guardian",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Guardian",
+      "main_skill": "Dominating Blow",
+      "leveling_skill": "Summon Holy Relic",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Dominating Blow Guardian needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Dominating Blow Guardian\" pobb.in",
+        "\"Dominating Blow\" \"Guardian\" \"Path of Building\"",
+        "\"3.28 Dominating Blow Guardian\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.28_dominating_blow_guardian:leveling_pob",
+      "candidate_id": "3.28_dominating_blow_guardian",
+      "build_id": "3_28_dominating_blow_guardian",
+      "build_name": "Dominating Blow Guardian",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Guardian",
+      "main_skill": "Dominating Blow",
+      "leveling_skill": "Summon Holy Relic",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Dominating Blow Guardian needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Dominating Blow Guardian\" leveling PoB",
+        "\"Dominating Blow\" \"Guardian\" campaign PoB",
+        "\"3.28 Dominating Blow Guardian\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.28_dominating_blow_guardian:poe_ninja",
+      "candidate_id": "3.28_dominating_blow_guardian",
+      "build_id": "3_28_dominating_blow_guardian",
+      "build_name": "Dominating Blow Guardian",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Guardian",
+      "main_skill": "Dominating Blow",
+      "leveling_skill": "Summon Holy Relic",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "medium",
+      "reason": "Dominating Blow Guardian needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Dominating Blow\" \"Guardian\"",
+        "\"Dominating Blow\" \"Guardian\" poe.ninja",
+        "\"3.28 Dominating Blow Guardian\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.28_penance_brand_inquisitor:guide",
+      "candidate_id": "3.28_penance_brand_inquisitor",
+      "build_id": "3_28_penance_brand_inquisitor",
+      "build_name": "Penance Brand Inquisitor",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Inquisitor",
+      "main_skill": "Penance Brand",
+      "leveling_skill": "Storm Brand",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Penance Brand Inquisitor has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "manual_curated",
+          "label": "creator_guide guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "manual_curated",
+          "label": "ZeeBoub Brand Guide 2.0 structured local import; Penance Brand Inquisitor progression and PoB set, 3.25-3.27 era cross-patch guide evidence.",
+          "url": null,
+          "notes": "creator_guide_zeeboub_brand_v2"
+        }
+      ],
+      "suggested_queries": [
+        "\"Penance Brand Inquisitor\" \"3.28\" guide",
+        "site:youtube.com \"Penance Brand\" \"Inquisitor\" PoE 3.28",
+        "\"3.28 Penance Brand Inquisitor\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.28_penance_brand_inquisitor:endgame_pob",
+      "candidate_id": "3.28_penance_brand_inquisitor",
+      "build_id": "3_28_penance_brand_inquisitor",
+      "build_name": "Penance Brand Inquisitor",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Inquisitor",
+      "main_skill": "Penance Brand",
+      "leveling_skill": "Storm Brand",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "evidence_without_url",
+      "priority": "high",
+      "reason": "Penance Brand Inquisitor has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "manual_curated",
+          "label": "ZeeBoub Brand Guide 2.0 structured local import; Penance Brand Inquisitor progression and PoB set, 3.25-3.27 era cross-patch guide evidence.",
+          "url": null,
+          "notes": "creator_guide_zeeboub_brand_v2"
+        }
+      ],
+      "suggested_queries": [
+        "\"Penance Brand Inquisitor\" pobb.in",
+        "\"Penance Brand\" \"Inquisitor\" \"Path of Building\"",
+        "\"3.28 Penance Brand Inquisitor\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.28_penance_brand_inquisitor:leveling_pob",
+      "candidate_id": "3.28_penance_brand_inquisitor",
+      "build_id": "3_28_penance_brand_inquisitor",
+      "build_name": "Penance Brand Inquisitor",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Inquisitor",
+      "main_skill": "Penance Brand",
+      "leveling_skill": "Storm Brand",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Penance Brand Inquisitor needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Penance Brand Inquisitor\" leveling PoB",
+        "\"Penance Brand\" \"Inquisitor\" campaign PoB",
+        "\"3.28 Penance Brand Inquisitor\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.28_penance_brand_inquisitor:poe_ninja",
+      "candidate_id": "3.28_penance_brand_inquisitor",
+      "build_id": "3_28_penance_brand_inquisitor",
+      "build_name": "Penance Brand Inquisitor",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Inquisitor",
+      "main_skill": "Penance Brand",
+      "leveling_skill": "Storm Brand",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "medium",
+      "reason": "Penance Brand Inquisitor needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Penance Brand\" \"Inquisitor\"",
+        "\"Penance Brand\" \"Inquisitor\" poe.ninja",
+        "\"3.28 Penance Brand Inquisitor\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.28_cold_snap_of_power_hierophant:guide",
+      "candidate_id": "3.28_cold_snap_of_power_hierophant",
+      "build_id": "3_28_cold_snap_of_power_hierophant",
+      "build_name": "Cold Snap of Power Hierophant",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Cold Snap of Power",
+      "leveling_skill": "Freezing Pulse",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "evidence_without_url",
+      "priority": "low",
+      "reason": "Cold Snap of Power Hierophant has source-family evidence, but the original URL is not attached yet.",
+      "matched_evidence": [
+        {
+          "type": "poe_vault",
+          "label": "poe_vault guide family",
+          "url": null,
+          "notes": "Representative board verified guide family."
+        },
+        {
+          "type": "poe_vault",
+          "label": "Mirage starters single-source confirmation",
+          "url": null,
+          "notes": "poe_vault_3_28"
+        }
+      ],
+      "suggested_queries": [
+        "\"Cold Snap of Power Hierophant\" \"3.28\" guide",
+        "site:youtube.com \"Cold Snap of Power\" \"Hierophant\" PoE 3.28",
+        "\"3.28 Cold Snap of Power Hierophant\" league starter"
+      ]
+    },
+    {
+      "queue_id": "3.28_cold_snap_of_power_hierophant:endgame_pob",
+      "candidate_id": "3.28_cold_snap_of_power_hierophant",
+      "build_id": "3_28_cold_snap_of_power_hierophant",
+      "build_name": "Cold Snap of Power Hierophant",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Cold Snap of Power",
+      "leveling_skill": "Freezing Pulse",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Cold Snap of Power Hierophant needs an original link before this slot can be surfaced.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Cold Snap of Power Hierophant\" pobb.in",
+        "\"Cold Snap of Power\" \"Hierophant\" \"Path of Building\"",
+        "\"3.28 Cold Snap of Power Hierophant\" endgame PoB"
+      ]
+    },
+    {
+      "queue_id": "3.28_cold_snap_of_power_hierophant:leveling_pob",
+      "candidate_id": "3.28_cold_snap_of_power_hierophant",
+      "build_id": "3_28_cold_snap_of_power_hierophant",
+      "build_name": "Cold Snap of Power Hierophant",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Cold Snap of Power",
+      "leveling_skill": "Freezing Pulse",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "missing",
+      "priority": "high",
+      "reason": "Cold Snap of Power Hierophant needs staged campaign or league-start PoB evidence before campaign certainty is shown.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "\"Cold Snap of Power Hierophant\" leveling PoB",
+        "\"Cold Snap of Power\" \"Hierophant\" campaign PoB",
+        "\"3.28 Cold Snap of Power Hierophant\" starter PoB"
+      ]
+    },
+    {
+      "queue_id": "3.28_cold_snap_of_power_hierophant:poe_ninja",
+      "candidate_id": "3.28_cold_snap_of_power_hierophant",
+      "build_id": "3_28_cold_snap_of_power_hierophant",
+      "build_name": "Cold Snap of Power Hierophant",
+      "patch": "3.28",
+      "class_name": "Templar",
+      "ascendancy": "Hierophant",
+      "main_skill": "Cold Snap of Power",
+      "leveling_skill": "Freezing Pulse",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "medium",
+      "reason": "Cold Snap of Power Hierophant needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Cold Snap of Power\" \"Hierophant\"",
+        "\"Cold Snap of Power\" \"Hierophant\" poe.ninja",
+        "\"3.28 Cold Snap of Power Hierophant\" character snapshot"
+      ]
+    },
+    {
+      "queue_id": "3.28_exsanguinate_reap_mines_trickster:guide",
+      "candidate_id": "3.28_exsanguinate_reap_mines_trickster",
+      "build_id": "3_28_exsanguinate_reap_mines_trickster",
+      "build_name": "Exsanguinate/Reap Mines Trickster",
+      "patch": "3.28",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Exsanguinate Mine",
+      "leveling_skill": "Rolling Magma",
+      "board_status": "near_confirmed",
+      "slot_id": "guide",
+      "slot_label": "original guide/video",
+      "status": "ready",
+      "priority": "low",
+      "reason": "Exsanguinate/Reap Mines Trickster already has a concrete link for this slot.",
+      "matched_evidence": [
+        {
+          "type": "youtube",
+          "label": "FearlessDumb0 Exsanguinate/Reap Miner 3.28",
+          "url": "https://www.youtube.com/watch?v=ZEvuQ5krLwQ",
+          "notes": "Creator video for the 3.28 Exsanguinate/Reap Miner route."
+        },
+        {
+          "type": "youtube",
+          "label": "FearlessDumb0 Exsanguinate Reap Miner league start build guide for 3.28",
+          "url": "https://www.youtube.com/watch?v=ZEvuQ5krLwQ",
+          "notes": "manual_pob_source_record"
+        },
+        {
+          "type": "pobb",
+          "label": "Exsanguinate Reap Mines Trickster league_start_stage_reference PoB",
+          "url": "https://pobb.in/3J6Dm6pkA6-5",
+          "notes": "Video description league-start PoB; parser-validated Shadow Trickster with A1, A2, A3 Library, A4 Minefield, A8-10, Early Maps Pyroclast Mines, Mid-Game Exsanguinate Reap, and Late Maps Exsanguinate Reap skill sets."
+        },
+        {
+          "type": "pobb",
+          "label": "Exsanguinate Reap Mines Trickster day_3_progression_reference PoB",
+          "url": "https://pobb.in/ZFC1itVixJSB",
+          "notes": "Video description Day 3 Keepers uber-farming PoB; parser-validated Shadow Trickster Exsanguinate/Reap Mine snapshot."
+        }
+      ],
+      "suggested_queries": []
+    },
+    {
+      "queue_id": "3.28_exsanguinate_reap_mines_trickster:endgame_pob",
+      "candidate_id": "3.28_exsanguinate_reap_mines_trickster",
+      "build_id": "3_28_exsanguinate_reap_mines_trickster",
+      "build_name": "Exsanguinate/Reap Mines Trickster",
+      "patch": "3.28",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Exsanguinate Mine",
+      "leveling_skill": "Rolling Magma",
+      "board_status": "near_confirmed",
+      "slot_id": "endgame_pob",
+      "slot_label": "endgame PoB",
+      "status": "ready",
+      "priority": "low",
+      "reason": "Exsanguinate/Reap Mines Trickster already has a concrete link for this slot.",
+      "matched_evidence": [
+        {
+          "type": "pob_archive",
+          "label": "PoB Archives BBcLLRaw",
+          "url": "https://pobarchives.com/build/BBcLLRaw",
+          "notes": "Archive page exposing the league-start PoB."
+        },
+        {
+          "type": "manual_curated",
+          "label": "Parser-validated pobb.in 3J6Dm6pkA6-5",
+          "url": "https://pobb.in/3J6Dm6pkA6-5",
+          "notes": "Promoted PoB with campaign, early-map, and Exsanguinate/Reap stage sets."
+        },
+        {
+          "type": "youtube",
+          "label": "FearlessDumb0 Exsanguinate Reap Miner league start build guide for 3.28",
+          "url": "https://www.youtube.com/watch?v=ZEvuQ5krLwQ",
+          "notes": "manual_pob_source_record"
+        },
+        {
+          "type": "pobb",
+          "label": "Exsanguinate Reap Mines Trickster league_start_stage_reference PoB",
+          "url": "https://pobb.in/3J6Dm6pkA6-5",
+          "notes": "Video description league-start PoB; parser-validated Shadow Trickster with A1, A2, A3 Library, A4 Minefield, A8-10, Early Maps Pyroclast Mines, Mid-Game Exsanguinate Reap, and Late Maps Exsanguinate Reap skill sets."
+        },
+        {
+          "type": "pobb",
+          "label": "Exsanguinate Reap Mines Trickster day_3_progression_reference PoB",
+          "url": "https://pobb.in/ZFC1itVixJSB",
+          "notes": "Video description Day 3 Keepers uber-farming PoB; parser-validated Shadow Trickster Exsanguinate/Reap Mine snapshot."
+        }
+      ],
+      "suggested_queries": []
+    },
+    {
+      "queue_id": "3.28_exsanguinate_reap_mines_trickster:leveling_pob",
+      "candidate_id": "3.28_exsanguinate_reap_mines_trickster",
+      "build_id": "3_28_exsanguinate_reap_mines_trickster",
+      "build_name": "Exsanguinate/Reap Mines Trickster",
+      "patch": "3.28",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Exsanguinate Mine",
+      "leveling_skill": "Rolling Magma",
+      "board_status": "near_confirmed",
+      "slot_id": "leveling_pob",
+      "slot_label": "leveling PoB",
+      "status": "ready",
+      "priority": "low",
+      "reason": "Exsanguinate/Reap Mines Trickster already has a concrete link for this slot.",
+      "matched_evidence": [
+        {
+          "type": "pob_archive",
+          "label": "PoB Archives BBcLLRaw",
+          "url": "https://pobarchives.com/build/BBcLLRaw",
+          "notes": "Archive page exposing the league-start PoB."
+        },
+        {
+          "type": "pobb",
+          "label": "Exsanguinate Reap Mines Trickster league_start_stage_reference PoB",
+          "url": "https://pobb.in/3J6Dm6pkA6-5",
+          "notes": "Video description league-start PoB; parser-validated Shadow Trickster with A1, A2, A3 Library, A4 Minefield, A8-10, Early Maps Pyroclast Mines, Mid-Game Exsanguinate Reap, and Late Maps Exsanguinate Reap skill sets."
+        }
+      ],
+      "suggested_queries": []
+    },
+    {
+      "queue_id": "3.28_exsanguinate_reap_mines_trickster:poe_ninja",
+      "candidate_id": "3.28_exsanguinate_reap_mines_trickster",
+      "build_id": "3_28_exsanguinate_reap_mines_trickster",
+      "build_name": "Exsanguinate/Reap Mines Trickster",
+      "patch": "3.28",
+      "class_name": "Shadow",
+      "ascendancy": "Trickster",
+      "main_skill": "Exsanguinate Mine",
+      "leveling_skill": "Rolling Magma",
+      "board_status": "near_confirmed",
+      "slot_id": "poe_ninja",
+      "slot_label": "poe.ninja character snapshot",
+      "status": "missing",
+      "priority": "medium",
+      "reason": "Exsanguinate/Reap Mines Trickster needs a character snapshot only as cross-check evidence, not as a primary guide.",
+      "matched_evidence": [],
+      "suggested_queries": [
+        "poe.ninja builds \"Exsanguinate Mine\" \"Trickster\"",
+        "\"Exsanguinate Mine\" \"Trickster\" poe.ninja",
+        "\"3.28 Exsanguinate Mine Trickster\" character snapshot"
+      ]
+    }
+  ]
+}

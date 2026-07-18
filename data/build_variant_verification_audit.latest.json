@@ -1,0 +1,1314 @@
+{
+  "dataset_kind": "poe1_build_variant_verification_audit",
+  "overall": {
+    "flagship_seeded_count": 35,
+    "current_confirmed_count": 23,
+    "standard_confirmable_count": 24,
+    "strict_confirmable_count": 16,
+    "strict_gap_count": 19,
+    "blocked_no_external_count": 4
+  },
+  "items": [
+    {
+      "patch": "3.22",
+      "candidate_id": "3.22_boneshatter_juggernaut",
+      "case_id": "3.22_boneshatter_juggernaut_v1",
+      "archetype_id": "boneshatter_juggernaut",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_22",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_22",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.22",
+      "candidate_id": "3.22_corrupting_fever_champion",
+      "case_id": "3.22_corrupting_fever_champion_v1",
+      "archetype_id": "corrupting_fever_champion",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_22",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_22",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.22",
+      "candidate_id": "3.22_lightning_arrow_ranger",
+      "case_id": "3.22_lightning_arrow_deadeye_v1",
+      "archetype_id": "lightning_arrow_deadeye",
+      "source_status": "needs_patch_verification",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "raw_transition_patterns",
+          "family": "raw_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "maxroll_3_22",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_22",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns",
+        "raw_transition_patterns"
+      ],
+      "evidence_family_count": 4,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.22",
+      "candidate_id": "3.22_shockwave_totems_hierophant",
+      "case_id": "3.22_shockwave_totems_hierophant_v1",
+      "archetype_id": "shockwave_totems_hierophant",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "poe_vault_3_22",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 1,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "provisional_external_gap",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.22",
+      "candidate_id": "3.22_toxic_rain_ranger",
+      "case_id": "3.22_toxic_rain_ranger_v1",
+      "archetype_id": "toxic_rain_ranger",
+      "source_status": "needs_patch_verification",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "raw_transition_patterns",
+          "family": "raw_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "maxroll_3_22",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll"
+      ],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns",
+        "raw_transition_patterns"
+      ],
+      "evidence_family_count": 3,
+      "standard_confirmable": true,
+      "strict_confirmable": false,
+      "strict_verdict": "standard_only",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_local_trace_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.23",
+      "candidate_id": "3.23_boneshatter_juggernaut",
+      "case_id": "3.23_boneshatter_juggernaut_v1",
+      "archetype_id": "boneshatter_juggernaut",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_23",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_23",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.23",
+      "candidate_id": "3.23_hexblast_miner_saboteur",
+      "case_id": "3.23_hexblast_miner_saboteur_v1",
+      "archetype_id": "hexblast_miner_saboteur",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_23",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_23",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.23",
+      "candidate_id": "3.23_ice_shot_deadeye",
+      "case_id": "3.23_ice_shot_deadeye_v1",
+      "archetype_id": "ice_shot_deadeye",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_23",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_23",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.23",
+      "candidate_id": "3.23_lightning_arrow_ranger",
+      "case_id": "3.23_lightning_arrow_deadeye_v1",
+      "archetype_id": "lightning_arrow_deadeye",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_23",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_23",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.23",
+      "candidate_id": "3.23_shockwave_totems_hierophant",
+      "case_id": "3.23_shockwave_totems_hierophant_v1",
+      "archetype_id": "shockwave_totems_hierophant",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "poe_vault_3_23",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 1,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "provisional_external_gap",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.24",
+      "candidate_id": "3.24_boneshatter_juggernaut",
+      "case_id": "3.24_boneshatter_juggernaut_v1",
+      "archetype_id": "boneshatter_juggernaut",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_24",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_24",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.24",
+      "candidate_id": "3.24_detonate_dead_ignite_elementalist",
+      "case_id": "3.24_detonate_dead_caster_v1",
+      "archetype_id": "detonate_dead_caster",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "raw_transition_patterns",
+          "family": "raw_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "maxroll_3_24",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_24",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns",
+        "raw_transition_patterns"
+      ],
+      "evidence_family_count": 4,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.24",
+      "candidate_id": "3.24_explosive_arrow_ballista_champion",
+      "case_id": "3.24_explosive_arrow_ballista_champion_v1",
+      "archetype_id": "explosive_arrow_ballista_champion",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_24",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_24",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.24",
+      "candidate_id": "3.24_exsanguinate_mine_trickster",
+      "case_id": "3.24_exsanguinate_mine_trickster_v1",
+      "archetype_id": "exsanguinate_mine_trickster",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_24",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 1,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "provisional_external_gap",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.24",
+      "candidate_id": "3.24_lightning_arrow_ranger",
+      "case_id": "3.24_lightning_arrow_deadeye_v1",
+      "archetype_id": "lightning_arrow_deadeye",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_24",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_24",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns"
+      ],
+      "evidence_family_count": 3,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.25",
+      "candidate_id": "3.25_boneshatter_juggernaut",
+      "case_id": "3.25_boneshatter_juggernaut_v1",
+      "archetype_id": "boneshatter_juggernaut",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_25",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_25",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.25",
+      "candidate_id": "3.25_hexblast_miner_saboteur",
+      "case_id": "3.25_hexblast_miner_saboteur_v1",
+      "archetype_id": "hexblast_miner_saboteur",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_25",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_25",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.25",
+      "candidate_id": "3.25_lacerate_duelist",
+      "case_id": "3.25_lacerate_duelist_v1",
+      "archetype_id": "lacerate_duelist",
+      "source_status": "needs_patch_verification",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "raw_transition_patterns",
+          "family": "raw_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "maxroll_3_25",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_25",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns",
+        "raw_transition_patterns"
+      ],
+      "evidence_family_count": 4,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.25",
+      "candidate_id": "3.25_lightning_arrow_ranger",
+      "case_id": "3.25_lightning_arrow_deadeye_v1",
+      "archetype_id": "lightning_arrow_deadeye",
+      "source_status": "ready_for_cross_patch_labeling",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "maxroll_3_25",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_25",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns"
+      ],
+      "evidence_family_count": 3,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.25",
+      "candidate_id": "3.25_lightning_strike_deadeye_or_warden",
+      "case_id": "3.25_lightning_strike_deadeye_or_warden_v1",
+      "archetype_id": "lightning_strike_deadeye_or_warden",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "maxroll_3_25",
+          "family": "maxroll",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "poe_vault_3_25",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "maxroll",
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": true,
+      "strict_verdict": "strict_confirmed",
+      "blockers": [],
+      "next_step": "none"
+    },
+    {
+      "patch": "3.26",
+      "candidate_id": "3.26_ball_lightning_caster",
+      "case_id": "3.26_ball_lightning_caster_v1",
+      "archetype_id": "ball_lightning_caster",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "raw_transition_patterns",
+          "family": "raw_transition_patterns",
+          "bucket": "local_trace"
+        }
+      ],
+      "guide_source_families": [],
+      "context_source_families": [],
+      "local_source_families": [
+        "raw_transition_patterns"
+      ],
+      "evidence_family_count": 1,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "blocked_no_external_build_guide",
+      "blockers": [
+        "missing_external_build_guide",
+        "local_trace_without_external_confirmation"
+      ],
+      "next_step": "find_first_external_build_guide_source"
+    },
+    {
+      "patch": "3.26",
+      "candidate_id": "3.26_boneshatter_juggernaut",
+      "case_id": "3.26_boneshatter_juggernaut_v1",
+      "archetype_id": "boneshatter_juggernaut",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "poe_vault_3_26",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 1,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "provisional_external_gap",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.26",
+      "candidate_id": "3.26_ice_nova_caster",
+      "case_id": "3.26_ice_nova_caster_v1",
+      "archetype_id": "ice_nova_caster",
+      "source_status": "provisional_seeded",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "raw_transition_patterns",
+          "family": "raw_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        }
+      ],
+      "guide_source_families": [],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns",
+        "raw_transition_patterns"
+      ],
+      "evidence_family_count": 2,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "blocked_no_external_build_guide",
+      "blockers": [
+        "missing_external_build_guide",
+        "local_trace_without_external_confirmation"
+      ],
+      "next_step": "find_first_external_build_guide_source"
+    },
+    {
+      "patch": "3.26",
+      "candidate_id": "3.26_lightning_arrow_ranger",
+      "case_id": "3.26_lightning_arrow_deadeye_v1",
+      "archetype_id": "lightning_arrow_deadeye",
+      "source_status": "ready_for_cross_patch_labeling",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "poe_vault_3_26",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns"
+      ],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": false,
+      "strict_verdict": "standard_only",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_local_trace_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.26",
+      "candidate_id": "3.26_siege_ballista_hierophant",
+      "case_id": "3.26_siege_ballista_hierophant_v1",
+      "archetype_id": "siege_ballista_hierophant",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "poe_vault_3_26",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 1,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "provisional_external_gap",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.27",
+      "candidate_id": "3.27_dominating_blow_guardian",
+      "case_id": "3.27_dominating_blow_guardian_v1",
+      "archetype_id": "dominating_blow_guardian",
+      "source_status": "needs_patch_verification",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "raw_transition_patterns",
+          "family": "raw_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "poe_vault_3_27",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [
+        "raw_transition_patterns"
+      ],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": false,
+      "strict_verdict": "standard_only",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_local_trace_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.27",
+      "candidate_id": "3.27_ice_nova_caster",
+      "case_id": "3.27_ice_nova_caster_v1",
+      "archetype_id": "ice_nova_caster",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "raw_transition_patterns",
+          "family": "raw_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        }
+      ],
+      "guide_source_families": [],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns",
+        "raw_transition_patterns"
+      ],
+      "evidence_family_count": 2,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "blocked_no_external_build_guide",
+      "blockers": [
+        "missing_external_build_guide",
+        "local_trace_without_external_confirmation"
+      ],
+      "next_step": "find_first_external_build_guide_source"
+    },
+    {
+      "patch": "3.27",
+      "candidate_id": "3.27_lacerate_duelist",
+      "case_id": "3.27_lacerate_duelist_v1",
+      "archetype_id": "lacerate_duelist",
+      "source_status": "needs_patch_verification",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "raw_transition_patterns",
+          "family": "raw_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "poe_vault_3_27",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns",
+        "raw_transition_patterns"
+      ],
+      "evidence_family_count": 3,
+      "standard_confirmable": true,
+      "strict_confirmable": false,
+      "strict_verdict": "standard_only",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_local_trace_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.27",
+      "candidate_id": "3.27_pyroclast_mine_saboteur",
+      "case_id": "3.27_pyroclast_mine_saboteur_v1",
+      "archetype_id": "pyroclast_mine_saboteur",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "poe_vault_3_27",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 1,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "provisional_external_gap",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.27",
+      "candidate_id": "3.27_toxic_rain_pathfinder",
+      "case_id": "3.27_toxic_rain_pathfinder_v1",
+      "archetype_id": "toxic_rain_pathfinder",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "poe_vault_3_27",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "curated_transition_patterns",
+          "family": "curated_transition_patterns",
+          "bucket": "local_trace"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [
+        "curated_transition_patterns"
+      ],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": false,
+      "strict_verdict": "standard_only",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_local_trace_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.28",
+      "candidate_id": "3.28_cold_snap_of_power_hierophant",
+      "case_id": "3.28_cold_snap_of_power_hierophant_v1",
+      "archetype_id": "cold_snap_of_power_hierophant",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "poe_vault_3_28",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [],
+      "local_source_families": [],
+      "evidence_family_count": 1,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "provisional_external_gap",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.28",
+      "candidate_id": "3.28_dominating_blow_guardian",
+      "case_id": "3.28_dominating_blow_guardian_v1",
+      "archetype_id": "dominating_blow_guardian",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "poe_vault_3_28",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "official_patch_notes_3_28",
+          "family": "official_patch_notes",
+          "bucket": "official_context"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [
+        "official_patch_notes"
+      ],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": false,
+      "strict_verdict": "standard_only",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_context_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.28",
+      "candidate_id": "3.28_kinetic_fusillade_of_detonation",
+      "case_id": "3.28_kinetic_fusillade_of_detonation_v1",
+      "archetype_id": "kinetic_fusillade_of_detonation_wander",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "normalized_sources": [
+        {
+          "source_type": "official_patch_notes_3_28",
+          "family": "official_patch_notes",
+          "bucket": "official_context"
+        },
+        {
+          "source_type": "local_discussion_trace",
+          "family": "local_discussion_trace",
+          "bucket": "local_trace"
+        }
+      ],
+      "guide_source_families": [],
+      "context_source_families": [
+        "official_patch_notes"
+      ],
+      "local_source_families": [
+        "local_discussion_trace"
+      ],
+      "evidence_family_count": 2,
+      "standard_confirmable": false,
+      "strict_confirmable": false,
+      "strict_verdict": "blocked_no_external_build_guide",
+      "blockers": [
+        "missing_external_build_guide",
+        "mechanic_context_without_meta_confirmation"
+      ],
+      "next_step": "find_first_external_build_guide_source"
+    },
+    {
+      "patch": "3.28",
+      "candidate_id": "3.28_penance_brand_inquisitor",
+      "case_id": "3.28_penance_brand_inquisitor_v1",
+      "archetype_id": "penance_brand_inquisitor",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "official_patch_notes_3_28",
+          "family": "official_patch_notes",
+          "bucket": "official_context"
+        },
+        {
+          "source_type": "local_discussion_trace",
+          "family": "local_discussion_trace",
+          "bucket": "local_trace"
+        },
+        {
+          "source_type": "creator_guide_zeeboub_brand_v2",
+          "family": "creator_guide",
+          "bucket": "external_build_guide"
+        }
+      ],
+      "guide_source_families": [
+        "creator_guide"
+      ],
+      "context_source_families": [
+        "official_patch_notes"
+      ],
+      "local_source_families": [
+        "local_discussion_trace"
+      ],
+      "evidence_family_count": 3,
+      "standard_confirmable": true,
+      "strict_confirmable": false,
+      "strict_verdict": "standard_only",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_context_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    },
+    {
+      "patch": "3.28",
+      "candidate_id": "3.28_shock_nova_of_procession_hierophant",
+      "case_id": "3.28_shock_nova_of_procession_hierophant_v1",
+      "archetype_id": "shock_nova_of_procession_hierophant",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "normalized_sources": [
+        {
+          "source_type": "poe_vault_3_28",
+          "family": "poe_vault",
+          "bucket": "external_build_guide"
+        },
+        {
+          "source_type": "official_patch_notes_3_28",
+          "family": "official_patch_notes",
+          "bucket": "official_context"
+        }
+      ],
+      "guide_source_families": [
+        "poe_vault"
+      ],
+      "context_source_families": [
+        "official_patch_notes"
+      ],
+      "local_source_families": [],
+      "evidence_family_count": 2,
+      "standard_confirmable": true,
+      "strict_confirmable": false,
+      "strict_verdict": "standard_only",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_context_only"
+      ],
+      "next_step": "find_second_external_build_guide_source"
+    }
+  ],
+  "by_patch": [
+    {
+      "patch": "3.22",
+      "flagship_seeded_count": 5,
+      "current_confirmed_count": 4,
+      "standard_confirmable_count": 4,
+      "strict_confirmable_count": 3,
+      "strict_gap_count": 2,
+      "blocked_no_external_count": 0,
+      "top_strict_gaps": [
+        "3.22_shockwave_totems_hierophant",
+        "3.22_toxic_rain_ranger"
+      ]
+    },
+    {
+      "patch": "3.23",
+      "flagship_seeded_count": 5,
+      "current_confirmed_count": 4,
+      "standard_confirmable_count": 4,
+      "strict_confirmable_count": 4,
+      "strict_gap_count": 1,
+      "blocked_no_external_count": 0,
+      "top_strict_gaps": [
+        "3.23_shockwave_totems_hierophant"
+      ]
+    },
+    {
+      "patch": "3.24",
+      "flagship_seeded_count": 5,
+      "current_confirmed_count": 4,
+      "standard_confirmable_count": 4,
+      "strict_confirmable_count": 4,
+      "strict_gap_count": 1,
+      "blocked_no_external_count": 0,
+      "top_strict_gaps": [
+        "3.24_exsanguinate_mine_trickster"
+      ]
+    },
+    {
+      "patch": "3.25",
+      "flagship_seeded_count": 5,
+      "current_confirmed_count": 5,
+      "standard_confirmable_count": 5,
+      "strict_confirmable_count": 5,
+      "strict_gap_count": 0,
+      "blocked_no_external_count": 0,
+      "top_strict_gaps": []
+    },
+    {
+      "patch": "3.26",
+      "flagship_seeded_count": 5,
+      "current_confirmed_count": 1,
+      "standard_confirmable_count": 1,
+      "strict_confirmable_count": 0,
+      "strict_gap_count": 5,
+      "blocked_no_external_count": 2,
+      "top_strict_gaps": [
+        "3.26_ball_lightning_caster",
+        "3.26_ice_nova_caster",
+        "3.26_boneshatter_juggernaut"
+      ]
+    },
+    {
+      "patch": "3.27",
+      "flagship_seeded_count": 5,
+      "current_confirmed_count": 2,
+      "standard_confirmable_count": 3,
+      "strict_confirmable_count": 0,
+      "strict_gap_count": 5,
+      "blocked_no_external_count": 1,
+      "top_strict_gaps": [
+        "3.27_ice_nova_caster",
+        "3.27_pyroclast_mine_saboteur",
+        "3.27_dominating_blow_guardian"
+      ]
+    },
+    {
+      "patch": "3.28",
+      "flagship_seeded_count": 5,
+      "current_confirmed_count": 3,
+      "standard_confirmable_count": 3,
+      "strict_confirmable_count": 0,
+      "strict_gap_count": 5,
+      "blocked_no_external_count": 1,
+      "top_strict_gaps": [
+        "3.28_kinetic_fusillade_of_detonation",
+        "3.28_cold_snap_of_power_hierophant",
+        "3.28_dominating_blow_guardian"
+      ]
+    }
+  ]
+}

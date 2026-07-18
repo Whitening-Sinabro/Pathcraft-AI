@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathcraft-ai.local/schema/poe1_season_research.schema.json",
+  "title": "PathcraftAI POE1 Season Research Knowledge",
+  "type": "object",
+  "required": [
+    "dataset_kind",
+    "schema_version",
+    "generated_at",
+    "league",
+    "scope",
+    "sources",
+    "lenses",
+    "coach_rules"
+  ],
+  "properties": {
+    "dataset_kind": {
+      "const": "poe1_season_research"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "league": {
+      "type": "object",
+      "required": [
+        "patch",
+        "status",
+        "research_status"
+      ],
+      "properties": {
+        "patch": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "announced_only",
+            "watchlist",
+            "current_live",
+            "historical_supported"
+          ]
+        },
+        "release_window": {
+          "type": "string"
+        },
+        "research_status": {
+          "enum": [
+            "pre_patch_notes_hypothesis",
+            "patch_notes_confirmed",
+            "pob_confirmed",
+            "retired"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "class_name",
+        "ascendancy",
+        "goal_tags",
+        "skill_policy"
+      ],
+      "properties": {
+        "class_name": {
+          "type": "string"
+        },
+        "ascendancy": {
+          "type": "string"
+        },
+        "goal_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "skill_policy": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "url",
+          "usage"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "usage": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "lenses": {
+      "type": "object",
+      "required": [
+        "official_node_lens",
+        "skill_fact_lens",
+        "offensive_gem_lens",
+        "support_gem_lens",
+        "farming_lens",
+        "candidate_branch_lens",
+        "uncertainty_lens"
+      ],
+      "properties": {
+        "official_node_lens": {
+          "type": "array"
+        },
+        "skill_fact_lens": {
+          "type": "array"
+        },
+        "offensive_gem_lens": {
+          "type": "array"
+        },
+        "support_gem_lens": {
+          "type": "array"
+        },
+        "farming_lens": {
+          "type": "array"
+        },
+        "candidate_branch_lens": {
+          "type": "array"
+        },
+        "uncertainty_lens": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": false
+    },
+    "coach_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

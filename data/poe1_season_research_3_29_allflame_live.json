@@ -1,0 +1,701 @@
+{
+  "dataset_kind": "poe1_season_research",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-17",
+  "league": {
+    "patch": "3.29",
+    "name": "Curse of the Allflame",
+    "status": "watchlist",
+    "release_window": "2026-07-24 PDT",
+    "research_status": "patch_notes_confirmed"
+  },
+  "scope": {
+    "class_name": "Scion",
+    "ascendancy": "Scion multi-ascendancy",
+    "goal_tags": [
+      "allflame_voyage",
+      "guardian_maps",
+      "delve_fossil",
+      "mapper",
+      "boss_rush",
+      "season_start_planning",
+      "mercenary_assisted_building"
+    ],
+    "skill_policy": "3.29 patch-notes-confirmed live-reveal research. Scion now has multiple relevant ascendancy axes: Ascendant, Reliquarian, and Luminary. Keep Reliquarian unique-node branches separate from Luminary Mercenary branches until PoB and live league data exist."
+  },
+  "sources": [
+    {
+      "id": "official_patch_notes_3_29",
+      "type": "official",
+      "url": "https://www.pathofexile.com/forum/view-thread/3985332",
+      "usage": "3.29 patch notes: Allflame league systems, Bloodline classes, Luminary, Mercenaries core, gem socket changes, league/endgame/player changes"
+    },
+    {
+      "id": "official_reliquarian_3_29",
+      "type": "official",
+      "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+      "usage": "3.29 Reliquarian second ascendancy reveal and unique-node research source"
+    },
+    {
+      "id": "official_allflame_page",
+      "type": "official",
+      "url": "https://www.pathofexile.com/allflame",
+      "usage": "official expansion page and feature index"
+    },
+    {
+      "id": "official_launch_announcement_3_29",
+      "type": "official",
+      "url": "https://www.pathofexile.com/forum/view-thread/3985297",
+      "usage": "release date and launch announcement"
+    },
+    {
+      "id": "local_reliquarian_research_pack",
+      "type": "local_research_pack",
+      "url": "data/poe1_season_research_3_29_reliquarian.json",
+      "usage": "detailed Reliquarian branch research pack; use only when the selected Scion ascendancy is Reliquarian or a Reliquarian-specific branch is being evaluated"
+    },
+    {
+      "id": "local_ggpk_active_skills_pre_329",
+      "type": "local_ggpk_extract",
+      "url": "data/game_data/ActiveSkills.json",
+      "usage": "pre-3.29 local ActiveSkills fallback for known skills such as Blight of Contagion; new 3.29 gems require post-patch extraction"
+    },
+    {
+      "id": "poewiki_scion_2026_07_16",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Scion",
+      "usage": "PoEWiki Scion page revision 1673602 lists Scion ascendancy choices as Ascendant, Reliquarian, and Luminary"
+    },
+    {
+      "id": "poewiki_luminary_2026_07_16",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Luminary",
+      "usage": "PoEWiki Luminary page revision 1673612 describes Luminary as a Scion ascendancy with permanent Mercenary gearing"
+    },
+    {
+      "id": "poewiki_reliquarian_2026_07_15",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Reliquarian",
+      "usage": "PoEWiki Reliquarian page revision 1673546 describes Reliquarian as a Scion ascendancy"
+    },
+    {
+      "id": "poewiki_mercenary_2026_07_16",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Mercenary",
+      "usage": "PoEWiki Mercenary page revision 1673633 says permanent Mercenaries require Luminary and Noble Blood"
+    },
+    {
+      "id": "poewiki_ascendancy_class_2026_07_16",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Ascendancy_class",
+      "usage": "PoEWiki Ascendancy class page revision 1673601 says each class has three associated ascendancy classes and total ascendancy classes is 21"
+    }
+  ],
+  "lenses": {
+    "official_node_lens": [
+      {
+        "id": "poewiki_scion_ascendancy_crosscheck",
+        "official_surface": "PoEWiki crosscheck, not primary official source",
+        "patch_notes_facts": [
+          "PoEWiki Scion page revision 1673602 says Scions can specialize into three ascendancy classes: Ascendant, Reliquarian, and Luminary.",
+          "PoEWiki Ascendancy class page revision 1673601 says each character class has three associated ascendancy classes and lists a total of 21 ascendancy classes.",
+          "PoEWiki Luminary page revision 1673612 describes Luminary as an Ascendancy class for Scions.",
+          "PoEWiki Reliquarian page revision 1673546 describes Reliquarian as an Ascendancy class for Scions.",
+          "PoEWiki Mercenary page revision 1673633 says permanent Mercenaries can be hired only by a Luminary with Noble Blood allocated."
+        ],
+        "available_scion_ascendancies": [
+          "Ascendant",
+          "Reliquarian",
+          "Luminary"
+        ],
+        "wiki_revision_ids": {
+          "Scion": 1673602,
+          "Ascendancy class": 1673601,
+          "Luminary": 1673612,
+          "Reliquarian": 1673546,
+          "Mercenary": 1673633
+        },
+        "mapped_effect_tags": [
+          "poewiki_crosscheck",
+          "scion",
+          "ascendant",
+          "reliquarian",
+          "luminary",
+          "mercenary",
+          "noble_blood"
+        ],
+        "build_implication": "PoEWiki independently supports the three-way Scion branch model. Treat it as a secondary crosscheck behind official patch notes/reveal pages."
+      },
+      {
+        "id": "scion_329_ascendancy_matrix",
+        "official_surface": "Scion 3.29 ascendancy matrix",
+        "patch_notes_facts": [
+          "Scion retains the normal Ascendant path.",
+          "3.29 Reliquarian remains a Scion second-ascendancy research axis from the official Reliquarian reveal.",
+          "3.29 adds the Luminary Ascendancy Class for Scion.",
+          "Luminary can permanently hire Mercenaries.",
+          "Luminary can keep up to 3 permanently hired Mercenaries: 2 in reserve in towns/hideouts and 1 active combat ally.",
+          "Unlike regular Mercenaries, permanently hired Mercenary equipment can be changed by the player."
+        ],
+        "available_scion_ascendancies": [
+          "Ascendant",
+          "Reliquarian",
+          "Luminary"
+        ],
+        "mapped_effect_tags": [
+          "scion",
+          "ascendant",
+          "reliquarian",
+          "luminary",
+          "mercenary",
+          "ally",
+          "equipment_planning",
+          "support_character"
+        ],
+        "build_implication": "Scion 3.29 must first branch by selected ascendancy: Ascendant baseline, Reliquarian unique-node shells, or Luminary Mercenary slot planning."
+      },
+      {
+        "id": "allflame_voyage_loop",
+        "official_surface": "Curse of the Allflame Challenge League",
+        "patch_notes_facts": [
+          "Find Charts across Wraeclast, board The Sovereign, and dive to the ocean floor.",
+          "Lanterns imbued with the Allflame protect the player during ocean-floor exploration.",
+          "Completed charting can be connected into a Voyage that revisits chart rewards while amplifying them.",
+          "The ship heart can split an input item into multiple ghostly outcomes, one of which can be kept.",
+          "Ducats from the seafloor are used to twist items in new ways."
+        ],
+        "mapped_effect_tags": [
+          "league_mechanic",
+          "chart",
+          "voyage",
+          "reward_amplification",
+          "item_transformation",
+          "ducal_currency"
+        ],
+        "build_implication": "Early strategy needs mobility, survivability, and reward-loop measurement before committing to a farming tree."
+      },
+      {
+        "id": "bloodline_exceptional_gems",
+        "official_surface": "Bloodline Classes and Exceptional Gems",
+        "patch_notes_facts": [
+          "3.29 introduces two Bloodline Classes, one exclusive to Curse of the Allflame.",
+          "Pact of Beidat empowers projectile, targeted-area, or chaining-beam spells while applying an Affliction.",
+          "Pact of Ghorr empowers damage-over-time spells while applying an Affliction and grants Hunger of Ghorr/Fleshrend behavior.",
+          "Pact of K'tash empowers damaging Vaal spells while applying an Affliction.",
+          "Pact of Lycia empowers self-cast channelling spells while applying an Affliction.",
+          "Coursing Currents and Crystalfall are new Exceptional Support Gems called out in the patch notes."
+        ],
+        "mapped_effect_tags": [
+          "bloodline",
+          "exceptional_skill",
+          "dot_spell",
+          "channeling_spell",
+          "vaal_spell",
+          "projectile_spell",
+          "affliction"
+        ],
+        "build_implication": "Blight of Contagion remains a live retest candidate because it overlaps DoT spell and channelling lenses; it can be evaluated under Luminary/Mercenary or a separate Reliquarian route."
+      },
+      {
+        "id": "mercenaries_core",
+        "official_surface": "Mercenaries of Trarthus core",
+        "patch_notes_facts": [
+          "Mercenaries of Trarthus are core in 3.29.",
+          "Mercenary presence does not count as a player party member for monster life or item quantity/rarity scaling.",
+          "Mercenary encounters again provide Trarthan Gems and specific Mercenary uniques.",
+          "Trarthan Scarabs and Atlas passive support are added."
+        ],
+        "mapped_effect_tags": [
+          "mercenary",
+          "core_league",
+          "trarthan_gem",
+          "atlas_support",
+          "scarab"
+        ],
+        "build_implication": "Farming and build planning must track Mercenary role: aura/utility, clear assist, boss assist, or defensive support."
+      },
+      {
+        "id": "gem_socket_changes",
+        "official_surface": "Gem Socket Changes",
+        "patch_notes_facts": [
+          "Gems can now be socketed in any equipment socket regardless of socket colour.",
+          "Sockets are white by default, with a chance to roll red, green, or blue based on item requirements and item level.",
+          "Chromatic Orbs now force one socket to be non-white while other sockets roll normally.",
+          "Currency that adds sockets generates added sockets as white.",
+          "Red/green/blue crafting bench socket-colour options are removed and replaced by non-white socket count options."
+        ],
+        "mapped_effect_tags": [
+          "socket_colour",
+          "white_socket_default",
+          "chromatic_economy",
+          "gear_progression",
+          "link_planning"
+        ],
+        "build_implication": "The coach should stop over-weighting colour friction for gem setup, but it must model non-white socket economy and special uniques such as Dialla's separately."
+      },
+      {
+        "id": "league_system_revamps",
+        "official_surface": "Abyss, Legion, Talisman, and Atlas changes",
+        "patch_notes_facts": [
+          "Abyss, Legion, and Talisman have dedicated 3.29 revamp sections.",
+          "Legion splinter sources are restricted and concentrated into Legion encounters, Generals, Sergeants, Chests, and Kingsmarch Atlas Runners.",
+          "Atlas passive and scarab support changes require farming strategy refresh after launch."
+        ],
+        "mapped_effect_tags": [
+          "abyss",
+          "legion",
+          "talisman",
+          "atlas",
+          "farming_refresh"
+        ],
+        "build_implication": "Do not reuse 3.28 mechanic rankings unchanged; Legion, Abyss, and Allflame economy need launch-week calibration."
+      }
+    ],
+    "skill_fact_lens": [
+      {
+        "canonical_skill": "Blight of Contagion",
+        "local_active_skill_id": "blight_alt_x",
+        "required_level": 1,
+        "active_skill_type_ids": [
+          1,
+          41,
+          7,
+          14,
+          47,
+          8,
+          34,
+          48,
+          71
+        ],
+        "damage_flags": {
+          "attack": false,
+          "caster": true,
+          "dot": true,
+          "minion": false
+        },
+        "weapon_requirements": [],
+        "semantic_tags": [
+          "spell",
+          "chaos",
+          "damage_over_time",
+          "channeling",
+          "hinder",
+          "contagion_spread",
+          "pact_of_ghorr_candidate",
+          "pact_of_lycia_candidate"
+        ],
+        "supportability_override": {
+          "state": "known_pre_329_active_skill_live_retest_required",
+          "reason": "Local ActiveSkills contains Blight of Contagion, but 3.29 Pact gems and Bloodline data require post-patch extraction and PoB support before final ranking."
+        }
+      },
+      {
+        "canonical_skill": "Pact of Ghorr",
+        "local_active_skill_id": "post_patch_extract_required",
+        "required_level": 0,
+        "active_skill_type_ids": [],
+        "damage_flags": {
+          "attack": false,
+          "caster": true,
+          "dot": true,
+          "minion": false
+        },
+        "weapon_requirements": [],
+        "semantic_tags": [
+          "exceptional_skill",
+          "bloodline",
+          "damage_over_time",
+          "affliction",
+          "fleshrend"
+        ],
+        "supportability_override": {
+          "state": "official_patch_notes_confirmed_local_ggpk_missing",
+          "reason": "Official patch notes confirm the gem, but local GGPK data has not been refreshed for 3.29."
+        }
+      },
+      {
+        "canonical_skill": "Pact of Lycia",
+        "local_active_skill_id": "post_patch_extract_required",
+        "required_level": 0,
+        "active_skill_type_ids": [],
+        "damage_flags": {
+          "attack": false,
+          "caster": true,
+          "dot": false,
+          "minion": false
+        },
+        "weapon_requirements": [],
+        "semantic_tags": [
+          "exceptional_skill",
+          "bloodline",
+          "channeling",
+          "self_cast",
+          "affliction",
+          "lightning_bolts"
+        ],
+        "supportability_override": {
+          "state": "official_patch_notes_confirmed_local_ggpk_missing",
+          "reason": "Official patch notes confirm the gem, but local GGPK data has not been refreshed for 3.29."
+        }
+      },
+      {
+        "canonical_skill": "Herald of Thunder",
+        "local_active_skill_id": "herald_of_thunder",
+        "required_level": 16,
+        "active_skill_type_ids": [
+          1,
+          4,
+          11,
+          6,
+          7,
+          8,
+          30,
+          22,
+          51,
+          63,
+          71,
+          84,
+          85,
+          89
+        ],
+        "damage_flags": {
+          "attack": false,
+          "caster": true,
+          "dot": false,
+          "minion": false
+        },
+        "weapon_requirements": [],
+        "semantic_tags": [
+          "herald",
+          "lightning",
+          "buff",
+          "storm_hit",
+          "reliquarian_watchlist"
+        ],
+        "supportability_override": {
+          "state": "reliquarian_branch_live_watchlist",
+          "reason": "Herald of Thunder belongs to the Reliquarian branch research, while Luminary is the separate Mercenary axis. Do not merge the two without a live PoB."
+        }
+      },
+      {
+        "canonical_skill": "Static Strike",
+        "local_active_skill_id": "static_strike",
+        "required_level": 12,
+        "active_skill_type_ids": [
+          0,
+          20,
+          23,
+          19,
+          8,
+          30,
+          18,
+          4
+        ],
+        "damage_flags": {
+          "attack": true,
+          "caster": false,
+          "dot": false,
+          "minion": false
+        },
+        "weapon_requirements": [
+          "Claws",
+          "Daggers",
+          "One Hand Axes",
+          "One Hand Maces",
+          "One Hand Swords",
+          "Thrusting One Hand Swords",
+          "Two Hand Axes",
+          "Two Hand Maces",
+          "Two Hand Swords"
+        ],
+        "semantic_tags": [
+          "attack",
+          "melee",
+          "strike",
+          "lightning",
+          "reliquarian_watchlist"
+        ],
+        "supportability_override": {
+          "state": "reliquarian_branch_live_watchlist",
+          "reason": "Static Strike remains a valid attack skill and belongs to the separate Reliquarian branch research. It is not a Luminary/Mercenary claim."
+        }
+      }
+    ],
+    "offensive_gem_lens": [
+      {
+        "branch_id": "blight_of_contagion_luminary_retest",
+        "branch_role": "live_dot_channeling_candidate",
+        "damage_axis": [
+          "chaos",
+          "damage_over_time",
+          "channeling",
+          "spell"
+        ],
+        "primary_offense_gems": [
+          {
+            "skill": "Blight of Contagion",
+            "local_active_skill_id": "blight_alt_x",
+            "socketable_gem": true,
+            "candidate_role": "main_skill_candidate",
+            "why": "It intersects both Pact of Ghorr's DoT spell lens and Pact of Lycia's self-cast channelling lens, but needs live support and Affliction testing."
+          }
+        ],
+        "enabler_offense_gems": [
+          {
+            "skill": "Pact of Ghorr",
+            "local_active_skill_id": "post_patch_extract_required",
+            "socketable_gem": true,
+            "candidate_role": "dot_spell_bloodline_enabler",
+            "why": "Official patch notes say it empowers damage-over-time spells and grants Hunger of Ghorr/Fleshrend."
+          },
+          {
+            "skill": "Pact of Lycia",
+            "local_active_skill_id": "post_patch_extract_required",
+            "socketable_gem": true,
+            "candidate_role": "channeling_bloodline_enabler",
+            "why": "Official patch notes say it empowers self-cast channelling spells and triggers lightning bolts while channelling."
+          }
+        ],
+        "verification_state": "patch_notes_confirmed_pob_and_live_required"
+      },
+      {
+        "branch_id": "mercenary_assisted_mapper",
+        "branch_role": "luminary_core_mechanic_candidate",
+        "damage_axis": [
+          "player_skill_open",
+          "mercenary_support",
+          "equipment_planning"
+        ],
+        "primary_offense_gems": [
+          {
+            "skill": "Any stable player main skill",
+            "local_active_skill_id": "",
+            "socketable_gem": true,
+            "candidate_role": "player_main_skill",
+            "why": "Luminary's confirmed value is permanent Mercenary equipment control, so the player skill must be paired with Mercenary role design."
+          }
+        ],
+        "enabler_offense_gems": [
+          {
+            "skill": "Mercenary skill package",
+            "local_active_skill_id": "post_patch_extract_required",
+            "socketable_gem": false,
+            "candidate_role": "ally_support_or_clear_assist",
+            "why": "3.29 patch notes confirm permanent Mercenary equipment control for Luminary; exact Mercenary skill availability requires live data."
+          }
+        ],
+        "verification_state": "mercenary_skill_and_item_database_required"
+      },
+      {
+        "branch_id": "hot_autobomber_reliquarian_watchlist",
+        "branch_role": "reliquarian_live_watchlist",
+        "damage_axis": [
+          "lightning",
+          "herald",
+          "autobomber"
+        ],
+        "primary_offense_gems": [
+          {
+            "skill": "Herald of Thunder",
+            "local_active_skill_id": "herald_of_thunder",
+            "socketable_gem": true,
+            "candidate_role": "reliquarian_branch_candidate",
+            "why": "This branch belongs to the separate Scion Reliquarian unique-node axis, not to Luminary's Mercenary axis."
+          }
+        ],
+        "verification_state": "reliquarian_patch_notes_watchlist_pob_required"
+      },
+      {
+        "branch_id": "static_strike_reliquarian_watchlist",
+        "branch_role": "reliquarian_live_watchlist",
+        "damage_axis": [
+          "melee",
+          "attack",
+          "lightning"
+        ],
+        "primary_offense_gems": [
+          {
+            "skill": "Static Strike",
+            "local_active_skill_id": "static_strike",
+            "socketable_gem": true,
+            "candidate_role": "reliquarian_branch_candidate",
+            "why": "This branch belongs to the separate Scion Reliquarian unique-node axis, not to Luminary's Mercenary axis."
+          }
+        ],
+        "verification_state": "reliquarian_patch_notes_watchlist_pob_required"
+      }
+    ],
+    "support_gem_lens": [
+      {
+        "branch_id": "blight_of_contagion_luminary_retest",
+        "main_skill": "Blight of Contagion",
+        "supportability_state": "base_active_skill_known_329_pact_interactions_unverified",
+        "safe_candidate_supports": [
+          "Void Manipulation Support",
+          "Efficacy Support",
+          "Controlled Destruction Support",
+          "Infused Channelling Support",
+          "Swift Affliction Support"
+        ],
+        "conditional_candidate_supports": [
+          "Empower Support"
+        ],
+        "avoid_or_verify": [
+          {
+            "support": "Pact of Ghorr",
+            "reason": "Officially confirmed as an Exceptional Skill Gem, but exact link/support behavior and Affliction cost must be tested after PoB/GGPK update."
+          },
+          {
+            "support": "Pact of Lycia",
+            "reason": "Officially confirmed as an Exceptional Skill Gem, but channeling uptime and Affliction burden need live testing."
+          }
+        ],
+        "support_notes": "Use normal chaos DoT channel supports as the conservative baseline; layer Pact gems only after post-patch data exists."
+      },
+      {
+        "branch_id": "mercenary_assisted_mapper",
+        "main_skill": "player_main_skill_open",
+        "supportability_state": "mercenary_role_not_a_normal_support_link",
+        "safe_candidate_supports": [],
+        "conditional_candidate_supports": [],
+        "avoid_or_verify": [
+          {
+            "support": "Mercenary equipment",
+            "reason": "Treat Mercenary setup as separate ally equipment/skill state, not as support gems on the player skill."
+          }
+        ],
+        "support_notes": "Coach output must display player links and Mercenary gear/role as separate sections."
+      }
+    ],
+    "farming_lens": [
+      {
+        "branch_id": "allflame_voyage_general",
+        "guardian_maps": 3,
+        "delve_fossil": 3,
+        "mapping_speed": 4,
+        "starter_risk": 4,
+        "reliquarian_synergy": 0,
+        "phase_gate": "Measure Allflame chart/Voyage reward time and danger after launch; do not rank it above stable Atlas completion until live data exists."
+      },
+      {
+        "branch_id": "luminary_mercenary_mapping",
+        "guardian_maps": 4,
+        "delve_fossil": 3,
+        "mapping_speed": 4,
+        "starter_risk": 4,
+        "reliquarian_synergy": 0,
+        "phase_gate": "Promote only after Mercenary skill availability, gear control cost, survivability, and boss behavior are known."
+      },
+      {
+        "branch_id": "blight_of_contagion_luminary_retest",
+        "guardian_maps": 3,
+        "delve_fossil": 4,
+        "mapping_speed": 3,
+        "starter_risk": 3,
+        "reliquarian_synergy": 0,
+        "phase_gate": "Retest with Pact of Ghorr/Pact of Lycia and Mercenary support; channeling safety and single-target must be measured before Guardian-map recommendation."
+      }
+    ],
+    "candidate_branch_lens": [
+      {
+        "branch_id": "blight_of_contagion_luminary_retest",
+        "label": "Scion Luminary Blight of Contagion retest",
+        "rank": 1,
+        "reliquarian_hooks": [],
+        "verdict": "Most relevant to the user's stated skill interest because 3.29 adds official DoT and channelling Pact lenses. Not solved until Affliction cost and PoB data are available.",
+        "next_verification": [
+          "Post-3.29 GGPK and PoB support for Pact of Ghorr and Pact of Lycia",
+          "Channeling safety with Luminary Mercenary active ally",
+          "Guardian-map single-target and Allflame Voyage density",
+          "Whether Mercenary utility can replace weaker Scion self-defense"
+        ]
+      },
+      {
+        "branch_id": "mercenary_assisted_mapper",
+        "label": "Generic Scion Luminary Mercenary-assisted mapper",
+        "rank": 2,
+        "reliquarian_hooks": [],
+        "verdict": "This is the real live Scion research axis. Pick a stable player main skill, then design Mercenary role and gear around it.",
+        "next_verification": [
+          "List Mercenary skills and restrictions after launch",
+          "Extract Mercenary equipment/unique interactions",
+          "Record which Mercenary roles survive T16 and Guardians",
+          "Build UI fields for active Mercenary, two reserve Mercenaries, and equipment sets"
+        ]
+      },
+      {
+        "branch_id": "hot_autobomber_reliquarian_watchlist",
+        "label": "Reliquarian Herald of Thunder autobomber watchlist",
+        "rank": 3,
+        "reliquarian_hooks": [
+          "prepatch_reliquarian_only"
+        ],
+        "verdict": "Valid as a separate Scion Reliquarian watchlist candidate. Do not present it as a Luminary/Mercenary build.",
+        "next_verification": [
+          "Post-launch PoB support for the specific Reliquarian node package",
+          "Storm Secret/self-damage and boss shock uptime",
+          "Separate this from Luminary Mercenary recommendations"
+        ]
+      },
+      {
+        "branch_id": "static_strike_reliquarian_watchlist",
+        "label": "Reliquarian Static Strike trigger mapper watchlist",
+        "rank": 4,
+        "reliquarian_hooks": [
+          "prepatch_reliquarian_only"
+        ],
+        "verdict": "Valid as a separate Scion Reliquarian watchlist candidate. Do not present it as a Luminary/Mercenary build.",
+        "next_verification": [
+          "Post-launch PoB support for Reliquarian-triggered interactions",
+          "Static Strike uptime and Guardian-map single-target",
+          "Separate this from Luminary Mercenary recommendations"
+        ]
+      }
+    ],
+    "uncertainty_lens": [
+      {
+        "id": "league_not_launched_yet",
+        "severity": "high",
+        "rule": "Patch notes and reveal are live, but the 3.29 league launch is July 24 PDT. Economy, drop rates, and actual Mercenary behavior still need launch data."
+      },
+      {
+        "id": "scion_three_ascendancies_need_branching",
+        "severity": "high",
+        "rule": "Scion 3.29 has three relevant ascendancy branches to keep separate: Ascendant, Reliquarian, and Luminary. Do not mark Reliquarian as replaced by Luminary."
+      },
+      {
+        "id": "post_patch_ggpk_required",
+        "severity": "high",
+        "rule": "New Bloodline classes, Pact gems, Mercenary data, and Allflame item data require a fresh post-3.29 GGPK extraction before deterministic coach claims."
+      },
+      {
+        "id": "mercenary_is_separate_build_state",
+        "severity": "high",
+        "rule": "Do not flatten Mercenary gear/skills into player links. Model active Mercenary, reserve Mercenaries, gear, and role as separate state."
+      },
+      {
+        "id": "socket_change_scope",
+        "severity": "medium",
+        "rule": "Official Gem Socket Changes concern equipment socket colour behavior and gem colour restrictions, not a recursive support-gem socket system."
+      },
+      {
+        "id": "community_consensus_pending",
+        "severity": "medium",
+        "rule": "Community build recommendations before launch should be marked as discussion/watchlist unless backed by a PoB and post-patch mechanics."
+      },
+      {
+        "id": "poewiki_category_index_lag",
+        "severity": "medium",
+        "rule": "PoEWiki page bodies support Ascendant/Reliquarian/Luminary, but category API snapshots may lag or omit Luminary. Prefer page-body revisions over category membership for this specific crosscheck."
+      }
+    ]
+  },
+  "coach_rules": [
+    "When this live 3.29 DB is injected, say patch notes are confirmed but launch economy and PoB support are still pending.",
+    "For Scion, first identify the selected ascendancy branch: Ascendant, Reliquarian, or Luminary.",
+    "Never present Reliquarian HoT, Ngamahu, Dawnbreaker, or Gloomfang branches as Luminary/Mercenary recommendations; keep them under the Reliquarian branch.",
+    "For Blight of Contagion, explain the 3.29 reason as Pact of Ghorr/Pact of Lycia overlap plus Mercenary support testing, not as a confirmed direct skill buff.",
+    "Separate player build state from Mercenary build state: player main skill links, active Mercenary role, reserve Mercenaries, and Mercenary equipment.",
+    "For socket advice, use the official 3.29 equipment socket colour changes and avoid claiming that skill gems gained recursive support sockets."
+  ]
+}

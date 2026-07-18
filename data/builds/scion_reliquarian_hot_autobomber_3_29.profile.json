@@ -1,0 +1,352 @@
+{
+  "schema_version": "1.1.0",
+  "dataset_kind": "poe1_build_profile",
+  "build_id": "3_29_herald_of_thunder_reliquarian",
+  "identity": {
+    "build_name": "Scion Reliquarian Herald of Thunder Autobomber Lvl 90",
+    "patch": "3.29",
+    "class_name": "Scion",
+    "ascendancy": "Reliquarian",
+    "main_skill": "Herald of Thunder",
+    "leveling_skill": "Stormblast Mine",
+    "damage_tags": [
+      "spell"
+    ],
+    "weapon_preferences": []
+  },
+  "playstyle": {
+    "input_style": "2_button",
+    "manual_buttons": 2,
+    "movement_dependence": "medium",
+    "aim_requirement": "low",
+    "notes": "Inferred from gem setups and build type (spell)."
+  },
+  "budget_curve": {
+    "entry_cost_divines": 2.0,
+    "comfortable_cost_divines": 8.0,
+    "aspirational_cost_divines": 64.0,
+    "respec_cost_points": 28,
+    "notes": "Inferred from unique dependency, coach hints, and visible final-state gear."
+  },
+  "availability": {
+    "league_start_viable": false,
+    "ssf_viable": "low",
+    "hc_viable": "low",
+    "twink_required": false,
+    "mandatory_uniques": [
+      "Storm Secret"
+    ],
+    "mandatory_transfigured_gems": []
+  },
+  "progression": {
+    "leveling_confidence": "confirmed",
+    "early_mapping_ready": true,
+    "transition_points": [
+      {
+        "stage": "act_2",
+        "main_skill": "Storm Brand",
+        "trigger": "Brand playstyle smooths campaign and keeps a lightning identity.",
+        "required_links": null,
+        "required_item": null,
+        "from_skill": "Stormblast Mine",
+        "to_skill": "Storm Brand",
+        "level": 12,
+        "source": "coach_data"
+      },
+      {
+        "stage": "early_maps",
+        "main_skill": "Herald of Thunder",
+        "trigger": "Only swap when Herald reservation, Storm Secret, and boss shock starter are solved.",
+        "required_links": 5,
+        "required_item": "Storm Secret",
+        "from_skill": "Storm Brand",
+        "to_skill": "Herald of Thunder",
+        "level": 68,
+        "source": "coach_data"
+      },
+      {
+        "stage": "early_maps",
+        "main_skill": "Blight of Contagion",
+        "trigger": "Use if Storm Secret self-damage, shock uptime, or Reliquarian Herald scaling fails.",
+        "required_links": 4,
+        "required_item": null,
+        "from_skill": "Herald of Thunder",
+        "to_skill": "Blight of Contagion",
+        "level": 69,
+        "source": "coach_data"
+      }
+    ],
+    "campaign_plan": [
+      {
+        "stage": "act_1",
+        "stage_label": "1-11",
+        "level_range": "1-11",
+        "main_skill": "Stormblast Mine",
+        "support_links": [
+          "Swift Assembly Support",
+          "Added Lightning Damage Support"
+        ],
+        "auras": [],
+        "utility": [],
+        "guard": [],
+        "source": "coach_data",
+        "notes": "Coach-provided leveling gem progression."
+      },
+      {
+        "stage": "act_2",
+        "stage_label": "12-27",
+        "level_range": "12-27",
+        "main_skill": "Storm Brand",
+        "support_links": [
+          "Added Lightning Damage Support",
+          "Inspiration Support"
+        ],
+        "auras": [],
+        "utility": [],
+        "guard": [],
+        "source": "coach_data",
+        "notes": "Coach-provided leveling gem progression."
+      },
+      {
+        "stage": "act_3",
+        "stage_label": "28-67",
+        "level_range": "28-67",
+        "main_skill": "Storm Brand",
+        "support_links": [
+          "Lightning Penetration Support",
+          "Increased Critical Strikes Support",
+          "Faster Casting Support"
+        ],
+        "auras": [],
+        "utility": [],
+        "guard": [],
+        "source": "coach_data",
+        "notes": "Coach-provided leveling gem progression."
+      },
+      {
+        "stage": "early_maps",
+        "stage_label": "68+ bridge",
+        "level_range": "68+ bridge",
+        "main_skill": "Storm Brand",
+        "support_links": [
+          "Lightning Penetration Support",
+          "Inspiration Support",
+          "Increased Critical Strikes Support"
+        ],
+        "auras": [],
+        "utility": [],
+        "guard": [],
+        "source": "coach_data",
+        "notes": "Coach-provided leveling gem progression."
+      }
+    ],
+    "aura_plan": [
+      {
+        "stage": "act_1_3",
+        "stage_label": "Act 1-3",
+        "level_range": "1-33",
+        "auras": [
+          "Clarity"
+        ],
+        "utility": [
+          "Flame Dash"
+        ],
+        "guard": [],
+        "source": "coach_data",
+        "notes": "Mana and movement before the Herald package matters."
+      },
+      {
+        "stage": "act_4_6",
+        "stage_label": "Act 4-6",
+        "level_range": "34-51",
+        "auras": [
+          "Wrath",
+          "Herald of Thunder"
+        ],
+        "utility": [
+          "Flame Dash",
+          "Conductivity"
+        ],
+        "guard": [
+          "Steelskin"
+        ],
+        "source": "coach_data",
+        "notes": "Start testing Herald as supplemental damage, not as the full autobomber yet."
+      },
+      {
+        "stage": "act_7_10",
+        "stage_label": "Act 7-10",
+        "level_range": "52-67",
+        "auras": [
+          "Wrath",
+          "Determination",
+          "Herald of Thunder"
+        ],
+        "utility": [
+          "Flame Dash",
+          "Conductivity"
+        ],
+        "guard": [
+          "Steelskin"
+        ],
+        "source": "coach_data",
+        "notes": "Cap resistances and add defense before maps."
+      },
+      {
+        "stage": "unknown",
+        "stage_label": "White Maps",
+        "level_range": "White Maps",
+        "auras": [
+          "Wrath",
+          "Determination",
+          "Herald of Thunder"
+        ],
+        "utility": [
+          "Storm Brand",
+          "Orb of Storms",
+          "Flame Dash"
+        ],
+        "guard": [
+          "Steelskin"
+        ],
+        "source": "coach_data",
+        "notes": "Use Brand/Orb to test shock uptime while Atlas completion starts."
+      },
+      {
+        "stage": "unknown",
+        "stage_label": "Yellow/Red Maps",
+        "level_range": "Yellow/Red Maps",
+        "auras": [
+          "Wrath",
+          "Determination",
+          "Tempest Shield",
+          "Arctic Armour",
+          "Herald of Thunder"
+        ],
+        "utility": [
+          "Storm Brand",
+          "Orb of Storms",
+          "Conductivity",
+          "Flame Dash"
+        ],
+        "guard": [
+          "Steelskin"
+        ],
+        "source": "coach_data",
+        "notes": "Final aura list is conditional on reservation and defense checks."
+      }
+    ],
+    "passive_plan": [
+      {
+        "stage": "final_build",
+        "stage_label": "Final Passive Tree",
+        "level_range": null,
+        "tree_url": "local://pathcraft/tree/scion_reliquarian_hot_autobomber_3_29/final",
+        "active": true,
+        "source": "primary_stage",
+        "priorities": [
+          "life and elemental resistance pathing before maps",
+          "lightning damage and shock effect only after defenses are stable",
+          "reservation efficiency if final aura list does not fit",
+          "life/energy shield hybrid defenses for Storm Secret self-damage",
+          "jewel sockets only after core defenses and Herald loop are proven"
+        ],
+        "notes": "Only active passive tree URL was available in parsed PoB data."
+      }
+    ],
+    "gear_stages": [
+      {
+        "stage": "act_1_3",
+        "stage_label": "Act 1-3",
+        "level_range": "1-33",
+        "priorities": [
+          "Weapon: Vendor lightning wand or sceptre (spell damage, added lightning to spells)"
+        ],
+        "requirements": [
+          "Weapon priority: high",
+          "Weapon acquisition: vendor/craft"
+        ],
+        "source": "coach_data",
+        "notes": "Coach-provided gear timeline."
+      },
+      {
+        "stage": "act_4_10",
+        "stage_label": "Act 4-10",
+        "level_range": "34-67",
+        "priorities": [
+          "Weapon: +1 lightning rare wand or sceptre (+1 lightning gems, spell damage, cast speed)"
+        ],
+        "requirements": [
+          "Weapon priority: high",
+          "Weapon acquisition: trade/craft"
+        ],
+        "source": "coach_data",
+        "notes": "Coach-provided gear timeline."
+      },
+      {
+        "stage": "unknown",
+        "stage_label": "Red Maps",
+        "level_range": "Red Maps",
+        "priorities": [
+          "Weapon: Rare lightning crit sceptre or wand (+1 lightning gems, spell damage, spell critical strike chance)",
+          "Ring: Rare life/resistance ring (life, resistances, chaos resistance)",
+          "Ring: Storm Secret (Herald of Thunder loop, self-damage test)",
+          "Shield: Rare life/resistance shield (life, resistances, spell suppression if available)",
+          "Shield: Dawnbreaker defensive package (physical damage taken as elemental, mitigation)",
+          "Body Armour: 5-link rare armour/energy shield body (life, energy shield, resistances)",
+          "Body Armour: 6-link rare armour/energy shield body (life, energy shield, suppression or ailment mitigation if possible)"
+        ],
+        "requirements": [
+          "Weapon priority: high",
+          "Weapon acquisition: trade/craft",
+          "Ring priority: high",
+          "Ring acquisition: loot/trade",
+          "Ring priority: required for HoT version",
+          "Ring acquisition: trade/drop",
+          "Shield priority: medium",
+          "Shield acquisition: loot/trade",
+          "Shield priority: verify",
+          "Shield acquisition: Reliquarian node or trade",
+          "Body Armour priority: high",
+          "Body Armour acquisition: trade/craft"
+        ],
+        "source": "coach_data",
+        "notes": "Coach-provided gear timeline."
+      }
+    ]
+  },
+  "suitability": {
+    "mapping": 56,
+    "bossing": 55,
+    "sanctum": 64,
+    "heist": 55,
+    "expedition": 55,
+    "simulacrum": 45
+  },
+  "constraints": {
+    "banned_map_mods": [],
+    "pain_points": [
+      "Profile inferred from final-state build data"
+    ],
+    "reroll_recommended_over_respec": true
+  },
+  "confidence": {
+    "representative_build_status": "hold",
+    "source_count": 2,
+    "notes": "leveling_source=coach_data"
+  },
+  "evidence": [
+    {
+      "type": "pobb",
+      "label": "Parsed PoB input",
+      "url": "local://pathcraft/scion_reliquarian_hot_autobomber_3_29",
+      "notes": "Local profile inferred from provided build data."
+    },
+    {
+      "type": "manual_curated",
+      "label": "Coach output attached",
+      "url": null,
+      "notes": "Additional structured leveling and gearing hints were provided."
+    }
+  ]
+}

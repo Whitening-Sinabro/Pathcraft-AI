@@ -1,0 +1,489 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_poe_ninja_build_variant_sampling_plan",
+  "updated_at": "2026-07-17T00:00:00+07:00",
+  "purpose": "Define bounded poe.ninja build-tab sampling for same-archetype customization research. This file is a collection contract, not a promoted build dataset.",
+  "source_policy": {
+    "official_reference": "https://poe.ninja/docs/api",
+    "source_family": "poe_ninja_profile",
+    "supported_public_api_scope": "economy_overview_only",
+    "build_profile_api_status": "internal_undocumented_unsupported",
+    "allowed_collection_mode": "manual_or_browser_visible_sampling",
+    "disallowed_collection_mode": "high_volume_internal_build_api_scraping",
+    "notes": [
+      "Use poe.ninja builds as live ladder evidence for endgame variant discovery.",
+      "Do not treat poe.ninja character snapshots as confirmed campaign leveling routes.",
+      "Do not promote a poe.ninja-only observation into a recommendation without PoB, guide, or repeated independent evidence."
+    ]
+  },
+  "identity_model": {
+    "archetype_cluster_key": [
+      "patch",
+      "main_skill_family",
+      "class_name",
+      "ascendancy",
+      "damage_engine",
+      "core_mechanic"
+    ],
+    "same_build_not_same_character_rule": "Characters sharing an archetype_cluster_key may still split into different variants when gear package, defense shell, tree shape, budget, aura package, cluster package, or content specialization diverges.",
+    "promotion_target": "variant_evidence_candidate"
+  },
+  "variant_dimensions": [
+    {
+      "id": "budget_tier",
+      "values": [
+        "starter",
+        "budget",
+        "mid",
+        "high_end",
+        "mirror"
+      ],
+      "split_behavior": "variant_split_when_distance_large"
+    },
+    {
+      "id": "gear_package_id",
+      "examples": [
+        "rare_suppress_package",
+        "core_unique_package",
+        "mageblood_package",
+        "headhunter_or_magic_find_package",
+        "omni_or_attribute_stack_package"
+      ],
+      "split_behavior": "variant_split"
+    },
+    {
+      "id": "defense_engine",
+      "examples": [
+        "evasion_suppression",
+        "armour_block",
+        "mind_over_matter_mana_stack",
+        "ci_energy_shield",
+        "strength_life_stack"
+      ],
+      "split_behavior": "sub_archetype_split_when_core_shell_changes"
+    },
+    {
+      "id": "aura_package_id",
+      "examples": [
+        "early_reservation",
+        "grace_determination",
+        "wrath_or_hatred_damage",
+        "purity_stack",
+        "low_life_reservation"
+      ],
+      "split_behavior": "variant_split"
+    },
+    {
+      "id": "cluster_package_id",
+      "examples": [
+        "none",
+        "basic_damage_clusters",
+        "reservation_clusters",
+        "endgame_double_cluster",
+        "voices_or_mirror_cluster"
+      ],
+      "split_behavior": "variant_split"
+    },
+    {
+      "id": "tree_shape_class",
+      "examples": [
+        "left_side_armour",
+        "right_side_suppression",
+        "top_side_power_charge",
+        "minion_cluster_pathing",
+        "attribute_stack_pathing"
+      ],
+      "split_behavior": "sub_archetype_split_when_pathing_identity_changes"
+    },
+    {
+      "id": "content_specialization",
+      "values": [
+        "generic",
+        "mapping",
+        "bossing",
+        "sanctum",
+        "delve",
+        "heist",
+        "boss_rush",
+        "valdo",
+        "magic_find"
+      ],
+      "split_behavior": "variant_split"
+    },
+    {
+      "id": "league_mode_pressure",
+      "values": [
+        "trade",
+        "ssf",
+        "hardcore",
+        "hc_ssf",
+        "ruthless",
+        "private_gauntlet"
+      ],
+      "split_behavior": "evidence_context_not_automatic_split"
+    },
+    {
+      "id": "leveling_route",
+      "values": [
+        "unknown",
+        "inferred_from_archetype",
+        "creator_timeline",
+        "stage_pob_confirmed"
+      ],
+      "split_behavior": "phase_state_or_sub_archetype_split_depending_on_final_skill_change"
+    }
+  ],
+  "leveling_confidence_contract": {
+    "inferred": {
+      "required_evidence": [
+        "final endgame snapshot or PoB"
+      ],
+      "allowed_output": "archetype-based leveling suggestion only"
+    },
+    "near_confirmed": {
+      "required_evidence": [
+        "final PoB",
+        "skill timeline or creator notes",
+        "partial passive/aura/gear checkpoints"
+      ],
+      "allowed_output": "route skeleton with explicit inferred gaps"
+    },
+    "confirmed": {
+      "required_evidence": [
+        "at least three stage PoBs or stage snapshots",
+        "skill timeline",
+        "passive milestones",
+        "aura and utility timeline",
+        "gear checkpoints",
+        "transition triggers"
+      ],
+      "allowed_output": "campaign and early-map leveling route"
+    }
+  },
+  "sample_roles": [
+    {
+      "id": "current_meta",
+      "description": "Current softcore trade baseline for popularity, endgame scaling, and common customization clusters."
+    },
+    {
+      "id": "ssf_constraint",
+      "description": "Access-pressure validation where rare uniques, crafted weapons, and trade-only swaps should be downweighted."
+    },
+    {
+      "id": "hc_survivability",
+      "description": "Survivability-biased snapshots that reveal defensive substitutions and tree pressure."
+    },
+    {
+      "id": "ruthless_constraint",
+      "description": "Separate ruleset and scarcity profile. Never merge into normal trade recommendations without an explicit tag."
+    },
+    {
+      "id": "historical_patch_delta",
+      "description": "Past-league comparison for patch drift, nerf/buff resilience, and stale-guide detection."
+    },
+    {
+      "id": "gauntlet_stress",
+      "description": "Extreme constraint evidence for failure modes, not baseline recommendation strength."
+    }
+  ],
+  "sampling_rules": {
+    "default_per_archetype_per_league": {
+      "current_meta": 12,
+      "ssf_constraint": 6,
+      "hc_survivability": 6,
+      "ruthless_constraint": 3,
+      "historical_patch_delta": 5,
+      "gauntlet_stress": 5
+    },
+    "selection_lenses": [
+      "top_usage_or_top_depth",
+      "mid_rank_survivor",
+      "low_budget_or_no_mageblood",
+      "high_budget_or_mageblood",
+      "different_defensive_shell",
+      "different_content_specialization"
+    ],
+    "dedupe_keys": [
+      "account_name",
+      "character_name",
+      "pob_url",
+      "profile_url",
+      "main_skill_family",
+      "ascendancy",
+      "gear_package_id",
+      "defense_engine"
+    ],
+    "promotion_gate": [
+      "A single poe.ninja character can create a variant_evidence_candidate.",
+      "At least two independent characters or one parseable PoB plus one profile are required before variant confidence can become medium.",
+      "Leveling confidence remains inferred unless stage PoBs, guide notes, or timeline evidence exists outside the final ladder snapshot.",
+      "Hardcore, SSF, Ruthless, and Gauntlet samples must keep their mode tags when compared with trade samples."
+    ]
+  },
+  "league_sampling_plan": [
+    {
+      "league": "Mirage",
+      "status": "active",
+      "mode": "trade",
+      "character_blob_size": 124282,
+      "sample_role": "current_meta",
+      "priority": 1
+    },
+    {
+      "league": "SSF Mirage",
+      "status": "active",
+      "mode": "ssf",
+      "character_blob_size": 43468,
+      "sample_role": "ssf_constraint",
+      "priority": 2
+    },
+    {
+      "league": "Hardcore Mirage",
+      "status": "active",
+      "mode": "hardcore",
+      "character_blob_size": 20569,
+      "sample_role": "hc_survivability",
+      "priority": 2
+    },
+    {
+      "league": "HC SSF Mirage",
+      "status": "active",
+      "mode": "hc_ssf",
+      "character_blob_size": 17849,
+      "sample_role": "hc_survivability",
+      "priority": 2
+    },
+    {
+      "league": "Ruthless Mirage",
+      "status": "active",
+      "mode": "ruthless",
+      "character_blob_size": 4547,
+      "sample_role": "ruthless_constraint",
+      "priority": 4
+    },
+    {
+      "league": "SSF R Mirage",
+      "status": "active",
+      "mode": "ssf_ruthless",
+      "character_blob_size": 2929,
+      "sample_role": "ruthless_constraint",
+      "priority": 4
+    },
+    {
+      "league": "HC SSF R Mirage",
+      "status": "active",
+      "mode": "hc_ssf_ruthless",
+      "character_blob_size": 2943,
+      "sample_role": "ruthless_constraint",
+      "priority": 4
+    },
+    {
+      "league": "HC Ruthless Mirage",
+      "status": "active",
+      "mode": "hc_ruthless",
+      "character_blob_size": 1311,
+      "sample_role": "ruthless_constraint",
+      "priority": 5
+    },
+    {
+      "league": "Ancestors",
+      "status": "ended",
+      "mode": "trade",
+      "character_blob_size": 42789,
+      "sample_role": "historical_patch_delta",
+      "priority": 3
+    },
+    {
+      "league": "SSF Ancestors",
+      "status": "ended",
+      "mode": "ssf",
+      "character_blob_size": 5257,
+      "sample_role": "historical_patch_delta",
+      "priority": 4
+    },
+    {
+      "league": "Hardcore Ancestors",
+      "status": "ended",
+      "mode": "hardcore",
+      "character_blob_size": 2590,
+      "sample_role": "historical_patch_delta",
+      "priority": 5
+    },
+    {
+      "league": "HC SSF Ancestors",
+      "status": "ended",
+      "mode": "hc_ssf",
+      "character_blob_size": 1359,
+      "sample_role": "historical_patch_delta",
+      "priority": 5
+    },
+    {
+      "league": "Ruthless Ancestors",
+      "status": "ended",
+      "mode": "ruthless",
+      "character_blob_size": 408,
+      "sample_role": "ruthless_constraint",
+      "priority": 6
+    },
+    {
+      "league": "SSF R Ancestors",
+      "status": "ended",
+      "mode": "ssf_ruthless",
+      "character_blob_size": 297,
+      "sample_role": "ruthless_constraint",
+      "priority": 6
+    },
+    {
+      "league": "HC SSF R Ancestors",
+      "status": "ended",
+      "mode": "hc_ssf_ruthless",
+      "character_blob_size": 274,
+      "sample_role": "ruthless_constraint",
+      "priority": 6
+    },
+    {
+      "league": "HC R Ancestors",
+      "status": "ended",
+      "mode": "hc_ruthless",
+      "character_blob_size": 130,
+      "sample_role": "ruthless_constraint",
+      "priority": 6
+    },
+    {
+      "league": "Keepers",
+      "status": "ended",
+      "mode": "trade",
+      "character_blob_size": 124512,
+      "sample_role": "historical_patch_delta",
+      "priority": 2
+    },
+    {
+      "league": "SSF Keepers",
+      "status": "ended",
+      "mode": "ssf",
+      "character_blob_size": 30004,
+      "sample_role": "historical_patch_delta",
+      "priority": 3
+    },
+    {
+      "league": "Hardcore Keepers",
+      "status": "ended",
+      "mode": "hardcore",
+      "character_blob_size": 16940,
+      "sample_role": "historical_patch_delta",
+      "priority": 4
+    },
+    {
+      "league": "HC SSF Keepers",
+      "status": "ended",
+      "mode": "hc_ssf",
+      "character_blob_size": 8919,
+      "sample_role": "historical_patch_delta",
+      "priority": 4
+    },
+    {
+      "league": "Ruthless Keepers",
+      "status": "ended",
+      "mode": "ruthless",
+      "character_blob_size": 3682,
+      "sample_role": "ruthless_constraint",
+      "priority": 5
+    },
+    {
+      "league": "SSF R Keepers",
+      "status": "ended",
+      "mode": "ssf_ruthless",
+      "character_blob_size": 2253,
+      "sample_role": "ruthless_constraint",
+      "priority": 5
+    },
+    {
+      "league": "HC Ruthless Keepers",
+      "status": "ended",
+      "mode": "hc_ruthless",
+      "character_blob_size": 1116,
+      "sample_role": "ruthless_constraint",
+      "priority": 6
+    },
+    {
+      "league": "HC SSF R Keepers",
+      "status": "ended",
+      "mode": "hc_ssf_ruthless",
+      "character_blob_size": 2429,
+      "sample_role": "ruthless_constraint",
+      "priority": 5
+    },
+    {
+      "league": "Phrecia 2.0",
+      "status": "ended",
+      "mode": "trade",
+      "character_blob_size": 74469,
+      "sample_role": "historical_patch_delta",
+      "priority": 3
+    },
+    {
+      "league": "SSF Phrecia 2.0",
+      "status": "ended",
+      "mode": "ssf",
+      "character_blob_size": 7451,
+      "sample_role": "historical_patch_delta",
+      "priority": 4
+    },
+    {
+      "league": "Hardcore Phrecia 2.0",
+      "status": "ended",
+      "mode": "hardcore",
+      "character_blob_size": 3653,
+      "sample_role": "historical_patch_delta",
+      "priority": 5
+    },
+    {
+      "league": "HC SSF Phrecia 2.0",
+      "status": "ended",
+      "mode": "hc_ssf",
+      "character_blob_size": 1004,
+      "sample_role": "historical_patch_delta",
+      "priority": 6
+    },
+    {
+      "league": "Ziz Rapture HCSSF Class Gauntlet",
+      "status": "ended",
+      "mode": "private_gauntlet",
+      "character_blob_size": 25733,
+      "sample_role": "gauntlet_stress",
+      "priority": 3
+    }
+  ],
+  "sample_record_template": {
+    "sample_id": "",
+    "collected_at": "",
+    "league": "",
+    "mode": "",
+    "sample_role": "",
+    "source_family": "poe_ninja_profile",
+    "profile_url": "",
+    "pob_url": "",
+    "account_name": "",
+    "character_name": "",
+    "level": null,
+    "class_name": "",
+    "ascendancy": "",
+    "main_skill_family": "",
+    "archetype_cluster_key": "",
+    "variant_fingerprint": {
+      "damage_engine": "",
+      "defense_engine": "",
+      "core_unique_gate": "",
+      "tree_shape_class": "",
+      "play_pattern": "",
+      "budget_tier": "",
+      "gear_package_id": "",
+      "aura_package_id": "",
+      "cluster_package_id": "",
+      "content_specialization": ""
+    },
+    "customization_notes": [],
+    "leveling_confidence": "inferred",
+    "promotion_status": "variant_evidence_candidate"
+  }
+}

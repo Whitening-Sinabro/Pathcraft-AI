@@ -1,0 +1,457 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_build_real_case_collection_queue",
+  "updated_at": "2026-07-08T13:35:00+07:00",
+  "notes": [
+    "This queue is intentionally conservative. Entries are seeded from local transition data and current workspace evidence.",
+    "An entry may be patch-specific, cross-patch, or pending verification. Patch-specific flagship status should not be granted until evidence is upgraded."
+  ],
+  "patches": [
+    {
+      "patch": "3.22",
+      "league_name": "Trial of the Ancestors",
+      "target_flagship_count": 5,
+      "queue": [
+        {
+          "candidate_id": "3.22_shockwave_totems_hierophant",
+          "archetype": "shockwave_totems_hierophant",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "poe_vault_3_22"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.22_boneshatter_juggernaut",
+          "archetype": "boneshatter_juggernaut",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_22",
+            "poe_vault_3_22"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.22_corrupting_fever_champion",
+          "archetype": "corrupting_fever_champion",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_22",
+            "poe_vault_3_22"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.22_lightning_arrow_ranger",
+          "archetype": "lightning_arrow_deadeye",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_22",
+            "poe_vault_3_22",
+            "raw_transition_patterns",
+            "curated_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.22_toxic_rain_ranger",
+          "archetype": "toxic_rain_pathfinder",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_22",
+            "raw_transition_patterns",
+            "curated_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        }
+      ]
+    },
+    {
+      "patch": "3.23",
+      "league_name": "Affliction",
+      "target_flagship_count": 5,
+      "queue": [
+        {
+          "candidate_id": "3.23_lightning_arrow_ranger",
+          "archetype": "lightning_arrow_deadeye",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_23",
+            "poe_vault_3_23"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.23_hexblast_miner_saboteur",
+          "archetype": "hexblast_miner_saboteur",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_23",
+            "poe_vault_3_23"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.23_boneshatter_juggernaut",
+          "archetype": "boneshatter_juggernaut",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_23",
+            "poe_vault_3_23"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.23_ice_shot_deadeye",
+          "archetype": "ice_shot_deadeye",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_23",
+            "poe_vault_3_23"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.23_shockwave_totems_hierophant",
+          "archetype": "shockwave_totems_hierophant",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "poe_vault_3_23"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        }
+      ]
+    },
+    {
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "target_flagship_count": 5,
+      "queue": [
+        {
+          "candidate_id": "3.24_lightning_arrow_ranger",
+          "archetype": "lightning_arrow_deadeye",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_24",
+            "poe_vault_3_24"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.24_explosive_arrow_ballista_champion",
+          "archetype": "explosive_arrow_ballista_champion",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_24",
+            "poe_vault_3_24"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.24_detonate_dead_ignite_elementalist",
+          "archetype": "detonate_dead_caster",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_24",
+            "poe_vault_3_24",
+            "raw_transition_patterns",
+            "curated_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.24_boneshatter_juggernaut",
+          "archetype": "boneshatter_juggernaut",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_24",
+            "poe_vault_3_24"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.24_exsanguinate_mine_trickster",
+          "archetype": "exsanguinate_mine_trickster",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "maxroll_3_24"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        }
+      ]
+    },
+    {
+      "patch": "3.25",
+      "league_name": "Settlers of Kalguur",
+      "target_flagship_count": 5,
+      "queue": [
+        {
+          "candidate_id": "3.25_lacerate_duelist",
+          "archetype": "lacerate_duelist",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_25",
+            "poe_vault_3_25",
+            "raw_transition_patterns",
+            "curated_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.25_lightning_arrow_ranger",
+          "archetype": "lightning_arrow_deadeye",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_25",
+            "poe_vault_3_25",
+            "curated_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.25_boneshatter_juggernaut",
+          "archetype": "boneshatter_juggernaut",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_25",
+            "poe_vault_3_25"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.25_hexblast_miner_saboteur",
+          "archetype": "hexblast_miner_saboteur",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_25",
+            "poe_vault_3_25"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.25_lightning_strike_deadeye_or_warden",
+          "archetype": "lightning_strike_deadeye_or_warden",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "maxroll_3_25",
+            "poe_vault_3_25"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        }
+      ]
+    },
+    {
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "target_flagship_count": 5,
+      "queue": [
+        {
+          "candidate_id": "3.26_lightning_arrow_ranger",
+          "archetype": "lightning_arrow_deadeye",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "poe_vault_3_26",
+            "curated_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.26_boneshatter_juggernaut",
+          "archetype": "boneshatter_juggernaut",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "poe_vault_3_26"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.26_siege_ballista_hierophant",
+          "archetype": "siege_ballista_hierophant",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "poe_vault_3_26"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.26_ice_nova_caster",
+          "archetype": "ice_nova_archmage_or_caster",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "raw_transition_patterns",
+            "curated_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.26_ball_lightning_caster",
+          "archetype": "ball_lightning_caster",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "raw_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        }
+      ]
+    },
+    {
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "target_flagship_count": 5,
+      "queue": [
+        {
+          "candidate_id": "3.27_lacerate_duelist",
+          "archetype": "lacerate_duelist",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "poe_vault_3_27",
+            "raw_transition_patterns",
+            "curated_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.27_dominating_blow_guardian",
+          "archetype": "dominating_blow_guardian",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "poe_vault_3_27",
+            "raw_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.27_ice_nova_caster",
+          "archetype": "ice_nova_caster",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "raw_transition_patterns",
+            "curated_transition_patterns"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.27_toxic_rain_pathfinder",
+          "archetype": "toxic_rain_pathfinder",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "poe_vault_3_27"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.27_pyroclast_mine_saboteur",
+          "archetype": "pyroclast_mine_saboteur",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "poe_vault_3_27"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        }
+      ]
+    },
+    {
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "target_flagship_count": 5,
+      "queue": [
+        {
+          "candidate_id": "3.28_strength_stacker_juggernaut",
+          "archetype": "strength_stacker_juggernaut",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "local_transcript",
+            "manual_curated"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "personal_target",
+          "role_notes": "Connor Converse style aspirational strength stacker. Track as personal target build, not league-friendly flagship."
+        },
+        {
+          "candidate_id": "3.28_shock_nova_of_procession_hierophant",
+          "archetype": "shock_nova_of_procession_hierophant",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "poe_vault_3_28",
+            "official_patch_notes_3_28"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.28_kinetic_fusillade_of_detonation",
+          "archetype": "kinetic_fusillade_of_detonation_wander",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "official_patch_notes_3_28"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.28_dominating_blow_guardian",
+          "archetype": "dominating_blow_guardian",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "poe_vault_3_28",
+            "official_patch_notes_3_28"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.28_penance_brand_inquisitor",
+          "archetype": "penance_brand_inquisitor",
+          "source_confidence": "medium",
+          "evidence_sources": [
+            "official_patch_notes_3_28",
+            "local_discussion_trace",
+            "creator_guide_zeeboub_brand_v2"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        },
+        {
+          "candidate_id": "3.28_cold_snap_of_power_hierophant",
+          "archetype": "cold_snap_of_power_hierophant",
+          "source_confidence": "low",
+          "evidence_sources": [
+            "poe_vault_3_28"
+          ],
+          "status": "seeded_into_real_cases_v1",
+          "candidate_role": "flagship"
+        }
+      ]
+    }
+  ]
+}

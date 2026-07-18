@@ -1,0 +1,1000 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_creator_source_registry",
+  "updated_at": "2026-07-17T00:00:00+07:00",
+  "purpose": "Creator-first source hunt registry for POE1 build corpus expansion. Use this to choose where to search for PoBs, stage notes, and build variants before promoting any individual PoB.",
+  "promotion_policy": {
+    "creator_registry_role": "source_hunt_priority_only",
+    "direct_pob_promotion_requires": [
+      "direct_pob_url_accessible",
+      "parser_validated_class_and_ascendancy",
+      "main_skill_or_build_engine_found_in_pob",
+      "guide_or_video_context_attached"
+    ],
+    "do_not_promote_from": [
+      "creator_name_only",
+      "youtube_channel_without_pob_or_profile",
+      "poe_ninja_endgame_snapshot_without_context",
+      "ambiguous_alias_without_disambiguation"
+    ]
+  },
+  "coverage_summary": {
+    "creator_count": 36,
+    "route_families": [
+      "cws",
+      "mine",
+      "experimental",
+      "minion",
+      "hardcore",
+      "totem",
+      "brand",
+      "melee",
+      "variety",
+      "ranger_projectile",
+      "poison",
+      "archmage",
+      "righteous_fire",
+      "autobomber",
+      "ignite",
+      "hardcore_race",
+      "league_start",
+      "zero_to_hero",
+      "ssf",
+      "farming_strategy"
+    ],
+    "user_seeded_creators": [
+      "emiracle",
+      "Jorgen",
+      "Conner Converse",
+      "CaptainLance9",
+      "GhazzyTV",
+      "Zizaran",
+      "Goblin",
+      "POEGuy",
+      "ZeeBoub",
+      "Sanavixx",
+      "Dconnic",
+      "Tori-sensei",
+      "Cptn Garbage",
+      "Master T",
+      "Exiled Cat"
+    ],
+    "expanded_discovery_creators": [
+      "Kankar",
+      "anime princess",
+      "LLYD",
+      "Palsteron",
+      "Fubgun",
+      "Ruetoo",
+      "Crouching_Tuna",
+      "Big Ducks",
+      "subtractem",
+      "Pohx",
+      "Jungroan",
+      "Goratha",
+      "Tatiantel2",
+      "Ventrua",
+      "Ben_",
+      "Steelmage",
+      "Carn",
+      "ds lily",
+      "Mathil",
+      "Travic"
+    ],
+    "notes": "Goblin is recorded as probable Goblin-Inc from search results, but needs user confirmation if a different POE1 creator was intended."
+  },
+  "creators": [
+    {
+      "creator_id": "cptn_garbage",
+      "display_name": "Cptn Garbage",
+      "source_urls": [
+        {
+          "url": "https://maxroll.gg/poe/build-guides/exsanguinate-miner-trickster-league-starter",
+          "kind": "maxroll_build_guide"
+        }
+      ],
+      "priority_lanes": [
+        "mine_exsanguinate_trickster"
+      ],
+      "known_specialties": [
+        "Exsanguinate Miner Trickster",
+        "Cold Exsanguinate Mine",
+        "Pyroclast Mine leveling into Exsanguinate"
+      ],
+      "collection_notes": "Primary source hunt target for Exsanguinate Miner Trickster. Maxroll page may need manual PoB extraction; use parser-validated pobb.in pages that cite this guide as direct promotion candidates."
+    },
+    {
+      "creator_id": "tori_sensei",
+      "display_name": "토리센세",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@torisense",
+          "kind": "youtube_channel"
+        },
+        {
+          "url": "https://www.youtube.com/@torisense/playlists",
+          "kind": "youtube_playlists"
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLvMNB-ok0y7uQ7kwPwfOstd3WM9gW2N_x",
+          "kind": "youtube_playlist_carrion_golem"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=WO2bjIZMrtQ",
+          "kind": "youtube_video_poison_carrion_golem"
+        }
+      ],
+      "priority_lanes": [
+        "minion_poison_carrion_golem_current",
+        "minion_golem_occultist_or_necro",
+        "minion_spectre_necro",
+        "minion_srs_templar_witch",
+        "mine_exsanguinate_trickster_supplement"
+      ],
+      "known_specialties": [
+        "Poison Carrion Golem",
+        "Carrion Golem",
+        "Raise Spectre",
+        "Wretched Defiler",
+        "Hydra Spectre",
+        "Korean minion guides"
+      ],
+      "known_public_hits": [
+        {
+          "label": "PoE 3.26 Poison Carrion Golem",
+          "video_url": "https://www.youtube.com/watch?v=WO2bjIZMrtQ",
+          "pob_urls_seen_in_search": [
+            "https://pobb.in/Gji0uiu1Aoog"
+          ]
+        },
+        {
+          "label": "PoE 3.25 Poison Carrion Golem caveat video",
+          "video_url": "https://www.youtube.com/watch?v=klcYMiWPaLw",
+          "pob_urls_seen_in_search": [
+            "https://pobb.in/19sYwElXstEb"
+          ]
+        }
+      ],
+      "collection_notes": "User reports Tori-sensei's current-season plan is Poison Carrion Golem. Treat this as the primary current minion source hunt until the new-season PoB is collected; older poison Carrion Golem PoBs are reference only. Keep mine material as supplemental cross-check unless exact Exsanguinate PoBs are found."
+    },
+    {
+      "creator_id": "dconnic",
+      "display_name": "Dconnic",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@dconnic",
+          "kind": "youtube_channel"
+        },
+        {
+          "url": "https://www.poebuilds.cc/poe/author/dconnic/",
+          "kind": "build_index"
+        },
+        {
+          "url": "https://docs.google.com/spreadsheets/d/1691a_yJd-7efqQGJ2uLkIWPbbhFfrbimUp6HOiX5qQQ/edit?usp=sharing",
+          "kind": "pob_spreadsheet"
+        }
+      ],
+      "priority_lanes": [
+        "minion_spectre_necro",
+        "minion_dominating_blow",
+        "minion_chains_of_command"
+      ],
+      "known_specialties": [
+        "Wretched Defiler Spectre",
+        "Raise Spectre league start",
+        "Dominating Blow",
+        "Chains of Command"
+      ],
+      "collection_notes": "User-identified source for Wretched Defiler. YouTube descriptions route PoBs through a spreadsheet, so extract exact POE1 sheet rows before promotion."
+    },
+    {
+      "creator_id": "emiracle",
+      "display_name": "emiracle",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@HolyFkingShit",
+          "kind": "youtube_channel"
+        }
+      ],
+      "priority_lanes": [
+        "cws_chieftain",
+        "cws_rf_chieftain"
+      ],
+      "known_specialties": [
+        "Cast When Stunned Chieftain",
+        "AFK Ultimatum",
+        "CWS RF Chieftain"
+      ],
+      "collection_notes": "Use as primary CWS source; many variants have expensive swap gates, so capture pre-swap RF/Fire Trap route separately."
+    },
+    {
+      "creator_id": "jorgen",
+      "display_name": "Jorgen",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@JorgenPOE",
+          "kind": "youtube_channel"
+        }
+      ],
+      "priority_lanes": [
+        "mine_general",
+        "delve_specialist",
+        "cws_chieftain_crosscheck"
+      ],
+      "known_specialties": [
+        "mine builds",
+        "delve-oriented builds",
+        "CWS comparison source"
+      ],
+      "collection_notes": "User-identified mine source. Verify exact build family per video because channel also covers other archetypes."
+    },
+    {
+      "creator_id": "conner_converse",
+      "display_name": "Conner Converse",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@ConnerConverse",
+          "kind": "youtube_channel"
+        }
+      ],
+      "priority_lanes": [
+        "mine_general",
+        "stacker",
+        "mana_or_attribute_theorycraft"
+      ],
+      "known_specialties": [
+        "stackers",
+        "mana builds",
+        "deep theorycraft",
+        "high-budget scaling"
+      ],
+      "collection_notes": "User-identified mine/theory source. Use for advanced scaling and bait-risk checks; require exact PoB and budget context before beginner promotion."
+    },
+    {
+      "creator_id": "captainlance9",
+      "display_name": "CaptainLance9",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/captainlance9",
+          "kind": "youtube_channel"
+        }
+      ],
+      "priority_lanes": [
+        "experimental",
+        "unique_interaction",
+        "stacker"
+      ],
+      "known_specialties": [
+        "unusual build shells",
+        "unique interactions",
+        "high-investment experiments"
+      ],
+      "collection_notes": "Use for creative/edge-case source hunts, not as beginner-safe confirmation without strict budget and survivability checks."
+    },
+    {
+      "creator_id": "ghazzytv",
+      "display_name": "GhazzyTV",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/GhazzyTV",
+          "kind": "youtube_channel"
+        },
+        {
+          "url": "https://www.poe-vault.com/guides/ghazzy-guide-hub",
+          "kind": "guide_hub"
+        }
+      ],
+      "priority_lanes": [
+        "minion_general",
+        "minion_spectre_necro",
+        "minion_srs_templar_witch"
+      ],
+      "known_specialties": [
+        "minions",
+        "Spectres",
+        "SRS",
+        "crafting for minion builds"
+      ],
+      "collection_notes": "Primary broad minion source. Prefer written guide hub plus video PoBs when both exist."
+    },
+    {
+      "creator_id": "zizaran",
+      "display_name": "Zizaran",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/zizaran",
+          "kind": "youtube_channel"
+        }
+      ],
+      "priority_lanes": [
+        "hardcore",
+        "ssf",
+        "new_player_safe",
+        "league_start"
+      ],
+      "known_specialties": [
+        "HC/SSF league starters",
+        "defensive templates",
+        "beginner education"
+      ],
+      "collection_notes": "Use for HC survivability and leveling confirmation; expect lower DPS but stronger defenses than softcore variants."
+    },
+    {
+      "creator_id": "goblin_inc_probable",
+      "display_name": "Goblin-Inc",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@Goblin-Inc",
+          "kind": "youtube_channel"
+        }
+      ],
+      "priority_lanes": [
+        "variety",
+        "poe2_crosscheck"
+      ],
+      "known_specialties": [
+        "varied build coverage",
+        "tier lists"
+      ],
+      "collection_notes": "Probable match for user alias Goblin. Current search results skew POE2, so confirm before treating as a POE1 corpus authority."
+    },
+    {
+      "creator_id": "poeguy",
+      "display_name": "POEGuy",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@poeguy007",
+          "kind": "youtube_channel"
+        },
+        {
+          "url": "https://www.poe-vault.com/guides/siege-ballista-hierophant-build-guide",
+          "kind": "written_guide"
+        }
+      ],
+      "priority_lanes": [
+        "totem_siege_ballista_hierophant"
+      ],
+      "known_specialties": [
+        "Siege Ballista Hierophant"
+      ],
+      "collection_notes": "One-build specialist. Treat repeated league updates as high-value longitudinal evidence for the same build family."
+    },
+    {
+      "creator_id": "zeeboub",
+      "display_name": "ZeeBoub",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@ZeeboubPOE",
+          "kind": "youtube_channel"
+        },
+        {
+          "url": "local:data/guide_sources/poe1_brand_guide_zeeboub_v2.json",
+          "kind": "local_markdown_guide"
+        }
+      ],
+      "priority_lanes": [
+        "brand_penance_inquisitor",
+        "brand_leveling"
+      ],
+      "known_specialties": [
+        "Penance Brand",
+        "Brand leveling",
+        "longitudinal one-build updates"
+      ],
+      "collection_notes": "One-build specialist already has a local structured guide import; keep promoting stage PoBs from that guide before generic brand guides."
+    },
+    {
+      "creator_id": "sanavixx",
+      "display_name": "Sanavixx",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@SaNaViXX",
+          "kind": "youtube_channel"
+        },
+        {
+          "url": "https://sanavixx.com/",
+          "kind": "creator_site"
+        },
+        {
+          "url": "https://sanavixx.com/crafting/",
+          "kind": "creator_site_crafting"
+        },
+        {
+          "url": "https://pobb.in/RH9MMGmuuro2",
+          "kind": "pobb_cyclone_of_tumult_slayer_3_28"
+        }
+      ],
+      "priority_lanes": [
+        "melee_cyclone_shockwave_slayer"
+      ],
+      "known_specialties": [
+        "Cyclone Shockwave Slayer",
+        "Cyclone of Tumult Slayer"
+      ],
+      "collection_notes": "One-build specialist for Cyclone/Shockwave-style Slayer; use for melee route and repeated-patch progression evidence."
+    },
+    {
+      "creator_id": "fearlessdumb0",
+      "display_name": "FearlessDumb0",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/watch?v=ZEvuQ5krLwQ",
+          "kind": "youtube_video"
+        },
+        {
+          "url": "https://pobarchives.com/build/BBcLLRaw",
+          "kind": "pob_archive"
+        }
+      ],
+      "priority_lanes": [
+        "mine_exsanguinate_trickster"
+      ],
+      "known_specialties": [
+        "Exsanguinate Reap Miner",
+        "league-start PoB",
+        "day 3/day 6 progression"
+      ],
+      "collection_notes": "Recent 3.28 Exsanguinate/Reap Miner source with parser-valid league-start and progression PoBs."
+    },
+    {
+      "creator_id": "master_t",
+      "display_name": "Master T",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@MasterT_",
+          "kind": "youtube_channel"
+        },
+        {
+          "url": "https://www.poebuilds.cc/author/mastert/",
+          "kind": "build_index"
+        },
+        {
+          "url": "https://mobalytics.gg/poe/builds/righteous-cold-dot-autobomber",
+          "kind": "written_guide"
+        }
+      ],
+      "priority_lanes": [
+        "autobomber_righteous_cold_elementalist",
+        "melee_ignite_slamentalist_elementalist",
+        "melee_quakewalker_elementalist",
+        "minion_wretched_defiler_archive",
+        "witch_elementalist_transition"
+      ],
+      "known_specialties": [
+        "Righteous Cold Dot Autobomber",
+        "Ignite Slamentalist",
+        "Quakewalker Slam Autobomber",
+        "Wretched Defiler",
+        "budget Witch Elementalist transition builds"
+      ],
+      "known_public_hits": [
+        {
+          "label": "3.28 Ignite Slamentalist Elementalist",
+          "video_url": "https://www.youtube.com/watch?v=0dJFLujq-tc",
+          "pob_urls_seen_in_search": [
+            "https://pobb.in/NsHiKWiFDltP"
+          ]
+        },
+        {
+          "label": "3.28 Righteous Cold Dot Autobomber",
+          "video_url": "https://www.youtube.com/watch?v=gJF4EKLpIag",
+          "guide_url": "https://mobalytics.gg/poe/builds/righteous-cold-dot-autobomber",
+          "pob_urls_seen_in_search": [
+            "https://pobb.in/h6ha1QMMq1g1"
+          ],
+          "inaccessible_pob_urls": [
+            "https://pobb.in/xqUoq1kBYsdd"
+          ]
+        },
+        {
+          "label": "3.28 Quakewalker Slam Autobomber",
+          "video_url": "https://www.youtube.com/watch?v=EgwhsJYdYHU",
+          "pob_urls_seen_in_search": [
+            "https://pobb.in/rxdv0c7q9P11"
+          ]
+        }
+      ],
+      "collection_notes": "User-added creator. Current POE2 videos are out of scope; use POE1 3.28 Elementalist staged PoBs and Mobalytics guide as transition/variant evidence. The non-Mageblood Righteous Cold pobb.in link returned HTTP 500 during collection and should be retried before promotion."
+    },
+    {
+      "creator_id": "exiled_cat",
+      "display_name": "EXILED CAT",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@ExiledCat_PoE",
+          "kind": "youtube_channel"
+        },
+        {
+          "url": "https://pobarchives.com/builds?author=EXILED+CAT",
+          "kind": "pob_archive_author_index"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=EexqaIzB9I4",
+          "kind": "youtube_video_poe1_3_28_shield_crush_starter"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9edQ6TbLEd0",
+          "kind": "youtube_video_poe1_3_28_ssf_life_stacker_gladiator"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ov_NCCkSjOg",
+          "kind": "youtube_video_poe1_3_28_heist_farming"
+        }
+      ],
+      "priority_lanes": [
+        "zero_to_hero_progression",
+        "ssf_life_stacker_gladiator",
+        "shield_crush_starter",
+        "heist_farming_strategy",
+        "budget_to_endgame_progression"
+      ],
+      "known_specialties": [
+        "From Zero to Hero progressions",
+        "SSF Life Stacker Gladiator",
+        "Shield Crush league starter",
+        "Heist farming",
+        "budget-to-endgame showcase videos"
+      ],
+      "collection_notes": "User-added creator. Strong source for progression-format POE1 videos and farming/build diaries. Treat YouTube popularity and PoB Archives rows as source-hunt evidence; promote only direct PoBs or stage notes that parse cleanly."
+    },
+    {
+      "creator_id": "kankar",
+      "display_name": "Kankar",
+      "source_urls": [
+        {
+          "url": "https://www.poebuilds.cc/poe/author/kankar/",
+          "kind": "build_index"
+        },
+        {
+          "url": "https://pobarchives.com/builds?author=Kankar",
+          "kind": "pob_archive_search"
+        }
+      ],
+      "priority_lanes": [
+        "ranger_projectile_venom_gyre",
+        "ranger_projectile_cobra_lash",
+        "poison_projectile",
+        "ethereal_knives_ignite"
+      ],
+      "known_specialties": [
+        "Cobra Lash",
+        "Venom Gyre",
+        "Ethereal Knives Ignite",
+        "Blight of Contagion"
+      ],
+      "collection_notes": "Expanded discovery source. PoEBuilds indexes Cobra Lash/Venom Gyre league-start material, and PoB Archives shows a larger Kankar result set including 3.28 EK Ignite and Venom Gyre entries."
+    },
+    {
+      "creator_id": "anime_princess",
+      "display_name": "anime princess",
+      "source_urls": [
+        {
+          "url": "https://www.poebuilds.cc/poe/author/animeprincess/",
+          "kind": "build_index"
+        },
+        {
+          "url": "https://pobarchives.com/builds?author=anime+princess",
+          "kind": "pob_archive_search"
+        }
+      ],
+      "priority_lanes": [
+        "ranger_poisonous_concoction",
+        "caster_archmage_spark",
+        "caster_shock_nova_hierophant",
+        "mana_stacker"
+      ],
+      "known_specialties": [
+        "Poisonous Concoction",
+        "Archmage Spark",
+        "Shock Nova of Procession",
+        "mana stacker progression"
+      ],
+      "collection_notes": "Expanded discovery source. PoEBuilds indexes PConc, Spark, Shock Nova, and tier-list material; PoB Archives currently exposes many anime princess PoB entries."
+    },
+    {
+      "creator_id": "llyd",
+      "display_name": "LLYD",
+      "source_urls": [
+        {
+          "url": "https://www.poebuilds.cc/poe/author/llyd/",
+          "kind": "build_index"
+        },
+        {
+          "url": "https://pobarchives.com/builds?author=LLYD",
+          "kind": "pob_archive_search"
+        }
+      ],
+      "priority_lanes": [
+        "scion_cyclone_ascendant",
+        "melee_cyclone",
+        "reliquarian_scion"
+      ],
+      "known_specialties": [
+        "Ascendant Cyclone",
+        "Reliquarian Scion",
+        "3.28 Mirage league-start plan"
+      ],
+      "collection_notes": "Expanded discovery source. PoEBuilds indexes 3.28 Ascendant Cyclone/Reliquarian material; promote only after direct PoB extraction and parser validation."
+    },
+    {
+      "creator_id": "palsteron",
+      "display_name": "Palsteron",
+      "source_urls": [
+        {
+          "url": "https://www.poebuilds.cc/poe/author/palsteron/",
+          "kind": "build_index"
+        }
+      ],
+      "priority_lanes": [
+        "totem_ballista",
+        "kinetic_fusillade_ballista",
+        "explosive_arrow_ballista",
+        "forbidden_rite_occultist"
+      ],
+      "known_specialties": [
+        "Ballista Totem",
+        "Kinetic Fusillade Ballista",
+        "Explosive Arrow Ballista",
+        "Forbidden Rite"
+      ],
+      "collection_notes": "High-value league-start and totem/ballista source. Use for totem route confirmation and patch-to-patch build family deltas."
+    },
+    {
+      "creator_id": "fubgun",
+      "display_name": "Fubgun",
+      "source_urls": [
+        {
+          "url": "https://www.poebuilds.cc/poe/author/fubgun/",
+          "kind": "build_index"
+        },
+        {
+          "url": "https://pobarchives.com/builds?author=Fubgun",
+          "kind": "pob_archive_search"
+        }
+      ],
+      "priority_lanes": [
+        "ranger_lightning_arrow_deadeye",
+        "ranger_elemental_hit_deadeye",
+        "ranger_kinetic_blast_deadeye",
+        "league_start_tier_list"
+      ],
+      "known_specialties": [
+        "Lightning Arrow",
+        "Elemental Hit of the Spectrum",
+        "Kinetic Blast Deadeye",
+        "fast mapper league starts"
+      ],
+      "collection_notes": "Primary ranger projectile source. Prefer stage PoBs or video descriptions before converting poe.ninja endgame snapshots into recommendation candidates."
+    },
+    {
+      "creator_id": "ruetoo",
+      "display_name": "Ruetoo",
+      "source_urls": [
+        {
+          "url": "https://www.poebuilds.cc/poe/author/ruetoo/",
+          "kind": "build_index"
+        }
+      ],
+      "priority_lanes": [
+        "melee_smite_slayer",
+        "caster_exsanguinate_reap",
+        "poisonous_concoction",
+        "community_theorycraft"
+      ],
+      "known_specialties": [
+        "Smite",
+        "Exsanguinate/Reap",
+        "Poisonous Concoction",
+        "high-impact community starters"
+      ],
+      "collection_notes": "Theorycraft-heavy source. Capture exact PoB versions and budget notes because community variants often fork quickly."
+    },
+    {
+      "creator_id": "crouching_tuna",
+      "display_name": "Crouching_Tuna",
+      "source_urls": [
+        {
+          "url": "https://www.poebuilds.cc/poe/author/crouchingtuna/",
+          "kind": "build_index"
+        },
+        {
+          "url": "https://www.youtube.com/c/crouchingtuna",
+          "kind": "youtube_channel"
+        }
+      ],
+      "priority_lanes": [
+        "melee_mamba_viper_strike",
+        "melee_volcanic_fissure",
+        "pathfinder_or_ranger_mapping",
+        "herald_of_agony_watch"
+      ],
+      "known_specialties": [
+        "Mamba Viper Strike",
+        "Volcanic Fissure of Snaking",
+        "high-density mapper variants"
+      ],
+      "collection_notes": "Expanded discovery source for ranger/melee mapper variants. Keep final PoB and leveling evidence separate because many entries are reroll or endgame-focused."
+    },
+    {
+      "creator_id": "big_ducks",
+      "display_name": "Big Ducks",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/c/BigDucks",
+          "kind": "youtube_channel"
+        },
+        {
+          "url": "https://www.poebuilds.cc/author/bigducks/",
+          "kind": "build_index"
+        }
+      ],
+      "priority_lanes": [
+        "caster_archmage_spark",
+        "ranger_or_duelist_projectile",
+        "beginner_friendly_guides",
+        "league_start_tier_list"
+      ],
+      "known_specialties": [
+        "Spark Archmage",
+        "Kinetic Blast Champion",
+        "beginner-readable build guides"
+      ],
+      "collection_notes": "Use for broad beginner-facing cross-checks and build guide coverage; confirm whether each indexed entry is POE1 or POE2 before promotion."
+    },
+    {
+      "creator_id": "subtractem",
+      "display_name": "subtractem",
+      "source_urls": [
+        {
+          "url": "https://www.poebuilds.cc/poe/author/subtractem/",
+          "kind": "build_index"
+        },
+        {
+          "url": "https://www.youtube.com/c/subtractem",
+          "kind": "youtube_channel"
+        }
+      ],
+      "priority_lanes": [
+        "caster_reap_exsanguinate_ignite",
+        "forbidden_rite_coc_archive",
+        "theory_and_crafting"
+      ],
+      "known_specialties": [
+        "Reap/Exsanguinate Ignite",
+        "Forbidden Rite CoC",
+        "crafting and system explanations"
+      ],
+      "collection_notes": "Use for caster and crafting explanation evidence; older build guides require patch survival checks before recommendation."
+    },
+    {
+      "creator_id": "pohx",
+      "display_name": "Pohx",
+      "source_urls": [
+        {
+          "url": "https://pohx.net/",
+          "kind": "creator_wiki"
+        },
+        {
+          "url": "https://mobalytics.gg/poe/builds/pohx-righteous-fire-chieftain",
+          "kind": "written_guide"
+        }
+      ],
+      "priority_lanes": [
+        "righteous_fire_chieftain",
+        "rf_leveling",
+        "new_player_safe"
+      ],
+      "known_specialties": [
+        "Righteous Fire",
+        "RF Chieftain",
+        "RF leveling and FAQ"
+      ],
+      "collection_notes": "Canonical RF source. Prefer the wiki/written guide for deterministic leveling and FAQ extraction."
+    },
+    {
+      "creator_id": "jungroan",
+      "display_name": "Jungroan",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@jungroan",
+          "kind": "youtube_channel_unverified"
+        }
+      ],
+      "priority_lanes": [
+        "racer_leveling",
+        "caster_or_attack_league_start",
+        "ssf_pressure"
+      ],
+      "known_specialties": [
+        "racer-style league starts",
+        "efficient progression"
+      ],
+      "collection_notes": "Expanded discovery entry; direct channel/profile URL still needs confirmation before using as promotion evidence."
+    },
+    {
+      "creator_id": "goratha",
+      "display_name": "Goratha",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@Goratha",
+          "kind": "youtube_channel_unverified"
+        }
+      ],
+      "priority_lanes": [
+        "hardcore",
+        "ssf",
+        "defensive_league_start",
+        "bow_or_spell_starters"
+      ],
+      "known_specialties": [
+        "HC/SSF league starters",
+        "defensive progression"
+      ],
+      "collection_notes": "Use as HC/SSF cross-check after exact video/PoB links are collected."
+    },
+    {
+      "creator_id": "tatiantel2",
+      "display_name": "Tatiantel2",
+      "source_urls": [
+        {
+          "url": "https://www.twitch.tv/tatiantel2",
+          "kind": "twitch_channel_unverified"
+        }
+      ],
+      "priority_lanes": [
+        "totem_hierophant",
+        "hardcore_templar",
+        "vod_leveling_evidence"
+      ],
+      "known_specialties": [
+        "Totem league starts",
+        "HC/private league leveling"
+      ],
+      "collection_notes": "High-value if VOD timestamps and PoBs are available; do not promote from channel name alone."
+    },
+    {
+      "creator_id": "ventrua",
+      "display_name": "Ventrua",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@Ventrua",
+          "kind": "youtube_channel_unverified"
+        }
+      ],
+      "priority_lanes": [
+        "racer_leveling",
+        "ssf_league_start",
+        "patch_survival_crosscheck"
+      ],
+      "known_specialties": [
+        "racer-style build routing",
+        "efficient SSF progression"
+      ],
+      "collection_notes": "Expanded discovery entry. Collect exact PoB/video sources before assigning to a concrete archetype."
+    },
+    {
+      "creator_id": "ben_",
+      "display_name": "Ben_",
+      "source_urls": [
+        {
+          "url": "https://www.twitch.tv/ben_",
+          "kind": "twitch_channel_unverified"
+        }
+      ],
+      "priority_lanes": [
+        "hardcore_race",
+        "ssf_gauntlet",
+        "defensive_baseline"
+      ],
+      "known_specialties": [
+        "hardcore racing",
+        "SSF progression",
+        "gauntlet stress testing"
+      ],
+      "collection_notes": "Use for survivability and racing validation, not as a beginner guide unless a guide/PoB is attached."
+    },
+    {
+      "creator_id": "steelmage",
+      "display_name": "Steelmage",
+      "source_urls": [
+        {
+          "url": "https://www.twitch.tv/steelmage",
+          "kind": "twitch_channel_unverified"
+        }
+      ],
+      "priority_lanes": [
+        "hardcore",
+        "ssf",
+        "league_start_survivability"
+      ],
+      "known_specialties": [
+        "HC/SSF league starts",
+        "defensive gearing"
+      ],
+      "collection_notes": "Use as HC survivability cross-check; exact VOD/PoB sources are required before promotion."
+    },
+    {
+      "creator_id": "carn",
+      "display_name": "Carn",
+      "source_urls": [
+        {
+          "url": "https://www.twitch.tv/carn_",
+          "kind": "twitch_channel_unverified"
+        }
+      ],
+      "priority_lanes": [
+        "melee_boneshatter",
+        "melee_slam",
+        "hardcore_melee"
+      ],
+      "known_specialties": [
+        "Boneshatter",
+        "melee league starts",
+        "HC melee pressure testing"
+      ],
+      "collection_notes": "Use for melee route validation and HC melee caveats; collect exact guide/PoB before promotion."
+    },
+    {
+      "creator_id": "ds_lily",
+      "display_name": "ds lily",
+      "source_urls": [
+        {
+          "url": "https://www.poebuilds.cc/poe/archive/",
+          "kind": "build_index_archive"
+        }
+      ],
+      "priority_lanes": [
+        "tier_list",
+        "late_game_reroll",
+        "variety"
+      ],
+      "known_specialties": [
+        "league start tier lists",
+        "late-game reroll lists"
+      ],
+      "collection_notes": "Archive-indexed variety source; find exact channel/video before direct PoB promotion."
+    },
+    {
+      "creator_id": "mathil",
+      "display_name": "Mathil",
+      "source_urls": [
+        {
+          "url": "https://www.youtube.com/@Mathilification",
+          "kind": "youtube_channel_unverified"
+        }
+      ],
+      "priority_lanes": [
+        "variety",
+        "off_meta",
+        "experimental",
+        "softcore_mapping"
+      ],
+      "known_specialties": [
+        "variety builds",
+        "off-meta skill showcases",
+        "softcore build experiments"
+      ],
+      "collection_notes": "High-volume variety source. Treat as inspiration/source-hunt until exact PoB, budget, and survivability are parsed."
+    },
+    {
+      "creator_id": "travic",
+      "display_name": "Travic",
+      "source_urls": [
+        {
+          "url": "https://www.poebuilds.cc/poe/archive/",
+          "kind": "build_index_archive"
+        }
+      ],
+      "priority_lanes": [
+        "ethereal_knives_ignite",
+        "elementalist_spell",
+        "off_meta_caster"
+      ],
+      "known_specialties": [
+        "Ethereal Knives Ignite",
+        "Elementalist caster variants"
+      ],
+      "collection_notes": "Archive-indexed caster source; collect exact video/channel/PoB before promotion."
+    }
+  ]
+}

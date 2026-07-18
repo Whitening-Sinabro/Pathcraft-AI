@@ -1,0 +1,229 @@
+{
+  "version": "1.0",
+  "updated": "2026-07-07",
+  "description": "Curated leveling-to-endgame transition patterns for POE1. Used to override noisy scraped patterns with higher-confidence recommendations.",
+  "default_weight": 5,
+  "patterns": [
+    {
+      "final_skill": "Penance Brand of Dissipation",
+      "leveling_skill": "Storm Brand",
+      "class": "Templar",
+      "ascendancy": "Inquisitor",
+      "transition_point": "4th_ascendancy",
+      "weight": 6,
+      "note": "Crit scaling and Inevitable Judgement make the endgame switch meaningfully better after Uber Lab."
+    },
+    {
+      "final_skill": "Penance Brand",
+      "leveling_skill": "Storm Brand",
+      "class": "Templar",
+      "ascendancy": "Inquisitor",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Storm Brand",
+      "leveling_skill": "Rolling Magma",
+      "class": "Templar",
+      "transition_point": "specific_level",
+      "weight": 4
+    },
+    {
+      "final_skill": "Spark",
+      "leveling_skill": "Spark",
+      "class": "Witch",
+      "transition_point": "none",
+      "weight": 4
+    },
+    {
+      "final_skill": "Arc",
+      "leveling_skill": "Spark",
+      "class": "Witch",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Ice Nova",
+      "leveling_skill": "Frostbolt",
+      "class": "Witch",
+      "transition_point": "maps_entry"
+    },
+    {
+      "final_skill": "Vortex",
+      "leveling_skill": "Frostbolt",
+      "class": "Witch",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Detonate Dead",
+      "leveling_skill": "Rolling Magma",
+      "class": "Witch",
+      "transition_point": "maps_entry"
+    },
+    {
+      "final_skill": "Righteous Fire",
+      "leveling_skill": "Holy Flame Totem",
+      "class": "Templar",
+      "ascendancy": "Chieftain",
+      "transition_point": "maps_entry",
+      "weight": 6
+    },
+    {
+      "final_skill": "Righteous Fire",
+      "leveling_skill": "Armageddon Brand",
+      "class": "Templar",
+      "transition_point": "maps_entry"
+    },
+    {
+      "final_skill": "Toxic Rain",
+      "leveling_skill": "Caustic Arrow",
+      "class": "Ranger",
+      "transition_point": "specific_level",
+      "weight": 6
+    },
+    {
+      "final_skill": "Lightning Arrow",
+      "leveling_skill": "Rain of Arrows",
+      "class": "Ranger",
+      "transition_point": "maps_entry",
+      "weight": 6
+    },
+    {
+      "final_skill": "Lightning Arrow",
+      "leveling_skill": "Galvanic Arrow",
+      "class": "Ranger",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Tornado Shot",
+      "leveling_skill": "Rain of Arrows",
+      "class": "Ranger",
+      "transition_point": "maps_entry"
+    },
+    {
+      "final_skill": "Scourge Arrow",
+      "leveling_skill": "Caustic Arrow",
+      "class": "Ranger",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Cyclone",
+      "leveling_skill": "Sunder",
+      "class": "Marauder",
+      "ascendancy": "Slayer",
+      "transition_point": "act_complete",
+      "weight": 6
+    },
+    {
+      "final_skill": "Cyclone",
+      "leveling_skill": "Cleave",
+      "class": "Marauder",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Earthquake",
+      "leveling_skill": "Ground Slam",
+      "class": "Marauder",
+      "transition_point": "specific_level"
+    },
+    {
+      "final_skill": "Lacerate",
+      "leveling_skill": "Cleave",
+      "class": "Duelist",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Bladestorm",
+      "leveling_skill": "Perforate",
+      "class": "Duelist",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Lightning Strike",
+      "leveling_skill": "Spectral Helix",
+      "class": "Duelist",
+      "transition_point": "maps_entry",
+      "weight": 6
+    },
+    {
+      "final_skill": "Frost Blades",
+      "leveling_skill": "Spectral Helix",
+      "class": "Duelist",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Blade Vortex",
+      "leveling_skill": "Spark",
+      "class": "Shadow",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Explosive Trap",
+      "leveling_skill": "Explosive Trap",
+      "class": "Shadow",
+      "transition_point": "none",
+      "weight": 4
+    },
+    {
+      "final_skill": "Pyroclast Mine",
+      "leveling_skill": "Stormblast Mine",
+      "class": "Shadow",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Icicle Mine",
+      "leveling_skill": "Stormblast Mine",
+      "class": "Shadow",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Essence Drain",
+      "leveling_skill": "Blight",
+      "class": "Witch",
+      "ascendancy": "Occultist",
+      "transition_point": "specific_level"
+    },
+    {
+      "final_skill": "Bane",
+      "leveling_skill": "Essence Drain",
+      "class": "Witch",
+      "ascendancy": "Occultist",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Summon Skeletons",
+      "leveling_skill": "Summon Raging Spirit",
+      "class": "Witch",
+      "ascendancy": "Necromancer",
+      "transition_point": "maps_entry",
+      "weight": 6
+    },
+    {
+      "final_skill": "Raise Spectre",
+      "leveling_skill": "Summon Raging Spirit",
+      "class": "Witch",
+      "ascendancy": "Necromancer",
+      "transition_point": "maps_entry",
+      "weight": 6
+    },
+    {
+      "final_skill": "Raise Zombie",
+      "leveling_skill": "Summon Raging Spirit",
+      "class": "Witch",
+      "ascendancy": "Necromancer",
+      "transition_point": "act_complete"
+    },
+    {
+      "final_skill": "Absolution",
+      "leveling_skill": "Absolution",
+      "class": "Templar",
+      "transition_point": "none",
+      "weight": 4
+    },
+    {
+      "final_skill": "Herald of Purity",
+      "leveling_skill": "Absolution",
+      "class": "Templar",
+      "ascendancy": "Guardian",
+      "transition_point": "maps_entry"
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathcraft-ai.local/schema/poe1_build_variant_model_v2.schema.json",
+  "title": "POE1 Build Variant Model V2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dataset_kind",
+    "archetypes"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "dataset_kind": {
+      "const": "poe1_build_variant_model_v2"
+    },
+    "archetypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/archetype"
+      }
+    }
+  },
+  "$defs": {
+    "evidenceItem": {
+      "type": "object",
+      "required": [
+        "type",
+        "label"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "pob",
+            "video_transcript",
+            "video_description",
+            "poe_ninja",
+            "forum_guide",
+            "manual_curated"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "local_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "phaseState": {
+      "type": "object",
+      "required": [
+        "phase_id",
+        "phase_type",
+        "main_skill",
+        "summary"
+      ],
+      "properties": {
+        "phase_id": {
+          "type": "string"
+        },
+        "phase_type": {
+          "enum": [
+            "campaign",
+            "maps_entry",
+            "early_endgame",
+            "mid_endgame",
+            "late_endgame",
+            "mirror_endgame"
+          ]
+        },
+        "level_range": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "main_skill": {
+          "type": "string"
+        },
+        "support_links": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "auras": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "defense_checkpoint": {
+          "type": "object",
+          "properties": {
+            "life": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "energy_shield": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "resists": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "variant": {
+      "type": "object",
+      "required": [
+        "variant_id",
+        "budget_tier",
+        "gear_package_id",
+        "aura_package_id",
+        "cluster_package_id",
+        "content_specialization",
+        "phase_states"
+      ],
+      "properties": {
+        "variant_id": {
+          "type": "string"
+        },
+        "budget_tier": {
+          "enum": [
+            "starter",
+            "budget",
+            "mid",
+            "high_end",
+            "mirror"
+          ]
+        },
+        "entry_cost_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gear_package_id": {
+          "type": "string"
+        },
+        "aura_package_id": {
+          "type": "string"
+        },
+        "cluster_package_id": {
+          "type": "string"
+        },
+        "content_specialization": {
+          "enum": [
+            "generic",
+            "bossing",
+            "mapping",
+            "delve",
+            "sanctum",
+            "heist",
+            "boss_rush",
+            "valdo"
+          ]
+        },
+        "split_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidenceItem"
+          }
+        },
+        "phase_states": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/phaseState"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "subArchetype": {
+      "type": "object",
+      "required": [
+        "sub_archetype_id",
+        "damage_engine",
+        "defense_engine",
+        "core_unique_gate",
+        "tree_shape_class",
+        "play_pattern",
+        "variants"
+      ],
+      "properties": {
+        "sub_archetype_id": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "damage_engine": {
+          "type": "string"
+        },
+        "defense_engine": {
+          "type": "string"
+        },
+        "core_unique_gate": {
+          "type": "string"
+        },
+        "tree_shape_class": {
+          "type": "string"
+        },
+        "play_pattern": {
+          "type": "string"
+        },
+        "forced_split_reason": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidenceItem"
+          }
+        },
+        "variants": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/variant"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "archetype": {
+      "type": "object",
+      "required": [
+        "archetype_id",
+        "patch",
+        "class",
+        "ascendancy",
+        "sub_archetypes"
+      ],
+      "properties": {
+        "archetype_id": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "patch": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "ascendancy": {
+          "type": "string"
+        },
+        "role_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sub_archetypes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/subArchetype"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

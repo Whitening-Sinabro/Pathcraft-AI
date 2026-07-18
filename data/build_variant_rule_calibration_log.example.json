@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "build_variant_rule_calibration_log",
+  "entries": [
+    {
+      "timestamp": "2026-07-08T09:50:00+07:00",
+      "profile_name": "strict_default",
+      "rule_name": "variant_package_delta_threshold",
+      "old_value": 2,
+      "new_value": 2,
+      "reason": "bootstrap baseline before real labeled cases",
+      "evidence_case_ids": [
+        "seed_strength_stacker_jugg_3_28"
+      ],
+      "operator": "codex"
+    },
+    {
+      "timestamp": "2026-07-08T10:48:00+07:00",
+      "profile_name": "strict_default",
+      "rule_name": "damage_engine_label_granularity",
+      "old_value": "arc vs ball lightning represented as different engine labels",
+      "new_value": "both normalized to lightning spell hit when play pattern/tree/defense remain same",
+      "reason": "strict classifier over-split same-engine progression in 3.26_ball_lightning_caster_v1",
+      "evidence_case_ids": [
+        "3.26_ball_lightning_caster_v1"
+      ],
+      "operator": "codex"
+    }
+  ]
+}

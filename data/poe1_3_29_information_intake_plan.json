@@ -1,0 +1,215 @@
+{
+  "dataset_kind": "poe1_3_29_information_intake_plan",
+  "schema_version": 1,
+  "patch": "3.29.0",
+  "league": "Curse of the Allflame",
+  "objective": "Minimize time-to-detection while keeping promotion confidence separated from raw collection speed.",
+  "principle": "Collect aggressively, promote conservatively. Official/GGPK data can change effective rules; economy/community data can only raise watch priority until crosschecked.",
+  "league_name_candidates": [
+    "Allflame",
+    "Curse of the Allflame",
+    "Curse",
+    "Standard",
+    "Hardcore"
+  ],
+  "latency_targets": {
+    "official_patch_or_hotfix_detection_minutes": 5,
+    "ggpk_client_update_detection_minutes": 2,
+    "poe_ninja_economy_refresh_minutes_first_48h": 15,
+    "pob_support_probe_minutes_first_48h": 30,
+    "reddit_build_signal_minutes_first_week": 30,
+    "youtube_build_signal_minutes_first_week": 120,
+    "manual_user_sample_ingest_minutes": 5
+  },
+  "intake_tracks": [
+    {
+      "id": "official_patch_forum",
+      "tier": 0,
+      "family": "official",
+      "source": "pathofexile.com/forum/view-forum/patch-notes",
+      "cadence": "5m pre-launch and launch week; 2m during known patch/hotfix windows",
+      "command": "python python\\patch_note_scraper.py --collect --pages 1",
+      "followup_command": "python python\\patch_note_scraper.py --derive-version 3.29.0",
+      "promotion_power": "Can create or supersede patch-note overlays. GGPK still needed for implementation confirmation.",
+      "last_success_path": "data/patch_notes/patch_index.json",
+      "output_paths": [
+        "data/patch_notes/patch_3_29_0.json",
+        "data/patch_notes/summary_3_29_0.json",
+        "data/patch_notes/poe1_3_29_0_patch_delta_index.json",
+        "data/patch_notes/poe1_3_29_0_early_patch_adjustment_policy.json"
+      ]
+    },
+    {
+      "id": "official_league_page",
+      "tier": 0,
+      "family": "official",
+      "source": "pathofexile.com/allflame",
+      "cadence": "15m around reveal/launch, then daily until week 2",
+      "command": "manual or browser capture into season research DB",
+      "promotion_power": "Can update league mechanic facts, but not drop rates or economy ranking.",
+      "last_success_path": "data/poe1_season_research_3_29_allflame_live.json",
+      "output_paths": [
+        "data/poe1_season_research_3_29_allflame_live.json",
+        "data/poe1_3_29_global_review.json"
+      ]
+    },
+    {
+      "id": "ggpk_client_snapshot",
+      "tier": 0,
+      "family": "local_implementation",
+      "source": "local Content.ggpk / exported data/game_data tables",
+      "cadence": "event-triggered; poll client file mtime every 2m while game is patching",
+      "command": "python python\\ggpk_index.py --write-catalog data\\db_catalog.json --hash",
+      "promotion_power": "Implementation truth for changed rows after table diff. Supersedes patch-note text only for matched entity/stat.",
+      "last_success_path": "data/db_catalog.json",
+      "output_paths": [
+        "data/db_catalog.json",
+        "data/ggpk_derived/poe1_item_mod_derivation_manifest.json",
+        "data/ggpk_derived/poe1_mod_stat_index.json",
+        "data/ggpk_derived/poe1_item_tag_index.json"
+      ],
+      "required_next_automation": "Add versioned GGPK snapshot manifest and table diff writer once the 3.29 client extract is available."
+    },
+    {
+      "id": "pob_support_probe",
+      "tier": 1,
+      "family": "tooling",
+      "source": "Path of Building / pobb.in / local PoB XML parsing",
+      "cadence": "30m first 48h after launch, then 2h while PoB is catching up",
+      "command": "python python\\build_corpus_pob_link_probe.py",
+      "promotion_power": "Can confirm whether builds parse and whether interactions are modelled; cannot override GGPK facts.",
+      "last_success_path": "data/build_corpus_pob_link_probe.latest.json",
+      "output_paths": [
+        "data/build_corpus_pob_link_probe.latest.json",
+        "data/build_corpus_promoted_instances.latest.json"
+      ]
+    },
+    {
+      "id": "poe_ninja_economy",
+      "tier": 1,
+      "family": "economy",
+      "source": "poe.ninja itemoverview/buildoverview",
+      "cadence": "15m first 48h, 60m week 1, 6h after week 1",
+      "command": "python python\\poe_ninja_fetcher.py --show-leagues; python python\\poe_ninja_fetcher.py --collect --no-images --no-builds --league <detected league>",
+      "promotion_power": "Can price/rank item access and farming rewards. Cannot validate mechanics by itself.",
+      "last_success_path": "python/game_data/poe_ninja_metadata.json",
+      "output_paths": [
+        "python/game_data/poe_ninja_metadata.json",
+        "python/game_data/currency.json",
+        "python/game_data/fragments.json",
+        "python/game_data/fossils.json",
+        "python/game_data/scarabs.json",
+        "python/game_data/skill_gems.json",
+        "python/game_data/unique_accessories.json"
+      ]
+    },
+    {
+      "id": "build_source_search",
+      "tier": 2,
+      "family": "community_search",
+      "source": "Bing RSS over Reddit, official forum guides, Maxroll, PoE Vault, Icy Veins",
+      "cadence": "30m first week for watchlist candidates",
+      "command": "python python\\build_variant_live_source_probe.py",
+      "promotion_power": "Can discover build guide candidates and POB links; needs deterministic parsing and source crosscheck before promotion.",
+      "last_success_path": "data/build_variant_live_source_probe.latest.json",
+      "output_paths": [
+        "data/build_variant_live_source_probe.latest.json",
+        "data/build_variant_research_queue.latest.json"
+      ]
+    },
+    {
+      "id": "manual_pob_and_user_samples",
+      "tier": 2,
+      "family": "manual_fastlane",
+      "source": "User pasted PoB, Discord reports, streamer PoBs, direct sample XML",
+      "cadence": "immediate when pasted; batch every 5m during active session",
+      "command": "python python\\recommend_from_pob.py --pob-url <url>",
+      "promotion_power": "Fastest practical build evidence, but must remain sample-scoped until multiple sources or live metrics agree.",
+      "last_success_path": "data/samples/recommendation_runner_sample.xml",
+      "output_paths": [
+        "data/builds/",
+        "data/build_corpus_manual_pob_sources_v1.json"
+      ]
+    },
+    {
+      "id": "live_map_measurements",
+      "tier": 1,
+      "family": "player_measurement",
+      "source": "Recorded map time, death count, atlas points, loot sample, mechanic branch",
+      "cadence": "after every 5 to 10 maps for active experiments",
+      "command": "manual sample append until tracker UI exists",
+      "promotion_power": "Required for farming strategy promotion. Economy price without map-time is not enough.",
+      "last_success_path": "data/poe1_3_29_live_validation_queue.json",
+      "output_paths": [
+        "data/poe1_3_29_live_validation_queue.json"
+      ]
+    }
+  ],
+  "promotion_gates": [
+    {
+      "name": "mechanic_truth",
+      "required_layers": [
+        "official_patch_forum",
+        "ggpk_client_snapshot"
+      ],
+      "rule": "Mechanic/stat claims need official text plus GGPK row confirmation after client update."
+    },
+    {
+      "name": "build_viability",
+      "required_layers": [
+        "mechanic_truth",
+        "pob_support_probe",
+        "manual_pob_and_user_samples"
+      ],
+      "rule": "Builds can stay watchlist from one source, but need parseable PoB and at least one real gear/tree sample before promotion."
+    },
+    {
+      "name": "farming_recommendation",
+      "required_layers": [
+        "official_patch_forum",
+        "poe_ninja_economy",
+        "live_map_measurements"
+      ],
+      "rule": "Farming advice needs reward signal plus run-time/death-rate sample. Price alone is not enough."
+    },
+    {
+      "name": "community_hype_filter",
+      "required_layers": [
+        "build_source_search",
+        "pob_support_probe",
+        "poe_ninja_economy"
+      ],
+      "rule": "Community hype can raise priority, but not final recommendation confidence without deterministic and economy crosschecks."
+    }
+  ],
+  "fastlane_commands": [
+    {
+      "name": "patch_fast_refresh",
+      "commands": [
+        "python python\\patch_note_scraper.py --collect --pages 1",
+        "python python\\patch_note_scraper.py --derive-version 3.29.0",
+        "python python\\ggpk_index.py --write-catalog data\\db_catalog.json --hash"
+      ]
+    },
+    {
+      "name": "launch_economy_refresh",
+      "commands": [
+        "python python\\poe_ninja_fetcher.py --show-leagues",
+        "python python\\poe_ninja_fetcher.py --collect --no-images --no-builds --league <detected league>"
+      ]
+    },
+    {
+      "name": "build_signal_refresh",
+      "commands": [
+        "python python\\build_variant_live_source_probe.py",
+        "python python\\build_corpus_pob_link_probe.py"
+      ]
+    }
+  ],
+  "coach_rules": [
+    "Always separate detection speed from promotion confidence.",
+    "Prefer official/GGPK for mechanics, poe.ninja for access/economy, PoB for model support, and measured maps for farming viability.",
+    "If a source is stale beyond its latency target, say which layer is stale instead of hiding uncertainty.",
+    "During launch week, ask for or ingest user PoBs/map samples immediately because manual samples can beat public indexes."
+  ]
+}

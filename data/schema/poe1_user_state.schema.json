@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathcraft-ai.local/schema/poe1_user_state.schema.json",
+  "title": "POE1 User State",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dataset_kind",
+    "character_state",
+    "currency_state",
+    "preferences",
+    "constraints"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "dataset_kind": {
+      "const": "poe1_user_state"
+    },
+    "character_state": {
+      "$ref": "#/$defs/characterState"
+    },
+    "currency_state": {
+      "$ref": "#/$defs/currencyState"
+    },
+    "preferences": {
+      "$ref": "#/$defs/preferences"
+    },
+    "constraints": {
+      "$ref": "#/$defs/constraints"
+    }
+  },
+  "$defs": {
+    "characterState": {
+      "type": "object",
+      "required": [
+        "patch",
+        "class_name",
+        "ascendancy",
+        "level",
+        "character_locked"
+      ],
+      "properties": {
+        "patch": {
+          "type": "string"
+        },
+        "class_name": {
+          "type": "string"
+        },
+        "ascendancy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "character_locked": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "currencyState": {
+      "type": "object",
+      "required": [
+        "liquid_divines",
+        "liquid_chaos",
+        "owned_uniques"
+      ],
+      "properties": {
+        "liquid_divines": {
+          "type": "number",
+          "minimum": 0
+        },
+        "liquid_chaos": {
+          "type": "number",
+          "minimum": 0
+        },
+        "owned_uniques": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "can_self_link_5l": {
+          "type": "boolean"
+        },
+        "can_self_craft_basic_rares": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "preferences": {
+      "type": "object",
+      "required": [
+        "desired_main_skill",
+        "max_input_style",
+        "target_contents",
+        "trade_mode"
+      ],
+      "properties": {
+        "desired_main_skill": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "max_input_style": {
+          "enum": [
+            "0_button",
+            "1_click",
+            "1_click_plus_movement",
+            "2_button",
+            "multi_button"
+          ]
+        },
+        "target_contents": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "mapping",
+              "bossing",
+              "sanctum",
+              "heist",
+              "expedition",
+              "simulacrum"
+            ]
+          }
+        },
+        "trade_mode": {
+          "enum": [
+            "trade_league_start",
+            "trade_mid_league",
+            "ssf",
+            "twink"
+          ]
+        },
+        "death_tolerance": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "respec_tolerance_points": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "must_use_skill": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "forbidden_skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "require_confirmed_leveling": {
+          "type": "boolean"
+        },
+        "forbid_reroll": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

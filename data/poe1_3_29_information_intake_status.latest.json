@@ -1,0 +1,165 @@
+{
+  "dataset_kind": "poe1_3_29_information_intake_status",
+  "generated_at": "2026-07-17T00:19:45.544206+00:00",
+  "plan_path": "data/poe1_3_29_information_intake_plan.json",
+  "patch": "3.29.0",
+  "league": "Curse of the Allflame",
+  "summary": {
+    "track_count": 8,
+    "fresh": 0,
+    "stale": 1,
+    "overdue": 6,
+    "missing": 1
+  },
+  "tracks": [
+    {
+      "id": "official_patch_forum",
+      "tier": 0,
+      "family": "official",
+      "freshness": "overdue",
+      "age_minutes": 18.78,
+      "target_minutes": 5,
+      "last_success_path": "data/patch_notes/patch_index.json",
+      "command": "python python\\patch_note_scraper.py --collect --pages 1",
+      "promotion_power": "Can create or supersede patch-note overlays. GGPK still needed for implementation confirmation."
+    },
+    {
+      "id": "official_league_page",
+      "tier": 0,
+      "family": "official",
+      "freshness": "stale",
+      "age_minutes": 40.97,
+      "target_minutes": 15,
+      "last_success_path": "data/poe1_season_research_3_29_allflame_live.json",
+      "command": "manual or browser capture into season research DB",
+      "promotion_power": "Can update league mechanic facts, but not drop rates or economy ranking."
+    },
+    {
+      "id": "ggpk_client_snapshot",
+      "tier": 0,
+      "family": "local_implementation",
+      "freshness": "overdue",
+      "age_minutes": 9.58,
+      "target_minutes": 2,
+      "last_success_path": "data/db_catalog.json",
+      "command": "python python\\ggpk_index.py --write-catalog data\\db_catalog.json --hash",
+      "promotion_power": "Implementation truth for changed rows after table diff. Supersedes patch-note text only for matched entity/stat."
+    },
+    {
+      "id": "pob_support_probe",
+      "tier": 1,
+      "family": "tooling",
+      "freshness": "overdue",
+      "age_minutes": 490.53,
+      "target_minutes": 30,
+      "last_success_path": "data/build_corpus_pob_link_probe.latest.json",
+      "command": "python python\\build_corpus_pob_link_probe.py",
+      "promotion_power": "Can confirm whether builds parse and whether interactions are modelled; cannot override GGPK facts."
+    },
+    {
+      "id": "poe_ninja_economy",
+      "tier": 1,
+      "family": "economy",
+      "freshness": "missing",
+      "age_minutes": null,
+      "target_minutes": 15,
+      "last_success_path": "python/game_data/poe_ninja_metadata.json",
+      "command": "python python\\poe_ninja_fetcher.py --show-leagues; python python\\poe_ninja_fetcher.py --collect --no-images --no-builds --league <detected league>",
+      "promotion_power": "Can price/rank item access and farming rewards. Cannot validate mechanics by itself."
+    },
+    {
+      "id": "build_source_search",
+      "tier": 2,
+      "family": "community_search",
+      "freshness": "overdue",
+      "age_minutes": 12027.0,
+      "target_minutes": 30,
+      "last_success_path": "data/build_variant_live_source_probe.latest.json",
+      "command": "python python\\build_variant_live_source_probe.py",
+      "promotion_power": "Can discover build guide candidates and POB links; needs deterministic parsing and source crosscheck before promotion."
+    },
+    {
+      "id": "manual_pob_and_user_samples",
+      "tier": 2,
+      "family": "manual_fastlane",
+      "freshness": "overdue",
+      "age_minutes": 11499.81,
+      "target_minutes": 5,
+      "last_success_path": "data/samples/recommendation_runner_sample.xml",
+      "command": "python python\\recommend_from_pob.py --pob-url <url>",
+      "promotion_power": "Fastest practical build evidence, but must remain sample-scoped until multiple sources or live metrics agree."
+    },
+    {
+      "id": "live_map_measurements",
+      "tier": 1,
+      "family": "player_measurement",
+      "freshness": "overdue",
+      "age_minutes": 30.11,
+      "target_minutes": 10,
+      "last_success_path": "data/poe1_3_29_live_validation_queue.json",
+      "command": "manual sample append until tracker UI exists",
+      "promotion_power": "Required for farming strategy promotion. Economy price without map-time is not enough."
+    }
+  ],
+  "fastlane_commands": [
+    {
+      "name": "patch_fast_refresh",
+      "commands": [
+        "python python\\patch_note_scraper.py --collect --pages 1",
+        "python python\\patch_note_scraper.py --derive-version 3.29.0",
+        "python python\\ggpk_index.py --write-catalog data\\db_catalog.json --hash"
+      ]
+    },
+    {
+      "name": "launch_economy_refresh",
+      "commands": [
+        "python python\\poe_ninja_fetcher.py --show-leagues",
+        "python python\\poe_ninja_fetcher.py --collect --no-images --no-builds --league <detected league>"
+      ]
+    },
+    {
+      "name": "build_signal_refresh",
+      "commands": [
+        "python python\\build_variant_live_source_probe.py",
+        "python python\\build_corpus_pob_link_probe.py"
+      ]
+    }
+  ],
+  "promotion_gates": [
+    {
+      "name": "mechanic_truth",
+      "required_layers": [
+        "official_patch_forum",
+        "ggpk_client_snapshot"
+      ],
+      "rule": "Mechanic/stat claims need official text plus GGPK row confirmation after client update."
+    },
+    {
+      "name": "build_viability",
+      "required_layers": [
+        "mechanic_truth",
+        "pob_support_probe",
+        "manual_pob_and_user_samples"
+      ],
+      "rule": "Builds can stay watchlist from one source, but need parseable PoB and at least one real gear/tree sample before promotion."
+    },
+    {
+      "name": "farming_recommendation",
+      "required_layers": [
+        "official_patch_forum",
+        "poe_ninja_economy",
+        "live_map_measurements"
+      ],
+      "rule": "Farming advice needs reward signal plus run-time/death-rate sample. Price alone is not enough."
+    },
+    {
+      "name": "community_hype_filter",
+      "required_layers": [
+        "build_source_search",
+        "pob_support_probe",
+        "poe_ninja_economy"
+      ],
+      "rule": "Community hype can raise priority, but not final recommendation confidence without deterministic and economy crosschecks."
+    }
+  ]
+}

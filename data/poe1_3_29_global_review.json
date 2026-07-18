@@ -1,0 +1,284 @@
+{
+  "dataset_kind": "poe1_3_29_global_review",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-17",
+  "patch": "3.29",
+  "league": "Curse of the Allflame",
+  "status": "patch_notes_and_wiki_crosschecked_pre_launch",
+  "launch_window": "2026-07-24 PDT",
+  "sources": [
+    {
+      "id": "official_329_patch_notes",
+      "type": "official",
+      "url": "https://www.pathofexile.com/forum/view-thread/3985332",
+      "usage": "primary source for Allflame, Mercenaries core, gems, sockets, Atlas, passive tree, item and reward changes"
+    },
+    {
+      "id": "official_allflame_page",
+      "type": "official",
+      "url": "https://www.pathofexile.com/allflame",
+      "usage": "official expansion feature page"
+    },
+    {
+      "id": "official_reliquarian_329",
+      "type": "official",
+      "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+      "usage": "official Reliquarian second-ascendancy context"
+    },
+    {
+      "id": "poewiki_scion",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Scion",
+      "usage": "Scion page lists Ascendant, Reliquarian, and Luminary"
+    },
+    {
+      "id": "poewiki_luminary",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Luminary",
+      "usage": "Luminary page describes permanent Mercenary gearing"
+    },
+    {
+      "id": "poewiki_reliquarian",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Reliquarian",
+      "usage": "Reliquarian page describes unique-item-effect Scion ascendancy structure"
+    },
+    {
+      "id": "poewiki_mercenary",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Mercenary",
+      "usage": "Mercenary page describes permanent Mercenary restrictions and Luminary/Noble Blood link"
+    },
+    {
+      "id": "poewiki_chart",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Chart",
+      "usage": "Chart page crosschecks Deepwater/Voyage loop terms"
+    },
+    {
+      "id": "poewiki_ducat",
+      "type": "community_wiki_crosscheck",
+      "url": "https://www.poewiki.net/wiki/Ducat",
+      "usage": "Ducat page crosschecks Allflame crafting reward terms"
+    }
+  ],
+  "lenses": {
+    "coverage_lens": {
+      "required_axes": [
+        "league_loop",
+        "ascendancy_and_bloodline",
+        "mercenary_system",
+        "skill_and_support_gems",
+        "socket_and_crafting",
+        "atlas_and_endgame",
+        "economy_and_rewards",
+        "build_archetype_impact",
+        "new_player_friction"
+      ],
+      "coverage_state": "all_axes_have_patch_notes_or_wiki_evidence",
+      "non_goal": "This is not a meta tier list and does not mark any build solved before launch data and PoB updates."
+    },
+    "league_loop_lens": {
+      "facts": [
+        "Curse of the Allflame uses Charts found across Wraeclast to board The Sovereign and explore the ocean floor.",
+        "Lanterns imbued with the Allflame protect the player during ocean-floor exploration.",
+        "Completed charting can be connected into a Voyage, revisiting chart rewards and amplifying them.",
+        "The ship heart can split an input item into multiple ghostly outcomes, one of which can be kept.",
+        "Ducats found on the seafloor are used to warp and twist items in new ways.",
+        "PoEWiki Chart and Ducat pages already expose Allflame terms such as Chart, Voyage, Deepwater, Ducats, and Allflame crafting."
+      ],
+      "poe_wide_implications": [
+        "Early league strategy should measure Chart acquisition rate, Voyage time per reward, and danger level before calling it a primary farm.",
+        "The item-splitting/ghostly-outcome loop and Ducats create a new crafting/economy layer that can affect rare item planning.",
+        "Builds with stable recovery, mobility, and low setup time should be safer first testers for ocean-floor content."
+      ]
+    },
+    "ascendancy_and_bloodline_lens": {
+      "facts": [
+        "Scion must be treated as three-way branching: Ascendant, Reliquarian, and Luminary.",
+        "Reliquarian is a Scion ascendancy whose major nodes integrate effects from unique items and change by league.",
+        "Luminary is a Scion ascendancy that permanently hires and gears Mercenaries.",
+        "3.29 introduces two new Bloodline Classes, one exclusive to Curse of the Allflame.",
+        "Bloodline ascendancy classes are secondary ascendancies that can be taken alongside a character's usual ascendancy and share ascendancy passive points."
+      ],
+      "poe_wide_implications": [
+        "Scion analysis cannot be collapsed into one recommendation. Ascendant, Reliquarian, and Luminary need separate tree, item, and role models.",
+        "Bloodline systems introduce opportunity cost against regular ascendancy points, so build power must include point pressure.",
+        "Reliquarian is item-effect research; Luminary is ally/equipment-state research. Mixing them without a live PoB is a modeling error."
+      ]
+    },
+    "mercenary_system_lens": {
+      "facts": [
+        "Mercenaries of Trarthus are core in 3.29.",
+        "A Mercenary does not count as a player party member for monster life or item quantity/rarity scaling.",
+        "Luminary can permanently hire up to 3 Mercenaries, with 2 in reserve and 1 active combat ally.",
+        "Luminary can change the items equipped by permanently hired Mercenaries.",
+        "Trarthan Gems return to Mercenary encounters rather than Heist Gem Chests.",
+        "Mercenary-exclusive uniques are again obtained through Mercenary encounters and removed from the core drop pool.",
+        "Mercenaries receive Atlas passive support and a series of Trarthan Scarabs."
+      ],
+      "poe_wide_implications": [
+        "The build model needs a separate Mercenary state: active ally, two reserves, gear, role, and survivability.",
+        "Mercenary farming becomes its own Atlas/scarab branch, not just a Scion feature.",
+        "Trade economy for Trarthan Gems, Mercenary-exclusive uniques, and Trarthan Scarabs should be tracked after launch."
+      ]
+    },
+    "skill_and_support_gem_lens": {
+      "facts": [
+        "Pact of Beidat empowers projectile, targeted-area, or chaining-beam spells while applying an Affliction.",
+        "Pact of Ghorr empowers damage-over-time spells, applies an Affliction, and grants Hunger of Ghorr/Fleshrend behavior.",
+        "Pact of K'tash empowers damaging Vaal spells, applies an Affliction, reduces soul gain prevention, and refunds souls on use.",
+        "Pact of Lycia empowers self-cast channelling spells, applies an Affliction, and triggers lightning bolts while channelling.",
+        "Coursing Currents is an Exceptional Support for hit skills that links chill and shock behavior.",
+        "Crystalfall is an Exceptional Support that triggers Falling Crystal on hit and supports Slam skills, but cannot support triggered skills or skills used by things other than you.",
+        "New or transfigured skills include Mana-Infused Staff, Divine Blast of Radiance, Holy Hammers of Spirals, Holy Sweep of Hammerfalls, and Reap of Butchery."
+      ],
+      "poe_wide_implications": [
+        "DoT spell, channelling, Vaal spell, slam, staff/block, spell crit, and strength/int archetypes need retesting.",
+        "Blight of Contagion is a retest candidate because it intersects DoT and channelling lenses, but it is not a solved recommendation.",
+        "Crystalfall creates a strict self-used slam lane because it excludes triggered or non-player-used skills."
+      ]
+    },
+    "socket_and_crafting_lens": {
+      "facts": [
+        "Gems can now be socketed into any equipment socket even when gem colour does not match socket colour.",
+        "Socketed gems gain +10% quality in red, green, and blue sockets if the gem colour matches the socket colour.",
+        "Item sockets are white by default, with non-white socket chances scaling by item level and attribute requirements.",
+        "Chromatic Orbs and Tainted Chromatic Orbs now force one socket to be non-white while the rest roll normally.",
+        "Currency that adds sockets creates added sockets as white.",
+        "Chromatic Orbs are rarer and are no longer sold by vendors for Jeweller's Orbs.",
+        "Bench colour crafts changed to non-white socket count crafts."
+      ],
+      "poe_wide_implications": [
+        "Gem colour friction is lower, but non-white matching colour becomes an optimization and economy problem.",
+        "Loot filters and crafting advice need to distinguish white-socket baseline from valuable non-white socket setups.",
+        "Old advice about off-colouring gear and Chromatic Orb availability needs revision."
+      ]
+    },
+    "atlas_and_endgame_lens": {
+      "facts": [
+        "Mercenaries of Trarthus receive Atlas passive and Trarthan Scarab support.",
+        "A new Altered Prophecy cluster can make Tier 14+ Maps drop Scrying Orbs.",
+        "Scrying Orbs store the source map and allow the Divination Cards of that map area to be scried to another Atlas map.",
+        "Legion splinter rewards are concentrated: Legion Generals drop more splinters, while non-Sergeant, non-General Legion monsters no longer drop Timeless Splinters.",
+        "Sergeants and Chests have lower splinter drop chance but higher stack sizes."
+      ],
+      "poe_wide_implications": [
+        "Atlas strategy must be refreshed for Mercenary, Scrying Orb, and Legion reward-source changes.",
+        "Legion farming should be evaluated around Generals/Sergeants/Chests rather than generic monster-clearing assumptions.",
+        "Scrying Orb introduces map/divination-card routing decisions that need live economy data."
+      ]
+    },
+    "economy_and_rewards_lens": {
+      "facts": [
+        "Allflame adds Ducats and Allflame crafting terms to the economy.",
+        "The league loop includes item transformation through the ship heart and ghostly outcomes.",
+        "Mercenary encounters regain Trarthan Gems and Mercenary-exclusive uniques.",
+        "Trarthan Scarabs directly modify Mercenary encounter access and reward shape.",
+        "Chromatic Orb scarcity and socket colour changes affect early gear setup costs.",
+        "Legion Timeless Splinter source changes alter expected reward distribution."
+      ],
+      "poe_wide_implications": [
+        "Launch-week tracking should record price/time for Ducats, Charts, Trarthan Scarabs, Trarthan Gems, Scrying Orbs, Chromatics, and Legion splinters.",
+        "Do not recommend high-invest farming before measuring map time, failure rate, and sellable outputs.",
+        "SSF advice should emphasize access routes, not trade prices."
+      ]
+    },
+    "build_archetype_impact_lens": [
+      {
+        "archetype": "chaos_dot_or_channeling",
+        "new_hooks": [
+          "Pact of Ghorr",
+          "Pact of Lycia",
+          "Blight of Contagion retest"
+        ],
+        "risk": "Affliction cost and channeling safety unknown until live/PoB data."
+      },
+      {
+        "archetype": "vaal_spell",
+        "new_hooks": [
+          "Pact of K'tash"
+        ],
+        "risk": "Soul gain prevention and soul refund behavior must be tested per skill."
+      },
+      {
+        "archetype": "slam_or_strength_int",
+        "new_hooks": [
+          "Crystalfall",
+          "Holy Hammers of Spirals",
+          "Holy Sweep of Hammerfalls"
+        ],
+        "risk": "Crystalfall excludes triggered/non-player-used skills; weapon and speed scaling constraints matter."
+      },
+      {
+        "archetype": "staff_block_spell",
+        "new_hooks": [
+          "Mana-Infused Staff",
+          "Inquisitor Instruments of Justice",
+          "staff spell crit modifier tier"
+        ],
+        "risk": "Needs itemization and actual defensive recovery checks."
+      },
+      {
+        "archetype": "scion_mercenary",
+        "new_hooks": [
+          "Luminary",
+          "Noble Blood",
+          "permanent Mercenary gear"
+        ],
+        "risk": "Mercenary AI, survivability, equipment restrictions, and role value need live testing."
+      },
+      {
+        "archetype": "scion_reliquarian",
+        "new_hooks": [
+          "Reliquarian unique-effect notables"
+        ],
+        "risk": "Must remain separate from Luminary; each unique-effect branch needs its own PoB validation."
+      }
+    ],
+    "new_player_friction_lens": {
+      "likely_friction_points": [
+        "Scion now has multiple branches and can be misunderstood as one generic recommendation.",
+        "Bloodline ascendancies share ascendancy passive points, so users may over-allocate or compare them like free bonuses.",
+        "White sockets reduce colour restriction but non-white sockets still matter for quality and economy.",
+        "Mercenary gear/skills are separate build state and should not be flattened into player gem links.",
+        "Allflame Chart/Voyage/Ducat terminology creates a new reward loop that beginners will not map to old Atlas habits."
+      ],
+      "pathcraft_required_output": [
+        "Ask which Scion branch is selected before recommending a Scion build.",
+        "Show player links and Mercenary setup separately.",
+        "Explain socket colour changes as lower access friction plus new non-white optimization.",
+        "Use early/mid/late farming gates based on measured map time, death rate, and reward output."
+      ]
+    },
+    "unresolved_lens": [
+      {
+        "id": "pre_launch_data_gap",
+        "severity": "high",
+        "rule": "Patch notes and wiki pages are available, but launch economy, encounter risk, and drop rates are not measured yet."
+      },
+      {
+        "id": "post_329_ggpk_required",
+        "severity": "high",
+        "rule": "New gems, Bloodline classes, Mercenary details, Allflame items, and passive updates require a fresh 3.29 GGPK extraction."
+      },
+      {
+        "id": "pob_required",
+        "severity": "high",
+        "rule": "No build should be promoted from watchlist to recommendation without PoB support for the relevant 3.29 mechanics."
+      },
+      {
+        "id": "poewiki_index_lag",
+        "severity": "medium",
+        "rule": "PoEWiki page bodies are updated, but some category/API index views can lag; prefer page-body revision evidence for Scion/Luminary verification."
+      }
+    ]
+  },
+  "coach_rules": [
+    "Use this file as a whole-patch context map, not as a build tier list.",
+    "For Scion, always branch into Ascendant, Reliquarian, or Luminary before giving build advice.",
+    "Keep Mercenary setup separate from player skill links.",
+    "Treat Allflame Chart/Voyage/Ducat farming as uncalibrated until live reward/time data exists.",
+    "Do not call Blight of Contagion, Reap of Butchery, Pact of Ghorr, or Pact of Lycia solved before PoB and live data."
+  ]
+}

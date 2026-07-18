@@ -1,0 +1,782 @@
+{
+  "dataset_kind": "poe1_representative_build_board",
+  "overall_counts": {
+    "confirmed": 15,
+    "near_confirmed": 14,
+    "hold": 6
+  },
+  "patches": [
+    {
+      "patch": "3.22",
+      "league_name": "Trial of the Ancestors",
+      "rows": [
+        {
+          "candidate_id": "3.22_shockwave_totems_hierophant",
+          "build_label": "Shockwave Totems Hierophant",
+          "archetype_id": "shockwave_totems_hierophant",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": false,
+          "recommendation_visibility": "practice_only",
+          "strict_verdict": "provisional_external_gap",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "single_external_family_only",
+            "missing_second_external_build_guide",
+            "single_source_only",
+            "patch_3_29_spell_totem_and_totem_scaling_guard"
+          ],
+          "forward_guard_note": "3.29 directly changes Spell Totem penalty, Ritual of Awakening, Totem mastery, and Shaman's Dominion; old totem PoBs are practice-only until refreshed."
+        },
+        {
+          "candidate_id": "3.22_boneshatter_juggernaut",
+          "build_label": "Boneshatter Juggernaut",
+          "archetype_id": "boneshatter_juggernaut",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.22_corrupting_fever_champion",
+          "build_label": "Corrupting Fever Champion",
+          "archetype_id": "corrupting_fever_champion",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.22_lightning_arrow_ranger",
+          "build_label": "Lightning Arrow Ranger",
+          "archetype_id": "lightning_arrow_deadeye",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.22_toxic_rain_ranger",
+          "build_label": "Toxic Rain Ranger",
+          "archetype_id": "toxic_rain_ranger",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "standard_only",
+          "guide_source_families": [
+            "maxroll"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "one_external_plus_support",
+            "missing_second_external_build_guide",
+            "single_external_plus_local_trace_only"
+          ]
+        }
+      ],
+      "counts": {
+        "confirmed": 3,
+        "near_confirmed": 2,
+        "hold": 0
+      }
+    },
+    {
+      "patch": "3.23",
+      "league_name": "Affliction",
+      "rows": [
+        {
+          "candidate_id": "3.23_lightning_arrow_ranger",
+          "build_label": "Lightning Arrow Ranger",
+          "archetype_id": "lightning_arrow_deadeye",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.23_hexblast_miner_saboteur",
+          "build_label": "Hexblast Miner Saboteur",
+          "archetype_id": "hexblast_miner_saboteur",
+          "status": "hold",
+          "status_ko": "보류",
+          "use_policy": "do_not_default",
+          "player_facing_default": false,
+          "recommendation_visibility": "hold",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass",
+            "post_3_26_hexblast_trigger_cooldown_guard"
+          ],
+          "forward_guard_note": "Hexblast Mines from 3.23/3.25 cannot be carried forward as a default recommendation after the 3.26 Hexblast cooldown change; 3.29 reduces the cooldown but still requires current PoB/live proof."
+        },
+        {
+          "candidate_id": "3.23_boneshatter_juggernaut",
+          "build_label": "Boneshatter Juggernaut",
+          "archetype_id": "boneshatter_juggernaut",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.23_ice_shot_deadeye",
+          "build_label": "Ice Shot Deadeye",
+          "archetype_id": "ice_shot_deadeye",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.23_shockwave_totems_hierophant",
+          "build_label": "Shockwave Totems Hierophant",
+          "archetype_id": "shockwave_totems_hierophant",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": false,
+          "recommendation_visibility": "practice_only",
+          "strict_verdict": "provisional_external_gap",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "single_external_family_only",
+            "missing_second_external_build_guide",
+            "single_source_only",
+            "patch_3_29_spell_totem_and_totem_scaling_guard"
+          ],
+          "forward_guard_note": "3.29 directly changes Spell Totem penalty, Ritual of Awakening, Totem mastery, and Shaman's Dominion; old totem PoBs are practice-only until refreshed."
+        }
+      ],
+      "counts": {
+        "confirmed": 3,
+        "near_confirmed": 1,
+        "hold": 1
+      }
+    },
+    {
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "rows": [
+        {
+          "candidate_id": "3.24_lightning_arrow_ranger",
+          "build_label": "Lightning Arrow Ranger",
+          "archetype_id": "lightning_arrow_deadeye",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.24_explosive_arrow_ballista_champion",
+          "build_label": "Explosive Arrow Ballista Champion",
+          "archetype_id": "explosive_arrow_ballista_champion",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": false,
+          "recommendation_visibility": "practice_only",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass",
+            "patch_3_29_ballista_totem_guard"
+          ],
+          "forward_guard_note": "3.29 increases Ballista Totem less-damage penalty; old Explosive Arrow Ballista PoBs are practice-only until refreshed."
+        },
+        {
+          "candidate_id": "3.24_detonate_dead_ignite_elementalist",
+          "build_label": "Detonate Dead Ignite Elementalist",
+          "archetype_id": "detonate_dead_caster",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.24_boneshatter_juggernaut",
+          "build_label": "Boneshatter Juggernaut",
+          "archetype_id": "boneshatter_juggernaut",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.24_exsanguinate_mine_trickster",
+          "build_label": "Exsanguinate Mine Trickster",
+          "archetype_id": "exsanguinate_mine_trickster",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": false,
+          "recommendation_visibility": "practice_only",
+          "strict_verdict": "provisional_external_gap",
+          "guide_source_families": [
+            "maxroll"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "single_external_family_only",
+            "missing_second_external_build_guide",
+            "single_source_only",
+            "patch_3_29_mine_support_guard"
+          ],
+          "forward_guard_note": "3.29 changes Blastchain Mine, High-Impact Mine, and Charged Mines cost/damage/throw-speed values; old mine PoBs are practice-only until refreshed."
+        }
+      ],
+      "counts": {
+        "confirmed": 4,
+        "near_confirmed": 1,
+        "hold": 0
+      }
+    },
+    {
+      "patch": "3.25",
+      "league_name": "Settlers of Kalguur",
+      "rows": [
+        {
+          "candidate_id": "3.25_lacerate_duelist",
+          "build_label": "Lacerate Duelist",
+          "archetype_id": "lacerate_duelist",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.25_lightning_arrow_ranger",
+          "build_label": "Lightning Arrow Ranger",
+          "archetype_id": "lightning_arrow_deadeye",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.25_boneshatter_juggernaut",
+          "build_label": "Boneshatter Juggernaut",
+          "archetype_id": "boneshatter_juggernaut",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        },
+        {
+          "candidate_id": "3.25_hexblast_miner_saboteur",
+          "build_label": "Hexblast Miner Saboteur",
+          "archetype_id": "hexblast_miner_saboteur",
+          "status": "hold",
+          "status_ko": "보류",
+          "use_policy": "do_not_default",
+          "player_facing_default": false,
+          "recommendation_visibility": "hold",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass",
+            "post_3_26_hexblast_trigger_cooldown_guard"
+          ],
+          "forward_guard_note": "Hexblast Mines from 3.23/3.25 cannot be carried forward as a default recommendation after the 3.26 Hexblast cooldown change; 3.29 reduces the cooldown but still requires current PoB/live proof."
+        },
+        {
+          "candidate_id": "3.25_lightning_strike_deadeye_or_warden",
+          "build_label": "Lightning Strike Deadeye or Warden",
+          "archetype_id": "lightning_strike_deadeye_or_warden",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "strict_confirmed",
+          "guide_source_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "strict_two_source_pass"
+          ]
+        }
+      ],
+      "counts": {
+        "confirmed": 4,
+        "near_confirmed": 0,
+        "hold": 1
+      }
+    },
+    {
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "rows": [
+        {
+          "candidate_id": "3.26_lightning_arrow_ranger",
+          "build_label": "Lightning Arrow Ranger",
+          "archetype_id": "lightning_arrow_deadeye",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "standard_only",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "one_external_plus_support",
+            "missing_second_external_build_guide",
+            "single_external_plus_local_trace_only"
+          ]
+        },
+        {
+          "candidate_id": "3.26_boneshatter_juggernaut",
+          "build_label": "Boneshatter Juggernaut",
+          "archetype_id": "boneshatter_juggernaut",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "provisional_external_gap",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "single_external_family_only",
+            "missing_second_external_build_guide",
+            "single_source_only"
+          ]
+        },
+        {
+          "candidate_id": "3.26_siege_ballista_hierophant",
+          "build_label": "Siege Ballista Hierophant",
+          "archetype_id": "siege_ballista_hierophant",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": false,
+          "recommendation_visibility": "practice_only",
+          "strict_verdict": "provisional_external_gap",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "single_external_family_only",
+            "missing_second_external_build_guide",
+            "single_source_only",
+            "patch_3_29_ballista_totem_guard"
+          ],
+          "forward_guard_note": "3.29 increases Ballista Totem less-damage penalty; old ballista PoBs are practice-only until refreshed."
+        },
+        {
+          "candidate_id": "3.26_ice_nova_caster",
+          "build_label": "Ice Nova Caster",
+          "archetype_id": "ice_nova_caster",
+          "status": "hold",
+          "status_ko": "보류",
+          "use_policy": "do_not_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "blocked_no_external_build_guide",
+          "guide_source_families": [],
+          "upgradeable_families": [],
+          "rationale": [
+            "no_external_guide_confirmed",
+            "missing_external_build_guide",
+            "local_trace_without_external_confirmation"
+          ]
+        },
+        {
+          "candidate_id": "3.26_ball_lightning_caster",
+          "build_label": "Ball Lightning Caster",
+          "archetype_id": "ball_lightning_caster",
+          "status": "hold",
+          "status_ko": "보류",
+          "use_policy": "do_not_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "blocked_no_external_build_guide",
+          "guide_source_families": [],
+          "upgradeable_families": [],
+          "rationale": [
+            "no_external_guide_confirmed",
+            "missing_external_build_guide",
+            "local_trace_without_external_confirmation"
+          ]
+        }
+      ],
+      "counts": {
+        "confirmed": 0,
+        "near_confirmed": 3,
+        "hold": 2
+      }
+    },
+    {
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "rows": [
+        {
+          "candidate_id": "3.27_lacerate_duelist",
+          "build_label": "Lacerate Duelist",
+          "archetype_id": "lacerate_duelist",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "standard_only",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "one_external_plus_support",
+            "missing_second_external_build_guide",
+            "single_external_plus_local_trace_only"
+          ]
+        },
+        {
+          "candidate_id": "3.27_dominating_blow_guardian",
+          "build_label": "Dominating Blow Guardian",
+          "archetype_id": "dominating_blow_guardian",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "standard_only",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "one_external_plus_support",
+            "missing_second_external_build_guide",
+            "single_external_plus_local_trace_only"
+          ]
+        },
+        {
+          "candidate_id": "3.27_ice_nova_caster",
+          "build_label": "Ice Nova Caster",
+          "archetype_id": "ice_nova_caster",
+          "status": "hold",
+          "status_ko": "보류",
+          "use_policy": "do_not_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "blocked_no_external_build_guide",
+          "guide_source_families": [],
+          "upgradeable_families": [],
+          "rationale": [
+            "no_external_guide_confirmed",
+            "missing_external_build_guide",
+            "local_trace_without_external_confirmation"
+          ]
+        },
+        {
+          "candidate_id": "3.27_toxic_rain_pathfinder",
+          "build_label": "Toxic Rain Pathfinder",
+          "archetype_id": "toxic_rain_pathfinder",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "standard_only",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "one_external_plus_support",
+            "missing_second_external_build_guide",
+            "single_external_plus_local_trace_only"
+          ]
+        },
+        {
+          "candidate_id": "3.27_pyroclast_mine_saboteur",
+          "build_label": "Pyroclast Mine Saboteur",
+          "archetype_id": "pyroclast_mine_saboteur",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": false,
+          "recommendation_visibility": "practice_only",
+          "strict_verdict": "provisional_external_gap",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "single_external_family_only",
+            "missing_second_external_build_guide",
+            "single_source_only",
+            "patch_3_29_mine_support_guard"
+          ],
+          "forward_guard_note": "3.29 changes Blastchain Mine, High-Impact Mine, and Charged Mines cost/damage/throw-speed values; old mine PoBs are practice-only until refreshed."
+        }
+      ],
+      "counts": {
+        "confirmed": 0,
+        "near_confirmed": 4,
+        "hold": 1
+      }
+    },
+    {
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "rows": [
+        {
+          "candidate_id": "3.28_shock_nova_of_procession_hierophant",
+          "build_label": "Shock Nova of Procession Hierophant",
+          "archetype_id": "shock_nova_of_procession_hierophant",
+          "status": "confirmed",
+          "status_ko": "확정",
+          "use_policy": "safe_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "standard_only",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [
+            "maxroll",
+            "poe_vault"
+          ],
+          "rationale": [
+            "direct_index_two_family_match",
+            "missing_second_external_build_guide",
+            "single_external_plus_context_only"
+          ]
+        },
+        {
+          "candidate_id": "3.28_kinetic_fusillade_of_detonation",
+          "build_label": "Kinetic Fusillade of Detonation",
+          "archetype_id": "kinetic_fusillade_of_detonation_wander",
+          "status": "hold",
+          "status_ko": "보류",
+          "use_policy": "do_not_default",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "blocked_no_external_build_guide",
+          "guide_source_families": [],
+          "upgradeable_families": [],
+          "rationale": [
+            "no_external_guide_confirmed",
+            "missing_external_build_guide",
+            "mechanic_context_without_meta_confirmation"
+          ]
+        },
+        {
+          "candidate_id": "3.28_dominating_blow_guardian",
+          "build_label": "Dominating Blow Guardian",
+          "archetype_id": "dominating_blow_guardian",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "standard_only",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "one_external_plus_support",
+            "missing_second_external_build_guide",
+            "single_external_plus_context_only"
+          ]
+        },
+        {
+          "candidate_id": "3.28_penance_brand_inquisitor",
+          "build_label": "Penance Brand Inquisitor",
+          "archetype_id": "penance_brand_inquisitor",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "standard_only",
+          "guide_source_families": [
+            "creator_guide"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "one_external_plus_support",
+            "missing_second_external_build_guide",
+            "single_external_plus_context_only"
+          ]
+        },
+        {
+          "candidate_id": "3.28_cold_snap_of_power_hierophant",
+          "build_label": "Cold Snap of Power Hierophant",
+          "archetype_id": "cold_snap_of_power_hierophant",
+          "status": "near_confirmed",
+          "status_ko": "준확정",
+          "use_policy": "label_as_provisional_meta",
+          "player_facing_default": true,
+          "recommendation_visibility": "default",
+          "strict_verdict": "provisional_external_gap",
+          "guide_source_families": [
+            "poe_vault"
+          ],
+          "upgradeable_families": [],
+          "rationale": [
+            "single_external_family_only",
+            "missing_second_external_build_guide",
+            "single_source_only"
+          ]
+        }
+      ],
+      "counts": {
+        "confirmed": 1,
+        "near_confirmed": 3,
+        "hold": 1
+      }
+    }
+  ]
+}

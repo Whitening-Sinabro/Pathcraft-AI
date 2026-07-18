@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "build_name": "Ranger Deadeye Lvl 90",
+    "class": "Ranger",
+    "ascendancy": "Deadeye",
+    "pob_link": "https://pobb.in/example-lightning-arrow",
+    "version": "3.25"
+  },
+  "stats": {
+    "dps": 4000000,
+    "life": 4300,
+    "energy_shield": 0,
+    "resistances": {
+      "fire": 75,
+      "cold": 75,
+      "lightning": 75,
+      "chaos": 0
+    }
+  },
+  "progression_stages": [
+    {
+      "stage_name": "Final Build",
+      "pob_link": "https://pobb.in/example-lightning-arrow",
+      "passive_tree_url": "https://www.pathofexile.com/passive-skill-tree/example",
+      "ascendancy_order": [],
+      "gem_setups": {
+        "Main Clear": {
+          "links": "Lightning Arrow - Trinity Support - Inspiration Support - Returning Projectiles Support",
+          "reasoning": null
+        }
+      },
+      "alternate_gem_sets": {
+        "Act Leveling": {
+          "links": "Rain of Arrows - Mirage Archer Support - Added Cold Damage Support",
+          "reasoning": null
+        }
+      },
+      "gear_recommendation": {},
+      "bandit": "Kill All",
+      "pantheon": {
+        "major": "The Brine King",
+        "minor": "Garukhan"
+      }
+    }
+  ]
+}

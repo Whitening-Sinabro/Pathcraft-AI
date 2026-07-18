@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "profile_name": "strict_default",
+  "updated_at": "2026-07-08",
+  "rules": {
+    "split_on_damage_engine_change": true,
+    "split_on_defense_engine_change": true,
+    "split_on_core_unique_gate_change": true,
+    "split_on_tree_shape_change": true,
+    "split_on_play_pattern_change": true,
+    "split_on_content_specialization_change": true,
+    "variant_budget_distance_threshold": 2,
+    "variant_package_delta_threshold": 2
+  }
+}

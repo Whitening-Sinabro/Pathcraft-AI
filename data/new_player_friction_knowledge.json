@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0",
+  "game": "poe1",
+  "purpose": "Stable knowledge for explaining why new players, including PoE2-first players, get stuck in PoE1 and what PathcraftAI can concretely fill.",
+  "source_references": [
+    {
+      "id": "official_poe_game_systems",
+      "url": "https://www.pathofexile.com/game",
+      "evidence": "Official overview says skills are socketed gems, up to five support gems can affect a skill, the passive tree is vast, maps have modifiers, and the game is built around itemized systems."
+    },
+    {
+      "id": "poe_wiki_item_socket_links",
+      "url": "https://www.poewiki.net/wiki/Item_socket",
+      "evidence": "Support gems must be in linked sockets on the same item to benefit active skill gems, which supports the PoE2-to-PoE1 socket/link mismatch diagnosis."
+    },
+    {
+      "id": "official_item_filter_socket_group",
+      "url": "https://www.pathofexile.com/item-filter/about",
+      "evidence": "Official item filter syntax exposes linked socket groups and socket colors, showing that links/colors are important enough to be filterable beginner upgrade targets."
+    },
+    {
+      "id": "poe_vault_beginner_interlocking_systems",
+      "url": "https://www.poe-vault.com/guides/path-of-exile-beginner-guide-welcome-to-wraeclast-fresh-exiles-start-here",
+      "evidence": "PoE Vault describes PoE as daunting even for ARPG players because many complex systems interlock and recommends Path of Building as an external tool."
+    },
+    {
+      "id": "poe_vault_skill_gems",
+      "url": "https://www.poe-vault.com/guides/path-of-exile-beginner-guide-skill-gems",
+      "evidence": "PoE Vault states support gems do nothing if not linked to an active skill gem, matching a common new player failure mode."
+    },
+    {
+      "id": "poe_vault_resistances",
+      "url": "https://www.poe-vault.com/guides/path-of-exile-beginner-guide-learning-to-loot-learning-resistances",
+      "evidence": "Elemental resistances are capped at 75%, and excess resistance can buffer curses or resistance reduction."
+    },
+    {
+      "id": "poe_vault_passive_tree",
+      "url": "https://www.poe-vault.com/guides/path-of-exile-beginner-guide-learning-the-passive-tree",
+      "evidence": "Beginner passive tree advice recommends following build guides, not deviating early, and notes refund points/Orb of Regret costs."
+    },
+    {
+      "id": "poe_vault_league_starters",
+      "url": "https://www.poe-vault.com/guides/tag/league-starter-builds-for-path-of-exile",
+      "evidence": "League starter builds are described as early-start functional, low/no-currency, and accessible; the site also warns that melee and bow archetypes are usually harder to gear/execute."
+    },
+    {
+      "id": "official_forum_poe2_to_poe1_links",
+      "url": "https://www.pathofexile.com/forum/view-thread/3736272",
+      "evidence": "A beginner-help thread explicitly calls out PoE2-to-PoE1 socket/link confusion and gives early survival checkpoints such as life, armour/evasion, and 75% elemental resistances."
+    },
+    {
+      "id": "official_forum_overwhelmed_after_campaign",
+      "url": "https://www.pathofexile.com/forum/view-thread/3469585",
+      "evidence": "A new player reports being overwhelmed after campaign because guides assume Harvest, Essence, Eldritch Altars, and other mechanics; replies recommend narrowing focus to simple mechanics first."
+    },
+    {
+      "id": "reddit_new_player_tool_burden",
+      "url": "https://www.reddit.com/r/pathofexile/comments/1bhvfra/path_of_exile_beginners_guide_new_player_tips/",
+      "evidence": "Community discussion reinforces that beginner guides often require repeated review, third-party tools, and many new concepts."
+    }
+  ],
+  "summary": {
+    "core_problem": "PoE1 is primarily knowledge-gated. New players usually fail because the game gives many irreversible-looking choices, weak explanations, and delayed feedback about whether a build, item, map, or farming plan is viable.",
+    "product_principle": "Do not teach everything at once. Detect the user's current wall, hide irrelevant advanced systems, and return the next 3 concrete actions."
+  },
+  "audiences": {
+    "poe2_to_poe1": {
+      "expected_mismatch": [
+        "PoE2 players often expect smoother enemy scaling and clearer combat readability.",
+        "PoE2 skill gems live in a skill interface; PoE1 power is heavily tied to gear sockets, socket colors, and linked sockets.",
+        "PoE2 map/waystone expectations do not transfer cleanly to PoE1 map mods, reflect, sustain, Atlas bonus, and league mechanic risk.",
+        "PoE2 players may know ARPG combat, but not PoE1-specific defenses, flask setup, ailment immunity, crafting, and economy heuristics."
+      ],
+      "tone": "Translate differences without implying the user is bad. Assume the player has game sense but lacks PoE1-specific mental models."
+    },
+    "poe1_first_timer": {
+      "expected_mismatch": [
+        "Passive tree size creates choice paralysis.",
+        "Players do not know which build guide is league-start safe.",
+        "Support gems, sockets, links, colors, item levels, affixes, prefixes, and suffixes are introduced before the player can judge value.",
+        "The campaign hides many future failure checks until maps expose weak defenses or bad damage scaling."
+      ],
+      "tone": "Reduce scope aggressively. Explain only what changes the next play session."
+    }
+  },
+  "friction_points": [
+    {
+      "id": "choice_overload",
+      "area": "Choice overload",
+      "why_players_get_stuck": "Too many skills, passives, supports, league mechanics, and currencies are available before the player knows what matters.",
+      "symptoms": ["asks what to do next", "keeps rerolling skills", "reads many guides but cannot choose"],
+      "pathcraft_can_fill": [
+        "Pick one build lane and suppress irrelevant options.",
+        "Show only the next 3 actions.",
+        "Label each recommendation as required, useful, or optional."
+      ]
+    },
+    {
+      "id": "build_viability",
+      "area": "Build choice and league-start safety",
+      "why_players_get_stuck": "A build can look fun but require uniques, currency, levels, or mechanics the player cannot access yet.",
+      "symptoms": ["stuck in acts", "damage disappears in maps", "guide says cheap but gear is unavailable", "cannot transition to final skill"],
+      "pathcraft_can_fill": [
+        "Detect required uniques, 6-link dependency, attribute gaps, and main skill transition level from PoB.",
+        "Warn when a build is not league-start safe.",
+        "Suggest a temporary bridge skill instead of forcing the final build too early."
+      ]
+    },
+    {
+      "id": "poe2_skill_model_mismatch",
+      "area": "PoE2 to PoE1 skill/link mismatch",
+      "why_players_get_stuck": "PoE1 support gems only work when linked to the active skill on the same gear piece, while PoE2 players are used to skill-gem-centric support sockets.",
+      "symptoms": ["support gem equipped but no damage change", "wrong item has the support", "does not understand 4-link/5-link/6-link priority"],
+      "pathcraft_can_fill": [
+        "Render a slot-by-slot gem link plan.",
+        "Explain whether the current main skill is actually linked to its supports.",
+        "Give color/socket priority for the next gear upgrade."
+      ]
+    },
+    {
+      "id": "passive_tree_pathing",
+      "area": "Passive tree and respec friction",
+      "why_players_get_stuck": "The passive tree is large, path-dependent, and attribute/connection requirements can block respecs.",
+      "symptoms": ["cannot allocate desired node", "ran out of refund points/gold", "tree path looks different from guide"],
+      "pathcraft_can_fill": [
+        "Compare current PoB tree to target stages.",
+        "Identify missing path nodes or attribute requirements.",
+        "Give a safe respec order instead of only showing the final tree."
+      ]
+    },
+    {
+      "id": "defense_checkpoints",
+      "area": "Defensive layers and sudden deaths",
+      "why_players_get_stuck": "PoE1 deaths often come from missing resistance caps, chaos resistance, ailment immunity, flask suffixes, recovery, map mods, or defensive layers rather than one obvious mistake.",
+      "symptoms": ["random one-shots", "campaign was fine but maps kill me", "does not know what killed them"],
+      "pathcraft_can_fill": [
+        "Show stage-specific defense checkpoints.",
+        "Flag deadly map mods for the build.",
+        "Prioritize the weakest defensive slot first."
+      ]
+    },
+    {
+      "id": "map_mods_and_atlas",
+      "area": "Map mods, Atlas, and league mechanic overload",
+      "why_players_get_stuck": "Maps introduce reflect, no regen, reduced recovery, minus max resistance, dangerous rare stacks, and league mechanics at the same time as Atlas progression.",
+      "symptoms": ["can kill bosses but dies to league mechanic", "does not know which map mods to reroll", "does not know whether to farm or progress"],
+      "pathcraft_can_fill": [
+        "Generate build-specific map regex.",
+        "Classify farming readiness from Atlas progress, comfortable highest tier, death rate, clear speed, voidstones, and investment recovery. Treat Atlas 100 and T16 under 2 minutes as local benchmarks only.",
+        "Recommend one main mechanic and one support mechanic, not every mechanic."
+      ]
+    },
+    {
+      "id": "crafting_and_item_value",
+      "area": "Crafting, affixes, trade, and item value",
+      "why_players_get_stuck": "Players do not know which drops are valuable, which affixes matter, when to craft, or when to buy.",
+      "symptoms": ["keeps bad rares", "sells valuable drops", "does not know how to fix gear", "wastes currency too early"],
+      "pathcraft_can_fill": [
+        "Translate affixes into build value.",
+        "Give slot-by-slot craft recipes by stage.",
+        "Mark currency as spend now, save, or trade."
+      ]
+    },
+    {
+      "id": "third_party_tool_burden",
+      "area": "Third-party tool burden",
+      "why_players_get_stuck": "PoE1 often expects Path of Building, loot filters, trade search, price checking, regex, and wiki lookup before the player understands the core loop.",
+      "symptoms": ["opens PoB and feels lost", "does not know what to import", "cannot turn a guide into actions"],
+      "pathcraft_can_fill": [
+        "Import PoB and explain it in plain Korean.",
+        "Convert long guide data into checklist steps.",
+        "Generate loot filter and map regex outputs without teaching the whole toolchain first."
+      ]
+    },
+    {
+      "id": "visual_readability",
+      "area": "Combat readability",
+      "why_players_get_stuck": "PoE1 combat can become visually noisy, especially inside dense league mechanics, so new players cannot identify the dangerous source.",
+      "symptoms": ["does not know what killed them", "gets tired faster than in PoE2", "avoids mechanics after sudden deaths"],
+      "pathcraft_can_fill": [
+        "Recommend safer mechanics until defenses improve.",
+        "List visual danger signs and map mods for the selected mechanic.",
+        "Offer conservative farming alternatives when the build is not ready for density."
+      ]
+    }
+  ],
+  "coach_rules": [
+    "Always identify at most 3 likely friction points for the current build/user state.",
+    "If the user came from PoE2, include PoE2-to-PoE1 translation notes for sockets/links, map mods, visual density, and crafting.",
+    "Do not dump an encyclopedia. Return next actions that can be completed in the next session.",
+    "Prefer checklists with measurable signals: resistance cap, life/ES, main link count, Atlas progress, comfortable highest tier, death rate, T16 clear time, voidstones. Do not present Atlas 100 or T16 under 2 minutes as official gates.",
+    "When information is missing, ask for one measurement instead of assuming the player is ready for advanced farming."
+  ],
+  "fillable_features_backlog": [
+    {
+      "id": "new_player_mode",
+      "label_ko": "초보자 모드",
+      "description": "Hide advanced sections and show current wall, next 3 actions, and must-not-do warnings."
+    },
+    {
+      "id": "poe2_to_poe1_translator",
+      "label_ko": "POE2 → POE1 번역기",
+      "description": "Translate skill gems, sockets, supports, map mods, flasks, and atlas expectations for PoE2-first players."
+    },
+    {
+      "id": "death_reason_checker",
+      "label_ko": "왜 죽었는지 체크",
+      "description": "Ask map tier/mods, resistances, chaos resistance, ailment immunity, and flask setup, then return likely causes."
+    },
+    {
+      "id": "gear_floor_checker",
+      "label_ko": "이 빌드 최소 장비 체크",
+      "description": "Detect required links, uniques, attributes, ailment immunity, and DPS floor from PoB."
+    },
+    {
+      "id": "atlas_readiness_checker",
+      "label_ko": "아틀라스 준비도 체크",
+      "description": "Use Atlas progress, comfortable highest tier, death rate, T16 clear time, voidstones, and investment recovery to classify early/mid/late mapping. Hard thresholds are local calibration only."
+    },
+    {
+      "id": "mechanic_explainer",
+      "label_ko": "리그 메카닉 설명",
+      "description": "Explain Essence, Harvest, Expedition, Legion, Breach, Delirium, Ritual, and Blight by risk, reward, and build fit."
+    }
+  ]
+}

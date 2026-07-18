@@ -1,0 +1,47 @@
+{
+  "dataset_kind": "poe1_recommendation_adversarial_cases",
+  "cases": [
+    {
+      "case_id": "impossible_bundle_zero_button_ssf_uber_half_div",
+      "user_constraints": {
+        "must_use_skill": null,
+        "max_input_style": "0_button",
+        "trade_mode": "ssf",
+        "budget_divines": 0.5,
+        "target_contents": ["bossing"]
+      },
+      "expected_plan": "D",
+      "expected_flags": ["impossible_bundle", "underfunded", "ssf_conflict"]
+    },
+    {
+      "case_id": "character_locked_wrong_class",
+      "user_constraints": {
+        "current_class": "Templar",
+        "character_locked": true,
+        "desired_main_skill": "Lightning Arrow"
+      },
+      "expected_plan": "D",
+      "expected_flags": ["character_lock_conflict"]
+    },
+    {
+      "case_id": "exact_skill_too_expensive_allow_proxy",
+      "user_constraints": {
+        "desired_main_skill": "High Budget Skill X",
+        "budget_divines": 2.0,
+        "character_locked": true
+      },
+      "expected_plan": "C",
+      "expected_flags": ["budget_conflict", "proxy_allowed"]
+    },
+    {
+      "case_id": "soft_filters_too_strict_relax_to_near_match",
+      "user_constraints": {
+        "desired_main_skill": "Lightning Arrow",
+        "max_input_style": "1_click_plus_movement",
+        "target_contents": ["simulacrum", "mapping"]
+      },
+      "expected_plan": "B",
+      "expected_flags": ["soft_relaxation_applied"]
+    }
+  ]
+}

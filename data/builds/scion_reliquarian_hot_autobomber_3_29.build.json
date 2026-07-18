@@ -1,0 +1,240 @@
+{
+  "dataset_kind": "pathcraft_build_data",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-16",
+  "theorycraft_status": "pre_patch_notes_hypothesis",
+  "branch_id": "hot_autobomber",
+  "fallback_branch_id": "blight_of_contagion_fallback",
+  "decision_policy": {
+    "primary_goal": "Scion Reliquarian Herald of Thunder autobomber for mapping, with Guardian map and Delve/Fossil testing after defenses are proven.",
+    "commit_condition": [
+      "Reliquarian Fidelitas' Spike Herald/Shock node behavior is confirmed in-game or PoB.",
+      "Herald of Thunder reservation and support behavior are confirmed after the 3.29 data update.",
+      "Boss shock uptime works without relying on unreliable kill chains.",
+      "Storm Secret self-damage is covered by recovery, mitigation, and capped resistances."
+    ],
+    "fallback_condition": [
+      "Storm Secret is too expensive or self-damage is unsafe.",
+      "Guardian boss shock uptime fails.",
+      "Herald reservation or support scaling is worse than expected.",
+      "Delve/Fossil feels too fragile after yellow maps."
+    ],
+    "fallback_action": "Stay Scion Reliquarian and swap to the Blight of Contagion fallback package rather than forcing the autobomber."
+  },
+  "meta": {
+    "build_name": "Scion Reliquarian Herald of Thunder Autobomber Lvl 90",
+    "class": "Scion",
+    "ascendancy": "Reliquarian",
+    "pob_link": "local://pathcraft/scion_reliquarian_hot_autobomber_3_29",
+    "version": "3.29"
+  },
+  "stats": {
+    "dps": 1800000,
+    "life": 4200,
+    "energy_shield": 1200,
+    "resistances": {
+      "fire": 75,
+      "cold": 75,
+      "lightning": 75,
+      "chaos": 40
+    },
+    "stat_policy": "Theory target for profile scoring only; do not present as PoB-confirmed DPS."
+  },
+  "progression_stages": [
+    {
+      "stage_name": "Theory Final Build",
+      "pob_link": "local://pathcraft/scion_reliquarian_hot_autobomber_3_29",
+      "passive_tree_url": "local://pathcraft/tree/scion_reliquarian_hot_autobomber_3_29/final",
+      "ascendancy_order": [
+        "Fidelitas' Spike Herald/Shock package",
+        "Dawnbreaker defensive package",
+        "Presence of Chayula stun/chaos package",
+        "Kaom's Roots or equivalent action-speed defense only if it does not break mobility"
+      ],
+      "gem_setups": {
+        "Main Clear": {
+          "links": "Herald of Thunder - Lightning Penetration Support - Added Lightning Damage Support - Inspiration Support - Increased Critical Strikes Support - Increased Critical Damage Support",
+          "reasoning": "Primary Reliquarian synergy candidate. Elemental Focus is intentionally excluded until shock uptime is proven from another source."
+        },
+        "Boss Shock Starter": {
+          "links": "Storm Brand - Increased Critical Strikes Support - Lightning Penetration Support - Faster Casting Support",
+          "reasoning": "Manual boss starter to keep shock and Herald uptime from depending only on map clear kills."
+        },
+        "Shock Field": {
+          "links": "Orb of Storms - Increased Critical Strikes Support - Power Charge On Critical Support",
+          "reasoning": "Stationary supplemental lightning hit source for bosses and tanky rares."
+        },
+        "Curse": {
+          "links": "Conductivity - Elemental Weakness - Increased Duration Support",
+          "reasoning": "Manual curse package until automation and reservation are verified."
+        },
+        "Auras": {
+          "links": "Wrath - Determination - Tempest Shield - Arctic Armour",
+          "reasoning": "Final reservation target, not guaranteed all at once before Reliquarian Herald efficiency is confirmed."
+        },
+        "Movement": {
+          "links": "Flame Dash - Faster Casting Support",
+          "reasoning": "Keep movement simple while the autobomber loop is being tested."
+        },
+        "Guard": {
+          "links": "Steelskin - Increased Duration Support",
+          "reasoning": "Baseline guard until the final defensive shell is known."
+        }
+      },
+      "alternate_gem_sets": {
+        "Act Leveling": {
+          "links": "Stormblast Mine - Swift Assembly Support - Added Lightning Damage Support",
+          "reasoning": "Reliable campaign bridge before Herald of Thunder can carry."
+        },
+        "Early Mapping Bridge": {
+          "links": "Storm Brand - Added Lightning Damage Support - Lightning Penetration Support - Inspiration Support",
+          "reasoning": "Use as main damage if Herald loop is not online at map entry."
+        },
+        "Fallback Chaos DoT": {
+          "links": "Blight of Contagion - Void Manipulation Support - Efficacy Support - Controlled Destruction Support - Swift Affliction Support",
+          "reasoning": "Conservative Scion fallback for Delve/Fossil if HoT self-damage or boss uptime fails."
+        }
+      },
+      "gear_recommendation": {
+        "Weapon 1": {
+          "name": "Rare Lightning Sceptre or Wand",
+          "rarity": "Rare",
+          "base_type": "Sceptre",
+          "mods": [
+            "+1 to Level of all Lightning Spell Skill Gems",
+            "increased Spell Damage",
+            "increased Critical Strike Chance for Spells"
+          ]
+        },
+        "Shield": {
+          "name": "Dawnbreaker defensive package",
+          "rarity": "Unique",
+          "base_type": "Colossal Tower Shield",
+          "mods": [
+            "verify Reliquarian node or actual shield availability",
+            "physical damage taken as elemental"
+          ]
+        },
+        "Body Armour": {
+          "name": "Rare Armour/Energy Shield Body Armour",
+          "rarity": "Rare",
+          "base_type": "Saintly Chainmail",
+          "mods": [
+            "+# to maximum Life",
+            "+# to maximum Energy Shield",
+            "resistances"
+          ]
+        },
+        "Helmet": {
+          "name": "Rare Reservation Helmet",
+          "rarity": "Rare",
+          "base_type": "Hubris Circlet",
+          "mods": [
+            "reservation efficiency if needed",
+            "life or energy shield",
+            "resistances"
+          ]
+        },
+        "Gloves": {
+          "name": "Rare Life/Resistance Gloves",
+          "rarity": "Rare",
+          "base_type": "Fingerless Silk Gloves",
+          "mods": [
+            "life",
+            "resistances",
+            "cast speed or exposure if available"
+          ]
+        },
+        "Boots": {
+          "name": "Rare Movement Boots",
+          "rarity": "Rare",
+          "base_type": "Two-Toned Boots",
+          "mods": [
+            "movement speed",
+            "life",
+            "ailment avoidance or resistances"
+          ]
+        },
+        "Amulet": {
+          "name": "Presence of Chayula defensive package",
+          "rarity": "Unique",
+          "base_type": "Onyx Amulet",
+          "mods": [
+            "stun immunity and chaos mitigation package if confirmed",
+            "otherwise use rare +1 lightning or life/resistance amulet"
+          ]
+        },
+        "Ring 1": {
+          "name": "Storm Secret",
+          "rarity": "Unique",
+          "base_type": "Topaz Ring",
+          "mods": [
+            "Herald of Thunder hits enemies more frequently",
+            "self-damage must be mitigated before Guardian/Delve push"
+          ]
+        },
+        "Ring 2": {
+          "name": "Rare Life/Resistance Ring",
+          "rarity": "Rare",
+          "base_type": "Two-Stone Ring",
+          "mods": [
+            "life",
+            "chaos resistance",
+            "mana or reduced mana cost if needed"
+          ]
+        },
+        "Belt": {
+          "name": "Rare Stygian Vise",
+          "rarity": "Rare",
+          "base_type": "Stygian Vise",
+          "mods": [
+            "life",
+            "resistances",
+            "flask sustain"
+          ]
+        }
+      },
+      "bandit": "Kill All",
+      "pantheon": {
+        "major": "The Brine King until stun/freeze package is solved, then test Lunaris/Solaris",
+        "minor": "Garukhan for mapping or Ralakesh if bleed/DoT pressure appears"
+      }
+    }
+  ],
+  "map_mod_policy": {
+    "deadly": [
+      "Elemental Reflect",
+      "Cannot Regenerate Life, Mana or Energy Shield if recovery is not solved",
+      "Less Recovery Rate after Storm Secret is equipped"
+    ],
+    "dangerous": [
+      "Minus maximum resistances",
+      "Reduced effect of auras",
+      "Monsters have increased critical strike chance and multiplier"
+    ],
+    "regex_hint": "reflect|cannot regen|less recovery|reduced recovery|-max|reduced effect of auras"
+  },
+  "atlas_farming_plan": {
+    "early_mapping": [
+      "Prioritize Atlas completion, Kirac, Essence, Harvest, and Betrayal bench unlocks.",
+      "Do not force Guardian maps while Herald boss uptime and self-damage are unproven.",
+      "Use Storm Brand bridge or Blight fallback if the Herald loop is not stable."
+    ],
+    "mid_mapping": [
+      "If T16 is comfortable with rare deaths, test Blight, Expedition, Harvest, and low-invest Delve/Fossil.",
+      "If mapping speed is high and deaths are low, test Breach or Legion only after damage feels stable."
+    ],
+    "guardian_and_delve_gate": [
+      "Guardian maps require confirmed boss shock uptime and recovery under Storm Secret self-damage.",
+      "Delve/Fossil is allowed earlier than Guardian push only at depths where darkness, degens, and rares do not chain-kill the build."
+    ]
+  },
+  "verification_checklist": [
+    "Does Herald of Thunder remain supported after final 3.29 gem data?",
+    "Does Reliquarian Fidelitas' Spike actually improve Herald of Thunder enough to justify Scion?",
+    "Can Storm Brand or Orb of Storms start and maintain boss shock reliably?",
+    "Can the character sustain Storm Secret self-damage while moving?",
+    "Can the build clear a representative T16 without more than rare deaths?",
+    "If not, swap to the Blight of Contagion fallback package."
+  ]
+}

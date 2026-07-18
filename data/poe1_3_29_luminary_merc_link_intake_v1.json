@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_3_29_luminary_merc_link_intake",
+  "generated_at": "2026-07-17T00:00:00+07:00",
+  "patch": "3.29",
+  "league": "Curse of the Allflame",
+  "source": {
+    "source_id": "user_supplied_luminary_transcript_2026_07_17",
+    "kind": "user_supplied_transcript",
+    "local_path": "C:\\Users\\User\\Desktop\\luminary.txt",
+    "status": "ingested_summary_only",
+    "copyright_policy": "Do not reproduce the transcript. Store extracted claims, hypotheses, and verification tasks only."
+  },
+  "scope_policy": {
+    "poe_scope": "poe1_only",
+    "promotion_status": "watchlist_only_prelaunch",
+    "branch_guardrail": "Scion Ascendant, Reliquarian, and Luminary must stay separate.",
+    "verification_gate": "Any Luminary recommendation needs official/GGPK node names, mercenary skill data, gear restrictions, PoB support or documented PoB limitation, and at least one launch-week sample."
+  },
+  "extracted_core_claims": [
+    {
+      "claim_id": "permanent_mercenary_model",
+      "summary": "Luminary planning revolves around keeping permanent Mercenaries, with one active ally and reserves, instead of treating Mercenaries as temporary map helpers.",
+      "status": "consistent_with_existing_global_review",
+      "modeling_impact": "Build state must include active mercenary, reserve mercenaries, gear, role, skills, and survivability separate from player gem links."
+    },
+    {
+      "claim_id": "ascendancy_point_pressure",
+      "summary": "The transcript stresses that permanent Mercenary access and major link/gear nodes compete for limited ascendancy points.",
+      "status": "needs_official_node_path_confirmation",
+      "modeling_impact": "Luminary shells need point-budget variants rather than one all-in node list."
+    },
+    {
+      "claim_id": "link_skill_death_risk_removed_by_luminary_node",
+      "summary": "A key link-skill node is described as preventing the player from dying when the linked Mercenary dies.",
+      "status": "needs_official_name_confirmation",
+      "modeling_impact": "Hardcore viability depends on whether the link-death drawback is reliably removed."
+    },
+    {
+      "claim_id": "light_radius_link_scaling",
+      "summary": "A Luminary node is described as converting light-radius increases/reductions into link-buff effect on Mercenaries.",
+      "status": "needs_official_name_and_scaling_confirmation",
+      "modeling_impact": "Light radius becomes a possible link-effect scaling stat instead of a dead stat for this branch."
+    },
+    {
+      "claim_id": "unique_gear_scaling",
+      "summary": "The transcript prioritizes a node where Mercenaries can equip unique weapons, shields, or quivers and gain more damage per unique equipped.",
+      "status": "needs_equipment_slot_confirmation",
+      "modeling_impact": "Mercenary gear planner needs unique-slot pressure, item access, and economy tags."
+    },
+    {
+      "claim_id": "hallowed_monarch_link_target_enabler",
+      "summary": "Hallowed Monarch is called out as a likely key item because linked skills can target damageable minions, linked minions take much less damage, and rare-kill modifiers can be gained by linked minions.",
+      "status": "needs_current_item_text_confirmation",
+      "modeling_impact": "Treat Hallowed Monarch as a mandatory-watch item for Luminary link/minion/Mercenary shells."
+    }
+  ],
+  "node_name_verification_queue": [
+    {
+      "transcript_spelling": "noble blood",
+      "probable_role": "permanent Mercenary access",
+      "verification_status": "needs_official_or_ggpk_name"
+    },
+    {
+      "transcript_spelling": "golden glory",
+      "probable_role": "light radius applies to link skill buff effect",
+      "verification_status": "needs_official_or_ggpk_name"
+    },
+    {
+      "transcript_spelling": "legendary arms",
+      "probable_role": "Mercenary unique weapons/shields/quivers and damage per unique",
+      "verification_status": "needs_official_or_ggpk_name"
+    },
+    {
+      "transcript_spelling": "oath of fieldy",
+      "probable_role": "link skill cost/duration and no player death when Mercenary dies",
+      "verification_status": "likely_transcription_error"
+    },
+    {
+      "transcript_spelling": "hands of friesia",
+      "probable_role": "non-curse aura effect while linked",
+      "verification_status": "likely_transcription_error"
+    },
+    {
+      "transcript_spelling": "centure of benevolence",
+      "probable_role": "utility flask effects apply to linked targets",
+      "verification_status": "likely_transcription_error"
+    }
+  ],
+  "link_skill_hypotheses": [
+    {
+      "hypothesis_id": "destructive_link_crit_merc",
+      "label": "Destructive Link crit Mercenary",
+      "player_role": "crit source / link owner",
+      "mercenary_role": "primary hit damage dealer",
+      "scaling_hooks": [
+        "high critical strike chance main-hand weapon",
+        "link effect",
+        "Mercenary unique weapon or quiver access"
+      ],
+      "risk": "Requires exact Mercenary skill list and whether Mercenary can exploit the granted crit package.",
+      "reuse_label": "구경만"
+    },
+    {
+      "hypothesis_id": "flame_link_life_stack_merc",
+      "label": "Flame Link life-stacker Mercenary",
+      "player_role": "maximum-life stacker / fire damage provider",
+      "mercenary_role": "added-fire damage dealer",
+      "scaling_hooks": [
+        "Apostate-style life stacking concept",
+        "link effect",
+        "Mercenary attack or spell hit rate"
+      ],
+      "risk": "Needs exact added-fire scaling and Mercenary hit frequency; old life-stacker assumptions are not enough.",
+      "reuse_label": "구경만"
+    },
+    {
+      "hypothesis_id": "frigid_bond_fast_merc",
+      "label": "Frigid Bond fast Mercenary mapper",
+      "player_role": "link owner / cold DoT scaler",
+      "mercenary_role": "movement-speed delivery target",
+      "scaling_hooks": [
+        "Mercenary movement speed",
+        "link range",
+        "cold damage over time"
+      ],
+      "risk": "Needs live confirmation that link range and Mercenary AI keep uptime in real maps.",
+      "reuse_label": "구경만"
+    },
+    {
+      "hypothesis_id": "soul_link_es_sponge",
+      "label": "Soul Link ES sponge",
+      "player_role": "large ES damage sponge",
+      "mercenary_role": "frontline linked target",
+      "scaling_hooks": [
+        "energy shield",
+        "link target damage reduction",
+        "Mercenary survivability"
+      ],
+      "risk": "Can become a defensive trap if Mercenary death, ES recovery, or link break behavior is misunderstood.",
+      "reuse_label": "구경만"
+    },
+    {
+      "hypothesis_id": "protective_link_max_block_merc",
+      "label": "Protective Link max-block Mercenary",
+      "player_role": "block chance template",
+      "mercenary_role": "durable linked damage dealer or tank",
+      "scaling_hooks": [
+        "max block",
+        "Versatile Combatant-style planning",
+        "shield corruptions or block investment"
+      ],
+      "risk": "Needs exact block transfer behavior and whether Mercenary damage justifies player defensive investment.",
+      "reuse_label": "구경만"
+    },
+    {
+      "hypothesis_id": "intuitive_link_trigger_merc",
+      "label": "Intuitive Link trigger Mercenary",
+      "player_role": "spell package owner",
+      "mercenary_role": "trigger carrier",
+      "scaling_hooks": [
+        "supported spell package",
+        "Mercenary uptime",
+        "link death drawback removal"
+      ],
+      "risk": "Needs PoB/tooling support and live testing; may fail if trigger rules or Mercenary AI are restrictive.",
+      "reuse_label": "구경만"
+    }
+  ],
+  "item_watchlist": [
+    {
+      "item_name": "Hallowed Monarch",
+      "watch_reason": "Transcript calls it a likely go-to for Luminary link/minion/Mercenary setups.",
+      "required_checks": [
+        "current 3.29 item text",
+        "drop/access route",
+        "whether it works with Mercenary targets as expected",
+        "price during launch week"
+      ]
+    },
+    {
+      "item_name": "Apostate",
+      "watch_reason": "Mentioned as a possible life-stacking enabler for Flame Link damage scaling.",
+      "required_checks": [
+        "3.29 availability and price",
+        "life-stacking opportunity cost",
+        "whether Flame Link damage conversion is enough"
+      ]
+    }
+  ],
+  "passive_tree_watchlist": [
+    "link effect clusters",
+    "link range and duration nodes",
+    "link masteries: elemental ailment prevention in beams",
+    "link masteries: elemental exposure near link target",
+    "link masteries: charge sharing with link target",
+    "movement speed equalization with linked targets",
+    "rune graft or equivalent link range expansion"
+  ],
+  "practice_judgement": {
+    "player_facing_label": "구경만",
+    "reason": "The transcript creates strong hypotheses, but Luminary cannot be treated as a practice recommendation until node names, Mercenary skills, gear restrictions, item text, and PoB/live behavior are verified.",
+    "safe_practice_now": [
+      "Learn generic Scion campaign routing only.",
+      "Review link skill mechanics and old item text without assuming 3.29 behavior.",
+      "Prepare test checklists for Mercenary gear, link uptime, and map survivability."
+    ],
+    "do_not_assume": [
+      "Mercenary damage is free player DPS.",
+      "All link nodes fit in one ascendancy plan.",
+      "Hallowed Monarch is mandatory before launch economy data.",
+      "Spectre-style multi-link assumptions transfer to Mercenary builds."
+    ]
+  },
+  "live_validation_tasks": [
+    {
+      "task_id": "luminary_node_truth",
+      "required_input": "3.29 GGPK/passive tree or official Luminary node text",
+      "output": "verified node names, effects, pathing cost, and ascendancy point budgets"
+    },
+    {
+      "task_id": "mercenary_skill_and_ai_sample",
+      "required_input": "launch-week Mercenary classes, skills, AI behavior, and survivability samples",
+      "output": "Mercenary role tags: damage dealer, aura bot, tank, trigger carrier, movement carrier"
+    },
+    {
+      "task_id": "link_skill_runtime_sample",
+      "required_input": "map tests for each link shell",
+      "output": "link uptime, break frequency, death cases, and map-time impact"
+    },
+    {
+      "task_id": "hallowed_monarch_market_and_mechanics",
+      "required_input": "item text, price, drop access, and real linked-target behavior",
+      "output": "mandatory/optional/trap classification for Luminary shells"
+    }
+  ]
+}

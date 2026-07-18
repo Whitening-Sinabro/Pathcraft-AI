@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.1.0",
+  "dataset_kind": "poe1_build_profile",
+  "build_id": "3.25_lightning_arrow_deadeye_starter",
+  "identity": {
+    "build_name": "Lightning Arrow Deadeye Starter",
+    "patch": "3.25",
+    "class_name": "Ranger",
+    "ascendancy": "Deadeye",
+    "main_skill": "Lightning Arrow",
+    "leveling_skill": "Rain of Arrows",
+    "damage_tags": ["attack", "projectile", "lightning", "bow"],
+    "weapon_preferences": ["Bow", "Quiver"]
+  },
+  "playstyle": {
+    "input_style": "1_click_plus_movement",
+    "manual_buttons": 2,
+    "movement_dependence": "high",
+    "aim_requirement": "medium",
+    "notes": "Main clear on Lightning Arrow, supplemental single target on ballista setup."
+  },
+  "budget_curve": {
+    "entry_cost_divines": 0.5,
+    "comfortable_cost_divines": 8.0,
+    "aspirational_cost_divines": 80.0,
+    "respec_cost_points": 24,
+    "notes": "League start viable if bow upgrades are maintained."
+  },
+  "availability": {
+    "league_start_viable": true,
+    "ssf_viable": "medium",
+    "hc_viable": "low",
+    "twink_required": false,
+    "mandatory_uniques": [],
+    "mandatory_transfigured_gems": []
+  },
+  "progression": {
+    "leveling_confidence": "near_confirmed",
+    "early_mapping_ready": true,
+    "transition_points": [
+      {
+        "stage": "act_1",
+        "main_skill": "Rain of Arrows",
+        "trigger": "Campaign start uses the bow leveling package.",
+        "required_links": null,
+        "required_item": null,
+        "from_skill": null,
+        "to_skill": "Rain of Arrows",
+        "level": 1,
+        "source": "campaign_plan"
+      },
+      {
+        "stage": "early_maps",
+        "main_skill": "Lightning Arrow",
+        "trigger": "Swap when core gems and a 4-link are online.",
+        "required_links": 4,
+        "required_item": null,
+        "from_skill": "Rain of Arrows",
+        "to_skill": "Lightning Arrow",
+        "level": 28,
+        "source": "coach_data"
+      }
+    ],
+    "campaign_plan": [
+      {
+        "stage": "act_1_3",
+        "stage_label": "Act 1-3",
+        "level_range": "1-33",
+        "main_skill": "Rain of Arrows",
+        "support_links": ["Mirage Archer Support", "Added Cold Damage Support"],
+        "auras": ["Precision"],
+        "utility": ["Flame Dash"],
+        "guard": [],
+        "source": "coach_data",
+        "notes": "Fast bow leveling shell before Lightning Arrow swap."
+      },
+      {
+        "stage": "act_4_10",
+        "stage_label": "Act 4-10",
+        "level_range": "34-67",
+        "main_skill": "Lightning Arrow",
+        "support_links": ["Trinity Support", "Inspiration Support", "Returning Projectiles Support"],
+        "auras": ["Wrath", "Herald of Ice"],
+        "utility": ["Flame Dash"],
+        "guard": ["Steelskin"],
+        "source": "coach_data",
+        "notes": "Core clear package once the final skill is online."
+      }
+    ],
+    "aura_plan": [
+      {
+        "stage": "act_1_3",
+        "stage_label": "Act 1-3",
+        "level_range": "1-33",
+        "auras": ["Precision"],
+        "utility": ["Flame Dash"],
+        "guard": [],
+        "source": "coach_data",
+        "notes": "Low-reservation campaign aura shell."
+      },
+      {
+        "stage": "act_4_10",
+        "stage_label": "Act 4-10",
+        "level_range": "34-67",
+        "auras": ["Wrath", "Herald of Ice"],
+        "utility": ["Flame Dash", "Sniper's Mark"],
+        "guard": ["Steelskin"],
+        "source": "coach_data",
+        "notes": "Damage auras and mark package before maps."
+      },
+      {
+        "stage": "final_build",
+        "stage_label": "Final Build",
+        "level_range": null,
+        "auras": ["Grace", "Wrath", "Precision"],
+        "utility": ["Flame Dash"],
+        "guard": ["Steelskin"],
+        "source": "primary",
+        "notes": "Final aura shell from active endgame setup."
+      }
+    ],
+    "passive_plan": [
+      {
+        "stage": "act_3",
+        "stage_label": "Lv 28 Tree",
+        "level_range": "23-33",
+        "tree_url": "https://www.pathofexile.com/passive-skill-tree/AAA",
+        "active": false,
+        "source": "pob_tree_spec",
+        "priorities": [],
+        "notes": "Early campaign tree checkpoint."
+      },
+      {
+        "stage": "final_build",
+        "stage_label": "Final Tree",
+        "level_range": null,
+        "tree_url": "https://www.pathofexile.com/passive-skill-tree/BBB",
+        "active": true,
+        "source": "pob_tree_spec",
+        "priorities": ["Bow damage", "Projectile mastery", "Life wheels"],
+        "notes": "Final endgame routing."
+      }
+    ],
+    "gear_stages": [
+      {
+        "stage": "act_4_10",
+        "stage_label": "Campaign Gear",
+        "level_range": "34-67",
+        "priorities": ["Bow: 4-link rare bow", "Boots: 25% movement speed"],
+        "requirements": ["Keep elemental resistances capped after Act 5/10 penalties"],
+        "source": "coach_data",
+        "notes": "Simple campaign gear floor."
+      },
+      {
+        "stage": "early_maps",
+        "stage_label": "Early Maps",
+        "level_range": "68-79",
+        "priorities": ["Bow: high elemental DPS upgrade", "Quiver: life and crit"],
+        "requirements": ["Secure a 5-link before red maps"],
+        "source": "coach_data",
+        "notes": "Entry mapping upgrade path."
+      }
+    ]
+  },
+  "suitability": {
+    "mapping": 96,
+    "bossing": 62,
+    "sanctum": 72,
+    "heist": 78,
+    "expedition": 81,
+    "simulacrum": 44
+  },
+  "constraints": {
+    "banned_map_mods": ["Elemental Reflect"],
+    "pain_points": ["Bow upgrade dependency", "Can feel fragile before gear catch-up"],
+    "reroll_recommended_over_respec": true
+  },
+  "confidence": {
+    "representative_build_status": "confirmed",
+    "source_count": 3,
+    "notes": "Representative starter status is strong; campaign route is normalized into structured progression fields."
+  },
+  "evidence": [
+    {
+      "type": "maxroll",
+      "label": "Starter guide reference",
+      "url": "https://maxroll.gg",
+      "notes": "High-level structural reference"
+    },
+    {
+      "type": "poe_vault",
+      "label": "League starter reference",
+      "url": "https://www.poe-vault.com",
+      "notes": "Cross-check source"
+    },
+    {
+      "type": "manual_curated",
+      "label": "Representative build board",
+      "url": null,
+      "notes": "Internal conservative freeze"
+    }
+  ]
+}

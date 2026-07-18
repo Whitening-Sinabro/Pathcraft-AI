@@ -1,0 +1,5073 @@
+{
+  "schema_version": 1,
+  "source": {
+    "type": "pob_parser_output",
+    "pob_link": "https://pobb.in/a69LUW4z0eWf",
+    "parser": "python/pob_parser.py",
+    "raw_available": true
+  },
+  "identity": {
+    "build_name": "Witch Elementalist Lvl 98",
+    "class": "Witch",
+    "ascendancy": "Elementalist",
+    "level": 98,
+    "target_version": "3_0"
+  },
+  "tree_state": {
+    "active_tree_url": "https://www.pathofexile.com/passive-skill-tree/AAAABgMCDGpDEFhVrit4LJxEq9-wh2WCEI-mH8e86gAA",
+    "passive_tree_options": [
+      {
+        "id": "",
+        "title": "Level 1-12",
+        "url": "https://www.pathofexile.com/passive-skill-tree/AAAABgMCDGpDEFhVrit4LJxEq9-wh2WCEI-mH8e86gAA",
+        "active": true
+      },
+      {
+        "id": "",
+        "title": "Level 12-22",
+        "url": "https://www.pathofexile.com/passive-skill-tree/AAAABgMCGRBYRKtVrlXGLJxJG4hvr7esmLzqakPsVTpYK3iD2zbYh2UqjQQH37AyNIIQ8Wwfx4-mAAEYSIhv",
+        "active": false
+      },
+      {
+        "id": "",
+        "title": "Level 22-33 (Lab)",
+        "url": "https://www.pathofexile.com/passive-skill-tree/AAAABgMCKRBYRKtVrnF58WzYJKyYvOpqQyt4OlinCN-wH8fPg49GNsVVxuNqiG8XHCycSRsdFB8Cg9uHZfrSNtgvXRJpKo2Ppq-3BAdWSDI0ghAWbzHC7FUAAhhIiG-6Gi9d",
+        "active": false
+      },
+      {
+        "id": "",
+        "title": "Level 33-45",
+        "url": "https://www.pathofexile.com/passive-skill-tree/AAAABgMCOhBYRKtVrh0U7DjxbFnzj6ZxeayYvOpqQ6IAGjiCmyt4g9sEB6cIrv862N-wHwI22C9dH8fPg8BmkFWPRjbFVcbjaohvFxwsnDD4OlhJG6EjZp4nLzHCh2VxhexVFm8zbNq5BLP60hJpVkgyNIIQr7fYJCqNAAK6Gi9dGEiIbw==",
+        "active": false
+      },
+      {
+        "id": "",
+        "title": "Level 45-55 (2nd Lab)",
+        "url": "https://www.pathofexile.com/passive-skill-tree/AAAABgMCRSqNRKsdFBZv7DjxbFnzvOpqQ6IApwihIxcvL13Pg4CkNsVVxiycMPhxhTNs2rkEs1ZINtit8R8CVa6vt9gkrJhmnho4gpsreAQHrv862N-wkFWPRhBYVdb60ohvFxw6WHF5kPpJGxVQZOcnL-9Lh2Ufx4-mEmm4XTHCg9vjasBmMjSCEBhd2t3sVQADuhovXRhIiG9v3rhd",
+        "active": false
+      },
+      {
+        "id": "",
+        "title": "Level 55-68 (3rd Lab)",
+        "url": "https://www.pathofexile.com/passive-skill-tree/AAAABgMCXhBYRKsdFAj07DjxbFnzvOpqQ6IA323w1YIeoSMXL0yLH8fAZoCkNsVVxiL0LJww-O-IcYUzbNq5BLNWSDbYrfEqjUmxHwIYXV4DpwgmKWsX18-VLi9dBx46WNgkrJh_xmaeBAcaOIKbK3iD26-32wuu_zrY37BVrklRuF3jajHC-tKQVY9G-TdV1hJpiG8XHBGWcXnBa0kbkPpk5ycv70uHZRZv1I1sCxVQbRnsVY-mz4MyNIIQwcXa3ZMnAAS6Gi9db964XRhIiG-xBdSN",
+        "active": false
+      },
+      {
+        "id": "",
+        "title": "DD Respec (Check Notes)",
+        "url": "https://www.pathofexile.com/passive-skill-tree/AAAABgMCaRBYcXlwu-w48WxZ89-KvOpqQ6IA322nCIIeoSMXL0yLL13BxYCkkTdVxiL0LJww-O-IL2-smKEvl4WD2wQHM2zauQSzH8dJUVZI1I1xhcBmuF009wj0SbEfAhhdXgPsGCYpVK7Xz5Uu2CS-ijbFLpQHHn_GZp4xwho4gpsreDpYbRlRdK7_2wsagScvaxeQ-hJpY1_60pBVj0bZE1XWEZYWbxcc42qvt8FrrfE62GTn-TfvS4dlz4N98RVQjhMdFH3S8NVsCyvAMjSmmSGw2t2TJwAEuhovXbEF1I1v3rhdhcJ98Q==",
+        "active": false
+      },
+      {
+        "id": "",
+        "title": "Mid Game",
+        "url": "https://www.pathofexile.com/passive-skill-tree/AAAABgMCeZuhHRRwu6a-7DjxbFnzDR_Pg9-KK8BqQxa_hndlchhq323AZqcILYuhIxcvEQ_viEyLH8fBxYIegKRQQiaVVcbw1dSNIvR4LzD4l8GiAEwtL29UR1ZIF6ShL5eFL10WbzNs2rkEsxM1VUv5N4w2ZOe4XSYpFLBJsUlRGF1eA5D62MNUrtfP2CQHHr6KYeISaayYf8ZmnvrSGjiCmxGWbRlrF67_LpTbCzT3kFVYB-wYjhNjX-NqbD2PRjrYVdbZEzpYFxwnL5UuwWtxea3xGoFRdO9LMcL3133xCPS79nDXfdJxhVM1bAvB86aZIbCRN5MnAAWxBdSNuhovXW_euF3uqdjDhcJ98Q==",
+        "active": false
+      },
+      {
+        "id": "",
+        "title": "End Game",
+        "url": "https://www.pathofexile.com/passive-skill-tree/AAAABgMCgZuhCPTxbFnz320ti6EjTIvAZiaVZlTviC9vVEfv66EvM2wEs1VLjDa4XUlRXgPYw1Su18-VLr6Kf8Zmnho4gpsulFgHkFWPRpwy-tIXHMFrUXSsqn3xdrl4L33SppmTJ54jHRRwuxZv7DhqAd-KK8BqQ6IAGGrw1WwLFy8fx8-DgKSRN1XGTC0w-FBClT9VqeX1cYWXhdq5EzWMdg0fFLBJsTT3kwnQKiYptzEHHpe0OliCHi9drv99Sycv99emvhEPY1-t8TsNIvTbC1XWEZZk59kThXv1gZD6YeKOExqB-TfvSzHCbRkXpMHFrJgSaewYGF1rF1M142oWvzrYIbBxeQAHb964Xe6p2MOFwn3xP1d2uUwnlT__4JMJuhovXQ==",
+        "active": false
+      }
+    ],
+    "raw_spec_count": 9,
+    "raw_active_spec_id": "9",
+    "decoded_active_tree": {
+      "version": 6,
+      "class_index": 3,
+      "ascendancy_index": 2,
+      "fullscreen_flag": 12,
+      "node_count_declared": 106,
+      "nodes": [
+        "17168",
+        "22613",
+        "44587",
+        "30764",
+        "40004",
+        "43999",
+        "45191",
+        "25986",
+        "4239",
+        "42527",
+        "51132",
+        "59904"
+      ],
+      "cluster_nodes": [],
+      "mastery_effects": {},
+      "decode_warnings": [
+        "truncated_allocated_nodes"
+      ]
+    },
+    "graph_summary": {
+      "class_index": 3,
+      "class_start_id": "54447",
+      "allocated_count": 0,
+      "connected_allocated_count": 0,
+      "orphaned_allocated_count": 0,
+      "orphaned_allocated_node_ids": [],
+      "connectivity_status": "connected"
+    },
+    "allocated_passives": [
+      "17168",
+      "22613",
+      "44587",
+      "30764",
+      "40004",
+      "43999",
+      "45191",
+      "25986",
+      "4239",
+      "42527",
+      "51132",
+      "59904"
+    ],
+    "semantic_nodes": [],
+    "missing_semantic_node_ids": [
+      "17168",
+      "22613",
+      "44587",
+      "30764",
+      "40004",
+      "43999",
+      "45191",
+      "25986",
+      "4239",
+      "42527",
+      "51132",
+      "59904"
+    ],
+    "semantic_counts": {
+      "total": 12,
+      "resolved": 0,
+      "missing": 12,
+      "notables": 0,
+      "keystones": 0,
+      "jewel_sockets": 0
+    },
+    "stat_category_counts": {},
+    "notables": [],
+    "masteries": [],
+    "keystones": [],
+    "jewel_sockets": [],
+    "parse_status": "decoded_official_tree_url_no_semantic_matches"
+  },
+  "item_state": {
+    "slots": [
+      {
+        "slot": "Weapon 1",
+        "name": "Ele Overload + Misery Essence + Multi Mod (Oscillating Sceptre)",
+        "rarity": "Rare",
+        "base_type": "Oscillating Sceptre",
+        "sockets": "B-B-B",
+        "explicit_mods": [
+          "Elemental Overload",
+          "+22% to Damage over Time Multiplier",
+          "26% increased Cast Speed",
+          "{crafted}{range:0.5}(51-60)% increased Fire Damage",
+          "{crafted}{range:0.5}Gain (7-8)% of Fire Damage as Extra Chaos Damage"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Oscillating Sceptre",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/SceptreE1",
+            "drop_level": 30,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              33,
+              1060
+            ],
+            "effective_tags": [
+              "equipment",
+              "experimental_base",
+              "mace",
+              "not_for_sale",
+              "weapon"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 81,
+            "suffix": 74
+          },
+          "effective_tags": [
+            "equipment",
+            "experimental_base",
+            "mace",
+            "not_for_sale",
+            "weapon"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "42",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Crafted: true",
+            "raw_text": "Crafted: true",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 1,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 2,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 3,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "Suffix: None",
+            "raw_text": "Suffix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 5,
+            "text": "Suffix: None",
+            "raw_text": "Suffix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "Suffix: None",
+            "raw_text": "Suffix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 7,
+            "text": "Elemental Overload",
+            "raw_text": "{tags:elemental_damage,damage,elemental,critical}Elemental Overload",
+            "tags": [
+              "tags:elemental_damage,damage,elemental,critical"
+            ],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 8,
+            "text": "+22% to Damage over Time Multiplier",
+            "raw_text": "+22% to Damage over Time Multiplier",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 9,
+            "text": "26% increased Cast Speed",
+            "raw_text": "26% increased Cast Speed",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "cast_speed",
+              "speed"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 10,
+            "text": "Can have up to 3 Crafted Modifiers",
+            "raw_text": "{crafted}Can have up to 3 Crafted Modifiers",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 11,
+            "text": "(51-60)% increased Fire Damage",
+            "raw_text": "{tags:elemental_damage,unveiled_mod,damage,elemental,fire,ailment}{crafted}{range:0.5}(51-60)% increased Fire Damage",
+            "tags": [
+              "tags:elemental_damage,unveiled_mod,damage,elemental,fire,ailment",
+              "crafted",
+              "range:0.5"
+            ],
+            "source": "crafted",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 12,
+            "text": "(18-20)% chance to Ignite",
+            "raw_text": "{tags:elemental_damage,unveiled_mod,damage,elemental,fire,ailment}{crafted}{range:0.5}(18-20)% chance to Ignite",
+            "tags": [
+              "tags:elemental_damage,unveiled_mod,damage,elemental,fire,ailment",
+              "crafted",
+              "range:0.5"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 13,
+            "text": "Gain (7-8)% of Fire Damage as Extra Chaos Damage",
+            "raw_text": "{tags:elemental_damage,chaos_damage,unveiled_mod,damage,elemental,fire,chaos}{crafted}{range:0.5}Gain (7-8)% of Fire Damage as Extra Chaos Damage",
+            "tags": [
+              "tags:elemental_damage,chaos_damage,unveiled_mod,damage,elemental,fire,chaos",
+              "crafted",
+              "range:0.5"
+            ],
+            "source": "crafted",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 14,
+          "source_counts": {
+            "crafted": 4,
+            "explicit": 9,
+            "implicit": 1
+          },
+          "category_counts": {
+            "cast_speed": 1,
+            "damage": 3,
+            "speed": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 4,
+            "implicit": 1,
+            "suffix": 1,
+            "unknown": 8
+          },
+          "numeric_totals": {}
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 1,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 12,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Belt",
+        "name": "New Item (Stygian Vise)",
+        "rarity": "Rare",
+        "base_type": "Stygian Vise",
+        "sockets": "A",
+        "explicit_mods": [
+          "Prefix: {range:0.268}IncreasedLife6",
+          "Suffix: {range:1}LightningResist4",
+          "Suffix: {range:1}FireResist4",
+          "Has 1 Abyssal Socket",
+          "+62 to maximum Life",
+          "+29% to Fire Resistance",
+          "+29% to Lightning Resistance",
+          "{crafted}Regenerate 150 Energy Shield per second while a Rare or Unique Enemy is Nearby"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Stygian Vise",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Belts/BeltAbyss",
+            "drop_level": 1,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              33
+            ],
+            "effective_tags": [
+              "not_for_sale"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 10,
+            "suffix": 9
+          },
+          "effective_tags": [
+            "not_for_sale"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "51",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Crafted: true",
+            "raw_text": "Crafted: true",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 1,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 2,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 3,
+            "text": "Prefix: {range:0.268}IncreasedLife6",
+            "raw_text": "Prefix: {range:0.268}IncreasedLife6",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "Suffix: {range:1}LightningResist4",
+            "raw_text": "Suffix: {range:1}LightningResist4",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 5,
+            "text": "Suffix: {range:1}FireResist4",
+            "raw_text": "Suffix: {range:1}FireResist4",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "Suffix: None",
+            "raw_text": "Suffix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 7,
+            "text": "Has 1 Abyssal Socket",
+            "raw_text": "Has 1 Abyssal Socket",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 8,
+            "text": "+62 to maximum Life",
+            "raw_text": "+62 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 62
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 9,
+            "text": "+29% to Fire Resistance",
+            "raw_text": "+29% to Fire Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "fire_resistance",
+              "fire",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "fire_resistance": 29
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 10,
+            "text": "+29% to Lightning Resistance",
+            "raw_text": "+29% to Lightning Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "lightning_resistance",
+              "lightning",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "lightning_resistance": 29
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 11,
+            "text": "Regenerate 150 Energy Shield per second while a Rare or Unique Enemy is Nearby",
+            "raw_text": "{tags:unveiled_mod,defences,energy_shield}{crafted}Regenerate 150 Energy Shield per second while a Rare or Unique Enemy is Nearby",
+            "tags": [
+              "tags:unveiled_mod,defences,energy_shield",
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [
+              "energy_shield",
+              "regeneration"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 12,
+          "source_counts": {
+            "crafted": 1,
+            "explicit": 10,
+            "implicit": 1
+          },
+          "category_counts": {
+            "energy_shield": 1,
+            "fire": 1,
+            "fire_resistance": 1,
+            "life": 1,
+            "lightning": 1,
+            "lightning_resistance": 1,
+            "maximum_life": 1,
+            "regeneration": 1,
+            "resistance": 2
+          },
+          "likely_generation_counts": {
+            "implicit": 1,
+            "prefix": 2,
+            "suffix": 2,
+            "unknown": 7
+          },
+          "numeric_totals": {
+            "maximum_life": 62,
+            "fire_resistance": 29,
+            "lightning_resistance": 29
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 2,
+          "likely_suffix_mods": 2,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 7,
+          "suffix_pressure_categories": [
+            "resistance",
+            "fire_resistance",
+            "lightning_resistance"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Flask 5",
+        "name": "Perpetual Quicksilver Flask of the Kakapo (Crafted: true)",
+        "rarity": "Magic",
+        "base_type": "Crafted: true",
+        "sockets": "",
+        "explicit_mods": [
+          "Prefix: {range:0.032}FlaskChargesAddedIncreasePercent5",
+          "46% increased Charge Recovery"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": null,
+          "affix_candidate_counts": null,
+          "join_status": "base_not_found_or_no_affix_candidates"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "11",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Prefix: {range:0.032}FlaskChargesAddedIncreasePercent5__",
+            "raw_text": "Prefix: {range:0.032}FlaskChargesAddedIncreasePercent5__",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 1,
+            "text": "Suffix: {range:0.205}FlaskBuffCurseEffect4",
+            "raw_text": "Suffix: {range:0.205}FlaskBuffCurseEffect4",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 2,
+            "text": "46% increased Charge Recovery",
+            "raw_text": "46% increased Charge Recovery",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 3,
+            "text": "53% reduced Effect of Curses on you during Effect",
+            "raw_text": "53% reduced Effect of Curses on you during Effect",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 4,
+          "source_counts": {
+            "explicit": 4
+          },
+          "category_counts": {
+            "flask": 2
+          },
+          "likely_generation_counts": {
+            "unknown": 4
+          },
+          "numeric_totals": {}
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 4,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "candidate_pool_unresolved"
+        }
+      },
+      {
+        "slot": "Flask 4",
+        "name": "Endless Granite Flask of the Abalone (Crafted: true)",
+        "rarity": "Magic",
+        "base_type": "Crafted: true",
+        "sockets": "",
+        "explicit_mods": [
+          "Prefix: {range:0.5}FlaskChargesAddedIncreasePercent3",
+          "Suffix: {range:0.93}FlaskBuffArmourWhileHealing1",
+          "28% increased Charge Recovery",
+          "45% increased Armour during Effect"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": null,
+          "affix_candidate_counts": null,
+          "join_status": "base_not_found_or_no_affix_candidates"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "12",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Prefix: {range:0.5}FlaskChargesAddedIncreasePercent3_",
+            "raw_text": "Prefix: {range:0.5}FlaskChargesAddedIncreasePercent3_",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 1,
+            "text": "Suffix: {range:0.93}FlaskBuffArmourWhileHealing1",
+            "raw_text": "Suffix: {range:0.93}FlaskBuffArmourWhileHealing1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour",
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "28% increased Charge Recovery",
+            "raw_text": "28% increased Charge Recovery",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 3,
+            "text": "45% increased Armour during Effect",
+            "raw_text": "45% increased Armour during Effect",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 4,
+          "source_counts": {
+            "explicit": 4
+          },
+          "category_counts": {
+            "armour": 2,
+            "flask": 2
+          },
+          "likely_generation_counts": {
+            "prefix": 2,
+            "unknown": 2
+          },
+          "numeric_totals": {}
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 2,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 2,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "candidate_pool_unresolved"
+        }
+      },
+      {
+        "slot": "Helmet",
+        "name": "COLD TO SPELL FOR CHILL TECH + Envy + Implicits (Pig-Faced Bascinet)",
+        "rarity": "Rare",
+        "base_type": "Pig-Faced Bascinet",
+        "sockets": "R-R-R-R",
+        "explicit_mods": [
+          "Armour: 316",
+          "Evasion: 220",
+          "Energy Shield: 48",
+          "Prefix: {range:0.486}IncreasedLife8",
+          "Suffix: {range:0.838}ChanceToSuppressSpells4",
+          "Suffix: {range:0.472}ChaosResist6",
+          "Suffix: {range:0.282}ColdResist7",
+          "{eater}6% of Physical Damage from Hits taken as Fire Damage",
+          "{exarch}{range:0.5}Adds (9-11) to (17-20) Cold Damage to Spells",
+          "+12% chance to Suppress Spell Damage"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Pig-Faced Bascinet",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Armours/Helmets/HelmetStrDex9",
+            "drop_level": 63,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              41,
+              1048
+            ],
+            "effective_tags": [
+              "armour",
+              "equipment",
+              "helmet",
+              "str_dex_armour",
+              "top_tier_base_item_type"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 41,
+            "suffix": 98
+          },
+          "effective_tags": [
+            "armour",
+            "equipment",
+            "helmet",
+            "str_dex_armour",
+            "top_tier_base_item_type"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "30",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Armour: 316",
+            "raw_text": "Armour: 316",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 1,
+            "text": "ArmourBasePercentile: 1",
+            "raw_text": "ArmourBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "Evasion: 220",
+            "raw_text": "Evasion: 220",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 3,
+            "text": "EvasionBasePercentile: 1",
+            "raw_text": "EvasionBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 4,
+            "text": "Energy Shield: 48",
+            "raw_text": "Energy Shield: 48",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 5,
+            "text": "EnergyShieldBasePercentile: 1",
+            "raw_text": "EnergyShieldBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "Searing Exarch Item",
+            "raw_text": "Searing Exarch Item",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 7,
+            "text": "Eater of Worlds Item",
+            "raw_text": "Eater of Worlds Item",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 8,
+            "text": "Crafted: true",
+            "raw_text": "Crafted: true",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 9,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 10,
+            "text": "Prefix: {range:0.486}IncreasedLife8",
+            "raw_text": "Prefix: {range:0.486}IncreasedLife8",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 11,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 12,
+            "text": "Suffix: {range:0.838}ChanceToSuppressSpells4",
+            "raw_text": "Suffix: {range:0.838}ChanceToSuppressSpells4",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 13,
+            "text": "Suffix: {range:0.472}ChaosResist6",
+            "raw_text": "Suffix: {range:0.472}ChaosResist6",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 14,
+            "text": "Suffix: {range:0.282}ColdResist7",
+            "raw_text": "Suffix: {range:0.282}ColdResist7",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 15,
+            "text": "6% of Physical Damage from Hits taken as Fire Damage",
+            "raw_text": "{tags:physical,elemental,fire}{eater}6% of Physical Damage from Hits taken as Fire Damage",
+            "tags": [
+              "tags:physical,elemental,fire",
+              "eater"
+            ],
+            "source": "implicit",
+            "categories": [
+              "physical_damage",
+              "physical",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 16,
+            "text": "Adds (9-11) to (17-20) Cold Damage to Spells",
+            "raw_text": "{tags:elemental_damage,caster_damage,damage,elemental,cold,caster}{exarch}{range:0.5}Adds (9-11) to (17-20) Cold Damage to Spells",
+            "tags": [
+              "tags:elemental_damage,caster_damage,damage,elemental,cold,caster",
+              "exarch",
+              "range:0.5"
+            ],
+            "source": "implicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 17,
+            "text": "+12% chance to Suppress Spell Damage",
+            "raw_text": "{fractured}+12% chance to Suppress Spell Damage",
+            "tags": [
+              "fractured"
+            ],
+            "source": "fractured",
+            "categories": [
+              "suppression",
+              "damage"
+            ],
+            "numeric_totals": {
+              "spell_suppression": 12
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 18,
+            "text": "+84 to maximum Life",
+            "raw_text": "+84 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 84
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 19,
+            "text": "+43% to Cold Resistance",
+            "raw_text": "+43% to Cold Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "cold_resistance",
+              "cold",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "cold_resistance": 43
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 20,
+            "text": "+33% to Chaos Resistance",
+            "raw_text": "+33% to Chaos Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "chaos_resistance",
+              "chaos",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "chaos_resistance": 33
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 21,
+            "text": "+(35-45) to maximum Energy Shield",
+            "raw_text": "{tags:defences,energy_shield}{crafted}{range:0.5}+(35-45) to maximum Energy Shield",
+            "tags": [
+              "tags:defences,energy_shield",
+              "crafted",
+              "range:0.5"
+            ],
+            "source": "crafted",
+            "categories": [
+              "energy_shield"
+            ],
+            "numeric_totals": {
+              "maximum_energy_shield": 35
+            },
+            "likely_affix_generation": "prefix"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 22,
+          "source_counts": {
+            "crafted": 1,
+            "explicit": 18,
+            "fractured": 1,
+            "implicit": 2
+          },
+          "category_counts": {
+            "armour": 2,
+            "chaos": 1,
+            "chaos_resistance": 1,
+            "cold": 1,
+            "cold_resistance": 1,
+            "damage": 3,
+            "energy_shield": 2,
+            "evasion": 2,
+            "life": 1,
+            "maximum_life": 1,
+            "physical": 1,
+            "physical_damage": 1,
+            "resistance": 2,
+            "suppression": 1
+          },
+          "likely_generation_counts": {
+            "implicit": 2,
+            "prefix": 7,
+            "suffix": 3,
+            "unknown": 10
+          },
+          "numeric_totals": {
+            "maximum_life": 84,
+            "maximum_energy_shield": 35,
+            "cold_resistance": 43,
+            "chaos_resistance": 33,
+            "spell_suppression": 12
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 7,
+          "likely_suffix_mods": 3,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 10,
+          "suffix_pressure_categories": [
+            "resistance",
+            "cold_resistance",
+            "chaos_resistance",
+            "suppression"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Flask 1",
+        "name": "Seething Divine Life Flask of Alleviation (Crafted: true)",
+        "rarity": "Magic",
+        "base_type": "Crafted: true",
+        "sockets": "",
+        "explicit_mods": [
+          "Grants Immunity to Bleeding for 11 seconds if used while Bleeding",
+          "Grants Immunity to Corrupted Blood for 11 seconds if used while affected by Corrupted Blood"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": null,
+          "affix_candidate_counts": null,
+          "join_status": "base_not_found_or_no_affix_candidates"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "14",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Prefix: {range:0.5}FlaskFullInstantRecovery1",
+            "raw_text": "Prefix: {range:0.5}FlaskFullInstantRecovery1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 1,
+            "text": "Suffix: {range:1}FlaskBleedCorruptingBloodImmunity2",
+            "raw_text": "Suffix: {range:1}FlaskBleedCorruptingBloodImmunity2",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 2,
+            "text": "66% reduced Amount Recovered",
+            "raw_text": "66% reduced Amount Recovered",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 3,
+            "text": "Instant Recovery",
+            "raw_text": "Instant Recovery",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "Grants Immunity to Bleeding for 11 seconds if used while Bleeding",
+            "raw_text": "Grants Immunity to Bleeding for 11 seconds if used while Bleeding",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 5,
+            "text": "Grants Immunity to Corrupted Blood for 11 seconds if used while affected by Corrupted Blood",
+            "raw_text": "Grants Immunity to Corrupted Blood for 11 seconds if used while affected by Corrupted Blood",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 6,
+          "source_counts": {
+            "explicit": 6
+          },
+          "category_counts": {
+            "flask": 2
+          },
+          "likely_generation_counts": {
+            "unknown": 6
+          },
+          "numeric_totals": {}
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 6,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "candidate_pool_unresolved"
+        }
+      },
+      {
+        "slot": "Amulet",
+        "name": "Dot Multi + Effect + Anoint (Amber Amulet)",
+        "rarity": "Rare",
+        "base_type": "Amber Amulet",
+        "sockets": "",
+        "explicit_mods": [
+          "Prefix: {range:0.384}IncreasedLife7",
+          "Suffix: {range:0.486}GlobalDamageOverTimeMultiplier1h4",
+          "Suffix: {range:0.577}LightningResist6",
+          "+21% to Damage over Time Multiplier",
+          "+73 to maximum Life",
+          "+39% to Lightning Resistance",
+          "{crafted}{range:0.5}(23-30)% increased Effect of Non-Damaging Ailments"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Amber Amulet",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Amulets/Amulet3",
+            "drop_level": 7,
+            "mod_domain": 1,
+            "explicit_tag_keys": [],
+            "effective_tags": []
+          },
+          "affix_candidate_counts": {
+            "prefix": 10,
+            "suffix": 9
+          },
+          "effective_tags": [],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "25",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Crafted: true",
+            "raw_text": "Crafted: true",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 1,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 2,
+            "text": "Prefix: {range:0.384}IncreasedLife7",
+            "raw_text": "Prefix: {range:0.384}IncreasedLife7",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 3,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "Suffix: {range:0.486}GlobalDamageOverTimeMultiplier1h4",
+            "raw_text": "Suffix: {range:0.486}GlobalDamageOverTimeMultiplier1h4",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 5,
+            "text": "Suffix: {range:0.577}LightningResist6",
+            "raw_text": "Suffix: {range:0.577}LightningResist6",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "Suffix: None",
+            "raw_text": "Suffix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 7,
+            "text": "Allocates Ash, Frost and Storm",
+            "raw_text": "{crafted}Allocates Ash, Frost and Storm",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 8,
+            "text": "+(20-30) to Strength",
+            "raw_text": "{tags:attribute}{range:0.902}+(20-30) to Strength",
+            "tags": [
+              "tags:attribute",
+              "range:0.902"
+            ],
+            "source": "implicit",
+            "categories": [
+              "strength",
+              "attribute"
+            ],
+            "numeric_totals": {
+              "strength": 20
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 9,
+            "text": "+21% to Damage over Time Multiplier",
+            "raw_text": "+21% to Damage over Time Multiplier",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 10,
+            "text": "+73 to maximum Life",
+            "raw_text": "+73 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 73
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 11,
+            "text": "+39% to Lightning Resistance",
+            "raw_text": "+39% to Lightning Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "lightning_resistance",
+              "lightning",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "lightning_resistance": 39
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 12,
+            "text": "(23-30)% increased Effect of Non-Damaging Ailments",
+            "raw_text": "{tags:unveiled_mod,ailment}{crafted}{range:0.5}(23-30)% increased Effect of Non-Damaging Ailments",
+            "tags": [
+              "tags:unveiled_mod,ailment",
+              "crafted",
+              "range:0.5"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 13,
+          "source_counts": {
+            "crafted": 2,
+            "explicit": 9,
+            "implicit": 2
+          },
+          "category_counts": {
+            "attribute": 1,
+            "damage": 2,
+            "life": 1,
+            "lightning": 1,
+            "lightning_resistance": 1,
+            "maximum_life": 1,
+            "resistance": 1,
+            "strength": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 2,
+            "implicit": 2,
+            "prefix": 1,
+            "suffix": 1,
+            "unknown": 7
+          },
+          "numeric_totals": {
+            "maximum_life": 73,
+            "lightning_resistance": 39,
+            "strength": 20
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 1,
+          "likely_suffix_mods": 1,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 9,
+          "suffix_pressure_categories": [
+            "resistance",
+            "lightning_resistance",
+            "attribute"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Flask 2",
+        "name": "Bottomless Silver Flask of the Horsefly (Crafted: true)",
+        "rarity": "Magic",
+        "base_type": "Crafted: true",
+        "sockets": "",
+        "explicit_mods": [
+          "Prefix: {range:0.697}FlaskChargesAddedIncreasePercent4",
+          "41% increased Charge Recovery",
+          "16% increased Cast Speed during Effect"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": null,
+          "affix_candidate_counts": null,
+          "join_status": "base_not_found_or_no_affix_candidates"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "16",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Prefix: {range:0.697}FlaskChargesAddedIncreasePercent4_",
+            "raw_text": "Prefix: {range:0.697}FlaskChargesAddedIncreasePercent4_",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 1,
+            "text": "Suffix: {range:0.62}FlaskBuffCastSpeedWhileHealing3",
+            "raw_text": "Suffix: {range:0.62}FlaskBuffCastSpeedWhileHealing3",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 2,
+            "text": "41% increased Charge Recovery",
+            "raw_text": "41% increased Charge Recovery",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 3,
+            "text": "16% increased Cast Speed during Effect",
+            "raw_text": "16% increased Cast Speed during Effect",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "cast_speed",
+              "speed"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 4,
+          "source_counts": {
+            "explicit": 4
+          },
+          "category_counts": {
+            "cast_speed": 1,
+            "flask": 2,
+            "speed": 1
+          },
+          "likely_generation_counts": {
+            "suffix": 1,
+            "unknown": 3
+          },
+          "numeric_totals": {}
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 1,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 3,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "candidate_pool_unresolved"
+        }
+      },
+      {
+        "slot": "Ring 2",
+        "name": "Fractured + Dex Essence + Shock (Amethyst Ring)",
+        "rarity": "Rare",
+        "base_type": "Amethyst Ring",
+        "sockets": "",
+        "explicit_mods": [
+          "Prefix: {range:0.676}IncreasedLife6",
+          "Suffix: {range:0.338}ChaosResist4",
+          "{range:1}+(17-23)% to Chaos Resistance",
+          "+66 to maximum Life",
+          "+22% to Chaos Resistance"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Amethyst Ring",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Rings/Ring10",
+            "drop_level": 38,
+            "mod_domain": 1,
+            "explicit_tag_keys": [],
+            "effective_tags": []
+          },
+          "affix_candidate_counts": {
+            "prefix": 10,
+            "suffix": 9
+          },
+          "effective_tags": [],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "34",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Crafted: true",
+            "raw_text": "Crafted: true",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 1,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 2,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 3,
+            "text": "Prefix: {range:0.676}IncreasedLife6",
+            "raw_text": "Prefix: {range:0.676}IncreasedLife6",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "Suffix: {range:0.289}Dexterity8",
+            "raw_text": "Suffix: {range:0.289}Dexterity8",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "dexterity",
+              "attribute"
+            ],
+            "numeric_totals": {
+              "dexterity": 0
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 5,
+            "text": "Suffix: {range:0.338}ChaosResist4",
+            "raw_text": "Suffix: {range:0.338}ChaosResist4",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "Suffix: None",
+            "raw_text": "Suffix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 7,
+            "text": "+(17-23)% to Chaos Resistance",
+            "raw_text": "{tags:chaos,resistance}{range:1}+(17-23)% to Chaos Resistance",
+            "tags": [
+              "tags:chaos,resistance",
+              "range:1"
+            ],
+            "source": "implicit",
+            "categories": [
+              "chaos_resistance",
+              "chaos",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "chaos_resistance": 17
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 8,
+            "text": "+45 to Dexterity",
+            "raw_text": "+45 to Dexterity",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "dexterity",
+              "attribute"
+            ],
+            "numeric_totals": {
+              "dexterity": 45
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 9,
+            "text": "+66 to maximum Life",
+            "raw_text": "{fractured}+66 to maximum Life",
+            "tags": [
+              "fractured"
+            ],
+            "source": "fractured",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 66
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 10,
+            "text": "+22% to Chaos Resistance",
+            "raw_text": "+22% to Chaos Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "chaos_resistance",
+              "chaos",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "chaos_resistance": 22
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 11,
+            "text": "Shock nearby Enemies for 4 Seconds when you Focus",
+            "raw_text": "{tags:unveiled_mod,elemental,lightning,ailment}{crafted}Shock nearby Enemies for 4 Seconds when you Focus",
+            "tags": [
+              "tags:unveiled_mod,elemental,lightning,ailment",
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 12,
+          "source_counts": {
+            "crafted": 1,
+            "explicit": 9,
+            "fractured": 1,
+            "implicit": 1
+          },
+          "category_counts": {
+            "attribute": 2,
+            "chaos": 2,
+            "chaos_resistance": 2,
+            "dexterity": 2,
+            "life": 1,
+            "maximum_life": 1,
+            "resistance": 2
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "implicit": 1,
+            "prefix": 1,
+            "suffix": 3,
+            "unknown": 6
+          },
+          "numeric_totals": {
+            "maximum_life": 66,
+            "chaos_resistance": 39,
+            "dexterity": 45
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 1,
+          "likely_suffix_mods": 3,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 7,
+          "suffix_pressure_categories": [
+            "resistance",
+            "chaos_resistance",
+            "attribute"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Gloves",
+        "name": "Fractured + Envy + Implicits (Dragonscale Gauntlets)",
+        "rarity": "Rare",
+        "base_type": "Dragonscale Gauntlets",
+        "sockets": "G-G-G-G",
+        "explicit_mods": [
+          "Armour: 167",
+          "Evasion: 167",
+          "Prefix: {range:0.764}IncreasedLife7",
+          "Suffix: {range:0.803}ChanceToSuppressSpells4",
+          "Suffix: {range:0.648}ChaosResist5",
+          "Suffix: {range:0.62}ColdResist7",
+          "{exarch}{range:0.5}While a Unique Enemy is in your Presence, +(17-19)% to Fire Damage over Time Multiplier",
+          "Inflict Fire Exposure on Hit, applying -11% to Fire Resistance",
+          "+12% chance to Suppress Spell Damage",
+          "+77 to maximum Life"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Dragonscale Gauntlets",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Armours/Gloves/GlovesStrDex8",
+            "drop_level": 67,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              41,
+              1048
+            ],
+            "effective_tags": [
+              "armour",
+              "equipment",
+              "gloves",
+              "str_dex_armour",
+              "top_tier_base_item_type"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 54,
+            "suffix": 98
+          },
+          "effective_tags": [
+            "armour",
+            "equipment",
+            "gloves",
+            "str_dex_armour",
+            "top_tier_base_item_type"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "32",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Armour: 167",
+            "raw_text": "Armour: 167",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 1,
+            "text": "ArmourBasePercentile: 1",
+            "raw_text": "ArmourBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "Evasion: 167",
+            "raw_text": "Evasion: 167",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 3,
+            "text": "EvasionBasePercentile: 1",
+            "raw_text": "EvasionBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 4,
+            "text": "Searing Exarch Item",
+            "raw_text": "Searing Exarch Item",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 5,
+            "text": "Eater of Worlds Item",
+            "raw_text": "Eater of Worlds Item",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "Crafted: true",
+            "raw_text": "Crafted: true",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 7,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 8,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 9,
+            "text": "Prefix: {range:0.764}IncreasedLife7",
+            "raw_text": "Prefix: {range:0.764}IncreasedLife7",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 10,
+            "text": "Suffix: {range:0.803}ChanceToSuppressSpells4",
+            "raw_text": "Suffix: {range:0.803}ChanceToSuppressSpells4",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 11,
+            "text": "Suffix: {range:0.648}ChaosResist5",
+            "raw_text": "Suffix: {range:0.648}ChaosResist5",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 12,
+            "text": "Suffix: {range:0.62}ColdResist7",
+            "raw_text": "Suffix: {range:0.62}ColdResist7",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 13,
+            "text": "While a Unique Enemy is in your Presence, +(17-19)% to Fire Damage over Time Multiplier",
+            "raw_text": "{tags:dot_multi,elemental_damage,damage,elemental,fire}{exarch}{range:0.5}While a Unique Enemy is in your Presence, +(17-19)% to Fire Damage over Time Multiplier",
+            "tags": [
+              "tags:dot_multi,elemental_damage,damage,elemental,fire",
+              "exarch",
+              "range:0.5"
+            ],
+            "source": "implicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 14,
+            "text": "Inflict Fire Exposure on Hit, applying -11% to Fire Resistance",
+            "raw_text": "{eater}Inflict Fire Exposure on Hit, applying -11% to Fire Resistance",
+            "tags": [
+              "eater"
+            ],
+            "source": "implicit",
+            "categories": [
+              "fire_resistance",
+              "fire",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "fire_resistance": -11
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 15,
+            "text": "+12% chance to Suppress Spell Damage",
+            "raw_text": "+12% chance to Suppress Spell Damage",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "suppression",
+              "damage"
+            ],
+            "numeric_totals": {
+              "spell_suppression": 12
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 16,
+            "text": "+77 to maximum Life",
+            "raw_text": "+77 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 77
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 17,
+            "text": "+44% to Cold Resistance",
+            "raw_text": "+44% to Cold Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "cold_resistance",
+              "cold",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "cold_resistance": 44
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 18,
+            "text": "+29% to Chaos Resistance",
+            "raw_text": "+29% to Chaos Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "chaos_resistance",
+              "chaos",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "chaos_resistance": 29
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 19,
+            "text": "+1 to Level of Socketed AoE Gems",
+            "raw_text": "{tags:unveiled_mod,gem}{crafted}+1 to Level of Socketed AoE Gems",
+            "tags": [
+              "tags:unveiled_mod,gem",
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [
+              "gem_level"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 20,
+            "text": "(8-10)% increased Area of Effect",
+            "raw_text": "{tags:unveiled_mod,gem}{crafted}{range:1}(8-10)% increased Area of Effect",
+            "tags": [
+              "tags:unveiled_mod,gem",
+              "crafted",
+              "range:1"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 21,
+          "source_counts": {
+            "crafted": 2,
+            "explicit": 17,
+            "implicit": 2
+          },
+          "category_counts": {
+            "armour": 2,
+            "chaos": 1,
+            "chaos_resistance": 1,
+            "cold": 1,
+            "cold_resistance": 1,
+            "damage": 2,
+            "evasion": 2,
+            "fire": 1,
+            "fire_resistance": 1,
+            "gem_level": 1,
+            "life": 1,
+            "maximum_life": 1,
+            "resistance": 3,
+            "suppression": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "implicit": 2,
+            "prefix": 6,
+            "suffix": 3,
+            "unknown": 9
+          },
+          "numeric_totals": {
+            "maximum_life": 77,
+            "fire_resistance": -11,
+            "cold_resistance": 44,
+            "chaos_resistance": 29,
+            "spell_suppression": 12
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 6,
+          "likely_suffix_mods": 3,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 10,
+          "suffix_pressure_categories": [
+            "resistance",
+            "fire_resistance",
+            "cold_resistance",
+            "chaos_resistance",
+            "suppression"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Flask 3",
+        "name": "Endless Jade Flask of the Gazelle (Crafted: true)",
+        "rarity": "Magic",
+        "base_type": "Crafted: true",
+        "sockets": "",
+        "explicit_mods": [
+          "Prefix: {range:0.5}FlaskChargesAddedIncreasePercent3",
+          "Suffix: {range:0.93}FlaskBuffEvasionWhileHealing",
+          "28% increased Charge Recovery",
+          "45% increased Evasion Rating during Effect"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": null,
+          "affix_candidate_counts": null,
+          "join_status": "base_not_found_or_no_affix_candidates"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "13",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Prefix: {range:0.5}FlaskChargesAddedIncreasePercent3_",
+            "raw_text": "Prefix: {range:0.5}FlaskChargesAddedIncreasePercent3_",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 1,
+            "text": "Suffix: {range:0.93}FlaskBuffEvasionWhileHealing",
+            "raw_text": "Suffix: {range:0.93}FlaskBuffEvasionWhileHealing",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion",
+              "flask"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "Used when Charges reach full",
+            "raw_text": "{crafted}Used when Charges reach full",
+            "tags": [
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 3,
+            "text": "28% increased Charge Recovery",
+            "raw_text": "28% increased Charge Recovery",
+            "tags": [],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 4,
+            "text": "45% increased Evasion Rating during Effect",
+            "raw_text": "45% increased Evasion Rating during Effect",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 5,
+          "source_counts": {
+            "crafted": 1,
+            "explicit": 3,
+            "implicit": 1
+          },
+          "category_counts": {
+            "evasion": 2,
+            "flask": 2
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "implicit": 1,
+            "prefix": 2,
+            "unknown": 1
+          },
+          "numeric_totals": {}
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 2,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 2,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "candidate_pool_unresolved"
+        }
+      },
+      {
+        "slot": "Boots",
+        "name": "Fractured + Veiled Mod + Envy (Dragonscale Boots)",
+        "rarity": "Rare",
+        "base_type": "Dragonscale Boots",
+        "sockets": "G-G-G-G",
+        "explicit_mods": [
+          "Armour: 167",
+          "Evasion: 167",
+          "Prefix: {range:0.289}IncreasedLife7",
+          "Suffix: {range:0.838}ChanceToSuppressSpells4",
+          "Suffix: {range:0.415}ChaosResist5",
+          "{eater}Ignites you inflict deal Damage 5% faster",
+          "+12% chance to Suppress Spell Damage",
+          "+73 to maximum Life",
+          "+28% to Chaos Resistance",
+          "{custom}{range:0.683}(33-40)% increased Effect of Non-Damaging Ailments"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Dragonscale Boots",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Armours/Boots/BootsStrDex8",
+            "drop_level": 65,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              41,
+              1048
+            ],
+            "effective_tags": [
+              "armour",
+              "boots",
+              "equipment",
+              "str_dex_armour",
+              "top_tier_base_item_type"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 39,
+            "suffix": 76
+          },
+          "effective_tags": [
+            "armour",
+            "boots",
+            "equipment",
+            "str_dex_armour",
+            "top_tier_base_item_type"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "33",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Armour: 167",
+            "raw_text": "Armour: 167",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 1,
+            "text": "ArmourBasePercentile: 1",
+            "raw_text": "ArmourBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "Evasion: 167",
+            "raw_text": "Evasion: 167",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 3,
+            "text": "EvasionBasePercentile: 1",
+            "raw_text": "EvasionBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 4,
+            "text": "Searing Exarch Item",
+            "raw_text": "Searing Exarch Item",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 5,
+            "text": "Eater of Worlds Item",
+            "raw_text": "Eater of Worlds Item",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "Crafted: true",
+            "raw_text": "Crafted: true",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 7,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 8,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 9,
+            "text": "Prefix: {range:0.289}IncreasedLife7",
+            "raw_text": "Prefix: {range:0.289}IncreasedLife7",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 10,
+            "text": "Suffix: None",
+            "raw_text": "Suffix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 11,
+            "text": "Suffix: {range:0.838}ChanceToSuppressSpells4",
+            "raw_text": "Suffix: {range:0.838}ChanceToSuppressSpells4",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 12,
+            "text": "Suffix: {range:0.415}ChaosResist5",
+            "raw_text": "Suffix: {range:0.415}ChaosResist5",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 13,
+            "text": "While a Unique Enemy is in your Presence, Drops Scorched Ground while moving, lasting 5 seconds",
+            "raw_text": "{exarch}While a Unique Enemy is in your Presence, Drops Scorched Ground while moving, lasting 5 seconds",
+            "tags": [
+              "exarch"
+            ],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 14,
+            "text": "Ignites you inflict deal Damage 5% faster",
+            "raw_text": "{tags:elemental_damage,damage,elemental,fire,ailment}{eater}Ignites you inflict deal Damage 5% faster",
+            "tags": [
+              "tags:elemental_damage,damage,elemental,fire,ailment",
+              "eater"
+            ],
+            "source": "implicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 15,
+            "text": "+12% chance to Suppress Spell Damage",
+            "raw_text": "+12% chance to Suppress Spell Damage",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "suppression",
+              "damage"
+            ],
+            "numeric_totals": {
+              "spell_suppression": 12
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 16,
+            "text": "+73 to maximum Life",
+            "raw_text": "+73 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 73
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 17,
+            "text": "+28% to Chaos Resistance",
+            "raw_text": "+28% to Chaos Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "chaos_resistance",
+              "chaos",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "chaos_resistance": 28
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 18,
+            "text": "(33-40)% increased Effect of Non-Damaging Ailments",
+            "raw_text": "{tags:unveiled_mod,ailment}{custom}{range:0.683}(33-40)% increased Effect of Non-Damaging Ailments",
+            "tags": [
+              "tags:unveiled_mod,ailment",
+              "custom",
+              "range:0.683"
+            ],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 19,
+            "text": "(18-20)% increased Movement Speed",
+            "raw_text": "{tags:unveiled_mod,elemental,cold,speed,ailment}{crafted}{range:0.5}(18-20)% increased Movement Speed",
+            "tags": [
+              "tags:unveiled_mod,elemental,cold,speed,ailment",
+              "crafted",
+              "range:0.5"
+            ],
+            "source": "crafted",
+            "categories": [
+              "movement_speed",
+              "speed"
+            ],
+            "numeric_totals": {
+              "movement_speed": 18
+            },
+            "likely_affix_generation": "crafted_unknown"
+          },
+          {
+            "index": 20,
+            "text": "100% chance to Avoid being Chilled",
+            "raw_text": "{tags:unveiled_mod,elemental,cold,speed,ailment}{crafted}100% chance to Avoid being Chilled",
+            "tags": [
+              "tags:unveiled_mod,elemental,cold,speed,ailment",
+              "crafted"
+            ],
+            "source": "crafted",
+            "categories": [
+              "ailment_avoidance"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "suffix"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 21,
+          "source_counts": {
+            "crafted": 2,
+            "explicit": 17,
+            "implicit": 2
+          },
+          "category_counts": {
+            "ailment_avoidance": 1,
+            "armour": 2,
+            "chaos": 1,
+            "chaos_resistance": 1,
+            "damage": 2,
+            "evasion": 2,
+            "life": 1,
+            "maximum_life": 1,
+            "movement_speed": 1,
+            "resistance": 1,
+            "speed": 1,
+            "suppression": 1
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "implicit": 2,
+            "prefix": 5,
+            "suffix": 3,
+            "unknown": 10
+          },
+          "numeric_totals": {
+            "maximum_life": 73,
+            "chaos_resistance": 28,
+            "spell_suppression": 12,
+            "movement_speed": 18
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 5,
+          "likely_suffix_mods": 3,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 11,
+          "suffix_pressure_categories": [
+            "resistance",
+            "chaos_resistance",
+            "suppression"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Ring 1",
+        "name": "Replica Emberwake",
+        "rarity": "Unique",
+        "base_type": "Ruby Ring",
+        "sockets": "",
+        "explicit_mods": [
+          "{range:0.5}+(20-30)% to Fire Resistance",
+          "{range:0.5}(30-40)% increased Fire Damage",
+          "{range:0.5}(5-10)% increased Cast Speed",
+          "{range:1}Ignites you inflict deal Damage (35-45)% faster"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "base_reference_only_unique_item_no_rare_affix_slots",
+          "base": {
+            "name": "Ruby Ring",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Rings/Ring7",
+            "drop_level": 16,
+            "inherits_from": "Metadata/Items/Rings/AbstractRing",
+            "item_class": 5,
+            "tags": [],
+            "tag_keys": [],
+            "mod_domain": 1,
+            "source": "poe1:BaseItemTypes",
+            "unique_tier": null,
+            "unique_base": null
+          },
+          "affix_candidate_counts": null,
+          "join_status": "unique_slot_locked"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "28",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "League: Heist",
+            "raw_text": "League: Heist",
+            "tags": [],
+            "source": "unique",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unique_modifier"
+          },
+          {
+            "index": 1,
+            "text": "Catalyst: Turbulent",
+            "raw_text": "Catalyst: Turbulent",
+            "tags": [],
+            "source": "unique",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unique_modifier"
+          },
+          {
+            "index": 2,
+            "text": "CatalystQuality: 20",
+            "raw_text": "CatalystQuality: 20",
+            "tags": [],
+            "source": "unique",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unique_modifier"
+          },
+          {
+            "index": 3,
+            "text": "+(20-30)% to Fire Resistance",
+            "raw_text": "{tags:jewellery_resistance}{range:0.5}+(20-30)% to Fire Resistance",
+            "tags": [
+              "tags:jewellery_resistance",
+              "range:0.5"
+            ],
+            "source": "implicit",
+            "categories": [
+              "fire_resistance",
+              "fire",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "fire_resistance": 20
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 4,
+            "text": "(30-40)% increased Fire Damage",
+            "raw_text": "{tags:jewellery_elemental}{range:0.5}(30-40)% increased Fire Damage",
+            "tags": [
+              "tags:jewellery_elemental",
+              "range:0.5"
+            ],
+            "source": "unique",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unique_modifier"
+          },
+          {
+            "index": 5,
+            "text": "(5-10)% increased Cast Speed",
+            "raw_text": "{tags:caster,speed}{range:0.5}(5-10)% increased Cast Speed",
+            "tags": [
+              "tags:caster,speed",
+              "range:0.5"
+            ],
+            "source": "unique",
+            "categories": [
+              "cast_speed",
+              "speed"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unique_modifier"
+          },
+          {
+            "index": 6,
+            "text": "90% reduced Ignite Duration on Enemies",
+            "raw_text": "90% reduced Ignite Duration on Enemies",
+            "tags": [],
+            "source": "unique",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unique_modifier"
+          },
+          {
+            "index": 7,
+            "text": "10% chance to Ignite",
+            "raw_text": "10% chance to Ignite",
+            "tags": [],
+            "source": "unique",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unique_modifier"
+          },
+          {
+            "index": 8,
+            "text": "Ignites you inflict deal Damage (35-45)% faster",
+            "raw_text": "{tags:jewellery_elemental}{range:1}Ignites you inflict deal Damage (35-45)% faster",
+            "tags": [
+              "tags:jewellery_elemental",
+              "range:1"
+            ],
+            "source": "unique",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unique_modifier"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 9,
+          "source_counts": {
+            "implicit": 1,
+            "unique": 8
+          },
+          "category_counts": {
+            "cast_speed": 1,
+            "damage": 2,
+            "fire": 1,
+            "fire_resistance": 1,
+            "resistance": 1,
+            "speed": 1
+          },
+          "likely_generation_counts": {
+            "implicit": 1,
+            "unique_modifier": 8
+          },
+          "numeric_totals": {
+            "fire_resistance": 20
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 0,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 8,
+          "unknown_or_mixed_mods": 0,
+          "suffix_pressure_categories": [
+            "resistance",
+            "fire_resistance"
+          ],
+          "candidate_pool_status": "unique_or_no_rare_affix_pool"
+        }
+      },
+      {
+        "slot": "Belt Abyssal Socket 1",
+        "name": "ENERGY SHIELD + PHASING ON KILL (Hypnotic Eye Jewel)",
+        "rarity": "Rare",
+        "base_type": "Hypnotic Eye Jewel",
+        "sockets": "",
+        "explicit_mods": [
+          "Suffix: {range:1}AbyssChancetoGainPhasingOnKillJewel1",
+          "+37 to maximum Energy Shield",
+          "5% chance to gain Phasing for 4 seconds on Kill"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Hypnotic Eye Jewel",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Jewels/JewelAbyssCaster",
+            "drop_level": 1,
+            "mod_domain": 13,
+            "explicit_tag_keys": [
+              33,
+              236,
+              238
+            ],
+            "effective_tags": [
+              "abyss_jewel",
+              "abyss_jewel_caster",
+              "not_for_sale"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 131,
+            "suffix": 87
+          },
+          "effective_tags": [
+            "abyss_jewel",
+            "abyss_jewel_caster",
+            "not_for_sale"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "52",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Crafted: true",
+            "raw_text": "Crafted: true",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 1,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 2,
+            "text": "Prefix: {range:0.225}AbyssFlatEnergyShieldJewel4",
+            "raw_text": "Prefix: {range:0.225}AbyssFlatEnergyShieldJewel4",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 3,
+            "text": "Suffix: None",
+            "raw_text": "Suffix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "Suffix: {range:1}AbyssChancetoGainPhasingOnKillJewel1",
+            "raw_text": "Suffix: {range:1}AbyssChancetoGainPhasingOnKillJewel1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 5,
+            "text": "+37 to maximum Energy Shield",
+            "raw_text": "+37 to maximum Energy Shield",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield"
+            ],
+            "numeric_totals": {
+              "maximum_energy_shield": 37
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 6,
+            "text": "5% chance to gain Phasing for 4 seconds on Kill",
+            "raw_text": "5% chance to gain Phasing for 4 seconds on Kill",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 7,
+          "source_counts": {
+            "explicit": 7
+          },
+          "category_counts": {
+            "energy_shield": 1
+          },
+          "likely_generation_counts": {
+            "prefix": 1,
+            "unknown": 6
+          },
+          "numeric_totals": {
+            "maximum_energy_shield": 37
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 1,
+          "likely_suffix_mods": 0,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 6,
+          "suffix_pressure_categories": [],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Weapon 2",
+        "name": "Fractured + Greed + It that Fled (Supreme Spiked Shield)",
+        "rarity": "Rare",
+        "base_type": "Supreme Spiked Shield",
+        "sockets": "G-G-G",
+        "explicit_mods": [
+          "Evasion: 334",
+          "Energy Shield: 68",
+          "Prefix: {range:0.451}IncreasedLife9",
+          "Suffix: {range:0.493}LightningResist6",
+          "Suffix: {range:0.75}ChanceToSuppressSpellsHigh4",
+          "Suffix: {range:0.408}FireResist6",
+          "+5% chance to Suppress Spell Damage",
+          "+19% chance to Suppress Spell Damage",
+          "+94 to maximum Life",
+          "+38% to Fire Resistance"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Supreme Spiked Shield",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Armours/Shields/ShieldDexInt13",
+            "drop_level": 70,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              43,
+              230,
+              1048
+            ],
+            "effective_tags": [
+              "armour",
+              "dex_int_armour",
+              "dex_int_shield",
+              "equipment",
+              "shield",
+              "top_tier_base_item_type"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 72,
+            "suffix": 123
+          },
+          "effective_tags": [
+            "armour",
+            "dex_int_armour",
+            "dex_int_shield",
+            "equipment",
+            "shield",
+            "top_tier_base_item_type"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "29",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Evasion: 334",
+            "raw_text": "Evasion: 334",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 1,
+            "text": "EvasionBasePercentile: 1",
+            "raw_text": "EvasionBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "Energy Shield: 68",
+            "raw_text": "Energy Shield: 68",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "energy_shield"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 3,
+            "text": "EnergyShieldBasePercentile: 1",
+            "raw_text": "EnergyShieldBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 4,
+            "text": "Crafted: true",
+            "raw_text": "Crafted: true",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 5,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "Prefix: {range:0.451}IncreasedLife9",
+            "raw_text": "Prefix: {range:0.451}IncreasedLife9",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 7,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 8,
+            "text": "Suffix: {range:0.493}LightningResist6",
+            "raw_text": "Suffix: {range:0.493}LightningResist6",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 9,
+            "text": "Suffix: {range:0.75}ChanceToSuppressSpellsHigh4_",
+            "raw_text": "Suffix: {range:0.75}ChanceToSuppressSpellsHigh4_",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 10,
+            "text": "Suffix: {range:0.408}FireResist6",
+            "raw_text": "Suffix: {range:0.408}FireResist6",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 11,
+            "text": "CatalystQuality: 20",
+            "raw_text": "CatalystQuality: 20",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 12,
+            "text": "+5% chance to Suppress Spell Damage",
+            "raw_text": "+5% chance to Suppress Spell Damage",
+            "tags": [],
+            "source": "implicit",
+            "categories": [
+              "suppression",
+              "damage"
+            ],
+            "numeric_totals": {
+              "spell_suppression": 5
+            },
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 13,
+            "text": "+19% chance to Suppress Spell Damage",
+            "raw_text": "{fractured}+19% chance to Suppress Spell Damage",
+            "tags": [
+              "fractured"
+            ],
+            "source": "fractured",
+            "categories": [
+              "suppression",
+              "damage"
+            ],
+            "numeric_totals": {
+              "spell_suppression": 19
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 14,
+            "text": "+94 to maximum Life",
+            "raw_text": "+94 to maximum Life",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "maximum_life",
+              "life"
+            ],
+            "numeric_totals": {
+              "maximum_life": 94
+            },
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 15,
+            "text": "+38% to Fire Resistance",
+            "raw_text": "+38% to Fire Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "fire_resistance",
+              "fire",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "fire_resistance": 38
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 16,
+            "text": "+38% to Lightning Resistance",
+            "raw_text": "+38% to Lightning Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "lightning_resistance",
+              "lightning",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "lightning_resistance": 38
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 17,
+            "text": "Gain (7-8)% of Fire Damage as Extra Chaos Damage",
+            "raw_text": "{tags:elemental_damage,chaos_damage,unveiled_mod,damage,elemental,fire,chaos}{crafted}{range:0.5}Gain (7-8)% of Fire Damage as Extra Chaos Damage",
+            "tags": [
+              "tags:elemental_damage,chaos_damage,unveiled_mod,damage,elemental,fire,chaos",
+              "crafted",
+              "range:0.5"
+            ],
+            "source": "crafted",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "crafted_unknown"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 18,
+          "source_counts": {
+            "crafted": 1,
+            "explicit": 15,
+            "fractured": 1,
+            "implicit": 1
+          },
+          "category_counts": {
+            "damage": 3,
+            "energy_shield": 1,
+            "evasion": 2,
+            "fire": 1,
+            "fire_resistance": 1,
+            "life": 1,
+            "lightning": 1,
+            "lightning_resistance": 1,
+            "maximum_life": 1,
+            "resistance": 2,
+            "suppression": 2
+          },
+          "likely_generation_counts": {
+            "crafted_unknown": 1,
+            "implicit": 1,
+            "prefix": 4,
+            "suffix": 3,
+            "unknown": 9
+          },
+          "numeric_totals": {
+            "maximum_life": 94,
+            "fire_resistance": 38,
+            "lightning_resistance": 38,
+            "spell_suppression": 24
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 4,
+          "likely_suffix_mods": 3,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 10,
+          "suffix_pressure_categories": [
+            "resistance",
+            "fire_resistance",
+            "lightning_resistance",
+            "suppression"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      },
+      {
+        "slot": "Body Armour",
+        "name": "Fractured + Res Essence + Suppression (Full Dragonscale)",
+        "rarity": "Rare",
+        "base_type": "Full Dragonscale",
+        "sockets": "R-R-R-R-R-R",
+        "explicit_mods": [
+          "Armour: 1866",
+          "Evasion: 1612",
+          "Prefix: {range:0.761}LocalBaseArmourAndEvasionRating7",
+          "Prefix: {range:0.676}LocalIncreasedArmourAndEvasion7",
+          "Suffix: {range:0.697}AdditionalPhysicalDamageReduction4",
+          "Suffix: {range:0.891}ChanceToSuppressSpellsHigh4",
+          "Suffix: {range:0.507}ColdResist7",
+          "{exarch}{range:0.5}(9-10)% increased effect of Non-Curse Auras from your Skills",
+          "{eater}{range:0.5}Grace has (25-27)% increased Aura Effect",
+          "+19% chance to Suppress Spell Damage"
+        ],
+        "ggpk_mod_context": {
+          "candidate_scope": "rare_magic_base",
+          "base": {
+            "name": "Full Dragonscale",
+            "base_type": null,
+            "metadata_id": "Metadata/Items/Armours/BodyArmours/BodyStrDex15",
+            "drop_level": 63,
+            "mod_domain": 1,
+            "explicit_tag_keys": [
+              41,
+              1048
+            ],
+            "effective_tags": [
+              "armour",
+              "body_armour",
+              "equipment",
+              "str_dex_armour",
+              "top_tier_base_item_type"
+            ]
+          },
+          "affix_candidate_counts": {
+            "prefix": 47,
+            "suffix": 77
+          },
+          "effective_tags": [
+            "armour",
+            "body_armour",
+            "equipment",
+            "str_dex_armour",
+            "top_tier_base_item_type"
+          ],
+          "join_status": "resolved"
+        },
+        "mod_source": "pob_raw_item_text",
+        "raw_item_id": "31",
+        "mod_state": [
+          {
+            "index": 0,
+            "text": "Armour: 1866",
+            "raw_text": "Armour: 1866",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 1,
+            "text": "ArmourBasePercentile: 1",
+            "raw_text": "ArmourBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 2,
+            "text": "Evasion: 1612",
+            "raw_text": "Evasion: 1612",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 3,
+            "text": "EvasionBasePercentile: 1",
+            "raw_text": "EvasionBasePercentile: 1",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 4,
+            "text": "Searing Exarch Item",
+            "raw_text": "Searing Exarch Item",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 5,
+            "text": "Eater of Worlds Item",
+            "raw_text": "Eater of Worlds Item",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 6,
+            "text": "Crafted: true",
+            "raw_text": "Crafted: true",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 7,
+            "text": "Prefix: {range:0.761}LocalBaseArmourAndEvasionRating7",
+            "raw_text": "Prefix: {range:0.761}LocalBaseArmourAndEvasionRating7",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour",
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 8,
+            "text": "Prefix: {range:0.676}LocalIncreasedArmourAndEvasion7",
+            "raw_text": "Prefix: {range:0.676}LocalIncreasedArmourAndEvasion7",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour",
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 9,
+            "text": "Prefix: None",
+            "raw_text": "Prefix: None",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 10,
+            "text": "Suffix: {range:0.697}AdditionalPhysicalDamageReduction4",
+            "raw_text": "Suffix: {range:0.697}AdditionalPhysicalDamageReduction4",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 11,
+            "text": "Suffix: {range:0.891}ChanceToSuppressSpellsHigh4_",
+            "raw_text": "Suffix: {range:0.891}ChanceToSuppressSpellsHigh4_",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 12,
+            "text": "Suffix: {range:0.507}ColdResist7",
+            "raw_text": "Suffix: {range:0.507}ColdResist7",
+            "tags": [],
+            "source": "explicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "unknown"
+          },
+          {
+            "index": 13,
+            "text": "(9-10)% increased effect of Non-Curse Auras from your Skills",
+            "raw_text": "{tags:aura}{exarch}{range:0.5}(9-10)% increased effect of Non-Curse Auras from your Skills",
+            "tags": [
+              "tags:aura",
+              "exarch",
+              "range:0.5"
+            ],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 14,
+            "text": "Grace has (25-27)% increased Aura Effect",
+            "raw_text": "{tags:aura}{eater}{range:0.5}Grace has (25-27)% increased Aura Effect",
+            "tags": [
+              "tags:aura",
+              "eater",
+              "range:0.5"
+            ],
+            "source": "implicit",
+            "categories": [],
+            "numeric_totals": {},
+            "likely_affix_generation": "implicit"
+          },
+          {
+            "index": 15,
+            "text": "+19% chance to Suppress Spell Damage",
+            "raw_text": "+19% chance to Suppress Spell Damage",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "suppression",
+              "damage"
+            ],
+            "numeric_totals": {
+              "spell_suppression": 19
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 16,
+            "text": "+281 to Armour",
+            "raw_text": "+281 to Armour",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 17,
+            "text": "+281 to Evasion Rating",
+            "raw_text": "+281 to Evasion Rating",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 18,
+            "text": "97% increased Armour and Evasion",
+            "raw_text": "97% increased Armour and Evasion",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "armour",
+              "evasion"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 19,
+            "text": "+44% to Cold Resistance",
+            "raw_text": "+44% to Cold Resistance",
+            "tags": [],
+            "source": "explicit",
+            "categories": [
+              "cold_resistance",
+              "cold",
+              "resistance"
+            ],
+            "numeric_totals": {
+              "cold_resistance": 44
+            },
+            "likely_affix_generation": "suffix"
+          },
+          {
+            "index": 20,
+            "text": "7% additional Physical Damage Reduction",
+            "raw_text": "{fractured}7% additional Physical Damage Reduction",
+            "tags": [
+              "fractured"
+            ],
+            "source": "fractured",
+            "categories": [
+              "physical_damage",
+              "physical",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 21,
+            "text": "(5-6)% of Physical Damage from Hits taken as Fire Damage",
+            "raw_text": "{tags:unveiled_mod,physical,elemental,fire,lightning}{crafted}{range:0.817}(5-6)% of Physical Damage from Hits taken as Fire Damage",
+            "tags": [
+              "tags:unveiled_mod,physical,elemental,fire,lightning",
+              "crafted",
+              "range:0.817"
+            ],
+            "source": "crafted",
+            "categories": [
+              "physical_damage",
+              "physical",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          },
+          {
+            "index": 22,
+            "text": "(5-6)% of Physical Damage from Hits taken as Lightning Damage",
+            "raw_text": "{tags:unveiled_mod,physical,elemental,fire,lightning}{crafted}{range:1}(5-6)% of Physical Damage from Hits taken as Lightning Damage",
+            "tags": [
+              "tags:unveiled_mod,physical,elemental,fire,lightning",
+              "crafted",
+              "range:1"
+            ],
+            "source": "crafted",
+            "categories": [
+              "physical_damage",
+              "physical",
+              "damage"
+            ],
+            "numeric_totals": {},
+            "likely_affix_generation": "prefix"
+          }
+        ],
+        "mod_summary": {
+          "mod_count": 23,
+          "source_counts": {
+            "crafted": 2,
+            "explicit": 18,
+            "fractured": 1,
+            "implicit": 2
+          },
+          "category_counts": {
+            "armour": 6,
+            "cold": 1,
+            "cold_resistance": 1,
+            "damage": 5,
+            "evasion": 6,
+            "physical": 3,
+            "physical_damage": 3,
+            "resistance": 1,
+            "suppression": 1
+          },
+          "likely_generation_counts": {
+            "implicit": 2,
+            "prefix": 12,
+            "suffix": 2,
+            "unknown": 7
+          },
+          "numeric_totals": {
+            "cold_resistance": 44,
+            "spell_suppression": 19
+          }
+        },
+        "affix_pressure": {
+          "likely_prefix_mods": 12,
+          "likely_suffix_mods": 2,
+          "likely_unique_mods": 0,
+          "unknown_or_mixed_mods": 7,
+          "suffix_pressure_categories": [
+            "resistance",
+            "cold_resistance",
+            "suppression"
+          ],
+          "candidate_pool_status": "suffix_pool_available"
+        }
+      }
+    ],
+    "mod_summary": {
+      "mod_count": 195,
+      "source_counts": {
+        "crafted": 17,
+        "explicit": 150,
+        "fractured": 4,
+        "implicit": 16,
+        "unique": 8
+      },
+      "category_counts": {
+        "ailment_avoidance": 1,
+        "armour": 14,
+        "attribute": 3,
+        "cast_speed": 3,
+        "chaos": 5,
+        "chaos_resistance": 5,
+        "cold": 3,
+        "cold_resistance": 3,
+        "damage": 22,
+        "dexterity": 2,
+        "energy_shield": 5,
+        "evasion": 16,
+        "fire": 4,
+        "fire_resistance": 4,
+        "flask": 10,
+        "gem_level": 1,
+        "life": 7,
+        "lightning": 3,
+        "lightning_resistance": 3,
+        "maximum_life": 7,
+        "movement_speed": 1,
+        "physical": 4,
+        "physical_damage": 4,
+        "regeneration": 1,
+        "resistance": 15,
+        "speed": 4,
+        "strength": 1,
+        "suppression": 6
+      },
+      "likely_generation_counts": {
+        "crafted_unknown": 11,
+        "implicit": 16,
+        "prefix": 43,
+        "suffix": 22,
+        "unique_modifier": 8,
+        "unknown": 95
+      },
+      "numeric_totals": {
+        "maximum_life": 529,
+        "maximum_energy_shield": 72,
+        "fire_resistance": 76,
+        "cold_resistance": 131,
+        "lightning_resistance": 106,
+        "chaos_resistance": 129,
+        "strength": 20,
+        "dexterity": 45,
+        "spell_suppression": 79,
+        "movement_speed": 18
+      }
+    },
+    "raw_summary": {
+      "item_count": 52,
+      "item_set_count": 6,
+      "active_item_set_id": "5"
+    },
+    "gear_pressure": {
+      "slot_count": 16,
+      "rarity_counts": {
+        "Rare": 10,
+        "Magic": 5,
+        "Unique": 1
+      },
+      "locked_unique_slots": [
+        "Ring 1"
+      ],
+      "unique_jewellery_slots": [
+        "Ring 1"
+      ],
+      "rare_slots": [
+        "Weapon 1",
+        "Belt",
+        "Helmet",
+        "Amulet",
+        "Ring 2",
+        "Gloves",
+        "Boots",
+        "Belt Abyssal Socket 1",
+        "Weapon 2",
+        "Body Armour"
+      ],
+      "empty_expected_slots": [],
+      "resolved_affix_slots": [
+        "Weapon 1",
+        "Belt",
+        "Helmet",
+        "Amulet",
+        "Ring 2",
+        "Gloves",
+        "Boots",
+        "Belt Abyssal Socket 1",
+        "Weapon 2",
+        "Body Armour"
+      ],
+      "rare_likely_prefix_mods": 43,
+      "rare_likely_suffix_mods": 22,
+      "gear_numeric_totals": {
+        "maximum_life": 529,
+        "maximum_energy_shield": 72,
+        "fire_resistance": 76,
+        "cold_resistance": 131,
+        "lightning_resistance": 106,
+        "chaos_resistance": 129,
+        "strength": 20,
+        "dexterity": 45,
+        "spell_suppression": 79,
+        "movement_speed": 18
+      }
+    }
+  },
+  "gem_state": {
+    "main_skill_group": {
+      "source": "primary",
+      "skill_set_title": "Final Build",
+      "label": "Vaal DD 20% quality",
+      "links": "Vaal Detonate Dead - Ignite Proliferation - Awakened Unbound Ailments - Awakened Swift Affliction - Awakened Burning Damage - Cruelty",
+      "active_gem": "Vaal Detonate Dead",
+      "support_gems": [
+        "Ignite Proliferation",
+        "Awakened Unbound Ailments",
+        "Awakened Swift Affliction",
+        "Awakened Burning Damage",
+        "Cruelty"
+      ],
+      "gems": [
+        "Vaal Detonate Dead",
+        "Ignite Proliferation",
+        "Awakened Unbound Ailments",
+        "Awakened Swift Affliction",
+        "Awakened Burning Damage",
+        "Cruelty"
+      ],
+      "link_count": 6,
+      "role": "damage"
+    },
+    "skill_groups": [
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Vaal DD 20% quality",
+        "links": "Vaal Detonate Dead - Ignite Proliferation - Awakened Unbound Ailments - Awakened Swift Affliction - Awakened Burning Damage - Cruelty",
+        "active_gem": "Vaal Detonate Dead",
+        "support_gems": [
+          "Ignite Proliferation",
+          "Awakened Unbound Ailments",
+          "Awakened Swift Affliction",
+          "Awakened Burning Damage",
+          "Cruelty"
+        ],
+        "gems": [
+          "Vaal Detonate Dead",
+          "Ignite Proliferation",
+          "Awakened Unbound Ailments",
+          "Awakened Swift Affliction",
+          "Awakened Burning Damage",
+          "Cruelty"
+        ],
+        "link_count": 6,
+        "role": "damage"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "CWDT - Molten Shell - Determ - Grace",
+        "links": "Cast when Damage Taken - Molten Shell - Determination - Grace",
+        "active_gem": "Cast when Damage Taken",
+        "support_gems": [
+          "Molten Shell",
+          "Determination",
+          "Grace"
+        ],
+        "gems": [
+          "Cast when Damage Taken",
+          "Molten Shell",
+          "Determination",
+          "Grace"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Arcanist Brand - Flamm - Weakness - F Surge",
+        "links": "Arcanist Brand - Elemental Weakness - Flame Surge - Flammability",
+        "active_gem": "Arcanist Brand",
+        "support_gems": [
+          "Elemental Weakness",
+          "Flame Surge",
+          "Flammability"
+        ],
+        "gems": [
+          "Arcanist Brand",
+          "Elemental Weakness",
+          "Flame Surge",
+          "Flammability"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Desecrate - Faster Casting - Dread - Genorostiy",
+        "links": "Desecrate - Faster Casting - Dread Banner - Awakened Generosity",
+        "active_gem": "Desecrate",
+        "support_gems": [
+          "Faster Casting",
+          "Dread Banner",
+          "Awakened Generosity"
+        ],
+        "gems": [
+          "Desecrate",
+          "Faster Casting",
+          "Dread Banner",
+          "Awakened Generosity"
+        ],
+        "link_count": 4,
+        "role": "utility"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Divine Blessing - Haste OR Malevolence - F Dash",
+        "links": "Divine Blessing - Haste - Malevolence - Flame Dash",
+        "active_gem": "Divine Blessing",
+        "support_gems": [
+          "Haste",
+          "Malevolence",
+          "Flame Dash"
+        ],
+        "gems": [
+          "Divine Blessing",
+          "Haste",
+          "Malevolence",
+          "Flame Dash"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Tempest - Shield Charge - Faster Attacks",
+        "links": "Tempest Shield - Shield Charge - Faster Attacks",
+        "active_gem": "Tempest Shield",
+        "support_gems": [
+          "Shield Charge",
+          "Faster Attacks"
+        ],
+        "gems": [
+          "Tempest Shield",
+          "Shield Charge",
+          "Faster Attacks"
+        ],
+        "link_count": 3,
+        "role": "aura"
+      },
+      {
+        "source": "primary",
+        "skill_set_title": "Final Build",
+        "label": "Primal Aegis",
+        "links": "Primal Aegis",
+        "active_gem": "Primal Aegis",
+        "support_gems": [],
+        "gems": [
+          "Primal Aegis"
+        ],
+        "link_count": 1,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "Level 4: Holy Flame - Flame Wall - Frostblink",
+        "links": "Holy Flame Totem - Flame Wall - Frostblink",
+        "active_gem": "Holy Flame Totem",
+        "support_gems": [
+          "Flame Wall",
+          "Frostblink"
+        ],
+        "gems": [
+          "Holy Flame Totem",
+          "Flame Wall",
+          "Frostblink"
+        ],
+        "link_count": 3,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "Level 4: Rolling Magma - Ele Prolif",
+        "links": "Rolling Magma - Elemental Proliferation",
+        "active_gem": "Rolling Magma",
+        "support_gems": [
+          "Elemental Proliferation"
+        ],
+        "gems": [
+          "Rolling Magma",
+          "Elemental Proliferation"
+        ],
+        "link_count": 2,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "Level 8: Rolling magma - Ele Prolif - Combustion",
+        "links": "Rolling Magma - Elemental Proliferation - Combustion",
+        "active_gem": "Rolling Magma",
+        "support_gems": [
+          "Elemental Proliferation",
+          "Combustion"
+        ],
+        "gems": [
+          "Rolling Magma",
+          "Elemental Proliferation",
+          "Combustion"
+        ],
+        "link_count": 3,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "Level 10: Frostblink -> Flame Dash",
+        "links": "Flame Dash",
+        "active_gem": "Flame Dash",
+        "support_gems": [],
+        "gems": [
+          "Flame Dash"
+        ],
+        "link_count": 1,
+        "role": "utility"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "Level 16: Herald Of Thunder - Herald of Ash",
+        "links": "Herald of Thunder - Herald of Ash",
+        "active_gem": "Herald of Thunder",
+        "support_gems": [
+          "Herald of Ash"
+        ],
+        "gems": [
+          "Herald of Thunder",
+          "Herald of Ash"
+        ],
+        "link_count": 2,
+        "role": "aura"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "Level 16: Wave of Conviction",
+        "links": "Wave of Conviction",
+        "active_gem": "Wave of Conviction",
+        "support_gems": [],
+        "gems": [
+          "Wave of Conviction"
+        ],
+        "link_count": 1,
+        "role": "utility"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "Level 24: Magma - Ele Pro - Combust - Add Lightnin",
+        "links": "Rolling Magma - Elemental Proliferation - Combustion - Added Lightning Damage",
+        "active_gem": "Rolling Magma",
+        "support_gems": [
+          "Elemental Proliferation",
+          "Combustion",
+          "Added Lightning Damage"
+        ],
+        "gems": [
+          "Rolling Magma",
+          "Elemental Proliferation",
+          "Combustion",
+          "Added Lightning Damage"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "NEW: Arma Brand - Ele Pro - Combust - Add Light",
+        "links": "Armageddon Brand - Elemental Proliferation - Combustion - Added Lightning Damage",
+        "active_gem": "Armageddon Brand",
+        "support_gems": [
+          "Elemental Proliferation",
+          "Combustion",
+          "Added Lightning Damage"
+        ],
+        "gems": [
+          "Armageddon Brand",
+          "Elemental Proliferation",
+          "Combustion",
+          "Added Lightning Damage"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "NEW: Cremation - LMP - Ele Focus - Cruelty/Conc",
+        "links": "Cremation - Lesser Multiple Projectiles - Elemental Focus - Cruelty",
+        "active_gem": "Cremation",
+        "support_gems": [
+          "Lesser Multiple Projectiles",
+          "Elemental Focus",
+          "Cruelty"
+        ],
+        "gems": [
+          "Cremation",
+          "Lesser Multiple Projectiles",
+          "Elemental Focus",
+          "Cruelty"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "NEW: Desecrate + Flammability",
+        "links": "Desecrate - Flammability",
+        "active_gem": "Desecrate",
+        "support_gems": [
+          "Flammability"
+        ],
+        "gems": [
+          "Desecrate",
+          "Flammability"
+        ],
+        "link_count": 2,
+        "role": "utility"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "NEW: Herald of Ash - Determination",
+        "links": "Herald of Ash - Determination",
+        "active_gem": "Herald of Ash",
+        "support_gems": [
+          "Determination"
+        ],
+        "gems": [
+          "Herald of Ash",
+          "Determination"
+        ],
+        "link_count": 2,
+        "role": "aura"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "NEW: Flammability - Wave of Conviction",
+        "links": "Flammability - Wave of Conviction",
+        "active_gem": "Flammability",
+        "support_gems": [
+          "Wave of Conviction"
+        ],
+        "gems": [
+          "Flammability",
+          "Wave of Conviction"
+        ],
+        "link_count": 2,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "OLD: Flame dash - Flame wall - Surge",
+        "links": "Flame Dash - Flame Wall - Arcane Surge",
+        "active_gem": "Flame Dash",
+        "support_gems": [
+          "Flame Wall",
+          "Arcane Surge"
+        ],
+        "gems": [
+          "Flame Dash",
+          "Flame Wall",
+          "Arcane Surge"
+        ],
+        "link_count": 3,
+        "role": "utility"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "Level 38: Crema - LMP - Focus - Immolate",
+        "links": "Cremation - Lesser Multiple Projectiles - Elemental Focus - Immolate",
+        "active_gem": "Cremation",
+        "support_gems": [
+          "Lesser Multiple Projectiles",
+          "Elemental Focus",
+          "Immolate"
+        ],
+        "gems": [
+          "Cremation",
+          "Lesser Multiple Projectiles",
+          "Elemental Focus",
+          "Immolate"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "Level 2: Rolling Magma - Surge - Ele Prolif (lvl4)",
+        "links": "Rolling Magma - Elemental Proliferation - Arcane Surge",
+        "active_gem": "Rolling Magma",
+        "support_gems": [
+          "Elemental Proliferation",
+          "Arcane Surge"
+        ],
+        "gems": [
+          "Rolling Magma",
+          "Elemental Proliferation",
+          "Arcane Surge"
+        ],
+        "link_count": 3,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Leveling",
+        "label": "Primal Aegis",
+        "links": "Primal Aegis",
+        "active_gem": "Primal Aegis",
+        "support_gems": [],
+        "gems": [
+          "Primal Aegis"
+        ],
+        "link_count": 1,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "DD Respec",
+        "label": "Vaal DD Setup",
+        "links": "Vaal Detonate Dead - Ignite Proliferation - Unbound Ailments - Cruelty - Swift Affliction",
+        "active_gem": "Vaal Detonate Dead",
+        "support_gems": [
+          "Ignite Proliferation",
+          "Unbound Ailments",
+          "Cruelty",
+          "Swift Affliction"
+        ],
+        "gems": [
+          "Vaal Detonate Dead",
+          "Ignite Proliferation",
+          "Unbound Ailments",
+          "Cruelty",
+          "Swift Affliction"
+        ],
+        "link_count": 5,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "DD Respec",
+        "label": "Self Cast Flame Surge Until Exposure Gloves",
+        "links": "Flame Surge",
+        "active_gem": "Flame Surge",
+        "support_gems": [],
+        "gems": [
+          "Flame Surge"
+        ],
+        "link_count": 1,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "DD Respec",
+        "label": "Arcanist Brand - Flamm - Weakness - WoC",
+        "links": "Arcanist Brand - Elemental Weakness - Flammability - Wave of Conviction",
+        "active_gem": "Arcanist Brand",
+        "support_gems": [
+          "Elemental Weakness",
+          "Flammability",
+          "Wave of Conviction"
+        ],
+        "gems": [
+          "Arcanist Brand",
+          "Elemental Weakness",
+          "Flammability",
+          "Wave of Conviction"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "DD Respec",
+        "label": "Determ - Grace - Tempest - Defiance Banner",
+        "links": "Determination - Grace - Tempest Shield - Defiance Banner",
+        "active_gem": "Determination",
+        "support_gems": [
+          "Grace",
+          "Tempest Shield",
+          "Defiance Banner"
+        ],
+        "gems": [
+          "Determination",
+          "Grace",
+          "Tempest Shield",
+          "Defiance Banner"
+        ],
+        "link_count": 4,
+        "role": "aura"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "DD Respec",
+        "label": "CWDT - Molten Shell - Shield Charge - Fast Attack",
+        "links": "Cast when Damage Taken - Molten Shell - Shield Charge - Faster Attacks",
+        "active_gem": "Cast when Damage Taken",
+        "support_gems": [
+          "Molten Shell",
+          "Shield Charge",
+          "Faster Attacks"
+        ],
+        "gems": [
+          "Cast when Damage Taken",
+          "Molten Shell",
+          "Shield Charge",
+          "Faster Attacks"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "DD Respec",
+        "label": "Divine Blessing - Haste - Inpiration",
+        "links": "Divine Blessing - Haste - Inspiration",
+        "active_gem": "Divine Blessing",
+        "support_gems": [
+          "Haste",
+          "Inspiration"
+        ],
+        "gems": [
+          "Divine Blessing",
+          "Haste",
+          "Inspiration"
+        ],
+        "link_count": 3,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "DD Respec",
+        "label": "Desecrate - Faster Casting - Flame Dash",
+        "links": "Desecrate - Faster Casting - Flame Dash",
+        "active_gem": "Desecrate",
+        "support_gems": [
+          "Faster Casting",
+          "Flame Dash"
+        ],
+        "gems": [
+          "Desecrate",
+          "Faster Casting",
+          "Flame Dash"
+        ],
+        "link_count": 3,
+        "role": "utility"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "DD Respec",
+        "label": "Primal Aegis",
+        "links": "Primal Aegis",
+        "active_gem": "Primal Aegis",
+        "support_gems": [],
+        "gems": [
+          "Primal Aegis"
+        ],
+        "link_count": 1,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Mid Game DD",
+        "label": "Vaal DD Setup",
+        "links": "Vaal Detonate Dead - Ignite Proliferation - Unbound Ailments - Cruelty - Swift Affliction - Burning Damage",
+        "active_gem": "Vaal Detonate Dead",
+        "support_gems": [
+          "Ignite Proliferation",
+          "Unbound Ailments",
+          "Cruelty",
+          "Swift Affliction",
+          "Burning Damage"
+        ],
+        "gems": [
+          "Vaal Detonate Dead",
+          "Ignite Proliferation",
+          "Unbound Ailments",
+          "Cruelty",
+          "Swift Affliction",
+          "Burning Damage"
+        ],
+        "link_count": 6,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Mid Game DD",
+        "label": "Arcanist Brand - Flamm - Weakness - F Surge",
+        "links": "Arcanist Brand - Elemental Weakness - Flame Surge - Flammability",
+        "active_gem": "Arcanist Brand",
+        "support_gems": [
+          "Elemental Weakness",
+          "Flame Surge",
+          "Flammability"
+        ],
+        "gems": [
+          "Arcanist Brand",
+          "Elemental Weakness",
+          "Flame Surge",
+          "Flammability"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Mid Game DD",
+        "label": "Determ - Grace - Tempest - Defiance Banner",
+        "links": "Determination - Grace - Tempest Shield - Defiance Banner",
+        "active_gem": "Determination",
+        "support_gems": [
+          "Grace",
+          "Tempest Shield",
+          "Defiance Banner"
+        ],
+        "gems": [
+          "Determination",
+          "Grace",
+          "Tempest Shield",
+          "Defiance Banner"
+        ],
+        "link_count": 4,
+        "role": "aura"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Mid Game DD",
+        "label": "CWDT - Molten Shell - Shield Charge - Fast Attack",
+        "links": "Cast when Damage Taken - Molten Shell - Shield Charge - Faster Attacks",
+        "active_gem": "Cast when Damage Taken",
+        "support_gems": [
+          "Molten Shell",
+          "Shield Charge",
+          "Faster Attacks"
+        ],
+        "gems": [
+          "Cast when Damage Taken",
+          "Molten Shell",
+          "Shield Charge",
+          "Faster Attacks"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Mid Game DD",
+        "label": "Divine Blessing - Haste - Inpiration",
+        "links": "Divine Blessing - Haste - Inspiration",
+        "active_gem": "Divine Blessing",
+        "support_gems": [
+          "Haste",
+          "Inspiration"
+        ],
+        "gems": [
+          "Divine Blessing",
+          "Haste",
+          "Inspiration"
+        ],
+        "link_count": 3,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Mid Game DD",
+        "label": "Desecrate - Faster Casting - Flame Dash",
+        "links": "Desecrate - Faster Casting - Flame Dash",
+        "active_gem": "Desecrate",
+        "support_gems": [
+          "Faster Casting",
+          "Flame Dash"
+        ],
+        "gems": [
+          "Desecrate",
+          "Faster Casting",
+          "Flame Dash"
+        ],
+        "link_count": 3,
+        "role": "utility"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "Mid Game DD",
+        "label": "Primal Aegis",
+        "links": "Primal Aegis",
+        "active_gem": "Primal Aegis",
+        "support_gems": [],
+        "gems": [
+          "Primal Aegis"
+        ],
+        "link_count": 1,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "2. Endgame Bossing",
+        "label": "Vaal DD (Mapping = Ignite Prolif) Boss=Dead Ailmen",
+        "links": "Vaal Detonate Dead - Awakened Unbound Ailments - Awakened Swift Affliction - Awakened Burning Damage - Combustion - Awakened Deadly Ailments",
+        "active_gem": "Vaal Detonate Dead",
+        "support_gems": [
+          "Awakened Unbound Ailments",
+          "Awakened Swift Affliction",
+          "Awakened Burning Damage",
+          "Combustion",
+          "Awakened Deadly Ailments"
+        ],
+        "gems": [
+          "Vaal Detonate Dead",
+          "Awakened Unbound Ailments",
+          "Awakened Swift Affliction",
+          "Awakened Burning Damage",
+          "Combustion",
+          "Awakened Deadly Ailments"
+        ],
+        "link_count": 6,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "2. Endgame Bossing",
+        "label": "CWDT - Molten Shell - Determ - Grace",
+        "links": "Cast when Damage Taken - Molten Shell - Determination",
+        "active_gem": "Cast when Damage Taken",
+        "support_gems": [
+          "Molten Shell",
+          "Determination"
+        ],
+        "gems": [
+          "Cast when Damage Taken",
+          "Molten Shell",
+          "Determination"
+        ],
+        "link_count": 3,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "2. Endgame Bossing",
+        "label": "Arcanist Brand - Flamm - Weakness - F Surge",
+        "links": "Arcanist Brand - Elemental Weakness - Flame Surge - Flammability",
+        "active_gem": "Arcanist Brand",
+        "support_gems": [
+          "Elemental Weakness",
+          "Flame Surge",
+          "Flammability"
+        ],
+        "gems": [
+          "Arcanist Brand",
+          "Elemental Weakness",
+          "Flame Surge",
+          "Flammability"
+        ],
+        "link_count": 4,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "2. Endgame Bossing",
+        "label": "Desecrate - Faster Casting - Vitality - Defiance",
+        "links": "Desecrate - Faster Casting - Vitality - Defiance Banner",
+        "active_gem": "Desecrate",
+        "support_gems": [
+          "Faster Casting",
+          "Vitality",
+          "Defiance Banner"
+        ],
+        "gems": [
+          "Desecrate",
+          "Faster Casting",
+          "Vitality",
+          "Defiance Banner"
+        ],
+        "link_count": 4,
+        "role": "utility"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "2. Endgame Bossing",
+        "label": "Divine Blessing - Malevolence - F Dash",
+        "links": "Divine Blessing - Malevolence - Flame Dash",
+        "active_gem": "Divine Blessing",
+        "support_gems": [
+          "Malevolence",
+          "Flame Dash"
+        ],
+        "gems": [
+          "Divine Blessing",
+          "Malevolence",
+          "Flame Dash"
+        ],
+        "link_count": 3,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "2. Endgame Bossing",
+        "label": "Tempest - Shield Charge - Faster Attacks",
+        "links": "Tempest Shield - Shield Charge - Faster Attacks",
+        "active_gem": "Tempest Shield",
+        "support_gems": [
+          "Shield Charge",
+          "Faster Attacks"
+        ],
+        "gems": [
+          "Tempest Shield",
+          "Shield Charge",
+          "Faster Attacks"
+        ],
+        "link_count": 3,
+        "role": "aura"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "2. Endgame Bossing",
+        "label": "Primal Aegis",
+        "links": "Primal Aegis",
+        "active_gem": "Primal Aegis",
+        "support_gems": [],
+        "gems": [
+          "Primal Aegis"
+        ],
+        "link_count": 1,
+        "role": "damage"
+      },
+      {
+        "source": "alternate",
+        "skill_set_title": "2. Endgame Bossing",
+        "label": "NEW - Use Whatever Purity is Best for the Boss",
+        "links": "Purity of Ice",
+        "active_gem": "Purity of Ice",
+        "support_gems": [],
+        "gems": [
+          "Purity of Ice"
+        ],
+        "link_count": 1,
+        "role": "aura"
+      }
+    ],
+    "counts": {
+      "groups": 46,
+      "damage_groups": 31,
+      "reservation_damage_groups": 0,
+      "aura_groups": 7,
+      "utility_groups": 8,
+      "guard_groups": 0
+    },
+    "raw_summary": {
+      "skill_set_count": 5,
+      "legacy_skill_count": 0,
+      "active_skill_set_id": "3"
+    }
+  },
+  "config_state": {
+    "bandit": "None",
+    "pantheon": {
+      "major": "TheBrineKing",
+      "minor": "Abberath"
+    },
+    "charges": {
+      "power": null,
+      "frenzy": null,
+      "endurance": null
+    },
+    "enemy": {
+      "pinnacle": null,
+      "guardian": null,
+      "mapping": null
+    },
+    "flasks": {
+      "uptime": null,
+      "guarded_by_pob_config": false
+    },
+    "raw_config_present": true,
+    "raw_inputs": {
+      "conditionEnemyChilled": "",
+      "conditionEnemyBurning": "",
+      "conditionSoulGainPrevention": "",
+      "conditionFocused": "",
+      "enemyIsBoss": "",
+      "conditionConsumedCorpseRecently": "",
+      "detonateDeadCorpseLife": "",
+      "waveOfConvictionExposureType": "",
+      "conditionConvergence": "",
+      "multiplierChilledByYouSeconds": "",
+      "highestDamageType": "",
+      "lifeRegenMode": "",
+      "conditionEnemyOnScorchedGround": "",
+      "conditionEnemyFireExposure": "",
+      "conditionKilledRecently": "",
+      "pantheonMinorGod": "",
+      "conditionEnemyIgnited": "",
+      "pantheonMajorGod": "",
+      "enemySpeed": "",
+      "enemyChaosResist": "",
+      "enemyLightningDamage": "",
+      "enemyCritChance": "",
+      "enemyFireResist": "",
+      "enemyColdDamage": "",
+      "enemyColdPen": "",
+      "enemyLevel": "",
+      "multiplierWitheredStackCountSelf": "",
+      "enemyColdResist": "",
+      "enemyLightningPen": "",
+      "enemyLightningResist": "",
+      "enemyChaosDamage": "",
+      "enemyFireDamage": "",
+      "enemyFirePen": "",
+      "enemyDamageRollRange": "",
+      "enemyArmour": "",
+      "enemyCritDamage": "",
+      "enemyPhysicalDamage": "",
+      "enemyEvasion": "",
+      "sigilOfPowerStages": ""
+    },
+    "assumption_status": "PoB Config raw inputs are preserved but not semantically normalized yet."
+  },
+  "calc_state": {
+    "dps": 13758762,
+    "life": 4988,
+    "energy_shield": 627,
+    "ehp": 5615,
+    "resistances": {
+      "fire": 75,
+      "cold": 75,
+      "lightning": 75,
+      "chaos": 75
+    },
+    "defences": {
+      "armour": 39563,
+      "evasion": 30354,
+      "block": 24,
+      "spell_block": 25,
+      "suppression": null,
+      "ailment_avoidance": null,
+      "recovery": null
+    },
+    "flags": {
+      "elemental_res_capped": true,
+      "chaos_res_negative": false,
+      "has_xml_stats": true
+    }
+  },
+  "lenses": {
+    "gear_pressure": {
+      "slot_count": 16,
+      "rarity_counts": {
+        "Rare": 10,
+        "Magic": 5,
+        "Unique": 1
+      },
+      "locked_unique_slots": [
+        "Ring 1"
+      ],
+      "unique_jewellery_slots": [
+        "Ring 1"
+      ],
+      "rare_slots": [
+        "Weapon 1",
+        "Belt",
+        "Helmet",
+        "Amulet",
+        "Ring 2",
+        "Gloves",
+        "Boots",
+        "Belt Abyssal Socket 1",
+        "Weapon 2",
+        "Body Armour"
+      ],
+      "empty_expected_slots": [],
+      "resolved_affix_slots": [
+        "Weapon 1",
+        "Belt",
+        "Helmet",
+        "Amulet",
+        "Ring 2",
+        "Gloves",
+        "Boots",
+        "Belt Abyssal Socket 1",
+        "Weapon 2",
+        "Body Armour"
+      ],
+      "rare_likely_prefix_mods": 43,
+      "rare_likely_suffix_mods": 22,
+      "gear_numeric_totals": {
+        "maximum_life": 529,
+        "maximum_energy_shield": 72,
+        "fire_resistance": 76,
+        "cold_resistance": 131,
+        "lightning_resistance": 106,
+        "chaos_resistance": 129,
+        "strength": 20,
+        "dexterity": 45,
+        "spell_suppression": 79,
+        "movement_speed": 18
+      },
+      "suffix_pressure_signals": {
+        "unique_jewellery_slots": 1,
+        "rare_likely_suffix_mods": 22,
+        "gear_numeric_totals": {
+          "maximum_life": 529,
+          "maximum_energy_shield": 72,
+          "fire_resistance": 76,
+          "cold_resistance": 131,
+          "lightning_resistance": 106,
+          "chaos_resistance": 129,
+          "strength": 20,
+          "dexterity": 45,
+          "spell_suppression": 79,
+          "movement_speed": 18
+        },
+        "note": "Unique jewellery reduces rare suffix room for resistances/attributes."
+      }
+    },
+    "t16_readiness_inputs": {
+      "life": 4988,
+      "energy_shield": 627,
+      "ehp": 5615,
+      "dps": 13758762,
+      "elemental_res_capped": true,
+      "chaos_resistance": 75,
+      "missing_runtime_inputs": [
+        "atlas_passives_allocated",
+        "average_t16_clear_time_seconds",
+        "deaths_per_map",
+        "map_mod_policy",
+        "flask_uptime",
+        "suppression_or_max_hit"
+      ],
+      "judgement_status": "inputs_only_not_final_verdict"
+    }
+  },
+  "evidence_quality": {
+    "has_xml_stats": true,
+    "has_pob_raw": true,
+    "item_mod_context": "ggpk_joined",
+    "known_missing_layers": [
+      "passive_mastery_effect_text_lookup",
+      "pob_config_tab_normalizer",
+      "ggpk_stats_table_extraction_for_non_passive_mods",
+      "crafted_influence_fossil_acquisition_lens"
+    ]
+  },
+  "readiness": {
+    "schema_version": 1,
+    "overall": {
+      "status": "unknown_runtime_inputs",
+      "blockers": [],
+      "unknown_runtime_inputs": [
+        "atlas_passives_allocated",
+        "voidstones",
+        "highest_completed_map_tier",
+        "average_t16_clear_time_seconds",
+        "deaths_per_map",
+        "map_mod_failure_cases",
+        "flask_uptime"
+      ],
+      "rule": "deterministic screening; runtime metrics still override static PoB guesses"
+    },
+    "defense": {
+      "status": "caution",
+      "judgement_type": "deterministic_screen_not_final_verdict",
+      "signals": {
+        "life": 4988,
+        "energy_shield": 627,
+        "ehp": 5615,
+        "resistances": {
+          "fire": 75,
+          "cold": 75,
+          "lightning": 75,
+          "chaos": 75
+        },
+        "chaos_resistance": 75,
+        "spell_suppression_from_gear": 79,
+        "storm_secret_count": 0
+      },
+      "reasons": [
+        "red_map_screen_ehp_medium:5615"
+      ],
+      "next_actions": [
+        "Treat T16/Guardian attempts as test runs until deaths-per-map is measured."
+      ]
+    },
+    "gear": {
+      "status": "caution",
+      "signals": {
+        "gear_numeric_totals": {
+          "maximum_life": 529,
+          "maximum_energy_shield": 72,
+          "fire_resistance": 76,
+          "cold_resistance": 131,
+          "lightning_resistance": 106,
+          "chaos_resistance": 129,
+          "strength": 20,
+          "dexterity": 45,
+          "spell_suppression": 79,
+          "movement_speed": 18
+        },
+        "unique_jewellery_slots": [
+          "Ring 1"
+        ],
+        "rare_likely_suffix_mods": 22,
+        "resolved_affix_slots": [
+          "Weapon 1",
+          "Belt",
+          "Helmet",
+          "Amulet",
+          "Ring 2",
+          "Gloves",
+          "Boots",
+          "Belt Abyssal Socket 1",
+          "Weapon 2",
+          "Body Armour"
+        ],
+        "empty_expected_slots": []
+      },
+      "reasons": [
+        "rare_suffix_pressure_high:22"
+      ],
+      "next_actions": []
+    },
+    "mapping": {
+      "status": "unknown_runtime_inputs",
+      "phase_screen": "red_map_candidate_screen",
+      "signals": {
+        "dps": 13758762,
+        "ehp": 5615,
+        "elemental_res_capped": true,
+        "defense_status": "caution"
+      },
+      "missing_runtime_inputs": [
+        "atlas_passives_allocated",
+        "voidstones",
+        "highest_completed_map_tier",
+        "average_t16_clear_time_seconds",
+        "deaths_per_map",
+        "map_mod_failure_cases",
+        "flask_uptime"
+      ],
+      "reasons": [
+        "runtime_mapping_inputs_missing",
+        "static_pob_screen_passed_for_red_map_trial"
+      ],
+      "next_actions": [
+        "Record atlas passive count, voidstones, T16 clear time, and deaths per map before selecting aggressive farming."
+      ]
+    },
+    "bossing": {
+      "status": "candidate",
+      "signals": {
+        "main_skill": "Vaal Detonate Dead",
+        "storm_secret_count": 0,
+        "has_boss_shock_starter": false,
+        "skill_names_sample": [
+          "Added Lightning Damage",
+          "Arcane Surge",
+          "Arcanist Brand",
+          "Armageddon Brand",
+          "Awakened Burning Damage",
+          "Awakened Deadly Ailments",
+          "Awakened Generosity",
+          "Awakened Swift Affliction",
+          "Awakened Unbound Ailments",
+          "Burning Damage",
+          "Cast when Damage Taken",
+          "Combustion"
+        ]
+      },
+      "reasons": [],
+      "next_actions": []
+    },
+    "shell": {
+      "status": "unknown_runtime_inputs",
+      "signals": {
+        "class": "Witch",
+        "ascendancy": "Elementalist",
+        "target_version": "3_0",
+        "main_skill": "Vaal Detonate Dead",
+        "storm_secret_count": 0
+      },
+      "tags": [],
+      "reasons": [],
+      "next_actions": []
+    }
+  }
+}

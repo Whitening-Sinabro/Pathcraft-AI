@@ -1,0 +1,120 @@
+{
+  "dataset_kind": "pathcraft_season_goal_research",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-16",
+  "league": "3.29 Curse of the Allflame",
+  "goal": {
+    "class": "Scion",
+    "ascendancy": "Reliquarian",
+    "primary_farming": ["Guardian maps", "Delve/Fossil"],
+    "skill_policy": "Scion/Reliquarian first; choose the skill that best fits the official node package.",
+    "status": "pre_patch_notes_hypothesis"
+  },
+  "sources": {
+    "official_release": "https://www.pathofexile.com/forum/view-thread/3982050",
+    "official_reliquarian": "https://www.pathofexile.com/forum/view-thread/3984866",
+    "official_reliquarian_images": [
+      "https://web.poecdn.com/public/news/2026-07-14/LeftReliqaurianAsendancy.jpg",
+      "https://web.poecdn.com/public/news/2026-07-14/TopReliqaurianAsendancy.jpg",
+      "https://web.poecdn.com/public/news/2026-07-14/RightReliqaurianAsendancy.jpg",
+      "https://web.poecdn.com/public/news/2026-07-14/BottomReliqaurianAsendancy.jpg"
+    ]
+  },
+  "candidate_branches": [
+    {
+      "id": "hot_autobomber",
+      "label": "Herald of Thunder Autobomber Scion",
+      "reliquarian_hooks": ["Fidelitas' Spike", "Dawnbreaker", "Presence of Chayula", "Kaom's Roots"],
+      "farming_fit": {
+        "guardian_maps": 3,
+        "delve_fossil": 3,
+        "mapping_speed": 5,
+        "starter_safety_risk": 3,
+        "reliquarian_synergy": 5
+      },
+      "verdict": "Top project candidate because Fidelitas' Spike directly supports Herald of Thunder.",
+      "risks": ["boss shock loop", "Storm Secret availability", "self-damage mitigation", "Scion early campaign weakness"],
+      "next_pob_checks": [
+        "Reservation after 100% Herald of Thunder efficiency",
+        "Storm Secret boss uptime",
+        "Dawnbreaker/Chayula defensive package"
+      ]
+    },
+    {
+      "id": "static_strike_ngamahu",
+      "label": "Static Strike / Ngamahu melee autobomber Scion",
+      "reliquarian_hooks": ["Ngamahu's Flame", "The Sacred Chalice", "Ahn's Might", "Dawnbreaker", "Kaom's Roots"],
+      "farming_fit": {
+        "guardian_maps": 3,
+        "delve_fossil": 4,
+        "mapping_speed": 4,
+        "starter_safety_risk": 3,
+        "reliquarian_synergy": 4
+      },
+      "verdict": "High-fun experiment; do not commit until support/conversion behavior is confirmed.",
+      "risks": ["Molten Burst may not be supportable", "Fire penetration may require conversion", "melee boss uptime"],
+      "next_pob_checks": [
+        "Static Strike beam damage and uptime",
+        "Molten Burst support and conversion behavior",
+        "physical-as-extra scaling from The Sacred Chalice"
+      ]
+    },
+    {
+      "id": "gloomfang_bow",
+      "label": "Gloomfang chain bow Scion",
+      "reliquarian_hooks": ["Gloomfang", "The Sacred Chalice", "Dawnbreaker", "Melding of the Flesh"],
+      "farming_fit": {
+        "guardian_maps": 3,
+        "delve_fossil": 2,
+        "mapping_speed": 5,
+        "starter_safety_risk": 4,
+        "reliquarian_synergy": 4
+      },
+      "verdict": "Strong mapper candidate, weaker Delve fit and more gear-dependent than spell DoT.",
+      "risks": ["bow weapon pressure", "Scion lacks Deadeye baseline speed/chain", "fragility in Guardian/Delve"],
+      "next_pob_checks": [
+        "Gloomfang extra chaos after chain",
+        "single target without Deadeye",
+        "Dawnbreaker/Melding defensive path"
+      ]
+    },
+    {
+      "id": "black_cane_arakaali_spell_hybrid",
+      "label": "Black Cane / Arakaali spell-minion hybrid Scion",
+      "reliquarian_hooks": ["The Black Cane", "Arakaali's Fang", "Xirgil's Crank", "Presence of Chayula"],
+      "farming_fit": {
+        "guardian_maps": 4,
+        "delve_fossil": 4,
+        "mapping_speed": 3,
+        "starter_safety_risk": 5,
+        "reliquarian_synergy": 4
+      },
+      "verdict": "Best research-lab candidate after HoT; likely a spell hybrid, not pure minion.",
+      "risks": ["phantasm maintenance", "spiders may be unsupported", "spell choice unresolved"],
+      "next_pob_checks": [
+        "Phantasmal Might uptime while casting",
+        "physical spell candidates",
+        "ES/block/Xirgil defensive loop"
+      ]
+    },
+    {
+      "id": "blight_of_contagion_fallback",
+      "label": "Blight of Contagion Scion fallback",
+      "reliquarian_hooks": ["Xirgil's Crank", "Presence of Chayula", "Dawnbreaker", "The Apostate"],
+      "farming_fit": {
+        "guardian_maps": 3,
+        "delve_fossil": 4,
+        "mapping_speed": 4,
+        "starter_safety_risk": 2,
+        "reliquarian_synergy": 2
+      },
+      "verdict": "Conservative fallback if Reliquarian experiments fail; Trickster remains the safer non-Scion version.",
+      "risks": ["no direct Reliquarian chaos DoT scaling", "Guardian boss speed", "Scion pathing inefficiency"],
+      "next_pob_checks": [
+        "Scion chaos DoT pathing",
+        "Wither/Bane boss package",
+        "CI or life/ES transition timing"
+      ]
+    }
+  ]
+}

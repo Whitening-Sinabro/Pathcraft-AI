@@ -1,0 +1,35 @@
+<PathOfBuilding>
+  <Build level="90" className="Ranger" ascendClassName="Deadeye" targetVersion="3.25" bandit="Kill All" pantheonMajorGod="The Brine King" pantheonMinorGod="Garukhan" />
+  <Skills activeSkillSet="1">
+    <SkillSet id="1" title="Final">
+      <Skill enabled="true" label="Main Clear">
+        <Gem nameSpec="Lightning Arrow" />
+        <Gem nameSpec="Trinity Support" />
+        <Gem nameSpec="Inspiration Support" />
+        <Gem nameSpec="Returning Projectiles Support" />
+      </Skill>
+    </SkillSet>
+    <SkillSet id="2" title="Leveling">
+      <Skill enabled="true" label="Act Leveling">
+        <Gem nameSpec="Rain of Arrows" />
+        <Gem nameSpec="Mirage Archer Support" />
+      </Skill>
+    </SkillSet>
+  </Skills>
+  <Tree activeSpec="1">
+    <Spec id="1" title="Default">
+      <URL>https://www.pathofexile.com/passive-skill-tree/sample</URL>
+    </Spec>
+  </Tree>
+  <Items activeItemSet="1">
+    <ItemSet id="1" />
+  </Items>
+  <Notes>Sample recommendation runner PoB XML.</Notes>
+  <PlayerStat stat="CombinedDPS" value="4000000" />
+  <PlayerStat stat="Life" value="4300" />
+  <PlayerStat stat="EnergyShield" value="0" />
+  <PlayerStat stat="FireResist" value="75" />
+  <PlayerStat stat="ColdResist" value="75" />
+  <PlayerStat stat="LightningResist" value="75" />
+  <PlayerStat stat="ChaosResist" value="0" />
+</PathOfBuilding>

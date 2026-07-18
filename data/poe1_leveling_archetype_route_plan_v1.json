@@ -1,0 +1,614 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_leveling_archetype_route_plan",
+  "updated_at": "2026-07-17T00:00:00+07:00",
+  "purpose": "Map endgame build archetypes to leveling route families using existing parsed PoBs first, preferring recent 3.27 and 3.28 stage PoBs where available.",
+  "selection_policy": {
+    "preferred_source_order": [
+      "3.27_or_3.28_stage_pob",
+      "3.27_or_3.28_pob_notes_or_stage_titles",
+      "older_confirmed_stage_pob_same_class_family",
+      "older_confirmed_stage_pob_same_damage_family",
+      "archetype_inferred_route"
+    ],
+    "do_not_confirm_from": [
+      "poe_ninja_endgame_snapshot_only",
+      "single_final_pob_without_leveling_titles",
+      "passive_tree_only_without_skill_timeline"
+    ],
+    "confidence_values": [
+      "inferred",
+      "near_confirmed",
+      "confirmed"
+    ]
+  },
+  "coverage_summary": {
+    "route_count": 13,
+    "confirmed_route_count": 8,
+    "near_confirmed_route_count": 5,
+    "families_covered": [
+      "caster",
+      "ranger",
+      "melee",
+      "minion",
+      "totem",
+      "mine"
+    ],
+    "fresh_patch_strength": "3.27/3.28 are strong for caster, minion, and totem routes; ranger and melee still need newer stage PoBs to replace older confirmed fallbacks. Mine route is Exsanguinate/Reap Miner Trickster and should prioritize Cptn Garbage/Maxroll PoB extraction. Tori-sensei's current-season minion source hunt is Poison Carrion Golem; Spectre materials remain separate historical/support evidence."
+  },
+  "routes": [
+    {
+      "route_id": "caster_archmage_templar",
+      "route_family": "caster",
+      "applies_to": [
+        "Ice Nova of Frostbolts Hierophant",
+        "Shock Nova of Procession Hierophant",
+        "Cold Snap of Power Hierophant"
+      ],
+      "preferred_patch_band": "3.27-3.28",
+      "leveling_confidence": "confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.27_ice_nova_hierophant",
+          "pob_url": "https://pobb.in/nPSUr8VbYbER",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "1-17",
+            "17-28",
+            "28-40",
+            "41-60",
+            "Early Maps",
+            "Level 90",
+            "Crit Swap"
+          ]
+        },
+        {
+          "candidate_id": "3.27_ice_nova_hierophant",
+          "pob_url": "https://pobb.in/zPBgU7oGZTTe",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "1-17",
+            "17-28",
+            "28-40",
+            "41-60",
+            "Early Maps",
+            "Level 90",
+            "Crit Swap"
+          ]
+        }
+      ],
+      "route_notes": [
+        "Use this as the current confirmed caster template for mana/Archmage-style Templar leveling.",
+        "For Shock Nova or Cold Snap variants, keep confidence near_confirmed until the final skill swap timing is separately confirmed."
+      ],
+      "promotion_status": "usable_for_confirmed_route_when_final_build_matches_archmage_templar"
+    },
+    {
+      "route_id": "caster_fire_corpse_witch",
+      "route_family": "caster",
+      "applies_to": [
+        "Detonate Dead Elementalist",
+        "corpse caster Witch",
+        "fire caster Witch fallback"
+      ],
+      "preferred_patch_band": "3.22-3.23",
+      "leveling_confidence": "confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.22_detonate_dead_elementalist",
+          "pob_url": "https://pobb.in/AsYC-duE8nIJ",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "Level 1-12",
+            "Level 12-28",
+            "Level 28-38",
+            "Level 38-69",
+            "Maps/Midgame",
+            "Endgame"
+          ]
+        },
+        {
+          "candidate_id": "3.23_detonate_dead_elementalist",
+          "pob_url": "https://pobb.in/a69LUW4z0eWf",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "Leveling",
+            "DD Respec",
+            "Mid Game DD",
+            "Endgame Mapping",
+            "Endgame Bossing"
+          ]
+        }
+      ],
+      "route_notes": [
+        "Older than 3.27 but very strong stage evidence.",
+        "Use only after checking patch-specific DD/corpse changes."
+      ],
+      "promotion_status": "confirmed_fallback_until_newer_corpse_caster_stage_pob_exists"
+    },
+    {
+      "route_id": "ranger_attack_bow_projectile",
+      "route_family": "ranger",
+      "applies_to": [
+        "Lightning Arrow Deadeye",
+        "Tornado Shot Deadeye",
+        "Ice Shot Deadeye"
+      ],
+      "preferred_patch_band": "3.27-3.28",
+      "leveling_confidence": "near_confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.27_lightning_arrow_deadeye",
+          "pob_url": "https://pobb.in/98eAwFaK2hNu",
+          "evidence_type": "passive_stage_titles_plus_endgame_skill",
+          "stage_markers": [
+            "1-6 SP",
+            "7-11 SP",
+            "12-15 SP",
+            "16-19 SP",
+            "20-25 SP",
+            "26-33 SP",
+            "34-42 SP"
+          ]
+        }
+      ],
+      "fallback_sources": [
+        {
+          "candidate_id": "3.22_toxic_rain_pathfinder",
+          "pob_url": "https://pobb.in/2wTR4RwK5cYq",
+          "evidence_type": "ranger_stage_pob_reference"
+        },
+        {
+          "candidate_id": "3.23_toxic_rain_pathfinder",
+          "pob_url": "https://pobb.in/UmR2FcRXPIWo",
+          "evidence_type": "ranger_stage_pob_reference"
+        }
+      ],
+      "route_notes": [
+        "Current LA evidence gives tree progression but not a complete skill/aura/gear timeline.",
+        "Do not mark confirmed until a 3.27/3.28 bow attack stage PoB or creator timeline is attached."
+      ],
+      "promotion_status": "needs_recent_bow_attack_stage_pob"
+    },
+    {
+      "route_id": "ranger_chaos_dot_pathfinder",
+      "route_family": "ranger",
+      "applies_to": [
+        "Toxic Rain Pathfinder",
+        "Caustic Arrow Pathfinder",
+        "chaos bow league starter"
+      ],
+      "preferred_patch_band": "3.22-3.23",
+      "leveling_confidence": "confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.22_toxic_rain_pathfinder",
+          "pob_url": "https://pobb.in/2wTR4RwK5cYq",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "Level 1 - 12",
+            "Level 12 - 24",
+            "Level 24 - 38",
+            "Level 38 - Maps",
+            "Before Taste of Hate & Lightning Coil",
+            "Endgame"
+          ]
+        },
+        {
+          "candidate_id": "3.23_toxic_rain_pathfinder",
+          "pob_url": "https://pobb.in/UmR2FcRXPIWo",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "Level 1 - 12",
+            "Level 12 - 24",
+            "Level 24 - 38",
+            "Level 38 - Maps"
+          ]
+        }
+      ],
+      "route_notes": [
+        "Confirmed for chaos bow leveling, not automatically confirmed for hit-based Lightning Arrow."
+      ],
+      "promotion_status": "confirmed_for_chaos_dot_bow"
+    },
+    {
+      "route_id": "melee_strike_duelist",
+      "route_family": "melee",
+      "applies_to": [
+        "Lightning Strike Slayer",
+        "strike attack Duelist",
+        "non-crit to crit strike progression"
+      ],
+      "preferred_patch_band": "3.25",
+      "leveling_confidence": "confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.25_lightning_strike_slayer",
+          "pob_url": "https://pobb.in/u2qKJnZImJOC",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "lvl 14/LS swap",
+            "lvl 22",
+            "lvl 30",
+            "lvl 38",
+            "lvl 50",
+            "lvl 58",
+            "lvl 73"
+          ]
+        },
+        {
+          "candidate_id": "3.25_lightning_strike_slayer",
+          "pob_url": "https://pobb.in/Yn7cI08xFp-f",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "Non-crit",
+            "Crit swap lvl 86",
+            "Early Game",
+            "Mid Game",
+            "End Game"
+          ]
+        }
+      ],
+      "route_notes": [
+        "Best current strike-melee route in corpus, but still older than 3.27/3.28.",
+        "Use with patch-delta check for weapon/skill changes."
+      ],
+      "promotion_status": "confirmed_fallback_until_3_27_or_3_28_melee_stage_pob_exists"
+    },
+    {
+      "route_id": "melee_boneshatter_duelist_marauder",
+      "route_family": "melee",
+      "applies_to": [
+        "Boneshatter Slayer",
+        "Boneshatter Juggernaut",
+        "two-hand melee league starter"
+      ],
+      "preferred_patch_band": "3.23",
+      "leveling_confidence": "confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.23_boneshatter_slayer",
+          "pob_url": "https://pobb.in/8EaecQiFSzV0",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "lvl 1-8",
+            "lvl 8-12",
+            "lvl 12-36",
+            "lvl 36-43",
+            "lvl 43+ Boneshatter swap",
+            "Early Maps",
+            "Endgame"
+          ]
+        },
+        {
+          "candidate_id": "3.23_boneshatter_juggernaut",
+          "pob_url": "https://pobb.in/DzhXz0GQoO4o",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "Leveling in 3.21",
+            "Early Game Tree",
+            "Swap from Sunder",
+            "end game jugg"
+          ]
+        }
+      ],
+      "route_notes": [
+        "Confirmed for Boneshatter/Sunder-style melee, not for every strike or stacker melee build."
+      ],
+      "promotion_status": "confirmed_for_boneshatter_family"
+    },
+    {
+      "route_id": "minion_srs_templar_witch",
+      "route_family": "minion",
+      "applies_to": [
+        "Guardian SRS",
+        "Poison SRS Necromancer",
+        "generic temporary minion campaign route"
+      ],
+      "preferred_patch_band": "3.23-3.27",
+      "leveling_confidence": "confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.27_poison_srs_necromancer",
+          "pob_url": "https://pobb.in/5U39G2oxuHmQ",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "Act 1",
+            "Act 2",
+            "Act 3",
+            "Act 4-10",
+            "Early End Game",
+            "End-Game Gear POISON"
+          ]
+        },
+        {
+          "candidate_id": "3.23_guardian_srs",
+          "pob_url": "https://pobb.in/k3WSaNx3wARe",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "Rolling Magma Leveling",
+            "Campaign SRS Level 38",
+            "Level 90 SSF",
+            "Endgame"
+          ]
+        }
+      ],
+      "route_notes": [
+        "Good current minion leveling backbone for Guardian/Necromancer SRS variants.",
+        "Tori-sensei is a priority Korean creator source for minion leveling cross-checks, but keep source-specific PoBs outside this confirmed route until exact SRS stage evidence is ingested."
+      ],
+      "promotion_status": "confirmed"
+    },
+    {
+      "route_id": "minion_holy_relic_necro",
+      "route_family": "minion",
+      "applies_to": [
+        "Summon Holy Relic Necromancer",
+        "Lancing Steel trigger minion Necromancer"
+      ],
+      "preferred_patch_band": "3.28",
+      "leveling_confidence": "confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.28_summon_holy_relic_necromancer",
+          "pob_url": "https://pobb.in/7f7pt-NVcI3F",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "Levelling As Absolution",
+            "Act 5",
+            "Act 6",
+            "Act 7",
+            "Act 8",
+            "Act 10",
+            "Early Maps",
+            "End Game Gear"
+          ]
+        }
+      ],
+      "route_notes": [
+        "Use for Holy Relic final build; do not use as a generic Spectre route without transition notes.",
+        "Tori-sensei minion/Spectre material can be used as support/AG and campaign cross-check evidence, not as Holy Relic-specific confirmation."
+      ],
+      "promotion_status": "confirmed_for_holy_relic"
+    },
+    {
+      "route_id": "minion_poison_carrion_golem",
+      "route_family": "minion",
+      "applies_to": [
+        "Poison Carrion Golem",
+        "Summon Carrion Golem Witch",
+        "golem poison minion build"
+      ],
+      "preferred_patch_band": "3.28-current",
+      "leveling_confidence": "near_confirmed",
+      "primary_sources": [
+        {
+          "source_id": "youtube_tori_sensei_poison_carrion_golem",
+          "url": "https://www.youtube.com/@torisense",
+          "evidence_type": "current_season_creator_source_to_collect",
+          "notes": "User reports Tori-sensei's current-season preparation is Poison Carrion Golem. Current-season PoB or stage notes are required before confirmed route wording."
+        },
+        {
+          "candidate_id": "tori_sensei_3_26_poison_carrion_golem_reference",
+          "pob_url": "https://pobb.in/Gji0uiu1Aoog",
+          "source_url": "https://www.youtube.com/watch?v=WO2bjIZMrtQ",
+          "evidence_type": "older_same_creator_mechanical_reference",
+          "stage_markers": [
+            "PoE 3.26 Poison Carrion Golem public PoB"
+          ]
+        },
+        {
+          "candidate_id": "tori_sensei_3_25_poison_carrion_golem_caveat_reference",
+          "pob_url": "https://pobb.in/19sYwElXstEb",
+          "source_url": "https://www.youtube.com/watch?v=klcYMiWPaLw",
+          "evidence_type": "older_caveat_reference"
+        }
+      ],
+      "route_notes": [
+        "Do not reuse generic Spectre route wording for current Tori-sensei minion coverage.",
+        "Keep near_confirmed until the current-season Poison Carrion Golem PoB, stage titles, or creator notes are collected.",
+        "Older poison Carrion Golem PoBs can seed mechanics and item gates, not current patch confidence."
+      ],
+      "promotion_status": "needs_current_tori_sensei_poison_carrion_golem_pob"
+    },
+    {
+      "route_id": "minion_spectre_necro",
+      "route_family": "minion",
+      "applies_to": [
+        "Raise Spectre Necromancer",
+        "spectre species variants"
+      ],
+      "preferred_patch_band": "3.27-3.28",
+      "leveling_confidence": "near_confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.27_raise_spectre_necromancer",
+          "pob_url": "https://pobb.in/6babh9Tx73So",
+          "evidence_type": "act_stage_pob_for_related_minion_route",
+          "stage_markers": [
+            "Act 1 - Start to Prison",
+            "Act 1 - Prison to Caverns",
+            "Act 1 - Caverns",
+            "Act 2",
+            "Act 3",
+            "Act 4",
+            "Act 5+ AW",
+            "Act 5+ rAW"
+          ]
+        },
+        {
+          "candidate_id": "3.28_raise_spectre_necromancer",
+          "pob_url": "https://pobb.in/WwHsfa93tsqf",
+          "evidence_type": "final_spectre_variant_reference"
+        },
+        {
+          "source_id": "youtube_tori_sensei_spectre",
+          "url": "https://www.youtube.com/@torisense",
+          "evidence_type": "creator_source_to_collect",
+          "notes": "User-identified Korean creator source for minion/Spectre builds. Known search hits include 3.26 Wretched Blasphemer Spectre, 3.28 counter-resistance Spectre, and 3.27 Hydra/Raise Spectre videos.",
+          "pob_urls_seen_in_search": [
+            "https://pobb.in/7p4y5j5TYO0n",
+            "https://pobb.in/dTHjbYUrUGVT",
+            "https://pobb.in/oimmJKVwZB2e",
+            "https://pobb.in/TObPJZon6lw0"
+          ]
+        },
+        {
+          "source_id": "youtube_dconnic_wretched_defiler",
+          "url": "https://www.youtube.com/@dconnic",
+          "evidence_type": "creator_source_to_collect",
+          "notes": "User-identified Wretched Defiler source. PoEBuilds index shows 3.26 leveling, 3.26 pure Spectre, 3.27 league start, and 3.28 updated Wretched Defiler/Spectre videos; YouTube descriptions point to a PoB spreadsheet that needs exact POE1 row extraction."
+        },
+        {
+          "source_id": "youtube_ghazzytv_minion",
+          "url": "https://www.youtube.com/GhazzyTV",
+          "evidence_type": "creator_source_to_collect",
+          "notes": "Broad minion authority source for Spectre/SRS/AG support cross-checking before route promotion."
+        }
+      ],
+      "route_notes": [
+        "This has good act-stage minion evidence but the campaign skill is Animate Weapon, not confirmed final Spectre leveling.",
+        "Use Tori-sensei and Dconnic Spectre PoBs/videos as the next source hunt targets for exact Raise Spectre transition timing.",
+        "Use GhazzyTV as broad minion/Spectre cross-check before marking a Spectre route confirmed.",
+        "Keep near_confirmed until a Spectre-specific campaign transition trigger is attached."
+      ],
+      "promotion_status": "needs_spectre_creator_pob_ingest"
+    },
+    {
+      "route_id": "totem_wander_hierophant",
+      "route_family": "totem",
+      "applies_to": [
+        "Kinetic Fusillade Totem Hierophant",
+        "wand attack totem Hierophant"
+      ],
+      "preferred_patch_band": "3.28",
+      "leveling_confidence": "confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.28_kinetic_fusillade_totem_hierophant",
+          "pob_url": "https://pobb.in/JqPrCsJAvXiL",
+          "evidence_type": "stage_pob",
+          "stage_markers": [
+            "Level 12",
+            "Level 18",
+            "Level 22",
+            "Level 24",
+            "Level 27",
+            "Level 32",
+            "Level 40",
+            "Level 44",
+            "Leveling Gem Setup",
+            "Trade Gear"
+          ]
+        }
+      ],
+      "route_notes": [
+        "Strong 3.28 stage evidence for the new Kinetic Fusillade totem lane."
+      ],
+      "promotion_status": "confirmed"
+    },
+    {
+      "route_id": "totem_fire_hierophant",
+      "route_family": "totem",
+      "applies_to": [
+        "Holy Flame Totem Hierophant",
+        "Shockwave Totem Hierophant"
+      ],
+      "preferred_patch_band": "3.28",
+      "leveling_confidence": "near_confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.28_holy_flame_totem_hierophant",
+          "pob_url": "https://pobb.in/44XcQ-YnK6Jf",
+          "evidence_type": "final_pob"
+        }
+      ],
+      "fallback_sources": [
+        {
+          "candidate_id": "3.28_kinetic_fusillade_totem_hierophant",
+          "pob_url": "https://pobb.in/JqPrCsJAvXiL",
+          "evidence_type": "templar_totem_stage_reference"
+        }
+      ],
+      "route_notes": [
+        "Holy Flame Totem final PoB exists, but current corpus still needs a dedicated campaign stage PoB for fire/physical spell totems."
+      ],
+      "promotion_status": "needs_fire_totem_stage_pob"
+    },
+    {
+      "route_id": "mine_exsanguinate_trickster",
+      "route_family": "mine",
+      "applies_to": [
+        "Exsanguinate Mine Trickster",
+        "Exsanguinate Reap Mines Trickster",
+        "Cold Exsanguinate Miner Trickster"
+      ],
+      "preferred_patch_band": "3.24-3.27",
+      "leveling_confidence": "near_confirmed",
+      "primary_sources": [
+        {
+          "candidate_id": "3.24_exsanguinate_mine_trickster",
+          "pob_url": "",
+          "evidence_type": "queue_case",
+          "notes": "3.24 flagship queue and external cross-check candidate for Exsanguinate Mine Trickster."
+        },
+        {
+          "candidate_id": "3.26_exsanguinate_mines_trickster",
+          "pob_url": "",
+          "evidence_type": "expanded_collection_queue",
+          "notes": "3.26 Exsanguinate Mines Trickster appears in expanded queue as a transition case."
+        },
+        {
+          "candidate_id": "3.27_exsanguinate_reap_mines_trickster",
+          "pob_url": "",
+          "evidence_type": "expanded_collection_queue",
+          "notes": "3.27 Exsanguinate/Reap Mines Trickster appears in expanded queue and should be cross-checked against creator PoBs."
+        },
+        {
+          "source_id": "maxroll_cptn_garbage_exsanguinate_miner",
+          "url": "https://maxroll.gg/poe/build-guides/exsanguinate-miner-trickster-league-starter",
+          "evidence_type": "creator_source_to_collect",
+          "notes": "User-identified Cptn Garbage/Maxroll source for Exsanguinate Miner Trickster. Collect exact Maxroll PoB/stage notes manually; external discussion indicates traps into Pyroclast Mines before Exsanguinate."
+        },
+        {
+          "source_id": "youtube_tori_sensei",
+          "url": "https://www.youtube.com/@torisense/playlists",
+          "evidence_type": "creator_source_to_collect",
+          "notes": "User-identified Korean creator source. Use as supplemental Exsanguinate/Reap Mine cross-check and broader minion/Spectre source; collect exact video PoBs before promotion."
+        },
+        {
+          "source_id": "odealo_cold_exsanguinate_miner_3_27",
+          "url": "https://odealo.com/articles/cold-exsanguinate-miner-trickster-build",
+          "evidence_type": "external_guide_reference",
+          "notes": "Updated for 3.27; describes Cold Exsanguinate Miner Trickster as a starter and recommends Pyroclast Mine leveling with a later Exsanguinate switch."
+        }
+      ],
+      "fallback_sources": [
+        {
+          "candidate_id": "3.22_hexblast_mines_saboteur",
+          "pob_url": "https://pobb.in/u/PaintMaster/5yxO2VmfSld3",
+          "evidence_type": "legacy_mine_tree_reference_only"
+        }
+      ],
+      "route_notes": [
+        "This lane is Exsanguinate/Reap Miner Trickster, not Hexblast Mines.",
+        "Use Cptn Garbage / Maxroll as the first Exsanguinate Miner Trickster source hunt target.",
+        "Use Tori-sensei creator material as Korean supplemental evidence and as a higher-priority minion/Spectre source.",
+        "Keep near_confirmed until exact stage PoB URLs or creator timeline notes are attached.",
+        "Expected leveling shape from external guide reference: Pyroclast Mine leveling, then Exsanguinate switch after required cold-conversion/regeneration pieces are available."
+      ],
+      "promotion_status": "needs_cptn_garbage_maxroll_pob_ingest"
+    }
+  ],
+  "route_record_template": {
+    "route_id": "",
+    "route_family": "caster|ranger|melee|minion|totem|mine",
+    "applies_to": [],
+    "preferred_patch_band": "",
+    "leveling_confidence": "inferred|near_confirmed|confirmed",
+    "primary_sources": [],
+    "fallback_sources": [],
+    "route_notes": [],
+    "promotion_status": ""
+  }
+}

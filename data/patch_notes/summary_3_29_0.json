@@ -1,0 +1,748 @@
+{
+  "version": "3.29.0",
+  "endgame_changes": [
+    "Strange locations have begun to manifest on the Atlas, which Kirac has labelled as Anomalies.",
+    "Upon completing Maps affected by a Voidstone, there is a chance that when you next open your Atlas an Anomaly may manifest. Atlas Anomalies do not require a Map item to enter.",
+    "Reflecting Mists and the Nameless Seer no longer randomly spawn within Maps, but instead now appear in their own Anomaly areas.",
+    "Atlas Anomalies are unaffected by your Atlas Passive Tree, and cannot be augmented using any Fragments, allowing them to be run at any time without feeling like they have to be saved for later to maximise potential rewards.",
+    "Reflect Map Modifiers have been reworked, instead of causing Monsters to Reflect a percentage of Physical or Elemental Hit Damage dealt to them, they instead cause Rare Monsters to have Physical or Elemental Thorns.",
+    "Physical Thorns activates when Hit by Physical Damage and lasts for 5 seconds. While active, it reflects a fixed amount of Physical Damage each time the monster receives a Physical Hit. Monsters cannot gain Physical Thorns more than once every 10 seconds. You can only take Physical Thorns damage once every 0.1 seconds.",
+    "Elemental Thorns activates when Hit by Elemental Damage and lasts for 5 seconds. While active, it reflects a fixed amount of Elemental Damage each time the monster receives an Elemental Hit, dealing Damage of the highest Elemental Damage type in the received Hit. Monsters cannot gain Elemental Thorns more than once every 10 seconds. You can only take Elemental Thorns damage once every 0.1 seconds.",
+    "In Red Tier Maps, Rare Monsters have Physical Thorns reflecting 800 Physical Damage and Elemental Thorns reflecting 1500 Elemental Damage.",
+    "Reflected Damage from Thorns is able to be mitigated through Evasion, Block, Armour, Resistances, etc.",
+    "Reflect Modifiers no longer appear on Corrupted Side Areas in the Campaign.",
+    "The following Maps have been added back to the Atlas: Arachnid Nest, Basilica, Bazaar, Caldera, Cells, Channel, Colonnade, Colosseum, Conservatory, Crystal Ore, Desert, Desert Spring, Estuary, Forbidden Woods, Geode, Infested Valley, Laboratory, Malformation, Museum, Phantasmagoria, Pier, Plateau, Ramparts, Stagnation, Sunken City, Temple, Toxic Sewer, and Vault.",
+    "The following Maps have been removed from the Atlas: Acid Caverns, Arena, Ashen Wood, Bog, Canyon, Carcass, Castle Ruins, Courtyard, Coves, Crimson Temple, Crimson Township, Cursed Crypt, Defiled Cathedral, Dig, Dry Sea, Dungeon, Lava Chamber, Lighthouse, Maze, Moon Temple, Mud Geyser, Necropolis, Pen, Racecourse, Sepulchre, Underground Sea, Wasteland, and Wharf.",
+    "The Untainted Paradise Unique Map can no longer be obtained, and existing items cannot be used in Standard Leagues.",
+    "Untainted Paradise can now be accessed through a randomly spawned event node on your Atlas, where it has received a few alterations to make it more difficult and rewarding...",
+    "The Decayed Voidstone socket on the Atlas now connects to the Forge of the Phoenix, Pit of the Chimera and Lair of the Hydra (in addition to the Maze of the Minotaur).",
+    "The Pit of the Chimera Boss now spawns only one wave of enemies per phase.",
+    "Memory Thread Maps now display which Map they will open.",
+    "The Enshrouded Astrolabe has been renamed to Deceptive Astrolabe.",
+    "Removed the item drop delay from versions of the Remembered and the Feared that can spawn in Maps, such as from the Horned Scarab of Awakening.",
+    "Reduced the average amount of Modifier Effect applied to Explicit Modifiers when using a Reflecting Mist Currency on an item. This change does not affect the amount of Modifier Effect on Mirrored Jewellery found when interacting with a Reflecting Mist object.",
+    "Reflecting Mist objects now have a much higher chance to drop a Reflecting Mist Currency item."
+  ],
+  "atlas_passive_changes": [
+    "Added a new Altered Prophecy cluster to the Atlas Passive Tree. The Notable grants your Tier 14+ Maps 4% chance to drop a Scrying Orb on completion, while the small Passives grant your Maps increased chance to drop Divination Cards. In Ruthless, this cluster grants Scarab related bonuses.",
+    "The Scrying Orb is a new currency item that stores the Map that the currency item was found in. It then allows you to Scry the Divination Cards of the Map area listed on the item to a Map on your Atlas.",
+    "The Brave the Tower Atlas Passive Skill now has Ultimatum Boss drops 10 of a random Catalyst (previously a full stack of a random Catalyst).",
+    "The Dutiful Soldier Atlas Passive Skill now also grants Blueprints found in your Maps have a 15% chance to have a special Implicit."
+  ],
+  "skill_buffs": [
+    {
+      "raw": "Most Spells that have received base damage increases also have higher damage growth with each gem level. For example, while Divine Ire deals 27% more damage at gem level 20, it now deals 37% more damage at gem level 30.",
+      "type": "buff"
+    },
+    {
+      "raw": "Shadow-themed Physical Spells and pure Cold Hit Spells have higher Critical Strike chances, while pure Fire Spells generally have lower Critical Strike chances.",
+      "type": "buff"
+    },
+    {
+      "raw": "Pure Fire Spells generally have lower mana costs and higher effectiveness of added damage.",
+      "type": "buff"
+    },
+    {
+      "raw": "Arcane Cloak: Now has Buff Grants added Lightning Damage equal to 10% of Mana Spent by this Skill's effect at all gem levels (previously 10-14%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Absolution: Now has a cast time of 0.65 seconds (previously 0.75).",
+      "type": "buff"
+    },
+    {
+      "raw": "Absolution of Inspiring: Now has a Cast time of 0.65 seconds (previously 0.75).",
+      "type": "buff"
+    },
+    {
+      "raw": "Arc: Now has a Cast time of 0.6 seconds (previously 0.7), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Arc of Oscillating: Now has a Cast time of 0.6 seconds (previously 0.7), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Arc of Surging: Beam now Splits towards 6-9 additional targets (previously 4-7). Now has a Cast time of 0.6 seconds (previously 0.7), and the Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Armageddon Brand of Volatility: Now has 250% Effectiveness of Added Damage at gem level 20 (previously 370%), and deals 2100 to 3150 Fire Damage at gem level 20 (previously 1676 to 2514). The base Mana Cost has been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Barrage: Now fires 6 Projectiles (previously 5).",
+      "type": "buff"
+    },
+    {
+      "raw": "Ball Lightning: Now has a Base radius of 2 metres (previously 1.8), and a Cast time of 0.6 seconds (previously 0.7). The base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Ball Lightning of Orbiting: Now has a Cast time of 0.5 seconds (previously 0.6), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Ball Lightning of Static: Now has a Cast time of 0.6 seconds (previously 0.7), and the base Mana Cost has been increased by 25% at all gem levels. Now has 4 cooldown uses (previously 3).",
+      "type": "buff"
+    },
+    {
+      "raw": "Blade Blast: Now has a Base radius of 1.5 metres (previously 1.4), and a Critical Strike Chance of 10% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Blade Blast of Dagger Detonation: Now has a Base radius of 2.8 metres (previously 2.6), and a Critical Strike Chance of 10% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Blade Blast of Unloading: Now has 100% more Area of Effect per Blade Vortex blade detonated (previously 80%), and a Critical Strike Chance of 10% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Blade Vortex: Now has 30% increased Hit Rate for each blade (previously 35%), and 30% more Damage for each blade (previously 35%). It now has a Critical Strike Chance of 10% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Blade Vortex of the Scythe: Now has a Critical Strike Chance of 10% (previously 6%), and 370% Effectiveness of Added Damage at gem level 20 (previously 300%). It now deals 1684 to 2526 Physical Damage at gem level 20 (previously 1353 to 2030). Quality now provides +0-0.3 metres to Radius (previously deals 0-20% more Physical Damage)",
+      "type": "buff"
+    },
+    {
+      "raw": "Bladefall: Now has 160% Effectiveness of Added Damage at gem level 20 (previously 140%), and deals 713 to 1070 Physical Damage at gem level 20 (previously 595 to 893).",
+      "type": "buff"
+    },
+    {
+      "raw": "Bladefall of Impaling: Now has a Critical Strike Chance of 25% (previously 15%), and 170% Effectiveness of Added Damage at gem level 20 (previously 140%). Now deals 771 to 1157 Physical Damage at gem level 20 (previously 595 to 893).",
+      "type": "buff"
+    },
+    {
+      "raw": "Bladefall of Trarthus: Now has 140% Effectiveness of Added Damage at gem level 20 (previously 120%), and now deals 634 to 951 Physical Damage at gem level 20 (previously 536 to 803). The Mana Cost has been increased by 5% Mana per second at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Bladefall of Volleys: Now has 120% Effectiveness of Added Damage at gem level 20 (previously 100%), and now deals 570 to 855 Physical Damage at gem level 20 (previously 446 to 669).",
+      "type": "buff"
+    },
+    {
+      "raw": "Blazing Salvo: Now has 70% Effectiveness of Added Damage at gem level 20 (previously 60%), and the base Mana Cost has been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Bodyswap: Now deals 6% of your maximum Life, as base Fire Damage (previously 4%), has 300% more Area of Effect if Consuming a corpse (previously 200%), and now has a Cast time of 0.65 seconds (previously 0.7). Quality now provides deals 0-6% of your maximum Life, as base Fire Damage (previously 4%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Bodyswap of Sacrifice: Now has 300% more Area of Effect if Consuming a Minion (previously 200%), and a Cast time of 0.65 seconds (previously 0.7).",
+      "type": "buff"
+    },
+    {
+      "raw": "Cold Snap: Now has 25% chance to Freeze, and a Critical Strike Chance of 7.5% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Cold Snap of Power: Now has 25% chance to Freeze, and 50% chance to gain a Power Charge on Critical Strike (previously 30%)",
+      "type": "buff"
+    },
+    {
+      "raw": "Commandment of Inferno, triggered by the Unyielding Flame Unique Shield: Can now be supported. This change does not apply to legacy versions of the Skill from Glove Enchantment Modifiers.",
+      "type": "buff"
+    },
+    {
+      "raw": "Crackling Lance: Now has 190% Effectiveness of Added Damage at gem level 20 (previously 165%), and deals 526 to 1578 Lightning Damage at gem level 20 (previously 458 to 1375). Now has a Cast time of 0.5 seconds (previously 0.65), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Crackling Lance of Branching: Now has 370% Effectiveness of Added Damage at gem level 20 (previously 330%), and deals 1039 to 3116 Lightning Damage at gem level 20 (previously 905 to 2715). Now has a Cast time is now 0.6 seconds (previously 0.75), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Crackling Lance of Disintegration: Now has 400% Effectiveness of Added Damage at gem level 20 (previously 360%), and now deals 1125 to 3376 Lightning Damage at gem level 20 (previously 1054 to 3161). Now has a Cast time of 0.6 seconds (previously 0.75), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Creeping Frost: Now has a Critical Strike Chance of 7.5% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Creeping Frost of Floes: Now has a Critical Strike Chance of 7.5% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Cremation: Quality now provides fires Projectiles 0-15% faster (previously 0-10%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Cremation of Exhuming: Now fires Projectiles every 0.8 seconds (previously every second), and fires 3 Projectiles (previously 4). Quality now provides fires Projectiles 0-15% faster (previously 0-10%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Cremation of the Volcano: Now has a base Duration of 2 seconds (previously 2.5 seconds), and now has a Maximum of 8 Geysers at a time (previously 6). Quality now provides Maximum of +0-2 Geysers at a time (from fires Projectiles 0-10% faster).",
+      "type": "buff"
+    },
+    {
+      "raw": "Dark Bargain: Now has a Critical Strike Chance of 10% (previously 7%)",
+      "type": "buff"
+    },
+    {
+      "raw": "Dark Bargain of Trarthus: Reaching seven Ruin will now Sacrifice 50% of your Life to deal 600% of Sacrificed Life as Chaos Damage (previously to deal 500%). It now has a Critical Strike Chance of 10% (previously 7%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Discharge: Cooldown Time is now 1 second (previously 2 seconds). Now has 15% higher base Damage per Charge removed at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Discharge of Misery: Now has 15% higher base Damage per Charge removed at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Divine Blast: Now deals 42 to 64 Base Off Hand Physical Damage at gem level 1, scaling up to 184 to 276 at gem level 20 (previously 39 to 58 at gem level 1, and 169 to 253 at gem level 20). It now has 2 to 4 Added Physical Damage per 15 Armour on Shield at gem level 1, scaling up to 3 to 6 at gem level 20 (previously 2 to 3 at gem level 1, and 3 to 5 at gem level 20). Now has a base duration of 1.2 seconds (previously 1.5).",
+      "type": "buff"
+    },
+    {
+      "raw": "Divine Ire: Now has 75% Effectiveness of Added Damage at gem level 20 (previously 50%), and now deals 321 to 482 Physical Damage at gem level 20 (previously 253 to 380).",
+      "type": "buff"
+    },
+    {
+      "raw": "Divine Ire of Disintegration: Now has 140% Effectiveness of Added Damage at gem level 20 (previously 130%), and now deals 623 to 934 Physical Damage at gem level 20 (previously 491 to 737).",
+      "type": "buff"
+    },
+    {
+      "raw": "Divine Ire of Holy Lightning: Now has 100% Effectiveness of Added Damage at gem level 20 (previously 65%), and now deals 447 to 671 Physical Damage at gem level 20 (previously 353 to 529).",
+      "type": "buff"
+    },
+    {
+      "raw": "Divine Retribution: Cooldown time is now 4 seconds (previously 5). Now has 540% Effectiveness of Added Damage at gem level 20 (previously 390%), and now deals 2395 to 3593 Physical Damage at gem level 20 (previously 1745 to 2617).",
+      "type": "buff"
+    },
+    {
+      "raw": "Essence Drain of Wickedness: Now Fires 3-5 Projectiles (previously 1 at all gem levels).",
+      "type": "buff"
+    },
+    {
+      "raw": "Ethereal Knives: Now Fires 10-15 Projectiles (previously 10-13), and has a Critical Strike Chance of 10% (previously 6%). Now has 250% Effectiveness of Added Damage at gem level 20 (previously 220%), and now deals 1104 to 1656 Physical Damage at gem level 20 (previously 949 to 1423). Quality now provides 0-20% more Projectile Speed (previously fires +0-2 Projectiles).",
+      "type": "buff"
+    },
+    {
+      "raw": "Ethereal Knives of Lingering Blades: Now Fires 7-10 Projectiles (previously 6-8), and has a Critical Strike Chance of 10% (previously 6%). Now has 250% Effectiveness of Added Damage at gem level 20 (previously 220%), and now deals 1104 to 1656 Physical Damage at gem level 20 (previously 949 to 1423).",
+      "type": "buff"
+    },
+    {
+      "raw": "Ethereal Knives of the Massacre: Now has a Critical Strike Chance of 10% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Eye of Winter: Now has a Critical Strike Chance of 7.5% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Eye of Winter of Finality: Now has a Critical Strike Chance of 7.5% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Eye of Winter of Transience: Now has a Critical Strike Chance of 7.5% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Fireball: Base radius is now 1-1.8 metres at gem levels 1-20 (previously 0.9-1.4), has a Critical Strike Chance of 5% (previously 6%), and the base Mana Cost has been reduced by 20% at all gem levels. Now has 480% Effectiveness of Added Damage at gem level 20 (previously 370%), and now deals 1883 to 2825 Fire Damage at gem level 20 (previously 1640 to 2460). Quality is now +0-0.3 metres to Radius (previously +0-0.2).",
+      "type": "buff"
+    },
+    {
+      "raw": "Firestorm: Now has 100% Effectiveness of Added Damage at gem level 20 (previously 80%), and the base Mana Cost has been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Firestorm of Meteors: Now has a base radius of 2.6 metres (previously 2.3), and the base Mana Cost has been reduced by 20% at all gem levels. Now has 520% Effectiveness of Added Damage at gem level 20 (previously 410%), and now deals 1960 to 2940 Fire Damage at gem level 20 (previously 1824 to 2735). Quality now provides +0-0.3 metres to Radius (previously +0-0.2).",
+      "type": "buff"
+    },
+    {
+      "raw": "Firestorm of Pelting: Now has 150% Effectiveness of Added Damage at gem level 20 (previously 120%), and the base Mana Cost has been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Flame Dash: Now has a Critical Strike Chance of 5% (previously 6%), and has 170% Effectiveness of Added Damage at gem level 20 (previously 140%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Flame Dash of Return: Now has a Critical Strike Chance of 5% (previously 6%), and the Burning Ground now deals 15% more Damage at all gem levels. Now has 430% Effectiveness of Added Damage at gem level 20 (previously 340%), and now deals 1722 to 2583 Fire Damage at gem level 20 (previously 1501 to 2252). The base Mana Cost has been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Flame Surge: Now has a Critical Strike Chance of 5% (previously 6%), and now has Burning Ground deals 30% of Fire Damage per second of Ignite affecting Enemy (previously 25%). Now has 270% Effectiveness of Added Damage at gem level 20 (previously 190%), and now deals 1042 to 1563 Fire Damage at gem level 20 (previously 832 to 1247). The base Mana Cost has also been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Flame Surge of Combusting: Now has a Critical Strike Chance of 5% (previously 6), and 410% Effectiveness of Added Damage at gem level 20 (previously 310%). It now deals 1644 to 2466 Fire Damage at gem level 20 (previously 1374 to 2062), and the base Mana Cost has been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Flameblast: Now has +0.4 metres to radius per Stage (previously +0.3), and 120% Effectiveness of Added Damage at gem level 20 (previously 90%). Now deals 494 to 741 Fire Damage at gem level 20 (previously 405 to 608), and the base Mana Cost has been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Flameblast of Celerity: Base radius is now 1 metre (previously 0.8), and the base Mana Cost has been reduced by 20% at all gem levels. Now has 140% Effectiveness of Added Damage at gem level 20 (previously 100%), and now deals 541 to 811 Fire Damage at gem level 20 (previously 443 to 665).",
+      "type": "buff"
+    },
+    {
+      "raw": "Flameblast of Contraction: Base radius is now 3.0 metres (previously 2.6), and the base Mana Cost has been reduced by 20% at all gem levels. Now has 40% Effectiveness of Added Damage at gem level 20 (previously 30%), and now deals 171 to 256 Fire Damage at gem level 20 (previously 140 to 210).",
+      "type": "buff"
+    },
+    {
+      "raw": "Forbidden Rite: Now deals 14% of your maximum Life as base Chaos Damage (previously 12%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Freezing Pulse: Now fires 1-5 Projectiles at gem levels 1-20 (previously 1 at all gem levels), and has a Critical Strike Chance of 7.5% (previously 6%). Now has 370% Effectiveness of Added Damage at gem level 20 (previously 330%), and now deals 1659 to 2488 Cold Damage at gem level 20 (previously 1458 to 2188).",
+      "type": "buff"
+    },
+    {
+      "raw": "Frost Bomb: Now has 25% chance to Freeze, and a Critical Strike Chance of 7.5% (previously 6%). Now has 380% Effectiveness of Added Damage at gem level 20 (previously 310%), and now deals 1712 to 2568 Cold Damage at gem level 20 (previously 1391 to 2086).",
+      "type": "buff"
+    },
+    {
+      "raw": "Frost Bomb of Forthcoming: Now has a base duration of 2 seconds (previously 2.5), a Critical Strike Chance of 7.5% (previously 6%), and now has 25% chance to Freeze. Now has 460% Effectiveness of Added Damage at gem level 20 (previously 370%), and now deals 2067 to 3101 Cold Damage at gem level 20 (previously 1668 to 2502).",
+      "type": "buff"
+    },
+    {
+      "raw": "Frost Bomb of Instability: Now has 25% chance to Freeze, and a Critical Strike Chance of 7.5% (previously 6%). Now has 330% Effectiveness of Added Damage at gem level 20 (previously 260%), and now deals 1452 to 2178 Cold Damage at gem level 20 (previously 1178 to 1766).",
+      "type": "buff"
+    },
+    {
+      "raw": "Frostblink: Now has a Critical Strike Chance of 7.5% (previously 5%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Frostblink of Wintry Blast: Now has a Critical Strike Chance of 7.5% (previously 5%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Frostbolt: Now has 25% chance to Freeze, and a Critical Strike Chance of 7.5% (previously 5%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Galvanic Field: Can now target each enemy only once every 0.5-0.4 seconds at gem levels 1-20 (previously 0.7-0.5), and the Buff now grants 50% chance to Shock enemies (previously 20%). Now has 130% Effectiveness of Added Damage at gem level 20 (previously 100%), and now deals 70 to 1336 Lightning Damage at gem level 20 (previously 56 to 1067). The base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Galvanic Field of Intensity: Can now target each enemy only once every 0.65-0.55 seconds at gem levels 1-20 (previously 0.7), and the Buff now grants 50% chance to Shock enemies (previously 20%). Now has 470% Effectiveness of Added Damage at gem level 20 (previously 350%), and now deals 262 to 4980 Lightning Damage at gem level 20 (previously 203 to 3858). The base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Glacial Cascade: Now has a Critical Strike Chance of 6% (previously 5%), 75% Effectiveness of Added Damage at gem level 20 (previously 65%), and now deals 342 to 513 Cold Damage at gem level 20 (previously 300 to 450).",
+      "type": "buff"
+    },
+    {
+      "raw": "Hexblast of Contradiction: Cooldown Time is now 1 second (previously 2 seconds), and the Cast time is now 0.85 seconds (previously 1). Now has a Critical Strike Chance of 7.5% (previously 6), and the base Mana Cost has been reduced by 15% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Hexblast of Havoc: Now has a Base radius of 2.8 metres (previously 2.5), and a Critical Strike Chance of 10% (previously 6%). Quality is now +0-0.3 metres to Radius (previously +0-0.2).",
+      "type": "buff"
+    },
+    {
+      "raw": "Holy Flame Totem: Now has a Critical Strike Chance of 6% (previously 5%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Holy Flame Totem of Ire: Now has a Critical Strike Chance of 6% (previously 5%)",
+      "type": "buff"
+    },
+    {
+      "raw": "Holy Hammers: Now has a base radius of 1.8 meters at all gem levels (previously 1.6-1.8 at gem levels 1-20).",
+      "type": "buff"
+    },
+    {
+      "raw": "Hydrosphere: Now has a Critical Strike Chance of 6% (previously 5%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Ice Nova: Now has 25% chance to Freeze, and a Critical Strike Chance of 7.5% (previously 6%). Now has 250% Effectiveness of Added Damage at gem level 20 (previously 230%), and now deals 1122 to 1683 Cold Damage at gem level 20 (previously 988 to 1481).",
+      "type": "buff"
+    },
+    {
+      "raw": "Ice Nova of Deep Freeze: Now always Freezes (previously 50% chance), and has a Critical Strike Chance of 7.5% (previously 6%). Now has 180% Effectiveness of Added Damage at gem level 20 (previously 140%), and now deals 817 to 1225 Cold Damage at gem level 20 (previously 642 to 963).",
+      "type": "buff"
+    },
+    {
+      "raw": "Ice Nova of Frostbolts: Now has 25% chance to Freeze, and a Critical Strike Chance of 7.5% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Ice Spear: Now has a Critical Strike Chance of 7.5% (previously 7%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Ice Spear of Splitting: Now has a Critical Strike Chance of 7.5% (previously 5%), and Projectiles now Split towards 4-7 targets at gem levels 1-20 (previously 2-5).",
+      "type": "buff"
+    },
+    {
+      "raw": "Icestorm, granted by the Whispering Ice Unique Staff: Now has a maximum of 8 Icestorms (previously 5).",
+      "type": "buff"
+    },
+    {
+      "raw": "Incinerate: Now has 10 maximum Stages (previously 8), 70% Effectiveness of Added Damage at gem level 20 (previously 50%), and now deals 277 to 416 Fire Damage at gem level 20 (previously 207 to 311). Now has a Cast time of 0.18 seconds (previously 0.2).",
+      "type": "buff"
+    },
+    {
+      "raw": "Incinerate of Expanse: Now has 70% Effectiveness of Added Damage at gem level 20 (previously 50%), and now deals 277 to 416 Fire Damage at gem level 20 (previously 207 to 311).",
+      "type": "buff"
+    },
+    {
+      "raw": "Incinerate of Venting: Now has 70% Effectiveness of Added Damage at gem level 20 (previously 55%), and now deals 272 to 408 Fire Damage at gem level 20 (previously 228 to 342).",
+      "type": "buff"
+    },
+    {
+      "raw": "Kinetic Blast: Now has 150% Arcane Might (previously 200%), and 40% less Area Damage (previously 35%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Kinetic Blast of Clustering: Now has 150% Arcane Might (previously 200%), and deals Added Physical Damage equal to 10-15% of Maximum Mana at gem levels 1-20 (previously 10-17%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Kinetic Fusillade: Now has an Attack Speed of 125% of base (previously 200%), a base duration of 0.5 seconds (previously 0.7), and now costs 6-10 Mana at gem levels 1-20 (previously 4-6).",
+      "type": "buff"
+    },
+    {
+      "raw": "Kinetic Rain: Now has 200% Arcane Might (previously 150%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Kinetic Rain of Impact: Now has 200% Arcane Might (previously 150%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Lightning Conduit: Now has 170% Effectiveness of Added Damage at gem level 20 (previously 140%), and now deals 486 to 1457 Lightning Damage at gem level 20 (previously 387 to 1161). The base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Lightning Conduit of the Heavens: Now Hits up to 8-15 Enemies at gem levels 1-20 (previously 6-12), and Shocks Enemies as though dealing 200% more Damage at all gem levels (previously 20-39 at gem levels 1-20). Now has a Cast time of 0.6 seconds (previously 0.7), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Lightning Tendrils: Base radius is now 2.6-3.6 metres at gem levels 1-20 (previously 2.4-3.1), now has a Cast time of 0.2 seconds (previously 0.23), and the base Mana Cost has been increased by 25% at all gem levels. Now has 190% Effectiveness of Added Damage at gem level 20 (previously 130%), and now deals 105 to 1986 Lightning Damage at gem level 20 (previously 75 to 1420).",
+      "type": "buff"
+    },
+    {
+      "raw": "Lightning Tendrils of Eccentricity: Base radius is now 2.6-3.6 metres at gem levels 1-20 (previously 2.4-3.1), now has a Cast time of 0.2 seconds (previously 0.23), and the base Mana Cost has been increased by 25% at all gem levels. Now has 85% Effectiveness of Added Damage at gem level 20 (previously 60%), and now deals 48 to 916 Lightning Damage at gem level 20 (previously 33 to 629).",
+      "type": "buff"
+    },
+    {
+      "raw": "Lightning Tendrils of Escalation: Base radius is now 2.6-3.6 metres at gem levels 1-20 (previously 2.4-3.1), has a Cast time of 0.3 seconds (previously 0.35), and the base Mana Cost has been increased by 25% at all gem levels. Now has 370% Effectiveness of Added Damage at gem level 20 (previously 260%), and now deals 208 to 3949 Lightning Damage at gem level 20 (previously 150 to 2858). Quality now provides +0-10% to Maximum Effect of Shock (previously additional radius)",
+      "type": "buff"
+    },
+    {
+      "raw": "Lightning Warp: Now has a Cast time of 0.6 seconds (previously 0.7), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Orb of Storms: Now has a Cast time of 0.4 seconds (previously 0.5), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Orb of Storms of Squalls: Now has a Cast time of 0.4 seconds (previously 0.5), and the base Mana Cost has been increased by 25% at all gem levels. Now has 190% Effectiveness of Added Damage at gem level 20 (previosuly 140%), and now deals 543 to 1628 Lightning Damage at gem level 20 (previously 396 to 1187). The Orb now disappears after 8-14 strikes at gem levels 1-20 (previously 6-10).",
+      "type": "buff"
+    },
+    {
+      "raw": "Penance Mark, granted by The Hateful Accuser Unique Ring: Now has Cursed Enemies spawn 2 Shackled Phantasms when Hit, no more than once per second (previously 3 Shackled Phantasms).",
+      "type": "buff"
+    },
+    {
+      "raw": "Purifying Flame: Now has +0-0.4 metres to radius at gem levels 1-20 (previously +0-0.2), and a Critical Strike Chance of 6% (previously 5.5%). Now has 350% Effectiveness of Added Damage at gem level 20 (previously 300%), and now deals 1426 to 2139 Physical Damage at gem level 20 (previously 1324 to 1986).",
+      "type": "buff"
+    },
+    {
+      "raw": "Purifying Flame of Revelations: Now has a Critical Strike Chance of 6% (previously 5.5%), 230% Effectiveness of Added Damage at gem level 20 (previously 190%), and now deals 927 to 1390 Physical Damage at gem level 20 (previously 860 to 1291).",
+      "type": "buff"
+    },
+    {
+      "raw": "Rolling Magma: Now has lower Damage and Effectiveness of Added Damage at gem level 1 but has more damage at gem levels greater than 20. Effectiveness of Added Damage at gem level 20 is now 320% (previously 280%), and it now deals 1219 to 1828 Fire Damage at gem level 20 (previously 1245 to 1868). The base Mana Cost has been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Rune Blast: Now has a Cast time of 0.16 seconds (previously 0.2), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Rune Blast of Teleportation: Now teleports to the detonated Rune if you have not detonated Runes in the past 0.5 seconds (previously past 1 second). It now has a Cast time of 0.16 seconds (previously 0.2), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Shock Nova: Now has a Cast time of 0.6 seconds (previously 0.7), and the base Mana Cost has been increased by 25% at all gem levels. Now has 220% Effectiveness of Added Damage at gem level 20 (previously 190%), and now deals 242 to 2176 Lightning Damage at gem level 20 (previously 537 to 1610).",
+      "type": "buff"
+    },
+    {
+      "raw": "Shock Nova of Procession: Now deals 105 to 948 Lightning Damage at gem level 20 (previously 263 to 790), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Somatic Shell: Now deals 35-60% of base Attack Damage at gem levels 1-20 (previously 20-50%), with an Attack Speed of 115% of base (previously 100%). It now costs 6-9 Mana at gem levels 1-20 (previously 7-10), and has a base explosion radius of 1.8 metres (previously 1.5).",
+      "type": "buff"
+    },
+    {
+      "raw": "Soulrend of Reaping: Now Fires 3-5 Projectiles at gem levels 1-20 (previously 1 at all gem levels), and has a Critical Strike Chance of 10% (previously 7%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Spark: Now has a Cast time of 0.6 seconds (previously 0.65), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Spark of the Nova: Now fires 6-10 Projectiles at gem levels 1-20 (previously 8-12), has a Cast time of 0.7 seconds (previously 0.75), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Spark of Unpredictability: Now fires 4-7 Projectiles at gem levels 1-20 (previously 3-6), has a Cast time of 0.6 seconds (previously 0.65), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Storm Burst: Now has 45% Effectiveness of Added Damage at gem level 20 (previously 35%), and now deals 192 to 288 Physical Damage at gem level 20 (previously 168 to 252).",
+      "type": "buff"
+    },
+    {
+      "raw": "Storm Burst of Repulsion: Now has 80% Effectiveness of Added Damage at gem level 20 (previously 70%), and now deals 353 to 530 Physical Damage at gem level 20 (previously 309 to 464).",
+      "type": "buff"
+    },
+    {
+      "raw": "Storm Call: Now has a Cast time of 0.4 seconds (previously 0.5), and the base Mana Cost has been increased by 25% at all gem levels. Now has 270% Effectiveness of Added Damage at gem level 20 (previously 250%), and deals 1074 to 1994 Lightning Damage at gem level 20 (previously 949 to 1762).",
+      "type": "buff"
+    },
+    {
+      "raw": "Stormbind: Now has 200% Effectiveness of Added Damage at gem level 20 (previously 160%), deals 552 to 1656 Lightning Damage at gem level 20 (previously 444 to 1332), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Stormbind of Teleportation: Now has 200% Effectiveness of Added Damage at gem level 20 (previously 160%), deals 552 to 1656 Lightning Damage at gem level 20 (previously 444 to 1332), and the base Mana Cost has been increased by 25% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Tornado of Elemental Turbulence: Now has 80% Effectiveness of Added Damage at gem level 20 (previously 65%), and now deals 366 to 549 Physical Damage at gem level 20 (previously 290 to 435).",
+      "type": "buff"
+    },
+    {
+      "raw": "Unearth: Now has a Critical Strike Chance of 10% (previously 6%).",
+      "type": "buff"
+    },
+    {
+      "raw": "Void Sphere: Now has a Critical Strike Chance of 7% (previously 5%), and 60% of Physical Damage is Converted to Chaos Damage (previously 40%). Now has 100% Effectiveness of Added Damage at gem level 20 (previously 75%), and deals 464 to 696 Physical Damage at gem level 20 (previously 344 to 516).",
+      "type": "buff"
+    },
+    {
+      "raw": "Void Sphere of Rending: Now has a base radius of 2.8 metres (previously 2.4), a Critical Strike Chance of 7% (previously 5%), and 60% of Physical Damage Converted to Chaos Damage (previously 40%). Now has 250% Effectiveness of Added Damage at gem level 20 (previously 190%), and deals 1107 to 1660 Physical Damage at gem level 20 (previously 860 to 1290).",
+      "type": "buff"
+    },
+    {
+      "raw": "Volatile Dead of Confinement: Now has a Base explosion radius of 2.3 metres (previously 2).",
+      "type": "buff"
+    },
+    {
+      "raw": "Voltaxic Burst: Now has a Critical Strike Chance of 10% (previously 5.5%), has 60% of Lightning Damage Converted to Chaos Damage (previously 40%), and the Explosion now deals base Lightning Damage equal to 10% of corpse's Maximum Life (previously 6%). Now has 250% Effectiveness of Added Damage at gem level 20 (previously 230%), and deals 993 to 1845 Lightning Damage at gem level 20 (previously 906 to 1683).",
+      "type": "buff"
+    },
+    {
+      "raw": "Vortex: Now has a Cast time of 0.6 seconds (previously 0.75), a Critical Strike Chance of 7.5% (previously 6%), and now has 25% chance to Freeze. The base Mana Cost has been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Vortex of Projection: Now has a Cast time of 0.6 seconds (previously 0.75), a Critical Strike Chance of 7.5% (previously 6%), and a base and secondary radius of 2.2 metres (previously 2). It now has 25% chance to Freeze, and the base Mana Cost has been reduced by 20% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Wave of Conviction: Now has a Cast time of 0.6 seconds (previously 0.7), and the base Mana Cost has been increased by 15% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Wave of Conviction of Trarthus: Now has a Cast time of 0.6 seconds (previously 0.7), and the base Mana Cost has been increased by 15% at all gem levels.",
+      "type": "buff"
+    },
+    {
+      "raw": "Winter Orb: Now fires 2-3 Projectiles at gem levels 1-20 (previously 1 at all gem levels), has 25% chance to Freeze, and a Critical Strike Chance of 7.5% (previously 6%). Now deals 360 to 539 Cold Damage at gem level 20 (previously 360 to 450).",
+      "type": "buff"
+    }
+  ],
+  "skill_nerfs": [
+    {
+      "raw": "Elemental Hit: Lowered the Added Fire, Cold and Lightning Damage by 17% at all gem levels. Elemental Hit of the Spectrum is not affected by these changes.",
+      "type": "nerf"
+    },
+    {
+      "raw": "General's Cry: The support effect can no longer support Skills with Cooldowns.",
+      "type": "nerf"
+    },
+    {
+      "raw": "Hexblast: Cooldown Time is now 1 second (previously 2 seconds), and the Cast time is now 0.85 seconds (previously 1). The base Mana Cost has been reduced by 15% at all gem levels.",
+      "type": "nerf"
+    },
+    {
+      "raw": "Ravenous, granted by the Veruso's Ambition Unique Boots: The Ravenous Buff is now removed if you no longer have the Ravenous Skill, such as by unequipping the Boots.",
+      "type": "nerf"
+    }
+  ],
+  "support_gem_changes": [
+    "Archmage: Now has Supported Skills gain Added Lightning Damage equal to 8-14% of Unreserved Maximum Mana at gem levels 1-20 (previously 10-16%).",
+    "Ballista Totem: Supported Skills now deal 36-30% less Damage at gem levels 1-20 (previously 32-24%).",
+    "Barrage: Supported Skills now deal 50-44% less Damage at gem levels 1-20 (previously 68-62%), fire 4 additional Projectiles (previously 3), have 10% more Attack Time per Projectile (previously 5%), and have 10% more Trap and Mine Throwing Time per Projectile (previously 5%). Now has a Cost & Reservation Multiplier of 200% (previously 150%).",
+    "Blastchain Mine: Supported Skills now deal 60-55% less Damage at gem levels 1-20 (previously 58-53%). Now has a Cost & Reservation Multiplier of 65% (previously 50%).",
+    "Cast on Ward Break: Now has Supported Spells have 5% increased Cooldown Recovery Rate per 100 Ward, up to 400% (previously uncapped).",
+    "Cast while Channelling: Now has Triggers a Supported Spell every 0.4-0.32 seconds while Channelling Supported Skills at gem levels 1-20 (previously 0.45-0.35), and Supported Triggered Spells deal 20% less Damage (previously 30%).",
+    "Charged Mines: Supported Skills now have 8% increased Mine Throwing Speed per Frenzy Charge (previously 10%), 20% increased Critical Strike Chance per Power Charge when used by Mines (previously 25%). Now has a Cost & Reservation Multiplier of 140% (previously 120%).",
+    "Companionship: No longer has Minions from Supported Skills have 40-60% more Maximum Life if they are your only Minion at gem levels 1-20. Now has Minions from Supported Skills take 24-28% less Damage if they are your only Minion.",
+    "High-Impact Mine: Supported Skills now deal 60-55% less Damage at gem levels 1-20 (previously 56-50%). Now has a Cost and Reservation Multiplier of 65% (previously 50%).",
+    "Minion Pact: Has been reworked, and is now called Communion Support. It Supports Spell Skills that hit enemies, and cannot modify the Skills of Minions. Supported Spells deal 20 to 30 added Physical Damage for each Permanent Minion at gem level 3. Has a Cost and Reservation Multiplier of 150 (previously 100%).",
+    "Spell Totem: Supported Skills now deal 55-50% less Damage at gem levels 1-20 (previously 49-40%).",
+    "Unleash: Supported Skills now deal 45-26% less Damage when Reoccurring at gem levels 1-20 (previously 45-36%).",
+    "Greater Unleash: Supported Skills now deal 25-23% less Damage when Reoccurring at gem levels 1-3 (previously 35-31%)."
+  ],
+  "ascendancy_changes": [
+    "The Deathmarked Notable Passive Skill no longer has Marked Enemy cannot Evade Attacks. It now has 10% increased Effect of your Marks per maximum Power Charge, and 3% of Leech is Instant per maximum Power Charge.",
+    "The Mystical Infusion Notable Passive Skill no longer grants Base Spell Critical Strike Chance of Spells is equal to that of Main Hand Weapon. It now grants Spell Critical Strike Chance Bifurcates, and 50% less Spell Critical Strike Chance.",
+    "Bifurcated Critical Strikes cause Critical Strike chance to be rolled twice when determining if a Critical Strike should occur:",
+    "If either roll succeeds the hit will be a regular Critical Strike, and if both rolls succeed the amount of extra damage dealt by the critical strike will be doubled. This is equivalent to doubling the amount by which the Critical Strike Multiplier exceeds 100 for that Hit.",
+    "If a modifier makes your Critical Strike Chance Lucky or Unlucky, that luck will apply individually to each of the critical strike chance rolls.",
+    "Effects which cause Hits to Always be Critical Strikes prevent Bifurcation - those hits do not roll the chance, so cannot roll it twice.",
+    "The Ritual of Awakening Passive Skill now has 3% more Damage per Summoned Totem (preivously 5%).",
+    "Added a new Instruments of Justice Notable Passive Skill which requires Instruments of Virtue. This Notable grants Base Spell Critical Strike Chance of Spells is equal to that of Main Hand Weapon.",
+    "The Instruments of Zeal Notable Passive Skill now grants +3 to Maximum Fanatic Charges (previously +4). The Fanaticism Buff now lasts for 5 seconds (previously 4), and now grants 75% less Cost of Spells you cast yourself (previously 75% reduced).",
+    "Added a new Notable, Unhallowed Rite, which requires either Vile Bastion or Forbidden Power. Unhallowed Rite causes you to gain Spirit Infusion every second while Channelling a Spell. Each stack of Spirit Infusion grants 30% faster start of Energy Shield Recharge, Channelling Spells deal 10% more Damage and Channelling Spells have 20% more Cost. Maximum of 5 stacks. You lose one stack every 0.5 seconds if you have not gained a stack in the past 2 seconds.",
+    "Reliquarian",
+    "The Notables for the Reliquarian Ascendancy have been shuffled, below are the Passives available for Curse of the Allflame."
+  ],
+  "unique_item_changes": [
+    "The Abberath's Horn Unique Wand no longer has 20-30% increased Fire Damage. It now has 80-120% increased Global Critical Strike Chance (previously 40-60%), and 30-50% to Damage over Time Multiplier for Ignite from Critical Strikes. A Divine Orb can be used on existing items to update them to the new Global Critical Strike Chance values.",
+    "The Atziri's Rule Unique Staff now has 100-300% increased Spell Critical Strike Chance. Existing versions of this Unique are not affected by this change.",
+    "The Breath of the Council Unique Sceptre now has Chaos Skills have 40-80% increased Skill Effect Duration (previously 40%), 80-120% increased Chaos Damage (previously 80-100%), and 10-20% increased Area of Effect (previously 10%). Existing versions of this Unique can be updated with a Divine Orb.",
+    "The Cane of Unravelling Unique Staff no longer has 20-30% increased Chaos Damage, and now has +1 to Maximum Power Charges. It also now has 5% increased Cast Speed per Power Charge (previously 2%), and Regenerate 5 Mana per Second per Power Charge (previously 2). Existing versions of this Unique can be updated to these new values using a Divine Orb, but will not receive the other changes.",
+    "The Cerberus Limb Unique Sceptre now has 20-40% increased Cast Speed (previously 15-20%). Existing versions of this Unique can be updated with a Divine Orb.",
+    "The Disintegrator Unique Staff now has 2% additional Physical Damage Reduction from Hits per Siphoning Charge (previously 1%), and Adds 20-23 to 26-30 Physical Damage to Attacks and Spells per Siphoning Charge (previously 12-14 to 15-16). Existing Unique can be updated to the new values using a Divine Orb.",
+    "The Doryani's Delusion Unique Boots are now found on Leviathan Greaves, Velour Boots, and Warlock Boots base types (previously Titan Greaves, Slink Boots, and Sorcerer Boots). These Boots are now always found Corrupted with a Corruption Implicit Modifier. These changes do not affect existing versions of this Unique. They now grant Level 30 Purity of Fire, Purity of Ice, or Purity of Lightning (previously Level 25), existing items are affected by this change, though they will still display as Level 25 unless you update them with a Divine Orb. They also now have +0-100 to Maximum Life (previously 60-70), 0-40% increased Movement Speed (previously 30%). Armour-based Doryani's Delusion now have 0-200% increased Armour (previously 100-120%), Evasion-based Doryani's Delusion now have 0-200% increased Evasion Rating (previously 100-120%), and Energy Shield-based Doryani's Delusion now have 0-200% increased Energy Shield (previously 150-180%). A Divine Orb can be used to update the values on existing versions of this Unique.",
+    "The Duskdawn and Replica Duskdawn Unique Staves now have +20-30% Chance to Block Attack Damage while wielding a Staff (previously +10%). Existing versions of these Uniques can be updated with a Divine Orb.",
+    "The Emberwake Unique Ring now has 10-20% increased Cast Speed (previously 5-10%), and 35% less Burning Damage (previously 40%). A Divine Orb can be used to update existing items.",
+    "The Replica Emberwake Unique Ring now has 10-20% increased Cast Speed (previously 5-10%), and Ignites you inflict deal Damage 40-60% faster (previously 35-45%). A Divine Orb can be used to update existing items.",
+    "The Foulborn Ghostwrithe Unique Body Armour now has Your Maximum Energy Shield is equal to 35% of your Maximum Life (previously 40%). Existing versions of this Unique can be made worse with a Divine Orb.",
+    "The Grey Spire Unique Staff now has Implicit Modifier Magnitudes are Doubled, 300-400% increased Global Damage (previously 250-300%), and +1-5% to all maximum Resistances (previously 1-4%). A Divine Orb can be used to update existing items to the new values, but they will not receive the Implicit Modifier Magnitudes are Doubled change.",
+    "The Grey Wind Unique Axe now has Attacks with this Weapon have Added Fire Damage equal to 6-10% of Player's Maximum Life (previously 8-12%). Existing versions of this Unique can be made worse with a Divine Orb.",
+    "The Gull Unique Helmet now has 25-50% increased Effect of Shrine Buffs on you (previously 75%), and 25-50% increased Duration of Shrine Effects on you (previously 50%). Existing versions of this Unique can be updated to the new values with a Divine Orb, but why would you.",
+    "The Foulborn Heartbound Loop Unique Ring now has 20-30% increased Mana Cost Efficiency of Minion Skills (previously 10-20% reduced Mana Cost of Minion Skills). Existing versions of this item are unaffected by these changes.",
+    "The Hateforge Unique Gloves now has 20-40% increased Rage Cost Efficiency (previously 10-25% reduced Rage Cost of Skills). Existing versions of this item are unaffected by these changes.",
+    "The Honourhome Unique Helmet now has 30-50% increased Mana Cost Efficiency (previously 10-20% reduced Mana Cost of Skills). Existing versions of this item are unaffected by these changes.",
+    "The Jiquani's Potential Unique Staff now adds 1 to 24-35 Lightning Damage to Spells per 10 Intelligence (previously 1 to 31-53). Existing versions of this Unique can be updated using a Divine Orb.",
+    "The Foulborn Kalisa's Grace Unique Gloves now have 100% increased Mana Cost Efficiency for 2 seconds after Spending a total of 800 Mana (previously 50% reduced Mana Cost of Skills for 2 seconds after Spending a total of 800 Mana). Existing versions of this item are unaffected by these changes.",
+    "The Lioneye's Remorse Unique Shield now has -150 Physical Damage taken from Projectile Attacks (previously -25). A Divine Orb can be used on existing versions of this Unique to obtain the new values.",
+    "The Mask of the Stitched Demon Unique Helmet now has Regenerate 1% of Life per second per 500 Player Maximum Energy Shield (previously per 500 Maximum Energy Shield). This change affects existing versions of this Unique.",
+    "The Mask of the Tribunal Unique Helmet now has 3% increased Mana Reservation Efficiency of Skills per 250 total Attributes (previously 2%). Existing items can be updated to the new values using a Divine Orb.",
+    "The Martyr of Innocence Unique Staff now has +20-25% Chance to Block Attack Damage while wielding a Staff (previously +12-16%), and 100-200% increased Fire Damage. A Divine Orb can be used on existing items to update them to the new values.",
+    "The Maw of Mischief Unique Helmet now has 40-60% increased Mana Cost Efficiency of Minion Skills (previously 20-30% reduced Mana Cost of Minion Skills). Existing versions of this item are unaffected by these changes.",
+    "The Militant Faith Unique Jewel now has 3% increased Mana Cost Efficiency per 10 Devotion (previously 1% reduced Mana Cost of Skills per 10 Devotion). Existing versions of this item are unaffected by these changes.",
+    "The Mystic Refractor Unique Wand now has 10-50% increased Projectile Speed (previously 10-20%). A Divine Orb can be used on existing items to update them.",
+    "The Nebulis Unique Sceptre now has 6-8% increased Elemental Damage per 1% Fire, Cold, or Lightning Resistance above 75% (previously 5-10%). Existing versions of this Unique can be updated with a Divine Orb.",
+    "The Ngamahu's Sign Unique Ring now has +400-600 to Armour. Existing items are not affected by this change.",
+    "The Praxis Unique Ring now has 20-30% increased Mana Cost Efficiency. Existing items are not affected by this change.",
+    "The Realmshaper Unique Staff now has +2 to Level of Socketed Fire Gems (previously +1) and +2 to Level of Socketed Cold Gems (previously +1). Existing versions of this Unique can be updated using a Divine Orb.",
+    "The Rathpith Globe Unique Shield now has 3% increased Spell Critical Strike Chance per 100 Player Maximum Life, and 3% increased Spell Damage per 100 Player Maximum Life (both previously 5%). A Divine Orb can be used on existing items to update to the worse values.",
+    "The Foulborn Rathpith Globe Unique Shield now has 3% increased Damage Over Time per 100 Player Maximum Life (previously 5%). Existing versions of this Unique can be made worse with a Divine Orb.",
+    "The Shimmeron Unique Wand no longer has Adds 26-35 to 95-105 Lightning Damage to Spells, or 30-40% increased Spell Damage, and it now has +1 to Maximum Power Charges. It now Adds 3 to 15-25 Lightning Damage to Spells per Power Charge (previously 3 to 9), and 300 Lightning Damage taken per second per Power Charge if your Skills have dealt a Critical Strike Recently (previously 200). A Divine Orb can be used to update existing items to the new values, but they will not receive the other changes.",
+    "The Singularity Unique Sceptre now has 10-20% increased Mana Cost Efficiency (previously 6-8% reduced Mana Cost of Skills). Existing versions of this item are unaffected by these changes.",
+    "The Stasis Prison Unique Body Armour no longer has +80-100 to Maximum Life. It now has 80-100% increased Implicit Modifier magnitudes. These changes do not affect existing versions of this Unique.",
+    "The Stormfire Unique Ring now has Adds 1-3 to 125-145 Lightning Damage to Hits against Ignited Enemies (previously 1-3 to 62-70). Existing versions of this Unique can be updated with a Divine Orb.",
+    "The Taryn's Shiver Unique Staff no longer has 50-60% increased Spell Damage. It now has +2-4 to Level of all Cold Spell Skill Gems (previously +2), 80-140% increased Cold Damage (previously 40-50%), and 25-50% chance to Freeze (previously 8%). A Divine Orb can be used to update existing items to the new values.",
+    "The Tawhanuku's Timing Unique Ring now has +60-80 to maximum Energy Shield. It also now has Spells cause you to gain Energy Shield equal to their Upfront Cost every third time you Pay it (previously every fifth time), this change affects existing versions of the item.",
+    "The Tidebreaker Unique Mace no longer has 10% increased Physical Damage per Endurance Charge. It now grants 50% chance to gain a Brine Charge instead of an Endurance Charge. You gain 4% of Physical Damage as extra Cold Damage and as extra Lightning Damage per Brine Charge. Maximum Brine Charges is equal to Maximum Endurance Charges.",
+    "The Tukohama's Fortress Unique Shield now has +500 Armour per Summoned Totem (previously 300) Existing versions of this Unique can be updated to the new values using a Divine Orb.",
+    "The Replica Tulfall Wand now has 20-30% increased Cold Damage per Frenzy Charge (previously 15-20%). Existing versions of this Unique can be updated with a Divine Orb.",
+    "The Replica Tukohama's Fortress Unique Shield now has 30% increased Critical Strike Chance per Brand (previously 20%). Existing versions of this Unique can be updated to the new values using a Divine Orb.",
+    "The Valako's Sign Unique Ring now has +100-150 to maximum Mana (previously +20-40). Existing versions of this Unique can be updated with a Divine Orb.",
+    "The Vertex Unique Helmet now has Socketed Gems have 50% less Mana Cost (previously 50% reduced). This affects existing versions of this Unique.",
+    "The Void Battery Unique Wand now has 10-15% increased Spell Damage per Power Charge (previously 25%), 50% reduced Spell Damage (previously 80% reduced), and +100-120 to maximum Mana (previously 40-50). A Divine Orb can be used on existing items to update them to the new values.",
+    "The Voidfletcher Unique Quiver is now found on the Ornate Quiver base type (previously Primal Arrow Quiver). It no longer has Gain 20-40 Mana per Enemy Killed, or 30% increased Projectile Speed, and it now has 2 Sockets. These changes do not affect existing items. It also now gains a Void Charge every second (previously 0.5 seconds), existing versions of this Unique can be made worse with a Divine Orb.",
+    "The Wyrmsign Unique Gloves now has 10% increased Mana Cost Efficiency per Endurance Charge (previously 4% reduced Mana Cost per Endurance Charge).Existing versions of this item are unaffected by these changes.",
+    "The Yaomac's Accord Unique Sceptre now has +1-2 to Level of all Vaal Skill Gems. Existing items are not affected by this change.",
+    "Reduced Mana Cost Implicit Modifiers can no longer roll on Synthesis Unique Items."
+  ],
+  "item_currency_changes": [
+    "Divination Card Changes",
+    "The following Divination Cards have been temporarily disabled: Broken Promises, Imperfect Memories, Magnum Opus, and Parasitic Passengers. Existing Divination Cards cannot be turned in currently.",
+    "The Apocalypse Divination Card now states the reward is Corrupted. This is purely a descriptive change, the functionality has not been changed.",
+    "The Call to the First Ones Divination Card now awards a Rare Talisman.",
+    "The Catch and Matryoshka Divination Card rewards are no longer Incubated.",
+    "The Home Divination Card now awards an Exceptional Support Gem."
+  ],
+  "league_mechanic_changes": [
+    "The average number of Monsters in Breach Monster packs has been reduced.",
+    "The number of Monster packs spawned in Unstable Breaches has been reduced by 25%. The progress for killing Breach Monsters has been increased by 17% to compensate for the reduced number of Monsters.",
+    "The maximum number of Unstable Breaches that can be open at once has been reduced to 2 (previously 3).",
+    "The Swelling Ranks Atlas Passive Skill now grants Breach Monsters in your Maps have 10% increased Pack Size (previously 20%).",
+    "Small Passives that granted Breach Monsters in your Maps have 5% increased Pack Size instead now grant Breaches in your Maps spawn 5% increased Rare Monsters.",
+    "The Evolving Hives Atlas Passive Skill now grants Breaches in your Maps spawn 15% increased Rare and Magic Monsters (previously 25%).",
+    "Small Passives that granted Breaches in your Maps spawn 8% increased Magic Monsters now have values of 5%.",
+    "These changes do not affect the amount of Hiveblood or Wombgifts you receive.",
+    "Equipment Items birthed by the Genesis Tree inherently have slightly less Modifier Tier Rating and bias towards higher tier base types. There is also a lower inherent chance to birth additional Equipment items.",
+    "The maximum number of Equipment Genesis Tree Passive Points is now 16 (previously 20).",
+    "Small Equipment Genesis Tree Passives that grant a chance for Wombgifts to Birth an additional Equipment Item now have values of 25% (previously 50%).",
+    "Equipment Genesis Tree Notable Passives that grant increased chance for Modifiers of a specific type now have values of 300% (previously 500%)."
+  ],
+  "player_changes": [
+    "Sources of chance to Avoid all Damage from Hits are now additive with sources of Avoiding Damage of a specific Type from Hits. Some Damage Avoidance stat descriptions have been adjusted to better communicate these chances are additive with each other.",
+    "Lowered the Life of various Monsters when used as Spectres. In general, no Spectre should have more life than a Meatsack. Some of the Monsters that have had their Life reduced include the Unholy Aberrations from the Unholy Trinity boss fight, Originator-Influenced Monsters, and Robot Monsters found in the hidden area in the Refinery.",
+    "All Non-Spectre Minions no longer pause while attacking. Many Minions already didn't pause while attacking, and are unaffected by this change. This change will be a significant damage per second increase for the following Minion types in particular:",
+    "Dominating Blow.",
+    "Raised Zombies.",
+    "Stone, Ice, Flame, Chaos and Lightning Golems.",
+    "Summoned Raging Spirits.",
+    "Summoned Skeletons.",
+    "Skills, Items and Modifiers that once stated that Increases and Reductions to Spell Damage also apply to Attack Damage have been replaced with the new Arcane Might Keyword. This is purely a desciptive change."
+  ],
+  "quest_reward_changes": [
+    "All classes are now able to purchase Faster Attacks from Nessa upon completing The Caged Brute.",
+    "All classes are now able to purchase Faster Casting from Yeena upon completing Sharp and Cruel.",
+    "Mana-Infused Staff is now offered to the Templar for completing Intruders in Black, and can be purchased from Yeena by the Witch and Shadow."
+  ],
+  "passive_tree_changes": [
+    "Added a new Arcane Conservation cluster to the north-east of the Witch's starting location. The Arcane Conservation Notable grants 10% increased Cast Speed, 20% increased Mana Cost Efficiency of Spells, and 3% increased Intelligence.",
+    "Added a new Contemplative Meditation cluster to the north-west of the Templar's starting location. The Contemplative Meditation Notable grants 8% increased Reservation Efficiency of Spells, and 20% increased Cost Efficiency.",
+    "All sources of reduced Cost of Skills on the Passive Skill Tree have been converted to Cost Efficiency at appropriate values.",
+    "The Totem Passive Mastery option that grants increased Critical Strike Chance if you've Summoned a Totem Recently now has values of 40% (previously 60%).",
+    "The Shaman's Dominion Notable Passive Skill now grants 50% increased Critical Strike Chance with Totem Skills (previously 60%), and the preceding small Passives now grant +16% to Critical Strike Multiplier with Totem Skills (previously 20%)."
+  ],
+  "bloodline_changes": [],
+  "mercenaries_of_trarthus_as_a_core_league": [
+    "Talisman Revamp",
+    "Talismans have been long-neglected, and have lacked a meaningful place or purpose in Path of Exile. With this update we've made a number of changes to bring Talismans back to relevance.",
+    "Talismans now have special Enchantment Modifiers, rather than special Implicit Modifiers, and are no longer Corrupted by default. Talismans have a chance to drop from Red Beasts or Bestiary Bosses, and each Talisman is tied to a specific Beast.",
+    "Talismans cannot be Anointed, and their Enchantment Modifiers cannot be removed using the crafting bench option.",
+    "Old Talisman base types are no longer obtainable, but will still exist in Standard.",
+    "Non-Unique Talismans can no longer be obtained as rewards outside of Bestiary content, Divination Cards that grant Talismans, or Thane Jorgin's Betrayal Safehouse Rewards.",
+    "Thane Jorgin's Talisman Crafting Spree Betrayal Safehouse reward now offers regular Currency to craft the Talisman, instead of Tainted Currency.",
+    "Unique Talismans are no longer in the core drop pool. They instead now have a chance to drop from Bestiary Bosses or from a new Beast-crafting recipe to create a new Talisman, which requires The Black Mórrigan beast to craft.",
+    "The Blightwell Unique Talisman is now found on the Shield Crab Talisman base type (previously Clutching Talisman). It now has +50-100 to maximum Energy Shield (previously +20-30), and 10-15% increased Flask Effect Duration. Existing versions of this Unique are unaffected by these changes.",
+    "The Eyes of the Greatwolf Unique Talisman now generates with two random Enchantment Modifiers from other Talisman base types. It now has 50-100% increased Enchantment Modifier magnitudes (instead of Implicit Modifier magnitudes are doubled). These changes do not affect existing versions of the item.",
+    "The Natural Hierarchy Unique Talisman is now found on the Rhex Talisman base type (previously Rotfeather Talisman), and no longer has increased Damage for each specific Damage type. Instead, it now grants Gain 10-15% of Physical Damage as Extra Lightning Damage, Gain 15-20% of Lightning Damage as Extra Cold Damage, Gain 20-25% of Cold Damage as Extra Fire Damage, and Gain 25-30% of Fire Damage as Extra Chaos Damage. Existing versions of this Unique are unaffected by these changes.",
+    "The Rigwald's Curse Unique Talisman is now found on the Wolf Alpha Talisman base type (previously Wereclaw Talisman). It now has +5-10% to Unarmed Melee Attack Critical Strike Chance (previously +7%). Existing versions of this Unique are unaffected by these changes.",
+    "Bestiary Boss area levels will now match the level of the Red Beast used in the Blood Altar to create the portals.",
+    "In general, all Bestiary Bosses will now have greater Life than before, which is more comparative to the Life values on Bosses from other League mechanics.",
+    "The specific Body Armour Unique items from each Bestiary Boss will now only drop if the area level is 80 or higher.",
+    "The Bestiary craft to create a Rare Talisman has been replaced with a craft that Rerolls a Talisman base type, keeping the same Implicit and Explicit Modifiers.",
+    "The Bestiary craft to Transform an item from an Amulet into a Talisman has been replaced with a craft that creates an Imprint of a Rare Talisman.",
+    "The Primal Delirium Orb is no longer obtainable, but existing ones will still function in Standard Leagues.",
+    "Trinkets that had a chance to receive additional Talisman items when opening a Reward Chest in a Heist instead now grant a chance to receive additional Gold.",
+    "The Craicic Chimeral Beast has been renamed to Craicic Croaker, which is a much more fitting name for a Gem Frog."
+  ],
+  "the_curse_of_the_allflame_challenge_league": [
+    "Meet Valerie, a dangerous corsair captain who needs your help retrieving long forgotten treasures from the icy depths of Wraeclast's oceans. Find Charts scattered across Wraeclast, board The Sovereign, and set sail!",
+    "Dive to the ocean floor where lanterns imbued with the spark of the Allflame will shield you from the crushing waves. Explore and claim what you can while you can! Lost gold, valuable chests, and lurking threats await you...",
+    "Upon charting enough areas, connect them together to create a Voyage — one giant seafloor excursion. Revisit each chart to claim its rewards again, while also amplifying those rewards in several different ways.",
+    "Head belowdecks, and you'll find the heart of the ship at work. Feed it an item, and it will split into a multitude of ghostly outcomes, one of which you can keep for yourself.",
+    "Find valuable Ducats on the seafloor and use them to warp and twist items in ways not seen in centuries.",
+    "For more information about this expansion, check out",
+    "pathofexile.com/allflame",
+    "With 3.29.0, there are Standard, Hardcore and Solo Self-Found variations of the Curse of the Allflame challenge league available. They have the same core mechanics and items. You can create private league versions of these leagues, with mods that make the game harder.",
+    "The Hardcore variations of Curse of the Allflame are parented to their Standard Curse of the Allflame equivalent, meaning if you die in Hardcore Curse of the Allflame you can continue on in the Standard Curse of the Alfflame League.",
+    "The new Curse of the Allflame challenge league includes a set of 40 new challenges, and 8 new challenges in Ruthless Curse of the Allflame. There are microtransaction rewards for completing challenges that are only obtainable in this league. These rewards will be revealed in an upcoming news post.",
+    "From the 19th challenge onwards and for every third challenge after that, you will receive pieces of the Curse of the Allflame Totem Pole decoration to display in your hideout. The Totem Pole permanently showcases how many of the Curse of the Allflame challenges you completed during the league."
+  ],
+  "key_numbers": {
+    "total_sections": 19,
+    "total_skill_buffs": 132,
+    "total_skill_nerfs": 4,
+    "total_endgame_changes": 21,
+    "total_atlas_passive_changes": 4
+  }
+}

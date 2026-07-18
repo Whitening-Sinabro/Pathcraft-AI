@@ -1,0 +1,407 @@
+{
+  "dataset_kind": "pathcraft_coach_data",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-16",
+  "build_summary": "3.29 Scion Reliquarian Herald of Thunder autobomber theory build. Treat as a project build until patch notes, PoB data, and in-game Herald/Shock behavior are confirmed.",
+  "tier": "A-project",
+  "strengths": [
+    "Directly targets the Reliquarian Herald/Shock research branch.",
+    "Low-input mapping goal once the Herald loop works.",
+    "Blight of Contagion fallback keeps the same Scion character usable if the autobomber fails."
+  ],
+  "weaknesses": [
+    "Not a clean league starter until Storm Secret price and self-damage are known.",
+    "Guardian maps depend on boss shock uptime, not only map clear speed.",
+    "Delve/Fossil requires recovery and mitigation checks before pushing depth."
+  ],
+  "leveling_skills": {
+    "damage_type": "lightning",
+    "recommended": {
+      "name": "Stormblast Mine",
+      "links_progression": [
+        {
+          "level_range": "1-11",
+          "gems": [
+            "Stormblast Mine",
+            "Swift Assembly Support",
+            "Added Lightning Damage Support"
+          ]
+        },
+        {
+          "level_range": "12-27",
+          "gems": [
+            "Storm Brand",
+            "Added Lightning Damage Support",
+            "Inspiration Support"
+          ]
+        },
+        {
+          "level_range": "28-67",
+          "gems": [
+            "Storm Brand",
+            "Lightning Penetration Support",
+            "Increased Critical Strikes Support",
+            "Faster Casting Support"
+          ]
+        },
+        {
+          "level_range": "68+ bridge",
+          "gems": [
+            "Storm Brand",
+            "Lightning Penetration Support",
+            "Inspiration Support",
+            "Increased Critical Strikes Support"
+          ]
+        }
+      ],
+      "reason": "Stormblast Mine and Storm Brand are safer bridge skills than forcing Herald of Thunder before reservation, shock uptime, and self-damage are solved.",
+      "transition_level": "68+ only after Storm Secret/Reliquarian behavior is verified"
+    },
+    "options": [
+      {
+        "name": "Blight of Contagion",
+        "reason": "Fallback route if lightning autobomber pieces are unavailable or unsafe."
+      }
+    ],
+    "skill_transitions": [
+      {
+        "level": 12,
+        "from_skill": "Stormblast Mine",
+        "to_skill": "Storm Brand",
+        "change": "Stormblast Mine to Storm Brand",
+        "reason": "Brand playstyle smooths campaign and keeps a lightning identity."
+      },
+      {
+        "level": 68,
+        "from_skill": "Storm Brand",
+        "to_skill": "Herald of Thunder",
+        "change": "Storm Brand bridge to Herald of Thunder autobomber",
+        "reason": "Only swap when Herald reservation, Storm Secret, and boss shock starter are solved.",
+        "required_links": 5,
+        "required_item": "Storm Secret"
+      },
+      {
+        "level": 69,
+        "from_skill": "Herald of Thunder",
+        "to_skill": "Blight of Contagion",
+        "change": "Emergency fallback to Blight of Contagion",
+        "reason": "Use if Storm Secret self-damage, shock uptime, or Reliquarian Herald scaling fails.",
+        "required_links": 4,
+        "required_item": null
+      }
+    ]
+  },
+  "key_items": [
+    {
+      "name": "Storm Secret",
+      "slot": "Ring",
+      "importance": "필수",
+      "reason": "Core Herald of Thunder hit-frequency enabler for the autobomber version.",
+      "alternatives": [
+        "Stay on Storm Brand bridge",
+        "Swap to Blight of Contagion fallback"
+      ]
+    },
+    {
+      "name": "Fidelitas' Spike Reliquarian node package",
+      "slot": "Ascendancy",
+      "importance": "검증필요",
+      "reason": "The whole Scion angle depends on the revealed Herald/Shock package being strong enough.",
+      "alternatives": [
+        "Static Strike / Ngamahu test branch",
+        "Blight of Contagion fallback"
+      ]
+    },
+    {
+      "name": "Dawnbreaker defensive package",
+      "slot": "Shield",
+      "importance": "선택",
+      "reason": "Candidate mitigation package for Storm Secret self-damage and Guardian/Delve pressure.",
+      "alternatives": [
+        "Rare spell suppression shield",
+        "Rare life/resistance shield"
+      ]
+    },
+    {
+      "name": "Presence of Chayula defensive package",
+      "slot": "Amulet",
+      "importance": "선택",
+      "reason": "Stun and chaos mitigation candidate if the build leans life/ES hybrid.",
+      "alternatives": [
+        "Rare +1 lightning amulet",
+        "Rare life/resistance amulet"
+      ]
+    }
+  ],
+  "aura_utility_progression": [
+    {
+      "phase": "Act 1-3",
+      "auras": [
+        "Clarity"
+      ],
+      "heralds": [],
+      "utility": [
+        "Flame Dash"
+      ],
+      "guard": "",
+      "reason": "Mana and movement before the Herald package matters."
+    },
+    {
+      "phase": "Act 4-6",
+      "auras": [
+        "Wrath"
+      ],
+      "heralds": [
+        "Herald of Thunder"
+      ],
+      "utility": [
+        "Flame Dash",
+        "Conductivity"
+      ],
+      "guard": "Steelskin",
+      "reason": "Start testing Herald as supplemental damage, not as the full autobomber yet."
+    },
+    {
+      "phase": "Act 7-10",
+      "auras": [
+        "Wrath",
+        "Determination"
+      ],
+      "heralds": [
+        "Herald of Thunder"
+      ],
+      "utility": [
+        "Flame Dash",
+        "Conductivity"
+      ],
+      "guard": "Steelskin",
+      "reason": "Cap resistances and add defense before maps."
+    },
+    {
+      "phase": "White Maps",
+      "auras": [
+        "Wrath",
+        "Determination"
+      ],
+      "heralds": [
+        "Herald of Thunder"
+      ],
+      "utility": [
+        "Storm Brand",
+        "Orb of Storms",
+        "Flame Dash"
+      ],
+      "guard": "Steelskin",
+      "reason": "Use Brand/Orb to test shock uptime while Atlas completion starts."
+    },
+    {
+      "phase": "Yellow/Red Maps",
+      "auras": [
+        "Wrath",
+        "Determination",
+        "Tempest Shield",
+        "Arctic Armour"
+      ],
+      "heralds": [
+        "Herald of Thunder"
+      ],
+      "utility": [
+        "Storm Brand",
+        "Orb of Storms",
+        "Conductivity",
+        "Flame Dash"
+      ],
+      "guard": "Steelskin",
+      "reason": "Final aura list is conditional on reservation and defense checks."
+    }
+  ],
+  "build_rating": {
+    "newbie_friendly": 2,
+    "gearing_difficulty": 2,
+    "play_difficulty": 3,
+    "league_start_viable": 2,
+    "ssf_viability": 1,
+    "hcssf_viability": 1
+  },
+  "gear_progression": [
+    {
+      "slot": "Weapon",
+      "phases": [
+        {
+          "phase": "Act 1-3",
+          "item": "Vendor lightning wand or sceptre",
+          "key_stats": [
+            "spell damage",
+            "added lightning to spells"
+          ],
+          "acquisition": "vendor/craft",
+          "priority": "high"
+        },
+        {
+          "phase": "Act 4-10",
+          "item": "+1 lightning rare wand or sceptre",
+          "key_stats": [
+            "+1 lightning gems",
+            "spell damage",
+            "cast speed"
+          ],
+          "acquisition": "trade/craft",
+          "priority": "high"
+        },
+        {
+          "phase": "Red Maps",
+          "item": "Rare lightning crit sceptre or wand",
+          "key_stats": [
+            "+1 lightning gems",
+            "spell damage",
+            "spell critical strike chance"
+          ],
+          "acquisition": "trade/craft",
+          "priority": "high"
+        }
+      ]
+    },
+    {
+      "slot": "Ring",
+      "phases": [
+        {
+          "phase": "White Maps",
+          "item": "Rare life/resistance ring",
+          "key_stats": [
+            "life",
+            "resistances",
+            "chaos resistance"
+          ],
+          "acquisition": "loot/trade",
+          "priority": "high"
+        },
+        {
+          "phase": "Autobomber Swap",
+          "item": "Storm Secret",
+          "key_stats": [
+            "Herald of Thunder loop",
+            "self-damage test"
+          ],
+          "acquisition": "trade/drop",
+          "priority": "required for HoT version"
+        }
+      ]
+    },
+    {
+      "slot": "Shield",
+      "phases": [
+        {
+          "phase": "White Maps",
+          "item": "Rare life/resistance shield",
+          "key_stats": [
+            "life",
+            "resistances",
+            "spell suppression if available"
+          ],
+          "acquisition": "loot/trade",
+          "priority": "medium"
+        },
+        {
+          "phase": "Guardian/Delve Testing",
+          "item": "Dawnbreaker defensive package",
+          "key_stats": [
+            "physical damage taken as elemental",
+            "mitigation"
+          ],
+          "acquisition": "Reliquarian node or trade",
+          "priority": "verify"
+        }
+      ]
+    },
+    {
+      "slot": "Body Armour",
+      "phases": [
+        {
+          "phase": "White Maps",
+          "item": "5-link rare armour/energy shield body",
+          "key_stats": [
+            "life",
+            "energy shield",
+            "resistances"
+          ],
+          "acquisition": "trade/craft",
+          "priority": "high"
+        },
+        {
+          "phase": "Red Maps",
+          "item": "6-link rare armour/energy shield body",
+          "key_stats": [
+            "life",
+            "energy shield",
+            "suppression or ailment mitigation if possible"
+          ],
+          "acquisition": "trade/craft",
+          "priority": "high"
+        }
+      ]
+    }
+  ],
+  "map_mod_warnings": {
+    "deadly": [
+      "Elemental Reflect",
+      "Cannot Regenerate Life, Mana or Energy Shield if recovery is not solved",
+      "Less Recovery Rate after Storm Secret is equipped"
+    ],
+    "dangerous": [
+      "Minus maximum resistances",
+      "Reduced effect of auras",
+      "Monsters have increased critical strike chance and multiplier"
+    ],
+    "caution": [
+      "Shock avoidance on bosses or monsters",
+      "High extra damage as elemental before Dawnbreaker/defense package is solved"
+    ],
+    "regex_filter": "reflect|cannot regen|less recovery|reduced recovery|-max|reduced effect of auras"
+  },
+  "variant_snapshots": [
+    {
+      "phase": "Act 1-3",
+      "main_skill": "Stormblast Mine",
+      "state": "campaign bridge"
+    },
+    {
+      "phase": "Act 4-10",
+      "main_skill": "Storm Brand",
+      "state": "campaign bridge with Herald supplemental"
+    },
+    {
+      "phase": "White Maps",
+      "main_skill": "Storm Brand",
+      "state": "Atlas completion while testing Herald uptime"
+    },
+    {
+      "phase": "Yellow Maps",
+      "main_skill": "Herald of Thunder",
+      "state": "autobomber trial only if Storm Secret/recovery are online"
+    },
+    {
+      "phase": "Red Maps",
+      "main_skill": "Herald of Thunder",
+      "state": "commit only if T16 deaths are rare and boss shock uptime is reliable"
+    },
+    {
+      "phase": "Fallback",
+      "main_skill": "Blight of Contagion",
+      "state": "swap if Herald loop fails"
+    }
+  ],
+  "passive_priority": [
+    "life and elemental resistance pathing before maps",
+    "lightning damage and shock effect only after defenses are stable",
+    "reservation efficiency if final aura list does not fit",
+    "life/energy shield hybrid defenses for Storm Secret self-damage",
+    "jewel sockets only after core defenses and Herald loop are proven"
+  ],
+  "danger_zones": [
+    "Do not equip Storm Secret and push red maps before recovery is proven.",
+    "Do not use Elemental Focus in the main Herald link unless shock is maintained by another skill.",
+    "Do not mark Guardian farming ready from mapping clear speed alone.",
+    "Do not deep Delve until degens, darkness, and rare damage are tested."
+  ],
+  "farming_strategy": "Early maps: Atlas completion, Kirac, Essence, Harvest, Betrayal. Mid maps: Blight/Expedition/Harvest and shallow Delve/Fossil if deaths are rare. Guardian maps only after boss shock uptime and Storm Secret recovery are proven. If the Herald loop fails, pivot to Blight of Contagion and farm Expedition/Harvest/Blight/Fossil instead of forcing speed mechanics."
+}

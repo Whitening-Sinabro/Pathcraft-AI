@@ -1,0 +1,923 @@
+{
+  "dataset_kind": "poe1_3_27_3_29_patch_history_context",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-17",
+  "scope": {
+    "game": "poe1",
+    "patch_bands": [
+      "3.27",
+      "3.28",
+      "3.29"
+    ],
+    "official_forum_url": "https://www.pathofexile.com/forum/view-forum/patch-notes",
+    "latest_observed_version": "3.29.0",
+    "latest_observed_title": "Content Update 3.29.0 — Path of Exile: Curse of the Allflame",
+    "latest_observed_url": "https://www.pathofexile.com/forum/view-thread/3985332",
+    "current_329_state": "3.29.0 base patch notes only; no 3.29 hotfix is present in the local index as of 2026-07-17."
+  },
+  "source_policy": {
+    "required_use": "When reusing 3.27 or 3.28 build sources for 3.29, check every later official patch note, minor patch, and hotfix in this context before assigning a player-facing label.",
+    "source_order": [
+      "official patch note and hotfix text",
+      "post-patch local GGPK/client extract",
+      "Path of Building support and parseability",
+      "poe.ninja or creator live evidence",
+      "measured player results"
+    ],
+    "poe2_scope": "excluded"
+  },
+  "patch_band_summary": [
+    {
+      "patch_band": "3.27",
+      "patch_count": 20,
+      "major_count": 0,
+      "minor_count": 4,
+      "hotfix_count": 16,
+      "line_count": 77,
+      "latest_version": "3.27.0i",
+      "latest_title": "3.27.0i Patch Notes",
+      "latest_url": "https://www.pathofexile.com/forum/view-thread/3914000",
+      "domain_counts": {
+        "atlas_farming": 11,
+        "economy_reward": 5,
+        "item_unique": 12,
+        "league_system": 2,
+        "mine_trap_totem": 1,
+        "other": 39,
+        "skill_gem": 6,
+        "socket_crafting": 1
+      },
+      "watch_tag_counts": {
+        "allflame": 1,
+        "atlas": 5,
+        "economy_reward": 14,
+        "scion": 1,
+        "skill_numbers": 4,
+        "socket_crafting": 6
+      },
+      "source_versions": [
+        {
+          "version": "3.27.0",
+          "title": "3.27.0 Hotfix",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3870955",
+          "line_count": 1
+        },
+        {
+          "version": "3.27.0-hotfix2",
+          "title": "3.27.0 Hotfix 2",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3871058",
+          "line_count": 2
+        },
+        {
+          "version": "3.27.0-hotfix3",
+          "title": "3.27.0 Hotfix 3",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3871114",
+          "line_count": 4
+        },
+        {
+          "version": "3.27.0-hotfix4",
+          "title": "3.27.0 Hotfix 4",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3871140",
+          "line_count": 2
+        },
+        {
+          "version": "3.27.0-hotfix5",
+          "title": "3.27.0 Hotfix 5",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3871302",
+          "line_count": 1
+        },
+        {
+          "version": "3.27.0-hotfix6",
+          "title": "3.27.0 Hotfix 6",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3871826",
+          "line_count": 11
+        },
+        {
+          "version": "3.27.0-hotfix7",
+          "title": "3.27.0 Hotfix 7",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3872540",
+          "line_count": 9
+        },
+        {
+          "version": "3.27.0-hotfix8",
+          "title": "3.27.0 Hotfix 8",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3873131",
+          "line_count": 2
+        },
+        {
+          "version": "3.27.0-hotfix9",
+          "title": "3.27.0 Hotfix 9",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3873215",
+          "line_count": 2
+        },
+        {
+          "version": "3.27.0b",
+          "title": "3.27.0b Hotfix",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3873872",
+          "line_count": 4
+        },
+        {
+          "version": "3.27.0b-hotfix2",
+          "title": "3.27.0b Hotfix 2",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3874313",
+          "line_count": 9
+        },
+        {
+          "version": "3.27.0b-hotfix3",
+          "title": "3.27.0b Hotfix 3",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3874809",
+          "line_count": 4
+        },
+        {
+          "version": "3.27.0c",
+          "title": "3.27.0c Hotfix",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3877607",
+          "line_count": 3
+        },
+        {
+          "version": "3.27.0d",
+          "title": "3.27.0d Hotfix",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3880177",
+          "line_count": 1
+        },
+        {
+          "version": "3.27.0e",
+          "title": "3.27.0e Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3883396",
+          "line_count": 3
+        },
+        {
+          "version": "3.27.0f",
+          "title": "3.27.0f Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3885208",
+          "line_count": 2
+        },
+        {
+          "version": "3.27.0g",
+          "title": "3.27.0g Hotfix",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3909914",
+          "line_count": 1
+        },
+        {
+          "version": "3.27.0g-hotfix2",
+          "title": "3.27.0g Hotfix 2",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3910167",
+          "line_count": 10
+        },
+        {
+          "version": "3.27.0h",
+          "title": "3.27.0h Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3913351",
+          "line_count": 2
+        },
+        {
+          "version": "3.27.0i",
+          "title": "3.27.0i Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3914000",
+          "line_count": 4
+        }
+      ]
+    },
+    {
+      "patch_band": "3.28",
+      "patch_count": 37,
+      "major_count": 1,
+      "minor_count": 10,
+      "hotfix_count": 26,
+      "line_count": 923,
+      "latest_version": "3.28.0k",
+      "latest_title": "3.28.0k Patch Notes",
+      "latest_url": "https://www.pathofexile.com/forum/view-thread/3985151",
+      "domain_counts": {
+        "atlas_farming": 136,
+        "economy_reward": 40,
+        "item_unique": 166,
+        "league_system": 40,
+        "mine_trap_totem": 12,
+        "minion": 29,
+        "other": 213,
+        "passive_tree": 63,
+        "skill_gem": 202,
+        "socket_crafting": 22
+      },
+      "watch_tag_counts": {
+        "allflame": 1,
+        "atlas": 234,
+        "economy_reward": 203,
+        "scion": 10,
+        "skill_numbers": 129,
+        "socket_crafting": 77
+      },
+      "source_versions": [
+        {
+          "version": "3.28.0",
+          "title": "Content Update 3.28.0 — Path of Exile: Mirage",
+          "patch_type": "major",
+          "url": "https://www.pathofexile.com/forum/view-thread/3913392",
+          "line_count": 611
+        },
+        {
+          "version": "3.28.0-hotfix1",
+          "title": "3.28.0 Hotfix 1",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3914786",
+          "line_count": 1
+        },
+        {
+          "version": "3.28.0-hotfix2",
+          "title": "3.28.0 Hotfix 2",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3914819",
+          "line_count": 1
+        },
+        {
+          "version": "3.28.0-hotfix3",
+          "title": "3.28.0 Hotfix 3",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3914929",
+          "line_count": 3
+        },
+        {
+          "version": "3.28.0-hotfix4",
+          "title": "3.28.0 Hotfix 4",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3915018",
+          "line_count": 4
+        },
+        {
+          "version": "3.28.0-hotfix5",
+          "title": "3.28.0 Hotfix 5",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3915081",
+          "line_count": 3
+        },
+        {
+          "version": "3.28.0-hotfix6",
+          "title": "3.28.0 Hotfix 6",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3915149",
+          "line_count": 1
+        },
+        {
+          "version": "3.28.0-hotfix7",
+          "title": "3.28.0 Hotfix 7",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3915173",
+          "line_count": 1
+        },
+        {
+          "version": "3.28.0-hotfix8",
+          "title": "3.28.0 Hotfix 8",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3915997",
+          "line_count": 5
+        },
+        {
+          "version": "3.28.0-hotfix9",
+          "title": "3.28.0 Hotfix 9",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3916067",
+          "line_count": 3
+        },
+        {
+          "version": "3.28.0-hotfix10",
+          "title": "3.28.0 Hotfix 10",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3916772",
+          "line_count": 2
+        },
+        {
+          "version": "3.28.0-hotfix11",
+          "title": "3.28.0 Hotfix 11",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3916883",
+          "line_count": 4
+        },
+        {
+          "version": "3.28.0-hotfix12",
+          "title": "3.28.0 Hotfix 12",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3916952",
+          "line_count": 7
+        },
+        {
+          "version": "3.28.0-hotfix13",
+          "title": "3.28.0 Hotfix 13",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3917580",
+          "line_count": 14
+        },
+        {
+          "version": "3.28.0-hotfix14",
+          "title": "3.28.0 Hotfix 14",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3917635",
+          "line_count": 6
+        },
+        {
+          "version": "3.28.0-hotfix15",
+          "title": "3.28.0 Hotfix 15",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3917680",
+          "line_count": 5
+        },
+        {
+          "version": "3.28.0b",
+          "title": "3.28.0b Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3918360",
+          "line_count": 30
+        },
+        {
+          "version": "3.28.0b-hotfix1",
+          "title": "3.28.0b Hotfix 1",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3918375",
+          "line_count": 2
+        },
+        {
+          "version": "3.28.0b-hotfix2",
+          "title": "3.28.0b Hotfix 2",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3918928",
+          "line_count": 3
+        },
+        {
+          "version": "3.28.0b-hotfix3",
+          "title": "3.28.0b Hotfix 3",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3919387",
+          "line_count": 6
+        },
+        {
+          "version": "3.28.0c",
+          "title": "3.28.0c Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3921511",
+          "line_count": 55
+        },
+        {
+          "version": "3.28.0c-hotfix1",
+          "title": "3.28.0c Hotfix 1",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3921540",
+          "line_count": 3
+        },
+        {
+          "version": "3.28.0c-hotfix2",
+          "title": "3.28.0c Hotfix 2",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3921593",
+          "line_count": 4
+        },
+        {
+          "version": "3.28.0d",
+          "title": "3.28.0d Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3922013",
+          "line_count": 8
+        },
+        {
+          "version": "3.28.0e",
+          "title": "3.28.0e Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3924293",
+          "line_count": 39
+        },
+        {
+          "version": "3.28.0e-hotfix1",
+          "title": "3.28.0e Hotfix 1",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3924370",
+          "line_count": 3
+        },
+        {
+          "version": "3.28.0e-hotfix2",
+          "title": "3.28.0e Hotfix 2",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3924652",
+          "line_count": 3
+        },
+        {
+          "version": "3.28.0e-hotfix3",
+          "title": "3.28.0e Hotfix 3",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3925502",
+          "line_count": 2
+        },
+        {
+          "version": "3.28.0f",
+          "title": "3.28.0f Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3927165",
+          "line_count": 16
+        },
+        {
+          "version": "3.28.0g",
+          "title": "3.28.0g Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3928888",
+          "line_count": 30
+        },
+        {
+          "version": "3.28.0h",
+          "title": "3.28.0h Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3930450",
+          "line_count": 4
+        },
+        {
+          "version": "3.28.0h-hotfix1",
+          "title": "3.28.0h Hotfix 1",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3931817",
+          "line_count": 2
+        },
+        {
+          "version": "3.28.0i",
+          "title": "3.28.0i Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3934129",
+          "line_count": 2
+        },
+        {
+          "version": "3.28.0j",
+          "title": "3.28.0j Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3974219",
+          "line_count": 31
+        },
+        {
+          "version": "3.28.0j-hotfix1",
+          "title": "3.28.0j Hotfix 1",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3979036",
+          "line_count": 3
+        },
+        {
+          "version": "3.28.0j-hotfix2",
+          "title": "3.28.0j Hotfix 2",
+          "patch_type": "hotfix",
+          "url": "https://www.pathofexile.com/forum/view-thread/3979443",
+          "line_count": 2
+        },
+        {
+          "version": "3.28.0k",
+          "title": "3.28.0k Patch Notes",
+          "patch_type": "minor",
+          "url": "https://www.pathofexile.com/forum/view-thread/3985151",
+          "line_count": 4
+        }
+      ]
+    },
+    {
+      "patch_band": "3.29",
+      "patch_count": 1,
+      "major_count": 1,
+      "minor_count": 0,
+      "hotfix_count": 0,
+      "line_count": 400,
+      "latest_version": "3.29.0",
+      "latest_title": "Content Update 3.29.0 — Path of Exile: Curse of the Allflame",
+      "latest_url": "https://www.pathofexile.com/forum/view-thread/3985332",
+      "domain_counts": {
+        "atlas_farming": 11,
+        "economy_reward": 9,
+        "item_unique": 58,
+        "league_system": 14,
+        "mine_trap_totem": 3,
+        "minion": 9,
+        "other": 35,
+        "passive_tree": 14,
+        "skill_gem": 240,
+        "socket_crafting": 7
+      },
+      "watch_tag_counts": {
+        "allflame": 23,
+        "atlas": 35,
+        "economy_reward": 96,
+        "mercenary": 3,
+        "scion": 2,
+        "skill_numbers": 329,
+        "socket_crafting": 32
+      },
+      "source_versions": [
+        {
+          "version": "3.29.0",
+          "title": "Content Update 3.29.0 — Path of Exile: Curse of the Allflame",
+          "patch_type": "major",
+          "url": "https://www.pathofexile.com/forum/view-thread/3985332",
+          "line_count": 400
+        }
+      ]
+    }
+  ],
+  "cumulative_summary": {
+    "patch_count": 58,
+    "major_count": 2,
+    "minor_count": 14,
+    "hotfix_count": 42,
+    "domain_counts": {
+      "atlas_farming": 158,
+      "economy_reward": 54,
+      "item_unique": 236,
+      "league_system": 56,
+      "mine_trap_totem": 16,
+      "minion": 38,
+      "other": 287,
+      "passive_tree": 77,
+      "skill_gem": 448,
+      "socket_crafting": 30
+    },
+    "watch_tag_counts": {
+      "allflame": 25,
+      "atlas": 274,
+      "economy_reward": 313,
+      "mercenary": 3,
+      "scion": 13,
+      "skill_numbers": 462,
+      "socket_crafting": 115
+    },
+    "missing_files": []
+  },
+  "decision_gates": [
+    {
+      "id": "historical_patch_survival",
+      "player_label": "연습해도 됨",
+      "rule": "A 3.27 or 3.28 PoB can be used for mechanics practice only until later patch notes, GGPK, and PoB confirm the same engine still works in 3.29."
+    },
+    {
+      "id": "hotfix_override",
+      "player_label": "보류",
+      "rule": "Any later hotfix or minor patch touching a required gem, support, item, passive, reward source, or league mechanic overrides the older build source for that affected part."
+    },
+    {
+      "id": "pob_compatibility",
+      "player_label": "가능성 높음",
+      "rule": "A candidate can move above practice status only when the current PoB can parse the relevant 3.29 gems, passives, items, or a documented limitation is shown."
+    },
+    {
+      "id": "socket_quality_optimization",
+      "player_label": "최종 최적화",
+      "rule": "3.29 colour matching is not a socketability gate. It is a +10% quality optimization and should be prioritized for main links or gems with strong quality scaling after access and link count are solved."
+    }
+  ],
+  "candidate_patch_band_rules": [
+    {
+      "source_patch_band": "3.27",
+      "default_max_label": "연습해도 됨",
+      "upgrade_condition": "Only upgrade after 3.28 and 3.29 patch deltas show no direct engine conflict and a current PoB/live sample exists."
+    },
+    {
+      "source_patch_band": "3.28",
+      "default_max_label": "가능성 높음",
+      "upgrade_condition": "Can be prioritized when 3.29 is neutral or favorable, but still needs current PoB/live validation before final recommendation."
+    },
+    {
+      "source_patch_band": "3.29",
+      "default_max_label": "가능성 높음",
+      "upgrade_condition": "Can move higher only after launch client/GGPK, PoB support, and live performance evidence exist."
+    }
+  ],
+  "socket_match_optimization_policy": {
+    "access_rule": "In 3.29, gems can be socketed even when gem colour and equipment socket colour do not match.",
+    "optimization_rule": "A red, green, or blue socket matching the gem colour grants that socketed gem +10% quality.",
+    "why_it_matters": [
+      "Quality can be direct damage, projectile speed, duration, radius, shock effect, mana cost, cooldown, minion stats, or utility depending on the gem.",
+      "The best value is usually on the main damage link, a build-defining support, or a gem whose quality stat changes clear/boss uptime.",
+      "The value is low while leveling if link count, item level, life/resists, or basic DPS are still unsolved."
+    ],
+    "high_priority_matches": [
+      "main_damage_skill",
+      "build_defining_support",
+      "quality_scaling_gem",
+      "final_six_link",
+      "reservation_or_mana_pressure_gem",
+      "duration_radius_projectile_or_cooldown_quality_gem"
+    ],
+    "low_priority_matches": [
+      "temporary_leveling_link",
+      "utility_gem_with_minor_quality",
+      "gear_slot_about_to_be_replaced",
+      "when_chromatic_or_non_white_socket_cost_blocks_life_resist_upgrade"
+    ],
+    "coach_rule": "Explain RGB as access friction down plus quality optimization up. Never tell a user they cannot use a gem because the colour is wrong in 3.29."
+  },
+  "sample_evidence_lines": [
+    {
+      "version": "3.27.0-hotfix6",
+      "patch_band": "3.27",
+      "title": "3.27.0 Hotfix 6",
+      "url": "https://www.pathofexile.com/forum/view-thread/3871826",
+      "section": "changes",
+      "domain": "socket_crafting",
+      "change_type": "change",
+      "watch_tags": [
+        "socket_crafting"
+      ],
+      "line": "Fixed a bug in the in-game market browser where the 'min' and 'max' filter options for \"Sockets\" and \"Links\" would not work."
+    },
+    {
+      "version": "3.27.0-hotfix6",
+      "patch_band": "3.27",
+      "title": "3.27.0 Hotfix 6",
+      "url": "https://www.pathofexile.com/forum/view-thread/3871826",
+      "section": "changes",
+      "domain": "item_unique",
+      "change_type": "change",
+      "watch_tags": [
+        "economy_reward",
+        "socket_crafting"
+      ],
+      "line": "Fixed a bug where some versions of the Nebulis Void Sceptre unique could spawn with the pre-3.27.0 modifiers. These changes will not affect existing items."
+    },
+    {
+      "version": "3.27.0b-hotfix2",
+      "patch_band": "3.27",
+      "title": "3.27.0b Hotfix 2",
+      "url": "https://www.pathofexile.com/forum/view-thread/3874313",
+      "section": "changes",
+      "domain": "skill_gem",
+      "change_type": "change",
+      "watch_tags": [],
+      "line": "Fixed a bug where Foulborn United in Dreams quality was not applying immediately to minion gems."
+    },
+    {
+      "version": "3.27.0e",
+      "patch_band": "3.27",
+      "title": "3.27.0e Patch Notes",
+      "url": "https://www.pathofexile.com/forum/view-thread/3883396",
+      "section": "all_changes",
+      "domain": "skill_gem",
+      "change_type": "change",
+      "watch_tags": [],
+      "line": "Added support for the upcoming The Last of the Druids Path of Exile 2 announcement and new Supporter Packs."
+    },
+    {
+      "version": "3.27.0g",
+      "patch_band": "3.27",
+      "title": "3.27.0g Hotfix",
+      "url": "https://www.pathofexile.com/forum/view-thread/3909914",
+      "section": "changes",
+      "domain": "item_unique",
+      "change_type": "change",
+      "watch_tags": [
+        "economy_reward"
+      ],
+      "line": "Fixed the Refiner's Bargain Unique Idol unintentionally being able to stack with multiple copies of itself. This Idol will be limited to 1 in a future patch."
+    },
+    {
+      "version": "3.27.0g-hotfix2",
+      "patch_band": "3.27",
+      "title": "3.27.0g Hotfix 2",
+      "url": "https://www.pathofexile.com/forum/view-thread/3910167",
+      "section": "changes",
+      "domain": "item_unique",
+      "change_type": "change",
+      "watch_tags": [
+        "economy_reward",
+        "skill_numbers"
+      ],
+      "line": "Damage and speed buffs to Enraged Unique Monsters as part of the Phrecia 2.0 event have been halved."
+    },
+    {
+      "version": "3.27.0g-hotfix2",
+      "patch_band": "3.27",
+      "title": "3.27.0g Hotfix 2",
+      "url": "https://www.pathofexile.com/forum/view-thread/3910167",
+      "section": "changes",
+      "domain": "item_unique",
+      "change_type": "buff",
+      "watch_tags": [
+        "economy_reward"
+      ],
+      "line": "The Refiner's Bargain Unique Idol now has a limit of 1."
+    },
+    {
+      "version": "3.27.0h",
+      "patch_band": "3.27",
+      "title": "3.27.0h Patch Notes",
+      "url": "https://www.pathofexile.com/forum/view-thread/3913351",
+      "section": "all_changes",
+      "domain": "skill_gem",
+      "change_type": "change",
+      "watch_tags": [],
+      "line": "Added support for the upcoming announcement and new Supporter Packs."
+    },
+    {
+      "version": "3.28.0",
+      "patch_band": "3.28",
+      "title": "Content Update 3.28.0 — Path of Exile: Mirage",
+      "url": "https://www.pathofexile.com/forum/view-thread/3913392",
+      "section": "Bug Fixes",
+      "domain": "minion",
+      "change_type": "change",
+      "watch_tags": [],
+      "line": "Fixed a bug where allied Hiveborn monsters could incorrectly be raised as Spectres."
+    },
+    {
+      "version": "3.28.0",
+      "patch_band": "3.28",
+      "title": "Content Update 3.28.0 — Path of Exile: Mirage",
+      "url": "https://www.pathofexile.com/forum/view-thread/3913392",
+      "section": "Bug Fixes",
+      "domain": "skill_gem",
+      "change_type": "change",
+      "watch_tags": [],
+      "line": "Fixed a bug where the Locus Mine Support and Runegraft of Refraction did not correctly interact with Kinetic Blast of Clustering's number of explosions, nor Spectral Helix's number of bounces."
+    },
+    {
+      "version": "3.28.0-hotfix3",
+      "patch_band": "3.28",
+      "title": "3.28.0 Hotfix 3",
+      "url": "https://www.pathofexile.com/forum/view-thread/3914929",
+      "section": "changes",
+      "domain": "skill_gem",
+      "change_type": "change",
+      "watch_tags": [
+        "economy_reward"
+      ],
+      "line": "Fixed a bug where Elemental Proliferation and Exemplar Supports were offered as Quest Rewards in Ruthless."
+    },
+    {
+      "version": "3.28.0-hotfix4",
+      "patch_band": "3.28",
+      "title": "3.28.0 Hotfix 4",
+      "url": "https://www.pathofexile.com/forum/view-thread/3915018",
+      "section": "changes",
+      "domain": "minion",
+      "change_type": "change",
+      "watch_tags": [
+        "atlas",
+        "socket_crafting"
+      ],
+      "line": "Temporary Minions which follow the player will now persist with you through area transitions from one combat area to another, excluding the hideout or hub areas like Kingsmarch. Buffs or stolen modifiers on these minions will not be carried over. Animate Weapon of Self Reflection specifically is not yet functional with this system, but we are working on a fix there as well."
+    },
+    {
+      "version": "3.28.0-hotfix10",
+      "patch_band": "3.28",
+      "title": "3.28.0 Hotfix 10",
+      "url": "https://www.pathofexile.com/forum/view-thread/3916772",
+      "section": "changes",
+      "domain": "item_unique",
+      "change_type": "change",
+      "watch_tags": [
+        "economy_reward"
+      ],
+      "line": "Fixed a bug where the Matua Tupuna Unique Shield was able to drop well before you could equip it."
+    },
+    {
+      "version": "3.28.0-hotfix12",
+      "patch_band": "3.28",
+      "title": "3.28.0 Hotfix 12",
+      "url": "https://www.pathofexile.com/forum/view-thread/3916952",
+      "section": "changes",
+      "domain": "skill_gem",
+      "change_type": "change",
+      "watch_tags": [],
+      "line": "Fixed Imbued gems not showing their inherent Level 1 Support in the Trade Market."
+    },
+    {
+      "version": "3.28.0-hotfix12",
+      "patch_band": "3.28",
+      "title": "3.28.0 Hotfix 12",
+      "url": "https://www.pathofexile.com/forum/view-thread/3916952",
+      "section": "changes",
+      "domain": "minion",
+      "change_type": "change",
+      "watch_tags": [
+        "atlas"
+      ],
+      "line": "Fixed an issue where you could lose spectres on area transition with animate weapon of self reflection"
+    },
+    {
+      "version": "3.28.0-hotfix13",
+      "patch_band": "3.28",
+      "title": "3.28.0 Hotfix 13",
+      "url": "https://www.pathofexile.com/forum/view-thread/3917580",
+      "section": "changes",
+      "domain": "atlas_farming",
+      "change_type": "change",
+      "watch_tags": [
+        "economy_reward"
+      ],
+      "line": "Fixed an issue where several new scarabs were not present on the currency exchange outside of standard leagues."
+    },
+    {
+      "version": "3.28.0-hotfix13",
+      "patch_band": "3.28",
+      "title": "3.28.0 Hotfix 13",
+      "url": "https://www.pathofexile.com/forum/view-thread/3917580",
+      "section": "changes",
+      "domain": "minion",
+      "change_type": "change",
+      "watch_tags": [],
+      "line": "Fixed a bug where Raised spiders from Arakaali's fang would never update their stats if your minion stats changed."
+    },
+    {
+      "version": "3.28.0-hotfix14",
+      "patch_band": "3.28",
+      "title": "3.28.0 Hotfix 14",
+      "url": "https://www.pathofexile.com/forum/view-thread/3917635",
+      "section": "changes",
+      "domain": "skill_gem",
+      "change_type": "change",
+      "watch_tags": [
+        "allflame"
+      ],
+      "line": "Fixed some cases where UI elements could not be clicked, including the Subterranean Chart, Tujen's Haggle option, and level-up all Gems option."
+    },
+    {
+      "version": "3.28.0-hotfix14",
+      "patch_band": "3.28",
+      "title": "3.28.0 Hotfix 14",
+      "url": "https://www.pathofexile.com/forum/view-thread/3917635",
+      "section": "changes",
+      "domain": "skill_gem",
+      "change_type": "change",
+      "watch_tags": [
+        "economy_reward"
+      ],
+      "line": "Fixed a bug where the values on some Unique Item modifers could overflow when you used a Volatile Vaal Orb on them, such as the Burden of Shadows Unique Staff."
+    },
+    {
+      "version": "3.28.0-hotfix15",
+      "patch_band": "3.28",
+      "title": "3.28.0 Hotfix 15",
+      "url": "https://www.pathofexile.com/forum/view-thread/3917680",
+      "section": "changes",
+      "domain": "item_unique",
+      "change_type": "change",
+      "watch_tags": [
+        "atlas"
+      ],
+      "line": "Fixed a bug which allowed scarabs to be ctrl+clicked into hidden slots in Eagon's Map Device. Items lost in this way can be retrieved by opening Eagon's Map Device after this patch, or by running the /recoveroldcraftingbenchitem chat command."
+    },
+    {
+      "version": "3.28.0b",
+      "patch_band": "3.28",
+      "title": "3.28.0b Patch Notes",
+      "url": "https://www.pathofexile.com/forum/view-thread/3918360",
+      "section": "all_changes",
+      "domain": "mine_trap_totem",
+      "change_type": "buff",
+      "watch_tags": [],
+      "line": "Djinn Caches in Mirages now have a larger clickable area, and have a more prominent label and effects to be more noticeable."
+    },
+    {
+      "version": "3.28.0b",
+      "patch_band": "3.28",
+      "title": "3.28.0b Patch Notes",
+      "url": "https://www.pathofexile.com/forum/view-thread/3918360",
+      "section": "all_changes",
+      "domain": "atlas_farming",
+      "change_type": "change",
+      "watch_tags": [
+        "atlas"
+      ],
+      "line": "Improved the noticeability of the highlight for selectable uncompleted Maps while viewing the Atlas at a Map Device."
+    },
+    {
+      "version": "3.28.0b-hotfix2",
+      "patch_band": "3.28",
+      "title": "3.28.0b Hotfix 2",
+      "url": "https://www.pathofexile.com/forum/view-thread/3918928",
+      "section": "changes",
+      "domain": "minion",
+      "change_type": "change",
+      "watch_tags": [],
+      "line": "Fixed a bug where the pustules spawned by Faridun Warlock Spectres were considered to be on the enemy team, preventing completion of Simulacrum or Coward's Trial Waves while they were alive."
+    },
+    {
+      "version": "3.28.0b-hotfix3",
+      "patch_band": "3.28",
+      "title": "3.28.0b Hotfix 3",
+      "url": "https://www.pathofexile.com/forum/view-thread/3919387",
+      "section": "changes",
+      "domain": "skill_gem",
+      "change_type": "change",
+      "watch_tags": [],
+      "line": "Fixed a bug where Minions' Base Attack Critical Strike Chance is equal to the Critical Strike Chance of your Main Hand Weapon was not always functional."
+    }
+  ]
+}

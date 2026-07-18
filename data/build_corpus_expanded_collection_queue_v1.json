@@ -1,0 +1,5684 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_build_corpus_expanded_collection_queue",
+  "updated_at": "2026-07-16",
+  "purpose": "Source-hunted candidate slots for the minimum 20-build-case-per-patch corpus baseline. Additional creator/user-discovered candidates are kept instead of replacing existing rows. These are not complete BuildInstance cases until PoBs/state snapshots are normalized.",
+  "source_registry": {
+    "reddit_322_index": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/15qfyqy/322_trial_of_the_ancestors_league_start_build/",
+      "label": "3.22 Trial of the Ancestors League Start Build Index"
+    },
+    "reddit_322_streamer": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/pathofexile/comments/15ulgjh/compiled_list_of_streamer_starter_builds_for/",
+      "label": "Compiled streamer starter builds for 3.22 Ancestor"
+    },
+    "poe_vault_322": {
+      "family": "build_site",
+      "url": "https://www.poe-vault.com/news/2023/08/18/path-of-exile-trial-of-the-ancestors-league-starters",
+      "label": "PoE Vault 3.22 Trial of the Ancestors starter roundup"
+    },
+    "youtube_322_top10": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=kLJ6Yo3XdLg",
+      "label": "3.22 Trial of the Ancestors top league starter video roundup"
+    },
+    "reddit_323_index": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/18bqsnb/323_affliction_league_start_build_index/",
+      "label": "3.23 Affliction League Start Build Index"
+    },
+    "reddit_323_list6": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/18bptfx/my_list_of_6_good_league_starter_builds_for_323/",
+      "label": "Community 3.23 list of starter builds with PoBs in comments"
+    },
+    "poe_vault_323": {
+      "family": "build_site",
+      "url": "https://www.poe-vault.com/guides/affliction-league-league-starters",
+      "label": "PoE Vault 3.23 Affliction league starters"
+    },
+    "youtube_323_best_specific": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=cd_jGdcBsYM",
+      "label": "PoE 3.23 best league starter builds for specific content"
+    },
+    "youtube_323_tripolar_playlist": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/playlist?list=PLba5C_stYQXUpd-6_do4JrSIJASsyKQv_",
+      "label": "TripolarBear 3.23 Affliction video playlist"
+    },
+    "reddit_324_index": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1bmbqp6/324_necropolis_league_start_build_index/",
+      "label": "3.24 Necropolis League Start Build Index"
+    },
+    "poe_vault_324": {
+      "family": "build_site",
+      "url": "https://www.poe-vault.com/guides/necropolis-league-league-starters",
+      "label": "PoE Vault 3.24 Necropolis league starters"
+    },
+    "youtube_324_top5": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=4JLcckNeu6I",
+      "label": "PoE 3.24 top league start build guide roundup"
+    },
+    "youtube_324_zizaran_dd": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=FdzzesMof4Y",
+      "label": "Zizaran and imexile 3.24 Detonate Dead league starter"
+    },
+    "reddit_325_index": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1eaudsu/325_settlers_of_kalguur_league_start_build_index/",
+      "label": "3.25 Settlers of Kalguur League Start Build Index"
+    },
+    "poe_vault_325": {
+      "family": "build_site",
+      "url": "https://www.poe-vault.com/guides/settlers-of-kalguur-league-starters",
+      "label": "PoE Vault 3.25 Settlers of Kalguur league starters"
+    },
+    "odealo_325": {
+      "family": "build_site",
+      "url": "https://odealo.com/articles/best-starter-builds-for-settlers-of-kalguur-league-and-patch-3-25",
+      "label": "Odealo 3.25 Settlers of Kalguur starter builds"
+    },
+    "youtube_325_zizaran_playlist": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/playlist?list=PLbpExg9_Xax3tVeJIhkyWDx_ZRl9Nb_OL",
+      "label": "Zizaran 3.25 Settlers league starter guide playlist"
+    },
+    "youtube_325_top_builds": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=s7DUBSSncWU",
+      "label": "PoE 3.25 top builds tier list and league start plans"
+    },
+    "reddit_326_index": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1l5xyzt/326_secrets_of_the_atlas_league_start_build_index/",
+      "label": "3.26 Secrets of the Atlas League Start Build Index"
+    },
+    "poe_vault_326": {
+      "family": "build_site",
+      "url": "https://www.poe-vault.com/guides/secrets-of-the-atlas-league-starters",
+      "label": "PoE Vault 3.26 Secrets of the Atlas league starters"
+    },
+    "youtube_326_top7": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=gAr8cigPlCA",
+      "label": "Top 7 3.26 Secrets of the Atlas league starters"
+    },
+    "youtube_326_zizaran_playlist": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/playlist?list=PLbpExg9_Xax3l4dqw4-OF17wEgfiJ6t6B",
+      "label": "Zizaran 3.26 Secrets league starter guide playlist"
+    },
+    "reddit_327_index": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1oit0of/327_keepers_of_the_flame_league_start_build_index/",
+      "label": "3.27 Keepers of the Flame League Start Build Index"
+    },
+    "poe_vault_327": {
+      "family": "build_site",
+      "url": "https://www.poe-vault.com/guides/keepers-of-the-flame-league-starters",
+      "label": "PoE Vault 3.27 Keepers of the Flame league starters"
+    },
+    "odealo_327": {
+      "family": "build_site",
+      "url": "https://odealo.com/articles/best-starter-builds-for-keepers-of-the-flame-league-and-patch-3-27",
+      "label": "Odealo 3.27 Keepers starter builds"
+    },
+    "icy_veins_327": {
+      "family": "build_site",
+      "url": "https://www.icy-veins.com/forums/topic/85213-best-guides-for-path-of-exile-league-keepers-of-the-flame-327/",
+      "label": "Icy Veins 3.27 Keepers guide roundup"
+    },
+    "youtube_327_top6": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=_ASnDh4HNYQ",
+      "label": "Top 6 3.27 Keepers league starter video roundup"
+    },
+    "youtube_327_mobalytics": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=xxjtrRisPoY",
+      "label": "Mobalytics 3.27 league starter video"
+    },
+    "reddit_328_index": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1rk0s9m/328_mirage_league_start_build_index/",
+      "label": "3.28 Mirage League Start Build Index"
+    },
+    "poe_vault_328": {
+      "family": "build_site",
+      "url": "https://www.poe-vault.com/guides/mirage-league-starters",
+      "label": "PoE Vault 3.28 Mirage league starters"
+    },
+    "odealo_328": {
+      "family": "build_site",
+      "url": "https://odealo.com/articles/best-starter-builds-for-mirage-league-and-patch-3-28",
+      "label": "Odealo 3.28 Mirage starter builds"
+    },
+    "youtube_328_top10": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=jLxxjmg6xy0",
+      "label": "PoE 3.28 ten league starter builds video"
+    },
+    "youtube_328_flowchart": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=54Ih9qAHeC8",
+      "label": "PoE 3.28 league starter build flow chart video"
+    },
+    "youtube_328_fearlessdumb0_exsanguinate_reap_miner": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=ZEvuQ5krLwQ",
+      "label": "FearlessDumb0 Exsanguinate Reap Miner league start build guide for 3.28"
+    },
+    "youtube_328_poison_carrion_golem_necromancer": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=WMHepc5VN4M",
+      "label": "PoE 3.28 Poison Carrion Golem Necromancer league start guide"
+    },
+    "youtube_tori_sensei_poison_carrion_golem": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/@torisense",
+      "label": "Tori-sensei current-season Poison Carrion Golem source hunt"
+    },
+    "youtube_326_tori_poison_carrion_golem": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=WO2bjIZMrtQ",
+      "label": "Tori-sensei 3.26 Poison Carrion Golem reference with public PoB"
+    },
+    "youtube_328_mastert_ignite_slamentalist": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=0dJFLujq-tc",
+      "label": "MasterT 3.28 Ignite Slamentalist Elementalist build guide"
+    },
+    "mobalytics_328_mastert_righteous_cold_autobomber": {
+      "family": "build_site",
+      "url": "https://mobalytics.gg/poe/builds/righteous-cold-dot-autobomber",
+      "label": "MasterT 3.28 Righteous Cold Dot Autobomber Mobalytics guide"
+    },
+    "youtube_328_mastert_righteous_cold_autobomber": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=gJF4EKLpIag",
+      "label": "MasterT 3.28 Righteous Cold Dot Autobomber transition guide video"
+    },
+    "official_329_reliquarian": {
+      "family": "official",
+      "url": "https://www.pathofexile.com/forum/view-thread/3984866",
+      "label": "Official 3.29 Reliquarian Ascendancy Changes announcement"
+    },
+    "reddit_329_reliquarian": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/pathofexile/comments/1uwtvuy/329_reliquarian_ascendancy_changes/",
+      "label": "3.29 Reliquarian Ascendancy Changes discussion"
+    },
+    "reddit_329_specialists": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1upopd1/the_specialists_index_best_329_league_starter_for/",
+      "label": "3.29 specialist league starter discussion by mechanic"
+    },
+    "reddit_329_text_nodes": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1uwuqtn/text_based_list_of_329_reliquarian_ascendancy/",
+      "label": "Text-based 3.29 Reliquarian ascendancy node community transcription"
+    },
+    "reddit_329_standout_reliquarian": {
+      "family": "reddit",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1sv8gt3/any_standout_reliquarian_build_this_league/",
+      "label": "Community discussion of standout Reliquarian builds"
+    },
+    "mobalytics_329_reliquarian": {
+      "family": "build_site",
+      "url": "https://mobalytics.gg/poe/reliquarian-starter-builds",
+      "label": "Mobalytics Reliquarian starter builds hub"
+    },
+    "youtube_329_goratha_reliquarian": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=kHbzCW57Unw",
+      "label": "Goratha 3.29 Reliquarian build shells"
+    },
+    "youtube_329_allflame": {
+      "family": "youtube",
+      "url": "https://www.youtube.com/watch?v=CEBlViZ3p0U",
+      "label": "3.29 Curse of the Allflame starter planning video"
+    },
+    "pob_archives_global": {
+      "family": "community_archive",
+      "url": "https://pobarchives.com/",
+      "label": "PoB Archives daily updated builds from YouTube and Reddit"
+    }
+  },
+  "totals": {
+    "patch_count": 8,
+    "candidate_count": 163,
+    "confirmed_candidate_count": 143,
+    "watchlist_candidate_count": 20
+  },
+  "patches": [
+    {
+      "patch": "3.22",
+      "patch_target_status": "confirmed_collection",
+      "target_candidate_count": 20,
+      "candidate_count": 20,
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 2,
+        "dot_ailment_dot": 8,
+        "melee_strike_slam": 2,
+        "minion_trigger_autobomber_special": 3,
+        "spell_hit_brand_selfcast": 2,
+        "trap_mine_totem": 3
+      },
+      "collection_role_counts": {
+        "failure_edge_case": 4,
+        "stable_shell": 12,
+        "transition_case": 4
+      },
+      "source_family_counts": {
+        "build_site": 20,
+        "community_archive": 20,
+        "reddit": 20,
+        "youtube": 20
+      },
+      "candidates": [
+        {
+          "candidate_id": "3.22_boneshatter_slayer",
+          "patch": "3.22",
+          "display_name": "Boneshatter Slayer",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Boneshatter",
+          "class_name": "Duelist",
+          "ascendancy": "Slayer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_boneshatter_juggernaut",
+          "patch": "3.22",
+          "display_name": "Boneshatter Juggernaut",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Boneshatter",
+          "class_name": "Marauder",
+          "ascendancy": "Juggernaut",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "reddit_322_streamer",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_cold_dot_elementalist",
+          "patch": "3.22",
+          "display_name": "Cold DoT Elementalist",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Cold DoT",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "reddit_322_streamer",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_cold_dot_trickster",
+          "patch": "3.22",
+          "display_name": "Cold DoT Trickster",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Cold DoT",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_explosive_arrow_champion",
+          "patch": "3.22",
+          "display_name": "Explosive Arrow Ballista Champion",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Explosive Arrow",
+          "class_name": "Duelist",
+          "ascendancy": "Champion",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "reddit_322_streamer",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_hexblast_mines_saboteur",
+          "patch": "3.22",
+          "display_name": "Hexblast Mines Saboteur",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Hexblast Mines",
+          "class_name": "Shadow",
+          "ascendancy": "Saboteur",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_lightning_arrow_deadeye",
+          "patch": "3.22",
+          "display_name": "Lightning Arrow Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Lightning Arrow",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "reddit_322_streamer",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_ice_shot_deadeye",
+          "patch": "3.22",
+          "display_name": "Ice Shot Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Ice Shot",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "reddit_322_streamer",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_spark_inquisitor",
+          "patch": "3.22",
+          "display_name": "Spark Inquisitor",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Spark",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_detonate_dead_elementalist",
+          "patch": "3.22",
+          "display_name": "Detonate Dead Elementalist",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Detonate Dead",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_poison_srs_necromancer",
+          "patch": "3.22",
+          "display_name": "Poison SRS Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Summon Raging Spirits",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "reddit_322_streamer",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_minion_army_necromancer",
+          "patch": "3.22",
+          "display_name": "Minion Army Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Mixed Minions",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "reddit_322_streamer",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_righteous_fire_inquisitor",
+          "patch": "3.22",
+          "display_name": "Righteous Fire Inquisitor",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Righteous Fire",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "reddit_322_streamer",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_righteous_fire_juggernaut",
+          "patch": "3.22",
+          "display_name": "Righteous Fire Juggernaut",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Righteous Fire",
+          "class_name": "Marauder",
+          "ascendancy": "Juggernaut",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_toxic_rain_pathfinder",
+          "patch": "3.22",
+          "display_name": "Toxic Rain Pathfinder",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Toxic Rain",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "reddit_322_streamer",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_toxic_rain_champion",
+          "patch": "3.22",
+          "display_name": "Toxic Rain Champion",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Toxic Rain",
+          "class_name": "Duelist",
+          "ascendancy": "Champion",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_impending_doom_pathfinder",
+          "patch": "3.22",
+          "display_name": "Impending Doom Pathfinder",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Impending Doom",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "reddit_322_streamer",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "Index flags possible bug or nerf; useful as a negative/edge check.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_holy_relic_ascendant",
+          "patch": "3.22",
+          "display_name": "Holy Relic Ascendant",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Holy Relic",
+          "class_name": "Scion",
+          "ascendancy": "Ascendant",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_pyroclast_mines_saboteur",
+          "patch": "3.22",
+          "display_name": "Pyroclast Mines Saboteur",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Pyroclast Mine",
+          "class_name": "Shadow",
+          "ascendancy": "Saboteur",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.22_poison_blade_vortex_pathfinder",
+          "patch": "3.22",
+          "display_name": "Poison Blade Vortex Pathfinder",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Blade Vortex",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_322_index",
+            "pob_archives_global",
+            "poe_vault_322",
+            "youtube_322_top10"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        }
+      ]
+    },
+    {
+      "patch": "3.23",
+      "patch_target_status": "confirmed_collection",
+      "target_candidate_count": 20,
+      "candidate_count": 20,
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 2,
+        "dot_ailment_dot": 5,
+        "melee_strike_slam": 2,
+        "minion_trigger_autobomber_special": 4,
+        "spell_hit_brand_selfcast": 4,
+        "trap_mine_totem": 3
+      },
+      "collection_role_counts": {
+        "failure_edge_case": 4,
+        "stable_shell": 12,
+        "transition_case": 4
+      },
+      "source_family_counts": {
+        "build_site": 20,
+        "community_archive": 20,
+        "reddit": 20,
+        "youtube": 20
+      },
+      "candidates": [
+        {
+          "candidate_id": "3.23_boneshatter_slayer",
+          "patch": "3.23",
+          "display_name": "Boneshatter Slayer",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Boneshatter",
+          "class_name": "Duelist",
+          "ascendancy": "Slayer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_boneshatter_juggernaut",
+          "patch": "3.23",
+          "display_name": "Boneshatter Juggernaut",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Boneshatter",
+          "class_name": "Marauder",
+          "ascendancy": "Juggernaut",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_detonate_dead_elementalist",
+          "patch": "3.23",
+          "display_name": "Detonate Dead Elementalist",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Detonate Dead",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_storm_brand_inquisitor",
+          "patch": "3.23",
+          "display_name": "Storm Brand Inquisitor",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Storm Brand",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_explosive_arrow_elementalist",
+          "patch": "3.23",
+          "display_name": "Explosive Arrow Ballista Elementalist",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Explosive Arrow",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_explosive_trap_trickster",
+          "patch": "3.23",
+          "display_name": "Explosive Trap Trickster",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Explosive Trap",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_lightning_arrow_deadeye",
+          "patch": "3.23",
+          "display_name": "Lightning Arrow Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Lightning Arrow",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_ice_shot_deadeye",
+          "patch": "3.23",
+          "display_name": "Ice Shot Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Ice Shot",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_toxic_rain_pathfinder",
+          "patch": "3.23",
+          "display_name": "Toxic Rain Pathfinder",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Toxic Rain",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "poe_vault_323",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_caustic_arrow_poison_ballista",
+          "patch": "3.23",
+          "display_name": "Caustic Arrow Poison Ballista Pathfinder",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Caustic Arrow",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_guardian_srs",
+          "patch": "3.23",
+          "display_name": "Guardian SRS",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Summon Raging Spirits",
+          "class_name": "Templar",
+          "ascendancy": "Guardian",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "poe_vault_323",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_poison_srs_necromancer",
+          "patch": "3.23",
+          "display_name": "Poison SRS Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Summon Raging Spirits",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "poe_vault_323",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_toxic_rain_champion",
+          "patch": "3.23",
+          "display_name": "Toxic Rain Champion",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Toxic Rain",
+          "class_name": "Duelist",
+          "ascendancy": "Champion",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_corrupting_fever_champion",
+          "patch": "3.23",
+          "display_name": "Corrupting Fever Champion",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Corrupting Fever",
+          "class_name": "Duelist",
+          "ascendancy": "Champion",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_bladefall_bladeblast_assassin",
+          "patch": "3.23",
+          "display_name": "Bladefall Blade Blast Assassin",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Bladefall / Blade Blast",
+          "class_name": "Shadow",
+          "ascendancy": "Assassin",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_maw_of_mischief_elementalist",
+          "patch": "3.23",
+          "display_name": "Maw of Mischief Ignite Elementalist",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Maw of Mischief",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_hexblast_mines_occultist",
+          "patch": "3.23",
+          "display_name": "Hexblast Mines Occultist",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Hexblast Mines",
+          "class_name": "Witch",
+          "ascendancy": "Occultist",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_energy_blade_coc_inquisitor",
+          "patch": "3.23",
+          "display_name": "Energy Blade CoC Inquisitor",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Cast on Critical Strike",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_reap_hierophant",
+          "patch": "3.23",
+          "display_name": "Reap Hierophant",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Reap",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "Community comments call out high unique pressure; good for cost-gate checks.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.23_falling_zombies_guardian",
+          "patch": "3.23",
+          "display_name": "Falling Zombies Guardian",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Raise Zombie",
+          "class_name": "Templar",
+          "ascendancy": "Guardian",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_323_index",
+            "pob_archives_global",
+            "reddit_323_list6",
+            "poe_vault_323",
+            "youtube_323_best_specific",
+            "youtube_323_tripolar_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        }
+      ]
+    },
+    {
+      "patch": "3.24",
+      "patch_target_status": "confirmed_collection",
+      "target_candidate_count": 20,
+      "candidate_count": 20,
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 2,
+        "dot_ailment_dot": 2,
+        "melee_strike_slam": 2,
+        "minion_trigger_autobomber_special": 4,
+        "spell_hit_brand_selfcast": 8,
+        "trap_mine_totem": 2
+      },
+      "collection_role_counts": {
+        "failure_edge_case": 4,
+        "stable_shell": 12,
+        "transition_case": 4
+      },
+      "source_family_counts": {
+        "build_site": 20,
+        "community_archive": 20,
+        "reddit": 20,
+        "youtube": 20
+      },
+      "candidates": [
+        {
+          "candidate_id": "3.24_detonate_dead_elementalist",
+          "patch": "3.24",
+          "display_name": "Detonate Dead Elementalist",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Detonate Dead",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_detonate_dead_necromancer",
+          "patch": "3.24",
+          "display_name": "Detonate Dead Necromancer",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Detonate Dead",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_archmage_ice_nova_hierophant",
+          "patch": "3.24",
+          "display_name": "Archmage Ice Nova Hierophant",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Ice Nova of Frostbolts",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_lightning_arrow_deadeye",
+          "patch": "3.24",
+          "display_name": "Lightning Arrow Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Lightning Arrow",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_elemental_hit_deadeye",
+          "patch": "3.24",
+          "display_name": "Elemental Hit Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Elemental Hit",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_lightning_strike_champion",
+          "patch": "3.24",
+          "display_name": "Lightning Strike Champion",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Lightning Strike",
+          "class_name": "Duelist",
+          "ascendancy": "Champion",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_righteous_fire_chieftain",
+          "patch": "3.24",
+          "display_name": "Righteous Fire Chieftain",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Righteous Fire",
+          "class_name": "Marauder",
+          "ascendancy": "Chieftain",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_explosive_arrow_champion",
+          "patch": "3.24",
+          "display_name": "Explosive Arrow Champion",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Explosive Arrow",
+          "class_name": "Duelist",
+          "ascendancy": "Champion",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_exsanguinate_mines_trickster",
+          "patch": "3.24",
+          "display_name": "Exsanguinate Mines Trickster",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Exsanguinate Mines",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_zoomancer_necromancer",
+          "patch": "3.24",
+          "display_name": "Zoomancer Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Mixed Minions",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_bama_necromancer",
+          "patch": "3.24",
+          "display_name": "Blink Arrow Mirror Arrow Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Blink Arrow / Mirror Arrow",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_penance_brand_inquisitor",
+          "patch": "3.24",
+          "display_name": "Penance Brand Inquisitor",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Penance Brand",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_archmage_ball_lightning_hierophant",
+          "patch": "3.24",
+          "display_name": "Archmage Ball Lightning Hierophant",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Ball Lightning",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_coc_detonate_dead_inquisitor",
+          "patch": "3.24",
+          "display_name": "CoC Detonate Dead Inquisitor",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Cast on Critical Strike Detonate Dead",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "Index keeps it out of beginner section; useful for trigger-transition checks.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_spark_hierophant",
+          "patch": "3.24",
+          "display_name": "Spark Hierophant",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Spark",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_holy_relic_necromancer",
+          "patch": "3.24",
+          "display_name": "Holy Relic Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Summon Holy Relic",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_energy_blade_inquisitor",
+          "patch": "3.24",
+          "display_name": "Energy Blade Inquisitor",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Energy Blade",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_maw_ignite_elementalist",
+          "patch": "3.24",
+          "display_name": "Maw of Mischief Ignite Elementalist",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Maw of Mischief",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_rage_cleave_berserker",
+          "patch": "3.24",
+          "display_name": "Rage Cleave Berserker",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Cleave",
+          "class_name": "Marauder",
+          "ascendancy": "Berserker",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.24_reap_scion",
+          "patch": "3.24",
+          "display_name": "Reap Scion",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Reap",
+          "class_name": "Scion",
+          "ascendancy": "Ascendant",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_324_index",
+            "pob_archives_global",
+            "poe_vault_324",
+            "youtube_324_top5",
+            "youtube_324_zizaran_dd"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        }
+      ]
+    },
+    {
+      "patch": "3.25",
+      "patch_target_status": "confirmed_collection",
+      "target_candidate_count": 20,
+      "candidate_count": 20,
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 3,
+        "dot_ailment_dot": 3,
+        "melee_strike_slam": 5,
+        "minion_trigger_autobomber_special": 3,
+        "spell_hit_brand_selfcast": 3,
+        "trap_mine_totem": 3
+      },
+      "collection_role_counts": {
+        "failure_edge_case": 4,
+        "stable_shell": 12,
+        "transition_case": 4
+      },
+      "source_family_counts": {
+        "build_site": 20,
+        "community_archive": 20,
+        "reddit": 20,
+        "youtube": 20
+      },
+      "candidates": [
+        {
+          "candidate_id": "3.25_lightning_strike_slayer",
+          "patch": "3.25",
+          "display_name": "Lightning Strike Slayer",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Lightning Strike",
+          "class_name": "Duelist",
+          "ascendancy": "Slayer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_ground_slam_slayer",
+          "patch": "3.25",
+          "display_name": "Ground Slam Slayer",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Ground Slam",
+          "class_name": "Duelist",
+          "ascendancy": "Slayer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_archmage_ice_nova_hierophant",
+          "patch": "3.25",
+          "display_name": "Archmage Ice Nova Hierophant",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Ice Nova of Frostbolts",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_archmage_spark_hierophant",
+          "patch": "3.25",
+          "display_name": "Archmage Spark Hierophant",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Spark",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_explosive_arrow_elementalist",
+          "patch": "3.25",
+          "display_name": "Explosive Arrow Elementalist",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Explosive Arrow",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_hexblast_mines_trickster",
+          "patch": "3.25",
+          "display_name": "Hexblast Mines Trickster",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Hexblast Mines",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_elemental_hit_deadeye",
+          "patch": "3.25",
+          "display_name": "Elemental Hit of the Spectrum Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Elemental Hit",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_power_siphon_locus_mine_trickster",
+          "patch": "3.25",
+          "display_name": "Power Siphon Locus Mine Trickster",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Power Siphon",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_righteous_fire_chieftain",
+          "patch": "3.25",
+          "display_name": "Righteous Fire Chieftain",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Righteous Fire",
+          "class_name": "Marauder",
+          "ascendancy": "Chieftain",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_poisonous_concoction_pathfinder",
+          "patch": "3.25",
+          "display_name": "Poisonous Concoction Pathfinder",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Poisonous Concoction",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_holy_relic_necromancer",
+          "patch": "3.25",
+          "display_name": "Holy Relic Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Summon Holy Relic",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_zoomancer_necromancer",
+          "patch": "3.25",
+          "display_name": "Zoomancer Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Mixed Minions",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_frost_blades_slayer",
+          "patch": "3.25",
+          "display_name": "Frost Blades Slayer",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Frost Blades",
+          "class_name": "Duelist",
+          "ascendancy": "Slayer",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_eviscerate_bleed_gladiator",
+          "patch": "3.25",
+          "display_name": "Eviscerate Bleed Gladiator",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Eviscerate",
+          "class_name": "Duelist",
+          "ascendancy": "Gladiator",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_lacerate_bleed_gladiator",
+          "patch": "3.25",
+          "display_name": "Lacerate Bleed Gladiator",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Lacerate",
+          "class_name": "Duelist",
+          "ascendancy": "Gladiator",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_bama_necromancer",
+          "patch": "3.25",
+          "display_name": "BAMA Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Blink Arrow / Mirror Arrow",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_energy_blade_inquisitor",
+          "patch": "3.25",
+          "display_name": "Energy Blade Inquisitor",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Energy Blade",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_retaliate_eviscerate_gladiator",
+          "patch": "3.25",
+          "display_name": "Retaliate Eviscerate Gladiator",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Eviscerate",
+          "class_name": "Duelist",
+          "ascendancy": "Gladiator",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "New-skill warning candidate.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_splitting_steel_champion",
+          "patch": "3.25",
+          "display_name": "Splitting Steel Champion",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Splitting Steel",
+          "class_name": "Duelist",
+          "ascendancy": "Champion",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.25_storm_burst_totems_hierophant",
+          "patch": "3.25",
+          "display_name": "Storm Burst Totems Hierophant",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Storm Burst Totems",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_325_index",
+            "pob_archives_global",
+            "poe_vault_325",
+            "odealo_325",
+            "youtube_325_zizaran_playlist",
+            "youtube_325_top_builds"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        }
+      ]
+    },
+    {
+      "patch": "3.26",
+      "patch_target_status": "confirmed_collection",
+      "target_candidate_count": 20,
+      "candidate_count": 20,
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 3,
+        "dot_ailment_dot": 4,
+        "melee_strike_slam": 3,
+        "minion_trigger_autobomber_special": 3,
+        "spell_hit_brand_selfcast": 3,
+        "trap_mine_totem": 4
+      },
+      "collection_role_counts": {
+        "failure_edge_case": 4,
+        "stable_shell": 12,
+        "transition_case": 4
+      },
+      "source_family_counts": {
+        "build_site": 20,
+        "community_archive": 20,
+        "reddit": 20,
+        "youtube": 20
+      },
+      "candidates": [
+        {
+          "candidate_id": "3.26_volcanic_fissure_berserker",
+          "patch": "3.26",
+          "display_name": "Volcanic Fissure of Snaking Berserker",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Volcanic Fissure",
+          "class_name": "Marauder",
+          "ascendancy": "Berserker",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "poe_vault_326",
+            "pob_archives_global",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_earthquake_bleed_gladiator",
+          "patch": "3.26",
+          "display_name": "Earthquake Bleed Gladiator",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Earthquake",
+          "class_name": "Duelist",
+          "ascendancy": "Gladiator",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_lightning_conduit_elementalist",
+          "patch": "3.26",
+          "display_name": "Lightning Conduit Elementalist",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Lightning Conduit",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_penance_brand_inquisitor",
+          "patch": "3.26",
+          "display_name": "Penance Brand Inquisitor",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Penance Brand",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_explosive_trap_trickster",
+          "patch": "3.26",
+          "display_name": "Explosive Trap Trickster",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Explosive Trap",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "poe_vault_326",
+            "pob_archives_global",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_rolling_magma_mines_saboteur",
+          "patch": "3.26",
+          "display_name": "Rolling Magma Mines Saboteur",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Rolling Magma Mines",
+          "class_name": "Shadow",
+          "ascendancy": "Saboteur",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_elemental_hit_deadeye",
+          "patch": "3.26",
+          "display_name": "Elemental Hit Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Elemental Hit",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_cobra_lash_deadeye",
+          "patch": "3.26",
+          "display_name": "Cobra Lash Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Cobra Lash",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_righteous_fire_chieftain",
+          "patch": "3.26",
+          "display_name": "Righteous Fire Chieftain",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Righteous Fire",
+          "class_name": "Marauder",
+          "ascendancy": "Chieftain",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "poe_vault_326",
+            "pob_archives_global",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_blight_of_contagion_trickster",
+          "patch": "3.26",
+          "display_name": "Blight of Contagion Trickster",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Blight of Contagion",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_poison_srs_necromancer",
+          "patch": "3.26",
+          "display_name": "Poison SRS Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Summon Raging Spirits",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "poe_vault_326",
+            "pob_archives_global",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_minion_army_necromancer",
+          "patch": "3.26",
+          "display_name": "Minion Army Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Mixed Minions",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_explosive_arrow_elementalist",
+          "patch": "3.26",
+          "display_name": "Explosive Arrow Elementalist",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Explosive Arrow",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_exsanguinate_mines_trickster",
+          "patch": "3.26",
+          "display_name": "Exsanguinate Mines Trickster",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Exsanguinate Mines",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_poisonous_concoction_pathfinder",
+          "patch": "3.26",
+          "display_name": "Poisonous Concoction Pathfinder",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Poisonous Concoction",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_molten_strike_zenith_juggernaut",
+          "patch": "3.26",
+          "display_name": "Molten Strike of the Zenith Juggernaut",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Molten Strike",
+          "class_name": "Marauder",
+          "ascendancy": "Juggernaut",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_power_siphon_archmage_hierophant",
+          "patch": "3.26",
+          "display_name": "Power Siphon Archmage Hierophant",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Power Siphon",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_winter_orb_occultist",
+          "patch": "3.26",
+          "display_name": "Winter Orb Occultist",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Winter Orb",
+          "class_name": "Witch",
+          "ascendancy": "Occultist",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_soulrend_occultist",
+          "patch": "3.26",
+          "display_name": "Soulrend Occultist",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Soulrend",
+          "class_name": "Witch",
+          "ascendancy": "Occultist",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.26_animate_weapon_poison_necromancer",
+          "patch": "3.26",
+          "display_name": "Animate Weapon Poison Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Animate Weapon",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_326_index",
+            "pob_archives_global",
+            "poe_vault_326",
+            "youtube_326_top7",
+            "youtube_326_zizaran_playlist"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        }
+      ]
+    },
+    {
+      "patch": "3.27",
+      "patch_target_status": "confirmed_collection",
+      "target_candidate_count": 20,
+      "candidate_count": 20,
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 2,
+        "dot_ailment_dot": 3,
+        "melee_strike_slam": 4,
+        "minion_trigger_autobomber_special": 5,
+        "spell_hit_brand_selfcast": 3,
+        "trap_mine_totem": 3
+      },
+      "collection_role_counts": {
+        "failure_edge_case": 4,
+        "stable_shell": 12,
+        "transition_case": 4
+      },
+      "source_family_counts": {
+        "build_site": 20,
+        "community_archive": 20,
+        "reddit": 20,
+        "youtube": 20
+      },
+      "candidates": [
+        {
+          "candidate_id": "3.27_earthshatter_berserker",
+          "patch": "3.27",
+          "display_name": "Earthshatter Berserker",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Earthshatter",
+          "class_name": "Marauder",
+          "ascendancy": "Berserker",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_ground_slam_slayer",
+          "patch": "3.27",
+          "display_name": "Ground Slam Slayer",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Ground Slam",
+          "class_name": "Duelist",
+          "ascendancy": "Slayer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_ice_nova_hierophant",
+          "patch": "3.27",
+          "display_name": "Ice Nova of Frostbolts Hierophant",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Ice Nova of Frostbolts",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_lightning_conduit_elementalist",
+          "patch": "3.27",
+          "display_name": "Lightning Conduit Elementalist",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Lightning Conduit",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_pyroclast_mine_saboteur",
+          "patch": "3.27",
+          "display_name": "Pyroclast Mine Saboteur",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Pyroclast Mine",
+          "class_name": "Shadow",
+          "ascendancy": "Saboteur",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_storm_burst_totems_hierophant",
+          "patch": "3.27",
+          "display_name": "Storm Burst Totems Hierophant",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Storm Burst Totems",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_kinetic_blast_deadeye",
+          "patch": "3.27",
+          "display_name": "Kinetic Blast Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Kinetic Blast",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_lightning_arrow_deadeye",
+          "patch": "3.27",
+          "display_name": "Lightning Arrow Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Lightning Arrow",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_righteous_fire_chieftain",
+          "patch": "3.27",
+          "display_name": "Righteous Fire Chieftain",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Righteous Fire",
+          "class_name": "Marauder",
+          "ascendancy": "Chieftain",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_blight_of_contagion_trickster",
+          "patch": "3.27",
+          "display_name": "Blight of Contagion Trickster",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Blight of Contagion",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_raise_spectre_necromancer",
+          "patch": "3.27",
+          "display_name": "Raise Spectre Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Raise Spectre",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_poison_srs_necromancer",
+          "patch": "3.27",
+          "display_name": "Poison SRS Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Summon Raging Spirits",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_frost_blades_slayer",
+          "patch": "3.27",
+          "display_name": "Frost Blades Slayer",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Frost Blades",
+          "class_name": "Duelist",
+          "ascendancy": "Slayer",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_penance_brand_inquisitor",
+          "patch": "3.27",
+          "display_name": "Penance Brand Inquisitor",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Penance Brand",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_exsanguinate_reap_mines_trickster",
+          "patch": "3.27",
+          "display_name": "Exsanguinate Reap Mines Trickster",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Exsanguinate Mines",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_summon_holy_relic_necromancer",
+          "patch": "3.27",
+          "display_name": "Summon Holy Relic Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Summon Holy Relic",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_poison_coc_detonate_dead_assassin",
+          "patch": "3.27",
+          "display_name": "Poison CoC Detonate Dead Assassin",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Cast on Critical Strike Detonate Dead",
+          "class_name": "Shadow",
+          "ascendancy": "Assassin",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_flicker_champion",
+          "patch": "3.27",
+          "display_name": "Flicker Champion",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Flicker Strike",
+          "class_name": "Duelist",
+          "ascendancy": "Champion",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_viper_strike_mamba_pathfinder",
+          "patch": "3.27",
+          "display_name": "Viper Strike of the Mamba Pathfinder",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Viper Strike",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.27_volatile_dead_spellslinger_elementalist",
+          "patch": "3.27",
+          "display_name": "Volatile Dead Spellslinger Elementalist",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Spellslinger Volatile Dead",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_327_index",
+            "pob_archives_global",
+            "poe_vault_327",
+            "odealo_327",
+            "icy_veins_327",
+            "youtube_327_top6",
+            "youtube_327_mobalytics"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        }
+      ]
+    },
+    {
+      "patch": "3.28",
+      "patch_target_status": "confirmed_collection",
+      "target_candidate_count": 20,
+      "candidate_count": 23,
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 2,
+        "dot_ailment_dot": 5,
+        "melee_strike_slam": 5,
+        "minion_trigger_autobomber_special": 4,
+        "spell_hit_brand_selfcast": 3,
+        "trap_mine_totem": 4
+      },
+      "collection_role_counts": {
+        "failure_edge_case": 4,
+        "stable_shell": 12,
+        "transition_case": 7
+      },
+      "source_family_counts": {
+        "build_site": 23,
+        "community_archive": 23,
+        "reddit": 20,
+        "youtube": 23
+      },
+      "candidates": [
+        {
+          "candidate_id": "3.28_bleed_slam_slayer",
+          "patch": "3.28",
+          "display_name": "Bleed Slam Slayer",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Bleed Slam",
+          "class_name": "Duelist",
+          "ascendancy": "Slayer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_boneshatter_juggernaut",
+          "patch": "3.28",
+          "display_name": "Boneshatter Complex Trauma Juggernaut",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Boneshatter",
+          "class_name": "Marauder",
+          "ascendancy": "Juggernaut",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_shock_nova_archmage_hierophant",
+          "patch": "3.28",
+          "display_name": "Shock Nova Archmage Hierophant",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Shock Nova",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_spark_hierophant",
+          "patch": "3.28",
+          "display_name": "Spark Hierophant",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Spark",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_kinetic_fusillade_totem_hierophant",
+          "patch": "3.28",
+          "display_name": "Kinetic Fusillade Totem Hierophant",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Kinetic Fusillade Totems",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_holy_flame_totem_hierophant",
+          "patch": "3.28",
+          "display_name": "Holy Flame Totem Hierophant",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Holy Flame Totem",
+          "class_name": "Templar",
+          "ascendancy": "Hierophant",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_elemental_hit_deadeye",
+          "patch": "3.28",
+          "display_name": "Elemental Hit Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Elemental Hit",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_kinetic_blast_deadeye",
+          "patch": "3.28",
+          "display_name": "Kinetic Blast Deadeye",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Kinetic Blast",
+          "class_name": "Ranger",
+          "ascendancy": "Deadeye",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_righteous_fire_chieftain",
+          "patch": "3.28",
+          "display_name": "Righteous Fire Chieftain",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Righteous Fire",
+          "class_name": "Marauder",
+          "ascendancy": "Chieftain",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_poisonous_concoction_pathfinder",
+          "patch": "3.28",
+          "display_name": "Poisonous Concoction Pathfinder",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Poisonous Concoction",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_raise_spectre_necromancer",
+          "patch": "3.28",
+          "display_name": "Raise Spectre Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Raise Spectre",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_summon_holy_relic_necromancer",
+          "patch": "3.28",
+          "display_name": "Summon Holy Relic Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Summon Holy Relic",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "stable_shell",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_impending_doom_reliquarian",
+          "patch": "3.28",
+          "display_name": "Impending Doom Reliquarian",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Impending Doom",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_exsanguinate_reap_mines_trickster",
+          "patch": "3.28",
+          "display_name": "Exsanguinate Reap Mines Trickster",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Exsanguinate Mines",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "youtube_328_fearlessdumb0_exsanguinate_reap_miner",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "User-corrected mine lane priority: track Exsanguinate/Reap Miner Trickster instead of generic Pyroclast/Hexblast mine fallback.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_storm_brand_elementalist",
+          "patch": "3.28",
+          "display_name": "Storm Brand Elementalist",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Storm Brand",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_poison_carrion_golem_witch",
+          "patch": "3.28",
+          "display_name": "Poison Carrion Golem Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Summon Carrion Golem",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "youtube_tori_sensei_poison_carrion_golem",
+            "youtube_328_poison_carrion_golem_necromancer",
+            "youtube_326_tori_poison_carrion_golem",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "User-corrected current minion lane: Tori-sensei is preparing Poison Carrion Golem this season. A parser-valid 3.28 Necromancer staged PoB is collected; keep searching for Tori-sensei's exact current-season PoB as a separate source check.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_ignite_slamentalist_elementalist",
+          "patch": "3.28",
+          "display_name": "Ignite Slamentalist Elementalist",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Sunder",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "youtube_328_mastert_ignite_slamentalist",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "User-added Master T lane. Parser-valid staged PoB covers Rolling Magma/RF campaign into Sunder ignite Elementalist; treat as Witch melee/ignite transition evidence, not generic Duelist melee.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_righteous_cold_dot_autobomber_elementalist",
+          "patch": "3.28",
+          "display_name": "Righteous Cold Dot Autobomber Elementalist",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Vaal Cold Snap",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "mobalytics_328_mastert_righteous_cold_autobomber",
+            "youtube_328_mastert_righteous_cold_autobomber",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "User-added Master T lane. Mobalytics guide marks this as a 3.28 endgame transition build; use as transition/economy evidence rather than campaign leveling.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_volatile_dead_spellslinger_necromancer",
+          "patch": "3.28",
+          "display_name": "Volatile Dead Spellslinger Necromancer",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Spellslinger Volatile Dead",
+          "class_name": "Witch",
+          "ascendancy": "Necromancer",
+          "collection_role": "transition_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_holy_hammers_berserker",
+          "patch": "3.28",
+          "display_name": "Holy Hammers Berserker",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Holy Hammers",
+          "class_name": "Marauder",
+          "ascendancy": "Berserker",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "New skill warning candidate.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_holy_strike_chieftain",
+          "patch": "3.28",
+          "display_name": "Holy Strike Chieftain",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Holy Strike",
+          "class_name": "Marauder",
+          "ascendancy": "Chieftain",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "New skill warning candidate.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_eye_of_winter_mines_inquisitor",
+          "patch": "3.28",
+          "display_name": "Eye of Winter Mines Inquisitor",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Eye of Winter Mines",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.28_wintertide_brand_elementalist",
+          "patch": "3.28",
+          "display_name": "Wintertide Brand Elementalist",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Wintertide Brand",
+          "class_name": "Witch",
+          "ascendancy": "Elementalist",
+          "collection_role": "failure_edge_case",
+          "source_status": "source_hunted",
+          "source_refs": [
+            "reddit_328_index",
+            "pob_archives_global",
+            "poe_vault_328",
+            "odealo_328",
+            "youtube_328_top10",
+            "youtube_328_flowchart"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        }
+      ]
+    },
+    {
+      "patch": "3.29",
+      "patch_target_status": "watchlist",
+      "target_candidate_count": 20,
+      "candidate_count": 20,
+      "lane_counts": {
+        "bow_projectile_attack_mapper": 2,
+        "dot_ailment_dot": 3,
+        "melee_strike_slam": 4,
+        "minion_trigger_autobomber_special": 4,
+        "spell_hit_brand_selfcast": 5,
+        "trap_mine_totem": 2
+      },
+      "collection_role_counts": {
+        "failure_edge_case": 4,
+        "stable_shell": 12,
+        "transition_case": 4
+      },
+      "source_family_counts": {
+        "build_site": 20,
+        "community_archive": 20,
+        "official": 16,
+        "reddit": 20,
+        "youtube": 20
+      },
+      "candidates": [
+        {
+          "candidate_id": "3.29_reliquarian_dawnbreaker_rf",
+          "patch": "3.29",
+          "display_name": "Reliquarian Dawnbreaker RF Fire Conversion",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Righteous Fire",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "youtube_329_goratha_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_hot_autobomber",
+          "patch": "3.29",
+          "display_name": "Reliquarian Herald of Thunder Autobomber",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Herald of Thunder",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_blight_contagion",
+          "patch": "3.29",
+          "display_name": "Reliquarian Blight of Contagion",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Blight of Contagion",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_specialists",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_static_strike",
+          "patch": "3.29",
+          "display_name": "Reliquarian Static Strike Mapper",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Static Strike",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_lightning_strike",
+          "patch": "3.29",
+          "display_name": "Reliquarian Lightning Strike Fire-Taken Defense",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Lightning Strike",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_gloomfang_wander",
+          "patch": "3.29",
+          "display_name": "Reliquarian Gloomfang Wander",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Kinetic Blast",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_toxic_rain_pathfinder",
+          "patch": "3.29",
+          "display_name": "Toxic Rain Pathfinder Specialist",
+          "lane_id": "dot_ailment_dot",
+          "main_skill": "Toxic Rain",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "reddit_329_specialists",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_pconc_pathfinder",
+          "patch": "3.29",
+          "display_name": "Poisonous Concoction Pathfinder Specialist",
+          "lane_id": "bow_projectile_attack_mapper",
+          "main_skill": "Poisonous Concoction",
+          "class_name": "Ranger",
+          "ascendancy": "Pathfinder",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "reddit_329_specialists",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "Projectile attack lens; poison scaling is captured later in ailment-state normalization.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_hexblast_mines_bosser",
+          "patch": "3.29",
+          "display_name": "Hexblast Mines Bossing Specialist",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Hexblast Mines",
+          "class_name": "Shadow",
+          "ascendancy": "Trickster",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "reddit_329_specialists",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_penance_brand_sanctum",
+          "patch": "3.29",
+          "display_name": "Penance Brand Sanctum Specialist",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Penance Brand",
+          "class_name": "Templar",
+          "ascendancy": "Inquisitor",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "reddit_329_specialists",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_black_cane_spell",
+          "patch": "3.29",
+          "display_name": "Reliquarian Black Cane Spell Shell",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Self-Cast Spell",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "youtube_329_goratha_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_explosive_trap_fire_taken",
+          "patch": "3.29",
+          "display_name": "Reliquarian Explosive Trap Fire-Taken Defense",
+          "lane_id": "trap_mine_totem",
+          "main_skill": "Explosive Trap",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "stable_shell",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "reddit_329_specialists",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_life_stacker_rathpith",
+          "patch": "3.29",
+          "display_name": "Reliquarian Life Stacker Rathpith Shell",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Rathpith Spell",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "transition_case",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "youtube_329_goratha_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_arakaali_poison_attack",
+          "patch": "3.29",
+          "display_name": "Reliquarian Arakaali Poison Attack",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Poison Attack",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "transition_case",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "youtube_329_goratha_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_sacred_chalice_bladefall",
+          "patch": "3.29",
+          "display_name": "Reliquarian Sacred Chalice Bladefall",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Bladefall / Blade Blast",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "transition_case",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "youtube_329_goratha_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_molten_burst_on_hit",
+          "patch": "3.29",
+          "display_name": "Reliquarian Molten Burst On-Hit",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Molten Burst",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "transition_case",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "youtube_329_goratha_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_melding_defense",
+          "patch": "3.29",
+          "display_name": "Reliquarian Melding Defense Shell",
+          "lane_id": "spell_hit_brand_selfcast",
+          "main_skill": "Any Spell",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "failure_edge_case",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_screams_no_flask",
+          "patch": "3.29",
+          "display_name": "Reliquarian Screams No-Flask Defense",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Any Skill",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "failure_edge_case",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": null,
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_molten_burst_support_gap",
+          "patch": "3.29",
+          "display_name": "Reliquarian Molten Burst Support-Gap Check",
+          "lane_id": "melee_strike_slam",
+          "main_skill": "Molten Burst",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "failure_edge_case",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "Community flags support-link uncertainty.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        },
+        {
+          "candidate_id": "3.29_reliquarian_phantasm_survival_gap",
+          "patch": "3.29",
+          "display_name": "Reliquarian Phantasm Survival Gap Check",
+          "lane_id": "minion_trigger_autobomber_special",
+          "main_skill": "Phantasms",
+          "class_name": "Scion",
+          "ascendancy": "Reliquarian",
+          "collection_role": "failure_edge_case",
+          "source_status": "watchlist_pre_patch_notes",
+          "source_refs": [
+            "official_329_reliquarian",
+            "reddit_329_reliquarian",
+            "pob_archives_global",
+            "mobalytics_329_reliquarian",
+            "reddit_329_text_nodes",
+            "reddit_329_standout_reliquarian",
+            "youtube_329_allflame"
+          ],
+          "required_next_steps": [
+            "find_or_archive_pob",
+            "normalize_two_state_snapshots",
+            "run_build_instance_readiness",
+            "record_beginner_failure_lens"
+          ],
+          "notes": "Community flags minion survival risk for pure spell investment.",
+          "source_families": [
+            "build_site",
+            "community_archive",
+            "official",
+            "reddit",
+            "youtube"
+          ]
+        }
+      ]
+    }
+  ]
+}

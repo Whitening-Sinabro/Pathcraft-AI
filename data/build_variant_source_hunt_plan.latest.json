@@ -1,0 +1,1015 @@
+{
+  "dataset_kind": "poe1_build_variant_source_hunt_plan",
+  "item_count": 19,
+  "items": [
+    {
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "candidate_id": "3.28_kinetic_fusillade_of_detonation",
+      "candidate_label": "Kinetic Fusillade of Detonation",
+      "archetype_id": "kinetic_fusillade_of_detonation_wander",
+      "priority_score": 167,
+      "strict_verdict": "blocked_no_external_build_guide",
+      "next_step": "find_first_external_build_guide_source",
+      "existing_guide_source_families": [],
+      "missing_target_families": [
+        "maxroll",
+        "poe_vault",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "poe-vault.com",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Kinetic Fusillade of Detonation\" \"3.28\" league starter",
+        "\"Path of Exile\" \"Kinetic Fusillade of Detonation\" \"Mirage\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Kinetic Fusillade of Detonation\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Kinetic Fusillade of Detonation\" \"3.28\"",
+        "site:maxroll.gg \"Kinetic Fusillade of Detonation\" \"Path of Exile\"",
+        "site:poe-vault.com \"Kinetic Fusillade of Detonation\" \"Path of Exile\"",
+        "site:youtube.com \"Kinetic Fusillade of Detonation\" \"3.28\" \"PoB\"",
+        "site:pobarchives.com \"Kinetic Fusillade of Detonation\" \"3.28\"",
+        "site:icy-veins.com \"Kinetic Fusillade of Detonation\" \"Path of Exile\""
+      ],
+      "acceptance_rules": [
+        "Patch-specific or league-era guide/post must explicitly name the skill/archetype or unmistakable variant.",
+        "Do not accept official patch notes alone as meta confirmation.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 external build guide family from maxroll, poe_vault, forum_build_guide, reddit_build_index, icy_veins, youtube, or pob_archives.",
+      "blockers": [
+        "missing_external_build_guide",
+        "mechanic_context_without_meta_confirmation"
+      ]
+    },
+    {
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "candidate_id": "3.27_ice_nova_caster",
+      "candidate_label": "Ice Nova Caster",
+      "archetype_id": "ice_nova_caster",
+      "priority_score": 166,
+      "strict_verdict": "blocked_no_external_build_guide",
+      "next_step": "find_first_external_build_guide_source",
+      "existing_guide_source_families": [],
+      "missing_target_families": [
+        "maxroll",
+        "poe_vault",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "poe-vault.com",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Ice Nova Caster\" \"3.27\" league starter",
+        "\"Path of Exile\" \"Ice Nova Caster\" \"Keepers of the Flame\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Ice Nova Caster\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Ice Nova Caster\" \"3.27\"",
+        "site:maxroll.gg \"Ice Nova Caster\" \"Path of Exile\"",
+        "site:poe-vault.com \"Ice Nova Caster\" \"Path of Exile\"",
+        "site:youtube.com \"Ice Nova Caster\" \"3.27\" \"PoB\"",
+        "site:pobarchives.com \"Ice Nova Caster\" \"3.27\"",
+        "site:icy-veins.com \"Ice Nova Caster\" \"Path of Exile\""
+      ],
+      "acceptance_rules": [
+        "Patch-specific or league-era guide/post must explicitly name the skill/archetype or unmistakable variant.",
+        "Do not accept official patch notes alone as meta confirmation.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 external build guide family from maxroll, poe_vault, forum_build_guide, reddit_build_index, icy_veins, youtube, or pob_archives.",
+      "blockers": [
+        "missing_external_build_guide",
+        "local_trace_without_external_confirmation"
+      ]
+    },
+    {
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "candidate_id": "3.26_ball_lightning_caster",
+      "candidate_label": "Ball Lightning Caster",
+      "archetype_id": "ball_lightning_caster",
+      "priority_score": 165,
+      "strict_verdict": "blocked_no_external_build_guide",
+      "next_step": "find_first_external_build_guide_source",
+      "existing_guide_source_families": [],
+      "missing_target_families": [
+        "maxroll",
+        "poe_vault",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "poe-vault.com",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Ball Lightning Caster\" \"3.26\" league starter",
+        "\"Path of Exile\" \"Ball Lightning Caster\" \"Secrets of the Atlas\" starter build",
+        "site:pathofexile.com/forum/view-thread \"Ball Lightning Caster\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Ball Lightning Caster\" \"3.26\"",
+        "site:maxroll.gg \"Ball Lightning Caster\" \"Path of Exile\"",
+        "site:poe-vault.com \"Ball Lightning Caster\" \"Path of Exile\"",
+        "site:youtube.com \"Ball Lightning Caster\" \"3.26\" \"PoB\"",
+        "site:pobarchives.com \"Ball Lightning Caster\" \"3.26\"",
+        "site:icy-veins.com \"Ball Lightning Caster\" \"Path of Exile\""
+      ],
+      "acceptance_rules": [
+        "Patch-specific or league-era guide/post must explicitly name the skill/archetype or unmistakable variant.",
+        "Do not accept official patch notes alone as meta confirmation.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 external build guide family from maxroll, poe_vault, forum_build_guide, reddit_build_index, icy_veins, youtube, or pob_archives.",
+      "blockers": [
+        "missing_external_build_guide",
+        "local_trace_without_external_confirmation"
+      ]
+    },
+    {
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "candidate_id": "3.26_ice_nova_caster",
+      "candidate_label": "Ice Nova Caster",
+      "archetype_id": "ice_nova_caster",
+      "priority_score": 160,
+      "strict_verdict": "blocked_no_external_build_guide",
+      "next_step": "find_first_external_build_guide_source",
+      "existing_guide_source_families": [],
+      "missing_target_families": [
+        "maxroll",
+        "poe_vault",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "poe-vault.com",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Ice Nova Caster\" \"3.26\" league starter",
+        "\"Path of Exile\" \"Ice Nova Caster\" \"Secrets of the Atlas\" starter build",
+        "site:pathofexile.com/forum/view-thread \"Ice Nova Caster\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Ice Nova Caster\" \"3.26\"",
+        "site:maxroll.gg \"Ice Nova Caster\" \"Path of Exile\"",
+        "site:poe-vault.com \"Ice Nova Caster\" \"Path of Exile\"",
+        "site:youtube.com \"Ice Nova Caster\" \"3.26\" \"PoB\"",
+        "site:pobarchives.com \"Ice Nova Caster\" \"3.26\"",
+        "site:icy-veins.com \"Ice Nova Caster\" \"Path of Exile\""
+      ],
+      "acceptance_rules": [
+        "Patch-specific or league-era guide/post must explicitly name the skill/archetype or unmistakable variant.",
+        "Do not accept official patch notes alone as meta confirmation.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 external build guide family from maxroll, poe_vault, forum_build_guide, reddit_build_index, icy_veins, youtube, or pob_archives.",
+      "blockers": [
+        "missing_external_build_guide",
+        "local_trace_without_external_confirmation"
+      ]
+    },
+    {
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "candidate_id": "3.28_cold_snap_of_power_hierophant",
+      "candidate_label": "Cold Snap of Power Hierophant",
+      "archetype_id": "cold_snap_of_power_hierophant",
+      "priority_score": 137,
+      "strict_verdict": "provisional_external_gap",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Cold Snap of Power Hierophant\" \"3.28\" league starter",
+        "\"Path of Exile\" \"Cold Snap of Power Hierophant\" \"Mirage\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Cold Snap of Power Hierophant\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Cold Snap of Power Hierophant\" \"3.28\"",
+        "site:maxroll.gg \"Cold Snap of Power Hierophant\" \"Path of Exile\"",
+        "site:poe-vault.com \"Cold Snap of Power Hierophant\" \"Path of Exile\"",
+        "site:youtube.com \"Cold Snap of Power Hierophant\" \"3.28\" \"PoB\"",
+        "site:pobarchives.com \"Cold Snap of Power Hierophant\" \"3.28\"",
+        "\"cold snap of power hierophant\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ]
+    },
+    {
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "candidate_id": "3.27_pyroclast_mine_saboteur",
+      "candidate_label": "Pyroclast Mine Saboteur",
+      "archetype_id": "pyroclast_mine_saboteur",
+      "priority_score": 136,
+      "strict_verdict": "provisional_external_gap",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Pyroclast Mine Saboteur\" \"3.27\" league starter",
+        "\"Path of Exile\" \"Pyroclast Mine Saboteur\" \"Keepers of the Flame\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Pyroclast Mine Saboteur\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Pyroclast Mine Saboteur\" \"3.27\"",
+        "site:maxroll.gg \"Pyroclast Mine Saboteur\" \"Path of Exile\"",
+        "site:poe-vault.com \"Pyroclast Mine Saboteur\" \"Path of Exile\"",
+        "site:youtube.com \"Pyroclast Mine Saboteur\" \"3.27\" \"PoB\"",
+        "site:pobarchives.com \"Pyroclast Mine Saboteur\" \"3.27\"",
+        "\"pyroclast mine saboteur\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ]
+    },
+    {
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "candidate_id": "3.26_boneshatter_juggernaut",
+      "candidate_label": "Boneshatter Juggernaut",
+      "archetype_id": "boneshatter_juggernaut",
+      "priority_score": 135,
+      "strict_verdict": "provisional_external_gap",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Boneshatter Juggernaut\" \"3.26\" league starter",
+        "\"Path of Exile\" \"Boneshatter Juggernaut\" \"Secrets of the Atlas\" starter build",
+        "site:pathofexile.com/forum/view-thread \"Boneshatter Juggernaut\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Boneshatter Juggernaut\" \"3.26\"",
+        "site:maxroll.gg \"Boneshatter Juggernaut\" \"Path of Exile\"",
+        "site:poe-vault.com \"Boneshatter Juggernaut\" \"Path of Exile\"",
+        "site:youtube.com \"Boneshatter Juggernaut\" \"3.26\" \"PoB\"",
+        "site:pobarchives.com \"Boneshatter Juggernaut\" \"3.26\"",
+        "\"boneshatter juggernaut\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ]
+    },
+    {
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "candidate_id": "3.26_siege_ballista_hierophant",
+      "candidate_label": "Siege Ballista Hierophant",
+      "archetype_id": "siege_ballista_hierophant",
+      "priority_score": 135,
+      "strict_verdict": "provisional_external_gap",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Siege Ballista Hierophant\" \"3.26\" league starter",
+        "\"Path of Exile\" \"Siege Ballista Hierophant\" \"Secrets of the Atlas\" starter build",
+        "site:pathofexile.com/forum/view-thread \"Siege Ballista Hierophant\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Siege Ballista Hierophant\" \"3.26\"",
+        "site:maxroll.gg \"Siege Ballista Hierophant\" \"Path of Exile\"",
+        "site:poe-vault.com \"Siege Ballista Hierophant\" \"Path of Exile\"",
+        "site:youtube.com \"Siege Ballista Hierophant\" \"3.26\" \"PoB\"",
+        "site:pobarchives.com \"Siege Ballista Hierophant\" \"3.26\"",
+        "\"siege ballista hierophant\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ]
+    },
+    {
+      "patch": "3.22",
+      "league_name": "Trial of the Ancestors",
+      "candidate_id": "3.22_shockwave_totems_hierophant",
+      "candidate_label": "Shockwave Totems Hierophant",
+      "archetype_id": "shockwave_totems_hierophant",
+      "priority_score": 119,
+      "strict_verdict": "provisional_external_gap",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Shockwave Totems Hierophant\" \"3.22\" league starter",
+        "\"Path of Exile\" \"Shockwave Totems Hierophant\" \"Trial of the Ancestors\" build index",
+        "site:pathofexile.com/forum/view-thread \"Shockwave Totems Hierophant\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Shockwave Totems Hierophant\" \"3.22\"",
+        "site:maxroll.gg \"Shockwave Totems Hierophant\" \"Path of Exile\"",
+        "site:poe-vault.com \"Shockwave Totems Hierophant\" \"Path of Exile\"",
+        "site:youtube.com \"Shockwave Totems Hierophant\" \"3.22\" \"PoB\"",
+        "site:pobarchives.com \"Shockwave Totems Hierophant\" \"3.22\"",
+        "\"shockwave totems hierophant\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ]
+    },
+    {
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "candidate_id": "3.24_exsanguinate_mine_trickster",
+      "candidate_label": "Exsanguinate Mine Trickster",
+      "archetype_id": "exsanguinate_mine_trickster",
+      "priority_score": 117,
+      "strict_verdict": "provisional_external_gap",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "maxroll"
+      ],
+      "missing_target_families": [
+        "poe_vault",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "poe-vault.com",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Exsanguinate Mine Trickster\" \"3.24\" league starter",
+        "\"Path of Exile\" \"Exsanguinate Mine Trickster\" \"Necropolis\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Exsanguinate Mine Trickster\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Exsanguinate Mine Trickster\" \"3.24\"",
+        "site:maxroll.gg \"Exsanguinate Mine Trickster\" \"Path of Exile\"",
+        "site:poe-vault.com \"Exsanguinate Mine Trickster\" \"Path of Exile\"",
+        "site:youtube.com \"Exsanguinate Mine Trickster\" \"3.24\" \"PoB\"",
+        "site:pobarchives.com \"Exsanguinate Mine Trickster\" \"3.24\"",
+        "\"exsanguinate mine trickster\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing maxroll.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ]
+    },
+    {
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "candidate_id": "3.27_dominating_blow_guardian",
+      "candidate_label": "Dominating Blow Guardian",
+      "archetype_id": "dominating_blow_guardian",
+      "priority_score": 116,
+      "strict_verdict": "standard_only",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Dominating Blow Guardian\" \"3.27\" league starter",
+        "\"Path of Exile\" \"Dominating Blow Guardian\" \"Keepers of the Flame\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Dominating Blow Guardian\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Dominating Blow Guardian\" \"3.27\"",
+        "site:maxroll.gg \"Dominating Blow Guardian\" \"Path of Exile\"",
+        "site:poe-vault.com \"Dominating Blow Guardian\" \"Path of Exile\"",
+        "site:youtube.com \"Dominating Blow Guardian\" \"3.27\" \"PoB\"",
+        "site:pobarchives.com \"Dominating Blow Guardian\" \"3.27\"",
+        "\"dominating blow guardian\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_local_trace_only"
+      ]
+    },
+    {
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "candidate_id": "3.27_lacerate_duelist",
+      "candidate_label": "Lacerate Duelist",
+      "archetype_id": "lacerate_duelist",
+      "priority_score": 116,
+      "strict_verdict": "standard_only",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Lacerate Duelist\" \"3.27\" league starter",
+        "\"Path of Exile\" \"Lacerate Duelist\" \"Keepers of the Flame\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Lacerate Duelist\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Lacerate Duelist\" \"3.27\"",
+        "site:maxroll.gg \"Lacerate Duelist\" \"Path of Exile\"",
+        "site:poe-vault.com \"Lacerate Duelist\" \"Path of Exile\"",
+        "site:youtube.com \"Lacerate Duelist\" \"3.27\" \"PoB\"",
+        "site:pobarchives.com \"Lacerate Duelist\" \"3.27\"",
+        "\"lacerate duelist\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_local_trace_only"
+      ]
+    },
+    {
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "candidate_id": "3.27_toxic_rain_pathfinder",
+      "candidate_label": "Toxic Rain Pathfinder",
+      "archetype_id": "toxic_rain_pathfinder",
+      "priority_score": 116,
+      "strict_verdict": "standard_only",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Toxic Rain Pathfinder\" \"3.27\" league starter",
+        "\"Path of Exile\" \"Toxic Rain Pathfinder\" \"Keepers of the Flame\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Toxic Rain Pathfinder\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Toxic Rain Pathfinder\" \"3.27\"",
+        "site:maxroll.gg \"Toxic Rain Pathfinder\" \"Path of Exile\"",
+        "site:poe-vault.com \"Toxic Rain Pathfinder\" \"Path of Exile\"",
+        "site:youtube.com \"Toxic Rain Pathfinder\" \"3.27\" \"PoB\"",
+        "site:pobarchives.com \"Toxic Rain Pathfinder\" \"3.27\"",
+        "\"toxic rain pathfinder\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_local_trace_only"
+      ]
+    },
+    {
+      "patch": "3.23",
+      "league_name": "Affliction",
+      "candidate_id": "3.23_shockwave_totems_hierophant",
+      "candidate_label": "Shockwave Totems Hierophant",
+      "archetype_id": "shockwave_totems_hierophant",
+      "priority_score": 116,
+      "strict_verdict": "provisional_external_gap",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Shockwave Totems Hierophant\" \"3.23\" league starter",
+        "\"Path of Exile\" \"Shockwave Totems Hierophant\" \"Affliction\" starter build",
+        "site:pathofexile.com/forum/view-thread \"Shockwave Totems Hierophant\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Shockwave Totems Hierophant\" \"3.23\"",
+        "site:maxroll.gg \"Shockwave Totems Hierophant\" \"Path of Exile\"",
+        "site:poe-vault.com \"Shockwave Totems Hierophant\" \"Path of Exile\"",
+        "site:youtube.com \"Shockwave Totems Hierophant\" \"3.23\" \"PoB\"",
+        "site:pobarchives.com \"Shockwave Totems Hierophant\" \"3.23\"",
+        "\"shockwave totems hierophant\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_source_only"
+      ]
+    },
+    {
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "candidate_id": "3.28_dominating_blow_guardian",
+      "candidate_label": "Dominating Blow Guardian",
+      "archetype_id": "dominating_blow_guardian",
+      "priority_score": 112,
+      "strict_verdict": "standard_only",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Dominating Blow Guardian\" \"3.28\" league starter",
+        "\"Path of Exile\" \"Dominating Blow Guardian\" \"Mirage\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Dominating Blow Guardian\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Dominating Blow Guardian\" \"3.28\"",
+        "site:maxroll.gg \"Dominating Blow Guardian\" \"Path of Exile\"",
+        "site:poe-vault.com \"Dominating Blow Guardian\" \"Path of Exile\"",
+        "site:youtube.com \"Dominating Blow Guardian\" \"3.28\" \"PoB\"",
+        "site:pobarchives.com \"Dominating Blow Guardian\" \"3.28\"",
+        "\"dominating blow guardian\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_context_only"
+      ]
+    },
+    {
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "candidate_id": "3.28_penance_brand_inquisitor",
+      "candidate_label": "Penance Brand Inquisitor",
+      "archetype_id": "penance_brand_inquisitor",
+      "priority_score": 112,
+      "strict_verdict": "standard_only",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "creator_guide"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "poe_vault",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "poe-vault.com",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Penance Brand Inquisitor\" \"3.28\" league starter",
+        "\"Path of Exile\" \"Penance Brand Inquisitor\" \"Mirage\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Penance Brand Inquisitor\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Penance Brand Inquisitor\" \"3.28\"",
+        "site:maxroll.gg \"Penance Brand Inquisitor\" \"Path of Exile\"",
+        "site:poe-vault.com \"Penance Brand Inquisitor\" \"Path of Exile\"",
+        "site:youtube.com \"Penance Brand Inquisitor\" \"3.28\" \"PoB\"",
+        "site:pobarchives.com \"Penance Brand Inquisitor\" \"3.28\"",
+        "\"penance brand inquisitor\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing creator_guide.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_context_only"
+      ]
+    },
+    {
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "candidate_id": "3.28_shock_nova_of_procession_hierophant",
+      "candidate_label": "Shock Nova of Procession Hierophant",
+      "archetype_id": "shock_nova_of_procession_hierophant",
+      "priority_score": 112,
+      "strict_verdict": "standard_only",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Shock Nova of Procession Hierophant\" \"3.28\" league starter",
+        "\"Path of Exile\" \"Shock Nova of Procession Hierophant\" \"Mirage\" build guide",
+        "site:pathofexile.com/forum/view-thread \"Shock Nova of Procession Hierophant\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Shock Nova of Procession Hierophant\" \"3.28\"",
+        "site:maxroll.gg \"Shock Nova of Procession Hierophant\" \"Path of Exile\"",
+        "site:poe-vault.com \"Shock Nova of Procession Hierophant\" \"Path of Exile\"",
+        "site:youtube.com \"Shock Nova of Procession Hierophant\" \"3.28\" \"PoB\"",
+        "site:pobarchives.com \"Shock Nova of Procession Hierophant\" \"3.28\"",
+        "\"shock nova of procession hierophant\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_context_only"
+      ]
+    },
+    {
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "candidate_id": "3.26_lightning_arrow_ranger",
+      "candidate_label": "Lightning Arrow Ranger",
+      "archetype_id": "lightning_arrow_deadeye",
+      "priority_score": 110,
+      "strict_verdict": "standard_only",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "poe_vault"
+      ],
+      "missing_target_families": [
+        "maxroll",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "maxroll.gg",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Lightning Arrow Ranger\" \"3.26\" league starter",
+        "\"Path of Exile\" \"Lightning Arrow Ranger\" \"Secrets of the Atlas\" starter build",
+        "site:pathofexile.com/forum/view-thread \"Lightning Arrow Ranger\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Lightning Arrow Ranger\" \"3.26\"",
+        "site:maxroll.gg \"Lightning Arrow Ranger\" \"Path of Exile\"",
+        "site:poe-vault.com \"Lightning Arrow Ranger\" \"Path of Exile\"",
+        "site:youtube.com \"Lightning Arrow Ranger\" \"3.26\" \"PoB\"",
+        "site:pobarchives.com \"Lightning Arrow Ranger\" \"3.26\"",
+        "\"lightning arrow ranger\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing poe_vault.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_local_trace_only"
+      ]
+    },
+    {
+      "patch": "3.22",
+      "league_name": "Trial of the Ancestors",
+      "candidate_id": "3.22_toxic_rain_ranger",
+      "candidate_label": "Toxic Rain Ranger",
+      "archetype_id": "toxic_rain_ranger",
+      "priority_score": 99,
+      "strict_verdict": "standard_only",
+      "next_step": "find_second_external_build_guide_source",
+      "existing_guide_source_families": [
+        "maxroll"
+      ],
+      "missing_target_families": [
+        "poe_vault",
+        "forum_build_guide",
+        "reddit_build_index",
+        "icy_veins",
+        "youtube",
+        "pob_archives"
+      ],
+      "preferred_domains": [
+        "poe-vault.com",
+        "pathofexile.com/forum/view-thread",
+        "reddit.com/r/pathofexile",
+        "icy-veins.com",
+        "youtube.com",
+        "pobarchives.com"
+      ],
+      "query_templates": [
+        "\"Path of Exile\" \"Toxic Rain Ranger\" \"3.22\" league starter",
+        "\"Path of Exile\" \"Toxic Rain Ranger\" \"Trial of the Ancestors\" build index",
+        "site:pathofexile.com/forum/view-thread \"Toxic Rain Ranger\" \"Path of Exile\"",
+        "site:reddit.com/r/pathofexile \"Toxic Rain Ranger\" \"3.22\"",
+        "site:maxroll.gg \"Toxic Rain Ranger\" \"Path of Exile\"",
+        "site:poe-vault.com \"Toxic Rain Ranger\" \"Path of Exile\"",
+        "site:youtube.com \"Toxic Rain Ranger\" \"3.22\" \"PoB\"",
+        "site:pobarchives.com \"Toxic Rain Ranger\" \"3.22\"",
+        "\"toxic rain ranger\" \"Path of Exile\" guide"
+      ],
+      "acceptance_rules": [
+        "New source must come from a guide family not already counted for this candidate.",
+        "Do not count local traces as the second external guide family.",
+        "Source should be attributable to one of: maxroll, poe-vault, forum guide thread, reddit build index/discussion, icy-veins, YouTube guide, PoB Archives, or a local creator guide DB."
+      ],
+      "stop_condition": "Add 1 new external build guide family that is different from existing maxroll.",
+      "blockers": [
+        "missing_second_external_build_guide",
+        "single_external_plus_local_trace_only"
+      ]
+    }
+  ],
+  "by_patch": [
+    {
+      "patch": "3.22",
+      "league_name": "Trial of the Ancestors",
+      "item_count": 2,
+      "top_candidates": [
+        "3.22_shockwave_totems_hierophant",
+        "3.22_toxic_rain_ranger"
+      ]
+    },
+    {
+      "patch": "3.23",
+      "league_name": "Affliction",
+      "item_count": 1,
+      "top_candidates": [
+        "3.23_shockwave_totems_hierophant"
+      ]
+    },
+    {
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "item_count": 1,
+      "top_candidates": [
+        "3.24_exsanguinate_mine_trickster"
+      ]
+    },
+    {
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "item_count": 5,
+      "top_candidates": [
+        "3.26_ball_lightning_caster",
+        "3.26_ice_nova_caster",
+        "3.26_boneshatter_juggernaut"
+      ]
+    },
+    {
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "item_count": 5,
+      "top_candidates": [
+        "3.27_ice_nova_caster",
+        "3.27_pyroclast_mine_saboteur",
+        "3.27_dominating_blow_guardian"
+      ]
+    },
+    {
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "item_count": 5,
+      "top_candidates": [
+        "3.28_kinetic_fusillade_of_detonation",
+        "3.28_cold_snap_of_power_hierophant",
+        "3.28_dominating_blow_guardian"
+      ]
+    }
+  ]
+}

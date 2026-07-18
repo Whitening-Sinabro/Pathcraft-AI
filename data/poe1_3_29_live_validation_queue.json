@@ -1,0 +1,237 @@
+{
+  "dataset_kind": "poe1_3_29_live_validation_queue",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-17",
+  "patch": "3.29",
+  "league": "Curse of the Allflame",
+  "status": "pre_launch_queue",
+  "launch_window": "2026-07-24 PDT",
+  "purpose": "Concrete launch-week validation queue for promoting 3.29 watchlist ideas into PathcraftAI recommendations.",
+  "source_context": [
+    "data/poe1_3_29_global_review.json",
+    "data/patch_notes/poe1_3_27_3_29_patch_history_context.json",
+    "data/poe1_season_research_3_29_allflame_live.json",
+    "data/poe1_season_research_3_29_reliquarian.json",
+    "data/poe1_reliquarian_build_shells_3_29.json",
+    "data/poe1_3_29_luminary_merc_link_intake_v1.json"
+  ],
+  "promotion_rules": [
+    "No build branch can be promoted from watchlist to recommendation until GGPK or PoB confirms its 3.29 mechanics.",
+    "No farming branch can be promoted until map-time, failure-rate, and reward-output measurements exist.",
+    "Scion branches must stay separated: Ascendant, Reliquarian, and Luminary are not interchangeable.",
+    "Mercenary setup must be modeled as separate state from player gem links.",
+    "Older 3.27/3.28 PoBs are practice sources until cumulative official patch history and current PoB/live checks show they still survive.",
+    "Trade economy observations must not overwrite SSF access advice."
+  ],
+  "validation_tracks": [
+    {
+      "id": "post_329_ggpk_extract",
+      "status": "blocked_until_launch_client",
+      "lens": "game_data_truth",
+      "required_inputs": [
+        "3.29 GGPK/client data",
+        "ActiveSkills",
+        "SkillGems",
+        "PassiveSkills",
+        "Ascendancy",
+        "Mods",
+        "BaseItemTypes",
+        "Scarabs",
+        "QuestRewards"
+      ],
+      "outputs": [
+        "refresh data/game_data/*.json",
+        "refresh data/poe1_gem_taxonomy.latest.json",
+        "derive 3.29 Pact gem tags and skill ids",
+        "derive Luminary and Reliquarian passive node ids",
+        "derive Mercenary/Trarthan item and scarab ids"
+      ],
+      "promotion_gate": "All new 3.29 skill/passive/item identifiers used by coach must resolve to post-3.29 GGPK/local data or be explicitly marked post_patch_extract_missing."
+    },
+    {
+      "id": "pob_support_probe",
+      "status": "blocked_until_pob_update",
+      "lens": "pob_mechanics_truth",
+      "required_inputs": [
+        "Path of Building community build supporting 3.29",
+        "sample PoBs for Pact skills",
+        "sample PoBs for Luminary Mercenary state if available",
+        "sample PoBs for Reliquarian unique-node branches"
+      ],
+      "outputs": [
+        "Pact of Ghorr/Lycia/K'tash/Beidat parse checks",
+        "Crystalfall support eligibility checks",
+        "Reap of Butchery parse checks",
+        "Reliquarian branch damage/defense snapshots",
+        "Luminary/Mercenary modeling capability notes"
+      ],
+      "promotion_gate": "A build branch must have at least one parseable PoB or a documented PoB limitation before it can be explained as more than a watchlist."
+    },
+    {
+      "id": "allflame_loop_measurement",
+      "status": "blocked_until_launch",
+      "lens": "league_loop_rewards",
+      "required_inputs": [
+        "Chart drop frequency",
+        "Voyage completion time",
+        "Ducat acquisition rate",
+        "Allflame crafting outcomes",
+        "death/failure rate by build archetype"
+      ],
+      "outputs": [
+        "chart_per_hour",
+        "ducats_per_hour",
+        "voyage_reward_profile",
+        "danger_tags",
+        "recommended_build_safety_floor"
+      ],
+      "promotion_gate": "Allflame farming advice needs at least 10 measured runs or a clearly labeled anecdotal status."
+    },
+    {
+      "id": "mercenary_modeling",
+      "status": "blocked_until_launch",
+      "lens": "ally_state_and_economy",
+      "required_inputs": [
+        "Mercenary class list",
+        "Mercenary skill list",
+        "equipment restrictions",
+        "unique-equipment behavior under Luminary",
+        "Luminary link-skill node names and point pathing",
+        "link death drawback behavior with Mercenaries",
+        "Hallowed Monarch current item text and linked-target behavior",
+        "Trarthan Gem acquisition",
+        "Trarthan Scarab effects",
+        "Mercenary survivability in maps and bosses"
+      ],
+      "outputs": [
+        "active_mercenary_schema",
+        "reserve_mercenary_schema",
+        "mercenary_role_tags",
+        "mercenary_item_pressure",
+        "Luminary link-shell scorecards",
+        "Hallowed Monarch mandatory/optional/trap classification",
+        "Trarthan economy watchlist"
+      ],
+      "promotion_gate": "Luminary recommendations must show player build and Mercenary setup as separate sections."
+    },
+    {
+      "id": "scion_branch_validation",
+      "status": "open_prelaunch",
+      "lens": "ascendancy_branch_separation",
+      "required_inputs": [
+        "Ascendant baseline PoB",
+        "Reliquarian branch PoBs",
+        "Luminary branch PoBs",
+        "tree pathing cost",
+        "ascendancy point pressure"
+      ],
+      "outputs": [
+        "Ascendant baseline comparison",
+        "Reliquarian branch scorecards",
+        "Luminary Mercenary scorecards",
+        "branch_non_merge_guardrail"
+      ],
+      "promotion_gate": "A Scion answer must identify the branch before giving build advice."
+    },
+    {
+      "id": "socket_crafting_and_filter_update",
+      "status": "open_prelaunch",
+      "lens": "gear_access_and_filtering",
+      "required_inputs": [
+        "non-white socket drop frequency",
+        "Chromatic Orb availability",
+        "quality bonus value by gem colour match",
+        "filter rules for valuable socket states",
+        "crafting bench non-white socket costs"
+      ],
+      "outputs": [
+        "socket_color_advice",
+        "filter_rule_update_notes",
+        "early_gear_cost_model",
+        "SSF_socket_strategy"
+      ],
+      "promotion_gate": "Coach must stop using old off-colour advice without the 3.29 socket caveat."
+    },
+    {
+      "id": "atlas_legion_scrying_refresh",
+      "status": "blocked_until_launch",
+      "lens": "atlas_and_endgame_rewards",
+      "required_inputs": [
+        "Scrying Orb drop observations",
+        "Altered Prophecy cluster value",
+        "Legion Timeless Splinter distribution",
+        "Mercenary Atlas passive values",
+        "Trarthan Scarab market/access"
+      ],
+      "outputs": [
+        "early_atlas_refresh_notes",
+        "legion_reward_source_model",
+        "scrying_orb_routing_model",
+        "mercenary_atlas_branch_notes"
+      ],
+      "promotion_gate": "Atlas advice must distinguish progression, low-invest mapping, and measured high-invest strategies."
+    },
+    {
+      "id": "build_archetype_watchlist",
+      "status": "open_prelaunch",
+      "lens": "build_candidates",
+      "required_inputs": [
+        "chaos DoT/channeling PoBs",
+        "Vaal spell PoBs",
+        "slam/Crystalfall PoBs",
+        "staff/block spell PoBs",
+        "Scion Luminary PoBs",
+        "Scion Reliquarian PoBs"
+      ],
+      "outputs": [
+        "Blight of Contagion retest result",
+        "Reap of Butchery scorecard",
+        "Pact skill scorecards",
+        "Crystalfall slam scorecard",
+        "Luminary Mercenary scorecard",
+        "Reliquarian unique-node scorecards"
+      ],
+      "promotion_gate": "Each archetype needs at least one pass/fail reason grounded in PoB or measured play before coach recommends it."
+    },
+    {
+      "id": "new_player_explanation_pack",
+      "status": "open_prelaunch",
+      "lens": "beginner_friction",
+      "required_inputs": [
+        "Scion branch explanation",
+        "Bloodline point-cost explanation",
+        "Mercenary setup explanation",
+        "socket colour explanation",
+        "Allflame Chart/Voyage/Ducat explanation"
+      ],
+      "outputs": [
+        "short_ko_explanations",
+        "UI field requirements",
+        "coach_prompt guardrails"
+      ],
+      "promotion_gate": "Beginner output must describe one next action and must not expose raw research jargon."
+    }
+  ],
+  "measurement_schema": {
+    "run_sample": {
+      "patch": "3.29",
+      "build_id": "",
+      "branch": "ascendant|reliquarian|luminary|non_scion",
+      "map_tier": "",
+      "map_mods": [],
+      "mechanic": "",
+      "duration_seconds": 0,
+      "deaths": 0,
+      "notable_rewards": [],
+      "failure_reason": ""
+    },
+    "economy_sample": {
+      "timestamp": "",
+      "league": "Curse of the Allflame",
+      "item": "",
+      "price_chaos": null,
+      "source": "",
+      "confidence": "manual|trade_api|community_report"
+    }
+  }
+}

@@ -1,0 +1,816 @@
+{
+  "dataset_kind": "poe1_reliquarian_build_shell_research",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-16",
+  "league_patch": "3.29",
+  "status": "community_shell_research_from_user_transcript",
+  "source": {
+    "id": "broy_reliquarian_shells_transcript",
+    "type": "user_provided_video_transcript",
+    "title": "New Reliquarian Nodes are SO MUCH BETTER Than Last League! | PoE 3.29 Build Shells",
+    "usage": "Community shell ideas and risk framing. Treat as opinion until patch notes, PoB data, and in-game node behavior confirm it."
+  },
+  "global_constraints": [
+    {
+      "id": "reliquarian_not_normal_lab_points",
+      "claim": "Reliquarian does not simply award normal ascendancy points in the same way as regular lab progression.",
+      "coach_action": "Avoid presenting first/second/third/fourth lab order as guaranteed until the final Reliquarian UI and point rules are confirmed."
+    },
+    {
+      "id": "branch_pathing_matters",
+      "claim": "Node choices are path and point constrained, so build shells should not freely combine top, bottom, left, and right clusters.",
+      "coach_action": "Recommend one primary shell path, then list optional defensive cross-path tests only when point cost is explicit."
+    },
+    {
+      "id": "top_not_direct_from_center",
+      "claim": "The top cluster should not be treated as directly reachable from the center. Current image reading indicates the build must route through the 9 o'clock or 3 o'clock side first.",
+      "coach_action": "For Arakaali, Black Cane, Xirgil, Shimmeron, Sands of Time, or Femurs shells, require an explicit left-entry or right-entry path before recommending the top cluster."
+    },
+    {
+      "id": "cross_path_shells_are_not_free",
+      "claim": "Combining a left defensive shell such as Dawnbreaker with a top offensive shell such as Arakaali is a cross-path plan, not a default combined shell.",
+      "coach_action": "Do not recommend Dawnbreaker plus Arakaali as the core plan unless the final tree confirms enough points and pathing efficiency."
+    },
+    {
+      "id": "triggered_node_supportability_unknown",
+      "claim": "Reliquarian-granted triggered skills such as Molten Burst and Raise Spiders may not behave like socketed item skills for support gem scaling.",
+      "coach_action": "Mark support scaling as verify_in_pob_or_game before using it as main DPS."
+    }
+  ],
+  "shells": [
+    {
+      "id": "dawnbreaker_fire_conversion_defense",
+      "primary_nodes": [
+        "Dawnbreaker"
+      ],
+      "cluster_hint": "left_defense",
+      "entry_path": {
+        "primary_entry": "left_9_oclock",
+        "direct_from_center": true,
+        "requires_prior_side_path": false,
+        "cross_path_warning": "If paired with top cluster Arakaali or Black Cane, this becomes a left-to-top cross-path plan and must be point-checked."
+      },
+      "role": "defensive_shell",
+      "priority": "very_high",
+      "summary": "Converts large portions of cold, lightning, and physical damage taken into fire damage, making one high maximum fire resistance plan extremely attractive.",
+      "enablers_to_test": [
+        "actual Dawnbreaker shield",
+        "Tempered by War",
+        "Purity of Fire maximum resistance scaling",
+        "fire resistance overcap",
+        "Watcher's Eye or other final 5 percent conversion sources if needed"
+      ],
+      "good_for": [
+        "bossing",
+        "hardcore-style defense",
+        "Guardian map safety",
+        "Delve/Fossil safety"
+      ],
+      "risks": [
+        "May compete with Melding defensive shell instead of stacking cleanly with it.",
+        "Requires careful fire resistance and maximum fire resistance planning.",
+        "Does not solve damage by itself."
+      ],
+      "coach_tags": [
+        "defense_first",
+        "damage_taken_as_fire",
+        "max_fire_res",
+        "guardian_candidate",
+        "delve_candidate"
+      ]
+    },
+    {
+      "id": "elevore_league_start_defense",
+      "primary_nodes": [
+        "Elevore"
+      ],
+      "cluster_hint": "left_defense",
+      "entry_path": {
+        "primary_entry": "left_9_oclock",
+        "direct_from_center": true,
+        "requires_prior_side_path": false
+      },
+      "role": "defensive_start_shell",
+      "priority": "high",
+      "summary": "Spell suppression, ailment avoidance, and life recovered on suppressed spell hits can carry builds that normally struggle to access suppression.",
+      "good_for": [
+        "league start defense",
+        "top-side casters",
+        "Templar or Marauder shells lacking suppression",
+        "small repeated spell hit encounters"
+      ],
+      "risks": [
+        "Only works against suppressed spell hits.",
+        "Needs remaining suppression and ailment avoidance solved through gear/tree."
+      ],
+      "coach_tags": [
+        "suppression",
+        "ailment_avoidance",
+        "recover_on_suppress",
+        "starter_defense"
+      ]
+    },
+    {
+      "id": "apostate_life_stacking_shell",
+      "primary_nodes": [
+        "The Apostate"
+      ],
+      "cluster_hint": "left_defense",
+      "entry_path": {
+        "primary_entry": "left_9_oclock",
+        "direct_from_center": true,
+        "requires_prior_side_path": false,
+        "cross_path_warning": "This is a left-entry life-stacking shell. Do not assume it also reaches top Arakaali or Black Cane without point-checking the left-to-top route."
+      },
+      "role": "life_stacking_shell",
+      "priority": "medium_high",
+      "summary": "Converts Energy Shield from equipped armour items into maximum Life, but pays a large level-scaling life penalty and removes Energy Shield as a defensive pool.",
+      "candidate_skills": [
+        "Rathpith Globe spell shells",
+        "Rathpith Globe plus Crown of Eyes attack conversion shells",
+        "life-scaling spell builds",
+        "Blood Magic or life-as-resource variants",
+        "Dark Pact or Relic-style life scaling if patch data supports them"
+      ],
+      "enablers_to_test": [
+        "high Energy Shield body armour, helmet, gloves, boots, and possibly shield if the final wording includes shields",
+        "Rathpith Globe if using maximum Life to scale spell damage or spell critical strike chance",
+        "Crown of Eyes only if converting spell damage into attack damage",
+        "Dissolution of the Flesh or other life-loss mitigation only if the final build supports that playstyle",
+        "strong life recovery, recoup, leech, or regen"
+      ],
+      "breakpoints": [
+        "At level 90, the node's -12 Life per level penalty is -1080 maximum Life.",
+        "At level 100, the node's -12 Life per level penalty is -1200 maximum Life.",
+        "The shell only becomes attractive if Energy Shield gained from equipped armour items exceeds that penalty by enough to justify losing Energy Shield."
+      ],
+      "risks": [
+        "High ES armour pieces can create suffix and attribute pressure while the build still needs resistances and recovery.",
+        "Removing all Energy Shield makes hybrid ES recovery, Ghost Dance, and normal ES buffer plans unavailable.",
+        "If the damage engine does not scale from maximum Life, this may be only an expensive defense shell.",
+        "Rathpith-style versions must handle life sacrifice or life reservation mechanics during T16 mapping."
+      ],
+      "coach_tags": [
+        "life_stacking",
+        "energy_shield_to_life",
+        "left_entry",
+        "rathpith_candidate",
+        "recovery_required",
+        "t16_math_required"
+      ]
+    },
+    {
+      "id": "arakaali_poison_attack_shell",
+      "primary_nodes": [
+        "Arakaali's Fang"
+      ],
+      "cluster_hint": "top_caster_minion",
+      "entry_path": {
+        "primary_entry": "top_via_left_or_right",
+        "direct_from_center": false,
+        "requires_prior_side_path": true,
+        "allowed_prior_paths": [
+          "left_9_oclock",
+          "right_3_oclock"
+        ],
+        "pathing_note": "Do not assume this can be opened directly from the center; choose a 9 o'clock or 3 o'clock route first."
+      },
+      "role": "poison_attack_shell",
+      "priority": "very_high",
+      "summary": "Triggered Raise Spiders can be used as a poison damage and attack speed engine for attack builds if spider uptime is solved.",
+      "candidate_skills": [
+        "Lightning Strike",
+        "Molten Strike",
+        "Cobra Lash",
+        "Poisonous Concoction",
+        "other pneumatic dagger elemental-to-poison attacks"
+      ],
+      "enablers_to_test": [
+        "Pneumatic Dagger",
+        "The Writhing Jar-style worm flask for boss spider startup",
+        "Dark Monarch-style spider count scaling if available",
+        "poison chance and wither uptime"
+      ],
+      "risks": [
+        "Requires kills or spawned worms to create spiders on bosses.",
+        "Has ramp-up time.",
+        "Ascendancy-triggered Raise Spiders support scaling must be verified."
+      ],
+      "coach_tags": [
+        "poison",
+        "attack_speed",
+        "on_kill_trigger",
+        "boss_startup_required",
+        "not_hot_autobomber"
+      ]
+    },
+    {
+      "id": "black_cane_phantasmal_might_spell_shell",
+      "primary_nodes": [
+        "The Black Cane"
+      ],
+      "cluster_hint": "top_caster_minion",
+      "entry_path": {
+        "primary_entry": "top_via_left_or_right",
+        "direct_from_center": false,
+        "requires_prior_side_path": true,
+        "allowed_prior_paths": [
+          "left_9_oclock",
+          "right_3_oclock"
+        ],
+        "pathing_note": "Do not assume this can be opened directly from the center; choose a 9 o'clock or 3 o'clock route first."
+      },
+      "role": "physical_spell_shell",
+      "priority": "very_high",
+      "summary": "Phantasmal Might adds flat physical damage to spells per summoned phantasm, pushing physical spell hit builds rather than pure minions.",
+      "candidate_skills": [
+        "Ethereal Knives",
+        "Bladefall",
+        "Blade Blast",
+        "Divine Ire",
+        "physical spell hit variants"
+      ],
+      "enablers_to_test": [
+        "Summon Phantasm Support",
+        "Soulwrest-style phantasm uptime",
+        "Dark Monarch-style phantasm count scaling if available",
+        "conversion or added-as-extra scaling"
+      ],
+      "risks": [
+        "Phantasm uptime and count are the real build gate.",
+        "May lose too much by giving up a rare weapon and shield.",
+        "Needs patch notes to confirm spell buffs or final skill choices."
+      ],
+      "coach_tags": [
+        "spell",
+        "physical_spell",
+        "phantasm",
+        "flat_added_damage",
+        "research_lab_candidate"
+      ]
+    },
+    {
+      "id": "xirgils_crank_block_recharge_shell",
+      "primary_nodes": [
+        "Xirgil's Crank"
+      ],
+      "cluster_hint": "top_caster_minion",
+      "entry_path": {
+        "primary_entry": "top_via_left_or_right",
+        "direct_from_center": false,
+        "requires_prior_side_path": true,
+        "allowed_prior_paths": [
+          "left_9_oclock",
+          "right_3_oclock"
+        ],
+        "pathing_note": "Top cluster path must be paid through a side route first."
+      },
+      "role": "es_block_defense_shell",
+      "priority": "high",
+      "summary": "Block-triggered energy shield recharge can become a major recovery layer with max block and Wicked Ward-style recharge protection.",
+      "enablers_to_test": [
+        "max block tree",
+        "spell block",
+        "Wicked Ward",
+        "energy shield recharge rate"
+      ],
+      "risks": [
+        "Best on top-side block/ES trees.",
+        "Damage skill is still undecided."
+      ],
+      "coach_tags": [
+        "block",
+        "energy_shield",
+        "wicked_ward",
+        "defense_engine"
+      ]
+    },
+    {
+      "id": "gloomfang_chain_projectile_shell",
+      "primary_nodes": [
+        "Gloomfang"
+      ],
+      "cluster_hint": "right_jewelry",
+      "entry_path": {
+        "primary_entry": "right_3_oclock",
+        "direct_from_center": true,
+        "requires_prior_side_path": false,
+        "cross_path_warning": "If paired with top cluster Arakaali or Black Cane, this is the right-entry route into top and must be point-checked."
+      },
+      "role": "chain_projectile_shell",
+      "priority": "medium_high",
+      "summary": "Extra chain and non-chaos as extra chaos reward projectile builds that naturally chain.",
+      "candidate_skills": [
+        "Rolling Magma",
+        "Cobra Lash",
+        "Lightning Arrow",
+        "wand projectile skills",
+        "other chain projectiles"
+      ],
+      "risks": [
+        "Good mapper shell, but single target and defenses must be solved.",
+        "Deadeye remains the natural baseline for many bow/projectile versions."
+      ],
+      "coach_tags": [
+        "projectile",
+        "chain",
+        "extra_chaos",
+        "mapper"
+      ]
+    },
+    {
+      "id": "melding_max_res_defense_shell",
+      "primary_nodes": [
+        "Melding of the Flesh"
+      ],
+      "cluster_hint": "right_jewelry",
+      "entry_path": {
+        "primary_entry": "right_3_oclock",
+        "direct_from_center": true,
+        "requires_prior_side_path": false
+      },
+      "role": "max_res_defense_shell",
+      "priority": "high",
+      "summary": "Melding without the normal large all-resistance penalty is a strong tank shell, especially if one maximum elemental resistance can be pushed high.",
+      "risks": [
+        "Usually choose this as an alternative defensive plan to Dawnbreaker full fire conversion, not an automatic stack.",
+        "Requires one high maximum resistance plan."
+      ],
+      "coach_tags": [
+        "max_res",
+        "defense_engine",
+        "alternative_to_dawnbreaker"
+      ]
+    },
+    {
+      "id": "fidelitas_attack_herald_shock_shell",
+      "primary_nodes": [
+        "Fidelitas' Spike"
+      ],
+      "cluster_hint": "bottom_attack",
+      "entry_path": {
+        "primary_entry": "bottom_6_oclock",
+        "direct_from_center": true,
+        "requires_prior_side_path": false,
+        "cross_path_warning": "Treat this as a separate bottom route unless the final tree proves efficient access to side or top clusters."
+      },
+      "role": "attack_herald_shock_shell",
+      "priority": "medium_high",
+      "summary": "Best viewed as a shock and Herald support package for attack builds, not as proof that pure Herald of Thunder autobomber is solved.",
+      "candidate_skills": [
+        "elemental attack builds",
+        "converted physical attack builds",
+        "possibly Static Strike carrier variants"
+      ],
+      "enablers_to_test": [
+        "full physical-to-elemental conversion if the skill has physical damage",
+        "Herald of Thunder reservation with supports",
+        "shock effect scaling",
+        "separate HoT autobomber startup and spread package if using HoT as main damage"
+      ],
+      "risks": [
+        "Deal no Physical Damage is a real build constraint.",
+        "100% reservation efficiency halves reservation; it does not make Herald of Thunder free.",
+        "Do not assume Hits always Shock overrides Herald of Thunder's own shock restriction without in-game verification."
+      ],
+      "coach_tags": [
+        "shock",
+        "herald",
+        "attack_shell",
+        "conversion_required",
+        "hot_autobomber_unproven"
+      ]
+    },
+    {
+      "id": "ngamahus_molten_burst_attack_shell",
+      "primary_nodes": [
+        "Ngamahu's Flame"
+      ],
+      "cluster_hint": "bottom_attack",
+      "entry_path": {
+        "primary_entry": "bottom_6_oclock",
+        "direct_from_center": true,
+        "requires_prior_side_path": false
+      },
+      "role": "melee_trigger_shell",
+      "priority": "medium",
+      "summary": "Melee hits can trigger Level 20 Molten Burst and gain fire penetration, but the trigger may be supplemental if support gem scaling is unavailable.",
+      "candidate_skills": [
+        "Molten Strike",
+        "Static Strike",
+        "other fast melee hit skills"
+      ],
+      "risks": [
+        "Reliquarian-granted Molten Burst likely cannot be socket-supported like the axe version.",
+        "Cooldown and projectile scaling must be checked.",
+        "May not justify the whole path by itself."
+      ],
+      "coach_tags": [
+        "melee",
+        "trigger",
+        "molten_burst",
+        "supportability_verify"
+      ]
+    },
+    {
+      "id": "al_dhih_warcry_explode_niche",
+      "primary_nodes": [
+        "Al Dhih"
+      ],
+      "cluster_hint": "bottom_attack",
+      "entry_path": {
+        "primary_entry": "bottom_6_oclock",
+        "direct_from_center": true,
+        "requires_prior_side_path": false
+      },
+      "role": "warcry_explode_niche",
+      "priority": "low_medium",
+      "summary": "Explosions require enemies taunted by warcries, so this is not a walking autobomber engine by default.",
+      "enablers_to_test": [
+        "warcry automation or comfortable manual warcry rhythm",
+        "poison scaling from chaos explosion damage",
+        "boss add or worm setup if trying boss explosions"
+      ],
+      "risks": [
+        "Warcry requirement breaks simple autobomber feel.",
+        "Explosion condition and boss usefulness are narrow.",
+        "Do not confuse this with Obliteration-style kill explosions."
+      ],
+      "coach_tags": [
+        "warcry_required",
+        "conditional_explode",
+        "not_autobomber_core",
+        "poison_possible"
+      ]
+    },
+    {
+      "id": "sacred_chalice_phys_as_extra_flask_shell",
+      "primary_nodes": [
+        "The Sacred Chalice"
+      ],
+      "cluster_hint": "bottom_attack",
+      "entry_path": {
+        "primary_entry": "bottom_6_oclock",
+        "direct_from_center": true,
+        "requires_prior_side_path": false
+      },
+      "role": "phys_as_extra_flask_damage_shell",
+      "priority": "medium_high",
+      "summary": "Physical damage builds can gain large extra elemental damage if Ruby, Sapphire, and Topaz flask uptime is solved.",
+      "candidate_skills": [
+        "physical slams",
+        "Bladefall",
+        "Blade Blast",
+        "Divine Ire",
+        "physical spell variants"
+      ],
+      "enablers_to_test": [
+        "The Traitor",
+        "Tides of Time",
+        "high flask sustain",
+        "critical strike flask charge generation"
+      ],
+      "risks": [
+        "Requires three elemental flask slots or equivalent uptime.",
+        "Competes with other bottom path attack nodes.",
+        "Physical base damage must be high enough."
+      ],
+      "coach_tags": [
+        "phys_as_extra",
+        "flask_sustain",
+        "physical_spell",
+        "slam_candidate"
+      ]
+    },
+    {
+      "id": "ahns_might_zero_frenzy_crit_shell",
+      "primary_nodes": [
+        "Ahn's Might"
+      ],
+      "cluster_hint": "bottom_attack",
+      "entry_path": {
+        "primary_entry": "bottom_6_oclock",
+        "direct_from_center": true,
+        "requires_prior_side_path": false
+      },
+      "role": "zero_frenzy_crit_shell",
+      "priority": "medium",
+      "summary": "Reducing maximum frenzy charges to zero can keep the no-frenzy critical multiplier condition always active.",
+      "enablers_to_test": [
+        "Pacifism jewels",
+        "critical strike scaling",
+        "accuracy stacking if relevant"
+      ],
+      "risks": [
+        "Jewel socket opportunity cost.",
+        "Only a damage stat shell, not a complete build."
+      ],
+      "coach_tags": [
+        "crit_multi",
+        "zero_frenzy",
+        "accuracy"
+      ]
+    }
+  ],
+  "autobomber_relevance": {
+    "hot_autobomber_verdict": "Fidelitas' Spike keeps Herald of Thunder interesting, but the video transcript supports treating it as an attack/herald shock shell first. A pure HoT autobomber still needs independent startup, shock spread, Storm Secret self-damage sustain, and boss single-target validation.",
+    "warcry_explode_verdict": "Al Dhih is not a core autobomber engine because it is warcry-gated and warcry taunt is mandatory.",
+    "stronger_current_shells_to_compare_against": [
+      "dawnbreaker_fire_conversion_defense",
+      "arakaali_poison_attack_shell",
+      "black_cane_phantasmal_might_spell_shell",
+      "xirgils_crank_block_recharge_shell"
+    ]
+  },
+  "t16_average_mapping_lens": {
+    "purpose": "Evaluate Reliquarian shells by average T16 mapping behavior, not by isolated node text.",
+    "baseline_assumption": "Average T16 means alched rare maps with normal rare monster pressure, map boss present, common dangerous map mods filtered, and no expensive final gear unless explicitly listed.",
+    "required_inputs": [
+      "passive_tree_state",
+      "item_state",
+      "map_mod_policy",
+      "player_operation_load",
+      "single_target_patch",
+      "recovery_and_ailment_state"
+    ],
+    "evaluation_metrics": [
+      {
+        "id": "clear_flow",
+        "question": "Does the build keep killing while moving, or does it stop frequently to set up?",
+        "t16_fail_signal": "Clear depends on manual setup every pack or loses uptime against tanky rares."
+      },
+      {
+        "id": "rare_and_map_boss_time",
+        "question": "Can the build kill T16 rares and map bosses without the mapping engine falling off?",
+        "t16_fail_signal": "Map clear is fast but rares or bosses require a separate unsupported skill that is too weak."
+      },
+      {
+        "id": "defense_under_noise",
+        "question": "Does the defensive shell handle many small hits, degens, ailments, and occasional large hits?",
+        "t16_fail_signal": "The build looks good in PoB but dies when recovery, suppression, ailment immunity, or max resistance is incomplete."
+      },
+      {
+        "id": "map_mod_tolerance",
+        "question": "How many common T16 map mods must be avoided?",
+        "t16_fail_signal": "The build bricks on reflect, less recovery, no regen, reduced aura effect, or ailment avoidance without clear regex rules."
+      },
+      {
+        "id": "gear_dependency",
+        "question": "Are the required uniques and rares realistic before the build is expected to farm T16?",
+        "t16_fail_signal": "The shell requires multiple contested uniques or rare suffix pressure before it can safely enter red maps."
+      },
+      {
+        "id": "operation_load",
+        "question": "How much button timing is required during normal T16 mapping?",
+        "t16_fail_signal": "The build only works if the player keeps multiple temporary buffs, warcries, flask states, or spawn setups perfectly aligned."
+      }
+    ],
+    "shell_specific_t16_gates": [
+      {
+        "shell_id": "dawnbreaker_fire_conversion_defense",
+        "passive_tree_gate": "Needs maximum fire resistance and fire resistance planning; otherwise conversion alone is not enough.",
+        "item_gate": "Actual Dawnbreaker, Tempered by War, Purity of Fire, or equivalent conversion/max-res layers change the result heavily.",
+        "t16_note": "Strong defensive base for T16, but it does not supply damage or clear speed."
+      },
+      {
+        "shell_id": "apostate_life_stacking_shell",
+        "passive_tree_gate": "Needs enough maximum Life scaling and recovery to make the ES-to-Life conversion worthwhile after the -12 Life per level penalty.",
+        "item_gate": "Requires high Energy Shield armour items and usually a life-scaling payoff such as Rathpith Globe or a life-as-resource damage engine.",
+        "t16_note": "Promising if the build converts a large ES gear budget into both EHP and damage; weak if it is only a larger life pool with no damage payoff."
+      },
+      {
+        "shell_id": "arakaali_poison_attack_shell",
+        "passive_tree_gate": "Needs poison scaling, attack speed, wither or chaos amplification, and enough life/defense because the top path itself is not a full defense plan.",
+        "item_gate": "Pneumatic Dagger and boss spider startup tools are build-defining; without them T16 bosses and tanky rares can stall.",
+        "t16_note": "Promising if spider uptime and poison attack scaling are solved; weak if the build cannot create spiders during single target."
+      },
+      {
+        "shell_id": "black_cane_phantasmal_might_spell_shell",
+        "passive_tree_gate": "Needs physical spell scaling, cast speed, conversion or added-as-extra scaling, and a defense package compatible with the chosen entry path.",
+        "item_gate": "Phantasm count and uptime are mandatory; without them Black Cane is only a partial damage idea.",
+        "t16_note": "Can become a real T16 spell shell only if phantasms stay up during rares and bosses."
+      },
+      {
+        "shell_id": "fidelitas_attack_herald_shock_shell",
+        "passive_tree_gate": "Needs conversion if using physical attacks, shock effect, and a separate single-target plan if Herald of Thunder is treated as damage.",
+        "item_gate": "Pure HoT autobomber versions depend on Storm Secret, shock spread, recovery, and resistance pressure.",
+        "t16_note": "Treat as attack shock/herald support first; do not assume it clears average T16 as a self-contained HoT autobomber."
+      },
+      {
+        "shell_id": "al_dhih_warcry_explode_niche",
+        "passive_tree_gate": "Needs warcry support, taunt coverage, and probably poison or explosion scaling.",
+        "item_gate": "Automation or comfortable manual warcry rhythm changes the mapping feel more than the node text suggests.",
+        "t16_note": "High operation load; not a default T16 walking autobomber."
+      },
+      {
+        "shell_id": "melding_max_res_defense_shell",
+        "passive_tree_gate": "Needs one maximum elemental resistance pushed high and enough resistance budget to make the cap meaningful.",
+        "item_gate": "Strongly depends on max-res sources and suffix pressure.",
+        "t16_note": "Excellent defensive idea only after the item/tree package exists."
+      }
+    ],
+    "coach_rule": "Before recommending a Reliquarian shell for average T16, state which passive tree gates and item gates are assumed. If those gates are missing, recommend a bridge build or fallback instead of the final shell."
+  },
+  "mod_readiness_lens": {
+    "status": "item_mod_candidate_query_available_shell_specific_partial",
+    "answer": "Raw game mods and an item-level candidate affix resolver exist, but Reliquarian shell-specific T16 required-affix scoring is still partial.",
+    "available_data_sources": [
+      {
+        "path": "python/ggpk_index.py#get_item_mod_candidates",
+        "coverage": "dynamic base item -> spawnable prefix/suffix mod candidates from BaseItemTypes + Mods",
+        "limitation": "Answers whether a mod can spawn on an item base; does not by itself decide whether that mod is good for a Reliquarian shell."
+      },
+      {
+        "path": "data/game_data/Mods.json",
+        "coverage": "raw GGG mod table",
+        "limitation": "Large raw table; requires item tag/domain resolution before it can answer base-specific affix questions."
+      },
+      {
+        "path": "data/defense_mod_tiers.json",
+        "coverage": "generic helmet/body/glove/boot/shield defense mod tiers",
+        "limitation": "Good for rare defense bases, but not enough to decide Dawnbreaker/Melding/Storm Secret shell completion."
+      },
+      {
+        "path": "data/weapon_mod_tiers.json",
+        "coverage": "generic weapon physical/attack tier buckets",
+        "limitation": "Not enough for Pneumatic Dagger poison attack, Black Cane spell, or Herald scaling decisions."
+      },
+      {
+        "path": "data/accessory_mod_tiers.json",
+        "coverage": "generic accessory mod tiers",
+        "limitation": "Needs shell-aware suffix pressure checks for resistance, attributes, chaos resistance, reservation, and unique ring/amulet slots."
+      },
+      {
+        "path": "data/poe_trade_korean.json",
+        "coverage": "trade stat and Korean stat text mapping",
+        "limitation": "Useful for search text, but not yet mapped to each Reliquarian shell's required affix checklist."
+      }
+    ],
+    "missing_work": [
+      "shell_id -> required item slots",
+      "shell_id -> mandatory unique item list",
+      "shell_id -> required rare affix groups",
+      "shell_id -> suffix pressure model",
+      "shell_id -> map mod brick list",
+      "shell_id -> T16 minimum mod thresholds",
+      "trade stat ids for each required affix where available"
+    ],
+    "common_t16_rare_affix_floor": {
+      "life_builds": [
+        "maximum life on most rare armour/accessory slots",
+        "capped elemental resistances after unique slots are equipped",
+        "positive chaos resistance target before sustained red/T16 mapping",
+        "movement speed on boots unless movement is fully solved elsewhere"
+      ],
+      "hybrid_or_es_builds": [
+        "energy shield or armour/energy shield base quality where relevant",
+        "stun solution or Presence of Chayula-style package",
+        "recovery plan that still works under T16 rare pressure"
+      ],
+      "ailment_and_recovery": [
+        "freeze/shock/ignite/bleed/corrupted blood plan",
+        "life or ES recovery that survives less recovery and no regen map filtering rules",
+        "suppression or max-res layer if the chosen shell claims defensive reliability"
+      ]
+    },
+    "shell_mod_requirements_draft": [
+      {
+        "shell_id": "dawnbreaker_fire_conversion_defense",
+        "mandatory_uniques_or_effects": [
+          "Reliquarian Dawnbreaker node",
+          "actual Dawnbreaker shield or equivalent conversion source if pushing full conversion",
+          "Tempered by War if using the fire-conversion stack"
+        ],
+        "rare_affix_groups": [
+          "high fire resistance and overcap",
+          "maximum fire resistance sources",
+          "life or armour/life on rare slots",
+          "chaos resistance because cold/lightning suffix pressure may be reduced but chaos remains unsolved"
+        ],
+        "map_mod_bricks_or_danger": [
+          "minus maximum resistances",
+          "reduced aura effect if Purity of Fire is part of the plan",
+          "less recovery if recovery is not independently solved"
+        ],
+        "coverage_status": "draft_needs_trade_stat_mapping"
+      },
+      {
+        "shell_id": "apostate_life_stacking_shell",
+        "mandatory_uniques_or_effects": [
+          "Reliquarian The Apostate node",
+          "high Energy Shield armour item package",
+          "Rathpith Globe only if using maximum Life as a spell damage or spell critical scaling engine",
+          "Crown of Eyes only if converting spell damage scaling into attack damage"
+        ],
+        "rare_affix_groups": [
+          "high Energy Shield prefixes on armour slots",
+          "maximum life where compatible",
+          "elemental resistance suffixes after unique slots",
+          "chaos resistance",
+          "attributes needed for high ES bases and gems",
+          "life recovery, recoup, leech, or regeneration"
+        ],
+        "map_mod_bricks_or_danger": [
+          "less recovery",
+          "no regeneration if regen is part of the life sustain plan",
+          "chaos damage pressure if chaos resistance is not solved",
+          "damage over time pressure because Energy Shield buffer is removed"
+        ],
+        "coverage_status": "draft_needs_life_scaling_breakpoint_model"
+      },
+      {
+        "shell_id": "arakaali_poison_attack_shell",
+        "mandatory_uniques_or_effects": [
+          "Reliquarian Arakaali's Fang node",
+          "Pneumatic Dagger or equivalent elemental-to-poison enabler if using elemental attacks",
+          "boss spider startup tool such as worm flask behavior if needed"
+        ],
+        "rare_affix_groups": [
+          "attack speed",
+          "poison chance or poison consistency",
+          "damage over time multiplier or chaos damage over time multiplier where available",
+          "accuracy or hit chance solution",
+          "life and resistance suffixes after unique/enabler slots"
+        ],
+        "map_mod_bricks_or_danger": [
+          "monsters avoid poison or ailment-like defensive mods if present in final map mod set",
+          "reduced recovery if sustain is weak",
+          "boss phases with no adds if spider startup is unsolved"
+        ],
+        "coverage_status": "draft_needs_mod_id_mapping"
+      },
+      {
+        "shell_id": "black_cane_phantasmal_might_spell_shell",
+        "mandatory_uniques_or_effects": [
+          "Reliquarian Black Cane node",
+          "Summon Phantasm uptime source",
+          "Soulwrest or equivalent phantasm scaling only if the final build chooses that route"
+        ],
+        "rare_affix_groups": [
+          "spell damage or physical spell scaling",
+          "cast speed",
+          "gem levels for the chosen physical spell if applicable",
+          "physical as extra elemental or chaos damage where applicable",
+          "life/ES/resistance suffixes"
+        ],
+        "map_mod_bricks_or_danger": [
+          "reduced recovery if ES/life recovery is incomplete",
+          "reduced aura effect if defense depends on aura stack",
+          "physical reflect or elemental reflect depending on final conversion"
+        ],
+        "coverage_status": "draft_needs_skill_specific_mod_split"
+      },
+      {
+        "shell_id": "fidelitas_attack_herald_shock_shell",
+        "mandatory_uniques_or_effects": [
+          "Reliquarian Fidelitas' Spike node",
+          "full physical-to-elemental conversion if the attack has physical base damage",
+          "Storm Secret only for pure Herald of Thunder autobomber variants"
+        ],
+        "rare_affix_groups": [
+          "elemental or lightning damage scaling",
+          "shock effect or ailment effect where useful",
+          "reservation efficiency if Herald of Thunder is supported heavily",
+          "life/resistance/chaos resistance after unique ring pressure",
+          "recovery or mitigation for Storm Secret self-damage if used"
+        ],
+        "map_mod_bricks_or_danger": [
+          "elemental reflect",
+          "less recovery or no regeneration if Storm Secret is used",
+          "monsters avoid elemental ailments if shock uptime is required",
+          "reduced aura effect if reservation/aura setup is tight"
+        ],
+        "coverage_status": "draft_needs_hot_specific_validation"
+      },
+      {
+        "shell_id": "al_dhih_warcry_explode_niche",
+        "mandatory_uniques_or_effects": [
+          "Reliquarian Al Dhih node",
+          "warcry taunt uptime"
+        ],
+        "rare_affix_groups": [
+          "warcry cooldown or automation support where available",
+          "chaos/poison scaling only if converting explosion into poison plan",
+          "defensive rares because the node itself does not solve survival"
+        ],
+        "map_mod_bricks_or_danger": [
+          "high operation load in dense T16 maps",
+          "bosses without reliable taunted adds",
+          "less recovery if the warcry shell is also relying on regen"
+        ],
+        "coverage_status": "draft_low_priority"
+      }
+    ],
+    "coach_rule": "If asked whether item-specific mod lookup exists, answer yes for spawnable prefix/suffix candidates via GGPKIndex.get_item_mod_candidates. If asked whether Reliquarian shell mod scoring is complete, answer no unless shell-specific rare affix groups have been mapped to concrete mod ids or trade stat ids."
+  },
+  "coach_rules": [
+    "When the user asks for a Scion Reliquarian build, compare shells before locking HoT.",
+    "Do not present Fidelitas' Spike as proof that Herald of Thunder can self-sustain shock or single-target.",
+    "Do not recommend Al Dhih for walking autobomber play unless the user accepts warcry-gated explosions.",
+    "For Guardian maps and Delve/Fossil goals, score Dawnbreaker or Melding defensive shells before offensive novelty.",
+    "For top cluster builds, test Arakaali poison attack and Black Cane physical spell shells as serious candidates, not side notes.",
+    "Never say the top cluster is directly reachable from the center; require a 9 o'clock or 3 o'clock entry path first.",
+    "For average T16 recommendations, evaluate passive tree gates, item gates, map mod tolerance, single-target patch, and operation load before ranking a shell.",
+    "Do not claim Reliquarian shell mod support is complete until shell-specific affix groups are mapped to concrete mod ids or trade stat ids."
+  ]
+}

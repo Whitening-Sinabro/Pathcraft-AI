@@ -1,0 +1,1371 @@
+{
+  "dataset_kind": "poe1_3_29_corpus_reuse_review",
+  "schema_version": "1.0",
+  "generated_at": "2026-07-17",
+  "patch": "3.29",
+  "league": "Curse of the Allflame",
+  "source_url": "https://www.pathofexile.com/forum/view-thread/3985332",
+  "source_context": [
+    "data/patch_notes/summary_3_29_0.json",
+    "data/patch_notes/poe1_3_29_0_patch_delta_index.json",
+    "data/patch_notes/poe1_3_27_3_29_patch_history_context.json",
+    "data/build_corpus_expanded_collection_queue_v1.json",
+    "data/build_corpus_manual_pob_sources_v1.json",
+    "data/poe1_representative_build_profiles.latest.json",
+    "data/poe1_3_29_luminary_merc_link_intake_v1.json"
+  ],
+  "review_policy": {
+    "intent": "Player-facing reuse judgement for already-collected POE1 build families. This is not a solved 3.29 tier list.",
+    "launch_state": "pre_launch_patch_notes_only",
+    "promotion_gate": "A family can be practiced from older/staged PoBs, but final 3.29 recommendation still needs 3.29 PoB or launch-week validation.",
+    "historical_patch_gate": "3.27 and 3.28 build families must pass later official patch notes, minor patches, and hotfix checks before moving above practice/provisional status.",
+    "poe2_scope": "excluded"
+  },
+  "label_legend": [
+    {
+      "label": "가능성 높음",
+      "meaning": "3.29 patch notes are neutral or favorable enough that the family is worth prioritizing for updated PoB/live validation."
+    },
+    {
+      "label": "연습해도 됨",
+      "meaning": "Core play pattern and leveling muscle memory should transfer, but do not assume exact 3.28 damage/gear numbers survive."
+    },
+    {
+      "label": "손봐야 가능",
+      "meaning": "The family has a direct support, ascendancy, passive, or item pressure change. It may survive, but old PoBs need edits."
+    },
+    {
+      "label": "구경만",
+      "meaning": "New, reshuffled, or under-modeled mechanics. Watch and collect PoBs before practicing seriously."
+    },
+    {
+      "label": "위험 신호",
+      "meaning": "Direct patch-note hit to the build engine or a known required mechanic. Use only as a test case until new evidence lands."
+    }
+  ],
+  "top_takeaways": [
+    "Non-Spectre minions, especially SRS, Zombies, Dominating Blow, and listed elemental/stone/chaos/lightning golems, are one of the best 3.29 practice targets.",
+    "Spectre-only builds need caution because 3.29 lowers the life of several monsters when used as Spectres.",
+    "Cold spell DoT/autobomber practice gained value because Cold Snap, Creeping Frost, and Vortex received favorable spell changes.",
+    "Totems and mines are not dead, but they are old-PoB-edit lanes because Spell Totem, Ballista Totem, Mine supports, Charged Mines, and Hierophant totem scaling changed.",
+    "Archmage spell builds remain worth practicing, but old mana-stack damage expectations must be recalculated because Archmage lost some unreserved-mana scaling while many spells changed cast time and mana cost.",
+    "Reliquarian shell ideas are still watchlist, not practice plans, because 3.29 reshuffles Reliquarian notables and Scion now splits into Ascendant, Reliquarian, and Luminary branches."
+  ],
+  "category_axes": [
+    "leveling_route",
+    "damage_delivery",
+    "damage_type_or_scaling",
+    "defense_package",
+    "input_pattern",
+    "mandatory_gate",
+    "patch_3_29_hook",
+    "practice_transfer_value",
+    "needs_current_pob_or_live_check"
+  ],
+  "category_matrix": [
+    {
+      "category_id": "leveling_routes",
+      "category_label": "레벨링 루트",
+      "purpose": "엔드게임 빌드가 달라도 액트/초기 맵에서 공유되는 손 연습과 전환 타이밍을 분리한다.",
+      "tracks": [
+        {
+          "track_id": "caster_vendor_spell_start",
+          "label": "캐스터 기본 루트",
+          "judgement": "연습해도 됨",
+          "practice_value": "high",
+          "applies_to": [
+            "Arc / Rolling Magma / Freezing Pulse / Frost Bomb / Orb of Storms starts",
+            "Spark, Shock Nova, Ball Lightning, Ice Nova, Brand, Cold DoT로 넘어가는 루트"
+          ],
+          "patch_hooks": [
+            "Faster Casting is purchasable by all classes after Sharp and Cruel.",
+            "Many self-cast spells received cast-time, damage, crit, or mana-cost changes."
+          ],
+          "why": "초반 캐스터 루틴은 거의 모든 주문 빌드에 전이된다. 단, 3.29는 주문별 마나 비용과 계수가 많이 바뀌었으므로 최종 링크는 다시 계산해야 한다.",
+          "practice_focus": [
+            "Act 1-3 gem timing",
+            "mana flask/clarity comfort",
+            "4-link 전환",
+            "movement + guard skill 습관"
+          ],
+          "do_not_assume": [
+            "3.28 Archmage DPS",
+            "old mana-cost comfort",
+            "old off-color socket advice"
+          ]
+        },
+        {
+          "track_id": "ranger_attack_bow_projectile",
+          "label": "레인저 활/투사체 레벨링",
+          "judgement": "연습해도 됨",
+          "practice_value": "medium",
+          "applies_to": [
+            "Lightning Arrow",
+            "Ice Shot",
+            "Elemental Hit",
+            "Toxic Rain",
+            "Caustic Arrow"
+          ],
+          "patch_hooks": [
+            "Faster Attacks is purchasable by all classes after The Caged Brute.",
+            "Elemental Hit was directly nerfed, while Elemental Hit of the Spectrum is not affected.",
+            "Ballista Totem support was nerfed."
+          ],
+          "why": "무빙, 조준, 보조 토템 설치, 무기 업그레이드 습관은 쓸모 있다. 다만 힛 기반 Ele Hit/ballista 쪽은 3.29 수치 재계산 전까지 최종 후보로 보지 않는다.",
+          "practice_focus": [
+            "bow base upgrade cadence",
+            "accuracy and mark habit",
+            "single-target supplement",
+            "suppression/evasion gearing"
+          ],
+          "do_not_assume": [
+            "generic Elemental Hit equals Elemental Hit of the Spectrum",
+            "old ballista single-target damage"
+          ]
+        },
+        {
+          "track_id": "melee_weapon_cadence",
+          "label": "근접 무기 교체 루트",
+          "judgement": "연습해도 됨",
+          "practice_value": "high",
+          "applies_to": [
+            "Boneshatter",
+            "Ground Slam",
+            "Bleed Slam",
+            "Lightning Strike",
+            "Frost Blades",
+            "Sunder Ignite"
+          ],
+          "patch_hooks": [
+            "Crystalfall introduces a new self-used Slam support lane.",
+            "Reflect map modifiers changed into rare-monster thorns that can be mitigated."
+          ],
+          "why": "3.29 최종 빌드가 바뀌어도 근접은 무기 DPS 갱신, 방어 플라스크, 보스 붙기/빠지기 연습 가치가 높다.",
+          "practice_focus": [
+            "vendor recipe / essence weapon upgrades",
+            "life/res/armour floor",
+            "fortify or recovery habit",
+            "thorns map feedback 기록"
+          ],
+          "do_not_assume": [
+            "Crystalfall is automatically best-in-slot",
+            "old trauma/boneshatter defense is enough for new league mechanic"
+          ]
+        },
+        {
+          "track_id": "mine_pyroclast_to_exsanguinate",
+          "label": "마인: Pyroclast -> Exsanguinate/Reap",
+          "judgement": "연습해도 됨",
+          "practice_value": "high",
+          "applies_to": [
+            "Exsanguinate/Reap Miner Trickster",
+            "Pyroclast Mine campaign",
+            "Eye of Winter mine only as a separate side branch"
+          ],
+          "patch_hooks": [
+            "Blastchain Mine and High-Impact Mine less-damage and cost multipliers changed.",
+            "Charged Mines lost some throw-speed/crit value and gained cost pressure."
+          ],
+          "why": "던지고 폭파하는 리듬, 보스 선깔기, 캠페인 전환 타이밍은 그대로 연습 가치가 있다. 숫자는 반드시 3.29 PoB로 다시 봐야 한다.",
+          "practice_focus": [
+            "mine preload pattern",
+            "detonation sequence",
+            "mana reservation comfort",
+            "Exsanguinate swap timing"
+          ],
+          "do_not_assume": [
+            "Hexblast and Exsanguinate are same mine lane",
+            "old throw speed feels identical"
+          ]
+        },
+        {
+          "track_id": "minion_absolution_srs_golem",
+          "label": "소환수: Absolution/SRS/Golem 액트 루트",
+          "judgement": "가능성 높음",
+          "practice_value": "high",
+          "applies_to": [
+            "SRS Guardian/Necro",
+            "Poison SRS",
+            "Poison Carrion Golem Necromancer",
+            "Zoomancer",
+            "generic non-Spectre minion starts"
+          ],
+          "patch_hooks": [
+            "Non-Spectre minions no longer pause while attacking.",
+            "Summoned Raging Spirits and several Golem types are explicit beneficiaries.",
+            "Absolution cast time improved."
+          ],
+          "why": "3.29에서 가장 연습 가치가 높은 루트 중 하나다. 특히 소환수 위치감, Convocation/Bone Offering 습관, Act 6 전환은 바로 쓸 수 있다.",
+          "practice_focus": [
+            "Absolution/SRS campaign",
+            "offering uptime",
+            "minion res/survival",
+            "AG/Spectre support 분리"
+          ],
+          "do_not_assume": [
+            "Spectre-only survivability",
+            "Carrion Golem exact DPS without current PoB"
+          ]
+        },
+        {
+          "track_id": "totem_holy_flame_to_spell_totem",
+          "label": "토템: Holy Flame/Spell Totem 루트",
+          "judgement": "손봐야 가능",
+          "practice_value": "medium",
+          "applies_to": [
+            "Holy Flame Totem",
+            "Shockwave Totem",
+            "Storm Burst Totem",
+            "Spell Totem Hierophant",
+            "Kinetic Fusillade Totem"
+          ],
+          "patch_hooks": [
+            "Spell Totem support less-damage penalty increased.",
+            "Ritual of Awakening damage per summoned totem was reduced.",
+            "Totem mastery and Shaman's Dominion crit values were reduced."
+          ],
+          "why": "토템 배치/거리/보스전 안전성은 연습 가능하지만 3.29 최종 딜은 old PoB로 판단하면 안 된다.",
+          "practice_focus": [
+            "totem placement",
+            "movement while totems deal damage",
+            "boss uptime",
+            "mana and cast speed comfort"
+          ],
+          "do_not_assume": [
+            "old Hierophant totem damage",
+            "Kinetic Fusillade totem remains a safe starter"
+          ]
+        },
+        {
+          "track_id": "rf_fire_dot_campaign",
+          "label": "RF/화염 DoT 캠페인 루트",
+          "judgement": "가능성 높음",
+          "practice_value": "high",
+          "applies_to": [
+            "RF Chieftain",
+            "RF Juggernaut/Inquisitor archive",
+            "Master T Ignite Slamentalist Act 2 RF swap"
+          ],
+          "patch_hooks": [
+            "No direct RF nerf in the collected 3.29 summary.",
+            "Pure Fire Spells generally gained lower mana costs and higher added-damage effectiveness."
+          ],
+          "why": "회복/저항/화염 노출/맵 진입 습관은 계속 중요하다. RF는 숫자보다 안정 루틴을 연습하는 가치가 크다.",
+          "practice_focus": [
+            "life regen thresholds",
+            "fire resistance overcap",
+            "early map sustain",
+            "socket color change caveat"
+          ],
+          "do_not_assume": [
+            "league mechanic safety without death-rate data",
+            "old socket/off-color crafting advice"
+          ]
+        },
+        {
+          "track_id": "scion_reliquarian_luminary_start",
+          "label": "Scion/Reliquarian/Luminary 시작 루트",
+          "judgement": "구경만",
+          "practice_value": "low",
+          "applies_to": [
+            "3.28 Reliquarian archive",
+            "3.29 Reliquarian shells",
+            "Luminary Mercenary concepts"
+          ],
+          "patch_hooks": [
+            "Reliquarian notables were shuffled for 3.29.",
+            "Scion must be split into Ascendant, Reliquarian, and Luminary.",
+            "Luminary requires separate Mercenary state modeling.",
+            "User-supplied Luminary transcript adds link-skill, light-radius, unique-gear, and Hallowed Monarch hypotheses that still need official/GGPK verification."
+          ],
+          "why": "과거 Scion 연습은 조작감 정도만 도움 된다. 실제 3.29 빌드는 branch와 notables가 확인된 뒤 봐야 한다.",
+          "practice_focus": [
+            "do not practice as a starter unless branch is known",
+            "wait for PoB and tree data"
+          ],
+          "do_not_assume": [
+            "3.28 Reliquarian tree survives",
+            "Mercenary power is free damage",
+            "link-skill shells work before node names, Mercenary skills, and Hallowed Monarch behavior are verified"
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "damage_delivery",
+      "category_label": "딜 전달 방식",
+      "purpose": "같은 스킬명이라도 self-cast, mine, totem, trigger, minion이면 3.29 영향이 다르다.",
+      "tracks": [
+        {
+          "track_id": "self_cast_cold_hit_dot",
+          "label": "Self-cast Cold / Cold DoT",
+          "judgement": "가능성 높음",
+          "practice_value": "high",
+          "patch_hooks": [
+            "Cold Snap, Creeping Frost, Vortex, Frostbolt, Ice Nova, Freezing Pulse, Winter Orb all received favorable cold-spell lines."
+          ],
+          "candidate_examples": [
+            "Cold DoT Elementalist/Trickster",
+            "Righteous Cold Dot Autobomber",
+            "Ice Nova of Frostbolts"
+          ],
+          "what_to_practice": [
+            "spell rotation",
+            "freeze/chill positioning",
+            "mana comfort",
+            "cold exposure/curse uptime"
+          ],
+          "risk": "Archmage versions are separate because Archmage support itself was nerfed."
+        },
+        {
+          "track_id": "self_cast_lightning_mana_spell",
+          "label": "Self-cast Lightning / Mana Spell",
+          "judgement": "손봐야 가능",
+          "practice_value": "high",
+          "patch_hooks": [
+            "Spark, Shock Nova, Ball Lightning, Lightning Conduit and several lightning spells changed cast time/damage and often gained 25% mana cost.",
+            "Archmage support was reduced from 10-16% to 8-14% unreserved maximum mana."
+          ],
+          "candidate_examples": [
+            "Archmage Ice Nova Hierophant",
+            "Archmage Spark Hierophant",
+            "Shock Nova Archmage Hierophant",
+            "Ball Lightning Hierophant"
+          ],
+          "what_to_practice": [
+            "mana flask discipline",
+            "standing still windows",
+            "sigil/arcane setup if used",
+            "cost efficiency gearing"
+          ],
+          "risk": "The play pattern transfers, but old DPS and mana comfort do not."
+        },
+        {
+          "track_id": "self_cast_fire_ignite",
+          "label": "Self-cast Fire / Ignite",
+          "judgement": "가능성 높음",
+          "practice_value": "medium",
+          "patch_hooks": [
+            "Pure fire spells generally have lower mana costs and higher added-damage effectiveness.",
+            "Flame Surge burning-ground contribution improved.",
+            "Emberwake/Replica Emberwake and Abberath's Horn received ignite-relevant changes."
+          ],
+          "candidate_examples": [
+            "Maw Ignite",
+            "Master T Ignite Slamentalist",
+            "Explosive Arrow ignite variants as a separate ballista-affected group"
+          ],
+          "what_to_practice": [
+            "ignite proliferation/clear rhythm",
+            "exposure + curse setup",
+            "boss ignite uptime"
+          ],
+          "risk": "Ballista or Maw-specific mechanics still need separate recalculation."
+        },
+        {
+          "track_id": "physical_spell_crit",
+          "label": "Physical Spell / Crit Spell",
+          "judgement": "가능성 높음",
+          "practice_value": "medium",
+          "patch_hooks": [
+            "Shadow-themed Physical Spells have higher crit chances.",
+            "Bladefall and Blade Blast received direct improvements."
+          ],
+          "candidate_examples": [
+            "Bladefall/Blade Blast Assassin",
+            "Reap archive",
+            "Sacred Chalice Bladefall Reliquarian watchlist"
+          ],
+          "what_to_practice": [
+            "two-skill rotation",
+            "crit gearing",
+            "boss overlap positioning"
+          ],
+          "risk": "Scion/Reliquarian versions are still 구경만 until branch PoBs exist."
+        },
+        {
+          "track_id": "chaos_dot_channel",
+          "label": "Chaos DoT / Channeling",
+          "judgement": "가능성 높음",
+          "practice_value": "medium",
+          "patch_hooks": [
+            "Pact of Ghorr empowers DoT spells.",
+            "Pact of Lycia empowers self-cast channelling spells.",
+            "Occultist gains Unhallowed Rite for channelling spell ES recharge/damage/cost pressure."
+          ],
+          "candidate_examples": [
+            "Blight of Contagion Trickster",
+            "Soulrend Occultist",
+            "Reliquarian Blight Contagion watchlist"
+          ],
+          "what_to_practice": [
+            "channeling safety",
+            "wither/curse uptime",
+            "DoT multi gearing",
+            "stop-and-move timing"
+          ],
+          "risk": "Affliction cost and live survivability are unknown."
+        },
+        {
+          "track_id": "mine_delivery",
+          "label": "Mine Delivery",
+          "judgement": "연습해도 됨",
+          "practice_value": "high",
+          "patch_hooks": [
+            "Mine supports and Charged Mines changed.",
+            "Eye of Winter crit improved, but mine supports still apply."
+          ],
+          "candidate_examples": [
+            "Exsanguinate/Reap Miner Trickster",
+            "Pyroclast Mine",
+            "Eye of Winter Mine",
+            "Hexblast Mine as separate lower-priority lane"
+          ],
+          "what_to_practice": [
+            "preload",
+            "detonate rhythm",
+            "minefield feel",
+            "boss opening sequence"
+          ],
+          "risk": "Exact gem setup must be edited; Exsanguinate/Reap and Hexblast should not be merged."
+        },
+        {
+          "track_id": "totem_delivery",
+          "label": "Totem Delivery",
+          "judgement": "손봐야 가능",
+          "practice_value": "medium",
+          "patch_hooks": [
+            "Spell Totem and Ballista Totem support penalties increased.",
+            "Hierophant totem damage and totem crit passive values were reduced."
+          ],
+          "candidate_examples": [
+            "Shockwave Totem",
+            "Storm Burst Totem",
+            "Holy Flame Totem",
+            "Kinetic Fusillade Totem",
+            "Explosive Arrow Ballista"
+          ],
+          "what_to_practice": [
+            "placement",
+            "repositioning",
+            "boss uptime",
+            "safe mapping line"
+          ],
+          "risk": "Practice is useful; old damage is not."
+        },
+        {
+          "track_id": "non_spectre_minion_delivery",
+          "label": "Non-Spectre Minions",
+          "judgement": "가능성 높음",
+          "practice_value": "high",
+          "patch_hooks": [
+            "Non-Spectre minions no longer pause while attacking.",
+            "Dominating Blow, Zombies, SRS, Skeletons, and several Golems were explicitly highlighted."
+          ],
+          "candidate_examples": [
+            "SRS",
+            "Dominating Blow",
+            "Zombies",
+            "Poison Carrion Golem",
+            "Skeletons",
+            "Zoomancer"
+          ],
+          "what_to_practice": [
+            "summon uptime",
+            "offering uptime",
+            "convocation",
+            "minion defense gearing"
+          ],
+          "risk": "Carrion Golem needs exact current PoB; Spectres are excluded from this positive judgement."
+        },
+        {
+          "track_id": "spectre_delivery",
+          "label": "Spectres",
+          "judgement": "위험 신호",
+          "practice_value": "medium",
+          "patch_hooks": [
+            "Life of various monsters when used as Spectres was lowered."
+          ],
+          "candidate_examples": [
+            "Wretched Defiler",
+            "Counter-Resistance Spectre",
+            "Hydra / Forged Frostbearer-style archive"
+          ],
+          "what_to_practice": [
+            "generic minion UI/control",
+            "spectre acquisition route",
+            "support aura/AG package"
+          ],
+          "risk": "Species-specific life/survival must be revalidated before recommendation."
+        },
+        {
+          "track_id": "trigger_coc_cwc_spellslinger",
+          "label": "Trigger: CoC / CwC / Spellslinger",
+          "judgement": "연습해도 됨",
+          "practice_value": "medium",
+          "patch_hooks": [
+            "Cast while Channelling improved trigger interval and less-damage penalty.",
+            "Volatile Dead of Confinement received larger explosion radius."
+          ],
+          "candidate_examples": [
+            "CoC Detonate Dead",
+            "Volatile Dead Spellslinger",
+            "CwC variants from emiracle/Jorgen-style lanes"
+          ],
+          "what_to_practice": [
+            "trigger condition understanding",
+            "cooldown/attack rate matching",
+            "mapping safety"
+          ],
+          "risk": "CwC, CoC, CWS, and Spellslinger are separate engines; do not transfer buffs blindly."
+        },
+        {
+          "track_id": "cast_on_ward_break",
+          "label": "Cast on Ward Break",
+          "judgement": "위험 신호",
+          "practice_value": "low",
+          "patch_hooks": [
+            "Cast on Ward Break cooldown recovery is capped at 400%."
+          ],
+          "candidate_examples": [
+            "Tori COWB references",
+            "Ward-break autobomber experiments"
+          ],
+          "what_to_practice": [
+            "none as a starter",
+            "only inspect after updated specialist PoB"
+          ],
+          "risk": "Uncapped scaling assumptions are invalid."
+        },
+        {
+          "track_id": "bow_hit_delivery",
+          "label": "Bow Hit / Wander Hit",
+          "judgement": "손봐야 가능",
+          "practice_value": "medium",
+          "patch_hooks": [
+            "Elemental Hit was nerfed.",
+            "Kinetic Blast and Kinetic Fusillade changed directly.",
+            "Reflect became mitigatable thorns but still matters for fast hits."
+          ],
+          "candidate_examples": [
+            "Lightning Arrow",
+            "Ice Shot",
+            "Elemental Hit",
+            "Kinetic Blast",
+            "Kinetic Fusillade"
+          ],
+          "what_to_practice": [
+            "movement",
+            "sniper's mark/mark discipline",
+            "accuracy",
+            "evasion/suppression gearing"
+          ],
+          "risk": "Kinetic and Elemental Hit require exact variant checks."
+        },
+        {
+          "track_id": "melee_strike_slam_delivery",
+          "label": "Melee Strike/Slam",
+          "judgement": "연습해도 됨",
+          "practice_value": "high",
+          "patch_hooks": [
+            "Crystalfall supports self-used Slams.",
+            "Faster Attacks vendor access broadens early attack support access."
+          ],
+          "candidate_examples": [
+            "Boneshatter",
+            "Ground Slam",
+            "Earthshatter",
+            "Lightning Strike",
+            "Frost Blades",
+            "Sunder Ignite"
+          ],
+          "what_to_practice": [
+            "weapon upgrades",
+            "boss contact timing",
+            "flask discipline",
+            "guard skill uptime"
+          ],
+          "risk": "3.29 slam variants may diverge sharply around Crystalfall."
+        }
+      ]
+    },
+    {
+      "category_id": "defense_and_gear_pressure",
+      "category_label": "방어/기어 압박",
+      "purpose": "3.29에서 같은 딜 빌드라도 방어·아이템 압박 때문에 추천성이 갈린다.",
+      "tracks": [
+        {
+          "track_id": "armour_life_recovery",
+          "label": "Armour/Life/Recovery",
+          "judgement": "연습해도 됨",
+          "applies_to": [
+            "RF Chieftain",
+            "Boneshatter Juggernaut",
+            "Ground Slam Slayer",
+            "Dominating Blow Guardian-style minions"
+          ],
+          "patch_hooks": [
+            "Thorns reflected damage can be mitigated through Armour, Block, Resistances, etc."
+          ],
+          "why": "Allflame/Atlas 위험도가 미확정일 때는 단단한 루틴 연습 가치가 높다.",
+          "check": "death rate and recovery comfort in red maps after launch"
+        },
+        {
+          "track_id": "evasion_suppression_fast_mapper",
+          "label": "Evasion/Suppression/Fast Mapper",
+          "judgement": "연습해도 됨",
+          "applies_to": [
+            "Lightning Arrow",
+            "Ice Shot",
+            "Toxic Rain",
+            "Lightning Strike/Frost Blades fast mappers"
+          ],
+          "patch_hooks": [
+            "Thorns can be mitigated through Evasion/Block/Resistances.",
+            "Fast-hit builds must record thorns comfort."
+          ],
+          "why": "맵핑 손맛은 연습 가치가 있지만, death-rate 검증 전까지 추천 순위는 과하게 올리지 않는다.",
+          "check": "rare thorns deaths, suppression cap, ailment avoidance"
+        },
+        {
+          "track_id": "mana_cost_efficiency",
+          "label": "Mana Cost / Cost Efficiency",
+          "judgement": "손봐야 가능",
+          "applies_to": [
+            "Archmage",
+            "self-cast lightning",
+            "mine builds",
+            "spell-heavy Inquisitor/Occultist",
+            "Vertex or Militant Faith users"
+          ],
+          "patch_hooks": [
+            "Reduced cost sources became Cost Efficiency in many places.",
+            "Arcane Conservation and Contemplative Meditation clusters were added.",
+            "Many lightning spells gained 25% mana cost.",
+            "Several uniques changed from reduced cost to cost efficiency."
+          ],
+          "why": "3.29에서는 마나가 딜/방어/편의성을 동시에 흔드는 축이다.",
+          "check": "PoB cost, actual cast sustain, reservation setup"
+        },
+        {
+          "track_id": "socket_color_quality",
+          "label": "Socket Color / Gem Quality",
+          "judgement": "연습해도 됨",
+          "applies_to": [
+            "all builds"
+          ],
+          "patch_hooks": [
+            "Gems can be socketed into any equipment socket regardless of color.",
+            "Matching gem/socket color grants +10% quality.",
+            "Chromatic Orbs are rarer, so colour matching is an optimization choice rather than a leveling gate."
+          ],
+          "why": "색이 안 맞아도 젬은 쓸 수 있다. 색을 맞추면 그 젬의 품질 효과가 올라가므로 메인 딜 젬, 핵심 보조, 지속시간/반경/투사체/쿨다운/마나/상태이상 품질이 강한 젬부터 가치가 생긴다.",
+          "check": "main-link quality value, non-white socket cost, filter highlights for valuable colour matches"
+        },
+        {
+          "track_id": "unique_dependency_high",
+          "label": "Core Unique Dependency",
+          "judgement": "손봐야 가능",
+          "applies_to": [
+            "Maw of Mischief",
+            "Rathpith/life stacker",
+            "Void Battery/Shimmeron power charge casters",
+            "Voidfletcher bow setups",
+            "COWB/ward builds"
+          ],
+          "patch_hooks": [
+            "Many uniques changed directly, including Maw, Rathpith, Void Battery, Shimmeron, Voidfletcher, and Ward-related supports."
+          ],
+          "why": "아이템 하나가 빌드 정체성인 경우 old PoB 재사용 위험이 크다.",
+          "check": "exact item version, divine-update behavior, new drop vs existing item"
+        },
+        {
+          "track_id": "mercenary_luminary_state",
+          "label": "Mercenary / Luminary State",
+          "judgement": "구경만",
+          "applies_to": [
+            "Luminary Scion",
+            "Mercenary gear setups",
+            "Trarthan gem/unique economy"
+          ],
+          "patch_hooks": [
+            "Mercenaries are core, but permanent multi-mercenary gearing is Luminary-specific.",
+            "Luminary link shells need active Mercenary, reserve Mercenary, link owner, link target, and gear states separated."
+          ],
+          "why": "플레이어 빌드와 동료 상태를 분리 모델링하기 전에는 추천으로 쓰면 안 된다.",
+          "check": "active mercenary, reserve mercenaries, gear restrictions, survivability, link uptime, link death behavior, Hallowed Monarch item text"
+        }
+      ]
+    },
+    {
+      "category_id": "creator_source_priorities",
+      "category_label": "크리에이터 소스 우선순위",
+      "purpose": "카테고리별로 누구의 3.29 업데이트를 먼저 기다릴지 정한다.",
+      "tracks": [
+        {
+          "track_id": "minion_sources",
+          "label": "소환수",
+          "judgement": "가능성 높음",
+          "priority_sources": [
+            "GhazzyTV broad minion baseline",
+            "Tori-sensei Poison Carrion Golem/Spectre",
+            "Dconnic Wretched Defiler",
+            "Master T archive minion cross-check"
+          ],
+          "source_goal": "SRS/Zombie/Dominating Blow/Golem은 빠르게 PoB 확보, Spectre는 species survival 검증."
+        },
+        {
+          "track_id": "mine_sources",
+          "label": "마인",
+          "judgement": "연습해도 됨",
+          "priority_sources": [
+            "Cptn Garbage / Maxroll Exsanguinate Miner",
+            "FearlessDumb0 Exsanguinate/Reap Miner",
+            "Jorgen mine/delve cross-check",
+            "Conner Converse as advanced theory cross-check"
+          ],
+          "source_goal": "Hexblast가 아니라 Exsanguinate/Reap Trickster 업데이트를 먼저 수집."
+        },
+        {
+          "track_id": "caster_brand_sources",
+          "label": "캐스터/브랜드",
+          "judgement": "연습해도 됨",
+          "priority_sources": [
+            "ZeeBoub Penance Brand",
+            "anime princess Archmage/Spark/Shock Nova",
+            "subtractem caster cross-check",
+            "Pohx RF for fire/cost baseline"
+          ],
+          "source_goal": "Archmage/cost-efficiency와 Inquisitor crit pathing을 최신 PoB로 확인."
+        },
+        {
+          "track_id": "ranger_melee_sources",
+          "label": "레인저/근접",
+          "judgement": "연습해도 됨",
+          "priority_sources": [
+            "Fubgun bow mapper",
+            "Kankar Cobra Lash/Venom Gyre/EK Ignite",
+            "Sanavixx Cyclone",
+            "Carn melee HC cross-check"
+          ],
+          "source_goal": "Elemental Hit/Kinetic nerf 축과 weapon-upgrade melee 축을 분리."
+        },
+        {
+          "track_id": "experimental_sources",
+          "label": "실험/기발한 빌드",
+          "judgement": "구경만",
+          "priority_sources": [
+            "CaptainLance9",
+            "Conner Converse",
+            "Mathil",
+            "Master T"
+          ],
+          "source_goal": "재미있는 상호작용은 모으되 beginner recommendation은 PoB/예산/방어가 확인될 때만."
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "family_id": "minion_srs_zombie_dominating_blow",
+      "label": "가능성 높음",
+      "practice_value": "high",
+      "confidence": "patch_note_high",
+      "representative_candidates": [
+        "3.22_poison_srs_necromancer",
+        "3.23_guardian_srs",
+        "3.23_poison_srs_necromancer",
+        "3.26_poison_srs_necromancer",
+        "3.27_poison_srs_necromancer"
+      ],
+      "patch_hooks": [
+        "All Non-Spectre Minions no longer pause while attacking.",
+        "Dominating Blow, Raised Zombies, Summoned Raging Spirits, and Summoned Skeletons are explicitly called out as significant DPS beneficiaries.",
+        "Absolution cast time improved, which helps several minion campaign routes."
+      ],
+      "why": "The patch directly improves several minion engines and the older corpus already has SRS/minion leveling patterns.",
+      "caveats": [
+        "Still needs 3.29 PoB for final support links and minion AI behavior.",
+        "Do not import Spectre survivability assumptions into this family."
+      ],
+      "next_checks": [
+        "Collect Ghazzy/Tori/Dconnic 3.29 minion PoBs after launch.",
+        "Add Dominating Blow Guardian staged PoB if a current creator guide appears."
+      ]
+    },
+    {
+      "family_id": "raise_spectre_wretched_defiler",
+      "label": "위험 신호",
+      "practice_value": "medium",
+      "confidence": "patch_note_high",
+      "representative_candidates": [
+        "3.27_raise_spectre_necromancer",
+        "3.28_raise_spectre_necromancer"
+      ],
+      "patch_hooks": [
+        "3.29 lowers the life of various monsters when used as Spectres.",
+        "Originator-Influenced Monsters, Robot Monsters, and other high-life Spectre sources are named in the patch notes."
+      ],
+      "why": "You can practice minion control and gearing, but old Wretched Defiler/Spectre tankiness cannot be trusted.",
+      "caveats": [
+        "Damage may remain usable, but Spectre survival and AG/support package pressure must be revalidated.",
+        "Do not use as a blind first starter before creator updates."
+      ],
+      "next_checks": [
+        "Check Dconnic/Tori/Ghazzy 3.29 Spectre updates.",
+        "Record Spectre species and life/survival separately from generic minion notes."
+      ]
+    },
+    {
+      "family_id": "poison_carrion_golem_necromancer",
+      "label": "연습해도 됨",
+      "practice_value": "high",
+      "confidence": "patch_note_medium_plus_parser_pob",
+      "representative_candidates": [
+        "3.28_poison_carrion_golem_witch"
+      ],
+      "patch_hooks": [
+        "Non-Spectre minion attack behavior improved broadly.",
+        "Stone, Ice, Flame, Chaos and Lightning Golems are explicitly listed; Carrion Golem is not explicitly listed.",
+        "Absolution cast time improved for campaign transition routes."
+      ],
+      "why": "The staged 3.28 Necromancer PoB is strong practice material, but 3.29 does not explicitly confirm Carrion Golem as one of the biggest winners.",
+      "caveats": [
+        "Tori-sensei's exact current-season Poison Carrion Golem PoB is still a separate source target.",
+        "Carrion-specific DPS needs PoB or live validation."
+      ],
+      "next_checks": [
+        "Retry Tori-sensei current-season PoB hunt.",
+        "Compare 3.28 staged Necro PoB against first 3.29 golem guides."
+      ]
+    },
+    {
+      "family_id": "cold_dot_and_righteous_cold_autobomber",
+      "label": "가능성 높음",
+      "practice_value": "high",
+      "confidence": "patch_note_high_plus_parser_pob",
+      "representative_candidates": [
+        "3.22_cold_dot_elementalist",
+        "3.22_cold_dot_trickster",
+        "3.28_righteous_cold_dot_autobomber_elementalist"
+      ],
+      "patch_hooks": [
+        "Cold Snap gains freeze chance and higher critical strike chance.",
+        "Creeping Frost gains higher critical strike chance.",
+        "Vortex gains faster cast time, higher critical strike chance, freeze chance, and lower mana cost."
+      ],
+      "why": "Master T's Righteous Cold PoB and older Cold DoT routes line up with multiple favorable cold spell changes.",
+      "caveats": [
+        "Master T Righteous Cold is a transition/endgame build, not a clean campaign starter by itself.",
+        "Cold DoT final damage still needs 3.29 PoB because spell scaling and supports changed broadly."
+      ],
+      "next_checks": [
+        "Collect current Cold DoT or Righteous Cold 3.29 PoB.",
+        "Separate campaign route from high-budget autobomber swap."
+      ]
+    },
+    {
+      "family_id": "archmage_ice_nova_spark_shock_nova_ball_lightning",
+      "label": "손봐야 가능",
+      "practice_value": "high",
+      "confidence": "patch_note_high",
+      "representative_candidates": [
+        "3.24_archmage_ice_nova_hierophant",
+        "3.24_archmage_ball_lightning_hierophant",
+        "3.25_archmage_ice_nova_hierophant",
+        "3.25_archmage_spark_hierophant",
+        "3.28_shock_nova_archmage_hierophant",
+        "3.28_spark_hierophant"
+      ],
+      "patch_hooks": [
+        "Archmage added lightning damage is reduced to 8-14% of unreserved maximum mana from 10-16%.",
+        "Ice Nova of Frostbolts gains freeze chance and higher critical strike chance.",
+        "Spark, Shock Nova, and Ball Lightning have cast time or damage changes but also higher mana costs."
+      ],
+      "why": "The play pattern is still worth practicing, but old mana-stack numbers are not reliable.",
+      "caveats": [
+        "Hierophant and mana gear may need tree/gear retuning around cost efficiency and reservation.",
+        "Do not assume 3.28 Archmage DPS survives unchanged."
+      ],
+      "next_checks": [
+        "Run updated PoB once 3.29 support lands.",
+        "Check early mana cost comfort before recommending to new players."
+      ]
+    },
+    {
+      "family_id": "rf_chieftain_juggernaut_inquisitor",
+      "label": "가능성 높음",
+      "practice_value": "high",
+      "confidence": "patch_note_medium",
+      "representative_candidates": [
+        "3.22_righteous_fire_inquisitor",
+        "3.22_righteous_fire_juggernaut",
+        "3.24_righteous_fire_chieftain",
+        "3.25_righteous_fire_chieftain",
+        "3.26_righteous_fire_chieftain",
+        "3.27_righteous_fire_chieftain",
+        "3.28_righteous_fire_chieftain"
+      ],
+      "patch_hooks": [
+        "No direct Righteous Fire nerf appears in the collected 3.29 summary.",
+        "Socket color changes lower gem access friction but change optimization around matching socket colors."
+      ],
+      "why": "RF fundamentals and campaign discipline remain strong practice material.",
+      "caveats": [
+        "Atlas and Allflame encounter danger still need live measurement.",
+        "Old off-color/socket advice must be rewritten for 3.29."
+      ],
+      "next_checks": [
+        "Check Pohx/creator 3.29 RF route updates.",
+        "Refresh filter and socket-color guidance."
+      ]
+    },
+    {
+      "family_id": "boneshatter_ground_slam_bleed_slam_melee_baseline",
+      "label": "연습해도 됨",
+      "practice_value": "high",
+      "confidence": "patch_note_medium",
+      "representative_candidates": [
+        "3.22_boneshatter_slayer",
+        "3.22_boneshatter_juggernaut",
+        "3.25_ground_slam_slayer",
+        "3.27_ground_slam_slayer",
+        "3.28_bleed_slam_slayer",
+        "3.28_boneshatter_juggernaut"
+      ],
+      "patch_hooks": [
+        "Crystalfall is a new support for self-used Slam skills and cannot support triggered or non-player-used skills.",
+        "No direct Boneshatter nerf appears in the collected 3.29 summary."
+      ],
+      "why": "Melee leveling, weapon upgrade cadence, armour/recovery habits, and slam positioning are useful to practice even if final 3.29 slam tech changes.",
+      "caveats": [
+        "Crystalfall may create new slam variants but should not be assumed mandatory.",
+        "Bleed and weapon craft economy need launch-week validation."
+      ],
+      "next_checks": [
+        "Collect 3.29 slam creator PoBs.",
+        "Compare old Boneshatter trauma setup against 3.29 defenses and map thorns."
+      ]
+    },
+    {
+      "family_id": "mastert_ignite_slamentalist",
+      "label": "연습해도 됨",
+      "practice_value": "high",
+      "confidence": "patch_note_medium_plus_parser_pob",
+      "representative_candidates": [
+        "3.28_ignite_slamentalist_elementalist"
+      ],
+      "patch_hooks": [
+        "Crystalfall creates a new self-used slam support lane.",
+        "Emberwake and Replica Emberwake receive ignite-related improvements.",
+        "Master T staged PoB already covers campaign into Sunder ignite Elementalist."
+      ],
+      "why": "This is good practice for a Witch/Elementalist melee-ignite transition, but exact 3.29 setup may change around new supports and ignite item choices.",
+      "caveats": [
+        "Do not generalize this into Duelist melee.",
+        "Needs a current 3.29 PoB before beginner recommendation."
+      ],
+      "next_checks": [
+        "Watch Master T updates after 3.29 launch.",
+        "Check whether Crystalfall is used or skipped in the final build."
+      ]
+    },
+    {
+      "family_id": "lightning_strike_frost_blades_attack_mapper",
+      "label": "연습해도 됨",
+      "practice_value": "high",
+      "confidence": "patch_note_medium",
+      "representative_candidates": [
+        "3.24_lightning_strike_champion",
+        "3.25_lightning_strike_slayer",
+        "3.25_frost_blades_slayer",
+        "3.27_frost_blades_slayer",
+        "3.29_reliquarian_lightning_strike"
+      ],
+      "patch_hooks": [
+        "Reflect map modifiers are reworked into rare-monster thorns and can be mitigated by standard defenses.",
+        "No direct Lightning Strike or Frost Blades nerf appears in the collected 3.29 summary."
+      ],
+      "why": "Attack movement, mark/accuracy habits, and weapon upgrade practice remain useful.",
+      "caveats": [
+        "Thorns and new encounter damage need live comfort checks.",
+        "Reliquarian Lightning Strike is separate from normal Slayer/Champion/Warden-style practice."
+      ],
+      "next_checks": [
+        "Check 3.29 attack mapper creator PoBs.",
+        "Record thorns deaths for fast-hit attack builds."
+      ]
+    },
+    {
+      "family_id": "toxic_rain_pconc_chaos_pathfinder",
+      "label": "가능성 높음",
+      "practice_value": "high",
+      "confidence": "patch_note_medium",
+      "representative_candidates": [
+        "3.22_toxic_rain_pathfinder",
+        "3.23_toxic_rain_pathfinder",
+        "3.25_poisonous_concoction_pathfinder",
+        "3.26_poisonous_concoction_pathfinder",
+        "3.28_poisonous_concoction_pathfinder",
+        "3.29_toxic_rain_pathfinder",
+        "3.29_pconc_pathfinder"
+      ],
+      "patch_hooks": [
+        "No direct Toxic Rain or Poisonous Concoction nerf appears in the collected 3.29 summary.",
+        "Ballista Totem support nerf affects ballista-assisted poison/chaos variants more than self-used routes."
+      ],
+      "why": "Pathfinder chaos/poison fundamentals look like good practice material, especially for SSF-style gearing.",
+      "caveats": [
+        "Ballista supplement setups need recalculation.",
+        "Launch economy may change flask/weapon/cluster availability."
+      ],
+      "next_checks": [
+        "Separate self-cast/self-attack Pathfinder from ballista variants.",
+        "Collect current Kankar/anime_princess/Pathfinder PoBs if available."
+      ]
+    },
+    {
+      "family_id": "elemental_hit_and_ballista_bow",
+      "label": "손봐야 가능",
+      "practice_value": "medium",
+      "confidence": "patch_note_high",
+      "representative_candidates": [
+        "3.24_elemental_hit_deadeye",
+        "3.25_elemental_hit_deadeye",
+        "3.28_elemental_hit_deadeye",
+        "3.22_explosive_arrow_champion",
+        "3.23_explosive_arrow_elementalist",
+        "3.24_explosive_arrow_champion",
+        "3.26_explosive_arrow_elementalist"
+      ],
+      "patch_hooks": [
+        "Elemental Hit loses 17% added fire/cold/lightning damage at all gem levels, while Elemental Hit of the Spectrum is not affected.",
+        "Ballista Totem support now has a larger less-damage penalty."
+      ],
+      "why": "Bow/ballista mechanics are still useful, but old DPS expectations are suspect.",
+      "caveats": [
+        "Do not treat generic Elemental Hit and Elemental Hit of the Spectrum as the same build.",
+        "Explosive Arrow and poison ballista variants need support-link recalculation."
+      ],
+      "next_checks": [
+        "Identify exact Elemental Hit variant in each PoB.",
+        "Re-run ballista DPS with 3.29 support values."
+      ]
+    },
+    {
+      "family_id": "kinetic_blast_kinetic_fusillade_wander_totem",
+      "label": "위험 신호",
+      "practice_value": "medium",
+      "confidence": "patch_note_high",
+      "representative_candidates": [
+        "3.27_kinetic_blast_deadeye",
+        "3.28_kinetic_blast_deadeye",
+        "3.28_kinetic_fusillade_totem_hierophant",
+        "3.29_reliquarian_gloomfang_wander"
+      ],
+      "patch_hooks": [
+        "Kinetic Blast Arcane Might and area damage values changed unfavorably.",
+        "Kinetic Fusillade attack speed drops sharply and mana cost increases.",
+        "Totem support and Hierophant totem scaling also changed."
+      ],
+      "why": "The old wander/totem numbers are too exposed to direct 3.29 changes.",
+      "caveats": [
+        "Basic wander movement practice is fine, but do not plan league start around old PoBs.",
+        "Reliquarian wander shells need current notables."
+      ],
+      "next_checks": [
+        "Wait for Fubgun/Palsteron/Kinetic specialist updates.",
+        "Verify whether Kinetic Fusillade remains playable after support and skill changes stack."
+      ]
+    },
+    {
+      "family_id": "exsanguinate_reap_miner_and_mines",
+      "label": "연습해도 됨",
+      "practice_value": "high",
+      "confidence": "patch_note_high_plus_parser_pob",
+      "representative_candidates": [
+        "3.24_exsanguinate_mines_trickster",
+        "3.26_exsanguinate_mines_trickster",
+        "3.27_exsanguinate_reap_mines_trickster",
+        "3.28_exsanguinate_reap_mines_trickster",
+        "3.27_pyroclast_mine_saboteur",
+        "3.28_eye_of_winter_mines_inquisitor"
+      ],
+      "patch_hooks": [
+        "Blastchain Mine and High-Impact Mine have larger less-damage penalties and higher cost multipliers.",
+        "Charged Mines loses some throw-speed and crit scaling and has a higher cost multiplier.",
+        "Barrage support changes may affect projectile mine variants."
+      ],
+      "why": "Mine preload, campaign swap timing, and Pyroclast into Exsang/Reap muscle memory are worth practicing, but 3.29 damage/cost must be edited.",
+      "caveats": [
+        "This is not Hexblast-first guidance; Exsanguinate/Reap Trickster remains the tracked mine lane.",
+        "Throw speed, mana, and reservation comfort need retest."
+      ],
+      "next_checks": [
+        "Watch Cptn Garbage/FearlessDumb0/Jorgen for updated 3.29 links.",
+        "Recalculate early-map swap timing after mine support changes."
+      ]
+    },
+    {
+      "family_id": "hexblast_mines",
+      "label": "위험 신호",
+      "practice_value": "low",
+      "confidence": "patch_note_high",
+      "representative_candidates": [
+        "3.22_hexblast_mines_saboteur",
+        "3.23_hexblast_mines_occultist",
+        "3.25_hexblast_mines_trickster",
+        "3.29_hexblast_mines_bosser"
+      ],
+      "patch_hooks": [
+        "Hexblast has a cooldown in the current patch line; 3.29 lowers it to 1 second but does not restore old high-frequency mine behaviour.",
+        "Mine supports and Charged Mines changed.",
+        "The project scope currently prioritizes Exsanguinate/Reap Miner over generic Hexblast mines."
+      ],
+      "why": "Old Hexblast Mine PoBs are not safe to carry forward as recommendations. Treat this as watchlist-only until a 3.29 specialist PoB proves curse application, cooldown, mana, and boss/mapping cadence.",
+      "caveats": [
+        "Bossing may survive differently from mapping, but it is not a default starter recommendation.",
+        "Needs current curse application, cooldown, mine support, and mana PoB confirmation."
+      ],
+      "next_checks": [
+        "Collect 3.29 Hexblast specialist PoBs only as watchlist evidence after Exsang Miner lane is refreshed.",
+        "Do not merge Hexblast and Exsang mining in UI recommendations."
+      ]
+    },
+    {
+      "family_id": "totems_spell_totem_hierophant",
+      "label": "손봐야 가능",
+      "practice_value": "medium",
+      "confidence": "patch_note_high",
+      "representative_candidates": [
+        "3.22_shockwave_totems_hierophant",
+        "3.25_storm_burst_totems_hierophant",
+        "3.27_storm_burst_totems_hierophant",
+        "3.28_holy_flame_totem_hierophant"
+      ],
+      "patch_hooks": [
+        "Spell Totem support now has a larger less-damage penalty.",
+        "Ritual of Awakening drops from 5% to 3% more damage per summoned totem.",
+        "Totem mastery and Shaman's Dominion critical values were reduced.",
+        "Holy Flame Totem itself gains a small critical strike chance buff."
+      ],
+      "why": "Totem positioning and campaign safety are still useful to practice, but old Hierophant totem PoBs need direct edits.",
+      "caveats": [
+        "Do not recommend Kinetic Fusillade Totem from old numbers.",
+        "Shockwave/Storm Burst/Holy Flame need separate recalculation."
+      ],
+      "next_checks": [
+        "Check Tatiantel2/Palsteron/POEGuy-style updates.",
+        "Re-run totem PoBs with 3.29 support and ascendancy values."
+      ]
+    },
+    {
+      "family_id": "penance_storm_brand_inquisitor_elementalist",
+      "label": "연습해도 됨",
+      "practice_value": "medium",
+      "confidence": "patch_note_medium",
+      "representative_candidates": [
+        "3.23_storm_brand_inquisitor",
+        "3.24_penance_brand_inquisitor",
+        "3.26_penance_brand_inquisitor",
+        "3.27_penance_brand_inquisitor",
+        "3.28_storm_brand_elementalist",
+        "3.29_penance_brand_sanctum"
+      ],
+      "patch_hooks": [
+        "Inquisitor spell crit pathing changed: old Mystical Infusion behavior moved behind a new Instruments of Justice notable.",
+        "Replica Tukohama's Fortress brand critical strike chance per Brand improved."
+      ],
+      "why": "Brand positioning, recall rhythm, and Sanctum-style practice transfer, but exact Inquisitor tree and crit assumptions need update.",
+      "caveats": [
+        "ZeeBoub guide material remains valuable, but 3.29 tree pathing must be checked.",
+        "Do not assume old Inquisitor crit setup is identical."
+      ],
+      "next_checks": [
+        "Refresh ZeeBoub/Penance Brand PoBs.",
+        "Check whether Instruments of Justice changes tree pathing cost."
+      ]
+    },
+    {
+      "family_id": "physical_spells_bladefall_bladeblast_reap",
+      "label": "가능성 높음",
+      "practice_value": "medium",
+      "confidence": "patch_note_medium",
+      "representative_candidates": [
+        "3.23_bladefall_bladeblast_assassin",
+        "3.24_reap_scion",
+        "3.23_reap_hierophant",
+        "3.29_reliquarian_sacred_chalice_bladefall"
+      ],
+      "patch_hooks": [
+        "Bladefall and Blade Blast receive damage, area, or critical strike improvements.",
+        "Shadow-themed physical spells generally receive higher critical strike chances.",
+        "3.29 introduces Reap of Butchery as a new watch target."
+      ],
+      "why": "Physical spell fundamentals look worth revisiting in 3.29.",
+      "caveats": [
+        "Old Reap PoBs may not represent new Reap of Butchery.",
+        "Reliquarian variants require current notables."
+      ],
+      "next_checks": [
+        "Collect new physical spell PoBs after PoB updates.",
+        "Separate Assassin/Inquisitor/Scion branch assumptions."
+      ]
+    },
+    {
+      "family_id": "coc_dd_spellslinger_volatile_dead_trigger",
+      "label": "연습해도 됨",
+      "practice_value": "medium",
+      "confidence": "patch_note_medium",
+      "representative_candidates": [
+        "3.24_coc_detonate_dead_inquisitor",
+        "3.27_poison_coc_detonate_dead_assassin",
+        "3.27_volatile_dead_spellslinger_elementalist",
+        "3.28_volatile_dead_spellslinger_necromancer"
+      ],
+      "patch_hooks": [
+        "Volatile Dead of Confinement gains larger explosion radius.",
+        "Cast while Channelling support improves trigger interval and less-damage penalty, but that is not the same as CoC or Spellslinger."
+      ],
+      "why": "Trigger build discipline is useful, but old triggered-spell variants need exact support and skill checks.",
+      "caveats": [
+        "Do not infer Cast while Channelling buffs apply to Cast on Critical or Spellslinger.",
+        "Expensive transition gates remain a beginner risk."
+      ],
+      "next_checks": [
+        "Collect updated CoC/DD and Spellslinger PoBs.",
+        "Tag CwC, CoC, CWS, and Spellslinger separately."
+      ]
+    },
+    {
+      "family_id": "cast_on_ward_break_cowb",
+      "label": "위험 신호",
+      "practice_value": "low",
+      "confidence": "patch_note_high",
+      "representative_candidates": [
+        "3.28_mastert_righteous_cold_related_watch",
+        "tori_sensei_cowb_valid_pobs_unpromoted"
+      ],
+      "patch_hooks": [
+        "Cast on Ward Break cooldown recovery is capped at 400% where it was previously uncapped."
+      ],
+      "why": "Old Ward-break autobomber scaling cannot be trusted.",
+      "caveats": [
+        "Some Elementalist autobomber ideas may still work if they are not actually Ward-break dependent.",
+        "Tori COWB PoBs should be kept as reference, not promoted blindly."
+      ],
+      "next_checks": [
+        "Separate Righteous Cold DoT autobomber from true COWB.",
+        "Wait for current COWB specialist updates before recommending."
+      ]
+    },
+    {
+      "family_id": "reliquarian_scion_shells",
+      "label": "구경만",
+      "practice_value": "low",
+      "confidence": "patch_note_high",
+      "representative_candidates": [
+        "3.28_impending_doom_reliquarian",
+        "3.29_reliquarian_dawnbreaker_rf",
+        "3.29_reliquarian_hot_autobomber",
+        "3.29_reliquarian_blight_contagion",
+        "3.29_reliquarian_static_strike",
+        "3.29_reliquarian_lightning_strike",
+        "3.29_reliquarian_gloomfang_wander",
+        "3.29_reliquarian_black_cane_spell",
+        "3.29_reliquarian_explosive_trap_fire_taken"
+      ],
+      "patch_hooks": [
+        "3.29 shuffles Reliquarian notables.",
+        "Scion must be separated into Ascendant, Reliquarian, and Luminary branches.",
+        "Reliquarian is item-effect research, while Luminary is Mercenary-state research."
+      ],
+      "why": "These are good watchlist ideas but poor practice targets until the actual 3.29 branch and PoB are known.",
+      "caveats": [
+        "Do not reuse 3.28 Reliquarian trees as 3.29 trees.",
+        "Do not merge Luminary Mercenary logic into Reliquarian item-effect shells."
+      ],
+      "next_checks": [
+        "Collect current Reliquarian branch PoBs.",
+        "Model Scion branch in UI before recommending any Scion build."
+      ]
+    },
+    {
+      "family_id": "blight_contagion_and_chaos_dot_channeling",
+      "label": "가능성 높음",
+      "practice_value": "medium",
+      "confidence": "patch_note_medium",
+      "representative_candidates": [
+        "3.26_blight_of_contagion_trickster",
+        "3.27_blight_of_contagion_trickster",
+        "3.29_reliquarian_blight_contagion",
+        "3.26_soulrend_occultist"
+      ],
+      "patch_hooks": [
+        "Pact of Ghorr empowers damage-over-time spells.",
+        "Pact of Lycia empowers self-cast channelling spells.",
+        "Breath of the Council gains stronger chaos skill duration, chaos damage, and area values."
+      ],
+      "why": "Chaos DoT/channeling is one of the better 3.29 retest lanes, even if no old PoB can be promoted unchanged.",
+      "caveats": [
+        "Affliction cost and channeling safety are unknown before live/PoB data.",
+        "Occultist/Trickster/Scion branches should stay separated."
+      ],
+      "next_checks": [
+        "Collect Pact of Ghorr/Lycia PoBs.",
+        "Run safety checks for channeling in Allflame content."
+      ]
+    },
+    {
+      "family_id": "maw_ignite_elementalist",
+      "label": "손봐야 가능",
+      "practice_value": "medium",
+      "confidence": "patch_note_medium",
+      "representative_candidates": [
+        "3.23_maw_of_mischief_elementalist",
+        "3.24_maw_ignite_elementalist"
+      ],
+      "patch_hooks": [
+        "Maw of Mischief now uses minion skill mana cost efficiency wording on new items.",
+        "Minion Pact is reworked into Communion Support and no longer modifies minion skills."
+      ],
+      "why": "Maw practice can teach ignite/minion-sacrifice timing, but old support and item wording must be checked.",
+      "caveats": [
+        "Existing item behavior and new-drop behavior may differ.",
+        "Needs a current creator PoB before recommendation."
+      ],
+      "next_checks": [
+        "Check whether Maw builds relied on changed support wording.",
+        "Refresh ignite support package."
+      ]
+    },
+    {
+      "family_id": "bama_holy_relic_animate_weapon_non_spectre_minions",
+      "label": "연습해도 됨",
+      "practice_value": "medium",
+      "confidence": "patch_note_medium",
+      "representative_candidates": [
+        "3.24_holy_relic_necromancer",
+        "3.25_holy_relic_necromancer",
+        "3.27_summon_holy_relic_necromancer",
+        "3.28_summon_holy_relic_necromancer",
+        "3.24_bama_necromancer",
+        "3.25_bama_necromancer",
+        "3.26_animate_weapon_poison_necromancer"
+      ],
+      "patch_hooks": [
+        "Non-Spectre minion behavior improves broadly, but the patch note's strongest explicit list does not name every minion archetype.",
+        "Minion support and item wording changes need per-build validation."
+      ],
+      "why": "Minion leveling and support-package practice transfers, but these are not as clearly blessed as SRS/Zombie/Dominating Blow.",
+      "caveats": [
+        "Holy Relic trigger attack and BAMA bow packages need current PoBs.",
+        "Animate Weapon poison remains a failure-edge case until updated."
+      ],
+      "next_checks": [
+        "Collect Ghazzy/Tori/other minion PoBs.",
+        "Separate trigger attack pressure from minion damage package."
+      ]
+    }
+  ]
+}

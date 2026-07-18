@@ -1,0 +1,3234 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_build_variant_real_cases",
+  "updated_at": "2026-07-15T12:00:00+07:00",
+  "cases": [
+    {
+      "case_id": "3.24_penance_brand_inquisitor_v1",
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "archetype_id": "penance_brand_inquisitor",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.24 Necropolis league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Penance Brand of Dissipation curated transition"
+        },
+        {
+          "type": "creator_guide_zeeboub_brand_v2",
+          "label": "ZeeBoub Brand Guide 2.0 structured local import; Penance Brand Inquisitor progression and PoB set, 3.25-3.27 era cross-patch guide evidence.",
+          "local_path": "data/guide_sources/poe1_brand_guide_zeeboub_v2.json",
+          "source_id": "zeeboub_brand_guide_v2"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_brand_leveling",
+          "damage_engine": "brand spell hit leveling",
+          "defense_engine": "life hybrid generic caster",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar brand caster leveling",
+          "play_pattern": "campaign bossing and generic progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_caster_rare",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "endgame_penance_brand",
+          "damage_engine": "penance brand crit spell hit",
+          "defense_engine": "life hybrid inquisitor endgame shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "brand crit caster endgame",
+          "play_pattern": "bossing and strong all-round mapping",
+          "budget_tier": "mid",
+          "gear_package_id": "mid_caster_brand_package",
+          "aura_package_id": "mid_brand_reservation",
+          "cluster_package_id": "basic_brand_clusters",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_brand_leveling",
+          "right_state_id": "endgame_penance_brand",
+          "decision": "sub_archetype_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.24_righteous_fire_chieftain_v1",
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "archetype_id": "righteous_fire_chieftain",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.24 Necropolis league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Righteous Fire Chieftain curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_holy_flame_totem",
+          "damage_engine": "totem fire spell leveling",
+          "defense_engine": "life regen leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar fire leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_fire_totem",
+          "aura_package_id": "early_fire_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_righteous_fire",
+          "damage_engine": "self-burn fire dot",
+          "defense_engine": "life regen armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "rf fire dot endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_rf_package",
+          "aura_package_id": "determination_purity_rf",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_righteous_fire",
+          "damage_engine": "self-burn fire dot",
+          "defense_engine": "life regen armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "rf fire dot endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_rf_package",
+          "aura_package_id": "optimized_rf_reservation",
+          "cluster_package_id": "rf_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_holy_flame_totem",
+          "right_state_id": "maps_righteous_fire",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_righteous_fire",
+          "right_state_id": "high_end_righteous_fire",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.25_lightning_arrow_deadeye_v1",
+      "patch": "3.25",
+      "league_name": "Settlers of Kalguur",
+      "archetype_id": "lightning_arrow_deadeye",
+      "source_status": "ready_for_cross_patch_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "curated_transition_patterns",
+          "label": "Lightning Arrow curated transition"
+        },
+        {
+          "type": "maxroll_3_25",
+          "label": "Maxroll external cross-check"
+        },
+        {
+          "type": "poe_vault_3_25",
+          "label": "PoE Vault external cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_rain_of_arrows",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_lightning_arrow",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_rain_of_arrows",
+          "right_state_id": "maps_lightning_arrow",
+          "decision": "phase_state_only"
+        }
+      ]
+    },
+    {
+      "case_id": "3.26_earthquake_marauder_v1",
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "archetype_id": "earthquake_marauder",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.26 Secrets of the Atlas league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Earthquake from Ground Slam curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "act_ground_slam",
+          "damage_engine": "slam melee hit leveling",
+          "defense_engine": "life armour leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "marauder slam leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_slam_weapon",
+          "aura_package_id": "low_reservation_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_earthquake",
+          "damage_engine": "slam melee hit endgame",
+          "defense_engine": "life armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "marauder slam endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_slam_weapon",
+          "aura_package_id": "determination_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_earthquake",
+          "damage_engine": "slam melee hit endgame",
+          "defense_engine": "life armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "marauder slam endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_slam_weapon",
+          "aura_package_id": "double_defense_melee",
+          "cluster_package_id": "endgame_slam_clusters",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "act_ground_slam",
+          "right_state_id": "maps_earthquake",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_earthquake",
+          "right_state_id": "high_end_earthquake",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.27_detonate_dead_caster_v1",
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "archetype_id": "detonate_dead_caster",
+      "source_status": "ready_for_cross_patch_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.27 Keepers of the Flame league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Detonate Dead curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_rolling_magma",
+          "damage_engine": "projectile spell hit leveling",
+          "defense_engine": "generic caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch fire caster leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_fire_caster",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_detonate_dead",
+          "damage_engine": "corpse explosion spell hit",
+          "defense_engine": "generic caster mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "corpse caster endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_dd_package",
+          "aura_package_id": "mid_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_rolling_magma",
+          "right_state_id": "maps_detonate_dead",
+          "decision": "sub_archetype_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.28_strength_stacker_juggernaut_v1",
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "archetype_id": "strength_stacker_juggernaut",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "video_transcript",
+          "label": "3.28 Strength Stack Juggernaut transcript"
+        },
+        {
+          "type": "manual_curated",
+          "label": "Local variant seed v2"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "holy_static_progression",
+          "damage_engine": "early melee hit progression into static chain hit",
+          "defense_engine": "life armour with first-lab accuracy spike",
+          "core_unique_gate": "no mandatory unique",
+          "tree_shape_class": "early melee pathing into spiritual command aid bridge",
+          "play_pattern": "campaign progression and early mapping",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_rare_melee",
+          "aura_package_id": "low_reservation_campaign",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "zenith_mid_budget",
+          "damage_engine": "zenith hit or projectile endgame scaling",
+          "defense_engine": "strength-based tank stack with alberons package",
+          "core_unique_gate": "replica alberons warpath",
+          "tree_shape_class": "strength stack with endgame weapon scaling",
+          "play_pattern": "mid-budget all-rounder farming",
+          "budget_tier": "mid",
+          "gear_package_id": "alberon_chaos_sword_mid",
+          "aura_package_id": "mapping_mid",
+          "cluster_package_id": "basic_strength_clusters",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "heavy_strike_high_end",
+          "damage_engine": "heavy strike crit hit scaling",
+          "defense_engine": "hybrid strength plus energy shield plus fortify endgame shell",
+          "core_unique_gate": "double influence accuracy and chaos helmet",
+          "tree_shape_class": "crit and cluster optimized strength stack",
+          "play_pattern": "tanky endgame melee bossing",
+          "budget_tier": "high_end",
+          "gear_package_id": "heavy_double_influence_high_end",
+          "aura_package_id": "double_purity_endgame",
+          "cluster_package_id": "overlord_and_strength_clusters",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "holy_static_progression",
+          "right_state_id": "zenith_mid_budget",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "zenith_mid_budget",
+          "right_state_id": "heavy_strike_high_end",
+          "decision": "sub_archetype_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.24_raise_spectre_necromancer_v1",
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "archetype_id": "raise_spectre_necromancer",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.24 Necropolis league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Raise Spectre from Summon Raging Spirit curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_srs",
+          "damage_engine": "temporary minion spell hit leveling",
+          "defense_engine": "generic minion leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch minion leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_minion_rare",
+          "aura_package_id": "early_minion_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_raise_spectre",
+          "damage_engine": "persistent minion damage engine",
+          "defense_engine": "generic minion mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "spectre endgame minion tree",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_spectre_package",
+          "aura_package_id": "mid_minion_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_raise_spectre",
+          "damage_engine": "persistent minion damage engine",
+          "defense_engine": "generic minion mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "spectre endgame minion tree",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_spectre_package",
+          "aura_package_id": "optimized_minion_reservation",
+          "cluster_package_id": "minion_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_srs",
+          "right_state_id": "maps_raise_spectre",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_raise_spectre",
+          "right_state_id": "high_end_raise_spectre",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.26_ice_nova_caster_v1",
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "archetype_id": "ice_nova_caster",
+      "source_status": "provisional_seeded",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.26 Secrets of the Atlas league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Ice Nova from Frostbolt curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_frostbolt",
+          "damage_engine": "cold spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch cold caster leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_cold_caster",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_ice_nova",
+          "damage_engine": "cold spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch cold caster leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_cold_caster",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_ice_nova",
+          "damage_engine": "cold spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch cold caster leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_cold_caster",
+          "aura_package_id": "optimized_caster_reservation",
+          "cluster_package_id": "cold_spell_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_frostbolt",
+          "right_state_id": "maps_ice_nova",
+          "decision": "phase_state_only"
+        },
+        {
+          "left_state_id": "maps_ice_nova",
+          "right_state_id": "high_end_ice_nova",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.24_summon_skeletons_necromancer_v1",
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "archetype_id": "summon_skeletons_necromancer",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.24 Necropolis league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Summon Skeletons from Summon Raging Spirit curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_srs",
+          "damage_engine": "temporary minion spell hit leveling",
+          "defense_engine": "generic minion leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch minion leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_minion_rare",
+          "aura_package_id": "early_minion_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_skeletons",
+          "damage_engine": "persistent minion damage engine",
+          "defense_engine": "generic minion mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "skeleton endgame minion tree",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_skeleton_package",
+          "aura_package_id": "mid_minion_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_skeletons",
+          "damage_engine": "persistent minion damage engine",
+          "defense_engine": "generic minion mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "skeleton endgame minion tree",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_skeleton_package",
+          "aura_package_id": "optimized_minion_reservation",
+          "cluster_package_id": "minion_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_srs",
+          "right_state_id": "maps_skeletons",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_skeletons",
+          "right_state_id": "high_end_skeletons",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.25_righteous_fire_chieftain_v1",
+      "patch": "3.25",
+      "league_name": "Settlers of Kalguur",
+      "archetype_id": "righteous_fire_chieftain",
+      "source_status": "ready_for_cross_patch_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "curated_transition_patterns",
+          "label": "Righteous Fire Chieftain curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_holy_flame_totem",
+          "damage_engine": "totem fire spell leveling",
+          "defense_engine": "life regen leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar fire leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_fire_totem",
+          "aura_package_id": "early_fire_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_righteous_fire",
+          "damage_engine": "self-burn fire dot",
+          "defense_engine": "life regen armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "rf fire dot endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_rf_package",
+          "aura_package_id": "determination_purity_rf",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_holy_flame_totem",
+          "right_state_id": "maps_righteous_fire",
+          "decision": "sub_archetype_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.26_penance_brand_inquisitor_v1",
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "archetype_id": "penance_brand_inquisitor",
+      "source_status": "ready_for_cross_patch_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "curated_transition_patterns",
+          "label": "Penance Brand of Dissipation curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_storm_brand",
+          "damage_engine": "brand spell hit leveling",
+          "defense_engine": "life hybrid generic caster",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar brand caster leveling",
+          "play_pattern": "campaign bossing and generic progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_caster_rare",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_penance_brand",
+          "damage_engine": "penance brand crit spell hit",
+          "defense_engine": "life hybrid inquisitor endgame shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "brand crit caster endgame",
+          "play_pattern": "bossing and strong all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_caster_brand_package",
+          "aura_package_id": "mid_brand_reservation",
+          "cluster_package_id": "basic_brand_clusters",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_storm_brand",
+          "right_state_id": "maps_penance_brand",
+          "decision": "sub_archetype_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.26_lightning_arrow_deadeye_v1",
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "archetype_id": "lightning_arrow_deadeye",
+      "source_status": "ready_for_cross_patch_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "curated_transition_patterns",
+          "label": "Lightning Arrow curated transition"
+        },
+        {
+          "type": "poe_vault_3_26",
+          "label": "PoE Vault external cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_rain_of_arrows",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_lightning_arrow",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_lightning_arrow",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_bow_package",
+          "aura_package_id": "optimized_bow_reservation",
+          "cluster_package_id": "bow_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_rain_of_arrows",
+          "right_state_id": "maps_lightning_arrow",
+          "decision": "phase_state_only"
+        },
+        {
+          "left_state_id": "maps_lightning_arrow",
+          "right_state_id": "high_end_lightning_arrow",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.24_detonate_dead_caster_v1",
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "archetype_id": "detonate_dead_caster",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.24 Necropolis league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Detonate Dead curated transition"
+        },
+        {
+          "type": "maxroll_3_24",
+          "label": "Maxroll external cross-check"
+        },
+        {
+          "type": "poe_vault_3_24",
+          "label": "PoE Vault external cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_rolling_magma",
+          "damage_engine": "projectile spell hit leveling",
+          "defense_engine": "generic caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch fire caster leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_fire_caster",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_detonate_dead",
+          "damage_engine": "corpse explosion spell hit",
+          "defense_engine": "generic caster mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "corpse caster endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_dd_package",
+          "aura_package_id": "mid_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "bossing"
+        },
+        {
+          "state_id": "high_end_detonate_dead",
+          "damage_engine": "corpse explosion spell hit",
+          "defense_engine": "generic caster mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "corpse caster endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_dd_package",
+          "aura_package_id": "optimized_dd_reservation",
+          "cluster_package_id": "corpse_spell_clusters_endgame",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_rolling_magma",
+          "right_state_id": "maps_detonate_dead",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_detonate_dead",
+          "right_state_id": "high_end_detonate_dead",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.26_ball_lightning_caster_v1",
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "archetype_id": "ball_lightning_caster",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.26 Secrets of the Atlas league start index trace"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_arc",
+          "damage_engine": "lightning spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch lightning caster leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_lightning_caster",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_ball_lightning",
+          "damage_engine": "lightning spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch lightning caster leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_lightning_caster",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_arc",
+          "right_state_id": "maps_ball_lightning",
+          "decision": "phase_state_only"
+        }
+      ]
+    },
+    {
+      "case_id": "3.25_spark_caster_v1",
+      "patch": "3.25",
+      "league_name": "Settlers of Kalguur",
+      "archetype_id": "spark_caster",
+      "source_status": "needs_patch_verification",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.25 Settlers of Kalguur league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Spark curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_spark",
+          "damage_engine": "lightning spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch lightning caster leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_lightning_caster",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_spark",
+          "damage_engine": "lightning spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch lightning caster leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_lightning_caster",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_spark",
+          "damage_engine": "lightning spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "witch lightning caster leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_lightning_caster",
+          "aura_package_id": "optimized_caster_reservation",
+          "cluster_package_id": "lightning_spell_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_spark",
+          "right_state_id": "maps_spark",
+          "decision": "phase_state_only"
+        },
+        {
+          "left_state_id": "maps_spark",
+          "right_state_id": "high_end_spark",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.28_zenith_strength_stacker_juggernaut_v1",
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "archetype_id": "strength_stacker_juggernaut",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "video_transcript",
+          "label": "3.28 Strength Stack Juggernaut transcript"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "zenith_budget",
+          "damage_engine": "zenith hit or projectile endgame scaling",
+          "defense_engine": "strength-based tank stack with alberons package",
+          "core_unique_gate": "replica alberons warpath",
+          "tree_shape_class": "strength stack with endgame weapon scaling",
+          "play_pattern": "mid-budget all-rounder farming",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_zenith_package",
+          "aura_package_id": "mapping_mid",
+          "cluster_package_id": "basic_strength_clusters",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "zenith_high_end",
+          "damage_engine": "zenith hit or projectile endgame scaling",
+          "defense_engine": "strength-based tank stack with alberons package",
+          "core_unique_gate": "replica alberons warpath",
+          "tree_shape_class": "strength stack with endgame weapon scaling",
+          "play_pattern": "mid-budget all-rounder farming",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_zenith_package",
+          "aura_package_id": "optimized_zenith_reservation",
+          "cluster_package_id": "optimized_strength_clusters",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "zenith_budget",
+          "right_state_id": "zenith_high_end",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.22_lightning_arrow_deadeye_v1",
+      "patch": "3.22",
+      "league_name": "Trial of the Ancestors",
+      "archetype_id": "lightning_arrow_deadeye",
+      "source_status": "needs_patch_verification",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.22-ish local raw index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Lightning Arrow curated transition"
+        },
+        {
+          "type": "maxroll_3_22",
+          "label": "Maxroll external cross-check"
+        },
+        {
+          "type": "poe_vault_3_22",
+          "label": "PoE Vault external cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_rain_of_arrows",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_lightning_arrow",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_rain_of_arrows",
+          "right_state_id": "maps_lightning_arrow",
+          "decision": "phase_state_only"
+        }
+      ]
+    },
+    {
+      "case_id": "3.22_toxic_rain_ranger_v1",
+      "patch": "3.22",
+      "league_name": "Trial of the Ancestors",
+      "archetype_id": "toxic_rain_ranger",
+      "source_status": "needs_patch_verification",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.22-ish local raw index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Toxic Rain curated transition"
+        },
+        {
+          "type": "maxroll_3_22",
+          "label": "Maxroll external cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_caustic_arrow",
+          "damage_engine": "chaos bow dot",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow dot leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_dot_bow",
+          "aura_package_id": "early_dot_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_toxic_rain",
+          "damage_engine": "chaos bow dot",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow dot leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_dot_bow",
+          "aura_package_id": "early_dot_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_toxic_rain",
+          "damage_engine": "chaos bow dot",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow dot leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_dot_bow",
+          "aura_package_id": "optimized_dot_reservation",
+          "cluster_package_id": "dot_bow_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_caustic_arrow",
+          "right_state_id": "maps_toxic_rain",
+          "decision": "phase_state_only"
+        },
+        {
+          "left_state_id": "maps_toxic_rain",
+          "right_state_id": "high_end_toxic_rain",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.23_penance_brand_inquisitor_v1",
+      "patch": "3.23",
+      "league_name": "Affliction",
+      "archetype_id": "penance_brand_inquisitor",
+      "source_status": "blocked_on_patch_specific_ingest",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "curated_transition_patterns",
+          "label": "Penance Brand of Dissipation curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_storm_brand",
+          "damage_engine": "brand spell hit leveling",
+          "defense_engine": "life hybrid generic caster",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar brand caster leveling",
+          "play_pattern": "campaign bossing and generic progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_caster_rare",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_penance_brand",
+          "damage_engine": "penance brand crit spell hit",
+          "defense_engine": "life hybrid inquisitor endgame shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "brand crit caster endgame",
+          "play_pattern": "bossing and strong all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_caster_brand_package",
+          "aura_package_id": "mid_brand_reservation",
+          "cluster_package_id": "basic_brand_clusters",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_storm_brand",
+          "right_state_id": "maps_penance_brand",
+          "decision": "sub_archetype_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.27_lacerate_duelist_v1",
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "archetype_id": "lacerate_duelist",
+      "source_status": "needs_patch_verification",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.27 Keepers of the Flame league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Lacerate curated transition"
+        },
+        {
+          "type": "poe_vault_3_27",
+          "label": "PoE Vault external cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_cleave",
+          "damage_engine": "bleed melee hit",
+          "defense_engine": "life armour melee leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "duelist bleed melee leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_bleed_melee",
+          "aura_package_id": "early_melee_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_lacerate",
+          "damage_engine": "bleed melee hit",
+          "defense_engine": "life armour melee leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "duelist bleed melee leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_bleed_melee",
+          "aura_package_id": "early_melee_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_cleave",
+          "right_state_id": "maps_lacerate",
+          "decision": "phase_state_only"
+        }
+      ]
+    },
+    {
+      "case_id": "3.25_ball_lightning_caster_v1",
+      "source_status": "needs_patch_verification",
+      "patch": "3.25",
+      "league_name": "Settlers of Kalguur",
+      "confidence": "low",
+      "archetype_id": "ball_lightning_caster",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.25 Settlers of Kalguur league start index trace"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "decision": "phase_state_only",
+          "left_state_id": "campaign_spark",
+          "right_state_id": "maps_ball_lightning"
+        }
+      ],
+      "states": [
+        {
+          "gear_package_id": "campaign_lightning_caster",
+          "state_id": "campaign_spark",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "core_unique_gate": "none",
+          "damage_engine": "lightning spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "tree_shape_class": "witch lightning caster leveling",
+          "cluster_package_id": "none",
+          "aura_package_id": "early_caster_reservation",
+          "content_specialization": "generic"
+        },
+        {
+          "gear_package_id": "budget_lightning_caster",
+          "state_id": "maps_ball_lightning",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "core_unique_gate": "none",
+          "damage_engine": "lightning spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "tree_shape_class": "witch lightning caster leveling",
+          "cluster_package_id": "none",
+          "aura_package_id": "early_caster_reservation",
+          "content_specialization": "generic"
+        }
+      ]
+    },
+    {
+      "case_id": "3.25_lacerate_duelist_v1",
+      "source_status": "needs_patch_verification",
+      "patch": "3.25",
+      "league_name": "Settlers of Kalguur",
+      "confidence": "low",
+      "archetype_id": "lacerate_duelist",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.25 Settlers of Kalguur league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Lacerate curated transition"
+        },
+        {
+          "type": "maxroll_3_25",
+          "label": "Maxroll external cross-check"
+        },
+        {
+          "type": "poe_vault_3_25",
+          "label": "PoE Vault external cross-check"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "decision": "phase_state_only",
+          "left_state_id": "campaign_cleave",
+          "right_state_id": "maps_lacerate"
+        },
+        {
+          "decision": "variant_split",
+          "left_state_id": "maps_lacerate",
+          "right_state_id": "high_end_lacerate"
+        }
+      ],
+      "states": [
+        {
+          "gear_package_id": "campaign_bleed_melee",
+          "state_id": "campaign_cleave",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "core_unique_gate": "none",
+          "damage_engine": "bleed melee hit",
+          "defense_engine": "life armour melee leveling shell",
+          "tree_shape_class": "duelist bleed melee leveling",
+          "cluster_package_id": "none",
+          "aura_package_id": "early_melee_reservation",
+          "content_specialization": "generic"
+        },
+        {
+          "gear_package_id": "budget_bleed_melee",
+          "state_id": "maps_lacerate",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "core_unique_gate": "none",
+          "damage_engine": "bleed melee hit",
+          "defense_engine": "life armour melee leveling shell",
+          "tree_shape_class": "duelist bleed melee leveling",
+          "cluster_package_id": "none",
+          "aura_package_id": "early_melee_reservation",
+          "content_specialization": "generic"
+        },
+        {
+          "gear_package_id": "high_end_bleed_melee",
+          "state_id": "high_end_lacerate",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "core_unique_gate": "none",
+          "damage_engine": "bleed melee hit",
+          "defense_engine": "life armour melee leveling shell",
+          "tree_shape_class": "duelist bleed melee leveling",
+          "cluster_package_id": "bleed_melee_clusters_endgame",
+          "aura_package_id": "optimized_melee_reservation",
+          "content_specialization": "generic"
+        }
+      ]
+    },
+    {
+      "case_id": "3.27_ice_nova_caster_v1",
+      "source_status": "provisional_seeded",
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "confidence": "low",
+      "archetype_id": "ice_nova_caster",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.27 Keepers of the Flame league start index trace"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Ice Nova from Frostbolt curated transition"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "decision": "phase_state_only",
+          "left_state_id": "campaign_frostbolt",
+          "right_state_id": "maps_ice_nova"
+        }
+      ],
+      "states": [
+        {
+          "gear_package_id": "campaign_cold_caster",
+          "state_id": "campaign_frostbolt",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "core_unique_gate": "none",
+          "damage_engine": "cold spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "tree_shape_class": "witch cold caster leveling",
+          "cluster_package_id": "none",
+          "aura_package_id": "early_caster_reservation",
+          "content_specialization": "generic"
+        },
+        {
+          "gear_package_id": "budget_cold_caster",
+          "state_id": "maps_ice_nova",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "core_unique_gate": "none",
+          "damage_engine": "cold spell hit",
+          "defense_engine": "generic caster leveling shell",
+          "tree_shape_class": "witch cold caster leveling",
+          "cluster_package_id": "none",
+          "aura_package_id": "early_caster_reservation",
+          "content_specialization": "generic"
+        }
+      ]
+    },
+    {
+      "case_id": "3.27_dominating_blow_guardian_v1",
+      "source_status": "needs_patch_verification",
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "confidence": "low",
+      "archetype_id": "dominating_blow_guardian",
+      "evidence": [
+        {
+          "type": "raw_transition_patterns",
+          "label": "3.27 Keepers of the Flame league start index trace"
+        },
+        {
+          "type": "poe_vault_3_27",
+          "label": "PoE Vault external cross-check"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "decision": "sub_archetype_split",
+          "left_state_id": "campaign_summon_holy_relic",
+          "right_state_id": "maps_dominating_blow"
+        }
+      ],
+      "states": [
+        {
+          "gear_package_id": "campaign_minion_rare",
+          "state_id": "campaign_summon_holy_relic",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "core_unique_gate": "none",
+          "damage_engine": "support minion spell hit",
+          "defense_engine": "templar minion leveling shell",
+          "tree_shape_class": "templar minion leveling",
+          "cluster_package_id": "none",
+          "aura_package_id": "early_minion_reservation",
+          "content_specialization": "generic"
+        },
+        {
+          "gear_package_id": "budget_dominating_blow_package",
+          "state_id": "maps_dominating_blow",
+          "play_pattern": "all-round mapping with minion melee pressure",
+          "budget_tier": "budget",
+          "core_unique_gate": "none",
+          "damage_engine": "attack minion hybrid hit",
+          "defense_engine": "templar minion mapping shell",
+          "tree_shape_class": "guardian attack minion endgame",
+          "cluster_package_id": "none",
+          "aura_package_id": "mid_minion_reservation",
+          "content_specialization": "generic"
+        }
+      ]
+    },
+    {
+      "case_id": "3.23_boneshatter_juggernaut_v1",
+      "patch": "3.23",
+      "league_name": "Affliction",
+      "archetype_id": "boneshatter_juggernaut",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_23",
+          "label": "Affliction league starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_23",
+          "label": "Affliction league starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_ground_slam",
+          "damage_engine": "slam melee hit leveling",
+          "defense_engine": "life armour leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "marauder slam leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_slam_weapon",
+          "aura_package_id": "low_reservation_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_boneshatter",
+          "damage_engine": "self-hit trauma melee strike",
+          "defense_engine": "juggernaut armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "juggernaut boneshatter endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_boneshatter_axe",
+          "aura_package_id": "determination_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_boneshatter",
+          "damage_engine": "self-hit trauma melee strike",
+          "defense_engine": "juggernaut armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "juggernaut boneshatter endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_boneshatter_axe",
+          "aura_package_id": "double_defense_melee",
+          "cluster_package_id": "boneshatter_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_ground_slam",
+          "right_state_id": "maps_boneshatter",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_boneshatter",
+          "right_state_id": "high_end_boneshatter",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.24_lightning_arrow_deadeye_v1",
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "archetype_id": "lightning_arrow_deadeye",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_24",
+          "label": "Necropolis starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_24",
+          "label": "Necropolis starters cross-check"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Lightning Arrow curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_rain_of_arrows",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_lightning_arrow",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_lightning_arrow",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_bow_package",
+          "aura_package_id": "optimized_bow_reservation",
+          "cluster_package_id": "projectile_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_rain_of_arrows",
+          "right_state_id": "maps_lightning_arrow",
+          "decision": "phase_state_only"
+        },
+        {
+          "left_state_id": "maps_lightning_arrow",
+          "right_state_id": "high_end_lightning_arrow",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.24_explosive_arrow_ballista_champion_v1",
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "archetype_id": "explosive_arrow_ballista_champion",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_24",
+          "label": "Necropolis starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_24",
+          "label": "Necropolis starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_shrapnel_ballista",
+          "damage_engine": "bow projectile attack leveling",
+          "defense_engine": "armour evasion leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "duelist bow leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_explosive_arrow_ballista",
+          "damage_engine": "fire ballista ignite",
+          "defense_engine": "champion armour evasion mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "champion explosive arrow ballista endgame",
+          "play_pattern": "bossing and strong all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_ea_ballista_package",
+          "aura_package_id": "determination_grace_banner",
+          "cluster_package_id": "none",
+          "content_specialization": "bossing"
+        },
+        {
+          "state_id": "high_end_explosive_arrow_ballista",
+          "damage_engine": "fire ballista ignite",
+          "defense_engine": "champion armour evasion mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "champion explosive arrow ballista endgame",
+          "play_pattern": "bossing and strong all-round mapping",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_ea_ballista_package",
+          "aura_package_id": "optimized_ea_reservation",
+          "cluster_package_id": "ea_ballista_clusters_endgame",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_shrapnel_ballista",
+          "right_state_id": "maps_explosive_arrow_ballista",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_explosive_arrow_ballista",
+          "right_state_id": "high_end_explosive_arrow_ballista",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.24_boneshatter_juggernaut_v1",
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "archetype_id": "boneshatter_juggernaut",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_24",
+          "label": "Necropolis starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_24",
+          "label": "Necropolis starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_ground_slam",
+          "damage_engine": "slam melee hit leveling",
+          "defense_engine": "life armour leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "marauder slam leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_slam_weapon",
+          "aura_package_id": "low_reservation_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_boneshatter",
+          "damage_engine": "self-hit trauma melee strike",
+          "defense_engine": "juggernaut armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "juggernaut boneshatter endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_boneshatter_axe",
+          "aura_package_id": "determination_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_boneshatter",
+          "damage_engine": "self-hit trauma melee strike",
+          "defense_engine": "juggernaut armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "juggernaut boneshatter endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_boneshatter_axe",
+          "aura_package_id": "double_defense_melee",
+          "cluster_package_id": "boneshatter_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_ground_slam",
+          "right_state_id": "maps_boneshatter",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_boneshatter",
+          "right_state_id": "high_end_boneshatter",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.25_boneshatter_juggernaut_v1",
+      "patch": "3.25",
+      "league_name": "Settlers of Kalguur",
+      "archetype_id": "boneshatter_juggernaut",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_25",
+          "label": "Settlers starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_25",
+          "label": "Settlers starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_ground_slam",
+          "damage_engine": "slam melee hit leveling",
+          "defense_engine": "life armour leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "marauder slam leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_slam_weapon",
+          "aura_package_id": "low_reservation_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_boneshatter",
+          "damage_engine": "self-hit trauma melee strike",
+          "defense_engine": "juggernaut armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "juggernaut boneshatter endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_boneshatter_axe",
+          "aura_package_id": "determination_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_boneshatter",
+          "damage_engine": "self-hit trauma melee strike",
+          "defense_engine": "juggernaut armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "juggernaut boneshatter endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_boneshatter_axe",
+          "aura_package_id": "double_defense_melee",
+          "cluster_package_id": "boneshatter_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_ground_slam",
+          "right_state_id": "maps_boneshatter",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_boneshatter",
+          "right_state_id": "high_end_boneshatter",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.25_hexblast_miner_saboteur_v1",
+      "patch": "3.25",
+      "league_name": "Settlers of Kalguur",
+      "archetype_id": "hexblast_miner_saboteur",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_25",
+          "label": "Settlers starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_25",
+          "label": "Settlers starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_stormblast_mine",
+          "damage_engine": "mine spell hit leveling",
+          "defense_engine": "life evasion caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "shadow mine leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_mine_rare",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_hexblast_mine",
+          "damage_engine": "hexblast mine chaos hit",
+          "defense_engine": "saboteur mine mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "saboteur hexblast mine endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_hexblast_mine_package",
+          "aura_package_id": "mid_mine_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "bossing"
+        },
+        {
+          "state_id": "high_end_hexblast_mine",
+          "damage_engine": "hexblast mine chaos hit",
+          "defense_engine": "saboteur mine mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "saboteur hexblast mine endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_hexblast_mine_package",
+          "aura_package_id": "optimized_mine_reservation",
+          "cluster_package_id": "hexblast_mine_clusters_endgame",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_stormblast_mine",
+          "right_state_id": "maps_hexblast_mine",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_hexblast_mine",
+          "right_state_id": "high_end_hexblast_mine",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.26_siege_ballista_hierophant_v1",
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "archetype_id": "siege_ballista_hierophant",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "poe_vault_3_26",
+          "label": "Secrets of the Atlas starters single-source confirmation"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_split_arrow",
+          "damage_engine": "bow projectile attack leveling",
+          "defense_engine": "templar hybrid leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar projectile leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_siege_ballista",
+          "damage_engine": "ballista totem projectile attack",
+          "defense_engine": "hierophant totem mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "hierophant ballista endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_siege_ballista_package",
+          "aura_package_id": "mid_totem_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_siege_ballista",
+          "damage_engine": "ballista totem projectile attack",
+          "defense_engine": "hierophant totem mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "hierophant ballista endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_siege_ballista_package",
+          "aura_package_id": "optimized_totem_reservation",
+          "cluster_package_id": "ballista_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_split_arrow",
+          "right_state_id": "maps_siege_ballista",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_siege_ballista",
+          "right_state_id": "high_end_siege_ballista",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.27_toxic_rain_pathfinder_v1",
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "archetype_id": "toxic_rain_pathfinder",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "poe_vault_3_27",
+          "label": "Keepers starters single-source confirmation"
+        },
+        {
+          "type": "curated_transition_patterns",
+          "label": "Toxic Rain curated transition"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_caustic_arrow",
+          "damage_engine": "chaos bow dot",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow dot leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_dot_bow",
+          "aura_package_id": "early_dot_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_toxic_rain",
+          "damage_engine": "chaos bow dot",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow dot leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_dot_bow",
+          "aura_package_id": "early_dot_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_toxic_rain",
+          "damage_engine": "chaos bow dot",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow dot leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_dot_bow",
+          "aura_package_id": "optimized_dot_reservation",
+          "cluster_package_id": "dot_bow_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_caustic_arrow",
+          "right_state_id": "maps_toxic_rain",
+          "decision": "phase_state_only"
+        },
+        {
+          "left_state_id": "maps_toxic_rain",
+          "right_state_id": "high_end_toxic_rain",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.24_exsanguinate_mine_trickster_v1",
+      "patch": "3.24",
+      "league_name": "Necropolis",
+      "archetype_id": "exsanguinate_mine_trickster",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "maxroll_3_24",
+          "label": "Necropolis starters single-source direct confirmation"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_stormblast_mine",
+          "damage_engine": "mine spell hit leveling",
+          "defense_engine": "life evasion caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "shadow mine leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_mine_rare",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_exsanguinate_mine",
+          "damage_engine": "physical spell mine dot hybrid",
+          "defense_engine": "trickster mine mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "trickster exsanguinate mine endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_exsanguinate_mine_package",
+          "aura_package_id": "mid_mine_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_exsanguinate_mine",
+          "damage_engine": "physical spell mine dot hybrid",
+          "defense_engine": "trickster mine mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "trickster exsanguinate mine endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_exsanguinate_mine_package",
+          "aura_package_id": "optimized_mine_reservation",
+          "cluster_package_id": "mine_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_stormblast_mine",
+          "right_state_id": "maps_exsanguinate_mine",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_exsanguinate_mine",
+          "right_state_id": "high_end_exsanguinate_mine",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.25_lightning_strike_deadeye_or_warden_v1",
+      "patch": "3.25",
+      "league_name": "Settlers of Kalguur",
+      "archetype_id": "lightning_strike_deadeye_or_warden",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_25",
+          "label": "Settlers starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_25",
+          "label": "Settlers starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_splitting_steel",
+          "damage_engine": "projectile melee attack leveling",
+          "defense_engine": "evasion attack leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger attack leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_attack_weapon",
+          "aura_package_id": "early_attack_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_lightning_strike",
+          "damage_engine": "projectile melee lightning hit",
+          "defense_engine": "evasion projectile mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger lightning strike endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_lightning_strike_claw",
+          "aura_package_id": "anger_grace_attack",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_lightning_strike",
+          "damage_engine": "projectile melee lightning hit",
+          "defense_engine": "evasion projectile mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger lightning strike endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_lightning_strike_claw",
+          "aura_package_id": "optimized_attack_reservation",
+          "cluster_package_id": "attack_projectile_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_splitting_steel",
+          "right_state_id": "maps_lightning_strike",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_lightning_strike",
+          "right_state_id": "high_end_lightning_strike",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.26_boneshatter_juggernaut_v1",
+      "patch": "3.26",
+      "league_name": "Secrets of the Atlas",
+      "archetype_id": "boneshatter_juggernaut",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "poe_vault_3_26",
+          "label": "Secrets of the Atlas starters single-source confirmation"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_ground_slam",
+          "damage_engine": "slam melee hit leveling",
+          "defense_engine": "life armour leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "marauder slam leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_slam_weapon",
+          "aura_package_id": "low_reservation_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_boneshatter",
+          "damage_engine": "self-hit trauma melee strike",
+          "defense_engine": "juggernaut armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "juggernaut boneshatter endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_boneshatter_axe",
+          "aura_package_id": "determination_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_boneshatter",
+          "damage_engine": "self-hit trauma melee strike",
+          "defense_engine": "juggernaut armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "juggernaut boneshatter endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_boneshatter_axe",
+          "aura_package_id": "double_defense_melee",
+          "cluster_package_id": "boneshatter_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_ground_slam",
+          "right_state_id": "maps_boneshatter",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_boneshatter",
+          "right_state_id": "high_end_boneshatter",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.27_pyroclast_mine_saboteur_v1",
+      "patch": "3.27",
+      "league_name": "Keepers of the Flame",
+      "archetype_id": "pyroclast_mine_saboteur",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "poe_vault_3_27",
+          "label": "Keepers starters single-source confirmation"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_stormblast_mine",
+          "damage_engine": "mine spell hit leveling",
+          "defense_engine": "life evasion caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "shadow mine leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_mine_rare",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_pyroclast_mine",
+          "damage_engine": "fire spell mine hit",
+          "defense_engine": "saboteur mine mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "saboteur pyroclast mine endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_pyroclast_mine_package",
+          "aura_package_id": "mid_mine_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "bossing"
+        },
+        {
+          "state_id": "high_end_pyroclast_mine",
+          "damage_engine": "fire spell mine hit",
+          "defense_engine": "saboteur mine mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "saboteur pyroclast mine endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_pyroclast_mine_package",
+          "aura_package_id": "optimized_mine_reservation",
+          "cluster_package_id": "pyroclast_mine_clusters_endgame",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_stormblast_mine",
+          "right_state_id": "maps_pyroclast_mine",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_pyroclast_mine",
+          "right_state_id": "high_end_pyroclast_mine",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.22_shockwave_totems_hierophant_v1",
+      "patch": "3.22",
+      "league_name": "Trial of the Ancestors",
+      "archetype_id": "shockwave_totems_hierophant",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "poe_vault_3_22",
+          "label": "Ancestor starters single-source confirmation"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_holy_flame_totem",
+          "damage_engine": "totem fire spell leveling",
+          "defense_engine": "templar totem leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar totem leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_fire_totem",
+          "aura_package_id": "early_fire_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_shockwave_totem",
+          "damage_engine": "physical spell totem hit",
+          "defense_engine": "hierophant totem mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "hierophant shockwave totem endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_shockwave_totem_package",
+          "aura_package_id": "mid_totem_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "bossing"
+        },
+        {
+          "state_id": "high_end_shockwave_totem",
+          "damage_engine": "physical spell totem hit",
+          "defense_engine": "hierophant totem mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "hierophant shockwave totem endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_shockwave_totem_package",
+          "aura_package_id": "optimized_totem_reservation",
+          "cluster_package_id": "totem_clusters_endgame",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_holy_flame_totem",
+          "right_state_id": "maps_shockwave_totem",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_shockwave_totem",
+          "right_state_id": "high_end_shockwave_totem",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.22_boneshatter_juggernaut_v1",
+      "patch": "3.22",
+      "league_name": "Trial of the Ancestors",
+      "archetype_id": "boneshatter_juggernaut",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_22",
+          "label": "Ancestor starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_22",
+          "label": "Ancestor starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_ground_slam",
+          "damage_engine": "slam melee hit leveling",
+          "defense_engine": "life armour leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "marauder slam leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_slam_weapon",
+          "aura_package_id": "low_reservation_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_boneshatter",
+          "damage_engine": "self-hit trauma melee strike",
+          "defense_engine": "juggernaut armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "juggernaut boneshatter endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_boneshatter_axe",
+          "aura_package_id": "determination_melee",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_boneshatter",
+          "damage_engine": "self-hit trauma melee strike",
+          "defense_engine": "juggernaut armour mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "juggernaut boneshatter endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_boneshatter_axe",
+          "aura_package_id": "double_defense_melee",
+          "cluster_package_id": "boneshatter_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_ground_slam",
+          "right_state_id": "maps_boneshatter",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_boneshatter",
+          "right_state_id": "high_end_boneshatter",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.22_corrupting_fever_champion_v1",
+      "patch": "3.22",
+      "league_name": "Trial of the Ancestors",
+      "archetype_id": "corrupting_fever_champion",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_22",
+          "label": "Ancestor starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_22",
+          "label": "Ancestor starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_splitting_steel",
+          "damage_engine": "projectile attack hit leveling",
+          "defense_engine": "duelist armour evasion leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "duelist projectile leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_attack_weapon",
+          "aura_package_id": "early_attack_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_corrupting_fever",
+          "damage_engine": "physical dot blood explosion",
+          "defense_engine": "champion armour evasion mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "champion corrupting fever endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_cf_wander_package",
+          "aura_package_id": "determination_pride_cf",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_corrupting_fever",
+          "damage_engine": "physical dot blood explosion",
+          "defense_engine": "champion armour evasion mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "champion corrupting fever endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_cf_wander_package",
+          "aura_package_id": "optimized_cf_reservation",
+          "cluster_package_id": "cf_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_splitting_steel",
+          "right_state_id": "maps_corrupting_fever",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_corrupting_fever",
+          "right_state_id": "high_end_corrupting_fever",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.23_lightning_arrow_deadeye_v1",
+      "patch": "3.23",
+      "league_name": "Affliction",
+      "archetype_id": "lightning_arrow_deadeye",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_23",
+          "label": "Affliction starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_23",
+          "label": "Affliction starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_rain_of_arrows",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_lightning_arrow",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_lightning_arrow",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_bow_package",
+          "aura_package_id": "optimized_bow_reservation",
+          "cluster_package_id": "projectile_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_rain_of_arrows",
+          "right_state_id": "maps_lightning_arrow",
+          "decision": "phase_state_only"
+        },
+        {
+          "left_state_id": "maps_lightning_arrow",
+          "right_state_id": "high_end_lightning_arrow",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.23_hexblast_miner_saboteur_v1",
+      "patch": "3.23",
+      "league_name": "Affliction",
+      "archetype_id": "hexblast_miner_saboteur",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_23",
+          "label": "Affliction starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_23",
+          "label": "Affliction starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_stormblast_mine",
+          "damage_engine": "mine spell hit leveling",
+          "defense_engine": "life evasion caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "shadow mine leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_mine_rare",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_hexblast_mine",
+          "damage_engine": "hexblast mine chaos hit",
+          "defense_engine": "saboteur mine mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "saboteur hexblast mine endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_hexblast_mine_package",
+          "aura_package_id": "mid_mine_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "bossing"
+        },
+        {
+          "state_id": "high_end_hexblast_mine",
+          "damage_engine": "hexblast mine chaos hit",
+          "defense_engine": "saboteur mine mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "saboteur hexblast mine endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_hexblast_mine_package",
+          "aura_package_id": "optimized_mine_reservation",
+          "cluster_package_id": "hexblast_mine_clusters_endgame",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_stormblast_mine",
+          "right_state_id": "maps_hexblast_mine",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_hexblast_mine",
+          "right_state_id": "high_end_hexblast_mine",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.23_ice_shot_deadeye_v1",
+      "patch": "3.23",
+      "league_name": "Affliction",
+      "archetype_id": "ice_shot_deadeye",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "maxroll_3_23",
+          "label": "Affliction starters cross-check"
+        },
+        {
+          "type": "poe_vault_3_23",
+          "label": "Affliction starters cross-check"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_rain_of_arrows",
+          "damage_engine": "bow projectile attack hit",
+          "defense_engine": "evasion projectile leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "ranger bow projectile leveling",
+          "play_pattern": "generic mapper",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_bow_rare",
+          "aura_package_id": "early_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_ice_shot",
+          "damage_engine": "bow projectile cold attack hit",
+          "defense_engine": "evasion projectile mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "deadeye ice shot endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_ice_shot_package",
+          "aura_package_id": "hatred_bow_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_ice_shot",
+          "damage_engine": "bow projectile cold attack hit",
+          "defense_engine": "evasion projectile mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "deadeye ice shot endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_ice_shot_package",
+          "aura_package_id": "optimized_cold_bow_reservation",
+          "cluster_package_id": "cold_projectile_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_rain_of_arrows",
+          "right_state_id": "maps_ice_shot",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_ice_shot",
+          "right_state_id": "high_end_ice_shot",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.23_shockwave_totems_hierophant_v1",
+      "patch": "3.23",
+      "league_name": "Affliction",
+      "archetype_id": "shockwave_totems_hierophant",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "poe_vault_3_23",
+          "label": "Affliction starters single-source confirmation"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_holy_flame_totem",
+          "damage_engine": "totem fire spell leveling",
+          "defense_engine": "templar totem leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar totem leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_fire_totem",
+          "aura_package_id": "early_fire_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_shockwave_totem",
+          "damage_engine": "physical spell totem hit",
+          "defense_engine": "hierophant totem mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "hierophant shockwave totem endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_shockwave_totem_package",
+          "aura_package_id": "mid_totem_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "bossing"
+        },
+        {
+          "state_id": "high_end_shockwave_totem",
+          "damage_engine": "physical spell totem hit",
+          "defense_engine": "hierophant totem mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "hierophant shockwave totem endgame",
+          "play_pattern": "bossing and all-round mapping",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_shockwave_totem_package",
+          "aura_package_id": "optimized_totem_reservation",
+          "cluster_package_id": "totem_clusters_endgame",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_holy_flame_totem",
+          "right_state_id": "maps_shockwave_totem",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_shockwave_totem",
+          "right_state_id": "high_end_shockwave_totem",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.28_shock_nova_of_procession_hierophant_v1",
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "archetype_id": "shock_nova_of_procession_hierophant",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "poe_vault_3_28",
+          "label": "Mirage starters cross-check"
+        },
+        {
+          "type": "official_patch_notes_3_28",
+          "label": "Skill introduced in patch notes"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_arc",
+          "damage_engine": "lightning spell hit leveling",
+          "defense_engine": "templar caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar lightning caster leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_lightning_caster",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_shock_nova_of_procession",
+          "damage_engine": "lightning nova spell hit",
+          "defense_engine": "hierophant caster mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "hierophant shock nova endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_shock_nova_package",
+          "aura_package_id": "wrath_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_shock_nova_of_procession",
+          "damage_engine": "lightning nova spell hit",
+          "defense_engine": "hierophant caster mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "hierophant shock nova endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_shock_nova_package",
+          "aura_package_id": "optimized_lightning_reservation",
+          "cluster_package_id": "lightning_spell_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_arc",
+          "right_state_id": "maps_shock_nova_of_procession",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_shock_nova_of_procession",
+          "right_state_id": "high_end_shock_nova_of_procession",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.28_kinetic_fusillade_of_detonation_v1",
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "archetype_id": "kinetic_fusillade_of_detonation_wander",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "official_patch_notes_3_28",
+          "label": "Skill added in patch notes"
+        },
+        {
+          "type": "local_discussion_trace",
+          "label": "Local mention as Mirage-era popular candidate"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_power_siphon",
+          "damage_engine": "wand projectile attack leveling",
+          "defense_engine": "evasion caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "shadow wander leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_wand_rare",
+          "aura_package_id": "early_attack_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_kinetic_fusillade_of_detonation",
+          "damage_engine": "wand barrage projectile hit",
+          "defense_engine": "wander mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "wander kinetic fusillade endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_wander_package",
+          "aura_package_id": "anger_precision_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_kinetic_fusillade_of_detonation",
+          "damage_engine": "wand barrage projectile hit",
+          "defense_engine": "wander mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "wander kinetic fusillade endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_wander_package",
+          "aura_package_id": "optimized_wander_reservation",
+          "cluster_package_id": "projectile_attack_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_power_siphon",
+          "right_state_id": "maps_kinetic_fusillade_of_detonation",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_kinetic_fusillade_of_detonation",
+          "right_state_id": "high_end_kinetic_fusillade_of_detonation",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.28_dominating_blow_guardian_v1",
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "archetype_id": "dominating_blow_guardian",
+      "source_status": "needs_patch_verification",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "poe_vault_3_28",
+          "label": "Mirage starters cross-check"
+        },
+        {
+          "type": "official_patch_notes_3_28",
+          "label": "Dominating Blow buffed in patch notes"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_summon_holy_relic",
+          "damage_engine": "support minion spell hit",
+          "defense_engine": "templar minion leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar minion leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_minion_rare",
+          "aura_package_id": "early_minion_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_dominating_blow",
+          "damage_engine": "attack minion hybrid hit",
+          "defense_engine": "guardian minion mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "guardian attack minion endgame",
+          "play_pattern": "all-round mapping with minion melee pressure",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_dominating_blow_package",
+          "aura_package_id": "mid_minion_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_dominating_blow",
+          "damage_engine": "attack minion hybrid hit",
+          "defense_engine": "guardian minion mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "guardian attack minion endgame",
+          "play_pattern": "all-round mapping with minion melee pressure",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_dominating_blow_package",
+          "aura_package_id": "optimized_minion_reservation",
+          "cluster_package_id": "minion_attack_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_summon_holy_relic",
+          "right_state_id": "maps_dominating_blow",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_dominating_blow",
+          "right_state_id": "high_end_dominating_blow",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.28_penance_brand_inquisitor_v1",
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "archetype_id": "penance_brand_inquisitor",
+      "source_status": "ready_for_variant_labeling",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "official_patch_notes_3_28",
+          "label": "Penance Brand buffed in patch notes"
+        },
+        {
+          "type": "local_discussion_trace",
+          "label": "Local Mirage discussion trace"
+        },
+        {
+          "type": "creator_guide_zeeboub_brand_v2",
+          "label": "ZeeBoub Brand Guide 2.0 structured local import; Penance Brand Inquisitor progression and PoB set, 3.25-3.27 era cross-patch guide evidence.",
+          "local_path": "data/guide_sources/poe1_brand_guide_zeeboub_v2.json",
+          "source_id": "zeeboub_brand_guide_v2"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_storm_brand",
+          "damage_engine": "brand spell hit leveling",
+          "defense_engine": "life hybrid generic caster",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar brand caster leveling",
+          "play_pattern": "campaign bossing and generic progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_caster_rare",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_penance_brand",
+          "damage_engine": "penance brand crit spell hit",
+          "defense_engine": "life hybrid inquisitor endgame shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "brand crit caster endgame",
+          "play_pattern": "bossing and strong all-round mapping",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_caster_brand_package",
+          "aura_package_id": "mid_brand_reservation",
+          "cluster_package_id": "basic_brand_clusters",
+          "content_specialization": "bossing"
+        },
+        {
+          "state_id": "high_end_penance_brand",
+          "damage_engine": "penance brand crit spell hit",
+          "defense_engine": "life hybrid inquisitor endgame shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "brand crit caster endgame",
+          "play_pattern": "bossing and strong all-round mapping",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_caster_brand_package",
+          "aura_package_id": "optimized_brand_reservation",
+          "cluster_package_id": "brand_clusters_endgame",
+          "content_specialization": "bossing"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_storm_brand",
+          "right_state_id": "maps_penance_brand",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_penance_brand",
+          "right_state_id": "high_end_penance_brand",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.28_cold_snap_of_power_hierophant_v1",
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "archetype_id": "cold_snap_of_power_hierophant",
+      "source_status": "provisional_seeded",
+      "confidence": "low",
+      "evidence": [
+        {
+          "type": "poe_vault_3_28",
+          "label": "Mirage starters single-source confirmation"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_freezing_pulse",
+          "damage_engine": "cold spell hit leveling",
+          "defense_engine": "templar caster leveling shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "templar cold caster leveling",
+          "play_pattern": "campaign progression",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_cold_caster",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "maps_cold_snap_of_power",
+          "damage_engine": "cold spell nova hit",
+          "defense_engine": "hierophant caster mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "hierophant cold snap endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "budget",
+          "gear_package_id": "budget_cold_snap_package",
+          "aura_package_id": "hatred_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "high_end_cold_snap_of_power",
+          "damage_engine": "cold spell nova hit",
+          "defense_engine": "hierophant caster mapping shell",
+          "core_unique_gate": "none",
+          "tree_shape_class": "hierophant cold snap endgame",
+          "play_pattern": "generic mapper",
+          "budget_tier": "high_end",
+          "gear_package_id": "high_end_cold_snap_package",
+          "aura_package_id": "optimized_cold_reservation",
+          "cluster_package_id": "cold_spell_clusters_endgame",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_freezing_pulse",
+          "right_state_id": "maps_cold_snap_of_power",
+          "decision": "sub_archetype_split"
+        },
+        {
+          "left_state_id": "maps_cold_snap_of_power",
+          "right_state_id": "high_end_cold_snap_of_power",
+          "decision": "variant_split"
+        }
+      ]
+    },
+    {
+      "case_id": "3.28_blight_of_contagion_trickster_v1",
+      "patch": "3.28",
+      "league_name": "Mirage",
+      "archetype_id": "blight_of_contagion_trickster",
+      "source_status": "provisional_seeded",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "type": "poe_vault_3_28",
+          "label": "PoE Vault - Ky's Blight of Contagion Trickster build/gems/gear (3.28 Mirage)"
+        },
+        {
+          "type": "video_description",
+          "label": "Ky YouTube - early farming 8-mod maps + Settlers/Delirium/Blue Altars (3.28)"
+        }
+      ],
+      "states": [
+        {
+          "state_id": "campaign_blight_leveling",
+          "damage_engine": "chaos dot spell leveling (blight -> essence drain contagion)",
+          "defense_engine": "life generic caster leveling",
+          "core_unique_gate": "none",
+          "tree_shape_class": "shadow chaos dot caster leveling",
+          "play_pattern": "campaign progression and generic clear",
+          "budget_tier": "starter",
+          "gear_package_id": "campaign_caster_rare",
+          "aura_package_id": "early_caster_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        },
+        {
+          "state_id": "endgame_blight_of_contagion_ci",
+          "damage_engine": "chaos dot debuff (blight of contagion channel + contagion spread)",
+          "defense_engine": "CI energy shield trickster (evasion + spell suppression)",
+          "core_unique_gate": "cane of unravelling (mid) -> cane of kulemak (endgame)",
+          "tree_shape_class": "trickster chaos dot CI endgame",
+          "play_pattern": "fast all-content mapping clear, tanky; weak single target",
+          "budget_tier": "mid",
+          "gear_package_id": "ci_chaos_dot_es_package",
+          "aura_package_id": "malevolence_grace_ci_reservation",
+          "cluster_package_id": "none",
+          "content_specialization": "generic"
+        }
+      ],
+      "expected_pairwise_decisions": [
+        {
+          "left_state_id": "campaign_blight_leveling",
+          "right_state_id": "endgame_blight_of_contagion_ci",
+          "decision": "sub_archetype_split"
+        }
+      ]
+    }
+  ]
+}

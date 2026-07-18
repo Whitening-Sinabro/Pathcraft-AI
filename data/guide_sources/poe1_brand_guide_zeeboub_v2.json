@@ -1,0 +1,1317 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_external_guide_source",
+  "source_id": "zeeboub_brand_guide_v2",
+  "imported_at": "2026-07-17",
+  "generated_by": "manual_import_from_markdown",
+  "source_file": {
+    "local_path": "C:\\Users\\User\\Downloads\\Brand Guide 2.0의 사본.md",
+    "bytes": 76720,
+    "sha256": "3b8d7a41cfdf3f424f42f54303fb860f53accb9da1a66fae16d3d41746c6936a",
+    "note": "SHA256 is a checksum for source identity, not encryption."
+  },
+  "source": {
+    "title": "Brand Guide 2.0",
+    "author": "ZeeBoub",
+    "creator_channels": [
+      {
+        "family": "twitch",
+        "url": "https://www.twitch.tv/zeeboub"
+      },
+      {
+        "family": "youtube",
+        "url": "https://www.youtube.com/@ZeeboubPOE"
+      }
+    ],
+    "source_family": "manual_markdown_guide",
+    "confidence": "high_for_brand_mechanics_and_progression",
+    "copyright_handling": "structured summaries and links only; full source text is not embedded."
+  },
+  "scope": {
+    "game": "poe1",
+    "patch_mentions": [
+      "3.25",
+      "3.26",
+      "3.27"
+    ],
+    "primary_archetype_ids": [
+      "penance_brand_inquisitor",
+      "brand_spell_inquisitor"
+    ],
+    "primary_skills": [
+      "Penance Brand of Dissipation",
+      "Armageddon Brand"
+    ],
+    "related_skills": [
+      "Storm Brand",
+      "Brand Recall",
+      "Righteous Fire",
+      "Vaal Righteous Fire"
+    ],
+    "primary_class": "Templar",
+    "primary_ascendancy": "Inquisitor",
+    "content_scope": [
+      "campaign",
+      "heist",
+      "atlas_completion",
+      "pinnacle_bosses",
+      "endgame_mapping",
+      "mageblood_endgame"
+    ]
+  },
+  "section_index": [
+    {
+      "level": 1,
+      "title": "🔴 Introduction",
+      "start_line": 1,
+      "end_line": 106
+    },
+    {
+      "level": 1,
+      "title": "⚖️ Pros/Cons",
+      "start_line": 107,
+      "end_line": 108
+    },
+    {
+      "level": 2,
+      "title": "Target audience",
+      "start_line": 109,
+      "end_line": 112
+    },
+    {
+      "level": 2,
+      "title": "Pros",
+      "start_line": 113,
+      "end_line": 121
+    },
+    {
+      "level": 2,
+      "title": "Cons",
+      "start_line": 122,
+      "end_line": 127
+    },
+    {
+      "level": 1,
+      "title": "🔥 Showcase 3.25",
+      "start_line": 128,
+      "end_line": 129
+    },
+    {
+      "level": 1,
+      "title": "Here you can watch a quick showcase of what you would expect from (giga) high investment into Penance Brand of Dissipation in the really late game, speed, clear, single target damage, tankiness, etc .. a well rounded build !",
+      "start_line": 130,
+      "end_line": 131
+    },
+    {
+      "level": 1,
+      "title": "video -> [Zeeboub Penance brand build showcase 3.25](https://www.youtube.com/watch?v=WxlBRefsf2U)",
+      "start_line": 132,
+      "end_line": 133
+    },
+    {
+      "level": 1,
+      "title": "Pob 3.25 -> [https://pobb.in/3s2u8FtgS8JF](https://pobb.in/3s2u8FtgS8JF)",
+      "start_line": 134,
+      "end_line": 137
+    },
+    {
+      "level": 1,
+      "title": "➕ Campaign + Heist",
+      "start_line": 138,
+      "end_line": 155
+    },
+    {
+      "level": 1,
+      "title": "😍 Info + Filter",
+      "start_line": 156,
+      "end_line": 173
+    },
+    {
+      "level": 1,
+      "title": "🧩 Act 1",
+      "start_line": 174,
+      "end_line": 224
+    },
+    {
+      "level": 1,
+      "title": "🧩 Act 2",
+      "start_line": 225,
+      "end_line": 244
+    },
+    {
+      "level": 1,
+      "title": "🧩 Act 3",
+      "start_line": 245,
+      "end_line": 284
+    },
+    {
+      "level": 1,
+      "title": "🧩 Act 4",
+      "start_line": 285,
+      "end_line": 313
+    },
+    {
+      "level": 1,
+      "title": "🧩 Act 5 / 6",
+      "start_line": 314,
+      "end_line": 329
+    },
+    {
+      "level": 1,
+      "title": "🧩 Act 7 / 8 / 9 / 10",
+      "start_line": 330,
+      "end_line": 357
+    },
+    {
+      "level": 1,
+      "title": "🚪 Heist",
+      "start_line": 358,
+      "end_line": 359
+    },
+    {
+      "level": 1,
+      "title": "Heist",
+      "start_line": 360,
+      "end_line": 405
+    },
+    {
+      "level": 1,
+      "title": "💡 Usefull Informations",
+      "start_line": 406,
+      "end_line": 407
+    },
+    {
+      "level": 1,
+      "title": "💡 What is Penance",
+      "start_line": 408,
+      "end_line": 409
+    },
+    {
+      "level": 1,
+      "title": "What is Penance Brand of Dissipation & how to scale it Brands are a type of skill which create persistent spells that can be attached to an enemy. Your Brand attachment range will affect how far your brand can be attached to an enemy, it's one of the reasons for our clear & comfiness, having decent brand range. I talk a bit more about brand range in the section [here](https://docs.google.com/document/d/1LgmXoA7LxmWiiMN2wYrV4FAtPmHBN3bLX6lfLv6VUY/edit#bookmark=id.w6h6fxz5htf2).",
+      "start_line": 410,
+      "end_line": 419
+    },
+    {
+      "level": 1,
+      "title": "💡 Defence & life in early stage of the build",
+      "start_line": 420,
+      "end_line": 421
+    },
+    {
+      "level": 1,
+      "title": "Defence & life in early stage of the build",
+      "start_line": 422,
+      "end_line": 423
+    },
+    {
+      "level": 1,
+      "title": "Defence at the beginning is not my main focus at all but I also don't enjoy playing a build which dies on every single hit taken. Path of Exile’s defence for a lot of people is one tapping everything and not getting hit once, it's true and false at the same time.",
+      "start_line": 424,
+      "end_line": 435
+    },
+    {
+      "level": 1,
+      "title": "💡 Low life & Leech",
+      "start_line": 436,
+      "end_line": 445
+    },
+    {
+      "level": 1,
+      "title": "💡 How to convert last physical part of Penance",
+      "start_line": 446,
+      "end_line": 447
+    },
+    {
+      "level": 1,
+      "title": "Physical to lightning support gem allows you to convert 50% of physical to lightning for linked active skill, and it also gives some physical as extra lightning damage. It is a really good choice if you don't have access to the other sources of conversion, the early & easy way to fix conversion on penance but it does require a gem slot and so there are better ways to convert later when you have more resources. Lightning mastery can give you up to 40% convert phys to light Gloves : You can bench craft a prefix on gloves to get up to 25% conversion, and the veiled version of this modifier goes up to 35%",
+      "start_line": 448,
+      "end_line": 455
+    },
+    {
+      "level": 1,
+      "title": "💡 Forbidden flame/flesh",
+      "start_line": 456,
+      "end_line": 473
+    },
+    {
+      "level": 1,
+      "title": "💡 Watcher’s Eye",
+      "start_line": 474,
+      "end_line": 501
+    },
+    {
+      "level": 1,
+      "title": "💡 Timeless jewel",
+      "start_line": 502,
+      "end_line": 518
+    },
+    {
+      "level": 1,
+      "title": "💡 Brand range & AOE",
+      "start_line": 519,
+      "end_line": 531
+    },
+    {
+      "level": 1,
+      "title": "🍀 Pob link recap",
+      "start_line": 532,
+      "end_line": 533
+    },
+    {
+      "level": 1,
+      "title": "Pob link recap",
+      "start_line": 534,
+      "end_line": 564
+    },
+    {
+      "level": 1,
+      "title": "🦠 Swap PBoD",
+      "start_line": 565,
+      "end_line": 639
+    },
+    {
+      "level": 1,
+      "title": "🐛 Mid game",
+      "start_line": 640,
+      "end_line": 641
+    },
+    {
+      "level": 1,
+      "title": "Mid game (red map/atlas bosses) With this pob you should be pretty comfortable in mapping & regular bossing",
+      "start_line": 642,
+      "end_line": 663
+    },
+    {
+      "level": 1,
+      "title": "🦋 End game without mageblood",
+      "start_line": 664,
+      "end_line": 704
+    },
+    {
+      "level": 1,
+      "title": "🤑 End game with mageblood",
+      "start_line": 705,
+      "end_line": 721
+    },
+    {
+      "level": 1,
+      "title": "🐕 Animated Guardian",
+      "start_line": 722,
+      "end_line": 737
+    },
+    {
+      "level": 1,
+      "title": "🧿 Map modifiers",
+      "start_line": 738,
+      "end_line": 769
+    },
+    {
+      "level": 1,
+      "title": "😑 Crafting",
+      "start_line": 770,
+      "end_line": 771
+    },
+    {
+      "level": 1,
+      "title": "Weapon",
+      "start_line": 772,
+      "end_line": 824
+    },
+    {
+      "level": 1,
+      "title": "🤤 Early Weapon",
+      "start_line": 825,
+      "end_line": 832
+    },
+    {
+      "level": 1,
+      "title": "🥴 Early 6L helmet",
+      "start_line": 833,
+      "end_line": 838
+    },
+    {
+      "level": 1,
+      "title": "😔 Brand cluster",
+      "start_line": 839,
+      "end_line": 845
+    },
+    {
+      "level": 1,
+      "title": "🥺 8L helmet",
+      "start_line": 846,
+      "end_line": 849
+    },
+    {
+      "level": 1,
+      "title": "Body Inf Explode",
+      "start_line": 850,
+      "end_line": 931
+    },
+    {
+      "level": 1,
+      "title": "Body fract",
+      "start_line": 932,
+      "end_line": 935
+    },
+    {
+      "level": 1,
+      "title": "Budget Explode Weapon",
+      "start_line": 936,
+      "end_line": 952
+    },
+    {
+      "level": 1,
+      "title": "🪬 Recomb",
+      "start_line": 953,
+      "end_line": 961
+    },
+    {
+      "level": 1,
+      "title": "📚 Q&A",
+      "start_line": 962,
+      "end_line": 1126
+    },
+    {
+      "level": 1,
+      "title": "🤮 Sanctum ?",
+      "start_line": 1127,
+      "end_line": 1142
+    },
+    {
+      "level": 1,
+      "title": "🦸 SSF ?",
+      "start_line": 1143,
+      "end_line": 1146
+    },
+    {
+      "level": 1,
+      "title": "💪 Last Update",
+      "start_line": 1147,
+      "end_line": 1157
+    },
+    {
+      "level": 1,
+      "title": "Duo Start",
+      "start_line": 1158,
+      "end_line": 1173
+    },
+    {
+      "level": 1,
+      "title": "3.26 pob & strat",
+      "start_line": 1174,
+      "end_line": 1177
+    }
+  ],
+  "link_summary": {
+    "total_unique_links": 68,
+    "pob_count": 25,
+    "families": {
+      "external": 1,
+      "external_doc": 5,
+      "filter_profile": 1,
+      "pob": 25,
+      "poedb": 1,
+      "reddit": 1,
+      "tool": 3,
+      "trade_search": 1,
+      "twitch": 5,
+      "wiki": 5,
+      "youtube": 20
+    }
+  },
+  "links": [
+    {
+      "line": 4,
+      "section": "🔴 Introduction",
+      "family": "twitch",
+      "label": "https://www.twitch.tv/zeeboub",
+      "url": "https://www.twitch.tv/zeeboub",
+      "line_excerpt": "([https://www.twitch.tv/zeeboub](https://www.twitch.tv/zeeboub))"
+    },
+    {
+      "line": 5,
+      "section": "🔴 Introduction",
+      "family": "youtube",
+      "label": "https://www.youtube.com/@ZeeboubPOE",
+      "url": "https://www.youtube.com/@ZeeboubPOE",
+      "line_excerpt": "([https://www.youtube.com/@ZeeboubPOE](https://www.youtube.com/@ZeeboubPOE))"
+    },
+    {
+      "line": 21,
+      "section": "🔴 Introduction",
+      "family": "youtube",
+      "label": "Legy",
+      "url": "https://www.youtube.com/@LeGyLP/featured",
+      "line_excerpt": "**Big shout out to Crimson Kraken who helped me proofread for this guide, [Legy](https://www.youtube.com/@LeGyLP/featured) for the leveling section and also my lovely dear frien..."
+    },
+    {
+      "line": 21,
+      "section": "🔴 Introduction",
+      "family": "twitch",
+      "label": "Jaay",
+      "url": "https://www.twitch.tv/jaaylel",
+      "line_excerpt": "**Big shout out to Crimson Kraken who helped me proofread for this guide, [Legy](https://www.youtube.com/@LeGyLP/featured) for the leveling section and also my lovely dear frien..."
+    },
+    {
+      "line": 132,
+      "section": "video -> [Zeeboub Penance brand build showcase 3.25](https://www.youtube.com/watch?v=WxlBRefsf2U)",
+      "family": "youtube",
+      "label": "Zeeboub Penance brand build showcase 3.25",
+      "url": "https://www.youtube.com/watch?v=WxlBRefsf2U",
+      "line_excerpt": "# video \\-\\> [Zeeboub Penance brand build showcase 3.25](https://www.youtube.com/watch?v=WxlBRefsf2U)"
+    },
+    {
+      "line": 134,
+      "section": "Pob 3.25 -> [https://pobb.in/3s2u8FtgS8JF](https://pobb.in/3s2u8FtgS8JF)",
+      "family": "pob",
+      "label": "https://pobb.in/3s2u8FtgS8JF",
+      "url": "https://pobb.in/3s2u8FtgS8JF",
+      "line_excerpt": "# Pob 3.25 \\-\\> [https://pobb.in/3s2u8FtgS8JF](https://pobb.in/3s2u8FtgS8JF)"
+    },
+    {
+      "line": 144,
+      "section": "➕ Campaign + Heist",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/fRYEf1Y5H0OC",
+      "line_excerpt": "Pob of the tree for levelling : [here](https://pobb.in/fRYEf1Y5H0OC)"
+    },
+    {
+      "line": 148,
+      "section": "➕ Campaign + Heist",
+      "family": "external",
+      "label": "discord",
+      "url": "https://discord.com/invite/FCpzzkxrxG",
+      "line_excerpt": "For leveling filter & sound pack you can find it on my [discord](https://discord.com/invite/FCpzzkxrxG) in the section 3.26 \\- leveling tyvm LeGy & Jaay \\<3."
+    },
+    {
+      "line": 149,
+      "section": "➕ Campaign + Heist",
+      "family": "filter_profile",
+      "label": "here",
+      "url": "https://www.pathofexile.com/account/view-profile/Jaay4-3177/item-filters",
+      "line_excerpt": "Filter is available on Jaay profile \\-\\> [here](https://www.pathofexile.com/account/view-profile/Jaay4-3177/item-filters)"
+    },
+    {
+      "line": 152,
+      "section": "➕ Campaign + Heist",
+      "family": "youtube",
+      "label": null,
+      "url": "https://www.youtube.com/watch?v=sVG9Zj4k378",
+      "line_excerpt": "[\\[3.26\\] Brand Leveling Guide - Prep for Penance brand - part 1](https://www.youtube.com/watch?v=sVG9Zj4k378)"
+    },
+    {
+      "line": 154,
+      "section": "➕ Campaign + Heist",
+      "family": "youtube",
+      "label": null,
+      "url": "https://www.youtube.com/watch?v=Ac-vET5Xw3k",
+      "line_excerpt": "[\\[3.26\\] Brand Leveling VOD](https://www.youtube.com/watch?v=Ac-vET5Xw3k)"
+    },
+    {
+      "line": 162,
+      "section": "😍 Info + Filter",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/LaEg8r7A7mPw",
+      "line_excerpt": "Pob of the tree for levelling : [here](https://pobb.in/LaEg8r7A7mPw)"
+    },
+    {
+      "line": 289,
+      "section": "🧩 Act 4",
+      "family": "wiki",
+      "label": "Sanctuary",
+      "url": "https://www.poewiki.net/wiki/Sanctuary",
+      "line_excerpt": "**First Lab : [Sanctuary](https://www.poewiki.net/wiki/Sanctuary)**"
+    },
+    {
+      "line": 334,
+      "section": "🧩 Act 7 / 8 / 9 / 10",
+      "family": "wiki",
+      "label": "Pious Path",
+      "url": "https://www.poewiki.net/wiki/Pious_Path",
+      "line_excerpt": "**Second lab : [Pious Path](https://www.poewiki.net/wiki/Pious_Path)**"
+    },
+    {
+      "line": 350,
+      "section": "🧩 Act 7 / 8 / 9 / 10",
+      "family": "wiki",
+      "label": "Righteous Providence",
+      "url": "https://www.poewiki.net/wiki/Righteous_Providence",
+      "line_excerpt": "**Third lab : [Righteous Providence](https://www.poewiki.net/wiki/Righteous_Providence)**"
+    },
+    {
+      "line": 364,
+      "section": "Heist",
+      "family": "tool",
+      "label": "Chaos Recipe Enhancer",
+      "url": "https://github.com/ChaosRecipeEnhancer/EnhancePoEApp",
+      "line_excerpt": "Heist is a good way to get early currency while using a chaos recipe tool. One example of such a tool is [Chaos Recipe Enhancer](https://github.com/ChaosRecipeEnhancer/EnhancePo..."
+    },
+    {
+      "line": 373,
+      "section": "Heist",
+      "family": "twitch",
+      "label": "here",
+      "url": "https://clips.twitch.tv/IntelligentTransparentBananaTriHard--m-PRoeimsAyHQgr",
+      "line_excerpt": "You should expect making about 200-250c doing this ([here](https://clips.twitch.tv/IntelligentTransparentBananaTriHard--m-PRoeimsAyHQgr) is a clip of the loot breakdown from tes..."
+    },
+    {
+      "line": 410,
+      "section": "What is Penance Brand of Dissipation & how to scale it Brands are a type of skill which create persistent spells that can be attached to an enemy. Your Brand attachment range will affect how far your brand can be attached to an enemy, it's one of the reasons for our clear & comfiness, having decent brand range. I talk a bit more about brand range in the section [here](https://docs.google.com/document/d/1LgmXoA7LxmWiiMN2wYrV4FAtPmHBN3bLX6lfLv6VUY/edit#bookmark=id.w6h6fxz5htf2).",
+      "family": "external_doc",
+      "label": "here",
+      "url": "https://docs.google.com/document/d/1Lg_mXoA7LxmWiiMN2wYrV4FAtPmHBN3bLX6lfLv6VUY/edit#bookmark=id.w6h6fxz5htf2",
+      "line_excerpt": "# **What is Penance Brand of Dissipation & how to scale it** Brands are a type of skill which create persistent spells that can be attached to an enemy. Your Brand attachment ra..."
+    },
+    {
+      "line": 508,
+      "section": "💡 Timeless jewel",
+      "family": "poedb",
+      "label": "here",
+      "url": "https://poedb.tw/us/Elegant_Hubris#TimelessJewelPassive",
+      "line_excerpt": "There is charge generation for frenzy/power/endu. It is worth taking a look, list of notable [here](https://poedb.tw/us/Elegant_Hubris#TimelessJewelPassive)"
+    },
+    {
+      "line": 542,
+      "section": "Pob link recap",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/v2tM6sFIaxBB",
+      "line_excerpt": "Swap arma brand into penance brand \\-\\> [here](https://pobb.in/v2tM6sFIaxBB)"
+    },
+    {
+      "line": 543,
+      "section": "Pob link recap",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/KTnAsv5rTZxk",
+      "line_excerpt": "Clearing atlas & pinnacle bosses \\-\\> [here](https://pobb.in/KTnAsv5rTZxk)"
+    },
+    {
+      "line": 544,
+      "section": "Pob link recap",
+      "family": "youtube",
+      "label": null,
+      "url": "https://youtu.be/4pAYjRUI1vM?feature=shared",
+      "line_excerpt": "Video Pbrand swap & upgrade \\-\\> [\\[3.26\\] Penance Brand League Starter - part 2](https://youtu.be/4pAYjRUI1vM?feature=shared)"
+    },
+    {
+      "line": 545,
+      "section": "Pob link recap",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/HAvxBuTpi92m",
+      "line_excerpt": "Clearing atlas & pinnacle bosses with block \\-\\> [here](https://pobb.in/HAvxBuTpi92m)"
+    },
+    {
+      "line": 546,
+      "section": "Pob link recap",
+      "family": "youtube",
+      "label": "https://youtu.be/uNRJOl2ZoOs?si=Gd16kANQMGPJsHC3",
+      "url": "https://youtu.be/uNRJOl2ZoOs?si=Gd16kANQMGPJsHC3",
+      "line_excerpt": "Video Pbrand block \\-\\> [https://youtu.be/uNRJOl2ZoOs?si=Gd16kANQMGPJsHC3](https://youtu.be/uNRJOl2ZoOs?si=Gd16kANQMGPJsHC3)"
+    },
+    {
+      "line": 551,
+      "section": "Pob link recap",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/fDjCnUV43wml",
+      "line_excerpt": "Version Armour Es \\-\\> [here](https://pobb.in/fDjCnUV43wml)"
+    },
+    {
+      "line": 552,
+      "section": "Pob link recap",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/S7UG_mLXoi9l",
+      "line_excerpt": "Version Evasion Es Supress \\-\\> [here](https://pobb.in/S7UG_mLXoi9l)"
+    },
+    {
+      "line": 553,
+      "section": "Pob link recap",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/qNWWOBJTwB7o",
+      "line_excerpt": "Version Block \\-\\> [here](https://pobb.in/qNWWOBJTwB7o)"
+    },
+    {
+      "line": 557,
+      "section": "Pob link recap",
+      "family": "pob",
+      "label": "Here",
+      "url": "https://pobb.in/DcmNUAOei9JA",
+      "line_excerpt": "Mageblood Armour Es \\-\\> [Here](https://pobb.in/DcmNUAOei9JA)"
+    },
+    {
+      "line": 558,
+      "section": "Pob link recap",
+      "family": "pob",
+      "label": "Here",
+      "url": "https://pobb.in/NO4BWLss7N-T",
+      "line_excerpt": "Mageblood EvasionEs \\-\\> [Here](https://pobb.in/NO4BWLss7N-T)"
+    },
+    {
+      "line": 559,
+      "section": "Pob link recap",
+      "family": "pob",
+      "label": "Here",
+      "url": "https://pobb.in/PFvtaarFyxs-",
+      "line_excerpt": "Mageblood Block \\-\\> [Here](https://pobb.in/PFvtaarFyxs-)"
+    },
+    {
+      "line": 563,
+      "section": "Pob link recap",
+      "family": "youtube",
+      "label": "https://youtu.be/Ba1-jMKSx6c",
+      "url": "https://youtu.be/Ba1-jMKSx6c",
+      "line_excerpt": "Current Version in league of block : [https://youtu.be/Ba1-jMKSx6c](https://youtu.be/Ba1-jMKSx6c)"
+    },
+    {
+      "line": 574,
+      "section": "🦠 Swap PBoD",
+      "family": "pob",
+      "label": "https://pobb.in/eSFjcJR3n6wU",
+      "url": "https://pobb.in/eSFjcJR3n6wU",
+      "line_excerpt": "**\\-\\> [https://pobb.in/eSFjcJR3n6wU](https://pobb.in/eSFjcJR3n6wU)**"
+    },
+    {
+      "line": 601,
+      "section": "🦠 Swap PBoD",
+      "family": "trade_search",
+      "label": "https://www.pathofexile.com/trade/search/Standard/KoByrPMU5",
+      "url": "https://www.pathofexile.com/trade/search/Standard/KoByrPMU5",
+      "line_excerpt": "[https://www.pathofexile.com/trade/search/Standard/KoByrPMU5](https://www.pathofexile.com/trade/search/Standard/KoByrPMU5)"
+    },
+    {
+      "line": 645,
+      "section": "Mid game (red map/atlas bosses) With this pob you should be pretty comfortable in mapping & regular bossing",
+      "family": "pob",
+      "label": "https://pobb.in/WNCrIxgJEG24",
+      "url": "https://pobb.in/WNCrIxgJEG24",
+      "line_excerpt": "Pob \\-\\> [https://pobb.in/WNCrIxgJEG24](https://pobb.in/WNCrIxgJEG24)"
+    },
+    {
+      "line": 656,
+      "section": "Mid game (red map/atlas bosses) With this pob you should be pretty comfortable in mapping & regular bossing",
+      "family": "tool",
+      "label": "Here",
+      "url": "https://theodorejbieber.github.io/PoEClusterJewelCalculator/",
+      "line_excerpt": "[Here](https://theodorejbieber.github.io/PoEClusterJewelCalculator/) a gg web site to look for clusters, really really useful for any type of cluster \\!"
+    },
+    {
+      "line": 667,
+      "section": "🦋 End game without mageblood",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/8gK6e5cvo5a_",
+      "line_excerpt": "pob : [here](https://pobb.in/8gK6e5cvo5a_)"
+    },
+    {
+      "line": 671,
+      "section": "🦋 End game without mageblood",
+      "family": "youtube",
+      "label": "here",
+      "url": "https://www.youtube.com/watch?v=-FYjVX3sb9w",
+      "line_excerpt": "Using a 8L helmet now (MAMA the damage) there is a video [here](https://www.youtube.com/watch?v=-FYjVX3sb9w) for crafting this helm,"
+    },
+    {
+      "line": 682,
+      "section": "🦋 End game without mageblood",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/xcP9Vdfs2GwY",
+      "line_excerpt": "1. pob : [here](https://pobb.in/xcP9Vdfs2GwY) (armour/es, militant faith, inner conviction, conviction of power setup)"
+    },
+    {
+      "line": 689,
+      "section": "🦋 End game without mageblood",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/XJdMeabXDDhB",
+      "line_excerpt": "2. pob : [here](https://pobb.in/XJdMeabXDDhB) (evasion/es, supress, glorious vanity, corrupted soul, unwavering crusade)"
+    },
+    {
+      "line": 710,
+      "section": "🤑 End game with mageblood",
+      "family": "pob",
+      "label": "pob",
+      "url": "https://pobb.in/dbIT9dnJocEk",
+      "line_excerpt": "[pob](https://pobb.in/dbIT9dnJocEk) : Version Armour Es, Inner conviction flame/flesh, 5 endu, 86% max res"
+    },
+    {
+      "line": 712,
+      "section": "🤑 End game with mageblood",
+      "family": "pob",
+      "label": "pob",
+      "url": "https://pobb.in/6QfOkcz8Z4Cb",
+      "line_excerpt": "[pob](https://pobb.in/6QfOkcz8Z4Cb) : Version Eva Es, Unwavering Crusade flame/flesh, suppress, block, 86% max res"
+    },
+    {
+      "line": 714,
+      "section": "🤑 End game with mageblood",
+      "family": "pob",
+      "label": "pob",
+      "url": "https://pobb.in/NIfT-w4Xp6lY",
+      "line_excerpt": "[pob](https://pobb.in/NIfT-w4Xp6lY) : Version Block, Elegant Hubris, Supreme Ostentation, unwavering crusade flame/flesh, 6endu, 86% max res, AG."
+    },
+    {
+      "line": 724,
+      "section": "🐕 Animated Guardian",
+      "family": "youtube",
+      "label": null,
+      "url": "https://www.youtube.com/watch?v=sRWLSJPkLJI",
+      "line_excerpt": "[\\[POE 3.27\\] You need to use one of this setup in your build \\!](https://www.youtube.com/watch?v=sRWLSJPkLJI)"
+    },
+    {
+      "line": 726,
+      "section": "🐕 Animated Guardian",
+      "family": "pob",
+      "label": "here",
+      "url": "https://pobb.in/NW-G969Jp4oE",
+      "line_excerpt": "So Animated guardian i would say there is 3 different setup for us, cheap version, expensive and expensive \\+++ witch required a anoint amulet to make it work. You can find the..."
+    },
+    {
+      "line": 919,
+      "section": "Body Inf Explode",
+      "family": "youtube",
+      "label": null,
+      "url": "https://www.youtube.com/watch?v=dFl6rEa7jTA",
+      "line_excerpt": "https://www.youtube.com/watch?v=dFl6rEa7jTA"
+    },
+    {
+      "line": 934,
+      "section": "Body fract",
+      "family": "youtube",
+      "label": null,
+      "url": "https://www.youtube.com/watch?v=VaQanerlEX0",
+      "line_excerpt": "[\\[POE 3.25\\] Crafting endgame body armour for penance inquisitor](https://www.youtube.com/watch?v=VaQanerlEX0)"
+    },
+    {
+      "line": 938,
+      "section": "Budget Explode Weapon",
+      "family": "youtube",
+      "label": null,
+      "url": "https://www.youtube.com/watch?v=EtPma9WX8_4",
+      "line_excerpt": "[\\[POE 1\\] Budget explode weapon penance brand ?](https://www.youtube.com/watch?v=EtPma9WX8_4)"
+    },
+    {
+      "line": 957,
+      "section": "🪬 Recomb",
+      "family": "reddit",
+      "label": "Updated Guide to Recombinators",
+      "url": "https://www.reddit.com/r/pathofexile/comments/1exyavx/325_updated_guide_to_recombinators/",
+      "line_excerpt": "Reddit : [Updated Guide to Recombinators](https://www.reddit.com/r/pathofexile/comments/1exyavx/325_updated_guide_to_recombinators/)"
+    },
+    {
+      "line": 958,
+      "section": "🪬 Recomb",
+      "family": "youtube",
+      "label": "3.25 Recombination Guide | Fundamentals and Advanced Tips",
+      "url": "https://www.youtube.com/watch?v=ily5sDzQIAE&t=463s",
+      "line_excerpt": "Youtube : [3.25 Recombination Guide | Fundamentals and Advanced Tips](https://www.youtube.com/watch?v=ily5sDzQIAE&t=463s)"
+    },
+    {
+      "line": 960,
+      "section": "🪬 Recomb",
+      "family": "twitch",
+      "label": "Deezle",
+      "url": "https://www.twitch.tv/dezzle_mane",
+      "line_excerpt": "[Deezle](https://www.twitch.tv/dezzle_mane) gdoc guide for penance recomb \\-\\> [CLICK HERE](https://docs.google.com/document/d/1oElSLaWQwcwS7zoCOUcBGWXlkOXH8QvZccGf2YhN4tI/edit?..."
+    },
+    {
+      "line": 960,
+      "section": "🪬 Recomb",
+      "family": "external_doc",
+      "label": "CLICK HERE",
+      "url": "https://docs.google.com/document/d/1oElSLaWQwcwS7zoCOUcBGWXlkOXH8QvZccGf2YhN4tI/edit?tab=t.0",
+      "line_excerpt": "[Deezle](https://www.twitch.tv/dezzle_mane) gdoc guide for penance recomb \\-\\> [CLICK HERE](https://docs.google.com/document/d/1oElSLaWQwcwS7zoCOUcBGWXlkOXH8QvZccGf2YhN4tI/edit?..."
+    },
+    {
+      "line": 1009,
+      "section": "📚 Q&A",
+      "family": "tool",
+      "label": "Path of Building",
+      "url": "https://pathofbuilding.community/",
+      "line_excerpt": "I would recommend importing your exile on [Path of Building](https://pathofbuilding.community/) and look at what your crit chance is on single target."
+    },
+    {
+      "line": 1049,
+      "section": "📚 Q&A",
+      "family": "wiki",
+      "label": "Sibyl's Lament",
+      "url": "https://www.poewiki.net/wiki/Sibyl%27s_Lament",
+      "line_excerpt": "You can use the pantheon called “Soul of yugul” \\+ [Sibyl's Lament](https://www.poewiki.net/wiki/Sibyl%27s_Lament)"
+    },
+    {
+      "line": 1096,
+      "section": "📚 Q&A",
+      "family": "youtube",
+      "label": "youtube",
+      "url": "https://www.youtube.com/channel/UCVKwRAsEgUSxmW4YFhdr7tw",
+      "line_excerpt": "There is link to his [Twitch](https://www.twitch.tv/dezzle_mane) & [youtube](https://www.youtube.com/channel/UCVKwRAsEgUSxmW4YFhdr7tw) channel"
+    },
+    {
+      "line": 1105,
+      "section": "📚 Q&A",
+      "family": "wiki",
+      "label": "Inner Conviction",
+      "url": "https://www.poewiki.net/wiki/Inner_Conviction",
+      "line_excerpt": "Void Battery can be used with the timeless jewel Militant Faith ( [Inner Conviction](https://www.poewiki.net/wiki/Inner_Conviction) ). Do I recommend going for it ? Nope not rea..."
+    },
+    {
+      "line": 1133,
+      "section": "🤮 Sanctum ?",
+      "family": "youtube",
+      "label": "https://www.youtube.com/@kua1558",
+      "url": "https://www.youtube.com/@kua1558",
+      "line_excerpt": "kua channel : [https://www.youtube.com/@kua1558](https://www.youtube.com/@kua1558)"
+    },
+    {
+      "line": 1135,
+      "section": "🤮 Sanctum ?",
+      "family": "external_doc",
+      "label": "here",
+      "url": "https://docs.google.com/spreadsheets/d/1vzjVbRiuztVthoxoOKs4sBB2yjJW_R7LCozjhd8gkTM/edit?gid=1979948736#gid=1979948736",
+      "line_excerpt": "- gdoc : [here](https://docs.google.com/spreadsheets/d/1vzjVbRiuztVthoxoOKs4sBB2yjJW_R7LCozjhd8gkTM/edit?gid=1979948736#gid=1979948736)"
+    },
+    {
+      "line": 1136,
+      "section": "🤮 Sanctum ?",
+      "family": "youtube",
+      "label": "lvl 80 inquisitor vs lvl 83 tome (not clickbait)",
+      "url": "https://www.youtube.com/watch?v=vPlTYbMknJ8",
+      "line_excerpt": "- [lvl 80 inquisitor vs lvl 83 tome (not clickbait)](https://www.youtube.com/watch?v=vPlTYbMknJ8)"
+    },
+    {
+      "line": 1138,
+      "section": "🤮 Sanctum ?",
+      "family": "youtube",
+      "label": "https://www.youtube.com/@CaptainLance9",
+      "url": "https://www.youtube.com/@CaptainLance9",
+      "line_excerpt": "captain lance channel: [https://www.youtube.com/@CaptainLance9](https://www.youtube.com/@CaptainLance9)"
+    },
+    {
+      "line": 1140,
+      "section": "🤮 Sanctum ?",
+      "family": "youtube",
+      "label": "Energy Blade Inquisitor - 3.25 League Starter Build Guide",
+      "url": "https://www.youtube.com/watch?v=_eL6L-aZw-Q",
+      "line_excerpt": "- [Energy Blade Inquisitor - 3.25 League Starter Build Guide](https://www.youtube.com/watch?v=_eL6L-aZw-Q)"
+    },
+    {
+      "line": 1141,
+      "section": "🤮 Sanctum ?",
+      "family": "youtube",
+      "label": "How To Sanctum? Walkthrough + Basics",
+      "url": "https://www.youtube.com/watch?v=nCTpTvBxiqk",
+      "line_excerpt": "- [How To Sanctum? Walkthrough + Basics](https://www.youtube.com/watch?v=nCTpTvBxiqk)"
+    },
+    {
+      "line": 1160,
+      "section": "Duo Start",
+      "family": "twitch",
+      "label": "Jaay",
+      "url": "https://www.twitch.tv/Jaaylel",
+      "line_excerpt": "**There is guide for the aurabot made by [Jaay](https://www.twitch.tv/Jaaylel)** on how to start aurabot and gear progression [Aurabot Progression](https://docs.google.com/docum..."
+    },
+    {
+      "line": 1160,
+      "section": "Duo Start",
+      "family": "external_doc",
+      "label": "Aurabot Progression",
+      "url": "https://docs.google.com/document/d/1tkGI8bSHN--PYkw1OsJR_3s6tvDD_iGUrwfNHwqdgPA/edit?tab=t.0",
+      "line_excerpt": "**There is guide for the aurabot made by [Jaay](https://www.twitch.tv/Jaaylel)** on how to start aurabot and gear progression [Aurabot Progression](https://docs.google.com/docum..."
+    },
+    {
+      "line": 1163,
+      "section": "Duo Start",
+      "family": "pob",
+      "label": "https://pobb.in/vrMrN4tbb1Xb",
+      "url": "https://pobb.in/vrMrN4tbb1Xb",
+      "line_excerpt": "duo brand : [https://pobb.in/vrMrN4tbb1Xb](https://pobb.in/vrMrN4tbb1Xb)"
+    },
+    {
+      "line": 1164,
+      "section": "Duo Start",
+      "family": "pob",
+      "label": "https://pobb.in/mpG0S-wGg\\_3N",
+      "url": "https://pobb.in/mpG0S-wGg_3N",
+      "line_excerpt": "Jaay : [https://pobb.in/mpG0S-wGg\\_3N](https://pobb.in/mpG0S-wGg_3N)"
+    },
+    {
+      "line": 1166,
+      "section": "Duo Start",
+      "family": "pob",
+      "label": "https://pobb.in/Pl-2Gk8tiT9f",
+      "url": "https://pobb.in/Pl-2Gk8tiT9f",
+      "line_excerpt": "old duo : [https://pobb.in/Pl-2Gk8tiT9f](https://pobb.in/Pl-2Gk8tiT9f)"
+    },
+    {
+      "line": 1167,
+      "section": "Duo Start",
+      "family": "pob",
+      "label": "https://pobb.in/XoLGk7MyXw\\_w",
+      "url": "https://pobb.in/XoLGk7MyXw_w",
+      "line_excerpt": "old Jaay aurabot : [https://pobb.in/XoLGk7MyXw\\_w](https://pobb.in/XoLGk7MyXw_w)"
+    },
+    {
+      "line": 1177,
+      "section": "3.26 pob & strat",
+      "family": "external_doc",
+      "label": "https://docs.google.com/document/d/1PLVVn2f-hRhdgmUNy3VsHB8wN0qiMfOTw9miL3PP3XM/edit?hl=fr\\&tab=t.p0oprj7gyp1n",
+      "url": "https://docs.google.com/document/d/1PLVVn2f-hRhdgmUNy3VsHB8wN0qiMfOTw9miL3PP3XM/edit?hl=fr&tab=t.p0oprj7gyp1n",
+      "line_excerpt": "[https://docs.google.com/document/d/1PLVVn2f-hRhdgmUNy3VsHB8wN0qiMfOTw9miL3PP3XM/edit?hl=fr\\&tab=t.p0oprj7gyp1n](https://docs.google.com/document/d/1PLVVn2f-hRhdgmUNy3VsHB8wN0qi..."
+    }
+  ],
+  "pob_links": [
+    {
+      "url": "https://pobb.in/3s2u8FtgS8JF",
+      "role": "unspecified_brand_reference",
+      "section": "Pob 3.25 -> [https://pobb.in/3s2u8FtgS8JF](https://pobb.in/3s2u8FtgS8JF)",
+      "line": 134,
+      "label": "https://pobb.in/3s2u8FtgS8JF"
+    },
+    {
+      "url": "https://pobb.in/fRYEf1Y5H0OC",
+      "role": "campaign_leveling_armageddon_brand",
+      "section": "➕ Campaign + Heist",
+      "line": 144,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/LaEg8r7A7mPw",
+      "role": "campaign_leveling_armageddon_brand",
+      "section": "😍 Info + Filter",
+      "line": 162,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/v2tM6sFIaxBB",
+      "role": "campaign_leveling_armageddon_brand",
+      "section": "Pob link recap",
+      "line": 542,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/KTnAsv5rTZxk",
+      "role": "atlas_progression",
+      "section": "Pob link recap",
+      "line": 543,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/HAvxBuTpi92m",
+      "role": "atlas_progression",
+      "section": "Pob link recap",
+      "line": 545,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/fDjCnUV43wml",
+      "role": "armour_es_endgame_variant",
+      "section": "Pob link recap",
+      "line": 551,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/S7UG_mLXoi9l",
+      "role": "evasion_suppress_endgame_variant",
+      "section": "Pob link recap",
+      "line": 552,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/qNWWOBJTwB7o",
+      "role": "block_variant",
+      "section": "Pob link recap",
+      "line": 553,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/DcmNUAOei9JA",
+      "role": "mageblood_endgame_variant",
+      "section": "Pob link recap",
+      "line": 557,
+      "label": "Here"
+    },
+    {
+      "url": "https://pobb.in/NO4BWLss7N-T",
+      "role": "mageblood_endgame_variant",
+      "section": "Pob link recap",
+      "line": 558,
+      "label": "Here"
+    },
+    {
+      "url": "https://pobb.in/PFvtaarFyxs-",
+      "role": "mageblood_endgame_variant",
+      "section": "Pob link recap",
+      "line": 559,
+      "label": "Here"
+    },
+    {
+      "url": "https://pobb.in/eSFjcJR3n6wU",
+      "role": "transition_armageddon_to_penance",
+      "section": "🦠 Swap PBoD",
+      "line": 574,
+      "label": "https://pobb.in/eSFjcJR3n6wU"
+    },
+    {
+      "url": "https://pobb.in/WNCrIxgJEG24",
+      "role": "atlas_progression",
+      "section": "Mid game (red map/atlas bosses) With this pob you should be pretty comfortable in mapping & regular bossing",
+      "line": 645,
+      "label": "https://pobb.in/WNCrIxgJEG24"
+    },
+    {
+      "url": "https://pobb.in/8gK6e5cvo5a_",
+      "role": "mageblood_endgame_variant",
+      "section": "🦋 End game without mageblood",
+      "line": 667,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/xcP9Vdfs2GwY",
+      "role": "mageblood_endgame_variant",
+      "section": "🦋 End game without mageblood",
+      "line": 682,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/XJdMeabXDDhB",
+      "role": "mageblood_endgame_variant",
+      "section": "🦋 End game without mageblood",
+      "line": 689,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/dbIT9dnJocEk",
+      "role": "mageblood_endgame_variant",
+      "section": "🤑 End game with mageblood",
+      "line": 710,
+      "label": "pob"
+    },
+    {
+      "url": "https://pobb.in/6QfOkcz8Z4Cb",
+      "role": "mageblood_endgame_variant",
+      "section": "🤑 End game with mageblood",
+      "line": 712,
+      "label": "pob"
+    },
+    {
+      "url": "https://pobb.in/NIfT-w4Xp6lY",
+      "role": "mageblood_endgame_variant",
+      "section": "🤑 End game with mageblood",
+      "line": 714,
+      "label": "pob"
+    },
+    {
+      "url": "https://pobb.in/NW-G969Jp4oE",
+      "role": "transition_armageddon_to_penance",
+      "section": "🐕 Animated Guardian",
+      "line": 726,
+      "label": "here"
+    },
+    {
+      "url": "https://pobb.in/vrMrN4tbb1Xb",
+      "role": "duo_aurabot_variant",
+      "section": "Duo Start",
+      "line": 1163,
+      "label": "https://pobb.in/vrMrN4tbb1Xb"
+    },
+    {
+      "url": "https://pobb.in/mpG0S-wGg_3N",
+      "role": "duo_aurabot_variant",
+      "section": "Duo Start",
+      "line": 1164,
+      "label": "https://pobb.in/mpG0S-wGg\\_3N"
+    },
+    {
+      "url": "https://pobb.in/Pl-2Gk8tiT9f",
+      "role": "duo_aurabot_variant",
+      "section": "Duo Start",
+      "line": 1166,
+      "label": "https://pobb.in/Pl-2Gk8tiT9f"
+    },
+    {
+      "url": "https://pobb.in/XoLGk7MyXw_w",
+      "role": "duo_aurabot_variant",
+      "section": "Duo Start",
+      "line": 1167,
+      "label": "https://pobb.in/XoLGk7MyXw\\_w"
+    }
+  ],
+  "knowledge_cards": [
+    {
+      "card_id": "audience_and_positioning",
+      "tags": [
+        "audience",
+        "budget",
+        "league_starter",
+        "endgame"
+      ],
+      "summary": "The guide targets mid-to-advanced players economically. It presents Penance Brand Inquisitor as a build that can start a league but has a very high endgame ceiling and many meaningful upgrades.",
+      "coach_use": "Do not pitch this as a low-budget beginner build. Treat it as a scaling project with staged upgrades."
+    },
+    {
+      "card_id": "penance_brand_mechanics",
+      "tags": [
+        "mechanics",
+        "damage_scaling",
+        "penance_brand"
+      ],
+      "summary": "Penance Brand of Dissipation is treated as a physical-base brand spell with partial lightning conversion, stack ramp, and strong uptime. The guide emphasizes duration and cast speed because faster activation reaches high stacks earlier and keeps full-stack uptime longer.",
+      "coach_use": "When evaluating a PBoD PoB, inspect conversion, duration, cast speed, brand count, and full-DPS configuration before judging DPS."
+    },
+    {
+      "card_id": "conversion_sources",
+      "tags": [
+        "conversion",
+        "physical_to_lightning",
+        "watchers_eye",
+        "gloves",
+        "timeless_jewel"
+      ],
+      "summary": "The guide lists early Physical to Lightning Support as the easy conversion fix, then replaces it later through lightning mastery, glove craft/veiled or Eater implicit, Wrath Watcher's Eye, or Glorious Vanity notable conversion.",
+      "coach_use": "Flag Physical to Lightning Support as acceptable early but not the preferred long-term socket if gear/tree conversion is available."
+    },
+    {
+      "card_id": "early_defense_model",
+      "tags": [
+        "defense",
+        "early_maps",
+        "freeze",
+        "leech",
+        "life_es"
+      ],
+      "summary": "Early defense relies on safe brand play, freezing, leech/regen, endurance-charge-on-kill ring tech, CWDT Immortal Call, and a reasonable life plus ES pool. Damage is prioritized until the character is comfortable.",
+      "coach_use": "For early deaths, check life on jewels, Glorious Vanity/Corrupted Soul timing, leech, endurance charge ring, Death Rush, phasing, and double-brand quality of life."
+    },
+    {
+      "card_id": "swap_requirements",
+      "tags": [
+        "progression",
+        "swap_timing",
+        "armageddon_brand",
+        "penance_brand"
+      ],
+      "summary": "The guide recommends staying Armageddon Brand until Uber Lab or a strong transition package is ready. Suggested minimum swap package includes Inpulsa, pseudo-5L Shaper helmet, dual large clusters, triple Remarkable medium clusters, Uber Lab, and upgraded Brine King for freeze immunity.",
+      "coach_use": "Do not recommend an early Penance swap unless the player has the transition package or understands the damage/clear risk."
+    },
+    {
+      "card_id": "atlas_upgrade_order",
+      "tags": [
+        "atlas",
+        "upgrade_order",
+        "gear_priority"
+      ],
+      "summary": "The guide's post-leveling priority is Inpulsa, corrupted-blood jewel, pseudo-6L helmet, weapon, amulet, boots, level 21 Penance, Storm's Gift, double large plus medium clusters, then Glorious Vanity for comfortable atlas completion.",
+      "coach_use": "Use this order as a brand-specific upgrade lane when coaching weak early atlas PBoD characters."
+    },
+    {
+      "card_id": "midgame_transition",
+      "tags": [
+        "midgame",
+        "corrupted_soul",
+        "aura",
+        "death_rush"
+      ],
+      "summary": "Midgame adds Glorious Vanity/Corrupted Soul, improves medium clusters, changes conversion so Physical to Lightning can be dropped, adds reservation tools for another aura, and uses Death Rush for mapping speed/defense.",
+      "coach_use": "If the build has midgame currency but still uses early sockets, check whether conversion and reservation upgrades allow a better support gem/aura package."
+    },
+    {
+      "card_id": "endgame_branches",
+      "tags": [
+        "endgame",
+        "mageblood",
+        "defense_variants",
+        "8l_helmet"
+      ],
+      "summary": "Endgame branches include armour/ES, evasion/suppress, and block versions, each with non-Mageblood and Mageblood PoBs. The 8L helmet is a major damage step and is described as expensive and RNG-heavy.",
+      "coach_use": "When recommending endgame upgrades, ask whether the user wants clear, defense, bossing, or Mageblood path before selecting a branch."
+    },
+    {
+      "card_id": "map_mods_and_reflect",
+      "tags": [
+        "map_mods",
+        "reflect",
+        "pantheon"
+      ],
+      "summary": "The guide flags elemental reflect, less/no recovery, cannot be slowed, and stacked rippy damage mods as problematic. It suggests Soul of Yugul plus Sibyl's Lament for elemental reflect or Atziri reflect handling.",
+      "coach_use": "Expose these as map warnings in farming/atlas coaching for PBoD Inquisitor."
+    },
+    {
+      "card_id": "pob_configuration",
+      "tags": [
+        "pob",
+        "configuration",
+        "dps_validation"
+      ],
+      "summary": "The guide expects PoB configuration to include low life, flask state, recent crit/ignite/chill/shock, consecrated ground, active/attached brands set to 2, enemy ailment state, RF not Vaal RF, and Penance Full DPS count 2.",
+      "coach_use": "Before comparing DPS, validate the PoB config instead of trusting the displayed number directly."
+    },
+    {
+      "card_id": "ssf_warning",
+      "tags": [
+        "ssf",
+        "availability",
+        "explode_source"
+      ],
+      "summary": "The guide is cautious about SSF and says Penance does not feel good without explode sources. It points to separate SSF brand expertise rather than claiming the trade-league path maps cleanly to SSF.",
+      "coach_use": "For SSF users, lower confidence and require an explode-source plan before recommending direct PBoD progression."
+    }
+  ],
+  "phase_model": [
+    {
+      "phase": "campaign",
+      "main_skill": "Armageddon Brand",
+      "goal": "cozy brand leveling and early currency setup",
+      "pob_roles": [
+        "campaign_leveling_armageddon_brand"
+      ]
+    },
+    {
+      "phase": "first_penance_swap",
+      "main_skill": "Penance Brand of Dissipation",
+      "goal": "swap after Uber Lab/package readiness",
+      "pob_roles": [
+        "transition_armageddon_to_penance"
+      ]
+    },
+    {
+      "phase": "atlas_progression",
+      "main_skill": "Penance Brand of Dissipation",
+      "goal": "clear atlas and regular bosses",
+      "pob_roles": [
+        "atlas_progression",
+        "block_variant"
+      ]
+    },
+    {
+      "phase": "endgame_without_mageblood",
+      "main_skill": "Penance Brand of Dissipation",
+      "goal": "8L helmet and branch by clear/defense/single target",
+      "pob_roles": [
+        "armour_es_endgame_variant",
+        "evasion_suppress_endgame_variant",
+        "block_variant"
+      ]
+    },
+    {
+      "phase": "mageblood_endgame",
+      "main_skill": "Penance Brand of Dissipation",
+      "goal": "minmax armour/ES, evasion/suppress, or block branch",
+      "pob_roles": [
+        "mageblood_endgame_variant"
+      ]
+    }
+  ],
+  "guardrails": [
+    "Treat this as a community/creator guide, not official GGG data.",
+    "Patch mentions are 3.25-3.27-era guide evidence; check current patch deltas before copying exact item or tree choices.",
+    "Do not quote long guide passages in generated answers; use the structured summaries and link back to the local/source reference.",
+    "Use GGPK and PoB parsing for exact gem/item/stat behavior when numbers matter."
+  ]
+}
