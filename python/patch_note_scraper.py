@@ -237,6 +237,381 @@ def classify_change(line: str) -> str:
     return "change"
 
 
+# ── 파생 델타 인덱스 ──────────────────────────────────────
+
+SECTION_DOMAINS = {
+    "Challenge League": "challenge_league",
+    "New Content and Features": "new_content",
+    "Endgame Changes": "endgame",
+    "Atlas Passive Tree Changes": "atlas",
+    "League Changes": "league",
+    "Player Changes": "player",
+    "Skill Gem Changes": "skill_gem",
+    "Vaal Gem Changes": "vaal_gem",
+    "Support Gem Changes": "support_gem",
+    "Ascendancy Changes": "ascendancy",
+    "Bloodline Changes": "bloodline",
+    "Passive Skill Tree Changes": "passive_tree",
+    "Unique Item Changes": "unique_item",
+    "Item Changes": "item",
+    "Ruthless-specific Changes": "ruthless",
+    "Monster Changes": "monster",
+    "Quest Reward Changes": "quest_reward",
+    "User Interface and Quality of Life Changes": "ui_qol",
+    "Bug Fixes": "bugfix",
+    "Core League": "core_league",
+}
+
+PATCH_WATCH_TERMS = {
+    "scion": ["scion", "reliquarian", "luminary", "ascendant"],
+    "mercenary": ["mercenary", "mercenaries", "trarthus"],
+    "allflame": ["allflame", "chart", "voyage", "ducat", "valerie", "sovereign"],
+    "atlas": ["atlas", "map", "voidstone", "scrying", "anomaly", "reflect", "thorns"],
+    "socket_crafting": ["socket", "crafting bench", "reroll", "modifier", "crystallised rancour"],
+    "skill_numbers": ["gem level", "cast time", "mana cost", "effectiveness", "damage"],
+    "economy_reward": ["reward", "drop", "currency", "divination", "card", "unique"],
+}
+
+
+def classify_section_domain(section: str) -> str:
+    """패치노트 섹션을 코치/DB용 도메인으로 축약."""
+    for needle, domain in SECTION_DOMAINS.items():
+        if needle.lower() in section.lower():
+            return domain
+    return "other"
+
+
+def extract_entity_name(line: str) -> str:
+    """'Arc: Now has ...' 같은 패치 라인에서 엔티티명을 추출."""
+    prefix, sep, _ = line.partition(":")
+    prefix = prefix.strip()
+    if not sep or not prefix or len(prefix) > 80:
+        return ""
+    if any(prefix.lower().startswith(x) for x in ("the following", "added ", "removed ")):
+        return ""
+    return prefix
+
+
+_NUMBER_RE = re.compile(
+    r"(?<![\w.])"
+    r"(?P<number>\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?)"
+    r"\s*(?P<unit>%|seconds?|metres?|meters?|projectiles?|targets?|charges?|stacks?|uses?|mana|life|damage|radius)?",
+    re.IGNORECASE,
+)
+
+
+def extract_numeric_tokens(text: str) -> list[dict]:
+    """라인에서 숫자/범위/단위를 보존해서 추출."""
+    tokens = []
+    for match in _NUMBER_RE.finditer(text):
+        number = match.group("number")
+        unit = (match.group("unit") or "").strip()
+        tokens.append({
+            "raw": match.group(0).strip(),
+            "number": number,
+            "unit": unit,
+        })
+    return tokens
+
+
+def extract_numeric_delta(line: str) -> dict:
+    """현재값과 previously 값을 분리한다. 완전한 수식 계산은 GGPK/PoB 검증 후 담당."""
+    previous_chunks = re.findall(r"\(previously ([^)]+)\)", line, flags=re.IGNORECASE)
+    previous_text = " ".join(previous_chunks)
+    without_previous = re.sub(r"\(previously [^)]+\)", "", line, flags=re.IGNORECASE)
+    current = extract_numeric_tokens(without_previous)
+    previous = extract_numeric_tokens(previous_text)
+
+    if current and previous and len(current) == len(previous):
+        pairing = "paired_by_order"
+    elif current and previous:
+        pairing = "unpaired_review_required"
+    elif current:
+        pairing = "current_only"
+    else:
+        pairing = "none"
+
+    return {
+        "current": current,
+        "previous": previous,
+        "pairing": pairing,
+        "has_previous": bool(previous),
+    }
+
+
+def infer_patch_tags(line: str, section: str) -> list[str]:
+    lowered = line.lower()
+    section_lower = section.lower()
+    domain = classify_section_domain(section)
+    tags = []
+    for tag, needles in PATCH_WATCH_TERMS.items():
+        if any(needle in lowered for needle in needles):
+            tags.append(tag)
+    if domain == "atlas":
+        tags.append("atlas")
+    if domain in {"skill_gem", "vaal_gem", "support_gem"} and extract_numeric_tokens(line):
+        tags.append("skill_numbers")
+    if "challenge league" in section_lower and "allflame" in section_lower:
+        tags.append("allflame")
+    return sorted(tags)
+
+
+def _compact_high_impact_watchlist(entries: list[dict]) -> dict:
+    def count(tag: str) -> int:
+        return sum(1 for entry in entries if tag in entry.get("watch_tags", []))
+
+    return {
+        "scion_branch_lines": count("scion"),
+        "mercenary_lines": count("mercenary"),
+        "allflame_loop_lines": count("allflame"),
+        "atlas_lines": count("atlas"),
+        "socket_crafting_lines": count("socket_crafting"),
+        "skill_number_lines": count("skill_numbers"),
+        "economy_reward_lines": count("economy_reward"),
+    }
+
+
+def build_patch_delta_index(patch_data: dict) -> dict:
+    """수집된 패치노트 JSON을 코치/검증용 델타 DB로 변환."""
+    entries = []
+    sections = patch_data.get("sections", {}) or {}
+    source_url = patch_data.get("url", "")
+    version = patch_data.get("version", "")
+
+    for section, lines in sections.items():
+        domain = classify_section_domain(section)
+        for idx, line in enumerate(lines or [], start=1):
+            if not isinstance(line, str) or len(line.strip()) <= 10:
+                continue
+            numeric_delta = extract_numeric_delta(line)
+            change_type = classify_change(line)
+            entry = {
+                "id": f"{version}:{domain}:{idx:03d}",
+                "version": version,
+                "section": section,
+                "domain": domain,
+                "entity": extract_entity_name(line),
+                "change_type": change_type,
+                "line": line,
+                "numeric_delta": numeric_delta,
+                "has_numeric_delta": bool(numeric_delta["current"] or numeric_delta["previous"]),
+                "watch_tags": infer_patch_tags(line, section),
+                "source_url": source_url,
+                "verification_state": "official_patch_note_text",
+            }
+            entries.append(entry)
+
+    domain_counts: dict[str, int] = {}
+    numeric_counts: dict[str, int] = {}
+    for entry in entries:
+        domain = entry["domain"]
+        domain_counts[domain] = domain_counts.get(domain, 0) + 1
+        if entry["has_numeric_delta"]:
+            numeric_counts[domain] = numeric_counts.get(domain, 0) + 1
+
+    return {
+        "dataset_kind": "poe1_patch_delta_index",
+        "schema_version": 1,
+        "version": version,
+        "title": patch_data.get("title", ""),
+        "patch_type": patch_data.get("patch_type", ""),
+        "source_url": source_url,
+        "structured_at": datetime.now().isoformat(),
+        "source_file": f"patch_{version.replace('.', '_').replace('-', '_')}.json",
+        "summary": {
+            "entry_count": len(entries),
+            "numeric_delta_count": sum(1 for entry in entries if entry["has_numeric_delta"]),
+            "previous_value_count": sum(1 for entry in entries if entry["numeric_delta"]["has_previous"]),
+            "domain_counts": domain_counts,
+            "numeric_domain_counts": numeric_counts,
+            "high_impact_watchlist": _compact_high_impact_watchlist(entries),
+        },
+        "coach_context": {
+            "rule": "Use this as official patch-note evidence, not as final GGPK/PoB truth. Later 3.29.x and hotfix overlays must supersede affected values.",
+            "priority_domains": [
+                "skill_gem",
+                "support_gem",
+                "ascendancy",
+                "passive_tree",
+                "atlas",
+                "league",
+                "item",
+                "unique_item",
+            ],
+            "launch_status": "pre_launch_patch_notes_confirmed_live_client_pending",
+        },
+        "entries": entries,
+    }
+
+
+def build_early_patch_adjustment_policy(version: str, source_url: str) -> dict:
+    """시즌 초반 패치/핫픽스가 기존 수치를 어떻게 덮는지 기록."""
+    return {
+        "dataset_kind": "poe1_early_season_patch_adjustment_policy",
+        "schema_version": 1,
+        "base_version": version,
+        "source_url": source_url,
+        "structured_at": datetime.now().isoformat(),
+        "patch_flow": [
+            {
+                "stage": "base_patch_notes",
+                "source": "official_forum_patch_notes",
+                "role": "Initial text truth for changed systems and numeric intent.",
+                "confidence": "official_text",
+            },
+            {
+                "stage": "launch_client_ggpk",
+                "source": "local_ggpk_extract_after_patch",
+                "role": "Machine-readable implementation truth. Confirms or corrects patch-note numbers.",
+                "confidence": "implementation_truth",
+            },
+            {
+                "stage": "post_launch_ggpk_refresh",
+                "source": "local_ggpk_extract_after_each_client_update",
+                "role": "Repeatable implementation overlays for 3.29.0b, hotfix client pushes, server/client restarts, and silent data corrections.",
+                "confidence": "implementation_truth_with_snapshot_manifest",
+            },
+            {
+                "stage": "day0_hotfix",
+                "source": "official_forum_hotfix_threads_and_client_restarts",
+                "role": "Immediate overrides for broken drops, crashes, disabled cards/items, or severe balance issues.",
+                "confidence": "official_hotfix_text_until_ggpk_refresh",
+            },
+            {
+                "stage": "minor_patch",
+                "source": "official_3_29_0b_or_later_patch_notes",
+                "role": "Stable overlay that supersedes base patch lines for the affected entity/stat only.",
+                "confidence": "official_text_then_ggpk_confirmed",
+            },
+            {
+                "stage": "tooling_confirmation",
+                "source": "Path of Building, PoEWiki, live trade/economy samples, measured map runs",
+                "role": "Coach recommendation confidence upgrade. Does not override official/GGPK values by itself.",
+                "confidence": "secondary_validation",
+            },
+        ],
+        "numeric_overlay_rules": [
+            "Never mutate the base patch note entry in place; append an overlay record with patch_version, source_url, affected_entry_id, old_value, new_value, unit, and reason.",
+            "If GGPK and patch-note text disagree after launch, store both and mark effective_value_source as ggpk unless GGG publishes a correction.",
+            "Hotfix entries may temporarily disable an item/card/gem/mechanic. Represent this as state_override=disabled instead of numeric_value=0.",
+            "For ranges such as 10-15%, preserve min/max. Do not collapse to an average for build advice unless a separate expected-value model asks for it.",
+            "For 'increased/reduced by X%' without an explicit previous value, store operation=relative_multiplier and require a base value from GGPK or prior patch DB.",
+            "For 'now has X (previously Y)', store operation=set_value and compute delta only when units and token counts match.",
+            "Apply overlays by newest semantic patch order, then hotfix number, then collected_at. Scope must match entity plus stat; unrelated lines remain inherited from base 3.29.0.",
+        ],
+        "ggpk_snapshot_rules": [
+            "Every post-launch GGPK extract must be stored as a versioned snapshot before promotion. Do not overwrite the previous effective extract without a manifest and diff.",
+            "Snapshot identity must include patch_version, client_build or collected_at, source_path, table row counts, file hashes, and extractor_version.",
+            "Diff raw tables by stable semantic keys where possible: Id for Mods/BaseItemTypes/ActiveSkills, displayed name plus metadata id for SkillGems, graph id for PassiveSkills, map id/name for Maps.",
+            "A GGPK value can supersede patch-note text only for the affected entity/stat and only after the table diff identifies the source row.",
+            "If a hotfix is server-only and the GGPK tables do not change, keep the hotfix overlay as official_text_pending_client_data instead of inventing a GGPK value.",
+            "Keep patch-note delta, GGPK row diff, PoB support state, and live measurement as separate evidence layers. The coach must report which layer it is using.",
+        ],
+        "ggpk_diff_targets": [
+            {
+                "table": "SkillGems",
+                "purpose": "Gem level requirements, supportability, tags, quality/stat scaling, new or changed gems.",
+                "stable_keys": ["BaseItemTypesKey", "Id", "DisplayedName"],
+            },
+            {
+                "table": "ActiveSkills",
+                "purpose": "Skill ids, stat references, weapon requirements, granted/triggered skills, behaviour flags.",
+                "stable_keys": ["Id", "DisplayedName", "ActiveSkillTypes"],
+            },
+            {
+                "table": "BaseItemTypes",
+                "purpose": "New bases, item classes, tags, drop levels, sockets and crafting base gates.",
+                "stable_keys": ["Id", "Name"],
+            },
+            {
+                "table": "Mods",
+                "purpose": "Explicit/implicit/enchantment modifier ranges, item mod eligibility, affix pool changes.",
+                "stable_keys": ["Id", "Name", "StatsKey1", "StatsKey2", "StatsKey3", "StatsKey4"],
+            },
+            {
+                "table": "PassiveSkills",
+                "purpose": "Passive tree, ascendancy, atlas/passive values, graph connectivity and stat text.",
+                "stable_keys": ["Id", "GraphId", "Name"],
+            },
+            {
+                "table": "Ascendancy",
+                "purpose": "Class/ascendancy availability, Scion branch separation, Bloodline-related class data.",
+                "stable_keys": ["Id", "Name"],
+            },
+            {
+                "table": "Maps",
+                "purpose": "Atlas rotation, map tiers, map ids, special map availability.",
+                "stable_keys": ["Id", "Name"],
+            },
+            {
+                "table": "QuestRewards",
+                "purpose": "Campaign/league-start gem access and vendor reward changes.",
+                "stable_keys": ["Quest", "CharactersKey", "BaseItemTypesKey"],
+            },
+            {
+                "table": "Scarabs",
+                "purpose": "Atlas farming and mechanic access changes.",
+                "stable_keys": ["Id", "Name"],
+            },
+        ],
+        "coach_rules": [
+            "When giving early-season advice, say whether the number is patch-note-only, GGPK-confirmed, PoB-confirmed, or live-measured.",
+            "Do not promote a build solely because a line is a buff; require interaction checks, item access, passive pathing, and early economy.",
+            "Keep Scion Ascendant, Reliquarian, and Luminary branches separated unless a build explicitly uses that branch.",
+            "For farming strategy, do not rank Allflame, Fossil, Guardian Map, or Scrying paths until reward samples and map-time samples exist.",
+        ],
+        "required_overlay_fields": [
+            "overlay_id",
+            "patch_version",
+            "patch_type",
+            "source_url",
+            "affected_entry_id",
+            "entity",
+            "stat",
+            "operation",
+            "old_value",
+            "new_value",
+            "unit",
+            "effective_value_source",
+            "verification_state",
+            "ggpk_snapshot_id",
+            "ggpk_table",
+            "ggpk_row_key",
+            "notes",
+        ],
+    }
+
+
+def write_patch_derivatives(version: str) -> dict:
+    ensure_data_dir()
+    filename = f"patch_{version.replace('.', '_').replace('-', '_')}.json"
+    path = DATA_DIR / filename
+    if not path.exists():
+        raise FileNotFoundError(f"{version} patch data not found: {path}")
+
+    with open(path, "r", encoding="utf-8") as f:
+        patch_data = json.load(f)
+
+    delta_index = build_patch_delta_index(patch_data)
+    delta_file = DATA_DIR / f"poe1_{version.replace('.', '_').replace('-', '_')}_patch_delta_index.json"
+    with open(delta_file, "w", encoding="utf-8") as f:
+        json.dump(delta_index, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+
+    policy = build_early_patch_adjustment_policy(version, patch_data.get("url", ""))
+    policy_file = DATA_DIR / f"poe1_{version.replace('.', '_').replace('-', '_')}_early_patch_adjustment_policy.json"
+    with open(policy_file, "w", encoding="utf-8") as f:
+        json.dump(policy, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+
+    return {
+        "delta_file": str(delta_file),
+        "policy_file": str(policy_file),
+        "entry_count": delta_index["summary"]["entry_count"],
+        "numeric_delta_count": delta_index["summary"]["numeric_delta_count"],
+    }
+
+
 # ── 데이터 구조화 ─────────────────────────────────────────
 
 def build_major_patch_data(version: str, title: str, url: str, text: str) -> dict:
@@ -470,6 +845,7 @@ if __name__ == "__main__":
     ap.add_argument("--latest", action="store_true", help="최신 메이저 패치 요약")
     ap.add_argument("--version", type=str, help="특정 버전 조회")
     ap.add_argument("--track", type=str, help="특정 메카닉 변경사항 추적")
+    ap.add_argument("--derive-version", type=str, help="수집된 패치 JSON에서 델타/초기보정 DB 생성")
     # POE2 D0 — Rust 가 --game poe1|poe2 전달. POE2 패치노트 소스/URL 분기는 D8 별도.
     ap.add_argument("--game", choices=["poe1", "poe2"], default="poe1",
                     help="대상 게임 (POE2 패치노트 소스 분기는 D8 에서 구현 예정)")
@@ -506,5 +882,8 @@ if __name__ == "__main__":
             print(f"\n총 {sum(len(r['matches']) for r in results)}건 in {len(results)}개 패치")
         else:
             logger.info(f"'{args.track}' 관련 변경사항 없음")
+    elif args.derive_version:
+        result = write_patch_derivatives(args.derive_version)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
         ap.print_help()

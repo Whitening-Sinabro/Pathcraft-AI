@@ -5,6 +5,7 @@ argparse/sys.exit/파일 쓰기 전체 경로 회귀 커버리지.
 """
 
 import os
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -76,6 +77,21 @@ class TestContinue:
         assert result.returncode == 0
         assert "[L7|unique]" in result.stdout
         assert "[L10|chanceable]" in result.stdout
+
+    def test_json_contract_includes_stats_and_uniques(self):
+        """Tauri JSON 계약: stats.strictness + top-level uniques 제공."""
+        build_json = '{"meta":{"build_name":"T"},"items":[{"rarity":"unique","name":"Tabula Rasa"}]}'
+        result = subprocess.run(
+            [sys.executable, str(FILTER_GEN), "-", "--strictness", "1", "--mode", "ssf", "--json"],
+            capture_output=True, text=True, encoding="utf-8",
+            cwd=str(REPO), input=build_json,
+            env={**os.environ, "PYTHONIOENCODING": "utf-8"},
+        )
+        assert result.returncode == 0
+        payload = json.loads(result.stdout)
+        assert payload["stats"]["strictness"] == 1
+        assert payload["stats"]["mode"] == "ssf"
+        assert "Tabula Rasa" in payload["uniques"]
 
 
 class TestHelp:

@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 import requests
 from bs4 import BeautifulSoup
@@ -31,6 +31,18 @@ except ImportError:
 
 TEST_POB_URL = "https://pobb.in/wXVStDuZrqHX"
 HEADERS = {'User-Agent': 'Mozilla/5.0'}
+DIRECT_XML_PREFIX = "__XML_DIRECT__"
+
+
+def _http_get_with_proxy_fallback(url, *, timeout):
+    try:
+        return requests.get(url, headers=HEADERS, timeout=timeout)
+    except requests.exceptions.ProxyError:
+        logger.warning("   > 시스템 프록시 실패, 프록시 비활성화 후 재시도...")
+        session = requests.Session()
+        session.trust_env = False
+        return session.get(url, headers=HEADERS, timeout=timeout)
+
 
 def get_pob_code_from_url(pob_url):
     logger.info(f"1. POB URL에서 데이터 추출 중: {pob_url}")
@@ -48,7 +60,7 @@ def get_pob_code_from_url(pob_url):
 
             # XML 파일인 경우 직접 반환 (decode_pob_code 건너뛰기 위해 특수 마커 사용)
             if '<PathOfBuilding' in content or '<Build' in content:
-                return f"__XML_DIRECT__{content}"
+                return f"{DIRECT_XML_PREFIX}{content}"
             else:
                 # POB 코드일 수 있음
                 return content.strip()
@@ -65,7 +77,7 @@ def get_pob_code_from_url(pob_url):
         last_timeout: requests.exceptions.Timeout | None = None
         for attempt in range(2):
             try:
-                response = requests.get(pob_url, headers=HEADERS, timeout=30)
+                response = _http_get_with_proxy_fallback(pob_url, timeout=30)
                 break
             except requests.exceptions.Timeout as e:
                 last_timeout = e
@@ -78,8 +90,18 @@ def get_pob_code_from_url(pob_url):
             raise last_timeout if last_timeout else RuntimeError("요청 실패")
         response.raise_for_status()
 
-        # pastebin.com/raw는 직접 텍스트 반환
-        if 'pastebin.com/raw/' in pob_url:
+        if 'planners.maxroll.gg/profiles/load/poe/' in pob_url:
+            payload = response.json()
+            profile_data = payload.get("data")
+            if isinstance(profile_data, str):
+                profile_data = json.loads(profile_data)
+            if isinstance(profile_data, dict):
+                pob_code = (profile_data.get("pobCode") or "").strip()
+                return pob_code or None
+            return None
+
+        # raw text endpoints return the encoded PoB payload directly.
+        if 'pastebin.com/raw/' in pob_url or '/poe1/pob/raw/' in pob_url:
             return response.text.strip()
 
         # pobb.in은 HTML 파싱 필요
@@ -98,6 +120,9 @@ def get_pob_code_from_url(pob_url):
 
 def decode_pob_code(encoded_code):
     logger.info("2. 데이터 디코딩 및 압축 해제 중...")
+    if encoded_code.startswith(DIRECT_XML_PREFIX):
+        return encoded_code[len(DIRECT_XML_PREFIX):]
+
     try:
         corrected_code = encoded_code.replace('-', '+').replace('_', '/')
         decoded_bytes = base64.b64decode(corrected_code)
@@ -117,6 +142,12 @@ def parse_pob_xml(xml_string, pob_url):
         notes_element = root.find('Notes')
 
         if build is None: return None
+        pob_raw = None
+        try:
+            from pob_raw import extract_pob_raw
+            pob_raw = extract_pob_raw(xml_string, pob_url)
+        except Exception as e:
+            logger.warning("   > PoBRaw 추출 실패: %s", e)
         build_notes = notes_element.text.strip() if notes_element is not None and notes_element.text else ""
 
         # 스킬 젬 정보 추출 — active SkillSet은 primary(엔드게임), 나머지는 alternate(레벨링/전환용)
@@ -267,8 +298,9 @@ def parse_pob_xml(xml_string, pob_url):
                                 "reasoning": None
                             }
                             
-        # 패시브 트리 URL 추출 (변경 없음)
+        # 패시브 트리 URL + 모든 Tree Spec 추출
         passive_tree_url = ""
+        passive_tree_options = []
         if tree_element is not None:
             # activeSpec 속성 우선 (1차/2차/3차 다중 트리 대응) → 레거시 active='true' → 첫 Spec
             active_spec_id = tree_element.get('activeSpec')
@@ -277,6 +309,18 @@ def parse_pob_xml(xml_string, pob_url):
                 active_spec = tree_element.find(f"./Spec[@id='{active_spec_id}']")
             if active_spec is None:
                 active_spec = tree_element.find("./Spec[@active='true']") or tree_element.find('Spec')
+
+            for spec in tree_element.findall('./Spec'):
+                url_element = spec.find('URL')
+                if url_element is None or not url_element.text:
+                    continue
+                passive_tree_options.append({
+                    "id": spec.get('id', ''),
+                    "title": (spec.get('title') or '').strip(),
+                    "url": url_element.text.strip(),
+                    "active": spec is active_spec,
+                })
+
             if active_spec is not None:
                 url_element = active_spec.find('URL')
                 if url_element is not None and url_element.text:
@@ -358,6 +402,7 @@ def parse_pob_xml(xml_string, pob_url):
                 "stage_name": "Final Build",
                 "pob_link": pob_url,
                 "passive_tree_url": passive_tree_url,
+                "passive_tree_options": passive_tree_options,
                 "ascendancy_order": [],
                 "gem_setups": gem_setups,
                 "alternate_gem_sets": alternate_gem_sets,  # 레벨링/전환 SkillSet (비활성)
@@ -366,6 +411,14 @@ def parse_pob_xml(xml_string, pob_url):
                 "pantheon": {"major": build.get('pantheonMajorGod'), "minor": build.get('pantheonMinorGod')}
             }]
         }
+        if pob_raw is not None:
+            final_guide["pob_raw"] = pob_raw
+
+        try:
+            from build_instance import build_instance_from_pob_data
+            final_guide["build_instance"] = build_instance_from_pob_data(final_guide)
+        except Exception as e:
+            logger.warning("   > BuildInstance 정규화 실패: %s", e)
 
         stats_source = "XML PlayerStat" if xml_stats else "empty (no PlayerStat found)"
         logger.info("   > POB 데이터 변환 완료 (stats source: %s)", stats_source)
@@ -409,3 +462,6 @@ if __name__ == "__main__":
         sys.exit(0)
 
     print(json.dumps({"error": "URL을 입력하세요. 예: python pob_parser.py https://pobb.in/..."}, ensure_ascii=False))
+
+
+

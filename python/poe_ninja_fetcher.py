@@ -15,7 +15,8 @@ import time
 
 # poe.ninja API Configuration
 POE_NINJA_BASE = "https://poe.ninja/api/data"
-POE_NINJA_BUILDS = "https://poe.ninja/api/data/GetBuildOverview"
+POE_NINJA_BUILDS = None
+POE_NINJA_BUILD_API_POLICY = "disabled_internal_unsupported"
 IMAGE_CDN_BASE = "https://web.poecdn.com"
 HEADERS = {'User-Agent': 'PathcraftAI/1.0'}
 
@@ -100,9 +101,19 @@ def get_current_leagues() -> List[str]:
         # poe.ninja itemoverview endpoint를 사용하여 활성 리그 확인
         url = "https://poe.ninja/api/data/itemoverview"
 
-        # Note: poe.ninja는 짧은 리그 이름 사용
-        # 2025년 11월 기준: Keepers (3.27 - Keepers of the Flame) 현재 활성
+        # poe.ninja는 짧은 리그 이름을 쓰는 경우가 많다. 런칭 직후에는
+        # 후보명을 넓게 찔러 보고 실제 응답이 있는 리그만 사용한다.
         test_leagues = [
+            'Allflame',
+            'Hardcore Allflame',
+            'SSF Allflame',
+            'HC SSF Allflame',
+            'Ruthless Allflame',
+            'HC Ruthless Allflame',
+            'Curse of the Allflame',
+            'Hardcore Curse of the Allflame',
+            'Curse',
+            'Hardcore Curse',
             'Keepers',              # Current challenge league (3.27)
             'Hardcore Keepers',
             'SSF Keepers',
@@ -208,45 +219,26 @@ def fetch_category_data(league: str, category_key: str, category_type: str) -> O
 
 def fetch_build_overview(league: str = 'Standard', overview: str = 'delirium') -> Optional[Dict[str, Any]]:
     """
-    Fetch build overview data from poe.ninja
+    Fetch build overview data from poe.ninja.
+
+    This is intentionally disabled. poe.ninja documents build/profile,
+    character, Path of Building, and authentication endpoints as internal,
+    unsupported, and unavailable for third-party use. Use
+    data/poe_ninja_build_variant_evidence_queue_v1.json for bounded manual
+    build-tab/profile sampling instead.
 
     Args:
         league: League name
         overview: Overview type (delirium, heist, etc.)
 
     Returns:
-        Build overview data with character details
+        None
     """
-    params = {
-        'league': league,
-        'overview': overview
-    }
-
-    try:
-        print(f"[INFO] Fetching build overview for {league} ({overview})...")
-        response = requests.get(POE_NINJA_BUILDS, headers=HEADERS, params=params, timeout=30)
-        response.raise_for_status()
-        data = response.json()
-
-        builds = data.get('builds', [])
-        print(f"[OK] Build overview: {len(builds)} characters")
-
-        return {
-            'league': league,
-            'overview': overview,
-            'builds': builds,
-            'fetched_at': datetime.now().isoformat()
-        }
-
-    except requests.exceptions.HTTPError as e:
-        if e.response.status_code == 404:
-            print(f"[SKIP] Build overview: Not available for {league}")
-        else:
-            print(f"[ERROR] Build overview: HTTP {e.response.status_code}")
-        return None
-    except Exception as e:
-        print(f"[ERROR] Build overview: {e}")
-        return None
+    print(
+        "[DISABLED] poe.ninja build/profile API collection is disabled "
+        f"({POE_NINJA_BUILD_API_POLICY}). League={league}, overview={overview}"
+    )
+    return None
 
 def analyze_builds_by_item(builds_data: Dict, item_name: str) -> Dict[str, Any]:
     """
@@ -476,7 +468,7 @@ def collect_all_data(league: str = 'Standard', download_images_flag: bool = Fals
     if collect_builds:
         print()
         print("=" * 60)
-        print("Collecting Build Overview Data")
+        print("Build Overview Data Disabled")
         print("=" * 60)
 
         builds_data = fetch_build_overview(league)
@@ -498,6 +490,13 @@ def collect_all_data(league: str = 'Standard', download_images_flag: bool = Fals
 
             except Exception as e:
                 print(f"[ERROR] Failed to save builds data: {e}")
+        else:
+            metadata['builds'] = {
+                'file': None,
+                'build_count': 0,
+                'status': POE_NINJA_BUILD_API_POLICY,
+                'reason': 'Use bounded manual profile/PoB sampling instead of internal build/profile API collection.'
+            }
 
     # Save metadata
     try:

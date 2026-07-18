@@ -57,7 +57,7 @@ VALID_MODES = ("trade", "ssf", "hcssf")
 LAYER_HARD_HIDE         = 0   # Scroll Fragment 등 절대 숨김
 LAYER_CATCH_ALL         = 1   # 오렌지 미분류 안전망
 LAYER_DEFAULT_RARITY    = 2   # Normal/Magic/Rare/Unique 기본 색
-LAYER_SOCKET_BORDER     = 3   # Chromatic RGB, Jeweller 6S
+LAYER_SOCKET_BORDER     = 3   # 3.29 socket-value highlights, Jeweller 6S
 LAYER_SPECIAL_BASE      = 4   # Wreckers 오렌지 복원 (특수 BaseType)
 LAYER_CORRUPT_BORDER    = 5   # 부패/타락/미러
 LAYER_T1_BORDER         = 6   # ilvl>=86 + 크래프팅 베이스
@@ -513,46 +513,23 @@ def layer_default_rarity() -> str:
 
 
 # ---------------------------------------------------------------------------
-# L3: Socket Border (Chromatic RGB / Jeweller 6-socket 핑크)
+# L3: Socket Border (3.29 link count / Jeweller 6-socket 핑크)
 # ---------------------------------------------------------------------------
 
 _SOCKET_PINK = "255 0 200"
 
 
 def layer_socket_border() -> str:
-    """L3 Socket Border — 6소켓/RGB 링크 핑크 보더 (벤더 레시피 가치).
+    """L3 Socket Border — 6소켓 레시피/6링크 가치 핑크 보더.
 
-    Wreckers L2417~2444 4블록 구조 이식 — AreaLevel + 크기 제한으로 엔드게임 인벤 오염 방지.
-    - RGB 캠페인 (AL<68) — 전체 크기
-    - RGB 옐로우맵 이하 (AL<81) — 소형만 (H<=3, W=1)
+    3.29에서는 젬 색상이 맞지 않아도 장착 가능하다. 색 소켓은 장착 제한이 아니라
+    같은 색 젬 +10% Quality 최적화다. 필터는 어떤 젬을 넣을지 모르므로 RGB 자체를
+    범용 가치로 강조하지 않는다.
     - 6소켓 화이트맵 이하 (AL<78) — 전체 크기
     - 6소켓 레드맵 구간 (AL 78~82) — 소형만 (H<=3, W<=2)
-    - AL>82(T16+)에서는 RGB/6소켓 무표시 = 인벤 여유
+    - AL>82(T16+)에서는 6소켓 무표시 = 인벤 여유
     """
     blocks: list[str] = []
-
-    # RGB 캠페인 — AL<68 전체 크기
-    blocks.append(make_layer_block(
-        LAYER_SOCKET_BORDER,
-        "RGB 캠페인 (AL<68, Chromatic Orb 레시피)",
-        conditions=["AreaLevel < 68", "SocketGroup RGB"],
-        style=LayerStyle(border=_SOCKET_PINK),
-        category_tag="chromatic_campaign",
-    ))
-
-    # RGB 옐로우맵 이하 소형만 — AL<81, 1x3 이하
-    blocks.append(make_layer_block(
-        LAYER_SOCKET_BORDER,
-        "RGB 옐로우맵 소형 (AL<81, H<=3 W=1)",
-        conditions=[
-            "AreaLevel < 81",
-            "SocketGroup RGB",
-            "Height <= 3",
-            "Width = 1",
-        ],
-        style=LayerStyle(border=_SOCKET_PINK),
-        category_tag="chromatic_small",
-    ))
 
     # 6소켓 화이트맵 이하 전체 — AL<78
     blocks.append(make_layer_block(

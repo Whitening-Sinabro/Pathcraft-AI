@@ -56,6 +56,7 @@ class GameData:
         self._maps: list = []
         self._gem_by_name: dict = {}
         self._item_name_idx: dict = {}
+        self._ggpk_index = None
         self._loaded = False
 
     def _ensure_loaded(self):
@@ -67,6 +68,16 @@ class GameData:
         self._gems = self._load_json("SkillGems.json")
         self._quest_rewards = self._load_json("QuestRewards.json")
         self._maps = self._load_json("Maps.json")
+
+        try:
+            from ggpk_index import GGPKIndex
+            self._ggpk_index = GGPKIndex(
+                game=self.game,
+                data_root=DATA_ROOT,
+                game_data_dir=self.data_dir,
+            )
+        except ImportError:
+            self._ggpk_index = None
 
         # 아이템 이름 → 인덱스 매핑
         for i, item in enumerate(self._items):
@@ -226,6 +237,10 @@ class GameData:
         if self._maps:
             parts.append(self._build_map_summary())
 
+        integrated_context = self._build_integrated_db_context(build_data)
+        if integrated_context:
+            parts.append(integrated_context)
+
         if not parts:
             return ""
 
@@ -234,12 +249,22 @@ class GameData:
     def _extract_gem_names(self, build_data: dict) -> list[str]:
         """빌드 데이터에서 사용된 젬 이름 추출."""
         names = set()
+
+        def add_link_text(value: str) -> None:
+            for part in value.replace(" - ", "|").split("|"):
+                part = part.strip()
+                if part:
+                    names.add(part)
+
         stages = build_data.get("progression_stages", [])
         for stage in stages:
+            if not isinstance(stage, dict):
+                continue
             gem_setups = stage.get("gem_setups", {})
             for setup_name, links in gem_setups.items():
                 # setup_name이 젬 이름일 수 있음
-                names.add(setup_name)
+                if isinstance(setup_name, str):
+                    names.add(setup_name)
                 # links가 리스트면 서포트 젬 목록
                 if isinstance(links, list):
                     for link in links:
@@ -249,12 +274,172 @@ class GameData:
                             name = link.get("name", link.get("gem", ""))
                             if name:
                                 names.add(name)
+                elif isinstance(links, dict):
+                    for key in ("name", "gem", "links"):
+                        value = links.get(key)
+                        if isinstance(value, str):
+                            add_link_text(value)
+                elif isinstance(links, str):
+                    add_link_text(links)
+            for alt in (stage.get("alternate_gem_sets", {}) or {}).values():
+                if not isinstance(alt, dict):
+                    continue
+                for setup_name, links in alt.items():
+                    if isinstance(setup_name, str):
+                        names.add(setup_name)
+                    if isinstance(links, dict):
+                        value = links.get("links")
+                        if isinstance(value, str):
+                            add_link_text(value)
+                    elif isinstance(links, str):
+                        add_link_text(links)
         return sorted(names)
 
     def _build_map_summary(self) -> str:
         """맵 티어별 요약 (코치 컨텍스트용)."""
         # Maps.json 필드 분석 — 간략한 티어 분포만
         return f"맵 데이터: {len(self._maps)}개 맵 로드됨 (상세 조회 가능)"
+
+    def _build_integrated_db_context(self, build_data: dict) -> str:
+        """GGPK 원천 + 기존 파생 DB 통합 조회 결과를 코치에 제공."""
+        if self._ggpk_index is None:
+            return ""
+        context = self._ggpk_index.build_targeted_context(build_data)
+        build_instance_summary = self._build_instance_summary(build_data)
+        if not context.get("matched_gems") and not context.get("matched_items") and not build_instance_summary:
+            return ""
+        build_instance_brief = self._build_instance_coach_brief(build_instance_summary)
+
+        # 프롬프트 오염 방지: 없는 항목은 앞쪽 일부만 보여준다. setup label이 섞일 수 있다.
+        compact = {
+            "game": context.get("game"),
+            "build_instance_coach_brief": build_instance_brief,
+            "catalog": context.get("catalog"),
+            "build_instance_summary": build_instance_summary,
+            "matched_gems": context.get("matched_gems", []),
+            "matched_items": context.get("matched_items", []),
+            "missing_gems_sample": context.get("missing_gems", [])[:8],
+            "missing_items_sample": context.get("missing_items", [])[:8],
+            "rule": (
+                "이 블록은 GGPK 원천 테이블과 기존 파생 DB를 합친 사실 조회 결과다. "
+                "여기에 없는 이름은 추측하지 말고 POB 원문 또는 레어 일반론으로 처리한다."
+            ),
+        }
+        return (
+            "통합 GGPK/기존 DB 조회 결과 (raw game_data + derived data; 확인된 사실만 사용):\n"
+            + json.dumps(compact, ensure_ascii=False, indent=2)
+        )
+
+    @staticmethod
+    def _build_instance_summary(build_data: dict) -> dict:
+        """Compact BuildInstance view for prompts.
+
+        The full BuildInstance can contain many item/mod joins. The prompt only
+        needs the state axes that constrain coaching.
+        """
+        instance = build_data.get("build_instance")
+        if not isinstance(instance, dict):
+            try:
+                from build_instance import build_instance_from_pob_data
+                instance = build_instance_from_pob_data(build_data, include_ggpk_context=False)
+            except Exception:
+                return {}
+
+        gem_state = instance.get("gem_state") or {}
+        calc_state = instance.get("calc_state") or {}
+        item_state = instance.get("item_state") or {}
+        lenses = instance.get("lenses") or {}
+        tree_state = instance.get("tree_state") or {}
+        config_state = instance.get("config_state") or {}
+        readiness = instance.get("readiness") or {}
+        slot_mod_summaries = []
+        for item in (item_state.get("slots") or [])[:12]:
+            if not isinstance(item, dict):
+                continue
+            slot_mod_summaries.append({
+                "slot": item.get("slot"),
+                "name": item.get("name"),
+                "rarity": item.get("rarity"),
+                "base_type": item.get("base_type"),
+                "mod_source": item.get("mod_source"),
+                "mod_summary": item.get("mod_summary") or {},
+                "affix_pressure": item.get("affix_pressure") or {},
+                "ggpk_join_status": (item.get("ggpk_mod_context") or {}).get("join_status"),
+            })
+        return {
+            "identity": instance.get("identity") or {},
+            "main_skill_group": gem_state.get("main_skill_group"),
+            "gem_counts": gem_state.get("counts") or {},
+            "raw_available": (instance.get("source") or {}).get("raw_available"),
+            "calc_state": {
+                "dps": calc_state.get("dps"),
+                "life": calc_state.get("life"),
+                "energy_shield": calc_state.get("energy_shield"),
+                "ehp": calc_state.get("ehp"),
+                "resistances": calc_state.get("resistances"),
+                "flags": calc_state.get("flags"),
+            },
+            "gear_pressure": (item_state.get("gear_pressure") or {}),
+            "item_mod_summary": item_state.get("mod_summary") or {},
+            "slot_mod_summaries": slot_mod_summaries,
+            "readiness": readiness,
+            "t16_readiness_inputs": (lenses.get("t16_readiness_inputs") or {}),
+            "tree_parse_status": tree_state.get("parse_status"),
+            "config_raw_present": config_state.get("raw_config_present"),
+            "config_raw_input_keys": sorted((config_state.get("raw_inputs") or {}).keys())[:12],
+        }
+
+    @staticmethod
+    def _build_instance_coach_brief(summary: dict) -> dict:
+        """Small high-signal BuildInstance extract for the LLM to cite first."""
+        if not isinstance(summary, dict):
+            return {}
+        gear_pressure = summary.get("gear_pressure") or {}
+        item_mod_summary = summary.get("item_mod_summary") or {}
+        totals = (
+            gear_pressure.get("gear_numeric_totals")
+            or (item_mod_summary.get("numeric_totals") if isinstance(item_mod_summary, dict) else {})
+            or {}
+        )
+        suffix_pressure_slots = []
+        for slot in summary.get("slot_mod_summaries") or []:
+            if not isinstance(slot, dict):
+                continue
+            pressure = slot.get("affix_pressure") or {}
+            categories = pressure.get("suffix_pressure_categories") or []
+            if categories or pressure.get("likely_suffix_mods"):
+                suffix_pressure_slots.append({
+                    "slot": slot.get("slot"),
+                    "name": slot.get("name"),
+                    "rarity": slot.get("rarity"),
+                    "likely_suffix_mods": pressure.get("likely_suffix_mods", 0),
+                    "suffix_pressure_categories": categories,
+                    "ggpk_join_status": slot.get("ggpk_join_status"),
+                })
+        return {
+            "target_version": (summary.get("identity") or {}).get("target_version"),
+            "main_skill": (summary.get("main_skill_group") or {}).get("active_gem"),
+            "gear_numeric_totals": totals,
+            "unique_jewellery_slots": gear_pressure.get("unique_jewellery_slots", []),
+            "rare_likely_prefix_mods": gear_pressure.get("rare_likely_prefix_mods", 0),
+            "rare_likely_suffix_mods": gear_pressure.get("rare_likely_suffix_mods", 0),
+            "readiness_overall": (summary.get("readiness") or {}).get("overall", {}),
+            "readiness_defense": {
+                "status": ((summary.get("readiness") or {}).get("defense") or {}).get("status"),
+                "reasons": (((summary.get("readiness") or {}).get("defense") or {}).get("reasons") or [])[:5],
+                "next_actions": (((summary.get("readiness") or {}).get("defense") or {}).get("next_actions") or [])[:4],
+            },
+            "readiness_bossing": {
+                "status": ((summary.get("readiness") or {}).get("bossing") or {}).get("status"),
+                "reasons": (((summary.get("readiness") or {}).get("bossing") or {}).get("reasons") or [])[:5],
+                "next_actions": (((summary.get("readiness") or {}).get("bossing") or {}).get("next_actions") or [])[:4],
+            },
+            "suffix_pressure_slots": suffix_pressure_slots[:8],
+            "must_use_rule": (
+                "When discussing weaknesses, gear upgrades, and resistance/suppression fixes, cite these deterministic "
+                "BuildInstance numbers before generic advice. Unique jewellery is locked and does not provide rare suffix room."
+            ),
+        }
 
 
 if __name__ == "__main__":

@@ -12,6 +12,7 @@ import os
 import requests
 from typing import List, Dict, Set, Optional, Tuple
 from dataclasses import dataclass
+from pathlib import Path
 
 # UTF-8 설정
 if sys.platform == 'win32':
@@ -21,14 +22,17 @@ if sys.platform == 'win32':
         sys.stderr.reconfigure(encoding='utf-8')
 
 # 데이터 파일 경로
-GAME_DATA_DIR = os.path.join(os.path.dirname(__file__), "game_data")
-DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
-GEMS_JSON_PATH = os.path.join(GAME_DATA_DIR, "gems.json")
-GEM_LEVELS_PATH = os.path.join(DATA_DIR, "gem_levels.json")
-QUEST_REWARDS_PATH = os.path.join(DATA_DIR, "quest_rewards.json")
-VENDOR_RECIPES_PATH = os.path.join(DATA_DIR, "vendor_recipes.json")
-TRANSITION_PATTERNS_PATH = os.path.join(DATA_DIR, "build_transition_patterns.json")
-TRANSLATIONS_PATH = os.path.join(DATA_DIR, "merged_translations.json")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+GAME_DATA_DIR = PROJECT_ROOT / "data" / "game_data"
+DATA_DIR = PROJECT_ROOT / "data"
+LEGACY_GEMS_JSON_PATH = GAME_DATA_DIR / "gems.json"
+VALID_GEMS_PATH = DATA_DIR / "valid_gems.json"
+GEM_LEVELS_PATH = DATA_DIR / "gem_levels.json"
+QUEST_REWARDS_PATH = DATA_DIR / "quest_rewards.json"
+VENDOR_RECIPES_PATH = DATA_DIR / "vendor_recipes.json"
+TRANSITION_PATTERNS_PATH = DATA_DIR / "build_transition_patterns.json"
+CURATED_TRANSITION_PATTERNS_PATH = DATA_DIR / "build_transition_patterns_curated.json"
+TRANSLATIONS_PATH = DATA_DIR / "merged_translations.json"
 
 
 @dataclass
@@ -101,20 +105,44 @@ class SkillTagSystem:
         return self.find_skill_by_name(english_name)
 
     def _load_transition_patterns(self):
-        """빌드 전환 패턴 데이터 로드 (Reddit/GitHub 크롤링 데이터)"""
-        if not os.path.exists(TRANSITION_PATTERNS_PATH):
-            print(f"[WARN] build_transition_patterns.json not found")
-            return
+        """빌드 전환 패턴 데이터 로드.
 
-        try:
-            with open(TRANSITION_PATTERNS_PATH, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                self.transition_patterns = data.get("patterns", [])
+        raw 크롤링 패턴과 curated 패턴을 병합한다.
+        curated 패턴은 weight를 크게 둬서 노이즈가 있는 raw 패턴보다 우선 추천된다.
+        """
+        loaded_patterns = []
 
-            print(f"[INFO] Loaded {len(self.transition_patterns)} build transition patterns")
+        for path, label in (
+            (TRANSITION_PATTERNS_PATH, "raw"),
+            (CURATED_TRANSITION_PATTERNS_PATH, "curated"),
+        ):
+            if not path.exists():
+                if label == "raw":
+                    print(f"[WARN] build_transition_patterns.json not found at {path}")
+                continue
 
-        except Exception as e:
-            print(f"[WARN] Failed to load transition patterns: {e}")
+            try:
+                with path.open('r', encoding='utf-8') as f:
+                    data = json.load(f)
+            except Exception as e:
+                print(f"[WARN] Failed to load {path.name}: {e}")
+                continue
+
+            patterns = data.get("patterns", [])
+            if not isinstance(patterns, list):
+                print(f"[WARN] Invalid pattern list in {path.name}")
+                continue
+
+            for pattern in patterns:
+                if not isinstance(pattern, dict):
+                    continue
+                normalized = dict(pattern)
+                normalized.setdefault("source", label)
+                normalized.setdefault("weight", 5 if label == "curated" else 1)
+                loaded_patterns.append(normalized)
+
+        self.transition_patterns = loaded_patterns
+        print(f"[INFO] Loaded {len(self.transition_patterns)} build transition patterns")
 
     def _get_no_transition_skills(self) -> Dict[str, Dict]:
         """전환 없이 Act부터 끝까지 사용 가능한 스킬 목록
@@ -192,6 +220,123 @@ class SkillTagSystem:
                 "recommendation": f"Use {skill_name} from the start - no transition needed"
             }
         return None
+
+    def _canonicalize_skill_name(self, skill_name: str) -> str:
+        """추천 결과에 사용할 canonical 스킬명 정규화."""
+        if not isinstance(skill_name, str) or not skill_name.strip():
+            return skill_name
+        skill_info = self.find_skill_by_name(skill_name)
+        if skill_info and skill_info.name:
+            return skill_info.name
+        return skill_name.strip()
+
+    def _choose_consensus_value(self, matches: List[Dict], field: str) -> Optional[str]:
+        """메타 후보 중 신뢰할 수 있는 단일 값을 선택.
+
+        curated가 하나라도 있으면 curated 집합만 사용한다.
+        값이 충돌하면 추측하지 않고 None을 반환한다.
+        """
+        if not matches:
+            return None
+
+        meta_matches = [m for m in matches if m.get("source") == "curated"] or matches
+        values = []
+        for match in meta_matches:
+            value = match.get(field)
+            if isinstance(value, str) and value.strip():
+                values.append(value.strip())
+
+        unique_values = []
+        seen = set()
+        for value in values:
+            lowered = value.lower()
+            if lowered in seen:
+                continue
+            seen.add(lowered)
+            unique_values.append(value)
+
+        if len(unique_values) == 1:
+            return unique_values[0]
+        return None
+
+    def _choose_transition_point(self, matches: List[Dict]) -> str:
+        """전환 시점은 curated 우선, 그다음 weight 합 기준 다수결."""
+        if not matches:
+            return "maps_entry"
+
+        meta_matches = [m for m in matches if m.get("source") == "curated"] or matches
+        scores: Dict[str, int] = {}
+        first_seen: List[str] = []
+        for match in meta_matches:
+            point = match.get("transition_point", "maps_entry")
+            if not isinstance(point, str) or not point.strip():
+                point = "maps_entry"
+            if point not in scores:
+                first_seen.append(point)
+                scores[point] = 0
+            weight = match.get("weight", 1)
+            if not isinstance(weight, int) or weight < 1:
+                weight = 1
+            scores[point] += weight
+
+        best_score = max(scores.values())
+        for point in first_seen:
+            if scores[point] == best_score:
+                return point
+        return "maps_entry"
+
+    def _finalize_recommendation_metadata(self, recommendation: Dict) -> Dict:
+        """집계된 raw/curated 패턴에서 노이즈를 제거한 최종 메타만 남긴다."""
+        matches = recommendation.pop("_matches", [])
+        recommendation["ascendancy"] = self._choose_consensus_value(matches, "ascendancy")
+        recommendation["class"] = self._choose_consensus_value(matches, "class")
+        recommendation["transition_point"] = self._choose_transition_point(matches)
+        return recommendation
+
+    @staticmethod
+    def _normalize_meta_name(value: str) -> str:
+        if not isinstance(value, str):
+            return ""
+        return value.strip().lower()
+
+    def _score_pattern_relevance(
+        self,
+        pattern: Dict,
+        class_name: str = "",
+        ascendancy: str = "",
+    ) -> int:
+        """요청된 클래스/어센던시에 맞춰 패턴 가중치를 조정한다.
+
+        규칙:
+        - 어센던시가 명시된 패턴은 같은 어센던시에서만 강하게 추천
+        - 다른 어센던시와 충돌하면 패턴 제외
+        - 클래스만 맞는 일반 패턴은 유지하되 보너스 부여
+        - 클래스가 명백히 다르면 강한 감점
+        """
+        base_weight = pattern.get("weight", 1)
+        if not isinstance(base_weight, int) or base_weight < 1:
+            base_weight = 1
+
+        requested_class = self._normalize_meta_name(class_name)
+        requested_asc = self._normalize_meta_name(ascendancy)
+        pattern_class = self._normalize_meta_name(pattern.get("class"))
+        pattern_asc = self._normalize_meta_name(pattern.get("ascendancy"))
+
+        weight = base_weight
+
+        if requested_asc and pattern_asc:
+            if requested_asc == pattern_asc:
+                weight += 4
+            else:
+                return 0
+
+        if requested_class and pattern_class:
+            if requested_class == pattern_class:
+                weight += 2
+            else:
+                weight = max(0, weight - 3)
+
+        return weight
 
     def _get_fallback_patterns(self) -> Dict[str, List[str]]:
         """크롤링 데이터가 부족할 때 사용할 기본 전환 패턴
@@ -273,12 +418,20 @@ class SkillTagSystem:
 
         return skill_lower
 
-    def get_leveling_skill_for_build(self, final_skill: str, include_korean: bool = True) -> List[Dict]:
+    def get_leveling_skill_for_build(
+        self,
+        final_skill: str,
+        include_korean: bool = True,
+        class_name: str = "",
+        ascendancy: str = "",
+    ) -> List[Dict]:
         """최종 스킬에 대한 레벨링 스킬 추천
 
         Args:
             final_skill: 최종 빌드 스킬 (영어 또는 한국어)
             include_korean: 결과에 한국어 이름 포함 여부
+            class_name: 현재 빌드 클래스 힌트
+            ascendancy: 현재 빌드 어센던시 힌트
 
         Returns:
             List of leveling skill recommendations with metadata
@@ -320,21 +473,45 @@ class SkillTagSystem:
 
             # 정규화된 이름으로 매칭
             if pattern_final == final_lower or final_lower in pattern_final or pattern_final in final_lower:
-                leveling_skill = pattern.get("leveling_skill", "")
+                leveling_skill = self._canonicalize_skill_name(pattern.get("leveling_skill", ""))
+                weight = self._score_pattern_relevance(
+                    pattern,
+                    class_name=class_name,
+                    ascendancy=ascendancy,
+                )
+                if weight <= 0:
+                    continue
 
                 # 중복 확인
                 existing = [r for r in recommendations if r["skill"].lower() == leveling_skill.lower()]
                 if existing:
-                    existing[0]["count"] += 1
-                    existing[0]["sources"].append(pattern.get("source", "unknown"))
+                    existing[0]["count"] += weight
+                    source = pattern.get("source", "unknown")
+                    if source not in existing[0]["sources"]:
+                        existing[0]["sources"].append(source)
+                    existing[0]["_matches"].append({
+                        "source": source,
+                        "weight": weight,
+                        "transition_point": pattern.get("transition_point", "maps_entry"),
+                        "ascendancy": pattern.get("ascendancy"),
+                        "class": pattern.get("class"),
+                    })
                 else:
                     recommendations.append({
                         "skill": leveling_skill,
-                        "count": 1,
+                        "count": weight,
                         "transition_point": pattern.get("transition_point", "maps_entry"),
                         "ascendancy": pattern.get("ascendancy"),
+                        "class": pattern.get("class"),
                         "sources": [pattern.get("source", "unknown")],
-                        "is_for_transfigured": is_transfigured
+                        "is_for_transfigured": is_transfigured,
+                        "_matches": [{
+                            "source": pattern.get("source", "unknown"),
+                            "weight": weight,
+                            "transition_point": pattern.get("transition_point", "maps_entry"),
+                            "ascendancy": pattern.get("ascendancy"),
+                            "class": pattern.get("class"),
+                        }],
                     })
 
         # 인기도순 정렬
@@ -349,13 +526,24 @@ class SkillTagSystem:
                     existing = [r for r in recommendations if r["skill"].lower() == skill.lower()]
                     if not existing:
                         recommendations.append({
-                            "skill": skill.title(),
+                            "skill": self._canonicalize_skill_name(skill),
                             "count": 0,
                             "transition_point": "maps_entry",
                             "ascendancy": None,
+                            "class": None,
                             "sources": ["fallback"],
-                            "is_for_transfigured": is_transfigured
+                            "is_for_transfigured": is_transfigured,
+                            "_matches": [{
+                                "source": "fallback",
+                                "weight": 0,
+                                "transition_point": "maps_entry",
+                                "ascendancy": None,
+                                "class": None,
+                            }],
                         })
+
+        for rec in recommendations:
+            self._finalize_recommendation_metadata(rec)
 
         # 한국어 이름 추가
         if include_korean:
@@ -612,45 +800,70 @@ class SkillTagSystem:
         return recommendations
 
     def _load_gem_data(self):
-        """gems.json에서 젬 데이터 로드"""
-        if not os.path.exists(GEMS_JSON_PATH):
-            print(f"[WARN] gems.json not found at {GEMS_JSON_PATH}")
+        """젬 데이터 로드.
+
+        1. legacy gems.json (있으면 기존 포맷 유지)
+        2. valid_gems.json 기반 active skill 목록 생성
+        """
+        if LEGACY_GEMS_JSON_PATH.exists():
+            try:
+                with LEGACY_GEMS_JSON_PATH.open('r', encoding='utf-8') as f:
+                    gems_data = json.load(f)
+
+                for gem_key, gem_info in gems_data.items():
+                    name = gem_info.get("name", "")
+                    if not name or gem_info.get("isSupport", False):
+                        continue
+
+                    self.SKILL_DATABASE[gem_key] = SkillInfo(
+                        name=name,
+                        skill_id=gem_key,
+                        tags=gem_info.get("tags", []),
+                        required_level=1,
+                        is_transfigured=" of " in name,
+                    )
+
+                print(f"[INFO] Loaded {len(self.SKILL_DATABASE)} active skills from legacy gems.json")
+                return
+            except Exception as e:
+                print(f"[WARN] Failed to load legacy gems.json: {e}")
+
+        if not VALID_GEMS_PATH.exists():
+            print(f"[WARN] valid_gems.json not found at {VALID_GEMS_PATH}")
             return
 
         try:
-            with open(GEMS_JSON_PATH, 'r', encoding='utf-8') as f:
-                gems_data = json.load(f)
+            with VALID_GEMS_PATH.open('r', encoding='utf-8') as f:
+                data = json.load(f)
 
-            for gem_key, gem_info in gems_data.items():
-                name = gem_info.get("name", "")
-                if not name:
+            gem_names = data.get("gems", [])
+            if not isinstance(gem_names, list):
+                print(f"[WARN] Invalid gems list in {VALID_GEMS_PATH}")
+                return
+
+            gem_set = {
+                name.strip() for name in gem_names
+                if isinstance(name, str) and name.strip()
+            }
+
+            for name in sorted(gem_set):
+                # bare support alias ("Added Fire Damage") 는 sibling support 존재 시 제외
+                if name.endswith(" Support") or f"{name} Support" in gem_set:
                     continue
 
-                # 서포트 젬은 제외
-                if gem_info.get("isSupport", False):
-                    continue
-
-                # SkillInfo 객체 생성
-                skill_id = gem_key
-                tags = gem_info.get("tags", [])
-
-                # 기본값 (나중에 poedb 데이터로 업데이트)
-                required_level = 1
-
-                is_transfigured = " of " in name  # "Storm Brand of Indecision" 등
-
+                skill_id = re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
                 self.SKILL_DATABASE[skill_id] = SkillInfo(
                     name=name,
                     skill_id=skill_id,
-                    tags=tags,
-                    required_level=required_level,
-                    is_transfigured=is_transfigured
+                    tags=[],
+                    required_level=1,
+                    is_transfigured=" of " in name,
                 )
 
-            print(f"[INFO] Loaded {len(self.SKILL_DATABASE)} active skills from gems.json")
+            print(f"[INFO] Loaded {len(self.SKILL_DATABASE)} active skills from valid_gems.json")
 
         except Exception as e:
-            print(f"[ERROR] Failed to load gems.json: {e}")
+            print(f"[ERROR] Failed to load valid_gems.json: {e}")
 
     def _load_poedb_data(self):
         """poedb.tw 크롤링 데이터 로드 (gem_levels, quest_rewards, vendor_recipes)"""
@@ -1132,7 +1345,11 @@ class ActGuideSearcher:
         }
 
         # 스킬 전환 정보 추가
-        leveling_recommendations = self.skill_system.get_leveling_skill_for_build(skill_name)
+        leveling_recommendations = self.skill_system.get_leveling_skill_for_build(
+            skill_name,
+            class_name=class_name,
+            ascendancy=ascendancy,
+        )
         if leveling_recommendations:
             first_rec = leveling_recommendations[0]
 

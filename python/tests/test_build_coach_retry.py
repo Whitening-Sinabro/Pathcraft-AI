@@ -115,7 +115,7 @@ class TestL3Retry:
         responses = [_mk_result_gem("Multistrike Support")]
         mock, idx = _make_mock_anthropic(responses)
         with patch.object(build_coach, "anthropic", mock):
-            result = build_coach.coach_build(_mk_build())
+            result = build_coach.coach_build(_mk_build(), model="claude-haiku-4-5-20251001")
         # 재시도 없음 — API call 1회만
         assert idx["i"] == 1
         assert "_retry_info" not in result
@@ -129,7 +129,7 @@ class TestL3Retry:
         ]
         mock, idx = _make_mock_anthropic(responses)
         with patch.object(build_coach, "anthropic", mock):
-            result = build_coach.coach_build(_mk_build())
+            result = build_coach.coach_build(_mk_build(), model="claude-haiku-4-5-20251001")
         assert idx["i"] == 2, "재시도 1회 발생해야 함"
         assert "_retry_info" in result
         info = result["_retry_info"]
@@ -146,7 +146,7 @@ class TestL3Retry:
         ]
         mock, idx = _make_mock_anthropic(responses)
         with patch.object(build_coach, "anthropic", mock):
-            result = build_coach.coach_build(_mk_build())
+            result = build_coach.coach_build(_mk_build(), model="claude-haiku-4-5-20251001")
         assert idx["i"] == 2
         info = result["_retry_info"]
         assert info["attempts"] == 2
@@ -167,7 +167,7 @@ class TestL3Retry:
         mock, _ = _make_mock_anthropic(responses)
         with caplog.at_level(logging.INFO, logger="build_coach"):
             with patch.object(build_coach, "anthropic", mock):
-                build_coach.coach_build(_mk_build())
+                build_coach.coach_build(_mk_build(), model="claude-haiku-4-5-20251001")
         metric_lines = [r.message for r in caplog.records if "L3_RETRY_METRIC" in r.message]
         assert len(metric_lines) == 1
         assert "success=true" in metric_lines[0]
@@ -185,7 +185,7 @@ class TestL3Retry:
         mock, _ = _make_mock_anthropic(responses)
         with caplog.at_level(logging.INFO, logger="build_coach"):
             with patch.object(build_coach, "anthropic", mock):
-                build_coach.coach_build(_mk_build())
+                build_coach.coach_build(_mk_build(), model="claude-haiku-4-5-20251001")
         metric_lines = [r.message for r in caplog.records if "L3_RETRY_METRIC" in r.message]
         assert len(metric_lines) == 1
         assert "success=false" in metric_lines[0]

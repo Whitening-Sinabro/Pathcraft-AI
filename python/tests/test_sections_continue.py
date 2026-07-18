@@ -348,34 +348,20 @@ class TestLayerDefaultRarity:
 
 
 class TestLayerSocketBorder:
-    """Wreckers L2417~2444 4블록 parity — AL 및 크기 제한."""
+    """3.29 socket policy: no generic RGB pickup, keep recipe/6-link value."""
 
-    def test_six_blocks(self):
+    def test_four_blocks(self):
         text = layer_socket_border()
-        for tag in ("chromatic_campaign", "chromatic_small",
-                    "jeweller_campaign", "jeweller_small",
+        for tag in ("jeweller_campaign", "jeweller_small",
                     "epic_6link_corrupted", "epic_6link"):
             assert f"[L3|{tag}]" in text
 
-    def test_rgb_campaign_al_limit(self):
-        """Wreckers L2417: 캠페인 RGB는 AL<68 전체 크기."""
+    def test_no_generic_rgb_socket_highlight(self):
+        """3.29: colour match is a quality optimization, not a generic pickup rule."""
         text = layer_socket_border()
-        start = text.find("[L3|chromatic_campaign]")
-        end = text.find("Continue", start)
-        block = text[start:end]
-        assert "AreaLevel < 68" in block
-        assert "SocketGroup RGB" in block
-        assert "Height" not in block  # 크기 제한 없음
-
-    def test_rgb_small_yellow_map(self):
-        """Wreckers L2423: AL<81 + H<=3 + W=1 소형만."""
-        text = layer_socket_border()
-        start = text.find("[L3|chromatic_small]")
-        end = text.find("Continue", start)
-        block = text[start:end]
-        assert "AreaLevel < 81" in block
-        assert "Height <= 3" in block
-        assert "Width = 1" in block
+        assert "SocketGroup RGB" not in text
+        assert "chromatic_campaign" not in text
+        assert "chromatic_small" not in text
 
     def test_jeweller_campaign_al_limit(self):
         """Wreckers L2431: 6소켓 AL<78 전체 크기."""
@@ -401,18 +387,17 @@ class TestLayerSocketBorder:
 
     def test_pink_border_all_blocks(self):
         text = layer_socket_border()
-        # 4 decoration + 1 Epic (uncorrupted) = 5 블록 pink 보더. 부패 Epic은 Red.
-        assert text.count("SetBorderColor 255 0 200 255") == 5
+        # 2 recipe decoration + 1 Epic (uncorrupted) = 3 pink border blocks. 부패 Epic은 Red.
+        assert text.count("SetBorderColor 255 0 200 255") == 3
         # Corrupted Epic은 Red border 별도
         assert text.count("SetBorderColor 200 0 0 255") == 1
 
     def test_decoration_blocks_no_text_or_bg_override(self):
-        """L3 decoration 4블록은 보더/이펙트/아이콘만. Epic 6-Link는 예외 (final Show)."""
+        """L3 recipe decoration blocks are border/effect/icon only. Epic 6-Link is final Show."""
         text = layer_socket_border()
         # Epic 6-Link는 text/bg/font 명시 필요 (final Show라 이전 레이어 의존 불가)
-        # decoration 4블록만 따로 확인
-        for tag in ("chromatic_campaign", "chromatic_small",
-                    "jeweller_campaign", "jeweller_small"):
+        # decoration 2블록만 따로 확인
+        for tag in ("jeweller_campaign", "jeweller_small"):
             start = text.find(f"[L3|{tag}]")
             end = text.find("Continue", start)
             block = text[start:end]
@@ -438,11 +423,10 @@ class TestLayerSocketBorder:
         assert "\tContinue" not in block
 
     def test_t17_maps_no_socket_display(self):
-        """AL>82 (T16+) 구간은 RGB/6소켓 표시 없음 (Epic 6-Link은 예외)."""
+        """AL>82 (T16+) 구간은 6소켓 표시 없음 (Epic 6-Link은 예외)."""
         text = layer_socket_border()
-        # Decoration 4블록만 확인
-        for tag in ("chromatic_campaign", "chromatic_small",
-                    "jeweller_campaign", "jeweller_small"):
+        # Decoration 2블록만 확인
+        for tag in ("jeweller_campaign", "jeweller_small"):
             start = text.find(f"[L3|{tag}]")
             end = text.find("Continue", start)
             block = text[start:end]
@@ -461,11 +445,9 @@ class TestLayerSocketBorder:
 
     def test_al_boundary_conditions(self):
         """AL 경계값 문자열 정확성 — 회귀 시 <= vs < 실수 탐지.
-        Wreckers 원본: AL<68, AL<81, AL<78, AL>=78 + AL<=82.
+        3.29 policy: no generic RGB blocks; keep AL<78, AL>=78 + AL<=82.
         """
         text = layer_socket_border()
-        assert "AreaLevel < 68" in text  # chromatic_campaign (캠페인 전체)
-        assert "AreaLevel < 81" in text  # chromatic_small (옐로우맵까지)
         assert "AreaLevel < 78" in text  # jeweller_campaign (화이트맵까지)
         assert "AreaLevel >= 78" in text  # jeweller_small 하한
         assert "AreaLevel <= 82" in text  # jeweller_small 상한

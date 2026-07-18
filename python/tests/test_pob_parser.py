@@ -38,6 +38,12 @@ class TestDecodePobCode:
         result = decode_pob_code("")
         assert result is None
 
+    def test_direct_xml_marker_returns_xml(self):
+        """로컬 XML 파일 경로는 압축 디코딩 없이 XML을 그대로 반환"""
+        xml = "<PathOfBuilding><Build /></PathOfBuilding>"
+        result = decode_pob_code(f"__XML_DIRECT__{xml}")
+        assert result == xml
+
 
 class TestParsePobXml:
     """parse_pob_xml: XML → JSON 구조 변환"""
@@ -89,6 +95,16 @@ class TestGetPobCodeFromUrl:
         """존재하지 않는 URL → None (크래시 아님)"""
         result = get_pob_code_from_url("https://pobb.in/nonexistent-build-12345xyz")
         assert result is None
+
+    def test_file_xml_url_returns_direct_xml_marker(self, tmp_path):
+        """file:// XML 입력은 PoB 코드가 아니라 직접 XML로 처리"""
+        xml_path = tmp_path / "sample.xml"
+        xml_path.write_text("<PathOfBuilding><Build /></PathOfBuilding>", encoding="utf-8")
+
+        code = get_pob_code_from_url(xml_path.as_uri())
+
+        assert code is not None
+        assert decode_pob_code(code) == "<PathOfBuilding><Build /></PathOfBuilding>"
 
 
 if __name__ == "__main__":

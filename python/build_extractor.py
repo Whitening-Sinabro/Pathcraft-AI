@@ -11,6 +11,13 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
+from gem_taxonomy import (
+    damage_flags_for,
+    get_gem_entry,
+    is_support_gem,
+    resolve_gem_name,
+)
+
 logger = logging.getLogger(__name__)
 
 # 레벨링/엔드게임 분기 기본 AL (Kitava = AL 68 진입)
@@ -246,16 +253,20 @@ def _resolve_gem_name(name: str) -> Optional[str]:
     name = name.strip()
     if not name:
         return None
+    taxonomy_resolved = resolve_gem_name(name, allow_support_alias=True, require_socketable=True)
+    if taxonomy_resolved:
+        return taxonomy_resolved
+
     valid = _load_valid_gems()
     if not valid:
         return name
-    # Support 변형 우선 (POB는 접미사 생략 빈번: 'Melee Physical Damage' → 'Melee Physical Damage Support')
-    # POE 실제 BaseType은 "X Support"이므로 Support 변형이 존재하면 그것을 반환.
+    if name in valid:
+        return name
+    # Fallback only when taxonomy is missing. Avoid overriding real active gems
+    # such as Barrage when a sibling Barrage Support exists.
     support_variant = name + " Support"
     if support_variant in valid and not name.endswith(" Support"):
         return support_variant
-    if name in valid:
-        return name
     # 트랜스피그 fallback: "X of Y" → "X" (POE 버전에 따라 트랜스피그 없으면 베이스)
     if " of " in name:
         base = name.split(" of ")[0].strip()
@@ -285,7 +296,7 @@ def extract_build_gems(build_data: dict) -> tuple[list[str], list[str]]:
         resolved = _resolve_gem_name(name)
         if resolved is None:
             return
-        if "Support" in resolved:
+        if is_support_gem(resolved) or resolved.endswith(" Support"):
             supports.add(resolved)
         else:
             skills.add(resolved)
@@ -333,7 +344,47 @@ def extract_build_bases(build_data: dict) -> list[str]:
 
 def detect_build_type(build_data: dict) -> str:
     """빌드 타입 감지 (spell/attack/minion/dot)."""
-    gems = " ".join(extract_build_gems(build_data)[0]).lower()
+    def _label_is_utility(label: str) -> bool:
+        text = label.lower()
+        return any(keyword in text for keyword in (
+            "aura",
+            "guard",
+            "movement",
+            "mobility",
+            "utility",
+            "curse",
+            "mark",
+            "banner",
+        ))
+
+    primary_skills: list[str] = []
+    for stage in build_data.get("progression_stages", []):
+        if not isinstance(stage, dict):
+            continue
+        for label, links in (stage.get("gem_setups", {}) or {}).items():
+            if _label_is_utility(str(label or "")):
+                continue
+            link_text = links.get("links", "") if isinstance(links, dict) else links
+            if not isinstance(link_text, str) or not link_text.strip():
+                continue
+            first = link_text.split(" - ")[0].strip()
+            resolved = _resolve_gem_name(first)
+            if resolved and not is_support_gem(resolved):
+                primary_skills.append(resolved)
+
+    skills = primary_skills or extract_build_gems(build_data)[0]
+    flags = [damage_flags_for(skill) for skill in skills if get_gem_entry(skill)]
+    if flags:
+        if any(flag.get("minion") for flag in flags):
+            return "minion"
+        if any(flag.get("dot") for flag in flags):
+            return "dot"
+        if any(flag.get("attack") for flag in flags):
+            return "attack"
+        if any(flag.get("caster") for flag in flags):
+            return "spell"
+
+    gems = " ".join(skills).lower()
     if any(k in gems for k in ["raise zombie", "raise spectre", "summon", "animate"]):
         return "minion"
     if any(k in gems for k in ["blight", "contagion", "essence drain", "toxic rain", "caustic"]):

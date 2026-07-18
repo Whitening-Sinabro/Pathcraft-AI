@@ -10,10 +10,12 @@ import json
 import os
 import time
 from typing import List, Dict, Optional
-from poe_ladder_fetcher import get_character_items, get_character_passive_skills, parse_build_data
 
-# poe.ninja API 엔드포인트
-POE_NINJA_BUILDS_API = "https://poe.ninja/api/data/getbuilds"
+# poe.ninja build/profile endpoints are internal and unsupported for
+# third-party collection. Keep this module as a compatibility shim, but do not
+# issue build API requests from it.
+POE_NINJA_BUILDS_API = None
+POE_NINJA_BUILD_API_POLICY = "disabled_internal_unsupported"
 
 REQUEST_DELAY = 1.0  # POE API 요청 간 딜레이
 
@@ -26,7 +28,14 @@ def fetch_poe_ninja_builds(
     limit: int = 15
 ) -> List[Dict]:
     """
-    poe.ninja 빌드 API에서 빌드 목록 가져오기
+    poe.ninja 빌드 API에서 빌드 목록 가져오기.
+
+    현재 비활성화되어 있다. poe.ninja 공식 문서 기준 build/profile,
+    character, Path of Building, authentication 엔드포인트는 internal /
+    unsupported / third-party use unavailable 이므로 이 함수는 네트워크
+    요청을 만들지 않는다. 대신
+    data/poe_ninja_build_variant_evidence_queue_v1.json 의 bounded manual
+    sampling 계약을 사용한다.
 
     Args:
         league: 리그 이름
@@ -37,48 +46,14 @@ def fetch_poe_ninja_builds(
         limit: 가져올 빌드 수
 
     Returns:
-        빌드 정보 리스트 (계정명, 캐릭터명, 클래스, 레벨 등)
+        빈 리스트
     """
-    params = {
-        "overview": league.lower(),
-        "type": "exp",
-        "language": "en"
-    }
-
-    if item:
-        params["item"] = item
-    if skill:
-        params["skill"] = skill
-    if class_name:
-        params["class"] = class_name
-    if sort:
-        params["sort"] = sort
-
-    print(f"[INFO] Fetching builds from poe.ninja...")
-    print(f"       League: {league}")
-    if item:
-        print(f"       Item: {item}")
-    if skill:
-        print(f"       Skill: {skill}")
-    if class_name:
-        print(f"       Class: {class_name}")
-
-    try:
-        response = requests.get(POE_NINJA_BUILDS_API, params=params, timeout=10)
-        response.raise_for_status()
-        data = response.json()
-
-        builds = data.get('builds', [])
-        total_builds = len(builds)
-
-        print(f"[OK] Found {total_builds} builds on poe.ninja")
-
-        # 상위 N개만 반환
-        return builds[:limit]
-
-    except requests.exceptions.RequestException as e:
-        print(f"[ERROR] Failed to fetch poe.ninja builds: {e}")
-        return []
+    print(
+        "[DISABLED] poe.ninja build/profile API collection is disabled "
+        f"({POE_NINJA_BUILD_API_POLICY}). League={league}, item={item}, "
+        f"skill={skill}, class={class_name}, sort={sort}, limit={limit}"
+    )
+    return []
 
 def collect_detailed_build_data(
     poe_ninja_builds: List[Dict],
@@ -94,6 +69,8 @@ def collect_detailed_build_data(
     Returns:
         상세 빌드 데이터 리스트
     """
+    from poe_ladder_fetcher import get_character_items, get_character_passive_skills, parse_build_data
+
     detailed_builds = []
     total = len(poe_ninja_builds)
 

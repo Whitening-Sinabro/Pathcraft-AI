@@ -100,7 +100,13 @@ if __name__ == "__main__":
                 "unique_count": len(stage.unique_bases) if stage else 0,
                 "divcard_count": len(stage.target_cards) if stage else 0,
                 "chanceable_count": len(stage.chanceable) if stage else 0,
+                "strictness": args.strictness,
+                "mode": args.mode,
+                "stage": args.stage,
+                "al_split": args.al_split,
+                "game": args.game,
             },
+            "uniques": stage.unique_names if stage else [],
             "target_divcards": [
                 {"card": c["card"], "stack": c.get("stack", 0),
                  "target_unique": c.get("unique", "")}

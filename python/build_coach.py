@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 PathcraftAI Build Coach — POE 빌드 범용 코칭 시스템
-POB 파싱 결과를 받아서 Claude Sonnet으로 단계별 가이드 생성
+POB 파싱 결과를 받아서 GPT/Claude로 단계별 가이드 생성
 """
 
 import json
@@ -24,11 +24,110 @@ logging.basicConfig(level=logging.INFO, format="%(message)s", stream=sys.stderr)
 try:
     import anthropic
 except ImportError:
-    logger.error("anthropic SDK not installed. Run: pip install anthropic")
-    sys.exit(1)
+    anthropic = None
+
+try:
+    from openai import OpenAI
+except ImportError:
+    OpenAI = None
 
 
-SYSTEM_PROMPT_POE1 = """너는 Path of Exile 1 (현재 리그: 3.28 Mirage) 전용 빌드 코치다.
+DEFAULT_COACH_MODEL = "gpt-5-nano"
+OPENAI_MODELS = {"gpt-5-nano", "gpt-5-mini", "gpt-5", "gpt-5.3-codex"}
+CLAUDE_MODELS = {
+    "claude-haiku-4-5-20251001",
+    "claude-sonnet-4-6",
+    "claude-opus-4-7",
+}
+
+
+def _provider_for_model(model: str) -> str:
+    if model in OPENAI_MODELS or model.startswith("gpt-"):
+        return "openai"
+    return "claude"
+
+
+def _require_client(provider: str):
+    if provider == "openai":
+        if OpenAI is None:
+            raise ImportError("openai SDK not installed. Run: pip install openai")
+        return OpenAI()
+    if anthropic is None:
+        raise ImportError("anthropic SDK not installed. Run: pip install anthropic")
+    return anthropic.Anthropic()
+
+
+def _openai_text_from_response(response) -> str:
+    """Extract text from OpenAI SDK responses/chat-completions shapes."""
+    output_text = getattr(response, "output_text", None)
+    if isinstance(output_text, str) and output_text:
+        return output_text
+
+    choices = getattr(response, "choices", None)
+    if choices:
+        message = getattr(choices[0], "message", None)
+        content = getattr(message, "content", None) if message is not None else None
+        if isinstance(content, str):
+            return content
+        if isinstance(content, list):
+            parts = []
+            for item in content:
+                if isinstance(item, dict):
+                    parts.append(item.get("text") or "")
+                else:
+                    parts.append(getattr(item, "text", "") or "")
+            return "".join(parts)
+
+    output = getattr(response, "output", None)
+    if output:
+        parts = []
+        for item in output:
+            content = getattr(item, "content", None)
+            if content:
+                for part in content:
+                    text = getattr(part, "text", None)
+                    if isinstance(text, str):
+                        parts.append(text)
+        if parts:
+            return "".join(parts)
+    return ""
+
+
+def _normalise_usage(provider: str, response):
+    usage = getattr(response, "usage", None)
+    if usage is None:
+        class Usage:
+            input_tokens = 0
+            output_tokens = 0
+            cache_read_input_tokens = 0
+            cache_creation_input_tokens = 0
+        return Usage()
+
+    if provider == "openai":
+        input_tokens = (
+            getattr(usage, "input_tokens", None)
+            or getattr(usage, "prompt_tokens", None)
+            or 0
+        )
+        output_tokens = (
+            getattr(usage, "output_tokens", None)
+            or getattr(usage, "completion_tokens", None)
+            or 0
+        )
+
+        class Usage:
+            pass
+
+        converted = Usage()
+        converted.input_tokens = input_tokens
+        converted.output_tokens = output_tokens
+        converted.cache_read_input_tokens = 0
+        converted.cache_creation_input_tokens = 0
+        return converted
+    return usage
+
+
+SYSTEM_PROMPT_POE1 = """너는 Path of Exile 1 전용 빌드 코치다. 기본 안정 데이터셋은 3.28 Mirage 기준이지만, POB `meta.version`, `build_instance_summary.identity.target_version`, 시즌 리서치 DB가 다른 타깃 패치를 명시하면 그 값을 우선한다.
 
 **필수 제약 — 절대 위반 금지**:
 - POE1 데이터만 사용. POE2는 별도 게임으로 젬/스킬/메커닉이 다름. POE2 이름 (예: "Fire Wall", "Shock Burst Rounds") 사용 금지.
@@ -39,6 +138,11 @@ SYSTEM_PROMPT_POE1 = """너는 Path of Exile 1 (현재 리그: 3.28 Mirage) 전�
   - ✓ "Chance to Bleed Support" / "Elemental Focus Support" / "Cast when Damage Taken Support" / "Headhunter" / "Tabula Rasa"
 - **추측성 유니크 금지**: 존재 여부가 확실한 유니크만 기입. 확신 없으면 절대 이름 지어내지 말고 레어 설명으로 대체 (예: `"item": "Rare Body Armour with life and resists"`).
 - **출력 정규화 인지**: 이 코치의 출력은 `coach_normalizer` + `gear_normalizer` 로 자동 검증된다. 정식명 이탈은 사용자에게 "자동 교정 N건" 배지로 노출되어 신뢰도 저하를 초래한다.
+- **BuildInstance 장비 모드 해석 우선**: 통합 GGPK/기존 DB 블록의 `build_instance_summary.item_mod_summary`, `slot_mod_summaries`, `gear_pressure.gear_numeric_totals`는 PoB 장비 텍스트를 deterministic하게 정규화한 현재 장비 상태다. 일반론보다 이 수치를 우선 사용해서 생명력/저항/억제/속성 부족과 다음 업그레이드 슬롯을 판단한다.
+  - `build_instance_coach_brief`가 있으면 이 요약을 먼저 읽고, `weaknesses`, `gear_progression`, `farming_strategy.readiness_assessment.reason` 중 최소 2곳에 해당 수치를 반영한다.
+  - `unique_modifier`는 레어 prefix/suffix로 취급하지 않는다. 유니크 장신구가 많으면 남은 rare 슬롯의 suffix 압박으로 설명한다.
+  - `rare_likely_suffix_mods`, `unique_jewellery_slots`, 슬롯별 `affix_pressure.suffix_pressure_categories`를 보고 저항/속성/Spell Suppression을 어디서 챙길지 구체적으로 말한다.
+  - `unknown` 또는 누락된 값은 추측으로 채우지 말고, 유저가 PoB Config/장비 모드/맵 클리어 시간을 추가 측정해야 한다고 표시한다.
 
 역할:
 - 유저가 제공한 POB 빌드 데이터를 분석하고 빌드 특성에 맞는 단계별 가이드를 생성한다.
@@ -154,9 +258,36 @@ SYSTEM_PROMPT_POE1 = """너는 Path of Exile 1 (현재 리그: 3.28 Mirage) 전�
   ],
   "passive_priority": ["첫 번째로 찍을 노드 방향", "두 번째", "세 번째"],
   "danger_zones": ["주의할 맵 모드", "위험한 보스"],
+  "new_player_bridge": {
+    "likely_friction_points": [
+      {
+        "area": "초보자가 막힐 가능성이 큰 영역",
+        "why_it_blocks": "왜 여기서 막히는지",
+        "what_pathcraft_fills": "PathcraftAI가 실제로 대신 정리해줄 수 있는 부분",
+        "next_action": "다음 플레이 세션에서 할 행동 1개"
+      }
+    ],
+    "poe2_to_poe1_notes": ["POE2 유입자가 헷갈릴 POE1 차이점"],
+    "beginner_safe_next_steps": ["지금 당장 할 수 있는 1단계", "2단계", "3단계"]
+  },
   "farming_strategy": {
     "recommended_mechanics": ["이 빌드에 맞는 아틀라스 메카닉 1순위", "2순위", "3순위"],
     "atlas_passive_focus": "이 빌드의 아틀라스 패시브 투자 방향 요약",
+    "readiness_assessment": {
+      "current_phase": "early_mapping / mid_mapping / late_mapping / unknown",
+      "atlas_progress": "충분 / 부족 / unknown",
+      "highest_tier_smooth": "예: T10 / T14 / T16 / unknown",
+      "clear_speed_state": "빠름 / 보통 / 느림 / unknown",
+      "death_rate": "낮음 / 보통 / 높음 / unknown",
+      "reason": "현재 단계 판정 이유",
+      "next_measurement": "유저가 다음에 확인해야 할 수치"
+    },
+    "atlas_phase_boundaries": {
+      "early_mapping": "얼리/전환 맵핑 기준: 아틀라스 진행, 반복 가능한 최고 티어, 사망 빈도, 클리어 속도 중 하나라도 약하거나 unknown",
+      "mid_mapping": "미드 맵핑 기준: 레드/T16을 낮은 사망률로 반복 가능하고, 한 가지 메카닉에 아틀라스 포인트를 투자할 여유가 있는 상태",
+      "late_mapping": "후반 기준: 4 voidstone 또는 동급 진행도 + 고티어 안정성 + scarab/투자 회수 가능성 확인",
+      "promotion_checks": ["아틀라스 진행도", "편하게 반복 가능한 최고 맵 티어", "사망 빈도", "평균 클리어 시간", "보이드스톤/투자 회수 가능성"]
+    },
     "early_atlas": "초반 아틀라스 전략 (T1-T10, 맵 서스테인 확보)",
     "mid_atlas": "중반 전략 (T14-T16, 1-2돌, 기어 크래프팅)",
     "late_atlas": "후반 전략 (4돌 후 풀 파밍 최적화)",
@@ -185,6 +316,28 @@ SYSTEM_PROMPT_POE1 = """너는 Path of Exile 1 (현재 리그: 3.28 Mirage) 전�
 - 장비 업그레이드 타이밍 필수 포함: 각 구간에서 어떤 슬롯을 어떤 방법으로 업그레이드할지 (에센스/하베스트/벤치 등). 얼리레드에서 기어 부족하면 옐로우맵 파밍 권장.
 - 오라 3개 이상 동시 사용 시 마나 예약 합계를 계산해서 실현 가능한 조합만 제시. "Enlighten 있으면" 식 조건부는 SSF에서 기본값이 아님.
 - 퀘스트 젬 보상 데이터가 제공되면, 해당 클래스가 몇 Act에서 어떤 젬을 받는지 참고해서 "이 퀘스트에서 이 젬 선택" 형태로 안내.
+- 3.29 소켓 변경 반영: 젬은 색상이 맞지 않는 장비 소켓에도 장착 가능하다. 예전 RGB/off-colour 장착 제한 조언을 쓰지 말 것.
+- 3.29에서 빨강/초록/파랑 소켓 색상 일치는 장착 조건이 아니라 해당 색 젬 +10% Quality 최적화다. 장비 조언은 "링크 수"와 "같은 색 소켓 보너스 가치"를 분리해서 설명한다.
+- RGB 색 맞춤의 이득은 젬 품질 효과에 의존한다. 메인 딜 젬, 핵심 보조, 지속시간/반경/투사체/쿨다운/마나/상태이상 효과가 품질에 붙은 젬은 우선순위가 높고, 임시 레벨링 젬이나 곧 교체할 장비의 색 맞춤은 낮게 둔다.
+- Chromatic Orb는 3.29에서 더 희귀하고 벤더 Jeweller 교환도 제거됐다. 초보자에게 색 맞추기 소모를 전제로 한 레벨링 루트를 제시하지 말 것.
+- 3.27/3.28 출처의 빌드나 PoB는 3.29 추천 후보로 바로 승격하지 말고, 이후 공식 패치/핫픽스 누적 변경을 확인한 뒤 "연습해도 됨 / 가능성 높음 / 보류" 같은 사용자용 라벨로 낮춰 판단한다.
+- 현재 3.29 데이터가 patch-note-only, PoB 미지원, launch-week 미측정 상태라면 확정 추천처럼 쓰지 말고 "가능성 높음 / 연습해도 됨 / 구경만 / 보류" 같은 사용자용 라벨로 낮춰 표현한다.
+
+atlas/farming_strategy 규칙:
+- Atlas passive 100+, T16 2분 컷 같은 숫자는 공식 기준이 아니라 로컬 초기 벤치마크다. 이를 확정 기준처럼 쓰지 말 것.
+- early/mid/late 구분은 아틀라스 진행도, 편하게 반복 가능한 최고 맵 티어, 사망 빈도, 평균 클리어 시간, 보이드스톤/투자 회수 가능성을 함께 보고 보수적으로 판단.
+- 정보가 부족하면 `readiness_assessment`를 unknown 또는 추정으로 두고, `next_measurement`에 하나의 측정값을 요구한다.
+- mid_atlas는 레드/T16을 낮은 사망률로 반복 가능하고 한 가지 메카닉에 투자할 여유가 있는 상태로 작성.
+- late_atlas는 4 voidstone 또는 동급 진행도, 고티어 안정성, scarab/league mechanic 투자 비용 회수 가능성이 확인된 뒤로 제한.
+- farming_strategy.atlas_phase_boundaries.promotion_checks에는 "아틀라스 진행도 / 반복 가능한 최고 티어 / 사망 빈도 / 평균 클리어 시간 / 보이드스톤 또는 투자 회수 가능성"을 포함.
+- 제공되는 "Atlas/Farming knowledge base"의 source_confidence, mechanic_profiles, build_archetype_mapping을 우선 참고해 recommended_mechanics를 고를 것. 단, 근거가 약한 임계값은 "초기 벤치마크"라고 표현할 것.
+
+new_player_bridge 규칙:
+- 제공되는 "New player friction knowledge base"를 기준으로 현재 빌드/가이드에서 초보자가 막힐 가능성이 큰 포인트를 최대 3개만 선택.
+- likely_friction_points는 설명만 하지 말고 `what_pathcraft_fills`와 `next_action`을 반드시 채운다.
+- POE2 유입자가 헷갈릴 수 있는 차이점은 `poe2_to_poe1_notes`에 넣되, 입력에서 관련성이 낮으면 2~3개만 간단히 작성.
+- beginner_safe_next_steps는 지금 플레이 세션에서 할 수 있는 행동 3개만. 긴 이론 금지.
+- 정보가 부족하면 "추정"이라고 표현하고, 다음 측정값 하나를 요구한다.
 
 build_rating 규칙:
 - 5개 카테고리 모두 1~5 정수. 1=매우 어려움/낮음, 5=매우 쉬움/높음.
@@ -460,6 +613,485 @@ def load_patch_context() -> dict:
     return {}
 
 
+def load_patch_derivative_context() -> dict:
+    """Patch delta/policy context for early-season numeric and GGPK overlays."""
+    patch_dir = Path(__file__).resolve().parent.parent / "data" / "patch_notes"
+    delta_path = patch_dir / "poe1_3_29_0_patch_delta_index.json"
+    policy_path = patch_dir / "poe1_3_29_0_early_patch_adjustment_policy.json"
+    if not delta_path.exists() or not policy_path.exists():
+        return {}
+
+    try:
+        delta = json.loads(delta_path.read_text(encoding="utf-8"))
+        policy = json.loads(policy_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"3.29 patch derivative context 로드 실패: {e}")
+        return {}
+
+    return {
+        "dataset_kind": "poe1_patch_derivative_context",
+        "version": delta.get("version"),
+        "source_url": delta.get("source_url"),
+        "delta_summary": delta.get("summary", {}),
+        "coach_context": delta.get("coach_context", {}),
+        "patch_flow": policy.get("patch_flow", []),
+        "numeric_overlay_rules": policy.get("numeric_overlay_rules", []),
+        "ggpk_snapshot_rules": policy.get("ggpk_snapshot_rules", []),
+        "ggpk_diff_targets": policy.get("ggpk_diff_targets", []),
+        "coach_rules": policy.get("coach_rules", []),
+    }
+
+
+def load_patch_history_context() -> dict:
+    """Cumulative 3.27 -> 3.29 patch context for old build reuse decisions."""
+    path = (
+        Path(__file__).resolve().parent.parent
+        / "data"
+        / "patch_notes"
+        / "poe1_3_27_3_29_patch_history_context.json"
+    )
+    if not path.exists():
+        return {}
+
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"3.27-3.29 patch history context 로드 실패: {e}")
+        return {}
+
+
+def load_atlas_farming_knowledge() -> dict:
+    """Stable POE1 atlas/farming strategy knowledge.
+
+    This is the deterministic baseline for farming advice. User-specific state
+    can override phase assessment later, but missing state must not be treated
+    as proof that the player is ready for mid/late farming.
+    """
+    path = Path(__file__).resolve().parent.parent / "data" / "atlas_farming_knowledge.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"atlas_farming_knowledge.json 로드 실패: {e}")
+        return {}
+
+
+def load_new_player_friction_knowledge() -> dict:
+    """Stable friction taxonomy for new PoE1 players and PoE2-to-PoE1 players."""
+    path = Path(__file__).resolve().parent.parent / "data" / "new_player_friction_knowledge.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"new_player_friction_knowledge.json 로드 실패: {e}")
+        return {}
+
+
+def load_poe1_3_29_global_review_knowledge() -> dict:
+    """Whole-patch 3.29 review context across league, economy, gems, Atlas, and builds."""
+    path = Path(__file__).resolve().parent.parent / "data" / "poe1_3_29_global_review.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"poe1_3_29_global_review.json 로드 실패: {e}")
+        return {}
+
+
+def load_poe1_3_29_information_intake_plan() -> dict:
+    """Operational intake cadence for early 3.29 sources."""
+    path = Path(__file__).resolve().parent.parent / "data" / "poe1_3_29_information_intake_plan.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"poe1_3_29_information_intake_plan.json 로드 실패: {e}")
+        return {}
+
+
+def load_season_research_knowledge() -> dict:
+    """POE1 announced-season research packs used as provisional coach context."""
+    path = Path(__file__).resolve().parent.parent / "data" / "poe1_season_research_3_29_reliquarian.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"poe1_season_research_3_29_reliquarian.json 로드 실패: {e}")
+        return {}
+
+
+def load_allflame_live_season_research_knowledge() -> dict:
+    """Patch-notes-confirmed 3.29 Allflame/Luminary research pack."""
+    path = Path(__file__).resolve().parent.parent / "data" / "poe1_season_research_3_29_allflame_live.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"poe1_season_research_3_29_allflame_live.json 로드 실패: {e}")
+        return {}
+
+
+def load_reliquarian_build_shell_knowledge() -> dict:
+    """Community-derived Reliquarian shell notes used as advisory context."""
+    path = Path(__file__).resolve().parent.parent / "data" / "poe1_reliquarian_build_shells_3_29.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"poe1_reliquarian_build_shells_3_29.json 로드 실패: {e}")
+        return {}
+
+
+def load_gem_taxonomy() -> dict:
+    """Generated POE1 gem taxonomy from SkillGems + ActiveSkills + derived DBs."""
+    path = Path(__file__).resolve().parent.parent / "data" / "poe1_gem_taxonomy.latest.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"poe1_gem_taxonomy.latest.json 로드 실패: {e}")
+        return {}
+
+
+def _norm_text(value: object) -> str:
+    return str(value or "").strip().casefold()
+
+
+def _extract_build_skill_names_for_research(build_data: dict) -> set[str]:
+    names: set[str] = set()
+    try:
+        from ggpk_index import GGPKIndex
+        names.update(GGPKIndex.extract_gem_names(build_data))
+    except ImportError:
+        pass
+
+    meta = build_data.get("meta", {}) if isinstance(build_data, dict) else {}
+    for key in ("main_skill", "skill", "build_name"):
+        value = meta.get(key)
+        if isinstance(value, str) and value.strip():
+            names.add(value.strip())
+    return {_norm_text(name) for name in names if name}
+
+
+def build_season_research_context(build_data: dict) -> dict:
+    """Build-scoped announced-season research context.
+
+    This remains advisory. It is intentionally injected only when the build
+    points at Scion/Luminary, legacy Scion/Reliquarian, or one of the
+    researched candidate skills.
+    """
+    if not isinstance(build_data, dict):
+        return {}
+
+    meta = build_data.get("meta", {})
+    class_name = _norm_text(meta.get("class"))
+    ascendancy = _norm_text(meta.get("ascendancy"))
+    skill_names = _extract_build_skill_names_for_research(build_data)
+
+    live_research = load_allflame_live_season_research_knowledge()
+    legacy_research = load_season_research_knowledge()
+
+    use_live_research = False
+    if live_research:
+        use_live_research = (
+            ascendancy == "luminary"
+            or (class_name == "scion" and ascendancy != "reliquarian")
+            or bool(skill_names & {"pact of ghorr", "pact of lycia", "pact of beidat", "pact of k'tash"})
+        )
+
+    research = live_research if use_live_research else legacy_research
+    if not research:
+        return {}
+    shell_knowledge = {} if use_live_research else load_reliquarian_build_shell_knowledge()
+    gem_taxonomy = load_gem_taxonomy()
+    gem_entries = gem_taxonomy.get("entries", {}) if isinstance(gem_taxonomy, dict) else {}
+
+    lenses = research.get("lenses", {})
+    offensive_lens = lenses.get("offensive_gem_lens", []) or []
+    support_lens = lenses.get("support_gem_lens", []) or []
+    branch_lens = lenses.get("candidate_branch_lens", []) or []
+    skill_lens = lenses.get("skill_fact_lens", []) or []
+
+    is_scoped_character = (
+        class_name == _norm_text(research.get("scope", {}).get("class_name"))
+        or ascendancy == _norm_text(research.get("scope", {}).get("ascendancy"))
+    )
+
+    def _offensive_skill_names(row: dict) -> set[str]:
+        names: set[str] = set()
+        for field in (
+            "primary_offense_gems",
+            "secondary_offense_gems",
+            "enabler_offense_gems",
+            "carrier_gems",
+            "fallback_offense_gems",
+        ):
+            values = row.get(field, [])
+            if not isinstance(values, list):
+                continue
+            for item in values:
+                if isinstance(item, dict):
+                    value = item.get("skill") or item.get("canonical_skill")
+                else:
+                    value = item
+                if isinstance(value, str) and value.strip():
+                    names.add(_norm_text(value))
+        return names
+
+    branch_skill_names: dict[str, set[str]] = {}
+    for row in offensive_lens:
+        if not isinstance(row, dict):
+            continue
+        branch_id = row.get("branch_id")
+        if not isinstance(branch_id, str) or not branch_id:
+            continue
+        branch_skill_names[branch_id] = _offensive_skill_names(row)
+
+    # Backward-compatible fallback for older season research files.
+    if not branch_skill_names:
+        for row in support_lens:
+            if not isinstance(row, dict):
+                continue
+            branch_id = row.get("branch_id")
+            if not isinstance(branch_id, str) or not branch_id:
+                continue
+            values = {
+                row.get("main_skill"),
+                row.get("secondary_skill"),
+                row.get("secondary_trigger_skill"),
+            }
+            branch_skill_names[branch_id] = {
+                _norm_text(value)
+                for value in values
+                if isinstance(value, str) and value.strip() and "to_be_selected" not in value
+            }
+
+    matched_branch_ids = {
+        branch_id
+        for branch_id, names in branch_skill_names.items()
+        if names & skill_names
+    }
+
+    if not is_scoped_character and not matched_branch_ids:
+        return {}
+
+    if is_scoped_character:
+        selected_branch_ids = {row.get("branch_id") for row in branch_lens if isinstance(row, dict)}
+    else:
+        selected_branch_ids = matched_branch_ids
+
+    selected_branch_ids = {branch_id for branch_id in selected_branch_ids if isinstance(branch_id, str)}
+    branch_by_id = {
+        row.get("branch_id"): row
+        for row in branch_lens
+        if isinstance(row, dict) and isinstance(row.get("branch_id"), str)
+    }
+    offensive_by_id = {
+        row.get("branch_id"): row
+        for row in offensive_lens
+        if isinstance(row, dict) and isinstance(row.get("branch_id"), str)
+    }
+    support_by_id = {
+        row.get("branch_id"): row
+        for row in support_lens
+        if isinstance(row, dict) and isinstance(row.get("branch_id"), str)
+    }
+
+    selected_skills = set()
+    for branch_id in selected_branch_ids:
+        selected_skills.update(branch_skill_names.get(branch_id, set()))
+    if not selected_skills and is_scoped_character:
+        selected_skills = {
+            _norm_text(row.get("canonical_skill"))
+            for row in skill_lens
+            if isinstance(row, dict) and isinstance(row.get("canonical_skill"), str)
+        }
+
+    selected_skill_facts = [
+        row for row in skill_lens
+        if isinstance(row, dict) and _norm_text(row.get("canonical_skill")) in selected_skills
+    ]
+    selected_taxonomy_entries = [
+        gem_entries[name]
+        for name in sorted(gem_entries)
+        if _norm_text(name) in selected_skills
+    ][:40]
+
+    research_ascendancy = research.get("scope", {}).get("ascendancy") or "season"
+    research_status = research.get("league", {}).get("research_status") or "research"
+    payload = {
+        "dataset_kind": research.get("dataset_kind"),
+        "schema_version": research.get("schema_version"),
+        "league": research.get("league"),
+        "scope": research.get("scope"),
+        "match": {
+            "scoped_character": is_scoped_character,
+            "build_class": meta.get("class"),
+            "build_ascendancy": meta.get("ascendancy"),
+            "matched_branch_ids": sorted(matched_branch_ids),
+            "selected_branch_ids": sorted(selected_branch_ids),
+        },
+        "official_node_lens": lenses.get("official_node_lens", []),
+        "candidate_branch_lens": [
+            branch_by_id[branch_id]
+            for branch_id in sorted(selected_branch_ids)
+            if branch_id in branch_by_id
+        ],
+        "offensive_gem_lens": [
+            offensive_by_id[branch_id]
+            for branch_id in sorted(selected_branch_ids)
+            if branch_id in offensive_by_id
+        ],
+        "support_gem_lens": [
+            support_by_id[branch_id]
+            for branch_id in sorted(selected_branch_ids)
+            if branch_id in support_by_id
+        ],
+        "skill_fact_lens": selected_skill_facts,
+        "gem_taxonomy_lens": selected_taxonomy_entries,
+        "farming_lens": [
+            row for row in (lenses.get("farming_lens", []) or [])
+            if isinstance(row, dict) and row.get("branch_id") in selected_branch_ids
+        ],
+        "uncertainty_lens": lenses.get("uncertainty_lens", []),
+        "coach_rules": research.get("coach_rules", []),
+        "rule": (
+            f"이 블록은 3.29 {research_ascendancy} 기반 PathcraftAI season research DB다. "
+            f"{research_status} 상태이므로 확정 메타처럼 말하지 말고, "
+            "offensive_gem_lens를 우선 사용해 공격형/액티브 젬 후보를 고른 뒤, "
+            "gem_taxonomy_lens로 socketable/support/triggered ActiveSkill 분류를 확인하고, "
+            "supportability_state와 uncertainty_lens를 유지해서 설명한다."
+        ),
+    }
+    if shell_knowledge:
+        payload["community_build_shell_lens"] = {
+            "dataset_kind": shell_knowledge.get("dataset_kind"),
+            "status": shell_knowledge.get("status"),
+            "source": shell_knowledge.get("source"),
+            "global_constraints": shell_knowledge.get("global_constraints", []),
+            "shells": shell_knowledge.get("shells", []),
+            "autobomber_relevance": shell_knowledge.get("autobomber_relevance", {}),
+            "t16_average_mapping_lens": shell_knowledge.get("t16_average_mapping_lens", {}),
+            "mod_readiness_lens": shell_knowledge.get("mod_readiness_lens", {}),
+            "coach_rules": shell_knowledge.get("coach_rules", []),
+        }
+    return payload
+
+
+def _compact_profile_for_coach(profile: dict) -> dict:
+    progression = profile.get("progression", {}) if isinstance(profile, dict) else {}
+    return {
+        "identity": profile.get("identity", {}),
+        "playstyle": profile.get("playstyle", {}),
+        "budget_curve": profile.get("budget_curve", {}),
+        "availability": profile.get("availability", {}),
+        "suitability": profile.get("suitability", {}),
+        "confidence": profile.get("confidence", {}),
+        "progression": {
+            "leveling_confidence": progression.get("leveling_confidence"),
+            "early_mapping_ready": progression.get("early_mapping_ready"),
+            "transition_points": (progression.get("transition_points") or [])[:4],
+            "campaign_plan": (progression.get("campaign_plan") or [])[:5],
+            "aura_plan": (progression.get("aura_plan") or [])[:5],
+            "gear_stages": (progression.get("gear_stages") or [])[:5],
+        },
+    }
+
+
+def _find_corpus_profile(build_id: str | None) -> dict:
+    if not build_id:
+        return {}
+    path = Path(__file__).resolve().parent.parent / "data" / "poe1_representative_build_profiles.latest.json"
+    if not path.exists():
+        return {}
+    try:
+        corpus = json.loads(path.read_text(encoding="utf-8-sig"))
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"대표 빌드 코퍼스 로드 실패: {e}")
+        return {}
+    for row in corpus.get("profiles", []) or []:
+        profile = row.get("build_profile", {}) if isinstance(row, dict) else {}
+        if profile.get("build_id") == build_id:
+            return profile
+    return {}
+
+
+def build_representative_corpus_context(build_data: dict, mode: str = "sc") -> dict:
+    """Build-specific representative corpus result for AI explanation grounding.
+
+    The deterministic recommendation layer remains authoritative; the AI may use
+    this only as grounding for leveling, transition, and risk wording.
+    """
+    try:
+        from recommend_from_corpus import (
+            build_user_state_from_build_data,
+            recommend_from_profile_corpus,
+        )
+    except ImportError:
+        return {}
+
+    try:
+        user_state = build_user_state_from_build_data(build_data, mode=mode)
+        result = recommend_from_profile_corpus(user_state)
+    except (OSError, json.JSONDecodeError, KeyError, TypeError, ValueError) as e:
+        logger.warning(f"대표 빌드 코퍼스 추천 컨텍스트 생성 실패: {e}")
+        return {}
+
+    recommendation = result.get("recommendation", {})
+    selected_profile = _find_corpus_profile(recommendation.get("selected_build_id"))
+    guardrails = recommendation.get("guardrails", {})
+    response_layers = recommendation.get("response_layers", {})
+    user_message = response_layers.get("user_message", {}) if isinstance(response_layers, dict) else {}
+    plan_label = {
+        "A": "확정 추천",
+        "B": "조건부 추천",
+        "C": "대체 후보 검토",
+        "D": "추천 보류",
+    }.get(recommendation.get("selected_plan"), "판정 대기")
+
+    return {
+        "selected": {
+            "status_label": plan_label,
+            "build_id": recommendation.get("selected_build_id"),
+            "build_name": recommendation.get("selected_build_name"),
+            "candidate": recommendation.get("selected_candidate"),
+        },
+        "top_candidates": [
+            {
+                "build_name": item.get("build_name"),
+                "main_skill": item.get("main_skill"),
+                "class_name": item.get("class_name"),
+                "ascendancy": item.get("ascendancy"),
+                "board_status": item.get("board_status"),
+            }
+            for item in (recommendation.get("recommendations") or [])[:3]
+        ],
+        "selected_profile": _compact_profile_for_coach(selected_profile) if selected_profile else {},
+        "guardrails": {
+            "ai_policy": guardrails.get("ai_policy", recommendation.get("ai_policy", {})),
+            "verification_loop": guardrails.get("verification_loop", recommendation.get("verification_loop", {})),
+            "user_message": {
+                "template_id": user_message.get("template_id"),
+                "title": user_message.get("title"),
+                "summary": user_message.get("summary"),
+                "bullets": (user_message.get("bullets") or [])[:4],
+            },
+        },
+        "rule": (
+            "이 블록은 PathcraftAI의 deterministic 대표 빌드 코퍼스 판정이다. "
+            "AI는 선택/가드레일/검증 상태를 뒤집지 말고, 레벨링·전환·위험 설명의 근거로만 사용한다."
+        ),
+    }
+
+
 def _trim_build_for_prompt(build: dict) -> dict:
     """프롬프트 사이즈 축소 — 장비 verbose mods 제거, 핵심 메타만 유지.
 
@@ -574,6 +1206,91 @@ def _build_leveling_guide_schema_poe2() -> str:
     return "\n".join(lines)
 
 
+GEAR_TOTAL_LABELS = {
+    "maximum_life": "생명력",
+    "maximum_energy_shield": "에너지 보호막",
+    "fire_resistance": "화염 저항",
+    "cold_resistance": "냉기 저항",
+    "lightning_resistance": "번개 저항",
+    "chaos_resistance": "카오스 저항",
+    "spell_suppression": "주문 억제",
+    "movement_speed": "이동 속도",
+    "strength": "힘",
+    "dexterity": "민첩",
+    "intelligence": "지능",
+}
+
+
+def _format_gear_totals(totals: dict) -> str:
+    parts = []
+    for key, label in GEAR_TOTAL_LABELS.items():
+        value = totals.get(key)
+        if value is None:
+            continue
+        try:
+            ivalue = int(value)
+        except (TypeError, ValueError):
+            continue
+        if ivalue:
+            parts.append(f"{label} +{ivalue}")
+    return ", ".join(parts)
+
+
+def _apply_build_instance_item_findings(result: dict, brief: dict) -> None:
+    """Guarantee deterministic gear findings survive even when the LLM misses them."""
+    if not isinstance(result, dict) or not isinstance(brief, dict) or not brief:
+        return
+    totals = brief.get("gear_numeric_totals") or {}
+    unique_jewellery = brief.get("unique_jewellery_slots") or []
+    rare_suffixes = int(brief.get("rare_likely_suffix_mods") or 0)
+    readiness_overall = brief.get("readiness_overall") or {}
+    readiness_defense = brief.get("readiness_defense") or {}
+    readiness_bossing = brief.get("readiness_bossing") or {}
+    if not totals and not unique_jewellery and not rare_suffixes:
+        return
+
+    totals_text = _format_gear_totals(totals) or "수치 모드 없음"
+    unique_text = ", ".join(unique_jewellery) if unique_jewellery else "없음"
+    defense_status = readiness_defense.get("status")
+    bossing_status = readiness_bossing.get("status")
+    readiness_text = ""
+    if defense_status or bossing_status:
+        readiness_text = f" readiness: defense={defense_status or 'unknown'}, bossing={bossing_status or 'unknown'}."
+    finding_text = (
+        f"BuildInstance 장비 수치 기준: 현재 장비 모드 총합은 {totals_text}. "
+        f"유니크 장신구 슬롯은 {len(unique_jewellery)}개({unique_text})라 rare suffix 공간이 잠겨 있고, "
+        f"남은 rare 장비에서 suffix성 모드가 약 {rare_suffixes}개 감지됩니다. "
+        "저항/속성/주문 억제 보강은 유니크 장신구가 아니라 남은 레어 방어구·벨트·무기 슬롯에서 우선 해결해야 합니다."
+        + readiness_text
+    )
+    result["_build_instance_findings"] = {
+        "gear_numeric_totals": totals,
+        "unique_jewellery_slots": unique_jewellery,
+        "rare_likely_suffix_mods": rare_suffixes,
+        "suffix_pressure_slots": brief.get("suffix_pressure_slots") or [],
+        "readiness": {
+            "overall": readiness_overall,
+            "defense": readiness_defense,
+            "bossing": readiness_bossing,
+        },
+        "summary": finding_text,
+    }
+
+    weaknesses = result.get("weaknesses")
+    if not isinstance(weaknesses, list):
+        weaknesses = []
+    if not any(isinstance(row, str) and "BuildInstance 장비 수치 기준" in row for row in weaknesses):
+        result["weaknesses"] = [finding_text] + weaknesses
+
+    farming = result.get("farming_strategy")
+    if isinstance(farming, dict):
+        readiness = farming.get("readiness_assessment")
+        if isinstance(readiness, dict):
+            reason = str(readiness.get("reason") or "")
+            if "BuildInstance 장비 수치 기준" not in reason:
+                readiness["reason"] = (reason + " " if reason else "") + finding_text
+
+
 def get_system_prompt(game: str) -> str:
     """게임별 system prompt. POE2 는 campaign_structure 로부터 leveling_guide 스키마 동적 치환."""
     if game == "poe2":
@@ -583,8 +1300,9 @@ def get_system_prompt(game: str) -> str:
     return SYSTEM_PROMPT_POE1
 
 
-def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = "poe1") -> dict:
-    client = anthropic.Anthropic()
+def coach_build(build_data: dict, model: str = DEFAULT_COACH_MODEL, game: str = "poe1") -> dict:
+    provider = _provider_for_model(model)
+    client = _require_client(provider)
 
     # 게임별 system prompt — POE2 는 GGPK 파생 campaign_structure 로 leveling_guide 동적 치환
     system_prompt = get_system_prompt(game)
@@ -597,16 +1315,27 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
 
     # 게임 데이터 로드 (추출된 .datc64 기반) — 게임별 디렉터리 분기 (I4 leak 차단)
     game_data_context = ""
+    build_instance_prompt_brief = {}
+    knowledge_context_pack = {}
     try:
         from game_data_provider import GameData
         gd = GameData(game=game)
         game_data_context = gd.build_context_for_coach(build_data)
+        build_instance_prompt_brief = gd._build_instance_coach_brief(gd._build_instance_summary(build_data))
         if game_data_context:
             logger.info("게임 데이터 컨텍스트 로드 완료 (%s)", game)
     except ImportError:
         logger.info("game_data_provider 없음 — 게임 데이터 스킵")
     except (OSError, json.JSONDecodeError) as e:
         logger.warning(f"게임 데이터 로드 실패: {e}")
+
+    if game == "poe1":
+        try:
+            from knowledge_router import build_context_pack
+            knowledge_context_pack = build_context_pack(build_data=build_data, game=game)
+        except Exception as e:
+            logger.warning(f"knowledge router context pack 생성 실패: {e}")
+            knowledge_context_pack = {}
 
     # 폴백: 게임 데이터 없으면 기존 quest_rewards.json 사용
     class_rewards = {}
@@ -639,9 +1368,44 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
     # get + 분리 dict 생성 — 원본 mutate 회피 (호출자가 동일 build_data 참조해도 안전)
     extra_builds = (build_data.get("__extra_builds__", [])
                     if isinstance(build_data, dict) else [])
-    primary_build = (
-        {k: v for k, v in build_data.items() if k != "__extra_builds__"}
+    pathcraft_context = (
+        build_data.get("__pathcraft_context__", {})
+        if isinstance(build_data, dict) else {}
+    )
+    league_mode = (
+        pathcraft_context.get("mode", "sc")
+        if isinstance(pathcraft_context, dict) else "sc"
+    )
+    primary_source_build = (
+        {
+            k: v for k, v in build_data.items()
+            if k not in {"__extra_builds__", "__pathcraft_context__"}
+        }
         if isinstance(build_data, dict) else build_data
+    )
+    representative_context = (
+        build_representative_corpus_context(primary_source_build, mode=league_mode)
+        if game == "poe1" and isinstance(primary_source_build, dict) else {}
+    )
+    if representative_context:
+        selected = representative_context.get("selected", {})
+        logger.info(
+            "대표 빌드 코퍼스 컨텍스트 추가: plan=%s build=%s",
+            selected.get("plan"),
+            selected.get("build_name") or selected.get("build_id"),
+        )
+    season_research_context = (
+        build_season_research_context(primary_source_build)
+        if game == "poe1" and isinstance(primary_source_build, dict) else {}
+    )
+    if season_research_context:
+        logger.info(
+            "시즌 리서치 DB 컨텍스트 추가: %s branches=%s",
+            season_research_context.get("league", {}).get("patch"),
+            ",".join(season_research_context.get("match", {}).get("selected_branch_ids", [])),
+        )
+    primary_build = (
+        primary_source_build if isinstance(primary_source_build, dict) else build_data
     )
     primary_build = _trim_build_for_prompt(primary_build)
 
@@ -675,6 +1439,13 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
     variable_parts: list[str] = []
 
     # (3) VARIABLE — POB 빌드 본체
+    if build_instance_prompt_brief:
+        variable_parts.append(
+            "BuildInstance deterministic priority brief — 이 블록은 현재 PoB/장비 모드에서 계산된 우선 판단 자료다. "
+            "`weaknesses`, `gear_progression`, `farming_strategy.readiness_assessment.reason` 작성 전에 반드시 먼저 반영:\n"
+            + json.dumps(build_instance_prompt_brief, ensure_ascii=False)
+        )
+
     variable_parts.append(
         "이 POB 빌드를 범용(SC/HC/SSF/Trade 전부) 관점으로 분석하고 고르게 코칭해줘 — 한 모드로 편향되지 않게:\n\n"
         + json.dumps(primary_build, ensure_ascii=False)
@@ -727,6 +1498,32 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
     # 게임 데이터 컨텍스트는 POB 빌드의 젬 목록에 의존 → VARIABLE
     if game_data_context:
         variable_parts.append(f"\n\n{game_data_context}")
+
+    if knowledge_context_pack:
+        variable_parts.append(
+            "\n\nPathcraft knowledge router context pack — "
+            "질문/빌드 엔티티 기준으로 필요한 DB만 선택한 라우팅 결과. "
+            "exact_sources는 숫자/ID/지원 가능 여부 판단에 우선하고, "
+            "vector_candidates는 비정형 설명 후보일 뿐임:\n"
+            + json.dumps(knowledge_context_pack, ensure_ascii=False)
+        )
+
+    if representative_context:
+        variable_parts.append(
+            "\n\n대표 빌드 코퍼스 대조 결과 — PathcraftAI가 사전 정리한 빌드/전환/검증 데이터. "
+            "아래 deterministic 판정을 뒤집지 말고, AI 코치 출력의 레벨링/전환/위험 설명 근거로 사용. "
+            "내부 점수, 풀 크기, scope, Plan A/B/C/D 같은 개발 라벨은 사용자에게 그대로 쓰지 말 것:\n"
+            + json.dumps(representative_context, ensure_ascii=False)
+        )
+
+    if season_research_context:
+        season_scope = season_research_context.get("scope", {}).get("ascendancy") or "season"
+        season_status = season_research_context.get("league", {}).get("research_status") or "research"
+        variable_parts.append(
+            f"\n\n3.29 {season_scope} season research DB — 공식 발표/로컬 GGPK/파생 DB를 렌즈별로 정리한 후보 비교 자료. "
+            f"이 자료는 {season_status} 상태이며 supportability_state/uncertainty_lens를 반드시 보존해서 설명:\n"
+            + json.dumps(season_research_context, ensure_ascii=False)
+        )
 
     # (2) STABLE_CLASS — 클래스/아키타입 공통 (archetype 4개 × class 7개 = 최대 28 캐시 엔트리)
     if archetype_data:
@@ -801,6 +1598,40 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
             if gear_data:
                 stable_global_parts.append(f"\n장비 업그레이드 타이밍:\n{json.dumps(gear_data, ensure_ascii=False)}")
 
+        atlas_knowledge = load_atlas_farming_knowledge()
+        if atlas_knowledge:
+            stable_global_parts.append(
+                "\n\nAtlas/Farming knowledge base — farming_strategy 작성 시 이 데이터를 기준으로 phase gate와 메카닉 적합도를 판단:\n"
+                + json.dumps(atlas_knowledge, ensure_ascii=False)
+            )
+            logger.info("Atlas/Farming knowledge base 주입")
+
+        new_player_knowledge = load_new_player_friction_knowledge()
+        if new_player_knowledge:
+            stable_global_parts.append(
+                "\n\nNew player friction knowledge base — new_player_bridge 작성 시 초보자/POE2 유입자의 막힘 포인트와 PathcraftAI가 채울 수 있는 부분을 이 데이터 기준으로 판단:\n"
+                + json.dumps(new_player_knowledge, ensure_ascii=False)
+            )
+            logger.info("New player friction knowledge base 주입")
+
+        global_329_review = load_poe1_3_29_global_review_knowledge()
+        if global_329_review:
+            stable_global_parts.append(
+                "\n\nPOE1 3.29 whole-patch review — 3.29 전체 PoE 관점의 league/economy/gem/socket/atlas/build watchlist 지도. "
+                "이 데이터는 tier list가 아니며, unresolved_lens와 coach_rules를 보존해서 launch 전/후 검증 상태를 구분:\n"
+                + json.dumps(global_329_review, ensure_ascii=False)
+            )
+            logger.info("POE1 3.29 whole-patch review 주입")
+
+        intake_plan = load_poe1_3_29_information_intake_plan()
+        if intake_plan:
+            stable_global_parts.append(
+                "\n\nPOE1 3.29 information intake plan — 공식/로컬 GGPK/PoB/poe.ninja/커뮤니티 신호의 수집 주기와 승격 게이트. "
+                "정보가 빠르게 들어와도 promotion_gates가 충족되기 전에는 watchlist 또는 provisional로 말해야 함:\n"
+                + json.dumps(intake_plan, ensure_ascii=False)
+            )
+            logger.info("POE1 3.29 information intake plan 주입")
+
     # 최신 패치 컨텍스트 주입 (GLOBAL, 리그 전환 시만 변경) — POE1 전용 (POE2 는 SYSTEM_PROMPT 에 내장)
     patch_context = load_patch_context() if game == "poe1" else {}
     if patch_context:
@@ -808,6 +1639,26 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
         logger.info(f"패치 컨텍스트 로드: {patch_ver}")
         stable_global_parts.append(f"\n\n최신 패치 정보 ({patch_ver}):\n{json.dumps(patch_context, ensure_ascii=False)}")
         stable_global_parts.append("\n위 패치 정보를 반드시 참고해서 답변해줘. 버프된 스킬은 추천도를 올리고, 너프된 스킬은 주의사항에 포함해.")
+
+    patch_history_context = load_patch_history_context() if game == "poe1" else {}
+    if patch_history_context:
+        stable_global_parts.append(
+            "\n\nPOE1 cumulative patch history 3.27 -> 3.29 — "
+            "3.27/3.28 빌드와 PoB를 3.29 후보로 재사용할 때 반드시 거치는 생존성 게이트. "
+            "후속 minor/hotfix가 닿은 젬/보조/패시브/아이템/파밍 축은 이전 빌드 수치를 그대로 추천하지 말 것:\n"
+            + json.dumps(patch_history_context, ensure_ascii=False)
+        )
+        logger.info("POE1 3.27-3.29 patch history context 주입")
+
+    patch_derivative_context = load_patch_derivative_context() if game == "poe1" else {}
+    if patch_derivative_context:
+        stable_global_parts.append(
+            "\n\nPOE1 3.29 patch delta / early-season overlay policy — "
+            "패치노트 수치, 시즌초 핫픽스, 반복 GGPK 업데이트를 별도 증거 레이어로 구분. "
+            "수치 추천 시 patch-note-only/GGPK-confirmed/PoB-confirmed/live-measured 상태를 말해야 함:\n"
+            + json.dumps(patch_derivative_context, ensure_ascii=False)
+        )
+        logger.info("POE1 3.29 patch derivative/overlay policy 주입")
 
     # 캐시 효율 관측용 (디버깅 — 각 블록 대략 토큰 수 측정)
     stable_global = "\n".join(stable_global_parts)
@@ -818,12 +1669,12 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
 
     # 프롬프트 크기에 따라 max_tokens 동적 조정 (4-stage 같은 큰 컨텍스트 → 출력도 커짐)
     prompt_chars = len(user_message) + len(system_prompt)
-    # 대략 8192(기본) ~ 32000 (Sonnet 4.6 최대 output 64k까지 가능하나 32k로 안전)
+    # 대략 8192(기본) ~ 32000 (대형 컨텍스트는 32k로 안전)
     max_out = 32000 if prompt_chars > 30000 else 16384
-    # 큰 요청은 SDK가 스트리밍 강제 (>10분 가능성). 30k자 또는 max_out>=16384면 스트리밍 사용.
-    use_streaming = prompt_chars > 30000 or max_out >= 16384
+    # Claude 큰 요청은 스트리밍 사용. OpenAI는 Responses API 단일 호출로 처리.
+    use_streaming = provider == "claude" and (prompt_chars > 30000 or max_out >= 16384)
     logger.info(
-        f"Claude {model}에게 빌드 코칭 요청 중 "
+        f"{provider.upper()} {model}에게 빌드 코칭 요청 중 "
         f"(prompt~{prompt_chars}자, max_out={max_out}, streaming={use_streaming})..."
     )
 
@@ -858,36 +1709,74 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
         "text": variable_text,
     })
 
-    messages = [{"role": "user", "content": user_content}]
+    def _content_text(blocks: list[dict]) -> str:
+        return "\n\n".join(
+            block.get("text", "")
+            for block in blocks
+            if isinstance(block, dict) and block.get("text")
+        )
 
-    if use_streaming:
-        # 스트리밍 — chunk 누적
-        raw_text = ""
-        stop_reason = None
-        with client.messages.stream(
-            model=model,
-            max_tokens=max_out,
-            system=system_blocks,
-            messages=messages,
-        ) as stream:
-            for text_chunk in stream.text_stream:
-                raw_text += text_chunk
-            final_msg = stream.get_final_message()
-            stop_reason = getattr(final_msg, "stop_reason", None)
-            # 토큰 정보 (logging용)
-            response = final_msg
-    else:
-        response = client.messages.create(
+    def _openai_stop_reason(resp) -> str | None:
+        incomplete = getattr(resp, "incomplete_details", None)
+        reason = getattr(incomplete, "reason", None)
+        if reason in ("max_output_tokens", "max_tokens"):
+            return "max_tokens"
+        choices = getattr(resp, "choices", None)
+        if choices:
+            finish = getattr(choices[0], "finish_reason", None)
+            if finish in ("length", "max_tokens"):
+                return "max_tokens"
+            return finish
+        return getattr(resp, "stop_reason", None)
+
+    def _call_model(blocks: list[dict]):
+        if provider == "openai":
+            user_text = _content_text(blocks)
+            if hasattr(client, "responses"):
+                resp = client.responses.create(
+                    model=model,
+                    instructions=system_prompt,
+                    input=user_text,
+                    max_output_tokens=max_out,
+                )
+                return _openai_text_from_response(resp), resp, _openai_stop_reason(resp)
+            resp = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_text},
+                ],
+                max_completion_tokens=max_out,
+            )
+            return _openai_text_from_response(resp), resp, _openai_stop_reason(resp)
+
+        messages = [{"role": "user", "content": blocks}]
+        if use_streaming:
+            raw = ""
+            with client.messages.stream(
+                model=model,
+                max_tokens=max_out,
+                system=system_blocks,
+                messages=messages,
+            ) as stream:
+                for text_chunk in stream.text_stream:
+                    raw += text_chunk
+                final_msg = stream.get_final_message()
+                return raw, final_msg, getattr(final_msg, "stop_reason", None)
+
+        resp = client.messages.create(
             model=model,
             max_tokens=max_out,
             system=system_blocks,
             messages=messages,
         )
-        raw_text = response.content[0].text
-        stop_reason = getattr(response, "stop_reason", None)
+        return resp.content[0].text, resp, getattr(resp, "stop_reason", None)
+
+    raw_text, response, stop_reason = _call_model(user_content)
     if stop_reason == "max_tokens":
         logger.warning(
-            "Claude 응답이 max_tokens(%d) 에서 잘림 — JSON 복구 시도",
+            "%s 응답이 max_tokens(%d) 에서 잘림 — JSON 복구 시도",
+            provider.upper(),
             max_out,
         )
 
@@ -1005,29 +1894,7 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
         user_content_retry = list(user_content) + [{"type": "text", "text": corrective_text}]
         messages_retry = [{"role": "user", "content": user_content_retry}]
 
-        if use_streaming:
-            raw_text = ""
-            stop_reason = None
-            with client.messages.stream(
-                model=model,
-                max_tokens=max_out,
-                system=system_blocks,
-                messages=messages_retry,
-            ) as stream:
-                for text_chunk in stream.text_stream:
-                    raw_text += text_chunk
-                final_msg = stream.get_final_message()
-                stop_reason = getattr(final_msg, "stop_reason", None)
-                response = final_msg
-        else:
-            response = client.messages.create(
-                model=model,
-                max_tokens=max_out,
-                system=system_blocks,
-                messages=messages_retry,
-            )
-            raw_text = response.content[0].text
-            stop_reason = getattr(response, "stop_reason", None)
+        raw_text, response, stop_reason = _call_model(user_content_retry)
 
         retry_result = _parse_or_repair(raw_text)
         retry_result.setdefault("aura_utility_progression", [])
@@ -1073,6 +1940,8 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
             "final_dropped": final_dropped,
         }
 
+    _apply_build_instance_item_findings(result, build_instance_prompt_brief)
+
     if norm_trace:
         logger.info("코치 출력 자동 교정 %d건:", len(norm_trace))
         for t in norm_trace:
@@ -1117,13 +1986,13 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
     # cache_read_input_tokens = 캐시 hit (~10% price)
     # cache_creation_input_tokens = 첫 write (1.25x price)
     # 2회차부터 cache_read ↑ 이면 설계대로 동작.
-    usage = response.usage
+    usage = _normalise_usage(provider, response)
     cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
     cache_write = getattr(usage, "cache_creation_input_tokens", 0) or 0
     total_input = usage.input_tokens + cache_read + cache_write
     cache_ratio = (cache_read / total_input * 100) if total_input else 0
     logger.info(
-        f"코칭 완료. 토큰: uncached={usage.input_tokens}, "
+        f"코칭 완료({provider}/{model}). 토큰: uncached={usage.input_tokens}, "
         f"cache_read={cache_read} ({cache_ratio:.0f}%), cache_write={cache_write}, "
         f"output={usage.output_tokens}"
     )
@@ -1133,7 +2002,7 @@ def coach_build(build_data: dict, model: str = "claude-sonnet-4-6", game: str = 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="PathcraftAI Build Coach")
     ap.add_argument("input", help="POB JSON 파일 경로 또는 '-' (stdin)")
-    ap.add_argument("--model", default="claude-sonnet-4-6", help="Claude 모델")
+    ap.add_argument("--model", default=DEFAULT_COACH_MODEL, help="코치 모델 (베타 기본: gpt-5-nano)")
     # D6: --game poe1|poe2 분기 — POE2 시 SYSTEM_PROMPT_POE2 + valid_gems_poe2.json 사용
     ap.add_argument("--game", choices=["poe1", "poe2"], default="poe1",
                     help="대상 게임 (poe1=POE1 3.28 Mirage / poe2=POE2 0.4.0d Fate of the Vaal)")

@@ -56,7 +56,7 @@ class TestBuildCoachExtras:
             mock_client.messages.create.return_value = mock_resp
             mock_anthropic.Anthropic.return_value = mock_client
             try:
-                build_coach.coach_build(original)
+                build_coach.coach_build(original, model="claude-haiku-4-5-20251001")
             except Exception:
                 pass  # 다른 에러 무시 — 우리가 볼 건 mutation 여부
 
@@ -97,7 +97,7 @@ class TestBuildCoachExtras:
             mock_anthropic.Anthropic.return_value = mock_client
 
             try:
-                build_coach.coach_build(primary)
+                build_coach.coach_build(primary, model="claude-haiku-4-5-20251001")
             except Exception:
                 pass
 
@@ -144,7 +144,7 @@ class TestBuildCoachExtras:
             mock_client.messages.stream.side_effect = stream_capture
             mock_anthropic.Anthropic.return_value = mock_client
             try:
-                build_coach.coach_build(primary)
+                build_coach.coach_build(primary, model="claude-haiku-4-5-20251001")
             except Exception:
                 pass
 

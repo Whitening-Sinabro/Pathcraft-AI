@@ -32,6 +32,15 @@ def test_prompt_has_normalizer_awareness():
     assert "자동 교정" in SYSTEM_PROMPT
 
 
+def test_prompt_uses_build_instance_item_mod_summary():
+    assert "BuildInstance 장비 모드 해석 우선" in SYSTEM_PROMPT
+    assert "build_instance_coach_brief" in SYSTEM_PROMPT
+    assert "item_mod_summary" in SYSTEM_PROMPT
+    assert "slot_mod_summaries" in SYSTEM_PROMPT
+    assert "rare_likely_suffix_mods" in SYSTEM_PROMPT
+    assert "unique_modifier" in SYSTEM_PROMPT
+
+
 def test_prompt_has_canonical_slot_list():
     # gear_progression slot 정식명 명시
     for slot in ["Body Armour", "Helmet", "Gloves", "Boots", "Weapon", "Belt", "Ring", "Amulet"]:
@@ -42,6 +51,7 @@ def test_prompt_still_has_poe1_guard():
     # 기존 POE1 전용 제약 유지 (회귀 방지)
     assert "POE1" in SYSTEM_PROMPT
     assert "POE2" in SYSTEM_PROMPT
+    assert "target_version" in SYSTEM_PROMPT
 
 
 def test_prompt_still_has_support_whitelist():
