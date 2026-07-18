@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { LeagueMode, CoachModel } from "./useBuildAnalyzer";
 import { logger } from "../utils/logger";
 
@@ -19,8 +19,9 @@ export interface SavedBuild {
   updatedAt: number;
 }
 
-export const BUILD_HISTORY_KEY = "pathcraftai_build_history_v1";
-const BUILD_HISTORY_VERSION = 1;
+export const BUILD_HISTORY_KEY = "pathcraftai_build_history_v2";
+const LEGACY_BUILD_HISTORY_KEYS = ["pathcraftai_build_history_v1"];
+const BUILD_HISTORY_VERSION = 2;
 const BUILD_HISTORY_MAX = 20;
 
 function hashPobLink(s: string): string {
@@ -31,12 +32,22 @@ function hashPobLink(s: string): string {
   return h.toString(36);
 }
 
+function clearLegacyHistoryStorage(): void {
+  for (const key of LEGACY_BUILD_HISTORY_KEYS) {
+    localStorage.removeItem(key);
+  }
+}
+
 function loadHistoryFromStorage(): SavedBuild[] {
   try {
+    clearLegacyHistoryStorage();
     const raw = localStorage.getItem(BUILD_HISTORY_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw);
-    if (parsed?.v !== BUILD_HISTORY_VERSION) return [];
+    if (parsed?.v !== BUILD_HISTORY_VERSION) {
+      localStorage.removeItem(BUILD_HISTORY_KEY);
+      return [];
+    }
     return Array.isArray(parsed.builds) ? parsed.builds : [];
   } catch (e) {
     logger.warn("[history] load failed", e);
@@ -59,6 +70,10 @@ export type AddBuildInput = Omit<SavedBuild, "id" | "createdAt" | "updatedAt">;
 
 export function useBuildHistory() {
   const [history, setHistory] = useState<SavedBuild[]>(() => loadHistoryFromStorage());
+
+  useEffect(() => {
+    setHistory(loadHistoryFromStorage());
+  }, []);
 
   const latest = useMemo<SavedBuild | null>(() => {
     if (history.length === 0) return null;

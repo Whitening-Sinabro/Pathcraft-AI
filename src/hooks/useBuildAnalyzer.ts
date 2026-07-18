@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
-import type { BuildData, CoachResult } from "../types";
+import type { BuildData, CoachResult, BuildSourceResolution, RepresentativeCorpusRecommendationResult } from "../types";
 import { logger } from "../utils/logger";
 import { useBuildHistory, type SavedBuild } from "./useBuildHistory";
 import { useActiveGame } from "../contexts/ActiveGameContext";
@@ -20,8 +20,10 @@ function hashString(s: string): string {
  * v3 → v4: valid_gems 에 transfigured 211개 추가 (3.22+ "of X" 변종) (2026-04-21)
  * v4 → v5: Phase H6 L3 — Gate + Auto-retry (drop 발견 시 교정 프롬프트로 1회 재호출) (2026-04-21)
  * v5 → v6: D6 POE2 분기 — SYSTEM_PROMPT_POE2 + valid_gems_poe2.json + Spear 21 화이트리스트 (2026-04-22)
+ * v6 → v7: 코치 기본 provider를 Claude에서 OpenAI GPT-5 mini로 변경.
+ * v7 → v8: 대표 빌드 코퍼스 + GGPK 링크 젬 컨텍스트를 AI 코치 입력에 직접 반영.
  * 기존 `pathcraftai_coach_<hash>` 엔트리는 prefix 불일치로 자동 무시됨. */
-const COACH_CACHE_VERSION = "v6";
+const COACH_CACHE_VERSION = "v8";
 
 export interface SyndicateRec {
   layout_id: string;
@@ -32,22 +34,13 @@ export interface SyndicateRec {
 export type LeagueMode = "sc" | "ssf" | "hcssf";
 export const LEAGUE_MODES: LeagueMode[] = ["sc", "ssf", "hcssf"];
 export const LEAGUE_MODE_LABEL: Record<LeagueMode, string> = {
-  sc: "SC (Trade)",
+  sc: "SC 거래",
   ssf: "SSF",
   hcssf: "HCSSF",
 };
 
-/** 코치 모델 선택 — 속도 vs 디테일 축. 기본 Haiku(빠름). */
-export type CoachModel =
-  | "claude-haiku-4-5-20251001"
-  | "claude-sonnet-4-6"
-  | "claude-opus-4-7";
-export const COACH_MODEL_STORAGE_KEY = "pathcraftai_coach_model";
-export const COACH_MODEL_LABEL: Record<CoachModel, string> = {
-  "claude-haiku-4-5-20251001": "빠름",
-  "claude-sonnet-4-6": "느리지만 디테일",
-  "claude-opus-4-7": "심층 분석",
-};
+export type CoachModel = "gpt-5-nano";
+const BETA_COACH_MODEL: CoachModel = "gpt-5-nano";
 
 export function useBuildAnalyzer() {
   const { history, latest, addOrUpdate, remove: removeFromHistory, getById } = useBuildHistory();
@@ -86,6 +79,10 @@ export function useBuildAnalyzer() {
   const [rawCoachJson, setRawCoachJson] = useState(initial?.rawCoachJson ?? "");
   const [loading, setLoading] = useState("");
   const [error, setError] = useState("");
+  const [sourceResolution, setSourceResolution] = useState<BuildSourceResolution | null>(null);
+  const [corpusRecommendation, setCorpusRecommendation] = useState<RepresentativeCorpusRecommendationResult | null>(null);
+  const [corpusLoading, setCorpusLoading] = useState(false);
+  const [corpusError, setCorpusError] = useState("");
 
   // Multi-POB 확장 — 보조 빌드 링크 (필터 생성 시 union/stage 자동 분기)
   const [extraPobLinks, setExtraPobLinks] = useState<string[]>(initial?.extraPobLinks ?? []);
@@ -102,27 +99,53 @@ export function useBuildAnalyzer() {
   // FilterPanel.mode + Syndicate 프리셋 필터 단일 진실원.
   const [mode, setMode] = useState<LeagueMode>(initial?.mode ?? "sc");
 
-  // 코치 모델 — 비용 민감도 높은 dev 환경이라 기본 Haiku. localStorage 지속.
-  const [coachModel, setCoachModelState] = useState<CoachModel>(() => {
-    try {
-      const saved = localStorage.getItem(COACH_MODEL_STORAGE_KEY);
-      if (
-        saved === "claude-haiku-4-5-20251001" ||
-        saved === "claude-sonnet-4-6" ||
-        saved === "claude-opus-4-7"
-      ) return saved;
-    } catch { /* ignore */ }
-    return "claude-haiku-4-5-20251001";
-  });
-  const setCoachModel = (m: CoachModel) => {
-    setCoachModelState(m);
-    try { localStorage.setItem(COACH_MODEL_STORAGE_KEY, m); } catch { /* quota */ }
-  };
+  const coachModel = BETA_COACH_MODEL;
 
   // race-condition 가드: 진행 중 호출에 대해 unmount 또는 새 호출 시 setState 차단
   // (Tauri invoke는 AbortSignal 미지원, sentinel flag로 대신)
   const runIdRef = useRef(0);
-  useEffect(() => () => { runIdRef.current = -1; }, []);
+  const corpusRunIdRef = useRef(0);
+  useEffect(() => () => {
+    runIdRef.current = -1;
+    corpusRunIdRef.current = -1;
+  }, []);
+
+  useEffect(() => {
+    const requestId = ++corpusRunIdRef.current;
+    const isStale = () => corpusRunIdRef.current !== requestId;
+
+    if (!rawBuildJson || game === "poe2") {
+      setCorpusRecommendation(null);
+      setCorpusError("");
+      setCorpusLoading(false);
+      return;
+    }
+
+    async function refreshCorpusRecommendation() {
+      setCorpusLoading(true);
+      setCorpusError("");
+      try {
+        const corpusRaw = await invoke<string>("recommend_from_corpus_build", {
+          buildJson: rawBuildJson,
+          mode,
+          game,
+        });
+        if (isStale()) return;
+        setCorpusRecommendation(JSON.parse(corpusRaw) as RepresentativeCorpusRecommendationResult);
+      } catch (e) {
+        if (isStale()) return;
+        logger.warn("[useBuildAnalyzer] 대표 빌드 추천 실패:", e);
+        setCorpusRecommendation(null);
+        setCorpusError(String(e));
+      } finally {
+        if (!isStale()) {
+          setCorpusLoading(false);
+        }
+      }
+    }
+
+    void refreshCorpusRecommendation();
+  }, [rawBuildJson, mode, game]);
 
   /** 분석 성공 끝단에서 히스토리에 add/update — 캐시 hit / fresh coach 경로 공통. */
   const saveToHistory = useCallback((
@@ -147,7 +170,7 @@ export function useBuildAnalyzer() {
       alSplit,
       coachModel,
     });
-  }, [pobLink, extraPobLinks, mode, stageMode, alSplit, coachModel, addOrUpdate]);
+  }, [pobLink, extraPobLinks, mode, stageMode, alSplit, addOrUpdate]);
 
   /** 히스토리에서 저장된 빌드 선택 → state 전체 복원 (API 호출 없음). */
   const selectBuild = useCallback((id: string) => {
@@ -164,8 +187,8 @@ export function useBuildAnalyzer() {
     setMode(b.mode);
     setStageMode(b.stageMode);
     setAlSplit(b.alSplit);
-    setCoachModel(b.coachModel);
     setError("");
+    setSourceResolution(null);
     setLoading("");
     addOrUpdate({
       pobLink: b.pobLink,
@@ -178,11 +201,11 @@ export function useBuildAnalyzer() {
       mode: b.mode,
       stageMode: b.stageMode,
       alSplit: b.alSplit,
-      coachModel: b.coachModel,
+      coachModel,
     });
-  }, [getById, addOrUpdate]);
+  }, [getById, addOrUpdate, coachModel]);
 
-  async function analyzeBuild() {
+  async function analyzeBuildCore(skipCoach = false) {
     const runId = ++runIdRef.current;
     const isStale = () => runIdRef.current !== runId;
 
@@ -192,13 +215,30 @@ export function useBuildAnalyzer() {
     setRawBuildJson("");
     setRawCoachJson("");
     setExtraBuildJsons([]);
+    setSourceResolution(null);
+    setSyndicateRec(null);
 
     const trimmed = pobLink.trim();
     if (!trimmed) return;
 
     try {
+      setLoading("입력 소스 확인 중...");
+      const resolutionRaw = await invoke<string>("resolve_build_source", { url: trimmed, game });
+      if (isStale()) return;
+      const resolved: BuildSourceResolution = JSON.parse(resolutionRaw);
+      setSourceResolution(resolved);
+
+      if (!resolved.pob_url) {
+        setLoading("");
+        if (resolved.passive_tree_url) return;
+        throw new Error(
+          resolved.warnings?.[0]
+            || "입력 URL에서 PoB 또는 passive tree 링크를 찾지 못했습니다.",
+        );
+      }
+
       setLoading("1번 POB 파싱 중...");
-      const raw = await invoke<string>("parse_pob", { link: trimmed, game });
+      const raw = await invoke<string>("parse_pob", { link: resolved.pob_url, game });
       if (isStale()) return;
       const parsed: BuildData = JSON.parse(raw);
       setBuildData(parsed);
@@ -208,22 +248,38 @@ export function useBuildAnalyzer() {
       const extras = extraPobLinks.map((l) => l.trim()).filter(Boolean);
       let parsedExtras: string[] = [];
       if (extras.length > 0) {
-        setLoading(`2단계 POB ${extras.length}개 병렬 파싱 중...`);
-        parsedExtras = await Promise.all(
-          extras.map((link) => invoke<string>("parse_pob", { link, game }))
+        setLoading(`보조 입력 ${extras.length}개 확인 중...`);
+        const extraResolutions = await Promise.all(
+          extras.map((url) => invoke<string>("resolve_build_source", { url, game }))
         );
         if (isStale()) return;
-        setExtraBuildJsons(parsedExtras);
+        const extraPobLinksResolved = extraResolutions
+          .map((raw) => JSON.parse(raw) as BuildSourceResolution)
+          .map((item) => item.pob_url)
+          .filter((item): item is string => !!item);
+        if (extraPobLinksResolved.length > 0) {
+          setLoading(`2단계 POB ${extraPobLinksResolved.length}개 병렬 파싱 중...`);
+          parsedExtras = await Promise.all(
+            extraPobLinksResolved.map((link) => invoke<string>("parse_pob", { link, game }))
+          );
+          if (isStale()) return;
+          setExtraBuildJsons(parsedExtras);
+        }
+      }
+
+      if (skipCoach) {
+        setLoading("");
+        return;
       }
 
       // AI 코치에 4-stage 전체 progression 전달 — 1단계 + 2단계 POB의 skills/gears를 함께 보게 함
       const coachInput = JSON.stringify({
         ...parsed,
+        __pathcraft_context__: { mode },
         __extra_builds__: parsedExtras.map((j) => JSON.parse(j)),
       });
 
       // Coach 캐시 — 전체 입력(extras 포함) hash + 스키마 버전 키 + 게임 분리.
-      // 모델 선택도 키에 포함 (Haiku/Sonnet/Opus 결과 분리 캐시).
       const cacheKey = `pathcraftai_coach_${COACH_CACHE_VERSION}_${game}_${coachModel}_${hashString(coachInput)}`;
       const cached = localStorage.getItem(cacheKey);
       if (cached) {
@@ -284,6 +340,10 @@ export function useBuildAnalyzer() {
     }
   }
 
+  async function analyzeBuild() {
+    await analyzeBuildCore(false);
+  }
+
   /** POB 없이 구두/폼 입력으로 코치 직행 (POE2 PoB2 없는 경로).
    *  parse_pob 건너뛰고 VerbalBuildInput → BuildData 최소 JSON → coach_build 호출. */
   async function analyzeVerbalBuild(input: {
@@ -304,6 +364,7 @@ export function useBuildAnalyzer() {
     setRawBuildJson("");
     setRawCoachJson("");
     setExtraBuildJsons([]);
+    setSourceResolution(null);
     setPobLink("");
 
     // 폼 → build_coach 가 기대하는 JSON 스키마로 변환
@@ -369,6 +430,22 @@ export function useBuildAnalyzer() {
     }
   }
 
+  function resetCurrentAnalysis() {
+    runIdRef.current++;
+    setBuildData(null);
+    setCoaching(null);
+    setRawBuildJson("");
+    setRawCoachJson("");
+    setExtraBuildJsons([]);
+    setSourceResolution(null);
+    setCorpusRecommendation(null);
+    setCorpusError("");
+    setCorpusLoading(false);
+    setSyndicateRec(null);
+    setError("");
+    setLoading("");
+  }
+
   return {
     pobLink, setPobLink,
     buildData,
@@ -377,6 +454,10 @@ export function useBuildAnalyzer() {
     rawCoachJson,
     loading,
     error,
+    sourceResolution,
+    corpusRecommendation,
+    corpusLoading,
+    corpusError,
     extraPobLinks, setExtraPobLinks,
     extraBuildJsons,
     stageMode, setStageMode,
@@ -385,11 +466,14 @@ export function useBuildAnalyzer() {
     analyzeBuild,
     analyzeVerbalBuild,
     cancelAnalyze,
+    resetCurrentAnalysis,
     mode, setMode,
-    coachModel, setCoachModel,
+    coachModel,
     // 빌드 히스토리 Phase A
     history,
     selectBuild,
     removeBuild: removeFromHistory,
   };
 }
+
+

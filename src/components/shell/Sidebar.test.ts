@@ -4,6 +4,7 @@ import { isTabId } from "./Sidebar";
 describe("isTabId — localStorage TabId guard", () => {
   test("accepts valid tab ids", () => {
     expect(isTabId("build")).toBe(true);
+    expect(isTabId("research")).toBe(true);
     expect(isTabId("syndicate")).toBe(true);
     expect(isTabId("passive")).toBe(true);
   });

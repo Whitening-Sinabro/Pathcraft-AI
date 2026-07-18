@@ -1,14 +1,35 @@
-import type { CoachResult, LevelingSkillOption, LinksProgression } from "../../types";
+import type { CoachResult, LevelingSkillOption, LinksProgression, RepresentativeProfileSummary } from "../../types";
 import { useChecklist } from "../../contexts/ChecklistContext";
 
 interface Props {
   skills: CoachResult["leveling_skills"];
+  representativeProfile?: RepresentativeProfileSummary | null;
 }
 
 function safetyClass(s: string): string {
   if (s === "높음") return "ui-text-success";
   if (s === "낮음") return "ui-text-danger";
   return "ui-text-warning";
+}
+
+function formatStatus(value?: string) {
+  const labels: Record<string, string> = {
+    confirmed: "확인됨",
+    near_confirmed: "준확인",
+    hold: "보류",
+    inferred: "추정",
+    early_maps: "초기 맵",
+    late_endgame: "고점 세팅",
+  };
+  return value ? labels[value] || value.replace(/_/g, " ") : "-";
+}
+
+function formatTrigger(value?: string) {
+  if (!value) return "";
+  return value
+    .replace(/Transition from/g, "전환:")
+    .replace(/ into /g, " -> ")
+    .replace(/\.$/, "");
 }
 
 function ProgressionList({
@@ -85,17 +106,55 @@ function OptionCard({ opt }: { opt: LevelingSkillOption }) {
   );
 }
 
-export function LevelingSkillsSection({ skills }: Props) {
+export function LevelingSkillsSection({ skills, representativeProfile }: Props) {
   const { checked, toggle, ck } = useChecklist();
 
   if (!skills?.recommended) return null;
 
   const rec = skills.recommended;
   const recHasProgression = rec.links_progression && rec.links_progression.length > 0;
+  const corpusTransitions = representativeProfile?.progression?.transition_points?.slice(0, 5) ?? [];
+  const levelingConfidence = representativeProfile?.progression?.leveling_confidence;
 
   return (
     <section className="ui-card">
       <h3 className="ui-section-title">레벨링 스킬</h3>
+
+      {corpusTransitions.length > 0 && (
+        <div className="ui-card--inset" style={{ marginBottom: 12, borderColor: "var(--status-info)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", gap: 8, flexWrap: "wrap", marginBottom: 6 }}>
+            <strong>코퍼스 전환 체크포인트</strong>
+            {levelingConfidence && <span className="ui-badge ui-badge--success">{formatStatus(levelingConfidence)}</span>}
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+            {corpusTransitions.map((step, index) => {
+              const chkKey = ck(`corpus_skillt_${index}`);
+              const done = !!checked[chkKey];
+              return (
+                <label
+                  key={`${step.stage}-${step.level}-${index}`}
+                  style={{
+                    display: "flex", gap: 8, fontSize: 12, alignItems: "flex-start",
+                    cursor: "pointer", opacity: done ? 0.6 : 1,
+                  }}
+                >
+                  <input type="checkbox" checked={done} onChange={() => toggle(chkKey)} style={{ marginTop: 3 }} />
+                  <span style={{ minWidth: 52, fontFamily: "var(--font-mono)", color: "var(--status-info)" }}>
+                    레벨 {step.level ?? "?"}
+                  </span>
+                  <span style={{ flex: 1, textDecoration: done ? "line-through" : "none" }}>
+                    <strong>{step.from_skill || step.main_skill || "시작"}</strong>
+                    {step.to_skill ? ` -> ${step.to_skill}` : ""}
+                    {step.required_links ? ` | ${step.required_links}링크` : ""}
+                    {step.trigger ? <span className="ui-text-muted"> - {formatTrigger(step.trigger)}</span> : null}
+                  </span>
+                </label>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       <div
         className="ui-card--inset"
         style={{ marginBottom: 12, background: "var(--accent-subtle)", borderColor: "var(--accent-primary)" }}
@@ -109,7 +168,7 @@ export function LevelingSkillsSection({ skills }: Props) {
         )}
         <div className="ui-text-secondary" style={{ fontSize: 13, marginTop: 6 }}>
           {rec.reason}
-          {rec.transition_level && <span> — 전환: Lv.{rec.transition_level}</span>}
+          {rec.transition_level && <span> - 전환: 레벨 {rec.transition_level}</span>}
         </div>
       </div>
       {skills.options?.length > 0 && (
@@ -134,7 +193,7 @@ export function LevelingSkillsSection({ skills }: Props) {
                 >
                   <input type="checkbox" checked={done} onChange={() => toggle(chkKey)} style={{ marginTop: 3 }} />
                   <span style={{ textDecoration: done ? "line-through" : "none" }}>
-                    <strong>Lv.{t.level}</strong>: {t.change} — {t.reason}
+                    <strong>레벨 {t.level}</strong>: {t.change} - {t.reason}
                   </span>
                 </label>
               );

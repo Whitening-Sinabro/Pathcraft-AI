@@ -1,8 +1,8 @@
-import { BuildIcon, SyndicateIcon, PassiveIcon, OverlayIcon } from "./icons";
+import { BuildIcon, SyndicateIcon, PassiveIcon, ResearchIcon, OverlayIcon } from "./icons";
 import type { ComponentType } from "react";
 import { openOverlay } from "../../overlay/toggle";
 
-export const TAB_IDS = ["build", "syndicate", "passive"] as const;
+export const TAB_IDS = ["research", "build", "syndicate", "passive"] as const;
 export type TabId = typeof TAB_IDS[number];
 
 export function isTabId(v: unknown): v is TabId {
@@ -18,7 +18,8 @@ interface TabDef {
 }
 
 const TABS: TabDef[] = [
-  { id: "build",     label: "빌드 분석",   Icon: BuildIcon     },
+  { id: "research",  label: "빌드 리서치", Icon: ResearchIcon  },
+  { id: "build",     label: "PoB 검증",    Icon: BuildIcon     },
   { id: "syndicate", label: "Syndicate",  Icon: SyndicateIcon },
   { id: "passive",   label: "패시브 트리", Icon: PassiveIcon   },
 ];

@@ -109,7 +109,7 @@ export function TreeControls({
               padding: "2px 8px", borderRadius: 3, fontSize: 10,
             }}
           >
-            {searchMatchCount} matches
+            {searchMatchCount}개 일치
           </span>
         )}
         <span
@@ -118,7 +118,7 @@ export function TreeControls({
             padding: "2px 8px", borderRadius: 3, fontSize: 10,
           }}
         >
-          {nodeCount} nodes
+          노드 {nodeCount}개
         </span>
       </div>
 
@@ -132,7 +132,7 @@ export function TreeControls({
           fontWeight: 600,
         }}
       >
-        {pointsUsed} pts{jewelSockets > 0 && ` · ${jewelSockets} sockets`}
+        포인트 {pointsUsed}{jewelSockets > 0 && ` · 주얼 소켓 ${jewelSockets}`}
       </div>
 
       {/* 우하단 사용법 가이드 */}

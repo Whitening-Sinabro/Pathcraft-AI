@@ -24,8 +24,8 @@ export function FilterPanel({
   extraBuildJsons = [], stageMode = false, alSplit = 67,
 }: FilterPanelProps) {
   const { game } = useActiveGame();
-  const [strictness, setStrictness] = useState(3);
-  const [mode, setMode] = useState<"ssf" | "hcssf" | "trade">("ssf");
+  const [strictness, setStrictness] = useState(1);
+  const [mode, setMode] = useState<"ssf" | "hcssf" | "trade">("trade");
   const [filterResult, setFilterResult] = useState<FilterResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -80,10 +80,13 @@ export function FilterPanel({
 
       {/* 소개 */}
       <p className="ui-text-muted" style={{ fontSize: 12, marginTop: 0, marginBottom: 12, lineHeight: 1.5 }}>
-        이 빌드가 필요한 유니크·디비카·chanceable 베이스를 게임 안에서 강조 표시하는
+        이 빌드가 필요한 링크 수·유니크·디비카·chanceable 베이스와 3.29 기준 핵심 젬 품질 보너스 후보를 게임 안에서 강조 표시하는
         <strong style={{ color: "var(--accent-hover)" }}> POE 아이템 필터(<code>.filter</code>)</strong>를 만듭니다.
         <br />
-        <span style={{ color: "var(--accent-hover)" }}>Wreckers 스타일 단일 파일</span> — <code>AreaLevel</code>/<code>ItemLevel</code>/<code>DropLevel</code> 조건으로 레벨링→엔드게임 자동 전환. 필터 하나로 전 구간 커버.
+        <span style={{ color: "var(--accent-hover)" }}>초보자 기본값은 보통</span> - 캠페인에서는 링크와 기본 장비를 넓게 보여주고, 맵 진입 후에는 필요한 베이스와 빌드 타겟 위주로 줄입니다.
+        3.29부터 젬 색상은 장착 제한이 아니라 같은 색 소켓의 퀄리티 보너스 최적화로 봅니다.
+        <br />
+        <span style={{ color: "var(--accent-hover)" }}>Wreckers 스타일 단일 파일</span> - 지역 레벨/아이템 레벨/드롭 레벨 조건으로 레벨링→엔드게임 자동 전환. 필터 하나로 전 구간 커버.
         <br />
         생성 후 <code>.filter</code> 다운로드 → POE 설정 폴더(<code>Documents/My Games/Path of Exile/</code>)에 넣고 게임 내 UI Options에서 선택하세요.
       </p>
@@ -110,7 +113,7 @@ export function FilterPanel({
       {/* 모드 선택 */}
       <div style={{ display: "flex", gap: 4, marginBottom: 4, flexWrap: "wrap", fontSize: 12 }}>
         <span className="ui-text-muted" style={{ alignSelf: "center" }}>모드:</span>
-        {(["ssf", "hcssf", "trade"] as const).map((m) => (
+        {(["trade", "ssf", "hcssf"] as const).map((m) => (
           <button
             key={m}
             onClick={() => setMode(m)}
@@ -122,7 +125,7 @@ export function FilterPanel({
               : "거래 리그 — 거래 가능, 가성비 base 우선 표시"
             }
           >
-            {m.toUpperCase()}
+            {m === "trade" ? "SC 거래" : m.toUpperCase()}
           </button>
         ))}
         {extraBuildJsons.length > 0 && (
@@ -157,6 +160,7 @@ export function FilterPanel({
         <div>
           {/* 통계 */}
           <div style={{ display: "flex", gap: 12, marginBottom: 12, flexWrap: "wrap" }}>
+            <StatBadge label="엄격도" count={filterResult.stats.strictness} accent="info" />
             <StatBadge label="유니크" count={filterResult.stats.unique_count} accent="warning" />
             <StatBadge label="디비카" count={filterResult.stats.divcard_count} accent="accent" />
             <StatBadge label="Chanceable" count={filterResult.stats.chanceable_count} accent="warning" />

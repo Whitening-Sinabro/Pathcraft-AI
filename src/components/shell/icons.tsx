@@ -59,6 +59,17 @@ export function PassiveIcon({ size = 16, strokeWidth = 2, className }: IconProps
   );
 }
 
+// Lucide: search-check (리서치/검증 큐 의미)
+export function ResearchIcon({ size = 16, strokeWidth = 2, className }: IconProps) {
+  return (
+    <svg {...baseProps(size, strokeWidth)} className={className}>
+      <path d="m8 11 2 2 4-4" />
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+    </svg>
+  );
+}
+
 // Lucide: picture-in-picture-2 (오버레이 의미)
 export function OverlayIcon({ size = 16, strokeWidth = 2, className }: IconProps) {
   return (

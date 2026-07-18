@@ -18,6 +18,23 @@ export interface BuildData {
   passives: Record<string, unknown>;
 }
 
+export interface BuildSourceResolution {
+  dataset_kind: string;
+  input_url: string;
+  source_type: string;
+  canonical_url: string;
+  title: string | null;
+  pob_url: string | null;
+  passive_tree_url: string | null;
+  maxroll_tool_url?: string | null;
+  warnings: string[];
+  all_candidates?: {
+    pob_urls: string[];
+    passive_tree_urls: string[];
+    tool_urls: string[];
+  };
+}
+
 export interface LinksProgression {
   level_range: string;
   gems: string[];
@@ -142,6 +159,7 @@ export interface CoachResult {
   variant_snapshots: VariantSnapshot[];
   passive_priority: string[];
   danger_zones: string[];
+  new_player_bridge?: NewPlayerBridge;
   farming_strategy: string | FarmingStrategy;
   _validation_warnings?: ValidationWarnings;
   _normalization_trace?: NormalizationTraceEntry[];
@@ -161,11 +179,42 @@ export interface CoachRetryInfo {
 export interface FarmingStrategy {
   recommended_mechanics: string[];
   atlas_passive_focus: string;
+  readiness_assessment?: {
+    current_phase: string;
+    atlas_progress?: string;
+    atlas_passives_100?: string;
+    highest_tier_smooth?: string;
+    t16_smooth?: string;
+    clear_speed_state?: string;
+    t16_under_2_min?: string;
+    death_rate?: string;
+    reason: string;
+    next_measurement: string;
+  };
+  atlas_phase_boundaries?: {
+    early_mapping: string;
+    mid_mapping: string;
+    late_mapping: string;
+    promotion_checks: string[];
+  };
   early_atlas: string;
   mid_atlas: string;
   late_atlas: string;
   scarab_priority: string[];
   ssf_crafting_focus: string;
+}
+
+export interface NewPlayerFrictionPoint {
+  area: string;
+  why_it_blocks: string;
+  what_pathcraft_fills: string;
+  next_action: string;
+}
+
+export interface NewPlayerBridge {
+  likely_friction_points: NewPlayerFrictionPoint[];
+  poe2_to_poe1_notes: string[];
+  beginner_safe_next_steps: string[];
 }
 
 export interface FilterTargetDivcard {
@@ -184,6 +233,10 @@ export interface FilterStats {
   divcard_count: number;
   chanceable_count: number;
   strictness: number;
+  mode?: "ssf" | "hcssf" | "trade";
+  stage?: boolean;
+  al_split?: number;
+  game?: string;
 }
 
 export interface FilterResult {
@@ -192,4 +245,261 @@ export interface FilterResult {
   uniques: string[];
   target_divcards: FilterTargetDivcard[];
   chanceable_bases: FilterChanceableBase[];
+}
+
+export interface DeterministicGuard {
+  guard: string;
+  status: string;
+  reason: string;
+}
+
+export interface RepresentativeAiPolicy {
+  mode: string;
+  reason: string;
+  allowed_slots: string[];
+  forbidden_overrides: string[];
+}
+
+export interface RepresentativeVerificationStep {
+  step: string;
+  status: string;
+  detail: unknown;
+}
+
+export interface RepresentativeVerificationLoop {
+  confidence_lane: string;
+  loop_state: string;
+  recommended_plan: string;
+  steps: RepresentativeVerificationStep[];
+  promotion_requirements: string[];
+  next_actions: string[];
+}
+
+export interface RepresentativeGuardrails {
+  deterministic_guards: DeterministicGuard[];
+  ai_policy: RepresentativeAiPolicy;
+  verification_loop: RepresentativeVerificationLoop;
+}
+
+export interface RepresentativeResponseBadge {
+  kind: string;
+  label: string;
+  tone: string;
+}
+
+export interface RepresentativeUserMessage {
+  template_id: string;
+  title: string;
+  summary: string;
+  bullets: string[];
+}
+
+export interface RepresentativeResponseDecision {
+  plan: string;
+  decision_state: string;
+  candidate_path: string;
+  confidence_lane: string;
+  blocking_guards: string[];
+  warning_guards: string[];
+}
+
+export interface RepresentativeAiExplanation {
+  mode: string;
+  instruction: string;
+  allowed_slots: string[];
+  forbidden_overrides: string[];
+}
+
+export interface RepresentativeResponseLayers {
+  decision: RepresentativeResponseDecision;
+  user_message: RepresentativeUserMessage;
+  ui_panels: {
+    show_deterministic_guards: boolean;
+    show_ai_policy: boolean;
+    show_verification_loop: boolean;
+  };
+  ai_explanation: RepresentativeAiExplanation;
+  badges: RepresentativeResponseBadge[];
+}
+
+export interface RepresentativeCompatibility {
+  selected_plan: string;
+  hard_blocks: string[];
+  soft_flags: string[];
+  fallback_actions: string[];
+  budget_fit_ratio?: number;
+  deterministic_guards?: DeterministicGuard[];
+  ai_policy?: RepresentativeAiPolicy;
+  verification_loop?: RepresentativeVerificationLoop;
+  guardrails?: RepresentativeGuardrails;
+  response_layers?: RepresentativeResponseLayers;
+}
+
+export interface RepresentativeProfileIdentity {
+  build_name?: string;
+  patch?: string;
+  class_name?: string;
+  ascendancy?: string;
+  main_skill?: string;
+  leveling_skill?: string;
+  damage_tags?: string[];
+  weapon_preferences?: string[];
+}
+
+export interface RepresentativeProfilePlaystyle {
+  input_style?: string;
+  manual_buttons?: number;
+  movement_dependence?: string;
+  aim_requirement?: string;
+  notes?: string;
+}
+
+export interface RepresentativeProfileBudgetCurve {
+  entry_cost_divines?: number;
+  comfortable_cost_divines?: number;
+  aspirational_cost_divines?: number;
+  respec_cost_points?: number;
+  notes?: string;
+}
+
+export interface RepresentativeProfileAvailability {
+  league_start_viable?: boolean;
+  ssf_viable?: string;
+  hc_viable?: string;
+  twink_required?: boolean;
+  mandatory_uniques?: string[];
+  mandatory_transfigured_gems?: string[];
+}
+
+export interface RepresentativeTransitionPoint {
+  stage?: string;
+  main_skill?: string;
+  trigger?: string;
+  required_links?: number;
+  required_item?: string | null;
+  from_skill?: string;
+  to_skill?: string;
+  level?: number;
+  source?: string;
+}
+
+export interface RepresentativeCampaignStep {
+  stage?: string;
+  stage_label?: string;
+  level_range?: string;
+  main_skill?: string;
+  support_links?: string[];
+  auras?: string[];
+  utility?: string[];
+  guard?: string[];
+  source?: string;
+  notes?: string;
+}
+
+export interface RepresentativePassivePlanStep {
+  stage?: string;
+  stage_label?: string;
+  level_range?: string;
+  tree_url?: string;
+  active?: boolean;
+  source?: string;
+  priorities?: string[];
+  notes?: string;
+}
+
+export interface RepresentativeGearStage {
+  stage?: string;
+  stage_label?: string;
+  level_range?: string;
+  priorities?: string[];
+  requirements?: string[];
+  source?: string;
+  notes?: string;
+}
+
+export interface RepresentativeProfileProgression {
+  leveling_confidence?: string;
+  early_mapping_ready?: boolean;
+  transition_points?: RepresentativeTransitionPoint[];
+  campaign_plan?: RepresentativeCampaignStep[];
+  passive_plan?: RepresentativePassivePlanStep[];
+  gear_stages?: RepresentativeGearStage[];
+}
+
+export interface RepresentativeProfileConfidence {
+  representative_build_status?: string;
+  source_count?: number;
+  notes?: string;
+}
+
+export interface RepresentativeProfileEvidence {
+  type?: string;
+  label?: string;
+  url?: string;
+  notes?: string;
+}
+
+export interface RepresentativeProfileSummary {
+  build_id?: string;
+  identity?: RepresentativeProfileIdentity;
+  playstyle?: RepresentativeProfilePlaystyle;
+  budget_curve?: RepresentativeProfileBudgetCurve;
+  availability?: RepresentativeProfileAvailability;
+  suitability?: Record<string, number>;
+  constraints?: {
+    banned_map_mods?: string[];
+    pain_points?: string[];
+  };
+  confidence?: RepresentativeProfileConfidence;
+  progression?: RepresentativeProfileProgression;
+  evidence?: RepresentativeProfileEvidence[];
+}
+
+export interface RepresentativeCandidate {
+  candidate_id?: string;
+  league_name?: string;
+  board_status?: string;
+  use_policy?: string;
+  source_confidence?: string;
+  build_id?: string;
+  build_name?: string;
+  main_skill?: string;
+  class_name?: string;
+  ascendancy?: string;
+  score?: number;
+  hard_blocks?: string[];
+  compatibility?: RepresentativeCompatibility;
+  profile_summary?: RepresentativeProfileSummary | null;
+}
+
+export interface RepresentativeRecommendation {
+  selected_plan: string;
+  selected_build_id: string | null;
+  selected_build_name: string | null;
+  selected_score: number | null;
+  selected_candidate?: RepresentativeCandidate;
+  selected_profile?: RepresentativeProfileSummary | null;
+  blocking_candidate?: RepresentativeCandidate | null;
+  blocking_profile?: RepresentativeProfileSummary | null;
+  recommendations: RepresentativeCandidate[];
+  proxy_candidates: RepresentativeCandidate[];
+  rejections: RepresentativeCandidate[];
+  deterministic_guards: DeterministicGuard[];
+  ai_policy: RepresentativeAiPolicy;
+  verification_loop: RepresentativeVerificationLoop;
+  guardrails: RepresentativeGuardrails;
+  response_layers: RepresentativeResponseLayers;
+}
+
+export interface RepresentativeCorpusRecommendationResult {
+  dataset_kind: string;
+  corpus_summary: {
+    profile_count: number;
+    confirmed: number;
+    near_confirmed: number;
+    hold: number;
+  };
+  active_scope: string;
+  candidate_pool_size: number;
+  recommendation: RepresentativeRecommendation;
 }
