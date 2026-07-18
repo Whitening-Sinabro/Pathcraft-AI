@@ -41,9 +41,7 @@ impl OodleLib {
             log::info!("Oodle DLL 시도: {}", path.display());
             match unsafe { Library::new(path) } {
                 Ok(lib) => {
-                    match unsafe {
-                        lib.get::<OodleLZDecompressFn>(b"OodleLZ_Decompress\0")
-                    } {
+                    match unsafe { lib.get::<OodleLZDecompressFn>(b"OodleLZ_Decompress\0") } {
                         Ok(sym) => {
                             let decompress_fn = *sym;
                             log::info!("Oodle DLL 로드 성공: {}", path.display());
@@ -134,10 +132,7 @@ fn find_oodle_dll(poe_path: &Path) -> Vec<PathBuf> {
     }
 
     // 3. Unreal Engine (Oodle 번들 포함)
-    let ue_base_dirs = [
-        r"C:\Program Files\Epic Games",
-        r"D:\Epic Games",
-    ];
+    let ue_base_dirs = [r"C:\Program Files\Epic Games", r"D:\Epic Games"];
     for base in &ue_base_dirs {
         let base_path = Path::new(base);
         if !base_path.is_dir() {
@@ -170,7 +165,11 @@ mod tests {
     #[test]
     fn find_oodle_dll_includes_poe_path() {
         let paths = find_oodle_dll(Path::new(r"C:\Games\POE"));
-        assert!(paths.iter().any(|p| p.to_string_lossy().contains("oo2core_9_win64.dll")));
-        assert!(paths.iter().any(|p| p.to_string_lossy().contains(r"C:\Games\POE")));
+        assert!(paths
+            .iter()
+            .any(|p| p.to_string_lossy().contains("oo2core_9_win64.dll")));
+        assert!(paths
+            .iter()
+            .any(|p| p.to_string_lossy().contains(r"C:\Games\POE")));
     }
 }

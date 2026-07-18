@@ -21,7 +21,7 @@ pub struct GgpkReader {
 
 #[derive(Debug, Clone)]
 struct FileEntry {
-    offset: u64,     // FILE record의 파일 내 절대 위치
+    offset: u64,      // FILE record의 파일 내 절대 위치
     data_offset: u64, // 실제 데이터 시작 위치
     data_size: u32,   // 데이터 크기
 }
@@ -29,8 +29,7 @@ struct FileEntry {
 impl GgpkReader {
     /// GGPK 파일 열기 + 인덱스 빌드
     pub fn open(path: &Path) -> Result<Self, String> {
-        let mut file = File::open(path)
-            .map_err(|e| format!("GGPK 파일 열기 실패: {}", e))?;
+        let mut file = File::open(path).map_err(|e| format!("GGPK 파일 열기 실패: {}", e))?;
 
         // 루트 GGPK record 읽기
         let root_record = read_record_header(&mut file, 0)?;
@@ -81,11 +80,15 @@ impl GgpkReader {
     /// 특정 경로의 파일 데이터 추출
     pub fn extract(&mut self, path: &str) -> Result<Vec<u8>, String> {
         let normalized = path.to_lowercase().replace('\\', "/");
-        let entry = self.file_index.get(&normalized)
+        let entry = self
+            .file_index
+            .get(&normalized)
             .ok_or_else(|| format!("파일 없음: {}", path))?
             .clone();
 
-        self.file.seek(SeekFrom::Start(entry.data_offset)).map_err(io_err)?;
+        self.file
+            .seek(SeekFrom::Start(entry.data_offset))
+            .map_err(io_err)?;
         let mut buf = vec![0u8; entry.data_size as usize];
         self.file.read_exact(&mut buf).map_err(io_err)?;
 
@@ -95,9 +98,14 @@ impl GgpkReader {
     /// 특정 디렉토리의 파일 목록
     pub fn list_dir(&self, dir: &str) -> Vec<String> {
         let prefix = dir.to_lowercase().replace('\\', "/");
-        let prefix = if prefix.ends_with('/') { prefix } else { format!("{}/", prefix) };
+        let prefix = if prefix.ends_with('/') {
+            prefix
+        } else {
+            format!("{}/", prefix)
+        };
 
-        self.file_index.keys()
+        self.file_index
+            .keys()
             .filter(|k| k.starts_with(&prefix))
             .cloned()
             .collect()
@@ -105,7 +113,8 @@ impl GgpkReader {
 
     /// .dat64 파일 목록
     pub fn list_dat64(&self) -> Vec<String> {
-        self.file_index.keys()
+        self.file_index
+            .keys()
             .filter(|k| k.ends_with(".dat64"))
             .cloned()
             .collect()
@@ -192,11 +201,14 @@ fn build_index(
                 let header_size = 4 + 4 + 4 + 32 + (fname_length * 2); // length + tag + name_length + hash + name
                 let data_size = header.length - header_size as u32;
 
-                index.insert(file_path, FileEntry {
-                    offset: child_offset,
-                    data_offset,
-                    data_size,
-                });
+                index.insert(
+                    file_path,
+                    FileEntry {
+                        offset: child_offset,
+                        data_offset,
+                        data_size,
+                    },
+                );
             }
             _ => {} // FREE 등 무시
         }
@@ -222,7 +234,8 @@ fn read_utf16le(file: &mut File, char_count: usize) -> Result<String, String> {
     let mut buf = vec![0u8; byte_count];
     file.read_exact(&mut buf).map_err(io_err)?;
 
-    let u16s: Vec<u16> = buf.chunks_exact(2)
+    let u16s: Vec<u16> = buf
+        .chunks_exact(2)
         .map(|c| u16::from_le_bytes([c[0], c[1]]))
         .collect();
 

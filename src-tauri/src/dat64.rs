@@ -23,19 +23,19 @@ const MAX_STR_U16: usize = 4096;
 /// DAT64 필드 타입
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub enum FieldType {
-    Bool,     // 1 byte
-    I32,      // 4 bytes
-    U32,      // 4 bytes
-    I64,      // 8 bytes
-    U64,      // 8 bytes
-    F32,      // 4 bytes
-    Str,      // 8 bytes (offset into variable data)
-    List,     // 16 bytes (count: i64 + offset: i64)
-    Key,      // 16 bytes (foreign row: row_index i64 + reserved i64)
-    Row,      // 8 bytes (row/rid: row_index i64, same-table reference)
-    I16,      // 2 bytes
-    U16,      // 2 bytes
-    U8,       // 1 byte
+    Bool, // 1 byte
+    I32,  // 4 bytes
+    U32,  // 4 bytes
+    I64,  // 8 bytes
+    U64,  // 8 bytes
+    F32,  // 4 bytes
+    Str,  // 8 bytes (offset into variable data)
+    List, // 16 bytes (count: i64 + offset: i64)
+    Key,  // 16 bytes (foreign row: row_index i64 + reserved i64)
+    Row,  // 8 bytes (row/rid: row_index i64, same-table reference)
+    I16,  // 2 bytes
+    U16,  // 2 bytes
+    U8,   // 1 byte
 }
 
 impl FieldType {
@@ -71,7 +71,11 @@ impl FieldDef {
     /// interval 컬럼은 base type 의 2배 (min/max pair).
     pub fn size_in_row(&self) -> usize {
         let base = self.field_type.size();
-        if self.interval { base * 2 } else { base }
+        if self.interval {
+            base * 2
+        } else {
+            base
+        }
     }
 }
 
@@ -187,7 +191,11 @@ impl Dat64Parser {
         let actual_row_size = self.estimated_row_size();
 
         // 실제 행 크기 기준으로 파싱
-        let row_size = if actual_row_size > 0 { actual_row_size } else { schema_row_size };
+        let row_size = if actual_row_size > 0 {
+            actual_row_size
+        } else {
+            schema_row_size
+        };
 
         // 스키마 필드 중 실제 행 크기에 맞는 것만 사용
         let usable_fields: Vec<&FieldDef> = if schema_row_size != row_size && actual_row_size > 0 {
@@ -202,7 +210,10 @@ impl Dat64Parser {
             }
             log::warn!(
                 "스키마/데이터 행 크기 불일치: schema={}B, actual={}B — {} / {} 필드 사용",
-                schema_row_size, actual_row_size, fields.len(), schema.fields.len()
+                schema_row_size,
+                actual_row_size,
+                fields.len(),
+                schema.fields.len()
             );
             fields
         } else {
@@ -238,12 +249,17 @@ impl Dat64Parser {
     /// foreignrow array (16B per element): low 8B = rowid → Value::Key.
     /// 기타 base type: type.size() per element. Str array 는 offset → 문자열 resolve.
     /// `element_type` 가 None 이면 legacy 8B i64 fallback (read_field 의 List branch 사용).
-    fn read_list_typed(&self, offset: usize, element_type: Option<&FieldType>) -> Result<Value, String> {
+    fn read_list_typed(
+        &self,
+        offset: usize,
+        element_type: Option<&FieldType>,
+    ) -> Result<Value, String> {
         if offset + 16 > self.data.len() {
             return Ok(Value::List(vec![]));
         }
         let count = i64::from_le_bytes(self.data[offset..offset + 8].try_into().unwrap());
-        let list_offset = i64::from_le_bytes(self.data[offset + 8..offset + 16].try_into().unwrap());
+        let list_offset =
+            i64::from_le_bytes(self.data[offset + 8..offset + 16].try_into().unwrap());
 
         if count <= 0 {
             return Ok(Value::List(vec![]));
@@ -265,7 +281,9 @@ impl Dat64Parser {
             FieldType::Key => 16,
             other => other.size(),
         };
-        let abs_offset = self.variable_data_start.saturating_add(list_offset as usize);
+        let abs_offset = self
+            .variable_data_start
+            .saturating_add(list_offset as usize);
         let bytes_remaining = self.data.len().saturating_sub(abs_offset);
         let plausible_items = bytes_remaining / elem_size.max(1);
         if count_usize > plausible_items {
@@ -362,11 +380,21 @@ impl Dat64Parser {
             FieldType::U8 => Value::U8(d[offset]),
             FieldType::I16 => Value::I16(i16::from_le_bytes([d[offset], d[offset + 1]])),
             FieldType::U16 => Value::U16(u16::from_le_bytes([d[offset], d[offset + 1]])),
-            FieldType::I32 => Value::I32(i32::from_le_bytes(d[offset..offset + 4].try_into().unwrap())),
-            FieldType::U32 => Value::U32(u32::from_le_bytes(d[offset..offset + 4].try_into().unwrap())),
-            FieldType::I64 => Value::I64(i64::from_le_bytes(d[offset..offset + 8].try_into().unwrap())),
-            FieldType::U64 => Value::U64(u64::from_le_bytes(d[offset..offset + 8].try_into().unwrap())),
-            FieldType::F32 => Value::F32(f32::from_le_bytes(d[offset..offset + 4].try_into().unwrap())),
+            FieldType::I32 => Value::I32(i32::from_le_bytes(
+                d[offset..offset + 4].try_into().unwrap(),
+            )),
+            FieldType::U32 => Value::U32(u32::from_le_bytes(
+                d[offset..offset + 4].try_into().unwrap(),
+            )),
+            FieldType::I64 => Value::I64(i64::from_le_bytes(
+                d[offset..offset + 8].try_into().unwrap(),
+            )),
+            FieldType::U64 => Value::U64(u64::from_le_bytes(
+                d[offset..offset + 8].try_into().unwrap(),
+            )),
+            FieldType::F32 => Value::F32(f32::from_le_bytes(
+                d[offset..offset + 4].try_into().unwrap(),
+            )),
             FieldType::Str => {
                 let str_offset = i64::from_le_bytes(d[offset..offset + 8].try_into().unwrap());
                 if str_offset < 0 {
@@ -388,13 +416,16 @@ impl Dat64Parser {
             }
             FieldType::List => {
                 let count = i64::from_le_bytes(d[offset..offset + 8].try_into().unwrap());
-                let list_offset = i64::from_le_bytes(d[offset + 8..offset + 16].try_into().unwrap());
+                let list_offset =
+                    i64::from_le_bytes(d[offset + 8..offset + 16].try_into().unwrap());
                 if count <= 0 {
                     return Ok(Value::List(vec![]));
                 }
 
                 let count_usize = count as usize;
-                let abs_offset = self.variable_data_start.saturating_add(list_offset as usize);
+                let abs_offset = self
+                    .variable_data_start
+                    .saturating_add(list_offset as usize);
 
                 // 물리 용량 초과 (count * 8 > 남은 바이트) → garbage 판정, 빈 리스트.
                 // 단일 row × 수만 컬럼이 이 경로 타면 GB 단위 메모리 폭증 방지.
@@ -434,10 +465,7 @@ impl Dat64Parser {
             return String::new();
         }
 
-        let max_end = self
-            .data
-            .len()
-            .min(abs_offset + MAX_STR_U16 * 2);
+        let max_end = self.data.len().min(abs_offset + MAX_STR_U16 * 2);
 
         let mut end = abs_offset;
         while end + 1 < max_end {
@@ -530,8 +558,18 @@ mod tests {
         let schema = TableSchema {
             name: "Test".into(),
             fields: vec![
-                FieldDef { name: "flag".into(), field_type: FieldType::Bool, interval: false, element_type: None },
-                FieldDef { name: "value".into(), field_type: FieldType::I32, interval: false, element_type: None },
+                FieldDef {
+                    name: "flag".into(),
+                    field_type: FieldType::Bool,
+                    interval: false,
+                    element_type: None,
+                },
+                FieldDef {
+                    name: "value".into(),
+                    field_type: FieldType::I32,
+                    interval: false,
+                    element_type: None,
+                },
             ],
         };
 
@@ -561,9 +599,12 @@ mod tests {
         let parser = Dat64Parser::load(data).unwrap();
         let schema = TableSchema {
             name: "Test".into(),
-            fields: vec![
-                FieldDef { name: "name".into(), field_type: FieldType::Str, interval: false, element_type: None },
-            ],
+            fields: vec![FieldDef {
+                name: "name".into(),
+                field_type: FieldType::Str,
+                interval: false,
+                element_type: None,
+            }],
         };
 
         let rows = parser.parse_table(&schema).unwrap();

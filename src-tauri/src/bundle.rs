@@ -33,7 +33,8 @@ pub struct BundleHeader {
 impl BundleHeader {
     fn read<R: Read>(r: &mut R) -> Result<Self, String> {
         let mut buf = [0u8; HEADER_SIZE];
-        r.read_exact(&mut buf).map_err(|e| format!("Bundle 헤더 읽기 실패: {}", e))?;
+        r.read_exact(&mut buf)
+            .map_err(|e| format!("Bundle 헤더 읽기 실패: {}", e))?;
 
         Ok(Self {
             uncompressed_size: i32::from_le_bytes(buf[0..4].try_into().unwrap()),
@@ -66,7 +67,10 @@ impl BundleHeader {
             return Err(format!("chunk_size 비정상: {}", self.chunk_size));
         }
         if self.uncompressed_size < 0 {
-            return Err(format!("uncompressed_size 음수: {}", self.uncompressed_size));
+            return Err(format!(
+                "uncompressed_size 음수: {}",
+                self.uncompressed_size
+            ));
         }
         if self.compressed_size < 0 {
             return Err(format!("compressed_size 음수: {}", self.compressed_size));
@@ -90,7 +94,9 @@ pub fn decompress_bundle<R: Read + Seek>(
     reader: &mut R,
     oodle: &OodleLib,
 ) -> Result<Vec<u8>, String> {
-    reader.seek(SeekFrom::Start(0)).map_err(|e| format!("Seek 실패: {}", e))?;
+    reader
+        .seek(SeekFrom::Start(0))
+        .map_err(|e| format!("Seek 실패: {}", e))?;
 
     let header = BundleHeader::read(reader)?;
 
@@ -114,13 +120,16 @@ pub fn decompress_bundle<R: Read + Seek>(
     let mut chunk_sizes = Vec::with_capacity(chunk_count);
     for _ in 0..chunk_count {
         let mut buf = [0u8; 4];
-        reader.read_exact(&mut buf).map_err(|e| format!("청크 크기 읽기 실패: {}", e))?;
+        reader
+            .read_exact(&mut buf)
+            .map_err(|e| format!("청크 크기 읽기 실패: {}", e))?;
         chunk_sizes.push(i32::from_le_bytes(buf) as usize);
     }
 
     // 데이터 시작 오프셋 = 12 + head_size
     let data_offset = 12u64 + header.head_size as u64;
-    reader.seek(SeekFrom::Start(data_offset))
+    reader
+        .seek(SeekFrom::Start(data_offset))
         .map_err(|e| format!("데이터 영역 Seek 실패: {}", e))?;
 
     // 전체 비압축 결과 버퍼
@@ -180,7 +189,9 @@ pub fn read_bundle_slice<R: Read + Seek>(
     if offset + length > full.len() {
         return Err(format!(
             "범위 초과: offset={}, length={}, total={}",
-            offset, length, full.len()
+            offset,
+            length,
+            full.len()
         ));
     }
     Ok(full[offset..offset + length].to_vec())
@@ -196,8 +207,12 @@ mod tests {
     }
 
     fn make_header_bytes(
-        uncompressed: i32, compressed: i32, head_size: i32,
-        compressor: i32, chunk_count: i32, chunk_size: i32,
+        uncompressed: i32,
+        compressed: i32,
+        head_size: i32,
+        compressor: i32,
+        chunk_count: i32,
+        chunk_size: i32,
     ) -> [u8; HEADER_SIZE] {
         let mut buf = [0u8; HEADER_SIZE];
         buf[0..4].copy_from_slice(&uncompressed.to_le_bytes());

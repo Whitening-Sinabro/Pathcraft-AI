@@ -127,11 +127,11 @@ impl SchemaStore {
     /// - POE2 요청 시 `schema_poe2_override.json` 이 schema 파일 옆에 있으면 자동 merge.
     ///   drift 보정 컬럼을 각 테이블 끝에 append (ex: Mods +24B, SkillGems +32B).
     pub fn load_for_game(path: &Path, game: Game) -> Result<Self, String> {
-        let content = std::fs::read_to_string(path)
-            .map_err(|e| format!("스키마 파일 읽기 실패: {}", e))?;
+        let content =
+            std::fs::read_to_string(path).map_err(|e| format!("스키마 파일 읽기 실패: {}", e))?;
 
-        let schema_file: SchemaFile = serde_json::from_str(&content)
-            .map_err(|e| format!("스키마 JSON 파싱 실패: {}", e))?;
+        let schema_file: SchemaFile =
+            serde_json::from_str(&content).map_err(|e| format!("스키마 JSON 파싱 실패: {}", e))?;
 
         // POE2 시 drift override 자동 로드. 없으면 graceful skip.
         let override_entries: HashMap<String, OverrideEntry> = if game == Game::Poe2 {
@@ -166,7 +166,11 @@ impl SchemaStore {
         for table in schema_file.tables {
             // validFor=0 (미지정)는 하위 호환으로 POE1 기본값 취급.
             // validFor가 타 게임 전용 bit만 세워져 있으면 스킵.
-            let vf = if table.valid_for == 0 { 1 } else { table.valid_for };
+            let vf = if table.valid_for == 0 {
+                1
+            } else {
+                table.valid_for
+            };
             if vf & include_bit == 0 {
                 continue;
             }
@@ -175,39 +179,48 @@ impl SchemaStore {
             // 공용 entry가 먼저 insert된 뒤 전용이 와도 덮어씀. HashMap insert 특성 활용.
             let _ = exclude_only_bit; // reserved for future per-game dedup logic
 
-            let mut fields: Vec<FieldDef> = table.columns.iter().enumerate().map(|(i, col)| {
-                let name = col.name.clone()
-                    .unwrap_or_else(|| format!("Unknown{}", i));
+            let mut fields: Vec<FieldDef> = table
+                .columns
+                .iter()
+                .enumerate()
+                .map(|(i, col)| {
+                    let name = col.name.clone().unwrap_or_else(|| format!("Unknown{}", i));
 
-                let is_array = col.array.unwrap_or(false);
-                let base_type = col.col_type.as_deref().unwrap_or("i32");
+                    let is_array = col.array.unwrap_or(false);
+                    let base_type = col.col_type.as_deref().unwrap_or("i32");
 
-                let base_field_type = match base_type {
-                    "bool" => FieldType::Bool,
-                    "i8" | "u8" => FieldType::U8,
-                    "enumrow" => FieldType::I32,
-                    "i16" | "u16" => FieldType::I16,
-                    "i32" | "u32" | "enum" => FieldType::I32,
-                    "i64" | "u64" => FieldType::I64,
-                    "f32" => FieldType::F32,
-                    "string" => FieldType::Str,
-                    "foreignrow" => FieldType::Key,
-                    "row" | "rid" => FieldType::Row,
-                    _ => FieldType::I32, // 알 수 없는 타입 → i32 폴백
-                };
+                    let base_field_type = match base_type {
+                        "bool" => FieldType::Bool,
+                        "i8" | "u8" => FieldType::U8,
+                        "enumrow" => FieldType::I32,
+                        "i16" | "u16" => FieldType::I16,
+                        "i32" | "u32" | "enum" => FieldType::I32,
+                        "i64" | "u64" => FieldType::I64,
+                        "f32" => FieldType::F32,
+                        "string" => FieldType::Str,
+                        "foreignrow" => FieldType::Key,
+                        "row" | "rid" => FieldType::Row,
+                        _ => FieldType::I32, // 알 수 없는 타입 → i32 폴백
+                    };
 
-                let (field_type, element_type) = if is_array {
-                    (FieldType::List, Some(base_field_type))
-                } else {
-                    (base_field_type, None)
-                };
+                    let (field_type, element_type) = if is_array {
+                        (FieldType::List, Some(base_field_type))
+                    } else {
+                        (base_field_type, None)
+                    };
 
-                // interval 은 array=false 인 단순 타입에만 의미 있음 (List/Key 와 결합 불가).
-                // schema.min.json 데이터상으로도 모두 i32 + interval=true.
-                let interval = col.interval && !is_array;
+                    // interval 은 array=false 인 단순 타입에만 의미 있음 (List/Key 와 결합 불가).
+                    // schema.min.json 데이터상으로도 모두 i32 + interval=true.
+                    let interval = col.interval && !is_array;
 
-                FieldDef { name, field_type, interval, element_type }
-            }).collect();
+                    FieldDef {
+                        name,
+                        field_type,
+                        interval,
+                        element_type,
+                    }
+                })
+                .collect();
 
             // POE2 drift override merge — {TableName}_poe2_extra.fields 를 끝에 append.
             // 대상: Mods (+24B), SkillGems (+32B). 2026-04-22 byte pattern 역추적.
@@ -271,10 +284,13 @@ impl SchemaStore {
                 None => true,
             };
             if should_insert {
-                tables.insert(table.name.clone(), TableSchema {
-                    name: table.name,
-                    fields,
-                });
+                tables.insert(
+                    table.name.clone(),
+                    TableSchema {
+                        name: table.name,
+                        fields,
+                    },
+                );
             }
         }
 
@@ -311,17 +327,29 @@ mod tests {
         let p = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
             .parent()
             .unwrap()
-            .join("data").join("schema").join("schema.min.json");
-        if p.exists() { Some(p) } else { None }
+            .join("data")
+            .join("schema")
+            .join("schema.min.json");
+        if p.exists() {
+            Some(p)
+        } else {
+            None
+        }
     }
 
     #[test]
     fn test_load_schema() {
-        let Some(schema_path) = schema_path_or_skip() else { return };
+        let Some(schema_path) = schema_path_or_skip() else {
+            return;
+        };
 
         let store = SchemaStore::load(&schema_path).unwrap();
         assert_eq!(store.game(), Game::Poe1);
-        assert!(store.table_count() > 900, "테이블 수 부족: {}", store.table_count());
+        assert!(
+            store.table_count() > 900,
+            "테이블 수 부족: {}",
+            store.table_count()
+        );
 
         // 핵심 테이블 확인
         assert!(store.get("ActiveSkills").is_some());
@@ -339,7 +367,9 @@ mod tests {
     /// 로드된 게임별 컬럼 수가 다르면 필터링 동작 증명.
     #[test]
     fn test_load_for_poe2_separates_from_poe1() {
-        let Some(schema_path) = schema_path_or_skip() else { return };
+        let Some(schema_path) = schema_path_or_skip() else {
+            return;
+        };
 
         let poe1 = SchemaStore::load_for_game(&schema_path, Game::Poe1).unwrap();
         let poe2 = SchemaStore::load_for_game(&schema_path, Game::Poe2).unwrap();
@@ -372,8 +402,14 @@ mod tests {
     /// 실제 .datc64 파일의 행 크기와 스키마 계산 행 크기 일치 검증
     #[test]
     fn test_schema_row_size_matches_actual() {
-        let project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).parent().unwrap().to_path_buf();
-        let schema_path = project_root.join("data").join("schema").join("schema.min.json");
+        let project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .to_path_buf();
+        let schema_path = project_root
+            .join("data")
+            .join("schema")
+            .join("schema.min.json");
         let game_data_dir = project_root.join("data").join("game_data");
 
         if !schema_path.exists() || !game_data_dir.exists() {
@@ -407,7 +443,10 @@ mod tests {
                 if expected != actual {
                     failures.push(format!(
                         "{}: schema={}B, actual={}B (diff={})",
-                        table_name, expected, actual, expected as i64 - actual as i64
+                        table_name,
+                        expected,
+                        actual,
+                        expected as i64 - actual as i64
                     ));
                 }
             }
@@ -425,9 +464,14 @@ mod tests {
     /// - SkillGems: interval 없음 → override +32B 적용 후 239B (207+32).
     #[test]
     fn test_poe2_row_size_matches_actual() {
-        let Some(schema_path) = schema_path_or_skip() else { return };
+        let Some(schema_path) = schema_path_or_skip() else {
+            return;
+        };
 
-        let override_path = schema_path.parent().unwrap().join("schema_poe2_override.json");
+        let override_path = schema_path
+            .parent()
+            .unwrap()
+            .join("schema_poe2_override.json");
         if !override_path.exists() {
             return; // override 파일 없으면 스킵 (개발 환경별 선택 적용)
         }
@@ -455,7 +499,9 @@ mod tests {
     /// schema.min.json POE2 Mods 의 Stat1Value..Stat6Value (6 컬럼) 가 대상.
     #[test]
     fn test_poe2_interval_doubles_field_size() {
-        let Some(schema_path) = schema_path_or_skip() else { return };
+        let Some(schema_path) = schema_path_or_skip() else {
+            return;
+        };
 
         let poe2 = SchemaStore::load_for_game(&schema_path, Game::Poe2).unwrap();
         let mods = poe2.get("Mods").expect("POE2 Mods 누락");
@@ -483,13 +529,18 @@ mod tests {
     /// POE1 회귀 가드: interval 처리 추가로 POE1 row_size 가 변하면 안 됨.
     #[test]
     fn test_poe1_no_interval_columns() {
-        let Some(schema_path) = schema_path_or_skip() else { return };
+        let Some(schema_path) = schema_path_or_skip() else {
+            return;
+        };
 
         let poe1 = SchemaStore::load_for_game(&schema_path, Game::Poe1).unwrap();
         let mods = poe1.get("Mods").expect("POE1 Mods 누락");
 
         let interval_count = mods.fields.iter().filter(|f| f.interval).count();
-        assert_eq!(interval_count, 0, "POE1 Mods 에 interval 컬럼이 있으면 안 됨");
+        assert_eq!(
+            interval_count, 0,
+            "POE1 Mods 에 interval 컬럼이 있으면 안 됨"
+        );
     }
 
     /// array 컬럼은 element_type 을 가져야 함 (List element-aware 파싱 회귀 가드).
@@ -497,16 +548,24 @@ mod tests {
     /// element_type=None 이면 read_field 의 legacy 8B i64 로 떨어져 Tags/SpawnWeight_* 가 잘못 읽힘.
     #[test]
     fn test_array_columns_carry_element_type() {
-        let Some(schema_path) = schema_path_or_skip() else { return };
+        let Some(schema_path) = schema_path_or_skip() else {
+            return;
+        };
 
         for game in [Game::Poe1, Game::Poe2] {
             let store = SchemaStore::load_for_game(&schema_path, game).unwrap();
             let mods = store.get("Mods").expect("Mods 누락");
 
-            let array_fields: Vec<&FieldDef> = mods.fields.iter()
+            let array_fields: Vec<&FieldDef> = mods
+                .fields
+                .iter()
                 .filter(|f| matches!(f.field_type, FieldType::List))
                 .collect();
-            assert!(!array_fields.is_empty(), "{:?} Mods 에 array 필드 없음", game);
+            assert!(
+                !array_fields.is_empty(),
+                "{:?} Mods 에 array 필드 없음",
+                game
+            );
 
             for f in &array_fields {
                 assert!(
@@ -521,12 +580,17 @@ mod tests {
     /// POE1 로드 시 POE2 override 적용 안 됨 — SkillGems Unknown_List1/2 가 POE1 SkillGems 에 섞이면 안 됨.
     #[test]
     fn test_poe1_load_skips_poe2_override() {
-        let Some(schema_path) = schema_path_or_skip() else { return };
+        let Some(schema_path) = schema_path_or_skip() else {
+            return;
+        };
 
         let poe1 = SchemaStore::load_for_game(&schema_path, Game::Poe1).unwrap();
         let poe2 = SchemaStore::load_for_game(&schema_path, Game::Poe2).unwrap();
 
-        let override_path = schema_path.parent().unwrap().join("schema_poe2_override.json");
+        let override_path = schema_path
+            .parent()
+            .unwrap()
+            .join("schema_poe2_override.json");
         if !override_path.exists() {
             return;
         }
@@ -534,9 +598,10 @@ mod tests {
         let sg_poe1 = poe1.get("SkillGems").expect("POE1 SkillGems 누락");
         let sg_poe2 = poe2.get("SkillGems").expect("POE2 SkillGems 누락");
 
-        let has_override_name = sg_poe1.fields.iter().any(|f| {
-            f.name == "Unknown_List1" || f.name == "Unknown_List2"
-        });
+        let has_override_name = sg_poe1
+            .fields
+            .iter()
+            .any(|f| f.name == "Unknown_List1" || f.name == "Unknown_List2");
         assert!(
             !has_override_name,
             "POE1 SkillGems 에 POE2 override 필드가 섞였음"
@@ -546,20 +611,26 @@ mod tests {
             .fields
             .iter()
             .any(|f| f.name == "Unknown_List1" || f.name == "Unknown_List2");
-        assert!(
-            poe2_has_override,
-            "POE2 SkillGems 에 override 필드 누락"
-        );
+        assert!(poe2_has_override, "POE2 SkillGems 에 override 필드 누락");
     }
 
     /// POE2 실 .datc64 파일 row_size 일치 검증 (override 적용 후).
     /// Mods 677B, SkillGems 239B — drift 해소 증명.
     #[test]
     fn test_poe2_schema_matches_actual_after_override() {
-        let project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).parent().unwrap().to_path_buf();
-        let schema_path = project_root.join("data").join("schema").join("schema.min.json");
+        let project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .to_path_buf();
+        let schema_path = project_root
+            .join("data")
+            .join("schema")
+            .join("schema.min.json");
         let poe2_data_dir = project_root.join("data").join("game_data_poe2");
-        let override_path = project_root.join("data").join("schema").join("schema_poe2_override.json");
+        let override_path = project_root
+            .join("data")
+            .join("schema")
+            .join("schema_poe2_override.json");
 
         if !schema_path.exists() || !poe2_data_dir.exists() || !override_path.exists() {
             return;
@@ -592,9 +663,14 @@ mod tests {
     /// (Mods override 는 2026-04-25 제거 — interval 처리로 대체)
     #[test]
     fn test_poe2_override_field_type_mapping() {
-        let Some(schema_path) = schema_path_or_skip() else { return };
+        let Some(schema_path) = schema_path_or_skip() else {
+            return;
+        };
 
-        let override_path = schema_path.parent().unwrap().join("schema_poe2_override.json");
+        let override_path = schema_path
+            .parent()
+            .unwrap()
+            .join("schema_poe2_override.json");
         if !override_path.exists() {
             return;
         }

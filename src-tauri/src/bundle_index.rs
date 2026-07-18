@@ -98,8 +98,8 @@ impl BundleIndex {
 
         log::info!("Bundle index (디스크): {}", index_path.display());
 
-        let mut file = File::open(&index_path)
-            .map_err(|e| format!("_.index.bin 열기 실패: {}", e))?;
+        let mut file =
+            File::open(&index_path).map_err(|e| format!("_.index.bin 열기 실패: {}", e))?;
         let data = bundle::decompress_bundle(&mut file, oodle)?;
         log::info!("Index 압축 해제: {} bytes", data.len());
 
@@ -185,16 +185,18 @@ impl BundleIndex {
         // 4. 나머지 = directory bundle data (경로 압축 데이터)
         let pos = cursor.position() as usize;
         let directory_bundle_data = data[pos..].to_vec();
-        log::info!("디렉토리 번들 데이터: {} bytes", directory_bundle_data.len());
+        log::info!(
+            "디렉토리 번들 데이터: {} bytes",
+            directory_bundle_data.len()
+        );
 
         // 해시 알고리즘 판별
-        let hash_algorithm = if !directories.is_empty()
-            && directories[0].path_hash == 0xF42A_94E6_9CFF_42FE
-        {
-            HashAlgorithm::MurmurHash64A
-        } else {
-            HashAlgorithm::FNV1a64
-        };
+        let hash_algorithm =
+            if !directories.is_empty() && directories[0].path_hash == 0xF42A_94E6_9CFF_42FE {
+                HashAlgorithm::MurmurHash64A
+            } else {
+                HashAlgorithm::FNV1a64
+            };
         log::info!("해시 알고리즘: {:?}", hash_algorithm);
 
         Ok(Self {
@@ -290,8 +292,7 @@ impl BundleIndex {
                 if !bundle_path.exists() {
                     return Err(format!("번들 파일 없음: {}", bundle_path.display()));
                 }
-                std::fs::read(&bundle_path)
-                    .map_err(|e| format!("번들 읽기 실패: {}", e))
+                std::fs::read(&bundle_path).map_err(|e| format!("번들 읽기 실패: {}", e))
             }
             BundleSource::Ggpk(ggpk) => {
                 let ggpk_bundle_path = format!("bundles2/{}.bundle.bin", bundle_record.path);
@@ -365,12 +366,7 @@ impl BundleIndex {
     pub fn list_files_by_ext(&self, ext: &str) -> Vec<&FileRecord> {
         self.files
             .values()
-            .filter(|f| {
-                f.path
-                    .as_ref()
-                    .map(|p| p.ends_with(ext))
-                    .unwrap_or(false)
-            })
+            .filter(|f| f.path.as_ref().map(|p| p.ends_with(ext)).unwrap_or(false))
             .collect()
     }
 
