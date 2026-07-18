@@ -196,3 +196,21 @@
 | python/tests/test_valid_gems_poe2_categories.py | POE2 valid_gems 카테고리 완전성 회귀 가드 — Awakened/Vaal sentinel + GemType=2 메타 젬 active 포함 검증 5건 | 아니오 |
 | python/tests/test_build_base_items_poe2.py | AttributeRequirements 매핑 헬퍼 단위 + simplify(req_*) + base_items_poe2.json 무결성 13건 | 아니오 |
 | .claude/status/passive_tree_gap_audit.md | 8-에이전트 갭 매핑 (PoB/공식/mobalytics/maxroll/community + 우리 audit). POE1+POE2 양립 원칙. Tier 0/1/2 + 단일 게임 한정 분리 | 아니오 |
+| data/guide_sources/_template.poe1_external_guide_source.json | 빌드가이드 단일 템플릿 (빈 블랭크 + _field_notes). 다음 크리에이터 가이드가 복사해 채움 | 아니오 |
+| data/guide_sources/poe1_cws_chieftain_emiracles_v1.json | CWS Chieftain 가이드 (poe1_external_guide_source 첫 인스턴스). phase_model + upgrade_nodes + Pohx RF PoB | 아니오 |
+| python/cws_guide_loader.py | external-guide-source 검증기(CWS+zeeboub 공유) + CWS 카드 투영기 | 아니오 |
+| python/tests/test_cws_guide_loader.py | 검증기 + 투영기 회귀 테스트 24건 (고아 PoB/prereq/patch-locked/콘텐츠 유실 가드) | 아니오 |
+| data/builds/*.build.json (127) | POE1 3.22–3.29 실 PoB 빌드 코퍼스 (archetype/variant 커버, 커밋 953d918) | 아니오 |
+| data/build_corpus_*.json / *_v1.json | 코퍼스 DB — taxonomy/support_matrix/promoted_instances/case_snapshots/manual_pob_sources/collection queues+backlog | 아니오 |
+| data/poe1_creator_source_registry_v1.json / poe1_representative_build_profiles.latest.json / poe1_leveling_archetype_route_plan_v1.json | creator-first 수집 레지스트리 + 대표 프로필 + 레벨링 route 계획 | 아니오 |
+| data/poe_ninja_build_variant_*_v1.json | poe.ninja variant evidence 큐/샘플링 계획 | 아니오 |
+| data/build_transition_patterns_curated.json / atlas_farming_knowledge.json / poe1_gem_taxonomy.latest.json | 전환 패턴 + 아틀라스 파밍 지식 + 젬 taxonomy | 아니오 |
+| python/recommend_from_corpus.py / recommend_from_pob.py / recommendation_engine.py | 코퍼스/PoB 기반 추천 엔진 (Plan A~D + selected_profile) | 아니오 |
+| python/recommendation_contract_audit.py / recommendation_backend_guard.py | 추천 계약 감사 + 백엔드 가드 | 아니오 |
+| python/build_corpus_pob_link_probe.py | PoB 링크 probe (패치 가드 fix — 3.26 PoB가 3.28 후보 승격 차단). 커밋 14e952e | 아니오 |
+| python/gem_taxonomy.py / gem_taxonomy_adversarial_audit.py | 젬 taxonomy 빌더 + 적대 감사 | 아니오 |
+| python/ggpk_index.py / scripts/build_ggpk_derived_item_mod_index.py | GGPK 파생 mod/item 인덱스 빌더 (산출물 data/ggpk_derived/는 gitignore, 재생성 가능) | 아니오 |
+| python/knowledge_router.py / item_mod_semantics.py / passive_stat_semantics.py | 지식 라우팅 + item mod/passive stat 시맨틱 | 아니오 |
+| python/passive_tree_url.py / passive_tree_graph.py / poe1_live_intake.py / pob_raw.py | 패시브 트리 URL/그래프 + 라이브 인테이크 + PoB raw | 아니오 |
+| python/tests/ 신규 (65) | 위 모듈 회귀 테스트 (스냅샷 단언 candidate_id set pin fix 4건 포함). 커밋 14e952e | 아니오 |
+| Docs/2026-07-*.md / POE1_*.md (17) | 코퍼스 스키마/variant model v2/leveling confirmation/recommendation filter/deep research 리포트 | 예 (참조 자료) |
