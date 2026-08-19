@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_filter_build_targets",
+  "build_id": "poe1_luminary_bot_ssf_3_29_path_of_chores",
+  "_field_notes": {
+    "purpose": "Build-dependent emphasis for the loot filter. The filter shows every item in a category regardless of build; this file only decides what gets promoted to the top sections.",
+    "swapping_builds": "Point the generator at a different file of this shape. Nothing else in the ladder changes.",
+    "card": "Exact English divination card BaseType as it appears in game data.",
+    "guide_section": "Section number in the source guide that justifies the entry."
+  },
+  "source": {
+    "title": "(SSF) Luminary bot - League start guide [POE]",
+    "creator": "Path of Chores",
+    "patch": "3.29",
+    "local_file": "C:\\Users\\User\\Downloads\\(POE용어 교정 번역) (SSF) Luminary bot - League start guide [POE].docx"
+  },
+  "divination_cards": {
+    "build_target": [
+      {
+        "card": "Light and Truth",
+        "reward": "Nycta's Lantern",
+        "guide_section": "5.1",
+        "note": "Guide says to raise this card's filter tier. Farmed in Palace or Ivory Temple."
+      },
+      {
+        "card": "The King's Heart",
+        "reward": "Kaom's Heart",
+        "guide_section": "5.2",
+        "note": "Second atlas tree is built around target farming this card."
+      },
+      {
+        "card": "The Spark and the Flame",
+        "reward": "Berek's Respite",
+        "guide_section": "6.2",
+        "note": "Volcano map spam for The Taming crafting."
+      },
+      {
+        "card": "Pride Before the Fall",
+        "reward": "Kaom's Heart (corrupted)",
+        "guide_section": "6.2",
+        "note": "Drops alongside the Berek's Respite farm; leftovers are gambled."
+      }
+    ],
+    "keep": [
+      {
+        "card": "The Finishing Touch",
+        "reward": "Fertile Catalyst",
+        "guide_section": "8.6",
+        "note": "Betrayal Hillock payout. The guide explicitly says not to filter this away."
+      }
+    ]
+  }
+}
