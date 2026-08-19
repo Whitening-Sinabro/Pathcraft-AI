@@ -230,3 +230,6 @@
 | python/tests/test_build_labeller.py | 실물 63빌드 채점 + 정확도 하한 90% + 축 규칙 단위 테스트 19건 | 아니오 |
 | data/knowledge_sources.json | 지식 파이프라인 소스 레지스트리 정본 (소스 추가 = 이 파일 수정, 코드 무수정) | 아니오 |
 | python/tests/test_knowledge_sources.py | 레지스트리 경로 실재 검증 + 검색정책 필수 + 알려진 갭 가시화 테스트 71건 | 아니오 |
+| python/scripts/derived_data_inventory.py | data/ 파생 JSON 전수 인벤토리 — 생성기 후보/provenance/git 최신성/GGPK 지문 조사. 지문은 ggpk_truth_reference.json 에서 소비(재계산 안 함). --write 로 pin 갱신 | 아니오 |
+| _analysis/derived_data_inventory.json | 위 조사 결과 pin. 파생 파일 추가·변경·stale 시 테스트가 대조해 red | 아니오 |
+| python/tests/test_derived_data_inventory.py | pin↔현재 스캔 재대조 + staleness 게이트 + 지문 없는 파일 래칫 + 생성기 귀속 테스트 18건 | 아니오 |

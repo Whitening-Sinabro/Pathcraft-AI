@@ -1,0 +1,2655 @@
+{
+  "schema_version": 1,
+  "dataset_kind": "pathcraft_derived_data_inventory",
+  "generated_by": "python/scripts/derived_data_inventory.py",
+  "description": "data/ 하위 파생 JSON 의 생성기·provenance·최신성 조사 결과. 지문은 _analysis/ggpk_truth_reference.json 에서 소비하며 여기서 재계산하지 않는다.",
+  "ggpk_fingerprint": "019fe48f83f63484",
+  "fingerprint_source": "_analysis/ggpk_truth_reference.json",
+  "fingerprint_coverage": {
+    "hashed_tables": 19,
+    "extracted_tables_present": 23,
+    "extracted_but_not_hashed": [
+      "Quest",
+      "UniqueStashTypes",
+      "Words",
+      "WorldAreas"
+    ],
+    "note": "extracted_but_not_hashed 의 테이블은 바뀌어도 ggpk_fingerprint 가 움직이지 않는다. 해소하려면 ggpk_truth_builder.KEY_FIELDS 를 넓혀야 한다(앵커 재생성 동반)."
+  },
+  "excluded_top_level": [
+    "game_data",
+    "game_data_poe2",
+    "builds",
+    "patch_notes"
+  ],
+  "untracked_present": [
+    "data/.claude/skillmaker/logs/prompts/1e578250-69cf-49ae-9d0e-857ce8f416c6.jsonl",
+    "data/.claude/skillmaker/observation/session_state.json",
+    "data/atlastree-export/.claude/skillmaker/logs/prompts/189e1d1d-1e40-4c77-a12d-18d16e40eea2.jsonl",
+    "data/atlastree-export/.claude/skillmaker/observation/session_state.json",
+    "data/atlastree-export/data.json",
+    "data/atlastree-export/league.json",
+    "data/atlastree-export/ruthless-league.json",
+    "data/atlastree-export/ruthless.json",
+    "data/ggpk_derived/poe1_item_base_affix_index.jsonl",
+    "data/ggpk_derived/poe1_item_base_affix_summary.csv",
+    "data/ggpk_derived/poe1_item_mod_derivation_manifest.json",
+    "data/ggpk_derived/poe1_item_tag_index.json",
+    "data/ggpk_derived/poe1_mod_stat_index.json",
+    "data/indexes/allie_luminary_3_29.db",
+    "data/indexes/cws_emiracles_3_29.db",
+    "data/indexes/sanavixx_cyclone_3_29.db",
+    "data/skilltree-export-poe2/tree_0_4.json",
+    "data/skilltree-export/alternate.json",
+    "data/skilltree-export/data.json",
+    "data/skilltree-export/passive_tree_translations.json",
+    "data/skilltree-export/ruthless-alternate.json",
+    "data/skilltree-export/ruthless.json"
+  ],
+  "untracked_note": "레포에 실재하지만 git 미추적이라 인벤토리 밖. 핀이 클론에서 재현되려면 여기 있어야 한다. 감시가 필요하면 gitignore 에서 빼거나 생성기 + ggpk_fingerprint 를 갖출 것.",
+  "totals": {
+    "files": 115,
+    "fingerprinted": 0,
+    "untracked_present": 22,
+    "by_status": {
+      "broken": 1,
+      "declared_no_generator": 44,
+      "generated_no_fingerprint": 30,
+      "orphan": 39,
+      "pinned_elsewhere": 1
+    }
+  },
+  "status_meanings": {
+    "current": "ggpk_fingerprint 이 현재 추출본과 일치",
+    "stale": "ggpk_fingerprint 이 남아 있으나 현재 추출본과 불일치 — 재생성 대상",
+    "generated_no_fingerprint": "생성기를 찾았으나 지문이 없어 최신성을 알 수 없음",
+    "declared_no_generator": "provenance 는 있으나 생성기를 자동으로 찾지 못함 — '없다' 가 아니라 '못 찾았다'. 경로를 동적으로 조립하는 생성기는 탐지 밖일 수 있다",
+    "pinned_elsewhere": "생성기는 없지만 ggpk_truth_reference.json 의 schema_pin 이 잠그고 있음",
+    "orphan": "생성기도 provenance 도 없음 — 출처 불명",
+    "broken": "JSON 파싱 실패"
+  },
+  "files": {
+    "data/accessory_mod_tiers.json": {
+      "bytes": 19782,
+      "sha256_16": "b6b4800a5b0eabb4",
+      "parse_error": null,
+      "provenance": {
+        "generator": "scripts/extract_accessory_mod_tiers.py",
+        "generated_at": "2026-04-17T07:48:33+00:00",
+        "source": "_analysis/neversink_8.19.0b/NeverSink's filter - 1-REGULAR.filter",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "scripts/extract_accessory_mod_tiers.py"
+      ],
+      "declared_generator": "scripts/extract_accessory_mod_tiers.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "6c52b14d",
+        "date": "2026-04-17"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/active_skill_types.json": {
+      "bytes": 4897,
+      "sha256_16": "8cb626ef54c303aa",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "data/game_data/ActiveSkills.json",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_active_skill_type_ids"
+      },
+      "writer_candidates": [
+        "python/scripts/derive_active_skill_types.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "4d128b8e",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "generated_no_fingerprint"
+    },
+    "data/atlas_farming_knowledge.json": {
+      "bytes": 13846,
+      "sha256_16": "3c3f182473b1c72d",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "orphan"
+    },
+    "data/awakened_translations.json": {
+      "bytes": 3967195,
+      "sha256_16": "4428d0dbe774d0ab",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "awakened-poe-trade",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/base_items_poe2.json": {
+      "bytes": 282718,
+      "sha256_16": "4132c3fbf06b40de",
+      "parse_error": null,
+      "provenance": {
+        "generator": "scripts/build_base_items_poe2.py",
+        "generated_at": null,
+        "source": "GGPK BaseItemTypes + AttributeRequirements JOIN",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "scripts/build_base_items_poe2.py"
+      ],
+      "declared_generator": "scripts/build_base_items_poe2.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "35c9c8db",
+        "date": "2026-04-25"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/build_corpus_collection_backlog.latest.json": {
+      "bytes": 59703,
+      "sha256_16": "910ae24edaa3c046",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_corpus_collection_backlog"
+      },
+      "writer_candidates": [
+        "python/build_corpus_collection_backlog.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "generated_no_fingerprint"
+    },
+    "data/build_corpus_collection_targets_v1.json": {
+      "bytes": 6546,
+      "sha256_16": "878b2cd781a911c1",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_corpus_collection_targets"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_corpus_expanded_collection_queue_v1.json": {
+      "bytes": 194475,
+      "sha256_16": "b577512b93bdee19",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_corpus_expanded_collection_queue"
+      },
+      "writer_candidates": [
+        "python/build_corpus_expanded_collection_queue.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/build_corpus_manual_pob_sources_v1.json": {
+      "bytes": 35073,
+      "sha256_16": "792d9ca0f397ea1c",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_corpus_manual_pob_sources"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "orphan"
+    },
+    "data/build_corpus_pob_link_probe.latest.json": {
+      "bytes": 658114,
+      "sha256_16": "8fc7544c77116620",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_corpus_pob_link_probe"
+      },
+      "writer_candidates": [
+        "python/build_corpus_pob_link_probe.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/build_corpus_promoted_case_snapshots.latest.json": {
+      "bytes": 1043740,
+      "sha256_16": "c9f4a60db623db89",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_corpus_promoted_case_snapshots"
+      },
+      "writer_candidates": [
+        "python/build_corpus_promoted_case_snapshots.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/build_corpus_promoted_instances.latest.json": {
+      "bytes": 397782,
+      "sha256_16": "d911572efae0717e",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_corpus_promoted_instances"
+      },
+      "writer_candidates": [
+        "python/build_corpus_promote_ready_pobs.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/build_corpus_seed.example.json": {
+      "bytes": 11193,
+      "sha256_16": "779922d23b361c6f",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_corpus"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_corpus_support_matrix.json": {
+      "bytes": 1971,
+      "sha256_16": "1559d589163fe637",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_corpus_taxonomy.json": {
+      "bytes": 6330,
+      "sha256_16": "023715f853011f15",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "38ea6116",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_data_recommendation.example.json": {
+      "bytes": 1223,
+      "sha256_16": "5b32db77e9c3b33a",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_profile.example.json": {
+      "bytes": 6363,
+      "sha256_16": "4b814da21c86e779",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_profile"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_taxonomy_fixtures.json": {
+      "bytes": 7149,
+      "sha256_16": "4738bcfd50346f34",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "38ea6116",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_transition_patterns.json": {
+      "bytes": 28903,
+      "sha256_16": "854cc42949381f2c",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_transition_patterns_curated.json": {
+      "bytes": 6032,
+      "sha256_16": "7f29faa4a062af80",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_variant_collection_queue_v1.json": {
+      "bytes": 15287,
+      "sha256_16": "496d9461aec6b8f3",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_real_case_collection_queue"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_variant_live_source_probe.latest.json": {
+      "bytes": 150908,
+      "sha256_16": "87c15b9b7892bdea",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_variant_live_source_probe"
+      },
+      "writer_candidates": [
+        "python/build_variant_live_source_probe.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "generated_no_fingerprint"
+    },
+    "data/build_variant_real_cases_v1.json": {
+      "bytes": 123874,
+      "sha256_16": "d031d809362aa02f",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_variant_real_cases"
+      },
+      "writer_candidates": [
+        "python/build_variant_evidence_sync.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "generated_no_fingerprint"
+    },
+    "data/build_variant_research_queue.latest.json": {
+      "bytes": 18130,
+      "sha256_16": "ffde6ba36692694c",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_variant_research_queue"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_variant_research_strategy.latest.json": {
+      "bytes": 14157,
+      "sha256_16": "bc0d8aa0531a3822",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_variant_research_strategy"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_variant_rule_calibration_log.example.json": {
+      "bytes": 1053,
+      "sha256_16": "dfe19584844a2046",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "build_variant_rule_calibration_log"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_variant_rules_v2.json": {
+      "bytes": 467,
+      "sha256_16": "73ab92628cb2a079",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_variant_seed_v2.example.json": {
+      "bytes": 10884,
+      "sha256_16": "2562defd0eba435b",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_variant_model_v2"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_variant_site_index_probe.latest.json": {
+      "bytes": 18186,
+      "sha256_16": "5fd41f0ecbc14978",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_variant_site_index_probe"
+      },
+      "writer_candidates": [
+        "python/build_variant_site_index_probe.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "generated_no_fingerprint"
+    },
+    "data/build_variant_source_hunt_plan.latest.json": {
+      "bytes": 44715,
+      "sha256_16": "7b4b6191736588e9",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_variant_source_hunt_plan"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/build_variant_verification_audit.latest.json": {
+      "bytes": 40931,
+      "sha256_16": "5719b359f7f1d1a9",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_build_variant_verification_audit"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/campaign_structure_poe2.json": {
+      "bytes": 2638,
+      "sha256_16": "1b7bf2dfe0b95653",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "{'world_areas': 'data/game_data_poe2/WorldAreas.json', 'quest': 'data/game_data_poe2/Quest.json'}",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "scripts/build_poe2_campaign_structure.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "b3360169",
+        "date": "2026-04-23"
+      },
+      "in_db_catalog": false,
+      "status": "generated_no_fingerprint"
+    },
+    "data/db_catalog.json": {
+      "bytes": 20713,
+      "sha256_16": "8fb907bb3f5d61ea",
+      "parse_error": null,
+      "provenance": {
+        "generator": "python/ggpk_index.py",
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": "python/ggpk_index.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "generated_no_fingerprint"
+    },
+    "data/defense_mod_tiers.json": {
+      "bytes": 25521,
+      "sha256_16": "a84a9357c4c6da03",
+      "parse_error": null,
+      "provenance": {
+        "generator": "scripts/extract_defense_mod_tiers.py",
+        "generated_at": "2026-04-17T07:07:53+00:00",
+        "source": "_analysis/neversink_8.19.0b/NeverSink's filter - 1-REGULAR.filter",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "scripts/extract_defense_mod_tiers.py"
+      ],
+      "declared_generator": "scripts/extract_defense_mod_tiers.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "6c52b14d",
+        "date": "2026-04-17"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/divcard_mapping.json": {
+      "bytes": 1931,
+      "sha256_16": "5fb628f19b7decf8",
+      "parse_error": null,
+      "provenance": {
+        "generator": "scripts/validate_divcard_mapping.py (Wiki 대조 검증)",
+        "generated_at": "2026-04-17",
+        "source": "manual_curation",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": "scripts/validate_divcard_mapping.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "6c52b14d",
+        "date": "2026-04-17"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/farming_meta/farming_meta_all.json": {
+      "bytes": 34954,
+      "sha256_16": "86960bbc64eb641a",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2025-11-22T23:33:39.718091",
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/filter_build_targets/poe1_luminary_bot_ssf_3_29.json": {
+      "bytes": 2013,
+      "sha256_16": "75770208c7a4da38",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "{'title': '(SSF) Luminary bot - League start guide [POE]', 'creator': 'Path of Chores', 'patch': '3.29', 'local_file': 'C:\\\\Users\\\\User\\\\Downloads\\\\(POE용어 교정 번역) (SSF) Luminary bot - League start guid",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_filter_build_targets"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "59df4c1b",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/gear_aliases.json": {
+      "bytes": 3068,
+      "sha256_16": "a9e1db97ab9e2b37",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "gear_normalizer.py — normalize_item 1단계(alias)",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "0d4fa915",
+        "date": "2026-04-21"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/gem_aliases.json": {
+      "bytes": 5528,
+      "sha256_16": "adfe3be824dcac96",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "coach_normalizer.py — normalize_gem 2단계(alias) 조회 테이블",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "0d4fa915",
+        "date": "2026-04-21"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/gem_damage_types.json": {
+      "bytes": 95273,
+      "sha256_16": "ed0223cb008c81f4",
+      "parse_error": null,
+      "provenance": {
+        "generator": "python/extract_gem_damage_types.py",
+        "generated_at": "2026-04-17T07:45:12+00:00",
+        "source": "PathOfBuildingCommunity src/Data/Skills/*.lua (MIT). Game data © GGG.",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "python/extract_gem_damage_types.py"
+      ],
+      "declared_generator": "python/extract_gem_damage_types.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "6c52b14d",
+        "date": "2026-04-17"
+      },
+      "in_db_catalog": false,
+      "status": "generated_no_fingerprint"
+    },
+    "data/gem_levels.json": {
+      "bytes": 87507,
+      "sha256_16": "eb9140fc8d4b93d0",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "poedb.tw",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/gem_taxonomy_adversarial_audit.latest.json": {
+      "bytes": 2626,
+      "sha256_16": "83fce5013cae64f2",
+      "parse_error": null,
+      "provenance": {
+        "generator": "python/gem_taxonomy_adversarial_audit.py",
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_gem_taxonomy_adversarial_audit"
+      },
+      "writer_candidates": [],
+      "declared_generator": "python/gem_taxonomy_adversarial_audit.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/gem_weapon_requirements.json": {
+      "bytes": 33510,
+      "sha256_16": "74136966f2259c2a",
+      "parse_error": null,
+      "provenance": {
+        "generator": "python/extract_gem_weapon_reqs.py",
+        "generated_at": null,
+        "source": "PathOfBuildingCommunity src/Data/Skills/*.lua (MIT). Game data © GGG.",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "python/extract_gem_weapon_reqs.py"
+      ],
+      "declared_generator": "python/extract_gem_weapon_reqs.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "221269d1",
+        "date": "2026-04-16"
+      },
+      "in_db_catalog": false,
+      "status": "generated_no_fingerprint"
+    },
+    "data/guide_sources/_template.poe1_external_guide_source.json": {
+      "bytes": 2001,
+      "sha256_16": "7bd2ec5e4dcdea88",
+      "parse_error": null,
+      "provenance": {
+        "generator": "manual_import",
+        "generated_at": null,
+        "source": "{'local_path': '', 'bytes': 0, 'sha256': '', 'note': ''}",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_external_guide_source"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "c1c70721",
+        "date": "2026-07-17"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_sources/poe1_brand_guide_zeeboub_v2.json": {
+      "bytes": 47144,
+      "sha256_16": "4029341847dec9e4",
+      "parse_error": null,
+      "provenance": {
+        "generator": "manual_import_from_markdown",
+        "generated_at": null,
+        "source": "{'local_path': 'C:\\\\Users\\\\User\\\\Downloads\\\\Brand Guide 2.0의 사본.md', 'bytes': 76720, 'sha256': '3b8d7a41cfdf3f424f42f54303fb860f53accb9da1a66fae16d3d41746c6936a', 'note': 'SHA256 is a checksum for sou",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_external_guide_source"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/guide_sources/poe1_cws_chieftain_emiracles_3_29_v1.json": {
+      "bytes": 14859,
+      "sha256_16": "3e0a7d09710717bb",
+      "parse_error": null,
+      "provenance": {
+        "generator": "manual_web_import_from_creator_guide_and_video",
+        "generated_at": null,
+        "source": "{'local_path': 'manual web import; no verbatim transcript stored', 'bytes': 0, 'sha256': 'not_applicable', 'note': 'Creator-written Mobalytics guide plus creator video metadata/description were inspec",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_external_guide_source"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "cc4e50d9",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_sources/poe1_cws_chieftain_emiracles_3_29_v2.json": {
+      "bytes": 28343,
+      "sha256_16": "d93a3cc497dc7586",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "{'source_id': 'mobalytics_329', 'kind': 'creator_written_guide', 'authority': 100, 'updated_at': '2026-08-05', 'url': 'https://mobalytics.gg/poe/profile/emi/builds/3-29-cws-chieftain', 'title': '[3.29",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "pathcraft_cws_knowledge_pack"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ccf81cf3",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_sources/poe1_cws_chieftain_emiracles_v1.json": {
+      "bytes": 18427,
+      "sha256_16": "3798299e8553d3b0",
+      "parse_error": null,
+      "provenance": {
+        "generator": "manual_import_from_mobalytics_guide_body",
+        "generated_at": null,
+        "source": "{'local_path': 'user_pasted_mobalytics_guide_body_2026_07_17', 'bytes': 0, 'sha256': 'not_a_file_import_no_checksum', 'note': 'Imported from user-pasted guide body, not a local file. bytes/sha256 are ",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_external_guide_source"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "84a017a1",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_sources/poe1_cyclone_shockwave_slayer_sanavixx_3_29_v1.json": {
+      "bytes": 77301,
+      "sha256_16": "fab8c4206a5074aa",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "{'source_id': 'creator_hub', 'kind': 'creator_site', 'authority': 100, 'accessed_at': '2026-08-08', 'url': 'https://sanavixx.com/', 'title': 'Sanavixx Path of Exile Build Hub'}, {'source_id': 'pob_cur",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "pathcraft_creator_build_knowledge_pack"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ccf81cf3",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_sources/poe1_dark_bargain_intuitive_link_luminary_3_29_v1.json": {
+      "bytes": 23278,
+      "sha256_16": "8d874063e6428349",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "{'source_id': 'official_329_patch', 'kind': 'official_patch_notes', 'authority': 100, 'url': 'https://www.pathofexile.com/forum/view-thread/3985332', 'title': 'Content Update 3.29.0 — Curse of the All",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "pathcraft_creator_build_knowledge_pack"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ccf81cf3",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_sources/poe1_flamewood_totem_jorgen_3_29_v1.json": {
+      "bytes": 6113,
+      "sha256_16": "1d7893ad8da25880",
+      "parse_error": null,
+      "provenance": {
+        "generator": "manual_web_import_from_creator_video_description",
+        "generated_at": null,
+        "source": "{'local_path': 'manual web import; no transcript stored', 'bytes': 0, 'sha256': 'not_applicable', 'note': 'Creator video title, description, timestamps, and linked PoBs inspected manually.'}",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_external_guide_source"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "cc4e50d9",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_sources/poe1_luminary_allie_bob_friends_3_29_v1.json": {
+      "bytes": 53932,
+      "sha256_16": "b21ba0732f06adf1",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "{'source_id': 'mobalytics_current', 'kind': 'creator_written_guide', 'authority': 100, 'updated_at': '2026-08-07', 'url': 'https://mobalytics.gg/poe/profile/allie/builds/allies-bob-and-friends-3-29-st",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "pathcraft_creator_build_knowledge_pack"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ccf81cf3",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_templates/archetype_attack.json": {
+      "bytes": 11400,
+      "sha256_16": "71f78864366a0942",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/guide_templates/archetype_dot.json": {
+      "bytes": 13365,
+      "sha256_16": "b9911ec0f81bbfc9",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "PoE Vault - Toxic Rain Trickster, Maxroll TR Pathfinder",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_templates/archetype_minion.json": {
+      "bytes": 12571,
+      "sha256_16": "60aed997d0e72fc8",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "PoE Vault - BalorMage SRS Guide, Maxroll Poison SRS",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_templates/archetype_spell.json": {
+      "bytes": 10470,
+      "sha256_16": "d6ff074ae05876a9",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/guide_templates/builds/spell_brand_penance_inquisitor.json": {
+      "bytes": 8882,
+      "sha256_16": "c7bb8253cf9aeac6",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "ZeeBoub Brand Guide 2.0",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/guide_templates/common_template.json": {
+      "bytes": 17824,
+      "sha256_16": "0519348ea7d0fa7c",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef012806",
+        "date": "2026-04-08"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/hc_divcard_tiers.json": {
+      "bytes": 1065,
+      "sha256_16": "ec85de1e602aa82b",
+      "parse_error": null,
+      "provenance": {
+        "generator": "scripts/refresh_hc_divcard_tiers.py",
+        "generated_at": "2026-04-17T04:51:08+00:00",
+        "source": "poe.ninja itemoverview",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "scripts/refresh_hc_divcard_tiers.py"
+      ],
+      "declared_generator": "scripts/refresh_hc_divcard_tiers.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "6c52b14d",
+        "date": "2026-04-17"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/id_mod_filtering.json": {
+      "bytes": 32121,
+      "sha256_16": "38e3b6a8aa5b2cca",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-04-19T14:17:08+00:00",
+        "source": "NeverSink's filter - 1-REGULAR.filter v8.19.0b",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "scripts/extract_id_mod_filtering.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "c002e5e8",
+        "date": "2026-04-19"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/id_mod_filtering_poe2.json": {
+      "bytes": 1966,
+      "sha256_16": "516143c6b7a2957f",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-04-24T11:51:10+00:00",
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "scripts/extract_id_mod_filtering_poe2.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "e53d14a9",
+        "date": "2026-04-25"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/item_class_map_poe2.json": {
+      "bytes": 5391,
+      "sha256_16": "dc53fd4315a40618",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "741e732c",
+        "date": "2026-04-23"
+      },
+      "in_db_catalog": true,
+      "status": "orphan"
+    },
+    "data/knowledge_sources.json": {
+      "bytes": 7151,
+      "sha256_16": "6cd05172a863286b",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "{'db_catalog': {'kind': 'catalog', 'evidence_layer': 'inventory', 'retrieval_mode': 'summary', 'vectorization': 'never_exact_metadata', 'path': 'db_catalog.json', 'status': 'ok'}, 'ggpk_gems': {'kind'",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "pathcraft_knowledge_sources"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "8f53c5b4",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/korean_dat_data.json": {
+      "bytes": 113,
+      "sha256_16": "c9e83263f14d0a1c",
+      "parse_error": "JSONDecodeError: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)",
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "broken"
+    },
+    "data/leveling_confirmation_pack.example.json": {
+      "bytes": 3452,
+      "sha256_16": "a19152dc6310c720",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_leveling_confirmation_pack"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/merged_translations.json": {
+      "bytes": 4809267,
+      "sha256_16": "e1db5b2dfd4eb4e3",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "merged",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/neversink_filter_rules.json": {
+      "bytes": 15929,
+      "sha256_16": "407fe8faa7ca8c1a",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-04-17",
+        "source": "NeverSink Indepth Loot Filter",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "6c52b14d",
+        "date": "2026-04-17"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/new_player_friction_knowledge.json": {
+      "bytes": 13400,
+      "sha256_16": "022c0c2783d64228",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "orphan"
+    },
+    "data/poe1_3_29_corpus_reuse_review_v1.json": {
+      "bytes": 58749,
+      "sha256_16": "2883460e4be662ea",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-17",
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_3_29_corpus_reuse_review"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/poe1_3_29_global_review.json": {
+      "bytes": 14868,
+      "sha256_16": "b289844bb28a6c88",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-17",
+        "source": "{'id': 'official_329_patch_notes', 'type': 'official', 'url': 'https://www.pathofexile.com/forum/view-thread/3985332', 'usage': 'primary source for Allflame, Mercenaries core, gems, sockets, Atlas, pa",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_3_29_global_review"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/poe1_3_29_information_intake_plan.json": {
+      "bytes": 9332,
+      "sha256_16": "2ae4e103a59d0ae3",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_3_29_information_intake_plan"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "orphan"
+    },
+    "data/poe1_3_29_information_intake_status.latest.json": {
+      "bytes": 6224,
+      "sha256_16": "26112f4ade358499",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-17T00:19:45.544206+00:00",
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_3_29_information_intake_status"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/poe1_3_29_live_validation_queue.json": {
+      "bytes": 8675,
+      "sha256_16": "e6973b05e3acab8a",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-17",
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_3_29_live_validation_queue"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/poe1_3_29_luminary_merc_link_intake_v1.json": {
+      "bytes": 10540,
+      "sha256_16": "2e370e0c6abedfb7",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-17T00:00:00+07:00",
+        "source": "{'source_id': 'user_supplied_luminary_transcript_2026_07_17', 'kind': 'user_supplied_transcript', 'local_path': 'C:\\\\Users\\\\User\\\\Desktop\\\\luminary.txt', 'status': 'ingested_summary_only', 'copyright_",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_3_29_luminary_merc_link_intake"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/poe1_creator_source_registry_v1.json": {
+      "bytes": 30833,
+      "sha256_16": "6f929eb353074bf3",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_creator_source_registry"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "orphan"
+    },
+    "data/poe1_gem_taxonomy.latest.json": {
+      "bytes": 2212478,
+      "sha256_16": "6570cefcb89ae0d1",
+      "parse_error": null,
+      "provenance": {
+        "generator": "{'raw': ['data/game_data/BaseItemTypes.json', 'data/game_data/SkillGems.json', 'data/game_data/ActiveSkills.json'], 'derived': ['data/valid_gems.json', 'data/gem_damage_types.json', 'data/gem_weapon_r",
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_gem_taxonomy"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/poe1_global_creator_priority_matrix_v1.json": {
+      "bytes": 206926,
+      "sha256_16": "70297046d44bab48",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-17T00:00:00+07:00",
+        "source": "data/poe1_global_creator_source_targets_v1.json",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_global_creator_priority_matrix"
+      },
+      "writer_candidates": [
+        "python/build_poe1_global_creator_priority_matrix.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/poe1_global_creator_source_targets_v1.json": {
+      "bytes": 311390,
+      "sha256_16": "f4294ab80479053b",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-17T00:00:00+07:00",
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_global_creator_source_targets"
+      },
+      "writer_candidates": [
+        "python/build_poe1_global_creator_source_targets.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/poe1_leveling_archetype_route_plan_v1.json": {
+      "bytes": 22535,
+      "sha256_16": "bc5ae29b2feb1365",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_leveling_archetype_route_plan"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "orphan"
+    },
+    "data/poe1_reliquarian_build_shells_3_29.json": {
+      "bytes": 36451,
+      "sha256_16": "8bf5fcae8d9bbba1",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-16",
+        "source": "{'id': 'broy_reliquarian_shells_transcript', 'type': 'user_provided_video_transcript', 'title': 'New Reliquarian Nodes are SO MUCH BETTER Than Last League! | PoE 3.29 Build Shells', 'usage': 'Communit",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_reliquarian_build_shell_research"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/poe1_representative_build_board.latest.json": {
+      "bytes": 28414,
+      "sha256_16": "c7beb33f50161797",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_representative_build_board"
+      },
+      "writer_candidates": [
+        "python/build_representative_build_board.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "generated_no_fingerprint"
+    },
+    "data/poe1_representative_build_profiles.latest.json": {
+      "bytes": 332529,
+      "sha256_16": "b06b9151b3523f1d",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_representative_build_profiles"
+      },
+      "writer_candidates": [
+        "python/build_representative_build_profiles.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/poe1_representative_source_slot_queue.latest.json": {
+      "bytes": 170606,
+      "sha256_16": "7a07c7f4adf81b4f",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_representative_source_slot_queue"
+      },
+      "writer_candidates": [
+        "python/build_poe1_representative_source_slot_queue.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/poe1_season_research_3_29_allflame_live.json": {
+      "bytes": 28832,
+      "sha256_16": "eedae95acb52b188",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-17",
+        "source": "{'id': 'official_patch_notes_3_29', 'type': 'official', 'url': 'https://www.pathofexile.com/forum/view-thread/3985332', 'usage': '3.29 patch notes: Allflame league systems, Bloodline classes, Luminary",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_season_research"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/poe1_season_research_3_29_reliquarian.json": {
+      "bytes": 33896,
+      "sha256_16": "39fb96bac8173b0c",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-16",
+        "source": "{'id': 'official_3_29_reveal', 'type': 'official', 'url': 'https://www.pathofexile.com/forum/view-thread/3982050', 'usage': 'release timing and expansion context'}, {'id': 'official_reliquarian_reveal",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_season_research"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/poe1_watchlist_candidate_cards.latest.json": {
+      "bytes": 48203,
+      "sha256_16": "b14fbdc298225378",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-17",
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_watchlist_candidate_cards"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "84a017a1",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/poe_ninja_build_variant_evidence_queue_v1.json": {
+      "bytes": 28003,
+      "sha256_16": "1ad93e035a0a16c8",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_poe_ninja_build_variant_evidence_queue"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "orphan"
+    },
+    "data/poe_ninja_build_variant_sampling_plan_v1.json": {
+      "bytes": 13685,
+      "sha256_16": "1da40262b574a8cb",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_poe_ninja_build_variant_sampling_plan"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": true,
+      "status": "orphan"
+    },
+    "data/poe_trade_korean.json": {
+      "bytes": 5887299,
+      "sha256_16": "3833bee91588cce8",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "poe-trade-api",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/poe_translations.json": {
+      "bytes": 38955422,
+      "sha256_16": "d065e2dda140b1a5",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/progressive_hide.json": {
+      "bytes": 58949,
+      "sha256_16": "8d8c8613dc90123f",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "_analysis/wreckers_ssf_analysis.md",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "6fffcadc",
+        "date": "2026-04-15"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/quest_rewards.json": {
+      "bytes": 7910,
+      "sha256_16": "54fc056a64379123",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "poewiki.net",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/quest_rewards_old.json": {
+      "bytes": 6929030,
+      "sha256_16": "dc922a138ae6f64c",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "poedb.tw",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/recommendation_adversarial_cases.example.json": {
+      "bytes": 1431,
+      "sha256_16": "d754405d5ee77b7a",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_recommendation_adversarial_cases"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/schema/poe1_build_corpus.schema.json": {
+      "bytes": 10086,
+      "sha256_16": "8d1ca78ec7215168",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/schema/poe1_build_profile.schema.json": {
+      "bytes": 13655,
+      "sha256_16": "b36b7a02160943d8",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/schema/poe1_build_variant_model_v2.schema.json": {
+      "bytes": 6507,
+      "sha256_16": "bb9ca58d5637f95e",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/schema/poe1_season_research.schema.json": {
+      "bytes": 3343,
+      "sha256_16": "05ea5945546e3508",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/schema/poe1_user_state.schema.json": {
+      "bytes": 3871,
+      "sha256_16": "034949ad1e2216ae",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/schema/schema.min.json": {
+      "bytes": 2012509,
+      "sha256_16": "11a18fa582409bce",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": true,
+      "last_commit": {
+        "commit": "1a857c78",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "pinned_elsewhere"
+    },
+    "data/schema/schema_poe2_override.json": {
+      "bytes": 1624,
+      "sha256_16": "7cd9d44354606219",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "scripts/drift_reverse_poe2.py 실측 byte pattern 분석 (2026-04-22)",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "0121d9cf",
+        "date": "2026-04-26"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/season_goal_scion_reliquarian_3_29.json": {
+      "bytes": 4965,
+      "sha256_16": "280bd72d87312202",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-07-16",
+        "source": "{'official_release': 'https://www.pathofexile.com/forum/view-thread/3982050', 'official_reliquarian': 'https://www.pathofexile.com/forum/view-thread/3984866', 'official_reliquarian_images': ['https://",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "pathcraft_season_goal_research"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/syndicate_layouts.json": {
+      "bytes": 10491,
+      "sha256_16": "530e53c4688c678c",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-04-20",
+        "source": "POE Wiki Betrayal guide + Maxroll 3.28 Betrayal + aoeah/fdaytalk/poe-vault cheat sheets (T2 교차)",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "22bf544b",
+        "date": "2026-04-21"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/syndicate_members.json": {
+      "bytes": 8739,
+      "sha256_16": "76e2c951746b8ed1",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-04-20",
+        "source": "PoE Wiki(T1) + Maxroll 3.28 patch notes(T1) + fdaytalk/aoeah/poe-vault 3.28 cheatsheet(T2, 3 교차).",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "22bf544b",
+        "date": "2026-04-21"
+      },
+      "in_db_catalog": false,
+      "status": "declared_no_generator"
+    },
+    "data/t1_craft_bases.json": {
+      "bytes": 4720,
+      "sha256_16": "4e235b2a700c81ed",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-04-19",
+        "source": "커뮤니티 크래프팅 가이드 (crafting of exile, poe.ninja 메타)",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "43a1f3ea",
+        "date": "2026-04-19"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/unique_base_mapping.json": {
+      "bytes": 26338,
+      "sha256_16": "06224eb3f311ad13",
+      "parse_error": null,
+      "provenance": {
+        "generator": "scripts/refresh_unique_base_mapping.py",
+        "generated_at": "2026-04-17",
+        "source": "poewiki.net Cargo API (items table)",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "scripts/refresh_unique_base_mapping.py"
+      ],
+      "declared_generator": "scripts/refresh_unique_base_mapping.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "6c52b14d",
+        "date": "2026-04-17"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/unique_tiers.json": {
+      "bytes": 12064,
+      "sha256_16": "a33c18ca28ea6832",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "neversink, cobalt_strict, cobalt_uber",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "f86d4400",
+        "date": "2026-04-15"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/uniques_poe2.json": {
+      "bytes": 79140,
+      "sha256_16": "b1a97c60f0c24e27",
+      "parse_error": null,
+      "provenance": {
+        "generator": "scripts/build_uniques_poe2.py",
+        "generated_at": null,
+        "source": "GGPK UniqueStashLayout + Words + UniqueStashTypes JOIN",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "scripts/build_uniques_poe2.py"
+      ],
+      "declared_generator": "scripts/build_uniques_poe2.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "35c9c8db",
+        "date": "2026-04-25"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/update_cache.json": {
+      "bytes": 107,
+      "sha256_16": "d2f9e32792acd52c",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/user_state.example.json": {
+      "bytes": 831,
+      "sha256_16": "9198d2470af2e800",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": null,
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_user_state"
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "953d9188",
+        "date": "2026-07-18"
+      },
+      "in_db_catalog": false,
+      "status": "orphan"
+    },
+    "data/valid_gems.json": {
+      "bytes": 31992,
+      "sha256_16": "2f94ccbdbad5b800",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": "2026-08-19",
+        "source": "{'ggpk_gems': 659, 'transfigured_gems': 215, 'bare_support_names': 270}",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [
+        "scripts/refresh_valid_gems.py"
+      ],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ad2f9ec6",
+        "date": "2026-08-19"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/valid_gems_poe2.json": {
+      "bytes": 188253,
+      "sha256_16": "a623a879e0948214",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "GGPK 2026-04-22 poe2 0.4.0d",
+        "ggpk_fingerprint": null,
+        "has_meta_block": true,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "2dcbb804",
+        "date": "2026-04-22"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/vendor_recipes.json": {
+      "bytes": 37992,
+      "sha256_16": "db7b5f44e1bfd5fe",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "poedb.tw",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "ef6d7447",
+        "date": "2026-04-07"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    },
+    "data/weapon_base_to_class.json": {
+      "bytes": 11358,
+      "sha256_16": "fbe396bb479e23d4",
+      "parse_error": null,
+      "provenance": {
+        "generator": "python/extract_weapon_bases.py",
+        "generated_at": null,
+        "source": "data/game_data/BaseItemTypes.json (GGPK extract)",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": "python/extract_weapon_bases.py",
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "221269d1",
+        "date": "2026-04-16"
+      },
+      "in_db_catalog": true,
+      "status": "generated_no_fingerprint"
+    },
+    "data/weapon_mod_tiers.json": {
+      "bytes": 2310,
+      "sha256_16": "286c16735f2bfb7a",
+      "parse_error": null,
+      "provenance": {
+        "generator": null,
+        "generated_at": null,
+        "source": "NeverSink 1-REGULAR.filter:812-844 (v8.19.0b) - 룰 구조 참고",
+        "ggpk_fingerprint": null,
+        "has_meta_block": false,
+        "declared_dataset_kind": null
+      },
+      "writer_candidates": [],
+      "declared_generator": null,
+      "externally_pinned": false,
+      "last_commit": {
+        "commit": "221269d1",
+        "date": "2026-04-16"
+      },
+      "in_db_catalog": true,
+      "status": "declared_no_generator"
+    }
+  }
+}
