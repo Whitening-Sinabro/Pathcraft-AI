@@ -20,6 +20,7 @@ sys.path.insert(0, str(ROOT / "python"))
 
 from build_labeller import (  # noqa: E402
     _PROXY_DELIVERY,
+    classify_damage,
     classify_defense,
     classify_delivery,
     classify_range,
@@ -122,7 +123,7 @@ def test_every_label_records_its_evidence(labelled):
 def test_axis_rules_on_known_skills(skill, expected_delivery, expected_range):
     primary, _ = classify_delivery(skill)
     assert primary == expected_delivery, f"{skill}: delivery"
-    assert classify_range(skill, primary) == expected_range, f"{skill}: range"
+    assert classify_range(skill, primary)[0] == expected_range, f"{skill}: range"
 
 
 def test_totem_and_minion_both_proxy_but_different_delivery():
@@ -130,8 +131,8 @@ def test_totem_and_minion_both_proxy_but_different_delivery():
     totem_primary, _ = classify_delivery("Ancestral Protector")
     minion_primary, _ = classify_delivery("Summon Raging Spirit")
     assert totem_primary != minion_primary
-    assert classify_range("Ancestral Protector", totem_primary) == "proxy"
-    assert classify_range("Summon Raging Spirit", minion_primary) == "proxy"
+    assert classify_range("Ancestral Protector", totem_primary)[0] == "proxy"
+    assert classify_range("Summon Raging Spirit", minion_primary)[0] == "proxy"
 
 
 # --------------------------------------------------------------------------
@@ -173,14 +174,68 @@ def test_defense_survives_missing_stats():
     assert result["layer"] == []
 
 
-def test_unresolved_declares_damage_and_weapon(labelled):
-    """원소/무기는 PoB Lua skillTypes 가 있어야 한다 — 아직 안 붙였다고 명시."""
+def test_weapon_is_always_declared_unresolved(labelled):
+    """무기 축은 아직 안 붙였다 — 조용히 빈 값이 채워지는 것을 막는다."""
     for path, player in labelled:
-        assert "damage" in player["unresolved"], path.name
         assert "weapon" in player["unresolved"], path.name
+
+
+def test_damage_unresolved_flag_matches_element(labelled):
+    """원소를 못 잡았으면 반드시 unresolved 에 남아야 한다."""
+    for path, player in labelled:
+        has_element = bool(player["damage"]["element"]["primary"])
+        assert has_element != ("damage" in player["unresolved"]), path.name
 
 
 def test_detect_main_skill_reports_reason_when_empty():
     skill, source = detect_main_skill({})
     assert skill is None
     assert source == "no_skill_groups"
+
+
+# --------------------------------------------------------------------------
+# damage 축 + aoe 후보
+# --------------------------------------------------------------------------
+
+@pytest.mark.parametrize("skill,element", [
+    ("Fireball", "fire"),
+    ("Ice Nova", "cold"),
+    ("Arc", "lightning"),
+    ("Essence Drain", "chaos"),
+])
+def test_element_from_skill_types(skill, element):
+    assert classify_damage(skill)["element"]["primary"] == element
+
+
+def test_physical_attack_element_stays_unresolved():
+    """공격의 물리 피해는 스킬이 아니라 무기에서 온다 — GGPK 에 통합 Physical 타입이 없다."""
+    result = classify_damage("Heavy Strike")
+    assert result["resolved"] is False
+    assert result["element"]["primary"] is None
+
+
+def test_dot_skill_gets_dot_form():
+    assert "dot" in classify_damage("Essence Drain")["form"]
+
+
+def test_area_skill_narrows_range_to_two_candidates():
+    """GGPK 는 자기중심/원격 aoe 를 가르지 않는다. 확정하지 말고 후보만 좁힌다."""
+    value, candidates = classify_range("Firestorm", "self_cast")
+    assert value is None
+    assert candidates == ["aoe_self", "aoe_remote"]
+
+
+def test_confirmed_range_has_no_candidates():
+    for skill, delivery in (("Cyclone", "attack"), ("Split Arrow", "attack")):
+        value, candidates = classify_range(skill, delivery)
+        assert value is not None and candidates == []
+
+
+def test_damage_resolution_rate(labelled):
+    resolved = [p for _, p in labelled if p["damage"]["element"]["primary"]]
+    assert len(resolved) / len(labelled) >= 0.55
+
+
+def test_range_is_confirmed_or_narrowed_for_most_builds(labelled):
+    known = [p for _, p in labelled if p["range"] or p["range_candidates"]]
+    assert len(known) / len(labelled) >= 0.80

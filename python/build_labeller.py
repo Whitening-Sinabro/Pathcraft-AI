@@ -200,17 +200,52 @@ def classify_delivery(skill_name: str) -> tuple[str | None, list[str]]:
     return primary, secondary
 
 
-def classify_range(skill_name: str, delivery_primary: str | None) -> str | None:
-    """proxy / melee / projectile 만 확정할 수 있다. aoe 구분은 이 소스로 불가."""
+def classify_range(skill_name: str, delivery_primary: str | None) -> tuple[str | None, list[str]]:
+    """(확정값, 후보목록).
+
+    proxy / melee / projectile 은 확정된다. `area` 는 GGPK 에 있지만
+    자기중심(Ice Nova/Righteous Fire)과 원격(Firestorm/Storm Call)을 가르는 id 는
+    없다 — 양방향 시드 모두 분리 id 가 나오지 않았다. 그래서 5지선다를 2지선다로
+    좁혀 후보만 돌려주고 확정은 하지 않는다.
+    """
     if delivery_primary in _PROXY_DELIVERY:
-        return "proxy"
+        return "proxy", []
     ids = _type_ids()
     present = skill_types(skill_name)
     if ids.get("melee") in present:
-        return "melee"
+        return "melee", []
     if ids.get("projectile") in present:
-        return "projectile"
-    return None
+        return "projectile", []
+    if ids.get("area") in present:
+        return None, ["aoe_self", "aoe_remote"]
+    return None, []
+
+
+_ELEMENTS = ("fire", "cold", "lightning", "chaos")
+
+
+def classify_damage(skill_name: str) -> dict[str, Any]:
+    """스킬 타입으로 원소/형태 판정.
+
+    물리는 GGPK 에 통합 타입이 없다(근접물리 23 / 물리주문 27 만 따로 존재).
+    공격 스킬의 물리 피해는 스킬이 아니라 무기에서 오기 때문이며, 그래서
+    원소가 하나도 안 잡힌 공격 스킬은 미판정으로 남긴다.
+    """
+    ids = _type_ids()
+    present = skill_types(skill_name)
+    matched = [name for name in _ELEMENTS if ids.get(name) in present]
+
+    entry = (_load(GEM_TAXONOMY_PATH).get("entries") or {}).get(skill_name) or {}
+    flags = entry.get("damage_flags") or {}
+    form = ["dot"] if flags.get("dot") else ["hit"]
+
+    if not matched:
+        return {"element": {"primary": None, "secondary": []}, "form": form, "resolved": False}
+    return {
+        "element": {"primary": matched[0], "secondary": matched[1:]},
+        "form": form,
+        "resolved": True,
+    }
 
 
 def _stat(build_data: dict, key: str) -> float:
@@ -273,6 +308,8 @@ def label_player(build_data: dict) -> dict[str, Any]:
             "main_skill_source": source,
             "delivery": {"primary": None, "secondary": []},
             "range": None,
+            "range_candidates": [],
+            "damage": {"element": {"primary": None, "secondary": []}, "form": []},
             "defense": {"pool": None, "layer": []},
             "unresolved": ["delivery", "range", "damage", "defense", "weapon", "scaling"],
         }
@@ -281,16 +318,19 @@ def label_player(build_data: dict) -> dict[str, Any]:
     if primary is None:
         unresolved.append("delivery")
 
-    engagement = classify_range(skill, primary)
+    engagement, range_candidates = classify_range(skill, primary)
     if engagement is None:
         unresolved.append("range")
+
+    damage = classify_damage(skill)
+    if not damage["resolved"]:
+        unresolved.append("damage")
 
     defense = classify_defense(build_data)
     if defense["pool"] is None:
         unresolved.append("defense")
 
     unresolved.append("scaling")  # 이 소스로는 성장 축을 알 수 없다
-    unresolved.append("damage")   # 원소는 PoB Lua skillTypes 필요 (GGPK SkillGems 에 태그 없음)
     unresolved.append("weapon")
 
     return {
@@ -298,6 +338,8 @@ def label_player(build_data: dict) -> dict[str, Any]:
         "main_skill_source": source,
         "delivery": {"primary": primary, "secondary": secondary},
         "range": engagement,
+        "range_candidates": range_candidates,
+        "damage": {"element": damage["element"], "form": damage["form"]},
         "defense": defense,
         "unresolved": unresolved,
     }

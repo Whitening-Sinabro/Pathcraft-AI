@@ -101,9 +101,12 @@ def test_trap_and_mine_do_not_overlap(table, pinned):
 def test_unresolved_axes_are_declared_not_guessed(pinned):
     """이 소스로 못 얻는 것을 명시한다 — 조용히 빠지면 레이블러가 틀린 값을 채운다."""
     assert set(pinned["unresolved"]) == set(UNRESOLVED)
-    for axis in ("aoe", "channelled", "trigger"):
+    for axis in ("physical", "channelled", "trigger"):
         assert axis in pinned["unresolved"]
         assert pinned["unresolved"][axis], f"{axis}: 미해결 사유가 비어 있음"
+    # aoe 는 area(7) 로 해결됐다 — 미해결 목록에 남아 있으면 안 된다
+    assert "aoe" not in pinned["unresolved"]
+    assert "area" in pinned["types"]
 
 
 def test_pin_records_provenance(pinned):

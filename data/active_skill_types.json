@@ -6,6 +6,17 @@
   "source_table": "data/game_data/ActiveSkills.json",
   "skills_with_display_name": 1097,
   "types": {
+    "area": {
+      "id": 7,
+      "member_count": 637,
+      "sample": [
+        "Abberath's Fury",
+        "Absolution",
+        "Absolution of Inspiring",
+        "Abyssal Cry",
+        "Abyssal Maw"
+      ]
+    },
     "attack": {
       "id": 0,
       "member_count": 361,
@@ -28,6 +39,28 @@
         "Envy"
       ]
     },
+    "chaos": {
+      "id": 41,
+      "member_count": 81,
+      "sample": [
+        "Abyssal Cry",
+        "Abyssal Maw",
+        "Alchemist's Mark",
+        "Aspect of Arakaali",
+        "Bane"
+      ]
+    },
+    "cold": {
+      "id": 29,
+      "member_count": 130,
+      "sample": [
+        "Arctic Armour",
+        "Aspect of the Brine King",
+        "Cold Snap",
+        "Cold Snap of Power",
+        "Commandment of Spite"
+      ]
+    },
     "curse": {
       "id": 68,
       "member_count": 16,
@@ -37,6 +70,28 @@
         "Conductivity",
         "Despair",
         "Elemental Weakness"
+      ]
+    },
+    "fire": {
+      "id": 28,
+      "member_count": 183,
+      "sample": [
+        "Abberath's Fury",
+        "Alchemist's Mark",
+        "Anger",
+        "Armageddon Brand",
+        "Armageddon Brand of Recall"
+      ]
+    },
+    "lightning": {
+      "id": 30,
+      "member_count": 171,
+      "sample": [
+        "Absolution",
+        "Absolution of Inspiring",
+        "Animate Guardian of Smiting",
+        "Arc",
+        "Arc of Oscillating"
       ]
     },
     "link": {
@@ -129,7 +184,7 @@
     }
   },
   "unresolved": {
-    "aoe": "양성(Ground Slam/Sunder/Firestorm/Righteous Fire/Cyclone) 공통 id 가 음성과 분리되지 않음",
+    "physical": "통합 Physical 타입이 없다. 근접물리(23: Boneshatter/Bladestorm)와 물리주문(27: Ethereal Knives/Exsanguinate)만 따로 존재하고 둘의 교집합은 없다. 공격 스킬의 물리 피해는 스킬이 아니라 무기에서 오므로 게임 논리상 맞다 — 공격 빌드의 원소는 무기/전환 보조를 봐야 정해진다.",
     "channelled": "양성(Cyclone/Lightning Tendrils/Incinerate/Blade Flurry/Divine Ire) 공통 id 가 존재하지 않음",
     "trigger": "시드 정의 자체가 애매 — CoC/CWS 는 보조 젬이라 ActiveSkills 행이 아님"
   }

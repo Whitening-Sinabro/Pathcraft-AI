@@ -90,11 +90,45 @@ SEED_CASES: dict[str, tuple[list[str], list[str], int | None]] = {
         ["Grace", "Hatred", "Flammability", "Fireball", "Cyclone", "Summon Raging Spirit"],
         None,
     ),
+    # 원소 — fire/cold/lightning 이 28/29/30 으로 연속인 것이 구조적 방증이다.
+    "fire": (
+        ["Fireball", "Firestorm", "Incinerate", "Flame Surge"],
+        ["Ice Nova", "Freezing Pulse", "Arc", "Split Arrow", "Bane"],
+        None,
+    ),
+    "cold": (
+        ["Ice Nova", "Freezing Pulse", "Ice Spear", "Glacial Cascade"],
+        ["Fireball", "Arc", "Split Arrow", "Bane", "Firestorm"],
+        None,
+    ),
+    "lightning": (
+        ["Arc", "Ball Lightning", "Spark", "Lightning Tendrils"],
+        ["Fireball", "Ice Nova", "Split Arrow", "Bane"],
+        None,
+    ),
+    # 후보 [8, 34, 41] 중 41 만 fire 와 거의 안 겹친다(2건). 34 는 지속피해(Fire Trap /
+    # Conflagration 포함), 8 은 424개짜리 범용 플래그다.
+    "chaos": (
+        ["Bane", "Contagion", "Essence Drain", "Soulrend"],
+        ["Fireball", "Ice Nova", "Arc", "Split Arrow"],
+        41,
+    ),
+    # range 의 aoe 판정 근거.
+    "area": (
+        ["Firestorm", "Ground Slam", "Ice Nova", "Righteous Fire"],
+        ["Split Arrow", "Spectral Throw", "Heavy Strike", "Frenzy"],
+        None,
+    ),
 }
 
 # 이 GGPK 필드로는 갈리지 않는 성질. 다른 근거가 필요하다 (스킬 스탯 / PoB / 수동).
 UNRESOLVED = {
-    "aoe": "양성(Ground Slam/Sunder/Firestorm/Righteous Fire/Cyclone) 공통 id 가 음성과 분리되지 않음",
+    "physical": (
+        "통합 Physical 타입이 없다. 근접물리(23: Boneshatter/Bladestorm)와 "
+        "물리주문(27: Ethereal Knives/Exsanguinate)만 따로 존재하고 둘의 교집합은 없다. "
+        "공격 스킬의 물리 피해는 스킬이 아니라 무기에서 오므로 게임 논리상 맞다 — "
+        "공격 빌드의 원소는 무기/전환 보조를 봐야 정해진다."
+    ),
     "channelled": "양성(Cyclone/Lightning Tendrils/Incinerate/Blade Flurry/Divine Ire) 공통 id 가 존재하지 않음",
     "trigger": "시드 정의 자체가 애매 — CoC/CWS 는 보조 젬이라 ActiveSkills 행이 아님",
 }
