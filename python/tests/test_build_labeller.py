@@ -20,6 +20,7 @@ sys.path.insert(0, str(ROOT / "python"))
 
 from build_labeller import (  # noqa: E402
     _PROXY_DELIVERY,
+    classify_defense,
     classify_delivery,
     classify_range,
     detect_main_skill,
@@ -131,6 +132,52 @@ def test_totem_and_minion_both_proxy_but_different_delivery():
     assert totem_primary != minion_primary
     assert classify_range("Ancestral Protector", totem_primary) == "proxy"
     assert classify_range("Summon Raging Spirit", minion_primary) == "proxy"
+
+
+# --------------------------------------------------------------------------
+# defense 축
+# --------------------------------------------------------------------------
+
+def test_defense_pool_resolved_for_almost_every_build(labelled):
+    resolved = [p for _, p in labelled if p["defense"]["pool"]]
+    assert len(resolved) / len(labelled) >= 0.95
+
+
+def test_defense_pool_values_are_in_vocabulary(labelled):
+    allowed = {"life", "es", "hybrid", "ci", None}
+    for path, player in labelled:
+        assert player["defense"]["pool"] in allowed, path.name
+
+
+def test_defense_layers_are_in_vocabulary(labelled):
+    allowed = {"armour", "evasion", "block", "suppress", "recoup", "maxres"}
+    for path, player in labelled:
+        assert set(player["defense"]["layer"]) <= allowed, path.name
+
+
+def test_ci_is_detected_by_life_equal_to_one():
+    """CI 는 최대 생명력을 1 로 만든다 — 임계값이 아니라 게임 규칙이다."""
+    assert classify_defense({"stats": {"life": 1, "energy_shield": 9000}})["pool"] == "ci"
+    assert classify_defense({"stats": {"life": 5000, "energy_shield": 0}})["pool"] == "life"
+    assert classify_defense({"stats": {"life": 4000, "energy_shield": 4000}})["pool"] == "hybrid"
+
+
+def test_block_layer_requires_nonzero_block():
+    assert "block" not in classify_defense({"stats": {"life": 5000, "block": 0}})["layer"]
+    assert "block" in classify_defense({"stats": {"life": 5000, "block": 40}})["layer"]
+
+
+def test_defense_survives_missing_stats():
+    result = classify_defense({})
+    assert result["pool"] is None
+    assert result["layer"] == []
+
+
+def test_unresolved_declares_damage_and_weapon(labelled):
+    """원소/무기는 PoB Lua skillTypes 가 있어야 한다 — 아직 안 붙였다고 명시."""
+    for path, player in labelled:
+        assert "damage" in player["unresolved"], path.name
+        assert "weapon" in player["unresolved"], path.name
 
 
 def test_detect_main_skill_reports_reason_when_empty():

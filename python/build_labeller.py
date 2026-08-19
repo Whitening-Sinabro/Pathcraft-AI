@@ -213,6 +213,55 @@ def classify_range(skill_name: str, delivery_primary: str | None) -> str | None:
     return None
 
 
+def _stat(build_data: dict, key: str) -> float:
+    value = (build_data.get("stats") or {}).get(key)
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+# 실측 63빌드: es 비율 30% 이상이 하이브리드 구간. defense_type_extractor 와 같은 값.
+HYBRID_ES_RATIO = 0.3
+
+
+def classify_defense(build_data: dict) -> dict[str, Any]:
+    """stats 로 방어 축 판정.
+
+    pool: CI 는 최대 생명력을 1 로 만든다 → `life == 1` 이 확정 신호다.
+    layer: armour/evasion 은 장비만으로도 거의 항상 0 이 아니라서 원시값으로는
+           판정할 수 없다. 이미 검증된 `defense_type_extractor` 의 판단을 재사용한다.
+    """
+    life = _stat(build_data, "life")
+    energy_shield = _stat(build_data, "energy_shield")
+
+    pool: str | None = None
+    if life == 1 and energy_shield > 0:
+        pool = "ci"
+    elif life > 0 or energy_shield > 0:
+        total = life + energy_shield
+        ratio = energy_shield / total if total else 0.0
+        pool = "hybrid" if ratio >= HYBRID_ES_RATIO else "life"
+
+    layer: list[str] = []
+    try:
+        from defense_type_extractor import extract_build_defence_types
+
+        axes = extract_build_defence_types(build_data)
+    except ImportError:
+        logger.warning("defense_type_extractor 를 불러오지 못함 — layer 판정 생략")
+        axes = frozenset()
+
+    if "ar" in axes:
+        layer.append("armour")
+    if "ev" in axes:
+        layer.append("evasion")
+    if _stat(build_data, "block") > 0:
+        layer.append("block")
+
+    return {"pool": pool, "layer": layer}
+
+
 def label_player(build_data: dict) -> dict[str, Any]:
     """플레이어 주체 하나를 레이블링. 확정 못 한 축은 unresolved 로 남긴다."""
     skill, source = detect_main_skill(build_data)
@@ -224,6 +273,7 @@ def label_player(build_data: dict) -> dict[str, Any]:
             "main_skill_source": source,
             "delivery": {"primary": None, "secondary": []},
             "range": None,
+            "defense": {"pool": None, "layer": []},
             "unresolved": ["delivery", "range", "damage", "defense", "weapon", "scaling"],
         }
 
@@ -235,13 +285,20 @@ def label_player(build_data: dict) -> dict[str, Any]:
     if engagement is None:
         unresolved.append("range")
 
+    defense = classify_defense(build_data)
+    if defense["pool"] is None:
+        unresolved.append("defense")
+
     unresolved.append("scaling")  # 이 소스로는 성장 축을 알 수 없다
+    unresolved.append("damage")   # 원소는 PoB Lua skillTypes 필요 (GGPK SkillGems 에 태그 없음)
+    unresolved.append("weapon")
 
     return {
         "main_skill": skill,
         "main_skill_source": source,
         "delivery": {"primary": primary, "secondary": secondary},
         "range": engagement,
+        "defense": defense,
         "unresolved": unresolved,
     }
 
