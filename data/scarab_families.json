@@ -1,0 +1,528 @@
+{
+  "schema_version": 1,
+  "dataset_kind": "poe1_scarab_families",
+  "generated_by": "python/scripts/derive_scarab_families.py",
+  "source_tables": [
+    "data/game_data/Scarabs.json",
+    "data/game_data/ScarabTypes.json",
+    "data/game_data/BaseItemTypes.json",
+    "data/game_data/Tags.json"
+  ],
+  "ggpk_fingerprint": "019fe48f83f63484",
+  "description": "Scarabs.Type → ScarabTypes 계열, Scarabs.Items → BaseItemTypes 변형으로 도출. 아틀라스 메커니즘 조인은 앵커 노드 id 의 내부 토큰을 쓴다(Anarchy=Rogue Exiles).",
+  "family_count": 28,
+  "active_variant_count": 130,
+  "retired_count": 66,
+  "families": {
+    "bestiary": {
+      "type_index": 0,
+      "scarab_type_id": "Bestiary",
+      "tag": "bestiary_scarab",
+      "atlas_mechanic": "bestiary",
+      "variant_count": 4,
+      "variants": [
+        "Bestiary Scarab",
+        "Bestiary Scarab of Duplicating",
+        "Bestiary Scarab of the Herd",
+        "Bestiary Scarab of the Shadowed Crow"
+      ]
+    },
+    "breach": {
+      "type_index": 1,
+      "scarab_type_id": "Breach",
+      "tag": "breach_scarab",
+      "atlas_mechanic": "breach",
+      "variant_count": 6,
+      "variants": [
+        "Breach Scarab of Instability",
+        "Breach Scarab of Resonant Cascade",
+        "Breach Scarab of the Dreamer",
+        "Breach Scarab of the Hive",
+        "Breach Scarab of the Incensed Swarm",
+        "Breach Scarab of the Marshal"
+      ]
+    },
+    "maps": {
+      "type_index": 2,
+      "scarab_type_id": "Maps",
+      "tag": "maps_scarab",
+      "atlas_mechanic": "maps",
+      "variant_count": 5,
+      "variants": [
+        "Cartography Scarab of Corruption",
+        "Cartography Scarab of Escalation",
+        "Cartography Scarab of Risk",
+        "Cartography Scarab of Singularity",
+        "Cartography Scarab of the Multitude"
+      ]
+    },
+    "uniques": {
+      "type_index": 3,
+      "scarab_type_id": "Uniques",
+      "tag": "uniques_scarab",
+      "atlas_mechanic": "unique_maps",
+      "variant_count": 3,
+      "variants": [
+        "Titanic Scarab",
+        "Titanic Scarab of Legend",
+        "Titanic Scarab of Treasures"
+      ]
+    },
+    "divination_cards": {
+      "type_index": 4,
+      "scarab_type_id": "DivinationCards",
+      "tag": "divination_scarab",
+      "atlas_mechanic": "divination_cards",
+      "variant_count": 3,
+      "variants": [
+        "Divination Scarab of Pilfering",
+        "Divination Scarab of Plenty",
+        "Divination Scarab of The Cloister"
+      ]
+    },
+    "torment": {
+      "type_index": 5,
+      "scarab_type_id": "Torment",
+      "tag": "torment_scarab",
+      "atlas_mechanic": "torment",
+      "variant_count": 4,
+      "variants": [
+        "Torment Scarab",
+        "Torment Scarab of Peculiarity",
+        "Torment Scarab of Possession",
+        "Torment Scarab of Release"
+      ]
+    },
+    "strongbox": {
+      "type_index": 6,
+      "scarab_type_id": "Strongbox",
+      "tag": "strongbox_scarab",
+      "atlas_mechanic": "strongboxes",
+      "variant_count": 5,
+      "variants": [
+        "Ambush Scarab",
+        "Ambush Scarab of Containment",
+        "Ambush Scarab of Discernment",
+        "Ambush Scarab of Hidden Compartments",
+        "Ambush Scarab of Potency"
+      ]
+    },
+    "harbinger": {
+      "type_index": 7,
+      "scarab_type_id": "Harbinger",
+      "tag": "harbinger_scarab",
+      "atlas_mechanic": "harbinger",
+      "variant_count": 4,
+      "variants": [
+        "Harbinger Scarab",
+        "Harbinger Scarab of Obelisks",
+        "Harbinger Scarab of Regency",
+        "Harbinger Scarab of Warhoards"
+      ]
+    },
+    "legion": {
+      "type_index": 8,
+      "scarab_type_id": "Legion",
+      "tag": "legion_scarab",
+      "atlas_mechanic": "legion",
+      "variant_count": 5,
+      "variants": [
+        "Legion Scarab",
+        "Legion Scarab of Eternal Conflict",
+        "Legion Scarab of Officers",
+        "Legion Scarab of The Sekhema",
+        "Legion Scarab of Treasures"
+      ]
+    },
+    "delve": {
+      "type_index": 9,
+      "scarab_type_id": "Delve",
+      "tag": "delve_scarab",
+      "atlas_mechanic": "delve",
+      "variant_count": 3,
+      "variants": [
+        "Sulphite Scarab",
+        "Sulphite Scarab of Fumes",
+        "Sulphite Scarab of Greed"
+      ]
+    },
+    "blight": {
+      "type_index": 10,
+      "scarab_type_id": "Blight",
+      "tag": "blight_scarab",
+      "atlas_mechanic": "blight",
+      "variant_count": 5,
+      "variants": [
+        "Blight Scarab",
+        "Blight Scarab of Blooming",
+        "Blight Scarab of Bounty",
+        "Blight Scarab of Invigoration",
+        "Blight Scarab of the Blightheart"
+      ]
+    },
+    "abyss": {
+      "type_index": 11,
+      "scarab_type_id": "Abyss",
+      "tag": "abyss_scarab",
+      "atlas_mechanic": "abyss",
+      "variant_count": 5,
+      "variants": [
+        "Abyss Scarab",
+        "Abyss Scarab of Crystals",
+        "Abyss Scarab of Descending",
+        "Abyss Scarab of Multitudes",
+        "Abyss Scarab of the Consort"
+      ]
+    },
+    "influence": {
+      "type_index": 12,
+      "scarab_type_id": "Influence",
+      "tag": "influence_scarab",
+      "atlas_mechanic": null,
+      "variant_count": 4,
+      "variants": [
+        "Influencing Scarab of Hordes",
+        "Influencing Scarab of Interference",
+        "Influencing Scarab of the Elder",
+        "Influencing Scarab of the Shaper"
+      ]
+    },
+    "ultimatum": {
+      "type_index": 13,
+      "scarab_type_id": "Ultimatum",
+      "tag": "ultimatum_scarab",
+      "atlas_mechanic": "ultimatum",
+      "variant_count": 5,
+      "variants": [
+        "Ultimatum Scarab",
+        "Ultimatum Scarab of Bribing",
+        "Ultimatum Scarab of Catalysing",
+        "Ultimatum Scarab of Dueling",
+        "Ultimatum Scarab of Inscription"
+      ]
+    },
+    "anarchy": {
+      "type_index": 14,
+      "scarab_type_id": "Anarchy",
+      "tag": "anarchy_scarab",
+      "atlas_mechanic": "rogue_exiles",
+      "variant_count": 4,
+      "variants": [
+        "Anarchy Scarab",
+        "Anarchy Scarab of Gigantification",
+        "Anarchy Scarab of Partnership",
+        "Anarchy Scarab of the Exceptional"
+      ]
+    },
+    "misc": {
+      "type_index": 15,
+      "scarab_type_id": "Misc",
+      "tag": "misc_scarab",
+      "atlas_mechanic": null,
+      "variant_count": 11,
+      "variants": [
+        "Scarab of Adversaries",
+        "Scarab of Divinity",
+        "Scarab of Evolution",
+        "Scarab of Hunted Traitors",
+        "Scarab of Monstrous Lineage",
+        "Scarab of Radiant Storms",
+        "Scarab of Stability",
+        "Scarab of Wisps",
+        "Scarab of the Commander",
+        "Scarab of the Dextral",
+        "Scarab of the Sinistral"
+      ]
+    },
+    "delirium": {
+      "type_index": 16,
+      "scarab_type_id": "Delirium",
+      "tag": "delirium_scarab",
+      "atlas_mechanic": "delirium",
+      "variant_count": 5,
+      "variants": [
+        "Delirium Scarab",
+        "Delirium Scarab of Delusions",
+        "Delirium Scarab of Mania",
+        "Delirium Scarab of Neuroses",
+        "Delirium Scarab of Paranoia"
+      ]
+    },
+    "ritual": {
+      "type_index": 17,
+      "scarab_type_id": "Ritual",
+      "tag": "ritual_scarab",
+      "atlas_mechanic": "ritual",
+      "variant_count": 4,
+      "variants": [
+        "Ritual Scarab of Abundance",
+        "Ritual Scarab of Corpses",
+        "Ritual Scarab of Selectiveness",
+        "Ritual Scarab of Wisps"
+      ]
+    },
+    "harvest": {
+      "type_index": 18,
+      "scarab_type_id": "Harvest",
+      "tag": "harvest_scarab",
+      "atlas_mechanic": "harvest",
+      "variant_count": 3,
+      "variants": [
+        "Harvest Scarab",
+        "Harvest Scarab of Cornucopia",
+        "Harvest Scarab of Doubling"
+      ]
+    },
+    "domination": {
+      "type_index": 19,
+      "scarab_type_id": "Domination",
+      "tag": "domination_scarab",
+      "atlas_mechanic": "shrines",
+      "variant_count": 4,
+      "variants": [
+        "Domination Scarab",
+        "Domination Scarab of Apparitions",
+        "Domination Scarab of Evolution",
+        "Domination Scarab of Terrors"
+      ]
+    },
+    "betrayal": {
+      "type_index": 20,
+      "scarab_type_id": "Betrayal",
+      "tag": "betrayal_scarab",
+      "atlas_mechanic": "betrayal",
+      "variant_count": 4,
+      "variants": [
+        "Betrayal Scarab",
+        "Betrayal Scarab of Reinforcements",
+        "Betrayal Scarab of Unbreaking",
+        "Betrayal Scarab of the Allflame"
+      ]
+    },
+    "essence": {
+      "type_index": 21,
+      "scarab_type_id": "Essence",
+      "tag": "essence_scarab",
+      "atlas_mechanic": "essence",
+      "variant_count": 5,
+      "variants": [
+        "Essence Scarab",
+        "Essence Scarab of Adaptation",
+        "Essence Scarab of Ascent",
+        "Essence Scarab of Calcification",
+        "Essence Scarab of Stability"
+      ]
+    },
+    "incursion": {
+      "type_index": 22,
+      "scarab_type_id": "Incursion",
+      "tag": "incursion_scarab",
+      "atlas_mechanic": "incursion",
+      "variant_count": 4,
+      "variants": [
+        "Incursion Scarab",
+        "Incursion Scarab of Champions",
+        "Incursion Scarab of Invasion",
+        "Incursion Scarab of Timelines"
+      ]
+    },
+    "beyond": {
+      "type_index": 23,
+      "scarab_type_id": "Beyond",
+      "tag": "beyond_scarab",
+      "atlas_mechanic": "beyond",
+      "variant_count": 5,
+      "variants": [
+        "Beyond Scarab",
+        "Beyond Scarab of Corruption",
+        "Beyond Scarab of Haemophilia",
+        "Beyond Scarab of Resurgence",
+        "Beyond Scarab of the Invasion"
+      ]
+    },
+    "expedition": {
+      "type_index": 24,
+      "scarab_type_id": "Expedition",
+      "tag": "expedition_scarab",
+      "atlas_mechanic": "expedition",
+      "variant_count": 5,
+      "variants": [
+        "Expedition Scarab",
+        "Expedition Scarab of Archaeology",
+        "Expedition Scarab of Infusion",
+        "Expedition Scarab of Runefinding",
+        "Expedition Scarab of Verisium Powder"
+      ]
+    },
+    "uber": {
+      "type_index": 25,
+      "scarab_type_id": "Uber",
+      "tag": "uber_scarab",
+      "atlas_mechanic": null,
+      "variant_count": 7,
+      "variants": [
+        "Horned Scarab of Awakening",
+        "Horned Scarab of Bloodlines",
+        "Horned Scarab of Glittering",
+        "Horned Scarab of Nemeses",
+        "Horned Scarab of Pandemonium",
+        "Horned Scarab of Preservation",
+        "Horned Scarab of Tradition"
+      ]
+    },
+    "settlers": {
+      "type_index": 26,
+      "scarab_type_id": "Settlers",
+      "tag": "settlers_scarab",
+      "atlas_mechanic": "settlers_of_kalguur",
+      "variant_count": 4,
+      "variants": [
+        "Kalguuran Scarab",
+        "Kalguuran Scarab of Enriching",
+        "Kalguuran Scarab of Guarded Riches",
+        "Kalguuran Scarab of Refinement"
+      ]
+    },
+    "mercenaries": {
+      "type_index": 27,
+      "scarab_type_id": "Mercenaries",
+      "tag": "mercenaries_scarab",
+      "atlas_mechanic": "mercenaries",
+      "variant_count": 4,
+      "variants": [
+        "Trarthan Scarab",
+        "Trarthan Scarab of Infamy",
+        "Trarthan Scarab of Renown",
+        "Trarthan Scarab of Surprising Alliances"
+      ]
+    }
+  },
+  "unmapped_to_atlas_mechanic": {
+    "influence": "영향(Shaper/Elder/Conqueror) 갑충석. 아틀라스 그룹은 이 축으로 안 쪼개져 있다",
+    "misc": "단일 메커니즘이 아니다 — Monstrous Lineage / Adversaries 등 잡다한 효과 묶음",
+    "uber": "Horned 계열(정점 보스). 아틀라스에 대응하는 단일 그룹이 없다"
+  },
+  "retired": {
+    "legacy_tier_scarabs": {
+      "count": 64,
+      "tiers": [
+        "Rusted",
+        "Polished",
+        "Gilded",
+        "Winged"
+      ],
+      "family_count": 16,
+      "families": {
+        "Abyss Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Ambush Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Bestiary Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Blight Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Breach Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Cartography Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Divination Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Elder Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Expedition Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Harbinger Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Legion Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Reliquary Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Shaper Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Sulphite Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Torment Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ],
+        "Ultimatum Scarab": [
+          "Gilded",
+          "Polished",
+          "Rusted",
+          "Winged"
+        ]
+      },
+      "note": "구 티어 체계. 현행 Scarabs 계열 어디에도 없고 현행 130종에는 티어 접두사가 하나도 없다. 언제 빠졌는지는 이 레포로 말할 수 없다(patch_notes 는 3.25 부터)."
+    },
+    "not_scarab_items": [
+      {
+        "name": "Maven's Chisel of Scarabs",
+        "inherits_from": "Metadata/Items/Currency/StackableCurrency",
+        "reason": "이름에 Scarab 이 들어갔을 뿐 갑충석 상속 루트가 아니다"
+      },
+      {
+        "name": "Veiled Scarab",
+        "inherits_from": "Metadata/Items/Currency/StackableCurrency",
+        "reason": "이름에 Scarab 이 들어갔을 뿐 갑충석 상속 루트가 아니다"
+      }
+    ]
+  }
+}

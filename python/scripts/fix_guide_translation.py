@@ -96,17 +96,47 @@ RULES: tuple[Rule, ...] = (
     Rule("무형성", "비실체화", r"ntangib", "intangibility 직역"),
     Rule("무형", "비실체화", r"ntangib", "intangibility 직역"),
 
-    # --- 배신(Betrayal) — 근거: Docs/2026-08-19_LUMINARY_BOT_SSF_ATLAS_TREE_AND_BETRAYAL.md §5 ---
-    Rule("6월 찬스 100%", "준(Jun) 확률 100%", r"Jun chance", "배신 마스터 Jun 을 '6월'로 오역"),
-    Rule("언덕을 어디든지 갈 수 있습니다", "힐록은 아무 부서에나 배치",
-         r"Hillock to anywhere", "배신 멤버 Hillock 을 '언덕'으로 오역"),
+    # --- 배신(Betrayal) 배치 지시 ---
+    # 이 문서에서 가장 실행에 직결되는 정보 = "누구를 어느 부서에 넣느냐" 인데 전부 영문이었다.
+    # 멤버 한국어명은 레포 번역 데이터의 공식 문자열("X's Veiled" → "X의 장막의")에서 얻었다.
+    # 음차를 지어내지 않았다 — Guff=거프, Jorgin=요르긴, Vagan=베이건, It That Fled=달아난 그것.
+    # 부서명은 영문을 괄호로 남긴다. 인게임 언어가 무엇이든 보드에서 찾을 수 있어야 한다.
+    Rule("수송 또는 개입을 위해 도망친 것",
+         "달아난 그것(It That Fled) → 운송(Transportation) 또는 개입(Intervention) 부서",
+         r"It That Fled to Transport", "멤버명 'It That Fled' 를 문장으로 오역"),
+    Rule("Riker에서 Research OR Forti OR Transport로",
+         "라이커(Riker) → 연구(Research) / 요새(Fortification) / 운송(Transportation) 중 하나로",
+         r"Riker to Research", "배치 지시 미번역"),
     Rule("고대 오브 30개 충돌 연구입니다",
          "고대의 오브 30개를 슬램하기 위한 연구(Research) 부서입니다",
          r"Research for 30 Ancient Orbs slamming", "slam 을 '충돌'로 오역"),
-    Rule("Riker에서 Research OR Forti OR Transport로",
-         "Riker 를 연구(Research) / 요새(Fortification) / 운송(Transportation) 중 하나로",
-         r"Riker to Research", "배신 부서명 미번역"),
-    Rule("Leo에서 Forti까지", "Leo 를 요새(Fortification) 부서로", r"Leo to Forti", "배신 부서명 미번역"),
+    Rule("Vorici와 It that Fled를 개입시키도록 하십시오",
+         "보리치(Vorici)와 달아난 그것(It That Fled)을 개입(Intervention) 부서에 배치하세요",
+         r"Vorici and It that Fled into Intervention", "부서 배치를 '개입시키다'로 오역"),
+    Rule("Cameria를 운송 수단에 넣으세요",
+         "카메리아(Cameria)를 운송(Transportation) 부서에 배치하세요",
+         r"Cameria in Transportation", "Transportation 부서를 '운송 수단'으로 오역"),
+    Rule("언덕을 어디든지 갈 수 있습니다", "힐록(Hillock) → 아무 부서에나 배치",
+         r"Hillock to anywhere", "배신 멤버 Hillock 을 '언덕'으로 오역"),
+    Rule("Vagan to Transportation", "베이건(Vagan) → 운송(Transportation) 부서",
+         r"Vagan to Transportation", "배치 지시 미번역"),
+    Rule("Gravicius to Transport", "그라비시우스(Gravicius) → 운송(Transportation) 부서",
+         r"Gravicius to Transport", "배치 지시 미번역"),
+    Rule("Janus to Research", "야누스(Janus) → 연구(Research) 부서",
+         r"Janus to Research", "배치 지시 미번역"),
+    Rule("Leo에서 Forti까지", "레오(Leo) → 요새(Fortification) 부서",
+         r"Leo to Forti", "배치 지시 미번역"),
+    Rule("Rin to Forti", "린(Rin) → 요새(Fortification) 부서",
+         r"Rin to Forti", "배치 지시 미번역"),
+    Rule("6월 찬스 100%", "준(Jun) 확률 100%", r"Jun chance", "배신 마스터 Jun 을 '6월'로 오역"),
+    Rule("머: ", "용병(Merc): ", r"Merc:", "'Merc' 가 '머' 로 잘림"),
+
+    # --- 갑충석 / 균열 ---
+    # 레포 번역 데이터 확인: Scarab = 갑충석 (예: "Betrayal Scarab" → "배신 갑충석").
+    # 문서 안에서 '풍뎅이' 와 '갑충석' 이 뒤섞여 있었다.
+    Rule("풍뎅이", "갑충석", r"[Ss]carab", "Scarab 의 공식 한국어명은 갑충석"),
+    # Breach = 균열. '위반'(violation)은 완전히 다른 뜻이다.
+    Rule("위반", "균열", r"Breach", "Breach 를 '위반'으로 오역"),
     Rule("상인 라비쉬 5:1", "화려한 생명의 결실 5개를 상인에게 판매(5→1 교환)",
          r"Vendor Lavish 5 to 1", "Lavish 를 'Ravish' 로 오독한 음차"),
     Rule("41레벨 도박", "41레벨 셉터 도박", r"level 41 gambling", "닉타의 등불 요구 레벨 41 셉터 도박"),

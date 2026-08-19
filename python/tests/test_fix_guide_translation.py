@@ -197,7 +197,7 @@ def test_applicable_rules_is_the_only_gate():
 
 @pytest.mark.parametrize("korean,english,expected", [
     ("6월 찬스 100%", "for 100% Jun chance", "준(Jun) 확률 100%"),
-    ("언덕을 어디든지 갈 수 있습니다", "Hillock to anywhere", "힐록은 아무 부서에나 배치"),
+    ("언덕을 어디든지 갈 수 있습니다", "Hillock to anywhere", "힐록(Hillock) → 아무 부서에나 배치"),
     ("상인 라비쉬 5:1", "Vendor Lavish 5 to 1", "화려한 생명의 결실 5개를 상인에게 판매(5→1 교환)"),
     ("41레벨 도박", "at level 41 gambling", "41레벨 셉터 도박"),
 ])
@@ -205,3 +205,63 @@ def test_betrayal_corrections_from_audit_table(korean, english, expected):
     """근거: Docs/2026-08-19_LUMINARY_BOT_SSF_ATLAS_TREE_AND_BETRAYAL.md §5 오역 교정표."""
     corrected, _ = correct_document(make_xml([[korean]]), [english])
     assert expected in corrected
+
+
+@pytest.mark.parametrize("korean,english,expected", [
+    ("Rin to Forti:", "Rin to Forti: Unique maps", "린(Rin) → 요새(Fortification) 부서"),
+    ("Janus to Research:", "Janus to Research: Cadiro", "야누스(Janus) → 연구(Research) 부서"),
+    ("Gravicius to Transport:", "Gravicius to Transport: div cards",
+     "그라비시우스(Gravicius) → 운송(Transportation) 부서"),
+    ("Vagan to Transportation:", "Vagan to Transportation: scarab chest",
+     "베이건(Vagan) → 운송(Transportation) 부서"),
+    ("수송 또는 개입을 위해 도망친 것", "It That Fled to Transport OR Intervention",
+     "달아난 그것(It That Fled) → 운송(Transportation) 또는 개입(Intervention) 부서"),
+    ("Cameria를 운송 수단에 넣으세요", "Put Cameria in Transportation",
+     "카메리아(Cameria)를 운송(Transportation) 부서에 배치하세요"),
+])
+def test_betrayal_placement_directives_are_actionable(korean, english, expected):
+    """이 문서에서 가장 실행에 직결되는 정보 = 누구를 어느 부서에 넣느냐.
+
+    전부 영문으로 남아 있거나(‘Rin to Forti’) 문장으로 오역돼(‘도망친 것’) 있었다.
+    부서 영문명은 괄호로 남긴다 — 인게임 언어와 무관하게 보드에서 찾을 수 있어야 한다.
+    """
+    corrected, _ = correct_document(make_xml([[korean]]), [english])
+    assert expected in corrected
+
+
+def test_member_korean_names_come_from_repo_translation_data():
+    """음차를 지어내면 안 된다. 레포 공식 문자열에서 얻은 이름만 쓴다.
+
+    직관과 다른 것들이라 특히 그렇다 — Guff=거프(구프 아님), Jorgin=요르긴(조르진 아님),
+    Vagan=베이건(바간 아님), It That Fled=달아난 그것.
+    """
+    import re
+
+    corpus = "".join(
+        (ROOT / "data" / name).read_text(encoding="utf-8")
+        for name in ("poe_trade_korean.json", "merged_translations.json")
+    )
+    used = {"라이커": "Riker", "레오": "Leo", "린": "Rin", "야누스": "Janus",
+            "그라비시우스": "Gravicius", "베이건": "Vagan", "카메리아": "Cameria",
+            "보리치": "Vorici", "힐록": "Hillock", "달아난 그것": "It That Fled"}
+    for korean, english in used.items():
+        assert re.search(rf'"[^"]*{english}[^"]*"\s*:\s*"[^"]*{korean}[^"]*"', corpus), (
+            f"{english} → {korean} 이 레포 번역 데이터에 없다 — 지어낸 음차일 수 있다"
+        )
+
+
+def test_scarab_and_breach_use_official_korean_terms():
+    """Scarab=갑충석, Breach=균열. 문서 안에서 풍뎅이/갑충석, 위반/균열 이 뒤섞여 있었다."""
+    corrected, _ = correct_document(
+        make_xml([["Trarthan 풍뎅이 상자"], ["위반: Wombgifts의 고유 아이템"]]),
+        ["Trarthan scarab chest", "Breach: Uniques from Wombgifts"],
+    )
+    assert "Trarthan 갑충석 상자" in corrected
+    assert "균열:" in corrected
+    assert "풍뎅이" not in corrected and "위반" not in corrected
+
+
+def test_breach_is_not_rewritten_without_breach_evidence():
+    """'위반' 이 진짜 violation 인 문단까지 균열로 바꾸면 안 된다."""
+    corrected, _ = correct_document(make_xml([["규정 위반"]]), ["Terms of service violation"])
+    assert "규정 위반" in corrected
