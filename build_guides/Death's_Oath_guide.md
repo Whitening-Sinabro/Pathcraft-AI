@@ -1,3 +1,14 @@
+# DEPRECATED / DO NOT USE FOR GAMEPLAY
+
+This file is an old 3.27 generator mock. Its ascendancy, passive, gem, and gear
+recommendations are generic placeholders and are not a valid Death's Oath guide.
+
+Use the verified session record instead:
+
+- [`Docs/2026-08-09_WAFFLEZ_DEATHS_OATH_LEVELING_AND_PLAY_LOG.md`](../Docs/2026-08-09_WAFFLEZ_DEATHS_OATH_LEVELING_AND_PLAY_LOG.md)
+
+---
+
 #  Build Guide - Keepers League (3.27)
 
 ## Build Overview

@@ -1,3 +1,18 @@
+## 2026-08-19 — 점술 카드 전수 사다리 + GGPK 3.29 재추출
+
+**지금**: 필터 점술 카드 470장을 Luminary 사다리 13섹션(terminal Show)으로 재편 완료. 빌드 타깃은
+`data/filter_build_targets/`로 분리. GGPK를 3.29(클라 3.29.3.1.4)로 재추출하고 truth reference 재앵커 + Layer 2 교차검증 통과.
+
+**다음**: 이번 작업 커밋 여부 결정 (사다리 3파일 + GGPK 재추출 산출물 + 테스트 pin 수정, 전부 미커밋).
+
+**블로커**: 없음.
+
+**문서 포인터**: `Docs/2026-08-19_LUMINARY_BOT_SSF_ATLAS_TREE_AND_BETRAYAL.md` — Path of Chores 가이드 §5.1(첫 아틀라스 트리) poeplanner 4단계 실측 + 배신 보드 조작 절차 + 오역 교정표 + 필터 반영 현황. **필터 조치 불필요**: 균열 소비 아이템 커버리지 전수 확인 완료. `Hiveblood`는 BaseItemTypes에 없는 스탯 이름이라 필터 대상 자체가 아니고, `Growing Wombgift`는 3.29 GGPK에서도 루트 상속 + 태그 없음 = 미출시 스텁이라 계속 제외가 맞다.
+
+**알려진 기존 실패(이번 작업 무관)**: `test_representative_build_board_marks_3_28_shock_nova_confirmed` — 빌드 코퍼스 쪽, 재추출 이전부터 red.
+
+---
+
 ## 2026-07-18 Handoff — CWS 가이드 재설계 완료 + 별건 fix (미커밋)
 
 **이번 세션 = POE1 CWS 가이드 구조 재설계 (완료, master 병합).**

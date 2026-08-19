@@ -214,3 +214,8 @@
 | python/passive_tree_url.py / passive_tree_graph.py / poe1_live_intake.py / pob_raw.py | 패시브 트리 URL/그래프 + 라이브 인테이크 + PoB raw | 아니오 |
 | python/tests/ 신규 (65) | 위 모듈 회귀 테스트 (스냅샷 단언 candidate_id set pin fix 4건 포함). 커밋 14e952e | 아니오 |
 | Docs/2026-07-*.md / POE1_*.md (17) | 코퍼스 스키마/variant model v2/leveling confirmation/recommendation filter/deep research 리포트 | 예 (참조 자료) |
+| python/luminary_divcard_layer.py | Luminary 필터 점술 카드 전수 사다리 생성기 (GGPK+NeverSink 티어 → 12섹션) | 아니오 |
+| python/apply_luminary_divcard_layer.py | 사다리를 단일 필터 마커 사이에 교체 삽입 + 세 사본 기록 (멱등) | 아니오 |
+| python/tests/test_luminary_divcard_layer.py | 사다리 커버리지/비은닉/색상 일치/린트 테스트 12개 | 아니오 |
+| data/filter_build_targets/poe1_luminary_bot_ssf_3_29.json | 필터 빌드 의존 강조 정본 (점술 카드 타깃/keep + 가이드 근거). 빌드 교체 = 파일 교체 | 아니오 |
+| Docs/2026-08-19_LUMINARY_BOT_SSF_ATLAS_TREE_AND_BETRAYAL.md | Path of Chores 가이드 §5.1 첫 아틀라스 트리 검증 (poeplanner 4단계 실측) + 배신 보드 조작 절차 + 원문 오역 교정표 + 필터 반영 현황 | 예 |
