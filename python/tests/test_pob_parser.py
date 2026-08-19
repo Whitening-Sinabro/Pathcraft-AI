@@ -87,6 +87,22 @@ class TestParsePobXml:
         result = parse_pob_xml("<not><valid>xml", "https://pobb.in/test")
         assert result is None or "error" in str(result).lower() or result == {}
 
+    def test_active_tree_uses_one_based_position_without_spec_ids(self):
+        """표준 PoB activeSpec은 id 없는 Spec 목록의 1-based 위치다."""
+        xml = self._minimal_xml().replace(
+            '<Tree activeSpec="1">',
+            '<Tree activeSpec="2"><Spec title="First" treeVersion="3_25"><URL>first</URL></Spec>',
+        ).replace(
+            '<Spec treeVersion="3_25">',
+            '<Spec title="Second" treeVersion="3_25">',
+        )
+
+        result = parse_pob_xml(xml, "https://pobb.in/test")
+        options = result["progression_stages"][0]["passive_tree_options"]
+
+        assert [option["title"] for option in options if option["active"]] == ["Second"]
+        assert result["progression_stages"][0]["passive_tree_url"] == "https://www.pathofexile.com/passive-skill-tree/AAAA"
+
 
 class TestGetPobCodeFromUrl:
     """get_pob_code_from_url: URL → POB 코드 추출 (네트워크 의존)"""

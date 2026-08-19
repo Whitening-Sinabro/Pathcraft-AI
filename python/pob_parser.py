@@ -302,11 +302,17 @@ def parse_pob_xml(xml_string, pob_url):
         passive_tree_url = ""
         passive_tree_options = []
         if tree_element is not None:
-            # activeSpec 속성 우선 (1차/2차/3차 다중 트리 대응) → 레거시 active='true' → 첫 Spec
+            # PoB stores activeSpec as a one-based Spec position when Spec nodes do
+            # not carry IDs. Some older/custom XMLs instead use an explicit id.
             active_spec_id = tree_element.get('activeSpec')
             active_spec = None
             if active_spec_id:
                 active_spec = tree_element.find(f"./Spec[@id='{active_spec_id}']")
+                if active_spec is None and active_spec_id.isdigit():
+                    spec_index = int(active_spec_id) - 1
+                    specs = tree_element.findall('./Spec')
+                    if 0 <= spec_index < len(specs):
+                        active_spec = specs[spec_index]
             if active_spec is None:
                 active_spec = tree_element.find("./Spec[@active='true']") or tree_element.find('Spec')
 
