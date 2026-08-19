@@ -223,3 +223,6 @@
 | data/build_taxonomy_fixtures.json | 택소노미 수용 픽스처 8빌드 (delivery 빈칸 금지 / 정체성 튜플 충돌 금지 회귀 가드) | 아니오 |
 | python/build_taxonomy.py | 택소노미 로더 + v1 이관 + 픽스처 검증기 + CLI | 아니오 |
 | python/tests/test_build_taxonomy.py | 어휘 무결성 / v1 이관 유실 / 벡터화 정책 / 픽스처 수용 테스트 60건 | 아니오 |
+| python/scripts/derive_active_skill_types.py | GGPK ActiveSkillTypes int id 를 알려진 스킬 집합으로 역산 (--write 로 pin 갱신) | 아니오 |
+| data/active_skill_types.json | 역산된 id 맵 pin + 출처 + 미해결 축(aoe/channelled/trigger) 명시 | 아니오 |
+| python/tests/test_active_skill_types.py | pin↔현재 GGPK 재도출 일치 + attack/spell 배타 + 범주 순도 테스트 17건 | 아니오 |

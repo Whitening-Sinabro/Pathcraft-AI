@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_active_skill_type_ids",
+  "description": "GGPK ActiveSkills.ActiveSkillTypes 의 int id 를 의미로 역산한 결과. 손으로 적은 값이 아니라 derive_active_skill_types.py 가 알려진 스킬 집합으로 매번 재도출한다.",
+  "derivation": "positive seeds intersection minus negative seeds union",
+  "source_table": "data/game_data/ActiveSkills.json",
+  "skills_with_display_name": 1097,
+  "types": {
+    "attack": {
+      "id": 0,
+      "member_count": 361,
+      "sample": [
+        "...",
+        "Ancestral Blademaster",
+        "Ancestral Protector",
+        "Ancestral Warchief",
+        "Artillery Ballista"
+      ]
+    },
+    "aura": {
+      "id": 80,
+      "member_count": 18,
+      "sample": [
+        "Anger",
+        "Clarity",
+        "Determination",
+        "Discipline",
+        "Envy"
+      ]
+    },
+    "curse": {
+      "id": 68,
+      "member_count": 16,
+      "sample": [
+        "Alchemist's Mark",
+        "Assassin's Mark",
+        "Conductivity",
+        "Despair",
+        "Elemental Weakness"
+      ]
+    },
+    "link": {
+      "id": 106,
+      "member_count": 6,
+      "sample": [
+        "Destructive Link",
+        "Flame Link",
+        "Intuitive Link",
+        "Protective Link",
+        "Soul Link"
+      ]
+    },
+    "melee": {
+      "id": 19,
+      "member_count": 192,
+      "sample": [
+        "...",
+        "Ancestral Blademaster",
+        "Ancestral Protector",
+        "Ancestral Warchief",
+        "Backstab"
+      ]
+    },
+    "mine": {
+      "id": 35,
+      "member_count": 12,
+      "sample": [
+        "Fire Nova Mine",
+        "Freeze Mine",
+        "Icicle Mine",
+        "Icicle Mine of Fanning",
+        "Icicle Mine of Sabotage"
+      ]
+    },
+    "minion": {
+      "id": 5,
+      "member_count": 135,
+      "sample": [
+        "Absolution",
+        "Absolution of Inspiring",
+        "Affliction",
+        "Animate Guardian",
+        "Animate Guardian of Smiting"
+      ]
+    },
+    "projectile": {
+      "id": 2,
+      "member_count": 236,
+      "sample": [
+        "Ball Lightning",
+        "Ball Lightning of Orbiting",
+        "Barrage",
+        "Barrage of Volley Fire",
+        "Blazing Salvo"
+      ]
+    },
+    "spell": {
+      "id": 1,
+      "member_count": 690,
+      "sample": [
+        "Abberath's Fury",
+        "Absolution",
+        "Absolution of Inspiring",
+        "Abyssal Maw",
+        "Affliction"
+      ]
+    },
+    "totem": {
+      "id": 25,
+      "member_count": 30,
+      "sample": [
+        "Ancestral Blademaster",
+        "Ancestral Protector",
+        "Ancestral Warchief",
+        "Artillery Ballista",
+        "Artillery Ballista of Cross Strafe"
+      ]
+    },
+    "trap": {
+      "id": 32,
+      "member_count": 36,
+      "sample": [
+        "Bear Trap",
+        "Bear Trap of Skewers",
+        "Blade Trap",
+        "Blade Trap of Greatswords",
+        "Blade Trap of Laceration"
+      ]
+    }
+  },
+  "unresolved": {
+    "aoe": "양성(Ground Slam/Sunder/Firestorm/Righteous Fire/Cyclone) 공통 id 가 음성과 분리되지 않음",
+    "channelled": "양성(Cyclone/Lightning Tendrils/Incinerate/Blade Flurry/Divine Ire) 공통 id 가 존재하지 않음",
+    "trigger": "시드 정의 자체가 애매 — CoC/CWS 는 보조 젬이라 ActiveSkills 행이 아님"
+  }
+}
