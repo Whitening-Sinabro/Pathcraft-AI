@@ -3,7 +3,12 @@
 **지금**: 필터 점술 카드 470장을 Luminary 사다리 13섹션(terminal Show)으로 재편 완료. 빌드 타깃은
 `data/filter_build_targets/`로 분리. GGPK를 3.29(클라 3.29.3.1.4)로 재추출하고 truth reference 재앵커 + Layer 2 교차검증 통과.
 
-**다음**: 이번 작업 커밋 여부 결정 (사다리 3파일 + GGPK 재추출 산출물 + 테스트 pin 수정, 전부 미커밋).
+**지금(2)**: 8월 미커밋 56건을 7개 레이어 커밋으로 확정 완료(`15551d7`~`38ea611`). 워킹 트리 clean, 미푸시.
+빌드 택소노미 v2 착지 — 주체 4 + 정체성 축 6 + v1 이관 맵 + 픽스처 8빌드. 테스트 **1193 passed / 1 failed**(기존 red).
+
+**다음**: 자동 레이블러 — PoB 에서 `delivery/range/damage/defense/weapon` 5축 추출.
+재료는 이미 있음(`skill_tag_system.py` 1989줄 + damage/defense/weapon extractor 3종).
+그 뒤 지식 파이프라인(레지스트리 외부화 → 소스 자기선언 → 어댑터 1개 → coach 연결).
 
 **블로커**: 없음.
 
