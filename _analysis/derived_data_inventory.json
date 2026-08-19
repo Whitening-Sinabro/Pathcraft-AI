@@ -48,12 +48,12 @@
   ],
   "untracked_note": "레포에 실재하지만 git 미추적이라 인벤토리 밖. 핀이 클론에서 재현되려면 여기 있어야 한다. 감시가 필요하면 gitignore 에서 빼거나 생성기 + ggpk_fingerprint 를 갖출 것.",
   "totals": {
-    "files": 116,
-    "fingerprinted": 1,
+    "files": 117,
+    "fingerprinted": 2,
     "untracked_present": 22,
     "by_status": {
       "broken": 1,
-      "current": 1,
+      "current": 2,
       "declared_no_generator": 44,
       "generated_no_fingerprint": 30,
       "orphan": 39,
@@ -157,7 +157,10 @@
       ],
       "declared_generator": "python/scripts/derive_atlas_mechanics.py",
       "externally_pinned": false,
-      "last_commit": {},
+      "last_commit": {
+        "commit": "b9900963",
+        "date": "2026-08-19"
+      },
       "in_db_catalog": false,
       "status": "current"
     },
@@ -2204,6 +2207,27 @@
       },
       "in_db_catalog": false,
       "status": "orphan"
+    },
+    "data/scarab_families.json": {
+      "bytes": 15018,
+      "sha256_16": "84e31ca3038b3426",
+      "parse_error": null,
+      "provenance": {
+        "generator": "python/scripts/derive_scarab_families.py",
+        "generated_at": null,
+        "source": "data/game_data/Scarabs.json, data/game_data/ScarabTypes.json, data/game_data/BaseItemTypes.json",
+        "ggpk_fingerprint": "019fe48f83f63484",
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_scarab_families"
+      },
+      "writer_candidates": [
+        "python/scripts/derive_scarab_families.py"
+      ],
+      "declared_generator": "python/scripts/derive_scarab_families.py",
+      "externally_pinned": false,
+      "last_commit": {},
+      "in_db_catalog": false,
+      "status": "current"
     },
     "data/schema/poe1_build_corpus.schema.json": {
       "bytes": 10086,
