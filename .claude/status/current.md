@@ -10,8 +10,18 @@
 축 커버리지(63빌드): delivery 62 / defense 62 / 원소 40 / range 33확정+21후보. 테스트 **1247 passed / 1 failed**.
 GGPK `ActiveSkillTypes` = PoB `SkillType` enum 확인 → PoB Lua 불필요. 상세 → 메모리 [[reference-ggpk-active-skill-types]].
 
-**다음**: ① `weapon` 축(장비 슬롯 → 베이스 → 클래스) ② 지식 파이프라인
-(레지스트리 외부화 → 소스 자기선언 → 어댑터 1개 → **coach 연결**). `scaling` 은 자동화 대상 아님(사람 몫).
+**지금(4)**: 지식 소스 레지스트리 외부화(`8f53c5b`, 죽은 소스 4건 적발) + 팩 선언 블록(`ccf81cf`).
+어댑터는 미착수 — `cws_knowledge`(특정 크리에이터 모듈)가 파이프라인 본체 노릇을 하는 구조라 그 위에 얹는 방향을 폐기했다.
+
+**다음 세션 = GGPK 파생 DB 정리 (근본 원인).** 계획서:
+`~/.claude/projects/D--Pathcraft-AI/2026-08-19-derived-db-from-ggpk-handoff.md`
+- 오늘 오진 7건이 전부 같은 원인: 파생 JSON에 생성경로·drift 감지가 없다. 상세 → 메모리 [[project-derived-db-drift-root-cause]]
+- 3.29 실측: 아틀라스 메커니즘 **42개**(`PassiveSkills.AtlasGroup`) / 갑충석 **28계열 130종**(`Scarabs`+`BaseItemTypes`, 미분류 66)
+- `atlas_farming_knowledge.json` 은 10개만 앎. `atlastree-export`·`farming_meta` 는 stale
+- 전략 선택 키: archetype 폐기 → 메커니즘별 `applies_to`(택소노미 v2 축 + phase + econ). 기존 signals 17개 중 축 어휘와 맞는 건 5개뿐
+- 미조사: 갑충석 슬롯 수, 공허석 0~4 게이트, 미분류 갑충석 66
+- 순서: ①파생 JSON 전수 인벤토리 → ②메커니즘/갑충석 생성기 → ③staleness 테스트 → ④슬롯·게이트 리서치 → ⑤applies_to 재작성 → ⑥지식 어댑터
+- 이월: `weapon` 축, 지식 파이프라인 어댑터
 
 **블로커**: 없음.
 
