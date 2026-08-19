@@ -320,6 +320,22 @@ def test_every_pinned_path_is_git_tracked(pinned):
     assert not untracked, f"핀에 미추적 파일이 들어 있다: {untracked}"
 
 
+def test_untracked_derived_count_does_not_grow(scanned, pinned):
+    """미추적 파생 파일도 래칫한다.
+
+    인벤토리를 git 추적본으로 좁히면서(핀의 클론 재현성 확보) 생긴 구멍을 막는다:
+    새 파생 JSON 을 만들고 커밋 안 하면 인벤토리에도 없고 미추적 계수만 늘어
+    **아무 테스트도 안 걸렸다**. 새 파생물은 추적되든지, 여기서 걸리든지 해야 한다.
+    """
+    baseline = pinned["totals"]["untracked_present"]
+    current = scanned["totals"]["untracked_present"]
+    added = sorted(set(scanned["untracked_present"]) - set(pinned["untracked_present"]))
+    assert current <= baseline, (
+        f"미추적 파생 파일이 {baseline} → {current} 로 늘었다: {added}. "
+        "레포 자산이면 git add 후 인벤토리를 재생성하고, 로컬 산출물이면 gitignore 에 넣을 것."
+    )
+
+
 def test_untracked_derived_files_are_declared_not_hidden(scanned):
     """범위 밖으로 뺀 것을 조용히 버리지 않는다 — 무엇이 감시 밖인지 payload 가 말해야 한다."""
     assert scanned["untracked_present"], (

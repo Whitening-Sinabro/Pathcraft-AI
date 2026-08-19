@@ -39,20 +39,21 @@
     "data/indexes/allie_luminary_3_29.db",
     "data/indexes/cws_emiracles_3_29.db",
     "data/indexes/sanavixx_cyclone_3_29.db",
-    "data/skilltree-export-poe2/tree_0_4.json",
     "data/skilltree-export/alternate.json",
     "data/skilltree-export/data.json",
     "data/skilltree-export/passive_tree_translations.json",
     "data/skilltree-export/ruthless-alternate.json",
-    "data/skilltree-export/ruthless.json"
+    "data/skilltree-export/ruthless.json",
+    "data/skilltree-export-poe2/tree_0_4.json"
   ],
   "untracked_note": "레포에 실재하지만 git 미추적이라 인벤토리 밖. 핀이 클론에서 재현되려면 여기 있어야 한다. 감시가 필요하면 gitignore 에서 빼거나 생성기 + ggpk_fingerprint 를 갖출 것.",
   "totals": {
-    "files": 115,
-    "fingerprinted": 0,
+    "files": 116,
+    "fingerprinted": 1,
     "untracked_present": 22,
     "by_status": {
       "broken": 1,
+      "current": 1,
       "declared_no_generator": 44,
       "generated_no_fingerprint": 30,
       "orphan": 39,
@@ -138,6 +139,27 @@
       },
       "in_db_catalog": true,
       "status": "orphan"
+    },
+    "data/atlas_mechanics.json": {
+      "bytes": 16416,
+      "sha256_16": "5f07961e07abaf40",
+      "parse_error": null,
+      "provenance": {
+        "generator": "python/scripts/derive_atlas_mechanics.py",
+        "generated_at": null,
+        "source": "data/game_data/PassiveSkills.json",
+        "ggpk_fingerprint": "019fe48f83f63484",
+        "has_meta_block": false,
+        "declared_dataset_kind": "poe1_atlas_mechanics"
+      },
+      "writer_candidates": [
+        "python/scripts/derive_atlas_mechanics.py"
+      ],
+      "declared_generator": "python/scripts/derive_atlas_mechanics.py",
+      "externally_pinned": false,
+      "last_commit": {},
+      "in_db_catalog": false,
+      "status": "current"
     },
     "data/awakened_translations.json": {
       "bytes": 3967195,

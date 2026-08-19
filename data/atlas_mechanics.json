@@ -1,0 +1,598 @@
+{
+  "schema_version": 1,
+  "dataset_kind": "poe1_atlas_mechanics",
+  "generated_by": "python/scripts/derive_atlas_mechanics.py",
+  "source_table": "data/game_data/PassiveSkills.json",
+  "ggpk_fingerprint": "019fe48f83f63484",
+  "description": "PassiveSkills.AtlasGroup 이 sentinel 이 아닌 행에서 도출한 아틀라스 메커니즘 정본. 손으로 적은 값이 아니라 매 실행 재도출한다.",
+  "derivation": "PassiveSkills rows where AtlasGroup != sentinel, grouped by AtlasGroup",
+  "sentinel": -72340172838076674,
+  "anchor_row_count": 161,
+  "mechanic_count": 42,
+  "mechanics": {
+    "abyss": {
+      "atlas_group": 0,
+      "name": "Abyss",
+      "name_variants": [],
+      "anchor_node_count": 6,
+      "anchor_node_ids": [
+        "atlas_mastery_abyss_1",
+        "atlas_mastery_abyss_2",
+        "atlas_mastery_abyss_3",
+        "atlas_mastery_abyss_4",
+        "atlas_mastery_abyss_5",
+        "atlas_mastery_abyss_6"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "incursion": {
+      "atlas_group": 1,
+      "name": "Incursion",
+      "name_variants": [],
+      "anchor_node_count": 6,
+      "anchor_node_ids": [
+        "atlas_mastery_alva_1",
+        "atlas_mastery_alva_2",
+        "atlas_mastery_alva_3",
+        "atlas_mastery_alva_4",
+        "atlas_mastery_alva_5",
+        "atlas_mastery_alva_6"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "rogue_exiles": {
+      "atlas_group": 2,
+      "name": "Rogue Exiles",
+      "name_variants": [],
+      "anchor_node_count": 4,
+      "anchor_node_ids": [
+        "atlas_mastery_anarchy_1",
+        "atlas_mastery_anarchy_2",
+        "atlas_mastery_anarchy_3__",
+        "atlas_mastery_anarchy_4"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "bestiary": {
+      "atlas_group": 3,
+      "name": "Bestiary",
+      "name_variants": [],
+      "anchor_node_count": 6,
+      "anchor_node_ids": [
+        "atlas_mastery_bestiary_1",
+        "atlas_mastery_bestiary_2",
+        "atlas_mastery_bestiary_3",
+        "atlas_mastery_bestiary_4",
+        "atlas_mastery_bestiary_5_",
+        "atlas_mastery_bestiary_6"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "beyond": {
+      "atlas_group": 4,
+      "name": "Beyond",
+      "name_variants": [],
+      "anchor_node_count": 4,
+      "anchor_node_ids": [
+        "atlas_mastery_beyond_1",
+        "atlas_mastery_beyond_2",
+        "atlas_mastery_beyond_3",
+        "atlas_mastery_beyond_4"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "blight": {
+      "atlas_group": 5,
+      "name": "Blight",
+      "name_variants": [],
+      "anchor_node_count": 6,
+      "anchor_node_ids": [
+        "atlas_mastery_blight_1",
+        "atlas_mastery_blight_2",
+        "atlas_mastery_blight_3",
+        "atlas_mastery_blight_4",
+        "atlas_mastery_blight_5",
+        "atlas_mastery_blight_6"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "map_boss": {
+      "atlas_group": 6,
+      "name": "Map Boss",
+      "name_variants": [
+        "Map Boss",
+        "Map Bosses"
+      ],
+      "anchor_node_count": 3,
+      "anchor_node_ids": [
+        "atlas_mastery_boss_1",
+        "atlas_mastery_boss_2",
+        "atlas_mastery_boss_3"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "breach": {
+      "atlas_group": 7,
+      "name": "Breach",
+      "name_variants": [],
+      "anchor_node_count": 6,
+      "anchor_node_ids": [
+        "atlas_mastery_breach_1",
+        "atlas_mastery_breach_2_",
+        "atlas_mastery_breach_3",
+        "atlas_mastery_breach_4",
+        "atlas_mastery_breach_5_",
+        "atlas_mastery_breach_6"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "the_searing_exarch": {
+      "atlas_group": 8,
+      "name": "The Searing Exarch",
+      "name_variants": [],
+      "anchor_node_count": 2,
+      "anchor_node_ids": [
+        "atlas_mastery_cleansing_fire_1",
+        "atlas_mastery_cleansing_fire_2"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "conquerors": {
+      "atlas_group": 9,
+      "name": "Conquerors",
+      "name_variants": [],
+      "anchor_node_count": 2,
+      "anchor_node_ids": [
+        "atlas_mastery_conqueror_1",
+        "atlas_mastery_conqueror_2"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "delirium": {
+      "atlas_group": 10,
+      "name": "Delirium",
+      "name_variants": [],
+      "anchor_node_count": 5,
+      "anchor_node_ids": [
+        "atlas_mastery_delirium_1",
+        "atlas_mastery_delirium_2_",
+        "atlas_mastery_delirium_3",
+        "atlas_mastery_delirium_4",
+        "atlas_mastery_delirium_5"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "delve": {
+      "atlas_group": 11,
+      "name": "Delve",
+      "name_variants": [],
+      "anchor_node_count": 6,
+      "anchor_node_ids": [
+        "atlas_mastery_delve_1",
+        "atlas_mastery_delve_2",
+        "atlas_mastery_delve_3",
+        "atlas_mastery_delve_4",
+        "atlas_mastery_delve_5",
+        "atlas_mastery_delve_6"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "shrines": {
+      "atlas_group": 12,
+      "name": "Shrines",
+      "name_variants": [],
+      "anchor_node_count": 3,
+      "anchor_node_ids": [
+        "atlas_mastery_domination_1",
+        "atlas_mastery_domination_2",
+        "atlas_mastery_domination_3"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "the_shaper_and_elder": {
+      "atlas_group": 13,
+      "name": "The Shaper and Elder",
+      "name_variants": [],
+      "anchor_node_count": 2,
+      "anchor_node_ids": [
+        "atlas_mastery_elder_shaper_1",
+        "atlas_mastery_elder_shaper_2"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "essence": {
+      "atlas_group": 14,
+      "name": "Essence",
+      "name_variants": [],
+      "anchor_node_count": 4,
+      "anchor_node_ids": [
+        "atlas_mastery_essence_1",
+        "atlas_mastery_essence_2",
+        "atlas_mastery_essence_3",
+        "atlas_mastery_essence_4"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "expedition": {
+      "atlas_group": 15,
+      "name": "Expedition",
+      "name_variants": [],
+      "anchor_node_count": 6,
+      "anchor_node_ids": [
+        "atlas_mastery_expedition_1",
+        "atlas_mastery_expedition_3",
+        "atlas_mastery_expedition_4",
+        "atlas_mastery_expedition_5",
+        "atlas_mastery_expedition_6",
+        "atlas_mastery_expedition_7"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "harbinger": {
+      "atlas_group": 16,
+      "name": "Harbinger",
+      "name_variants": [],
+      "anchor_node_count": 3,
+      "anchor_node_ids": [
+        "atlas_mastery_harbinger_1",
+        "atlas_mastery_harbinger_2",
+        "atlas_mastery_harbinger_3"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "harvest": {
+      "atlas_group": 17,
+      "name": "Harvest",
+      "name_variants": [],
+      "anchor_node_count": 5,
+      "anchor_node_ids": [
+        "atlas_mastery_harvest_1",
+        "atlas_mastery_harvest_2",
+        "atlas_mastery_harvest_3",
+        "atlas_mastery_harvest_4",
+        "atlas_mastery_harvest_5"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "heist": {
+      "atlas_group": 18,
+      "name": "Heist",
+      "name_variants": [],
+      "anchor_node_count": 5,
+      "anchor_node_ids": [
+        "atlas_mastery_heist_1",
+        "atlas_mastery_heist_2",
+        "atlas_mastery_heist_3",
+        "atlas_mastery_heist_4",
+        "atlas_mastery_heist_5"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "betrayal": {
+      "atlas_group": 19,
+      "name": "Betrayal",
+      "name_variants": [],
+      "anchor_node_count": 6,
+      "anchor_node_ids": [
+        "atlas_mastery_jun_1",
+        "atlas_mastery_jun_2",
+        "atlas_mastery_jun_3",
+        "atlas_mastery_jun_4",
+        "atlas_mastery_jun_5",
+        "atlas_mastery_jun_6"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "labyrinth": {
+      "atlas_group": 20,
+      "name": "Labyrinth",
+      "name_variants": [],
+      "anchor_node_count": 1,
+      "anchor_node_ids": [
+        "atlas_mastery_labyrinth_1"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "legion": {
+      "atlas_group": 21,
+      "name": "Legion",
+      "name_variants": [],
+      "anchor_node_count": 5,
+      "anchor_node_ids": [
+        "atlas_mastery_legion_1",
+        "atlas_mastery_legion_2",
+        "atlas_mastery_legion_3",
+        "atlas_mastery_legion_4",
+        "atlas_mastery_legion_5"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "maps": {
+      "atlas_group": 22,
+      "name": "Maps",
+      "name_variants": [],
+      "anchor_node_count": 9,
+      "anchor_node_ids": [
+        "atlas_mastery_map_tier_1",
+        "atlas_mastery_map_tier_2",
+        "atlas_mastery_map_tier_3",
+        "atlas_mastery_map_tier_4",
+        "atlas_mastery_map_tier_5",
+        "atlas_mastery_map_tier_6",
+        "atlas_mastery_modeffect_1",
+        "atlas_mastery_modeffect_2",
+        "atlas_mastery_modeffect_3"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "ultimatum": {
+      "atlas_group": 23,
+      "name": "Ultimatum",
+      "name_variants": [],
+      "anchor_node_count": 5,
+      "anchor_node_ids": [
+        "atlas_mastery_ultimatum_1",
+        "atlas_mastery_ultimatum_2",
+        "atlas_mastery_ultimatum_3",
+        "atlas_mastery_ultimatum_4_",
+        "atlas_mastery_ultimatum_5"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "quality": {
+      "atlas_group": 24,
+      "name": "Quality",
+      "name_variants": [],
+      "anchor_node_count": 1,
+      "anchor_node_ids": [
+        "atlas_mastery_quality_1"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "rare_monsters": {
+      "atlas_group": 25,
+      "name": "Rare Monsters",
+      "name_variants": [],
+      "anchor_node_count": 1,
+      "anchor_node_ids": [
+        "atlas_mastery_rares_1"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "ritual": {
+      "atlas_group": 26,
+      "name": "Ritual",
+      "name_variants": [],
+      "anchor_node_count": 7,
+      "anchor_node_ids": [
+        "atlas_mastery_ritual_1",
+        "atlas_mastery_ritual_2",
+        "atlas_mastery_ritual_3",
+        "atlas_mastery_ritual_4",
+        "atlas_mastery_ritual_5",
+        "atlas_mastery_ritual_6",
+        "atlas_mastery_ritual_7"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "scarabs": {
+      "atlas_group": 27,
+      "name": "Scarabs",
+      "name_variants": [],
+      "anchor_node_count": 7,
+      "anchor_node_ids": [
+        "atlas_mastery_scarab_1",
+        "atlas_mastery_scarab_2",
+        "atlas_mastery_scarab_3",
+        "atlas_mastery_scarab_4",
+        "atlas_mastery_scarab_5",
+        "atlas_mastery_scarab_6",
+        "atlas_mastery_scarab_7"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "sextants": {
+      "atlas_group": 28,
+      "name": "Sextants",
+      "name_variants": [],
+      "anchor_node_count": 1,
+      "anchor_node_ids": [
+        "atlas_mastery_sextant_1"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "strongboxes": {
+      "atlas_group": 29,
+      "name": "Strongboxes",
+      "name_variants": [],
+      "anchor_node_count": 3,
+      "anchor_node_ids": [
+        "atlas_mastery_strongbox_1",
+        "atlas_mastery_strongbox_2",
+        "atlas_mastery_strongbox_3"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "synthesis": {
+      "atlas_group": 30,
+      "name": "Synthesis",
+      "name_variants": [],
+      "anchor_node_count": 1,
+      "anchor_node_ids": [
+        "atlas_mastery_synthesis_1"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "the_eater_of_worlds": {
+      "atlas_group": 31,
+      "name": "The Eater of Worlds",
+      "name_variants": [],
+      "anchor_node_count": 2,
+      "anchor_node_ids": [
+        "atlas_mastery_tangle_1",
+        "atlas_mastery_tangle_2"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "torment": {
+      "atlas_group": 32,
+      "name": "Torment",
+      "name_variants": [],
+      "anchor_node_count": 3,
+      "anchor_node_ids": [
+        "atlas_mastery_torment_1",
+        "atlas_mastery_torment_2",
+        "atlas_mastery_torment_3__"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "unique_maps": {
+      "atlas_group": 33,
+      "name": "Unique Maps",
+      "name_variants": [],
+      "anchor_node_count": 1,
+      "anchor_node_ids": [
+        "atlas_mastery_unique_1"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "vaal_side_areas": {
+      "atlas_group": 34,
+      "name": "Vaal Side Areas",
+      "name_variants": [],
+      "anchor_node_count": 2,
+      "anchor_node_ids": [
+        "atlas_mastery_vaal_1",
+        "atlas_mastery_vaal_2"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "kirac": {
+      "atlas_group": 35,
+      "name": "Kirac",
+      "name_variants": [],
+      "anchor_node_count": 4,
+      "anchor_node_ids": [
+        "atlas_mastery_kirac_1",
+        "atlas_mastery_kirac_2",
+        "atlas_mastery_kirac_3",
+        "atlas_mastery_zana_1"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "the_maven": {
+      "atlas_group": 36,
+      "name": "The Maven",
+      "name_variants": [],
+      "anchor_node_count": 1,
+      "anchor_node_ids": [
+        "atlas_mastery_maven_1"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "necropolis": {
+      "atlas_group": 37,
+      "name": "Necropolis",
+      "name_variants": [],
+      "anchor_node_count": 4,
+      "anchor_node_ids": [
+        "atlas_mastery_necropolis_1",
+        "atlas_mastery_necropolis_2",
+        "atlas_mastery_necropolis_3",
+        "atlas_mastery_necropolis_4_"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "settlers_of_kalguur": {
+      "atlas_group": 38,
+      "name": "Settlers of Kalguur",
+      "name_variants": [],
+      "anchor_node_count": 4,
+      "anchor_node_ids": [
+        "atlas_settlers_mastery_1",
+        "atlas_settlers_mastery_2",
+        "atlas_settlers_mastery_3",
+        "atlas_settlers_mastery_4_"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "atlas_memories": {
+      "atlas_group": 39,
+      "name": "Atlas Memories",
+      "name_variants": [],
+      "anchor_node_count": 2,
+      "anchor_node_ids": [
+        "atlas_mastery_memory_1",
+        "atlas_mastery_memory_2"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "mercenaries": {
+      "atlas_group": 40,
+      "name": "Mercenaries",
+      "name_variants": [],
+      "anchor_node_count": 6,
+      "anchor_node_ids": [
+        "atlas_mastery_mercenary_1",
+        "atlas_mastery_mercenary_2_",
+        "atlas_mastery_mercenary_3",
+        "atlas_mastery_mercenary_4",
+        "atlas_mastery_mercenary_5",
+        "atlas_mastery_mercenary_6"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    },
+    "divination_cards": {
+      "atlas_group": 41,
+      "name": "Divination Cards",
+      "name_variants": [],
+      "anchor_node_count": 1,
+      "anchor_node_ids": [
+        "atlas_mastery_divination_1"
+      ],
+      "has_keystone": false,
+      "has_notable": false
+    }
+  }
+}

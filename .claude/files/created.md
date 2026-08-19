@@ -235,3 +235,6 @@
 | python/tests/test_derived_data_inventory.py | pin↔현재 스캔 재대조 + staleness 게이트 + 지문 없는 파일 래칫 + 생성기 귀속 테스트 18건 | 아니오 |
 | python/scripts/fix_guide_translation.py | 한국어 번역 가이드 docx 게임 용어 오역 교정. 영문 원본과 문단 1:1 대조로 근거 있을 때만 치환(손상=corrupt/damage 분기). run 내부만 고쳐 인라인 서식 보존 | 아니오 |
 | python/tests/test_fix_guide_translation.py | 근거 없으면 미치환 / 모호어 문맥 분기 / Fractured=분열 vs Breach=균열 충돌 / run 보존 / 규칙 순서 테스트 20건 | 아니오 |
+| python/scripts/derive_atlas_mechanics.py | PassiveSkills.AtlasGroup 에서 아틀라스 메커니즘 42개 도출 (--write 로 pin 갱신). 레포 최초로 ggpk_fingerprint 를 쓰는 생성기 | 아니오 |
+| data/atlas_mechanics.json | 아틀라스 메커니즘 정본 42개 + provenance + ggpk_fingerprint. atlas_farming_knowledge.json(10개, boss_rush 는 가짜 이름) 대체 근거 | 아니오 |
+| python/tests/test_atlas_mechanics.py | pin↔GGPK 재도출 일치 / 42개 / group 0 falsy 함정 / 이름 결정성 / boss_rush 부재 / 커버리지 격차 테스트 15건 | 아니오 |
