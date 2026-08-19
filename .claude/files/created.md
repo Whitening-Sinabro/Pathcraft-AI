@@ -226,3 +226,5 @@
 | python/scripts/derive_active_skill_types.py | GGPK ActiveSkillTypes int id 를 알려진 스킬 집합으로 역산 (--write 로 pin 갱신) | 아니오 |
 | data/active_skill_types.json | 역산된 id 맵 pin + 출처 + 미해결 축(aoe/channelled/trigger) 명시 | 아니오 |
 | python/tests/test_active_skill_types.py | pin↔현재 GGPK 재도출 일치 + attack/spell 배타 + 범주 순도 테스트 17건 | 아니오 |
+| python/build_labeller.py | PoB → 택소노미 v2 자동 레이블러 (메인스킬 3단 캐스케이드 + delivery/range + 근거 기록) | 아니오 |
+| python/tests/test_build_labeller.py | 실물 63빌드 채점 + 정확도 하한 90% + 축 규칙 단위 테스트 19건 | 아니오 |
