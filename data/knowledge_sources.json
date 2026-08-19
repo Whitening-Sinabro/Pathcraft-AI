@@ -1,0 +1,200 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "pathcraft_knowledge_sources",
+  "description": "지식 파이프라인이 읽는 소스 레지스트리. 소스 추가 = 이 파일에 항목 추가 (코드 수정 불필요).",
+  "root": "data/",
+  "_field_notes": {
+    "path": "data/ 기준 단일 파일",
+    "paths": "여러 파일이 하나의 소스를 이룰 때",
+    "globs": "파일 수가 가변일 때",
+    "status": "ok = 실제 존재 / declared_no_data = 등록만 되고 데이터 없음"
+  },
+  "sources": {
+    "db_catalog": {
+      "kind": "catalog",
+      "evidence_layer": "inventory",
+      "retrieval_mode": "summary",
+      "vectorization": "never_exact_metadata",
+      "path": "db_catalog.json",
+      "status": "ok"
+    },
+    "ggpk_gems": {
+      "kind": "raw_ggpk",
+      "evidence_layer": "implementation_truth",
+      "retrieval_mode": "exact_lookup",
+      "vectorization": "never_exact_numeric",
+      "paths": [
+        "game_data/SkillGems.json",
+        "game_data/ActiveSkills.json"
+      ],
+      "status": "ok"
+    },
+    "ggpk_items_mods": {
+      "kind": "raw_ggpk",
+      "evidence_layer": "implementation_truth",
+      "retrieval_mode": "exact_lookup",
+      "vectorization": "never_exact_numeric",
+      "paths": [
+        "game_data/BaseItemTypes.json",
+        "game_data/Mods.json"
+      ],
+      "status": "ok"
+    },
+    "ggpk_passives": {
+      "kind": "raw_ggpk",
+      "evidence_layer": "implementation_truth",
+      "retrieval_mode": "exact_lookup",
+      "vectorization": "never_exact_numeric",
+      "path": "game_data/PassiveSkills.json",
+      "status": "ok"
+    },
+    "patch_delta": {
+      "kind": "patch_notes",
+      "evidence_layer": "official_text_delta",
+      "retrieval_mode": "filtered_entries",
+      "vectorization": "hybrid_exact_for_numbers",
+      "path": "patch_notes/poe1_3_29_0_patch_delta_index.json",
+      "status": "ok"
+    },
+    "patch_overlay_policy": {
+      "kind": "patch_notes",
+      "evidence_layer": "overlay_policy",
+      "retrieval_mode": "summary",
+      "vectorization": "never_policy",
+      "path": "patch_notes/poe1_3_29_0_early_patch_adjustment_policy.json",
+      "status": "ok"
+    },
+    "gem_taxonomy": {
+      "kind": "gems",
+      "evidence_layer": "derived_taxonomy",
+      "retrieval_mode": "exact_lookup",
+      "vectorization": "never_exact_taxonomy",
+      "path": "poe1_gem_taxonomy.latest.json",
+      "status": "ok"
+    },
+    "item_mod_index": {
+      "kind": "items_and_mods",
+      "evidence_layer": "derived_ggpk",
+      "retrieval_mode": "exact_lookup",
+      "vectorization": "never_exact_numeric",
+      "path": "ggpk_derived/poe1_item_mod_derivation_manifest.json",
+      "status": "ok"
+    },
+    "season_research": {
+      "kind": "season_research",
+      "evidence_layer": "official_research",
+      "retrieval_mode": "summary",
+      "vectorization": "maybe_for_long_notes",
+      "path": "poe1_season_research_3_29_allflame_live.json",
+      "status": "ok"
+    },
+    "global_review": {
+      "kind": "season_research",
+      "evidence_layer": "crosscheck_summary",
+      "retrieval_mode": "summary",
+      "vectorization": "maybe_for_long_notes",
+      "path": "poe1_3_29_global_review.json",
+      "status": "ok"
+    },
+    "live_validation_queue": {
+      "kind": "season_research",
+      "evidence_layer": "launch_validation",
+      "retrieval_mode": "summary",
+      "vectorization": "never_queue",
+      "path": "poe1_3_29_live_validation_queue.json",
+      "status": "ok"
+    },
+    "information_intake": {
+      "kind": "operations",
+      "evidence_layer": "operations",
+      "retrieval_mode": "summary",
+      "vectorization": "never_policy",
+      "path": "poe1_3_29_information_intake_plan.json",
+      "status": "ok"
+    },
+    "atlas_farming": {
+      "kind": "atlas_farming",
+      "evidence_layer": "strategy_baseline",
+      "retrieval_mode": "summary",
+      "vectorization": "maybe_for_long_notes",
+      "path": "atlas_farming_knowledge.json",
+      "status": "ok"
+    },
+    "farming_meta": {
+      "kind": "atlas_farming",
+      "evidence_layer": "farming_meta",
+      "retrieval_mode": "summary",
+      "vectorization": "maybe_for_long_notes",
+      "path": "farming_meta/farming_meta_all.json",
+      "status": "ok"
+    },
+    "poe_ninja_economy": {
+      "kind": "economy",
+      "evidence_layer": "economy_observation",
+      "retrieval_mode": "exact_price_snapshot",
+      "vectorization": "never_numeric_snapshot",
+      "path": null,
+      "status": "declared_no_data",
+      "note": "등록만 되어 있고 실 데이터가 없다. 원래 경로 'python/game_data/*.json' 는 존재하지 않는 디렉터리."
+    },
+    "build_corpus": {
+      "kind": "builds",
+      "evidence_layer": "build_samples",
+      "retrieval_mode": "filtered_candidates",
+      "vectorization": "hybrid_for_guide_text",
+      "globs": [
+        "build_corpus_*.json",
+        "builds/*.build.json"
+      ],
+      "status": "ok"
+    },
+    "brand_guide_zeeboub": {
+      "kind": "community_build_guide",
+      "evidence_layer": "external_creator_guide",
+      "retrieval_mode": "structured_section_lookup",
+      "vectorization": "hybrid_for_long_guide_notes",
+      "path": "guide_sources/poe1_brand_guide_zeeboub_v2.json",
+      "status": "ok"
+    },
+    "cws_emiracles_329": {
+      "kind": "community_build_knowledge",
+      "evidence_layer": "versioned_creator_guide_and_diagnostics",
+      "retrieval_mode": "structured_filters_plus_fts_vector",
+      "vectorization": "hybrid_for_atomic_claims",
+      "path": "guide_sources/poe1_cws_chieftain_emiracles_3_29_v2.json",
+      "status": "ok"
+    },
+    "allie_luminary_329": {
+      "kind": "community_build_knowledge",
+      "evidence_layer": "versioned_creator_guide_multi_entity_diagnostics",
+      "retrieval_mode": "structured_filters_plus_fts_vector",
+      "vectorization": "hybrid_for_atomic_claims",
+      "path": "guide_sources/poe1_luminary_allie_bob_friends_3_29_v1.json",
+      "status": "ok"
+    },
+    "sanavixx_cyclone_329": {
+      "kind": "community_build_knowledge",
+      "evidence_layer": "versioned_creator_guide_hcssf_and_crafting_diagnostics",
+      "retrieval_mode": "structured_filters_plus_fts_vector",
+      "vectorization": "hybrid_for_atomic_claims_and_crafts",
+      "path": "guide_sources/poe1_cyclone_shockwave_slayer_sanavixx_3_29_v1.json",
+      "status": "ok"
+    },
+    "community_probe": {
+      "kind": "community_search",
+      "evidence_layer": "community_signal",
+      "retrieval_mode": "filtered_candidates",
+      "vectorization": "yes_unstructured_text",
+      "path": "build_variant_live_source_probe.latest.json",
+      "status": "ok"
+    },
+    "new_player_friction": {
+      "kind": "support",
+      "evidence_layer": "explanation_taxonomy",
+      "retrieval_mode": "summary",
+      "vectorization": "maybe_for_long_notes",
+      "path": "new_player_friction_knowledge.json",
+      "status": "ok"
+    }
+  }
+}

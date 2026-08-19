@@ -30,162 +30,28 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_ROOT = ROOT / "data"
 
 
-SOURCE_REGISTRY = {
-    "db_catalog": {
-        "path": "db_catalog.json",
-        "kind": "catalog",
-        "evidence_layer": "inventory",
-        "retrieval_mode": "summary",
-        "vectorization": "never_exact_metadata",
-    },
-    "ggpk_gems": {
-        "path": "game_data/SkillGems.json + game_data/ActiveSkills.json",
-        "kind": "raw_ggpk",
-        "evidence_layer": "implementation_truth",
-        "retrieval_mode": "exact_lookup",
-        "vectorization": "never_exact_numeric",
-    },
-    "ggpk_items_mods": {
-        "path": "game_data/BaseItemTypes.json + game_data/Mods.json",
-        "kind": "raw_ggpk",
-        "evidence_layer": "implementation_truth",
-        "retrieval_mode": "exact_lookup",
-        "vectorization": "never_exact_numeric",
-    },
-    "ggpk_passives": {
-        "path": "game_data/PassiveSkills.json",
-        "kind": "raw_ggpk",
-        "evidence_layer": "implementation_truth",
-        "retrieval_mode": "exact_lookup",
-        "vectorization": "never_exact_numeric",
-    },
-    "patch_delta": {
-        "path": "patch_notes/poe1_3_29_0_patch_delta_index.json",
-        "kind": "patch_notes",
-        "evidence_layer": "official_text_delta",
-        "retrieval_mode": "filtered_entries",
-        "vectorization": "hybrid_exact_for_numbers",
-    },
-    "patch_overlay_policy": {
-        "path": "patch_notes/poe1_3_29_0_early_patch_adjustment_policy.json",
-        "kind": "patch_notes",
-        "evidence_layer": "overlay_policy",
-        "retrieval_mode": "summary",
-        "vectorization": "never_policy",
-    },
-    "gem_taxonomy": {
-        "path": "poe1_gem_taxonomy.latest.json",
-        "kind": "gems",
-        "evidence_layer": "derived_taxonomy",
-        "retrieval_mode": "exact_lookup",
-        "vectorization": "never_exact_taxonomy",
-    },
-    "item_mod_index": {
-        "path": "ggpk_derived/poe1_item_mod_derivation_manifest.json",
-        "kind": "items_and_mods",
-        "evidence_layer": "derived_ggpk",
-        "retrieval_mode": "exact_lookup",
-        "vectorization": "never_exact_numeric",
-    },
-    "season_research": {
-        "path": "poe1_season_research_3_29_allflame_live.json",
-        "kind": "season_research",
-        "evidence_layer": "official_research",
-        "retrieval_mode": "summary",
-        "vectorization": "maybe_for_long_notes",
-    },
-    "global_review": {
-        "path": "poe1_3_29_global_review.json",
-        "kind": "season_research",
-        "evidence_layer": "crosscheck_summary",
-        "retrieval_mode": "summary",
-        "vectorization": "maybe_for_long_notes",
-    },
-    "live_validation_queue": {
-        "path": "poe1_3_29_live_validation_queue.json",
-        "kind": "season_research",
-        "evidence_layer": "launch_validation",
-        "retrieval_mode": "summary",
-        "vectorization": "never_queue",
-    },
-    "information_intake": {
-        "path": "poe1_3_29_information_intake_plan.json",
-        "kind": "operations",
-        "evidence_layer": "operations",
-        "retrieval_mode": "summary",
-        "vectorization": "never_policy",
-    },
-    "atlas_farming": {
-        "path": "atlas_farming_knowledge.json",
-        "kind": "atlas_farming",
-        "evidence_layer": "strategy_baseline",
-        "retrieval_mode": "summary",
-        "vectorization": "maybe_for_long_notes",
-    },
-    "farming_meta": {
-        "path": "farming_meta/farming_meta_all.json",
-        "kind": "atlas_farming",
-        "evidence_layer": "farming_meta",
-        "retrieval_mode": "summary",
-        "vectorization": "maybe_for_long_notes",
-    },
-    "poe_ninja_economy": {
-        "path": "python/game_data/*.json",
-        "kind": "economy",
-        "evidence_layer": "economy_observation",
-        "retrieval_mode": "exact_price_snapshot",
-        "vectorization": "never_numeric_snapshot",
-    },
-    "build_corpus": {
-        "path": "build_corpus_* + builds/",
-        "kind": "builds",
-        "evidence_layer": "build_samples",
-        "retrieval_mode": "filtered_candidates",
-        "vectorization": "hybrid_for_guide_text",
-    },
-    "brand_guide_zeeboub": {
-        "path": "guide_sources/poe1_brand_guide_zeeboub_v2.json",
-        "kind": "community_build_guide",
-        "evidence_layer": "external_creator_guide",
-        "retrieval_mode": "structured_section_lookup",
-        "vectorization": "hybrid_for_long_guide_notes",
-    },
-    "cws_emiracles_329": {
-        "path": "guide_sources/poe1_cws_chieftain_emiracles_3_29_v2.json",
-        "kind": "community_build_knowledge",
-        "evidence_layer": "versioned_creator_guide_and_diagnostics",
-        "retrieval_mode": "structured_filters_plus_fts_vector",
-        "vectorization": "hybrid_for_atomic_claims",
-    },
-    "allie_luminary_329": {
-        "path": "guide_sources/poe1_luminary_allie_bob_friends_3_29_v1.json",
-        "kind": "community_build_knowledge",
-        "evidence_layer": "versioned_creator_guide_multi_entity_diagnostics",
-        "retrieval_mode": "structured_filters_plus_fts_vector",
-        "vectorization": "hybrid_for_atomic_claims",
-    },
-    "sanavixx_cyclone_329": {
-        "path": "guide_sources/poe1_cyclone_shockwave_slayer_sanavixx_3_29_v1.json",
-        "kind": "community_build_knowledge",
-        "evidence_layer": "versioned_creator_guide_hcssf_and_crafting_diagnostics",
-        "retrieval_mode": "structured_filters_plus_fts_vector",
-        "vectorization": "hybrid_for_atomic_claims_and_crafts",
-    },
-    "community_probe": {
-        "path": "build_variant_live_source_probe.latest.json",
-        "kind": "community_search",
-        "evidence_layer": "community_signal",
-        "retrieval_mode": "filtered_candidates",
-        "vectorization": "yes_unstructured_text",
-    },
-    "new_player_friction": {
-        "path": "new_player_friction_knowledge.json",
-        "kind": "support",
-        "evidence_layer": "explanation_taxonomy",
-        "retrieval_mode": "summary",
-        "vectorization": "maybe_for_long_notes",
-    },
-}
+KNOWLEDGE_SOURCES_PATH = ROOT / "data" / "knowledge_sources.json"
+
+
+def _load_source_registry() -> dict[str, dict[str, Any]]:
+    """소스 레지스트리는 데이터다 — 소스 추가에 코드를 고치지 않는다.
+
+    `data/knowledge_sources.json` 이 정본. 예전에는 이 자리에 dict 리터럴이 있었고,
+    그래서 소스 하나를 늘릴 때마다 라우터를 편집해야 했다. 그 과정에서 등록만 되고
+    실제로는 로드되지 않는 항목이 4건 섞여 들어갔다(경로가 아니라 설명문이었다).
+    """
+    try:
+        payload = json.loads(KNOWLEDGE_SOURCES_PATH.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        logger.error("지식 소스 레지스트리 없음: %s", KNOWLEDGE_SOURCES_PATH)
+        raise
+    except json.JSONDecodeError as exc:
+        logger.error("지식 소스 레지스트리 파싱 실패: %s", exc)
+        raise
+    return payload.get("sources", {})
+
+
+SOURCE_REGISTRY: dict[str, dict[str, Any]] = _load_source_registry()
 
 INTENT_RULES = {
     "patch_update": ("patch", "hotfix", "3.29", "패치", "핫픽스", "수치", "변경"),
