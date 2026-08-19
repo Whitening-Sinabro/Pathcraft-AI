@@ -6,9 +6,12 @@
 **지금(2)**: 8월 미커밋 56건을 7개 레이어 커밋으로 확정 완료(`15551d7`~`38ea611`). 워킹 트리 clean, 미푸시.
 빌드 택소노미 v2 착지 — 주체 4 + 정체성 축 6 + v1 이관 맵 + 픽스처 8빌드. 테스트 **1193 passed / 1 failed**(기존 red).
 
-**다음**: 자동 레이블러 — PoB 에서 `delivery/range/damage/defense/weapon` 5축 추출.
-재료는 이미 있음(`skill_tag_system.py` 1989줄 + damage/defense/weapon extractor 3종).
-그 뒤 지식 파이프라인(레지스트리 외부화 → 소스 자기선언 → 어댑터 1개 → coach 연결).
+**지금(3)**: 자동 레이블러 착지(`af27b75`~`4d128b8`). 메인 스킬 판정은 PoB `mainSocketGroup` 기준 61/63.
+축 커버리지(63빌드): delivery 62 / defense 62 / 원소 40 / range 33확정+21후보. 테스트 **1247 passed / 1 failed**.
+GGPK `ActiveSkillTypes` = PoB `SkillType` enum 확인 → PoB Lua 불필요. 상세 → 메모리 [[reference-ggpk-active-skill-types]].
+
+**다음**: ① `weapon` 축(장비 슬롯 → 베이스 → 클래스) ② 지식 파이프라인
+(레지스트리 외부화 → 소스 자기선언 → 어댑터 1개 → **coach 연결**). `scaling` 은 자동화 대상 아님(사람 몫).
 
 **블로커**: 없음.
 
