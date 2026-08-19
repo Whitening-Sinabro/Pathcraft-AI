@@ -1,0 +1,416 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_external_guide_source",
+  "source_id": "cws_chieftain_emiracles_3_29_v1",
+  "imported_at": "2026-07-22",
+  "generated_by": "manual_web_import_from_creator_guide_and_video",
+  "source_file": {
+    "local_path": "manual web import; no verbatim transcript stored",
+    "bytes": 0,
+    "sha256": "not_applicable",
+    "note": "Creator-written Mobalytics guide plus creator video metadata/description were inspected manually."
+  },
+  "source": {
+    "title": "[3.29] CWS Chieftain",
+    "author": "emiracles",
+    "creator_channels": [
+      "https://mobalytics.gg/poe/profile/emi/builds/3-29-cws-chieftain",
+      "https://www.youtube.com/watch?v=2fMifC2ZAao",
+      "https://www.youtube.com/@HolyFkingShit"
+    ],
+    "source_family": "creator_mobalytics_guide_and_youtube",
+    "confidence": "creator_asserted_3_29_progression",
+    "copyright_handling": "Structured summaries and links only; no transcript or guide body stored verbatim."
+  },
+  "scope": {
+    "game": "poe1",
+    "patch_mentions": [
+      "3.29"
+    ],
+    "primary_archetype_ids": [
+      "cws_chieftain"
+    ],
+    "primary_skills": [
+      "Cast when Stunned",
+      "Righteous Fire"
+    ],
+    "related_skills": [
+      "Detonate Dead",
+      "Unearth",
+      "Punishment"
+    ],
+    "primary_class": "Marauder",
+    "primary_ascendancy": "Chieftain",
+    "content_scope": [
+      "simulacrum",
+      "ritual",
+      "ultimatum",
+      "harvest",
+      "strongbox",
+      "abyss",
+      "high_density_non_bossing"
+    ]
+  },
+  "links": [
+    {
+      "url": "https://mobalytics.gg/poe/profile/emi/builds/3-29-cws-chieftain",
+      "family": "creator_guide",
+      "source_id": "emiracles_cws_329_guide",
+      "label": "emiracles 3.29 CWS Chieftain written guide"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=2fMifC2ZAao",
+      "family": "youtube",
+      "source_id": "emiracles_cws_329_video",
+      "label": "CWS Chieftain Zero to Hero Guide | 3.29"
+    },
+    {
+      "url": "https://pohx.net/",
+      "family": "creator_guide",
+      "source_id": "pohx_rf_leveling",
+      "label": "Pohx RF leveling reference"
+    },
+    {
+      "url": "https://docs.google.com/spreadsheets/d/1l0GjDUVlyVplxAys7vOQZao6LdbghU3SLQg6NzL9m6A/edit?gid=141390978",
+      "family": "creator_strategy_sheet",
+      "source_id": "emiracles_ultimatum_cheatsheet",
+      "label": "emiracles ULTIMATUM CHEAT SHEET (Google Sheets, tab: ULTIMATUM CHEAT SHEET)"
+    },
+    {
+      "url": "https://poeplanner.com/a/V2h",
+      "family": "creator_atlas_tree",
+      "source_id": "emiracles_early_atlas_tree",
+      "label": "emiracles early atlas tree (poeplanner; unlocks 2nd atlas page at 50 objectives)"
+    }
+  ],
+  "pob_links": [
+    {
+      "url": "https://pobb.in/nCxD7ANcl5qx",
+      "role": "no_bloodnotch_gateway",
+      "label": "Creator-linked no-Bloodnotch gateway PoB"
+    }
+  ],
+  "phase_model": [
+    {
+      "phase": "campaign_and_early_atlas",
+      "main_skill": "Righteous Fire",
+      "foreign_build": {
+        "creator": "Pohx",
+        "display_name": "Pohx RF",
+        "role": "leveling",
+        "pob_url": null
+      },
+      "goal": "Level and establish the character with RF before the CWS package.",
+      "entry": "League start.",
+      "exit": "Ready for the creator's no-Bloodnotch CWS gateway.",
+      "pob_roles": [],
+      "source_links": [
+        "emiracles_cws_329_guide",
+        "pohx_rf_leveling"
+      ],
+      "skill_setups": [
+        "Righteous Fire leveling shell"
+      ],
+      "checks": [
+        "Experienced alternatives named by creator: Sunder to level 19 RF swap, or RF swap around level 55."
+      ]
+    },
+    {
+      "phase": "cws_no_bloodnotch",
+      "main_skill": "Cast when Stunned",
+      "goal": "Use the no-Bloodnotch version as the first CWS gateway.",
+      "entry": "CWS transition before Bloodnotch acquisition.",
+      "exit": "Bloodnotch acquired.",
+      "pob_roles": [
+        "no_bloodnotch_gateway"
+      ],
+      "source_links": [
+        "emiracles_cws_329_guide"
+      ],
+      "skill_setups": [
+        "CWS trigger package",
+        "Righteous Fire"
+      ],
+      "checks": [
+        "Use Lunaris and Tukohama; do not use Brine King.",
+        "Silo boss recipe supplies the stated regeneration and damage-taken-leech crafts."
+      ]
+    },
+    {
+      "phase": "bloodnotch_and_density_farming",
+      "main_skill": "Cast when Stunned",
+      "goal": "Farm high-density, non-bossing content with the Bloodnotch CWS package.",
+      "entry": "Bloodnotch acquired.",
+      "exit": "Optional midgame and endgame upgrades.",
+      "pob_roles": [],
+      "source_links": [
+        "emiracles_cws_329_guide"
+      ],
+      "skill_setups": [
+        "CWS",
+        "Righteous Fire",
+        "optional Unearth plus Detonate Dead"
+      ],
+      "checks": [
+        "Remove Life Recoup over 3 seconds mastery after Bloodnotch.",
+        "Primary content stated by creator: Simulacrum, Ritual, Ultimatum, Harvest, Strongbox, Abyss.",
+        "Maven-class bossing is not the intended role."
+      ]
+    }
+  ],
+  "upgrade_nodes": [
+    {
+      "node_id": "defiance_of_destiny",
+      "phase": "bloodnotch_and_density_farming",
+      "timing": "anytime",
+      "prereq": [],
+      "optional": false,
+      "gate": {
+        "kind": "acquisition",
+        "note": "Creator calls it a major tank upgrade."
+      },
+      "pob_role": null,
+      "source_order_hint": null,
+      "label": "Defiance of Destiny"
+    },
+    {
+      "node_id": "nebulis",
+      "phase": "bloodnotch_and_density_farming",
+      "timing": "midgame_sequence",
+      "prereq": [],
+      "optional": false,
+      "gate": {
+        "kind": "acquisition",
+        "note": "Creator's first listed midgame upgrade."
+      },
+      "pob_role": null,
+      "source_order_hint": 1,
+      "label": "Nebulis"
+    },
+    {
+      "node_id": "large_fire_clusters",
+      "phase": "bloodnotch_and_density_farming",
+      "timing": "midgame_sequence",
+      "prereq": [
+        "nebulis"
+      ],
+      "optional": false,
+      "gate": {
+        "kind": "crafting_or_trade",
+        "note": "8-passive Fire cluster with Burning Bright, Widespread Destruction, and one stated third notable."
+      },
+      "pob_role": null,
+      "source_order_hint": 2,
+      "label": "Initial large cluster"
+    },
+    {
+      "node_id": "unearth_dd",
+      "phase": "bloodnotch_and_density_farming",
+      "timing": "anytime",
+      "prereq": [
+        "defiance_of_destiny"
+      ],
+      "optional": true,
+      "gate": {
+        "kind": "playstyle",
+        "note": "Creator presents it as an optional alternative to the 7-link RF route."
+      },
+      "pob_role": null,
+      "source_order_hint": null,
+      "label": "Unearth/Detonate Dead option"
+    }
+  ],
+  "knowledge_cards": [
+    {
+      "card_id": "creator_content_fit",
+      "patch": "3.29",
+      "tags": [
+        "content_fit",
+        "farming"
+      ],
+      "summary": "Creator positions CWS as a low-input high-density non-bossing farmer, specifically naming Simulacrum, Ritual, Ultimatum, Harvest, Strongbox and Abyss.",
+      "coach_use": "Route CWS farming guidance toward dense monster content rather than boss-rush strategies."
+    },
+    {
+      "card_id": "creator_progression",
+      "patch": "3.29",
+      "tags": [
+        "leveling",
+        "swap"
+      ],
+      "summary": "Creator directs new CWS/RF players to level as Pohx RF, then use a no-Bloodnotch CWS gateway until Bloodnotch.",
+      "coach_use": "Do not present CWS as an immediate level-one setup."
+    },
+    {
+      "card_id": "creator_endgame_goal",
+      "patch": "3.29",
+      "tags": [
+        "economy",
+        "endgame"
+      ],
+      "summary": "Creator describes the build's personal goal as farming substantial currency and Mageblood before trying other builds.",
+      "coach_use": "Represent CWS as a currency-farming chassis, not a universal bossing recommendation."
+    },
+    {
+      "card_id": "ultimatum_early_atlas_gate",
+      "patch": "3.29",
+      "tags": [
+        "atlas",
+        "ultimatum",
+        "gearing_gate"
+      ],
+      "summary": "Early Ultimatum success is gated on Bloodnotch + Hateful Accurser, not atlas nodes. Rush atlas points on white maps with no scarabs; invest Ultimatum nodes only after gear is in.",
+      "coach_use": "When user runs CWS Ultimatum early, prioritize gear acquisition (Bloodnotch, Hateful Accurser) over Ultimatum atlas nodes; warn against Gruelling Gauntlet / Ruinous Wager / Conquer The Stones."
+    },
+    {
+      "card_id": "ultimatum_wave_mechanics",
+      "patch": "3.29",
+      "tags": [
+        "ultimatum",
+        "waves",
+        "scarab"
+      ],
+      "summary": "Catalysts on waves 4 and 8; inscribed and valuable currency at wave 8+; reward scaling caps after wave 10. One bribing (Inscription, no Catalysing) pulls the wave-4 catalyst forward so the first wave is inscribed.",
+      "coach_use": "Advise leaving after wave 10 for reward efficiency; explain the single-bribing inscription tech when user asks about scarab setup."
+    }
+  ],
+  "map_mods_to_avoid": [],
+  "guardrails": [
+    "Treat creator-stated viability as source evidence; do not replace it with an autonomous viability verdict.",
+    "Track later creator corrections or PoB replacements as follow-up source updates, not as a separate approval gate.",
+    "The linked gateway PoB currently self-labels 3.28 despite the creator guide and video being titled 3.29; preserve this provenance fact when comparing source versions."
+  ],
+  "atlas_strategy": {
+    "focus": "ultimatum",
+    "provenance_legend": {
+      "sheet": "emiracles ULTIMATUM CHEAT SHEET — creator-authoritative",
+      "ggpk": "game data PassiveSkills.json exact node id+name+stat values",
+      "inferred": "reconstructed priority order; NOT node-copied from creator tree"
+    },
+    "reference_tree": {
+      "url": "https://poeplanner.com/a/V2h",
+      "provenance": "sheet",
+      "note": "creator's actual early atlas tree. SPA — node-level allocation not machine-extracted; open manually to copy exact placement."
+    },
+    "gearing_gate": {
+      "provenance": "sheet",
+      "required_before_ultimatum_nodes": [
+        "Bloodnotch",
+        "Hateful Accurser"
+      ],
+      "note": "Early success is gated on gear, not atlas nodes. Without Bloodnotch/Hateful Accurser, Ultimatum is a death sentence; with them it is near-AFK. Do NOT invest in Ultimatum nodes before these two."
+    },
+    "phases": [
+      {
+        "phase": "voidstone_rush",
+        "provenance": "sheet",
+        "order": 0,
+        "actions": [
+          "Buy maps from Kirac; use Kirac mission to refresh his map shop.",
+          "Run WHITE maps, NO scarab, maximize atlas points.",
+          "Unlock 2nd atlas page around 50 objectives.",
+          "Do not take Ultimatum nodes yet; bank currency first."
+        ],
+        "parallel_goal": "Acquire Bloodnotch, then Hateful Accurser."
+      },
+      {
+        "phase": "ultimatum_entry",
+        "provenance": "inferred",
+        "order": 1,
+        "note": "Order reconstructed from sheet priorities + GGPK node names; encounter-rate first since without it the rest is moot.",
+        "take_in_order": [
+          {
+            "name": "Face The Ultimatum",
+            "node_id": "atlas_ultimatum_4569",
+            "provenance": "ggpk",
+            "effect_values": [
+              30,
+              30
+            ],
+            "role": "foundation: +Ultimatum chance +Ultimatum scarab drops"
+          },
+          {
+            "name": "Ultimatum Chance (small nodes)",
+            "provenance": "ggpk",
+            "effect_values": [
+              12
+            ],
+            "role": "lay connective path while raising encounter rate"
+          },
+          {
+            "name": "Worthy of the Present",
+            "node_id": "atlas_ultimatum_4593",
+            "provenance": "ggpk",
+            "effect_values": [
+              50,
+              50
+            ],
+            "role": "lock reward direction to CURRENCY"
+          },
+          {
+            "name": "Prove Yourself Worthy",
+            "node_id": "atlas_ultimatum_4582",
+            "provenance": "ggpk",
+            "effect_values": [
+              25
+            ],
+            "role": "reward duplication chance"
+          }
+        ]
+      },
+      {
+        "phase": "midgame",
+        "provenance": "sheet",
+        "order": 2,
+        "gate": "After Bloodnotch + Hateful Accurser secured.",
+        "actions": [
+          "Run T16 white maps; add Trialmaster.",
+          "Buy maps, SKIP map boss — go in for Ultimatum and get out.",
+          "Round-type notables (Slaughter Them All / Survive The Assault) only after build is stable."
+        ]
+      }
+    ],
+    "do_not_take": [
+      {
+        "name": "Gruelling Gauntlet",
+        "provenance": "sheet",
+        "reason": "Keystone that enables every danger option; Mageblood-tier gear only. Suicide at this stage."
+      },
+      {
+        "name": "Ruinous Wager",
+        "provenance": "sheet",
+        "reason": "Sheet explicit DO NOT TAKE."
+      },
+      {
+        "name": "Conquer The Stones",
+        "node_id": "atlas_ultimatum_4606",
+        "provenance": "sheet+ggpk",
+        "reason": "Stone circles force standing still; first round type to kill you before Bloodnotch recovery is complete."
+      }
+    ],
+    "scarab_policy": {
+      "provenance": "sheet",
+      "early": "No scarabs; bank currency first.",
+      "midgame": "Add bribing if worthwhile — 2 bribing worth it when <7c each.",
+      "current_recommendation": "Run ONE bribing as Inscription scarab (without Catalysing). Guaranteed wave-4 catalyst is moved up once by atlas and twice by bribing, so your first wave becomes an Inscribed Ultimatum (wave count does not matter for inscribes). Can then drop the divination ultimatum node."
+    },
+    "wave_facts": [
+      {
+        "provenance": "sheet",
+        "fact": "Catalysts always appear on Wave 4 and Wave 8."
+      },
+      {
+        "provenance": "sheet",
+        "fact": "Inscribed Ultimatums and valuable currencies appear Wave 8+."
+      },
+      {
+        "provenance": "sheet",
+        "fact": "Reward scaling stops increasing after Wave 10."
+      },
+      {
+        "provenance": "sheet",
+        "fact": "White/rare map mods have ~zero effect on Ultimatum. Only Tainted Catalyst quantity scales with map quantity."
+      }
+    ]
+  }
+}

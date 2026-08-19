@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "knowledge_version": "1.0.0",
+  "dataset_kind": "pathcraft_creator_build_knowledge_pack",
+  "build_id": "poe1_3_29_dark_bargain_intuitive_link_luminary_ssf",
+  "patch": "3.29",
+  "snapshot_at": "2026-08-08",
+  "language": ["ko", "en"],
+  "status": "experimental_ssf_progression",
+  "copyright_policy": "Store atomic factual summaries, links, timestamps, and Pathcraft-authored progression rules; do not mirror source bodies.",
+  "build_contract": {
+    "class": "Scion",
+    "ascendancy": "Luminary",
+    "primary_skill": "Dark Bargain",
+    "engine": "Intuitive Link triggers Summon Skeletons from linked melee allies, then Dark Bargain chains through the skeletons.",
+    "playstyle": "Cast links once per area, move with the linked bodyguards, and cast Dark Bargain into automatically created skeleton packs.",
+    "league_mode": "softcore_ssf",
+    "campaign_scope": "omitted_except_for_map_entry_requirements",
+    "proof_level": "experimental: the one-button design is public theorycraft with a current SSF player report, not an independently verified Uber clear"
+  },
+  "sources": [
+    {
+      "source_id": "official_329_patch",
+      "kind": "official_patch_notes",
+      "authority": 100,
+      "url": "https://www.pathofexile.com/forum/view-thread/3985332",
+      "title": "Content Update 3.29.0 — Curse of the Allflame"
+    },
+    {
+      "source_id": "one_button_design",
+      "kind": "community_theorycraft",
+      "authority": 72,
+      "published_at": "2026-07-24",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1v4sudl/onebutton_skeleton_dark_bargainpact_intuitive/",
+      "title": "One-Button Skeleton Dark Bargain Intuitive Link Luminary",
+      "notes": "The author explicitly labels the build untested and provides the interaction model and PoB."
+    },
+    {
+      "source_id": "one_button_pob",
+      "kind": "community_pob",
+      "authority": 68,
+      "url": "https://pobb.in/N4MqLn9zY-xA",
+      "title": "Level 68 CI Crit Dark Pact Scion [3.28 display with manual 3.29 configuration]",
+      "notes": "Aspirational theorycraft only; displayed damage includes 15 Wither, charges, custom 3.29 modifiers, and mercenary auras."
+    },
+    {
+      "source_id": "ssf_player_report",
+      "kind": "current_player_report",
+      "authority": 78,
+      "accessed_at": "2026-08-08",
+      "url": "https://www.reddit.com/r/PathOfExileSSF/comments/1vhdh44/luminary_build_options_for_ssf/",
+      "title": "3.29 SSF Dark Bargain Luminary player report"
+    },
+    {
+      "source_id": "reliquarian_design",
+      "kind": "community_theorycraft",
+      "authority": 78,
+      "published_at": "2026-07-20",
+      "url": "https://www.reddit.com/r/PathOfExileBuilds/comments/1v1n27k/dark_bargain_skeletons_reliquarian/",
+      "title": "Dark Bargain Skeletons Reliquarian"
+    },
+    {
+      "source_id": "day2_occultist",
+      "kind": "current_character_snapshot",
+      "authority": 75,
+      "url": "https://pobb.in/Vz4CRSfn6d5D",
+      "title": "3.29 Day 2 Hybrid Crit Dark Bargain Occultist",
+      "notes": "Used only as evidence that a rare-gear skeleton Dark Bargain transition functions in maps; it is not the Luminary target."
+    },
+    {
+      "source_id": "ghazzy_329",
+      "kind": "creator_written_guide",
+      "authority": 86,
+      "published_at": "2026-07-22",
+      "url": "https://www.poe-vault.com/guides/dark-bargain-necromancer-build-guide",
+      "title": "GhazzyTV Dark Bargain Necromancer 3.29"
+    },
+    {
+      "source_id": "pathcraft_adaptation",
+      "kind": "editorial_synthesis",
+      "authority": 60,
+      "created_at": "2026-08-08",
+      "url": "local:Docs/DARK_BARGAIN_LUMINARY_3_29_SSF_PROJECT.md",
+      "title": "Pathcraft SSF atlas and mechanic progression adaptation",
+      "notes": "Inference and test gates derived from the cited sources; not creator claims."
+    }
+  ],
+  "revision_chain": [
+    {"revision_id": "theorycraft_329", "date": "2026-07-24", "source_id": "one_button_design", "status": "public_unverified_design"},
+    {"revision_id": "ssf_report_329", "date": "2026-08-08", "source_id": "ssf_player_report", "status": "interaction_reported_in_live_ssf"},
+    {"revision_id": "pathcraft_v1", "date": "2026-08-08", "source_id": "pathcraft_adaptation", "status": "gated_ssf_curriculum"}
+  ],
+  "pob_variants": [
+    {
+      "variant_id": "maps_two_button_baseline",
+      "stage": "white_yellow_maps",
+      "order": 0,
+      "main_skill": "Dark Bargain",
+      "skeleton_delivery": "self-cast Vaal Summon Skeletons",
+      "defense": "hybrid life and energy shield with capped elemental resistances",
+      "source_id": "day2_occultist",
+      "not_for": ["blind_copy_of_occultist_tree", "uber_bossing"]
+    },
+    {
+      "variant_id": "intuitive_link_engine",
+      "stage": "yellow_red_maps",
+      "order": 1,
+      "main_skill": "Dark Bargain",
+      "skeleton_delivery": "Intuitive Link on durable melee allies triggers Summon Skeletons",
+      "required_gates": ["Noble Blood", "Oath of Fealty", "stable linked targets", "sustainable link cost"],
+      "source_id": "one_button_design"
+    },
+    {
+      "variant_id": "ci_block_endgame",
+      "stage": "pinnacle_t17",
+      "order": 2,
+      "main_skill": "Dark Bargain",
+      "defense": "Chaos Inoculation, high energy shield, attack block, spell block, linked-bodyguard hit mitigation",
+      "required_gates": ["7000+ energy shield before CI", "reliable ES recovery", "linked allies survive target content", "real PoB resists and max hits checked"],
+      "source_id": "one_button_pob",
+      "not_for": ["treating_theorycraft_dps_as_measured", "switching_to_ci_early"]
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "dark_bargain_329_buff",
+      "topic": "patch",
+      "text_ko": "3.29에서 Dark Bargain은 기본 치명타 확률이 7%에서 10%로 올랐다. Trarthus형은 7 Ruin에서 생명력 50%를 희생해 희생 생명력의 600%를 카오스 피해로 주도록 상향됐다.",
+      "text_en": "Dark Bargain gained 10% base critical chance; the Trarthus variant gained a 600% sacrificed-life payoff at seven Ruin.",
+      "tags": ["3.29", "dark bargain", "critical strike"],
+      "source_refs": [{"source_id": "official_329_patch", "locator": "Skill Gem Changes: Dark Bargain"}],
+      "confidence": "high"
+    },
+    {
+      "claim_id": "one_button_interaction",
+      "topic": "mechanics",
+      "text_ko": "Intuitive Link를 건 근접 아군이 적을 명중하면 연결된 Summon Skeletons가 그 위치에서 발동한다. 플레이어는 생성된 해골에 Dark Bargain을 연쇄시켜 소환과 폭발을 분리한다.",
+      "text_en": "Linked melee allies trigger Summon Skeletons at their target, leaving the player to cast Dark Bargain into the generated skeletons.",
+      "tags": ["intuitive link", "skeleton", "one button", "luminary"],
+      "source_refs": [{"source_id": "one_button_design", "locator": "TLDR, interaction and How to Play"}],
+      "confidence": "medium"
+    },
+    {
+      "claim_id": "luminary_link_nodes",
+      "topic": "ascendancy",
+      "text_ko": "공개 설계는 Noble Blood를 필수 2포인트로, Oath of Fealty를 무한 링크 지속시간과 링크 비용 50% 감폭의 핵심으로 사용한다.",
+      "text_en": "The design uses Noble Blood as mandatory and Oath of Fealty for permanent links and 50% less link cost.",
+      "tags": ["noble blood", "oath of fealty", "link cost"],
+      "source_refs": [{"source_id": "one_button_design", "locator": "Ascendancy Points"}],
+      "confidence": "medium"
+    },
+    {
+      "claim_id": "ssf_no_required_unique_start",
+      "topic": "ssf",
+      "text_ko": "원버튼 설계는 시작에 필수 고유 아이템이나 변형 젬을 요구하지 않는다. Bonemeld와 Vaal Caress는 획득 후 쓰는 선택 업그레이드다.",
+      "text_en": "The engine has no required starting unique or transfigured gem; Bonemeld and Vaal Caress are optional upgrades.",
+      "tags": ["ssf", "acquisition", "unique"],
+      "source_refs": [{"source_id": "one_button_design", "locator": "Pros for SSF"}],
+      "confidence": "medium"
+    },
+    {
+      "claim_id": "current_ssf_report",
+      "topic": "validation",
+      "text_ko": "3.29 SSF 플레이어는 Catarina Bloodline Luminary에서 방어형 Striker 용병과 스펙터에 Intuitive Link를 걸어 해골을 발동하고 Dark Bargain으로 폭발시키는 형태를 리그 스타트했다고 보고했다.",
+      "text_en": "A current 3.29 SSF player reports league-starting the Catarina-bloodline Luminary interaction with a defensive Striker and spectres.",
+      "tags": ["ssf", "player report", "catarina bloodline"],
+      "source_refs": [{"source_id": "ssf_player_report", "locator": "Dark Bargain Luminary comment"}],
+      "confidence": "medium"
+    },
+    {
+      "claim_id": "theorycraft_not_proof",
+      "topic": "guardrail",
+      "text_ko": "원안 작성자는 이 구성을 미검증 힙스터 빌드라고 명시했다. 공개 PoB의 약 7천만 DPS는 15 Wither, 충전, 수동 3.29 보정과 용병 오라를 포함하므로 실제 SSF 성능 증명이 아니다.",
+      "text_en": "The author labels it untested; the roughly 70M PoB includes full conditions and manual 3.29 configuration and is not live SSF proof.",
+      "tags": ["pob", "warning", "unverified"],
+      "source_refs": [
+        {"source_id": "one_button_design", "locator": "explicit disclaimer"},
+        {"source_id": "one_button_pob", "locator": "configuration and custom modifiers"}
+      ],
+      "confidence": "high"
+    },
+    {
+      "claim_id": "two_button_fallback",
+      "topic": "progression",
+      "text_ko": "링크 자동화가 불안정하면 Vaal Summon Skeletons와 Dark Bargain의 2버튼형으로 계속 진행한다. 3.29의 Day 2 희귀 장비 캐릭터는 이 기본형이 맵에서 기능함을 보여주지만 물리 최대 피격이 낮았다.",
+      "text_en": "If link automation is unstable, retain the two-button skeleton setup; a Day 2 rare-gear snapshot shows it functions in maps but had a weak physical max hit.",
+      "tags": ["fallback", "maps", "physical defense"],
+      "source_refs": [{"source_id": "day2_occultist", "locator": "level 84 snapshot and author notes"}],
+      "confidence": "medium"
+    },
+    {
+      "claim_id": "ci_gate",
+      "topic": "defense",
+      "text_ko": "Pathcraft SSF 규칙은 CI 전환을 최소 7,000 ES, 안정적인 ES 회복, 저항 점검, 연결 대상 생존 확인 뒤로 미룬다. 이는 공개 최종 PoB를 조기 복사하지 않기 위한 보수적 전환 규칙이다.",
+      "text_en": "Pathcraft delays CI until at least 7,000 ES, reliable recovery, checked resistances, and durable link targets.",
+      "tags": ["ci", "energy shield", "transition gate"],
+      "source_refs": [
+        {"source_id": "one_button_pob", "locator": "9,121 ES aspirational state"},
+        {"source_id": "pathcraft_adaptation", "locator": "CI safety gate"}
+      ],
+      "confidence": "inference"
+    },
+    {
+      "claim_id": "atlas_resource_order",
+      "topic": "atlas",
+      "text_ko": "첫 아틀라스는 맵 수급과 Kirac을 우선하고 Essence로 희귀 장비를 만든 뒤, Ritual에서 완전체 시체, Harvest에서 제작 보조, 용병 아틀라스 노드에서 지원형 용병을 순서대로 확보한다.",
+      "text_en": "The first atlas prioritizes map sustain and Kirac, then Essence gear, Ritual corpses, Harvest crafting, and targeted support mercenaries.",
+      "tags": ["atlas", "ritual", "harvest", "mercenary", "ssf"],
+      "source_refs": [
+        {"source_id": "one_button_design", "locator": "SSF and mercenary options"},
+        {"source_id": "pathcraft_adaptation", "locator": "atlas curriculum"}
+      ],
+      "confidence": "inference"
+    }
+  ],
+  "atlas_curriculum": [
+    {
+      "phase_id": "atlas_1_foundation",
+      "order": 0,
+      "map_band": "white_maps",
+      "focus": ["map completion", "Kirac missions", "Essence"],
+      "build_goal": "Run the two-button setup, cap elemental resistances, obtain a functional 5-link, and keep every usable ES base.",
+      "exit_checks": ["all elemental resistances capped", "Dark Bargain sustains mana", "skeletons survive ordinary map packs", "no required unique assumed"]
+    },
+    {
+      "phase_id": "atlas_2_link_engine",
+      "order": 1,
+      "map_band": "yellow_maps",
+      "focus": ["Ritual", "Mercenaries", "Harvest"],
+      "build_goal": "Acquire durable linked allies and make the Intuitive Link skeleton trigger reliable.",
+      "exit_checks": ["links persist for a full map", "linked allies attack without constant micromanagement", "skeletons appear at enemies", "link cost does not disable movement or defense"]
+    },
+    {
+      "phase_id": "atlas_3_crafting",
+      "order": 2,
+      "map_band": "early_red_maps",
+      "focus": ["Betrayal", "Harvest", "Expedition", "Delve"],
+      "build_goal": "Craft high-ES rares, solve attributes and recovery, and level duplicate Dark Bargain and Vaal Summon Skeletons gems.",
+      "exit_checks": ["positive chaos resistance before CI", "physical mitigation plan exists", "linked targets survive red map bosses", "six-link or equivalent damage setup"]
+    },
+    {
+      "phase_id": "atlas_4_voidstones",
+      "order": 3,
+      "map_band": "red_maps_and_pinnacles",
+      "focus": ["Eater", "Exarch", "Maven invitations", "Shaper and Elder paths"],
+      "build_goal": "Earn voidstones while recording real boss uptime, skeleton placement failures, and linked-ally deaths.",
+      "exit_checks": ["ordinary pinnacles completed", "boss damage measured without Vaal-only burst", "recovery survives prolonged fights"]
+    },
+    {
+      "phase_id": "atlas_5_every_mechanic",
+      "order": 4,
+      "map_band": "specialization_blocks",
+      "focus": ["Abyss", "Blight", "Breach", "Delirium", "Expedition", "Harvest", "Heist", "Legion", "Ritual", "Sanctum", "Delve", "Ultimatum"],
+      "build_goal": "Allocate one mechanic at a time for 15-20 maps, complete its boss or terminal encounter where applicable, then record build fit before moving on.",
+      "exit_checks": ["each mechanic has a completion note", "failure was classified as damage, defense, placement, or knowledge", "core upgrades are target-farmed rather than traded"]
+    },
+    {
+      "phase_id": "atlas_6_t17_ubers",
+      "order": 5,
+      "map_band": "t17_and_ubers",
+      "focus": ["T17 progression", "Uber pinnacle practice"],
+      "build_goal": "Use the CI/block form only after defensive gates; treat each Uber as an experiment, not promised build coverage.",
+      "exit_checks": ["7000+ ES", "reliable ES recovery", "linked targets survive T17 bosses", "map mods screened", "real single-target PoB audited"]
+    }
+  ],
+  "diagnostic_rules": [
+    {
+      "rule_id": "link_engine_not_ready",
+      "priority": 100,
+      "symptoms": ["해골이 적 위치에 자동 소환되지 않음", "원버튼 전환 후 딜이 사라짐"],
+      "when": [{"field": "link_trigger_reliable", "op": "eq", "value": false}],
+      "explanation_ko": "원버튼형은 링크 대상의 실제 명중, 링크 유지, Summon Skeletons 발동이 모두 성립해야 한다.",
+      "actions_ko": ["Vaal Summon Skeletons 직접 시전형으로 복귀한다.", "링크 대상이 근접 명중을 하고 있는지, 링크 비용과 지속 여부를 각각 확인한다."],
+      "claim_refs": ["one_button_interaction", "two_button_fallback"]
+    },
+    {
+      "rule_id": "linked_target_dies",
+      "priority": 95,
+      "symptoms": ["보스전 중 링크 대상 사망", "링크 종료 후 해골 공급 중단"],
+      "when": [{"field": "linked_allies_survive", "op": "eq", "value": false}],
+      "explanation_ko": "자동화 엔진의 탄약 공급원이 죽고 있다. 플레이어 DPS보다 연결 대상 생존이 먼저다.",
+      "actions_ko": ["소환수 생명력과 저항을 올린다.", "더 방어적인 Striker 또는 근접 스펙터를 사용한다.", "해당 보스에서는 2버튼형으로 전환한다."],
+      "claim_refs": ["current_ssf_report", "one_button_interaction"]
+    },
+    {
+      "rule_id": "ci_too_early",
+      "priority": 92,
+      "symptoms": ["CI 전환 후 자주 한 방에 사망", "ES 회복이 끊김"],
+      "when": [{"field": "is_ci", "op": "eq", "value": true}, {"field": "energy_shield", "op": "lt", "value": 7000}],
+      "explanation_ko": "공개 최종 PoB의 CI 외형만 조기에 복사했다.",
+      "actions_ko": ["하이브리드 생명력/ES로 되돌린다.", "7,000 ES와 회복 수단을 갖춘 뒤 다시 검사한다."],
+      "claim_refs": ["ci_gate", "theorycraft_not_proof"]
+    },
+    {
+      "rule_id": "pob_condition_inflation",
+      "priority": 85,
+      "symptoms": ["PoB 수치와 실전 보스 딜이 크게 다름"],
+      "when": [{"field": "uses_full_theorycraft_conditions", "op": "eq", "value": true}],
+      "explanation_ko": "15 Wither, 충전, Vaal 해골, 용병 오라와 수동 3.29 보정을 상시 조건처럼 계산했을 가능성이 높다.",
+      "actions_ko": ["Vaal 스킬과 일시 버프를 끄고 지속 DPS를 다시 계산한다.", "실전 Wither 유지율과 해골 체인 수를 보수적으로 기록한다."],
+      "claim_refs": ["theorycraft_not_proof"]
+    },
+    {
+      "rule_id": "unknown_state",
+      "priority": 10,
+      "symptoms": ["딜 또는 생존 문제 원인 불명"],
+      "when": [{"field": "player_pob_url", "op": "missing"}],
+      "explanation_ko": "실제 PoB와 아틀라스 단계가 없으면 링크 엔진, 본체 방어, 해골 생명력 중 어느 층이 문제인지 확정할 수 없다.",
+      "actions_ko": ["현재 PoB, 맵 티어, 링크 대상, 실패한 콘텐츠를 기록한다."],
+      "claim_refs": ["theorycraft_not_proof", "two_button_fallback"]
+    }
+  ],
+  "known_gaps": [
+    "No independently verified Uber clear exists for the one-button Luminary variant at this snapshot.",
+    "The public PoB displays 3.28 because Path of Building did not fully represent Luminary when the design was published; custom modifiers approximate 3.29.",
+    "The current SSF player report confirms the interaction was league-started but does not publish complete gear, atlas, defenses, or boss results.",
+    "Intuitive Link target AI, hit frequency, and survivability must be measured in the user's actual encounters.",
+    "Exact optimal spectres, mercenary affixes, and bloodline progression remain drop- and patch-dependent.",
+    "Campaign routing is intentionally outside this pack."
+  ]
+}

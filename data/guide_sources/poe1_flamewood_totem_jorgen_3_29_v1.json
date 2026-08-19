@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_external_guide_source",
+  "source_id": "flamewood_totem_jorgen_3_29_v1",
+  "imported_at": "2026-07-22",
+  "generated_by": "manual_web_import_from_creator_video_description",
+  "source_file": {"local_path": "manual web import; no transcript stored", "bytes": 0, "sha256": "not_applicable", "note": "Creator video title, description, timestamps, and linked PoBs inspected manually."},
+  "source": {
+    "title": "FLAMEWOOD TOTEMS! My League Starter Act 1 to 10 Leveling Guide | PoE 3.29",
+    "author": "Jorgen",
+    "creator_channels": ["https://www.youtube.com/watch?v=X6S1-OL9GJY", "https://www.youtube.com/@jorgen_gaming"],
+    "source_family": "creator_youtube_guide",
+    "confidence": "creator_asserted_3_29_league_start_and_delve_route",
+    "copyright_handling": "Structured summaries and links only; no transcript stored."
+  },
+  "scope": {
+    "game": "poe1",
+    "patch_mentions": ["3.29"],
+    "primary_archetype_ids": ["flamewood_rejuvenation_totem_hierophant"],
+    "primary_skills": ["Rejuvenation Totem", "Flamewood Support"],
+    "related_skills": [],
+    "primary_class": "Templar",
+    "primary_ascendancy": "Hierophant",
+    "content_scope": ["league_start", "delve", "depth_100_progression", "endgame"]
+  },
+  "links": [
+    {"url": "https://www.youtube.com/watch?v=X6S1-OL9GJY", "family": "youtube", "source_id": "jorgen_flamewood_329_video", "label": "Jorgen 3.29 Flamewood Totems league-start leveling guide"},
+    {"url": "https://youtube.com/live/YMYoDIIKYuI", "family": "youtube_live", "source_id": "jorgen_flamewood_leveling_vod_1", "label": "Creator leveling VOD 1"},
+    {"url": "https://youtube.com/live/bymE9epETw8", "family": "youtube_live", "source_id": "jorgen_flamewood_leveling_vod_2", "label": "Creator leveling VOD 2"}
+  ],
+  "pob_links": [
+    {"url": "https://pobb.in/hexfppeG7o1u", "role": "leveling_to_depth_100", "label": "Act 1 to 100-depth Delve leveling PoB"},
+    {"url": "https://pobb.in/PlPY3zbZ9aTa", "role": "moderate_endgame", "label": "Moderate-cost endgame PoB"},
+    {"url": "https://pobb.in/CXSQI_KKh_gK", "role": "mageblood_endgame", "label": "Mageblood endgame PoB"}
+  ],
+  "phase_model": [
+    {
+      "phase": "campaign_to_early_delve",
+      "main_skill": "Rejuvenation Totem with Flamewood Support",
+      "goal": "Follow the creator's Act 1 through 100-depth Delve leveling route.",
+      "entry": "League start.",
+      "exit": "Around 100-depth Delve or transition to the moderate endgame PoB.",
+      "pob_roles": ["leveling_to_depth_100"],
+      "source_links": ["jorgen_flamewood_329_video", "jorgen_flamewood_leveling_vod_1", "jorgen_flamewood_leveling_vod_2"],
+      "skill_setups": ["Rejuvenation Totem", "Flamewood Support"],
+      "checks": ["Creator shows 250-depth Delve at level 77 with deliberately poor gear.", "Creator explicitly calls the initial playstyle slower and not for everyone."]
+    },
+    {
+      "phase": "moderate_cost_delve",
+      "main_skill": "Rejuvenation Totem with Flamewood Support",
+      "goal": "Continue the Delve-oriented character with the creator's moderate-cost endgame setup.",
+      "entry": "Leveling route established.",
+      "exit": "Optional Mageblood setup.",
+      "pob_roles": ["moderate_endgame"],
+      "source_links": ["jorgen_flamewood_329_video"],
+      "skill_setups": ["Rejuvenation Totem", "Flamewood Support"],
+      "checks": ["Use the creator's own moderate-cost PoB rather than extrapolating a separate item plan."]
+    },
+    {
+      "phase": "mageblood_endgame",
+      "main_skill": "Rejuvenation Totem with Flamewood Support",
+      "goal": "Optional high-investment continuation.",
+      "entry": "Moderate endgame investment complete.",
+      "exit": null,
+      "pob_roles": ["mageblood_endgame"],
+      "source_links": ["jorgen_flamewood_329_video"],
+      "skill_setups": ["Rejuvenation Totem", "Flamewood Support"],
+      "checks": ["Do not conflate this optional PoB with the league-start budget."]
+    }
+  ],
+  "upgrade_nodes": [
+    {"node_id": "moderate_endgame_pob", "phase": "moderate_cost_delve", "timing": "midgame_sequence", "prereq": [], "optional": false, "gate": {"kind": "creator_pob", "note": "Use the creator-provided moderate-cost PoB."}, "pob_role": "moderate_endgame", "source_order_hint": 1, "label": "Moderate endgame setup"},
+    {"node_id": "mageblood_pob", "phase": "mageblood_endgame", "timing": "anytime", "prereq": ["moderate_endgame_pob"], "optional": true, "gate": {"kind": "high_investment", "note": "Creator-provided optional Mageblood setup."}, "pob_role": "mageblood_endgame", "source_order_hint": null, "label": "Mageblood setup"}
+  ],
+  "knowledge_cards": [
+    {"card_id": "creator_delve_route", "patch": "3.29", "tags": ["delve", "league_start", "economy"], "summary": "Creator provides a single leveling PoB spanning Act 1 to depth-100 Delve, then separate moderate-cost and Mageblood endgame PoBs.", "coach_use": "Offer a clear Delve-first progression instead of inventing a generic atlas strategy."},
+    {"card_id": "creator_250_depth_showcase", "patch": "3.29", "tags": ["delve", "showcase"], "summary": "Video timeline identifies a 250-depth Delve showcase at level 77 with poor gear.", "coach_use": "Keep it as a creator showcase milestone, not as a guaranteed user outcome."},
+    {"card_id": "creator_playstyle_warning", "patch": "3.29", "tags": ["playstyle", "expectations"], "summary": "Creator warns that the initial playstyle is slower and will not suit everyone.", "coach_use": "Surface the speed trade-off before recommending it for map-blasting goals."}
+  ],
+  "map_mods_to_avoid": [],
+  "guardrails": [
+    "Source supports a Delve-first route because the creator provides a level-to-depth-100 PoB and Delve showcase; it does not claim that Delve is mandatory.",
+    "Treat the creator's disclaimer as provenance: the route is pre-league prediction plus streamed acts testing, and the player remains responsible for adapting their character.",
+    "Track follow-up creator PoB/video revisions as source updates without imposing an autonomous viability verdict."
+  ]
+}

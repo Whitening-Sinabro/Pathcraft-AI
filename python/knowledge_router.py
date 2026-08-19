@@ -17,6 +17,9 @@ from typing import Any
 
 from ggpk_index import GGPKIndex
 from item_mod_semantics import parse_item_mod_lines, parse_item_raw_text, summarize_item_mods
+from cws_knowledge import CWSKnowledgeBase
+from allie_luminary_knowledge import LuminaryKnowledgeBase
+from sanavixx_cyclone_knowledge import SanavixxKnowledgeBase
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -147,6 +150,27 @@ SOURCE_REGISTRY = {
         "retrieval_mode": "structured_section_lookup",
         "vectorization": "hybrid_for_long_guide_notes",
     },
+    "cws_emiracles_329": {
+        "path": "guide_sources/poe1_cws_chieftain_emiracles_3_29_v2.json",
+        "kind": "community_build_knowledge",
+        "evidence_layer": "versioned_creator_guide_and_diagnostics",
+        "retrieval_mode": "structured_filters_plus_fts_vector",
+        "vectorization": "hybrid_for_atomic_claims",
+    },
+    "allie_luminary_329": {
+        "path": "guide_sources/poe1_luminary_allie_bob_friends_3_29_v1.json",
+        "kind": "community_build_knowledge",
+        "evidence_layer": "versioned_creator_guide_multi_entity_diagnostics",
+        "retrieval_mode": "structured_filters_plus_fts_vector",
+        "vectorization": "hybrid_for_atomic_claims",
+    },
+    "sanavixx_cyclone_329": {
+        "path": "guide_sources/poe1_cyclone_shockwave_slayer_sanavixx_3_29_v1.json",
+        "kind": "community_build_knowledge",
+        "evidence_layer": "versioned_creator_guide_hcssf_and_crafting_diagnostics",
+        "retrieval_mode": "structured_filters_plus_fts_vector",
+        "vectorization": "hybrid_for_atomic_claims_and_crafts",
+    },
     "community_probe": {
         "path": "build_variant_live_source_probe.latest.json",
         "kind": "community_search",
@@ -172,6 +196,24 @@ INTENT_RULES = {
     "community_signal": ("reddit", "youtube", "guide", "streamer", "커뮤니티", "유튜브", "가이드"),
     "new_player_help": ("beginner", "new player", "초보", "유입", "어려"),
     "scion_329": ("scion", "reliquarian", "luminary", "ascendant", "사이온", "레퀼", "루미너리"),
+    "cws_diagnosis": ("cws", "cast when stunned", "bloodnotch", "emiracle", "emiracles", "기절 시 시전"),
+    "allie_luminary": ("allie", "allie's", "bob & friends", "bob and friends", "앨리", "알리"),
+    "sanavixx_cyclone": ("sanavixx", "sanavix", "사나빅스", "cyclone shockwave", "cyclone of tumult"),
+}
+
+CWS_TERMS = {
+    "cws", "cast when stunned", "bloodnotch", "immutable force", "emiracle", "emiracles",
+    "기절 시 시전", "시전 시 기절",
+}
+
+ALLIE_LUMINARY_TERMS = {
+    "allie", "allie's", "bob & friends", "bob and friends", "allliee_",
+    "앨리", "알리", "hallowed monarch", "soulthirst", "ceinture of benevolence",
+}
+
+SANAVIXX_CYCLONE_TERMS = {
+    "sanavixx", "sanavix", "사나빅스", "cyclone shockwave", "cyclone of tumult",
+    "void shockwave", "the yielding mortality", "ezomyte staff",
 }
 
 FARMING_TERMS = {
@@ -301,6 +343,9 @@ def extract_entities(query: str = "", build_data: dict[str, Any] | None = None, 
     season_terms = sorted(term for term in SEASON_TERMS if term in text)
     farming_terms = sorted(term for term in FARMING_TERMS if term in text or term in query_lower)
     brand_guide_terms = sorted(term for term in BRAND_GUIDE_TERMS if term in text or term in query_lower)
+    cws_terms = sorted(term for term in CWS_TERMS if term in text or term in query_lower)
+    allie_luminary_terms = sorted(term for term in ALLIE_LUMINARY_TERMS if term in text or term in query_lower)
+    sanavixx_cyclone_terms = sorted(term for term in SANAVIXX_CYCLONE_TERMS if term in text or term in query_lower)
 
     meta = build_data.get("meta", {}) if isinstance(build_data, dict) else {}
     return {
@@ -313,6 +358,9 @@ def extract_entities(query: str = "", build_data: dict[str, Any] | None = None, 
         "season_terms": season_terms,
         "farming_terms": farming_terms,
         "brand_guide_terms": brand_guide_terms,
+        "cws_terms": cws_terms,
+        "allie_luminary_terms": allie_luminary_terms,
+        "sanavixx_cyclone_terms": sanavixx_cyclone_terms,
     }
 
 
@@ -339,6 +387,9 @@ def select_sources(intents: list[str], entities: dict[str, Any]) -> list[dict[st
         "brand" in _norm(row.get("name"))
         for row in entities.get("matched_gems", [])
     )
+    has_cws = bool(entities.get("cws_terms")) or "cws_diagnosis" in intents
+    has_allie_luminary = bool(entities.get("allie_luminary_terms")) or "allie_luminary" in intents
+    has_sanavixx_cyclone = bool(entities.get("sanavixx_cyclone_terms")) or "sanavixx_cyclone" in intents
 
     if has_gems:
         _add_source(selected, "ggpk_gems", "Gem names require exact SkillGems/ActiveSkills lookup.")
@@ -371,6 +422,18 @@ def select_sources(intents: list[str], entities: dict[str, Any]) -> list[dict[st
     if has_brand_guide:
         _add_source(selected, "brand_guide_zeeboub", "Brand/Penance/Storm Brand coaching can use the structured ZeeBoub guide DB.")
         _add_source(selected, "build_corpus", "Brand guide claims should still be cross-checked against corpus/PoB samples.")
+
+    if has_cws:
+        _add_source(selected, "cws_emiracles_329", "CWS/Emiracle questions require the versioned 3.29 claim and diagnosis pack.")
+        _add_source(selected, "build_corpus", "User-vs-creator comparisons require PoB-backed build facts.")
+
+    if has_allie_luminary:
+        _add_source(selected, "allie_luminary_329", "Allie/Bob & Friends questions require the current versioned player/mercenary/Bob/spectre pack.")
+        _add_source(selected, "build_corpus", "Player and mercenary snapshots must be compared separately from creator guidance.")
+
+    if has_sanavixx_cyclone:
+        _add_source(selected, "sanavixx_cyclone_329", "SANAVIXX Cyclone questions require staged 3.29 HCSSF safety and crafting evidence.")
+        _add_source(selected, "build_corpus", "User-vs-creator Cyclone comparisons require the user's exact PoB stage and weapon.")
 
     if "community_signal" in intents:
         _add_source(selected, "community_probe", "Community guide discovery should remain lower confidence.")
@@ -770,6 +833,36 @@ def build_context_pack(
         if any(source["id"] == "brand_guide_zeeboub" for source in sources)
         else {}
     )
+    cws_context = {}
+    if any(source["id"] == "cws_emiracles_329" for source in sources):
+        kb = CWSKnowledgeBase()
+        cws_context = {
+            "build_id": kb.pack["build_id"],
+            "patch": kb.pack["patch"],
+            "snapshot_at": kb.pack["snapshot_at"],
+            "hits": kb.search(query, limit=8),
+            "known_gaps": kb.pack.get("known_gaps", []),
+        }
+    allie_luminary_context = {}
+    if any(source["id"] == "allie_luminary_329" for source in sources):
+        kb = LuminaryKnowledgeBase()
+        allie_luminary_context = {
+            "build_id": kb.pack["build_id"],
+            "patch": kb.pack["patch"],
+            "snapshot_at": kb.pack["snapshot_at"],
+            "hits": kb.search(query, limit=8),
+            "known_gaps": kb.pack.get("known_gaps", []),
+        }
+    sanavixx_cyclone_context = {}
+    if any(source["id"] == "sanavixx_cyclone_329" for source in sources):
+        kb = SanavixxKnowledgeBase()
+        sanavixx_cyclone_context = {
+            "build_id": kb.pack["build_id"],
+            "patch": kb.pack["patch"],
+            "snapshot_at": kb.pack["snapshot_at"],
+            "hits": kb.search(query, limit=8),
+            "known_gaps": kb.pack.get("known_gaps", []),
+        }
 
     patch_delta = _load_json("patch_notes/poe1_3_29_0_patch_delta_index.json", {})
     patch_entries = (
@@ -801,6 +894,9 @@ def build_context_pack(
         "season_terms": entities.get("season_terms", []),
         "farming_terms": entities.get("farming_terms", []),
         "brand_guide_terms": entities.get("brand_guide_terms", []),
+        "cws_terms": entities.get("cws_terms", []),
+        "allie_luminary_terms": entities.get("allie_luminary_terms", []),
+        "sanavixx_cyclone_terms": entities.get("sanavixx_cyclone_terms", []),
         "missing_terms": entities.get("missing_terms", []),
     }
 
@@ -815,6 +911,9 @@ def build_context_pack(
         "vector_candidates": vector_candidates,
         "item_mod_context": item_mod_context,
         "brand_guide_context": brand_guide_context,
+        "cws_context": cws_context,
+        "allie_luminary_context": allie_luminary_context,
+        "sanavixx_cyclone_context": sanavixx_cyclone_context,
         "patch_entry_sample": [
             {
                 "id": entry.get("id"),
@@ -831,6 +930,9 @@ def build_context_pack(
             "Use exact/GGPK sources for ids, stats, supportability, item mods, and passive data. "
             "Use item_mod_context for current item lines, unique slot locks, and GGPK affix pools. "
             "Use brand_guide_context only as creator guide evidence; verify exact current-patch numbers through GGPK/PoB. "
+            "Use cws_context for patch-locked Emiracle claims and expose its source_refs; do not infer an exact death cause without user PoB/scene evidence. "
+            "Use allie_luminary_context for Allie's current staged guide and keep player, mercenary, Bob, and spectre states separate. "
+            "Use sanavixx_cyclone_context for SANAVIXX's staged 3.29 Cyclone guide, HCSSF safety gates, and crafting recipes; do not treat aspirational trade crafts as SSF prerequisites. "
             "Use vector candidates only for unstructured guide/community prose or broad explanation recall."
         ),
     }
