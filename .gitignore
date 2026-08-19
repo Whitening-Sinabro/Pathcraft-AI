@@ -142,3 +142,19 @@ tmp/
 
 # 검증 스크린샷 (재생성 가능)
 _analysis/poe2_tree_after_fix.png
+
+# Live client artefacts copied into the workspace (Content.ggpk is ~69GB)
+Content.ggpk
+HashCache.dat
+
+# 런타임 로그 (재생성 가능)
+logs/
+
+# NeverSink 필터 실물 대조본 (제3자 저작물 — 로컬 참조용)
+filtersample.txt
+
+# 크래시 덤프
+*.stackdump
+
+# 다른 제품 (2026-08-19 D:/kingshot-discord-bot 으로 이동)
+kingshot-discord-bot/
