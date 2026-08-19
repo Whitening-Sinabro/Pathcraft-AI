@@ -233,3 +233,5 @@
 | python/scripts/derived_data_inventory.py | data/ 파생 JSON 전수 인벤토리 — 생성기 후보/provenance/git 최신성/GGPK 지문 조사. 지문은 ggpk_truth_reference.json 에서 소비(재계산 안 함). --write 로 pin 갱신 | 아니오 |
 | _analysis/derived_data_inventory.json | 위 조사 결과 pin. 파생 파일 추가·변경·stale 시 테스트가 대조해 red | 아니오 |
 | python/tests/test_derived_data_inventory.py | pin↔현재 스캔 재대조 + staleness 게이트 + 지문 없는 파일 래칫 + 생성기 귀속 테스트 18건 | 아니오 |
+| python/scripts/fix_guide_translation.py | 한국어 번역 가이드 docx 게임 용어 오역 교정. 영문 원본과 문단 1:1 대조로 근거 있을 때만 치환(손상=corrupt/damage 분기). run 내부만 고쳐 인라인 서식 보존 | 아니오 |
+| python/tests/test_fix_guide_translation.py | 근거 없으면 미치환 / 모호어 문맥 분기 / Fractured=분열 vs Breach=균열 충돌 / run 보존 / 규칙 순서 테스트 20건 | 아니오 |
