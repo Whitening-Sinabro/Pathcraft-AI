@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "2.0",
+  "updated_at": "2026-08-19",
+  "description": "Acceptance fixtures for build taxonomy v2. Each build must produce a complete tag set with no empty delivery, and no two builds may collide on the player tuple (delivery.primary, range, scaling).",
+  "spec_document": "~/.claude/projects/D--Pathcraft-AI/2026-08-19-build-taxonomy-v2-spec.md",
+  "confidence_notes": {
+    "verified": "Tagged from a source read end to end in this repo.",
+    "partial": "Delivery / range / damage are implied by the build's core skill; defense and weapon are left null until confirmed from the build's PoB."
+  },
+  "builds": [
+    {
+      "build_id": "poe1_3_29_luminary_bot_ssf_path_of_chores",
+      "label": "Luminary Bot SSF (Path of Chores)",
+      "confidence": "verified",
+      "source": "Docs/2026-08-19_LUMINARY_BOT_SSF_ATLAS_TREE_AND_BETRAYAL.md",
+      "why_it_matters": "v1 could not tag this build at all: no trap, no link, no aura_link, and no way to say the player is not the dealer.",
+      "entities": {
+        "player": {
+          "delivery": { "primary": "aura_link", "secondary": ["curse"] },
+          "range": "proxy",
+          "damage": { "element": { "primary": null, "secondary": [] }, "form": [] },
+          "defense": { "pool": "life", "layer": ["block"] },
+          "weapon": { "type": "sceptre", "style": "one_hand_shield" },
+          "scaling": ["link_effect", "light_radius"],
+          "flags": [],
+          "constraint": ["tethered"],
+          "note": "Nycta's Lantern is held for light radius, not for attacking. shared_death applies until Oath of Fealty is allocated."
+        },
+        "mercenary": {
+          "delivery": { "primary": "trap", "secondary": [] },
+          "range": "projectile",
+          "damage": { "element": { "primary": "fire", "secondary": [] }, "form": ["hit"] },
+          "defense": { "pool": null, "layer": [] },
+          "weapon": { "type": "dagger", "style": "dual_wield" },
+          "scaling": ["crit"],
+          "flags": [],
+          "constraint": [],
+          "note": "Blade Ambusher. Flat fire from Flame Link is the scaled damage source."
+        },
+        "animate_guardian": {
+          "delivery": { "primary": "aura_link", "secondary": [] },
+          "range": "proxy",
+          "damage": { "element": { "primary": null, "secondary": [] }, "form": [] },
+          "defense": { "pool": null, "layer": [] },
+          "weapon": { "type": "staff", "style": "two_hand" },
+          "scaling": ["aura_effect"],
+          "flags": [],
+          "constraint": [],
+          "note": "Dying Breath (Coiled Staff) for aura/curse effect on allies."
+        }
+      }
+    },
+    {
+      "build_id": "poe1_3_29_flamewood_totem_hierophant_jorgen",
+      "label": "Flamewood Rejuvenation Totem Hierophant (Jorgen)",
+      "confidence": "partial",
+      "entities": {
+        "player": {
+          "delivery": { "primary": "totem", "secondary": [] },
+          "range": "proxy",
+          "damage": { "element": { "primary": "fire", "secondary": [] }, "form": ["hit"] },
+          "defense": { "pool": null, "layer": [] },
+          "weapon": { "type": null, "style": null },
+          "scaling": ["gem_level"],
+          "flags": [],
+          "constraint": []
+        }
+      }
+    },
+    {
+      "build_id": "poe1_3_29_deaths_oath_chieftain_exiledcat",
+      "label": "Death's Oath Chieftain (ExiledCat)",
+      "confidence": "partial",
+      "why_it_matters": "v1 had no delivery value for a damaging self-aura.",
+      "entities": {
+        "player": {
+          "delivery": { "primary": "aura_self", "secondary": [] },
+          "range": "aoe_self",
+          "damage": { "element": { "primary": "chaos", "secondary": [] }, "form": ["dot"] },
+          "defense": { "pool": "life", "layer": [] },
+          "weapon": { "type": null, "style": null },
+          "scaling": ["dot_multi"],
+          "flags": [],
+          "constraint": ["requires_unique_to_function"]
+        }
+      }
+    },
+    {
+      "build_id": "poe1_3_29_cws_chieftain_emiracles",
+      "label": "Cast When Stunned Chieftain (emiracles)",
+      "confidence": "partial",
+      "entities": {
+        "player": {
+          "delivery": { "primary": "trigger", "secondary": [] },
+          "range": "aoe_self",
+          "damage": { "element": { "primary": null, "secondary": [] }, "form": ["hit"] },
+          "defense": { "pool": "life", "layer": [] },
+          "weapon": { "type": null, "style": null },
+          "scaling": [],
+          "flags": [],
+          "constraint": ["requires_unique_to_function"]
+        }
+      }
+    },
+    {
+      "build_id": "poe1_3_29_srs_guardian_thyworm",
+      "label": "Summon Raging Spirit Guardian (Thyworm)",
+      "confidence": "partial",
+      "why_it_matters": "Shares range=proxy with the totem build; delivery and scaling must keep them apart.",
+      "entities": {
+        "player": {
+          "delivery": { "primary": "minion", "secondary": [] },
+          "range": "proxy",
+          "damage": { "element": { "primary": "fire", "secondary": [] }, "form": ["hit"] },
+          "defense": { "pool": null, "layer": [] },
+          "weapon": { "type": null, "style": null },
+          "scaling": ["minion_count", "gem_level"],
+          "flags": [],
+          "constraint": []
+        }
+      }
+    },
+    {
+      "build_id": "poe1_3_29_cyclone_shockwave_slayer_sanavixx",
+      "label": "Cyclone Shockwave Slayer (SANAVIXX, HCSSF)",
+      "confidence": "partial",
+      "entities": {
+        "player": {
+          "delivery": { "primary": "attack", "secondary": [] },
+          "range": "melee",
+          "damage": { "element": { "primary": "physical", "secondary": [] }, "form": ["hit"] },
+          "defense": { "pool": "life", "layer": [] },
+          "weapon": { "type": "staff", "style": "two_hand" },
+          "scaling": ["crit"],
+          "flags": ["is_channelled"],
+          "constraint": []
+        }
+      }
+    },
+    {
+      "build_id": "poe1_3_29_lightning_tendrils_elementalist",
+      "label": "Lightning Tendrils Elementalist",
+      "confidence": "partial",
+      "entities": {
+        "player": {
+          "delivery": { "primary": "self_cast", "secondary": [] },
+          "range": "aoe_self",
+          "damage": { "element": { "primary": "lightning", "secondary": [] }, "form": ["hit"] },
+          "defense": { "pool": null, "layer": [] },
+          "weapon": { "type": null, "style": null },
+          "scaling": ["crit"],
+          "flags": ["is_channelled"],
+          "constraint": []
+        }
+      }
+    },
+    {
+      "build_id": "poe1_3_29_winter_orb_elementalist",
+      "label": "Winter Orb Elementalist",
+      "confidence": "partial",
+      "entities": {
+        "player": {
+          "delivery": { "primary": "self_cast", "secondary": [] },
+          "range": "aoe_remote",
+          "damage": { "element": { "primary": "cold", "secondary": [] }, "form": ["hit"] },
+          "defense": { "pool": null, "layer": [] },
+          "weapon": { "type": null, "style": null },
+          "scaling": [],
+          "flags": [],
+          "constraint": []
+        }
+      }
+    }
+  ]
+}

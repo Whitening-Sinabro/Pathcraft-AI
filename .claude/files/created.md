@@ -219,3 +219,7 @@
 | python/tests/test_luminary_divcard_layer.py | 사다리 커버리지/비은닉/색상 일치/린트 테스트 12개 | 아니오 |
 | data/filter_build_targets/poe1_luminary_bot_ssf_3_29.json | 필터 빌드 의존 강조 정본 (점술 카드 타깃/keep + 가이드 근거). 빌드 교체 = 파일 교체 | 아니오 |
 | Docs/2026-08-19_LUMINARY_BOT_SSF_ATLAS_TREE_AND_BETRAYAL.md | Path of Chores 가이드 §5.1 첫 아틀라스 트리 검증 (poeplanner 4단계 실측) + 배신 보드 조작 절차 + 원문 오역 교정표 + 필터 반영 현황 | 예 |
+| data/build_corpus_taxonomy.json (v2.0) | 빌드 택소노미 정본 — 주체 4 + 정체성 축 6 + 맥락 축 + v1 이관 맵 + 벡터화 정책 | 아니오 |
+| data/build_taxonomy_fixtures.json | 택소노미 수용 픽스처 8빌드 (delivery 빈칸 금지 / 정체성 튜플 충돌 금지 회귀 가드) | 아니오 |
+| python/build_taxonomy.py | 택소노미 로더 + v1 이관 + 픽스처 검증기 + CLI | 아니오 |
+| python/tests/test_build_taxonomy.py | 어휘 무결성 / v1 이관 유실 / 벡터화 정책 / 픽스처 수용 테스트 60건 | 아니오 |

@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0",
-  "updated_at": "2026-07-08",
-  "description": "Taxonomy for POE1 build corpus records. Used for archetype tagging, phase variants, evidence scoring, and meta snapshots.",
+  "schema_version": "2.0",
+  "updated_at": "2026-08-19",
+  "description": "Taxonomy for POE1 build records. v2 splits the v1 flat mechanic_tags bag into orthogonal identity axes hung off entities, so that link/aura/trap builds and player-vs-dealer separation (3.29 mercenaries) are expressible.",
   "role_tags": [
     "league_starter",
     "campaign_smooth",
@@ -22,22 +22,6 @@
     "expedition_good",
     "blight_good",
     "boss_rush_good"
-  ],
-  "mechanic_tags": [
-    "requires_respec",
-    "requires_unique_to_function",
-    "attribute_stacker",
-    "crit_scaler",
-    "totem",
-    "mine",
-    "dot",
-    "trigger",
-    "minion",
-    "melee",
-    "projectile",
-    "spell",
-    "attack",
-    "hybrid_defense"
   ],
   "league_windows": [
     "early",
@@ -86,5 +70,209 @@
     "watchlist",
     "announced_only",
     "speculative_only"
-  ]
+  ],
+  "mechanic_tags_v1_deprecated": [
+    "requires_respec",
+    "requires_unique_to_function",
+    "attribute_stacker",
+    "crit_scaler",
+    "totem",
+    "mine",
+    "dot",
+    "trigger",
+    "minion",
+    "melee",
+    "projectile",
+    "spell",
+    "attack",
+    "hybrid_defense"
+  ],
+  "supersedes": "1.0",
+  "spec_document": "~/.claude/projects/D--Pathcraft-AI/2026-08-19-build-taxonomy-v2-spec.md",
+  "entities": [
+    "player",
+    "mercenary",
+    "animate_guardian",
+    "spectre"
+  ],
+  "identity_axes": {
+    "delivery": {
+      "selection": "primary_plus_secondary",
+      "values": [
+        "self_cast",
+        "attack",
+        "totem",
+        "trap",
+        "mine",
+        "minion",
+        "trigger",
+        "aura_self",
+        "aura_link",
+        "curse"
+      ],
+      "notes": "aura_self deals damage (Death’s Oath, RF); aura_link buffs others (Flame Link)."
+    },
+    "range": {
+      "selection": "single",
+      "values": [
+        "melee",
+        "projectile",
+        "aoe_self",
+        "aoe_remote",
+        "proxy"
+      ],
+      "notes": "proxy = this entity does not engage; something it created or hired does."
+    },
+    "damage": {
+      "element": {
+        "selection": "primary_plus_secondary",
+        "values": [
+          "physical",
+          "fire",
+          "cold",
+          "lightning",
+          "chaos"
+        ]
+      },
+      "form": {
+        "selection": "multi",
+        "values": [
+          "hit",
+          "dot",
+          "ailment"
+        ]
+      }
+    },
+    "defense": {
+      "pool": {
+        "selection": "single",
+        "values": [
+          "life",
+          "es",
+          "hybrid",
+          "ci"
+        ]
+      },
+      "layer": {
+        "selection": "multi",
+        "values": [
+          "armour",
+          "evasion",
+          "block",
+          "suppress",
+          "recoup",
+          "maxres"
+        ]
+      }
+    },
+    "weapon": {
+      "type": {
+        "selection": "single",
+        "values": [
+          "bow",
+          "wand",
+          "staff",
+          "sceptre",
+          "claw",
+          "dagger",
+          "axe",
+          "mace",
+          "sword",
+          "unarmed",
+          "none"
+        ]
+      },
+      "style": {
+        "selection": "single",
+        "values": [
+          "one_hand_shield",
+          "dual_wield",
+          "two_hand",
+          "bow_quiver",
+          "none"
+        ]
+      }
+    },
+    "scaling": {
+      "selection": "multi",
+      "open_vocabulary": true,
+      "governance": "A new value requires (1) it cannot be expressed by existing values and (2) a new reference build in build_taxonomy_fixtures.json.",
+      "values": [
+        "crit",
+        "ailment",
+        "attribute_stack",
+        "gem_level",
+        "link_effect",
+        "minion_count",
+        "aura_effect",
+        "dot_multi",
+        "trauma",
+        "light_radius"
+      ]
+    }
+  },
+  "flags": [
+    "is_channelled",
+    "is_conversion"
+  ],
+  "context_axes": {
+    "constraint": [
+      "requires_unique_to_function",
+      "requires_respec",
+      "socket_starved",
+      "ascendancy_locked",
+      "gem_level_gate",
+      "tethered",
+      "shared_death"
+    ],
+    "econ": {
+      "mode": [
+        "ssf",
+        "trade"
+      ],
+      "budget": [
+        "starter",
+        "low",
+        "mid",
+        "high",
+        "mirror"
+      ]
+    }
+  },
+  "v1_migration": {
+    "totem": "delivery.totem",
+    "mine": "delivery.mine",
+    "minion": "delivery.minion",
+    "trigger": "delivery.trigger",
+    "attack": "delivery.attack",
+    "spell": "dropped",
+    "melee": "range.melee",
+    "projectile": "range.projectile",
+    "dot": "damage.form.dot",
+    "crit_scaler": "scaling.crit",
+    "attribute_stacker": "scaling.attribute_stack",
+    "hybrid_defense": "defense.pool.hybrid",
+    "requires_respec": "constraint.requires_respec",
+    "requires_unique_to_function": "constraint.requires_unique_to_function"
+  },
+  "vectorization_policy": {
+    "never_embed": [
+      "axis_values",
+      "numbers",
+      "thresholds",
+      "item_names",
+      "gem_names",
+      "base_types",
+      "weapon_classes",
+      "ascendancies"
+    ],
+    "embed": [
+      "claim_text",
+      "pitfalls",
+      "creator_tacit_knowledge",
+      "progression_notes"
+    ],
+    "retrieval_order": "hard filter on axes -> vector/FTS inside the filtered set",
+    "rationale": "Embeddings place \"fire\" near \"cold\"; exact-match fields must stay exact."
+  }
 }
