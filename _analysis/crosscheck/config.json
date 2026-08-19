@@ -1,34 +1,58 @@
 {
-  "patch": "3.28.0.8",
-  "translations": ["English"],
+  "patch": "3.29.3.1.4",
+  "translations": [
+    "English"
+  ],
   "tables": [
     {
       "name": "Characters",
-      "columns": ["Id", "Name", "Attr"]
+      "columns": [
+        "Id",
+        "Name",
+        "Attr"
+      ]
     },
     {
       "name": "Ascendancy",
-      "columns": ["Id", "ClassNo", "Character"]
+      "columns": [
+        "Id",
+        "ClassNo",
+        "Character"
+      ]
     },
     {
       "name": "Tags",
-      "columns": ["Id"]
+      "columns": [
+        "Id"
+      ]
     },
     {
       "name": "Scarabs",
-      "columns": ["Type"]
+      "columns": [
+        "Type"
+      ]
     },
     {
       "name": "ScarabTypes",
-      "columns": ["Id", "Tag", "Count"]
+      "columns": [
+        "Id",
+        "Tag",
+        "Count"
+      ]
     },
     {
       "name": "Flasks",
-      "columns": ["Name", "Type"]
+      "columns": [
+        "Name",
+        "Type"
+      ]
     },
     {
       "name": "GemTags",
-      "columns": ["Id", "Tag"]
+      "columns": [
+        "Id",
+        "Tag"
+      ]
     }
   ]
 }

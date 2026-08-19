@@ -3,7 +3,10 @@
 계층 1 (content fingerprinting) + 계층 3 (schema pin) 구현.
 
 실행:
-    python python/scripts/ggpk_truth_builder.py > _analysis/ggpk_truth_reference.json
+    python python/scripts/ggpk_truth_builder.py
+
+스크립트가 _analysis/ggpk_truth_reference.json 을 직접 쓴다. stdout 은 진행 메시지이므로
+`> _analysis/ggpk_truth_reference.json` 으로 리다이렉트하면 방금 쓴 파일을 덮어써 깨뜨린다.
 
 설계:
 - 각 테이블마다 안정적 식별 필드 조합(KEY_FIELDS)만 추려 정렬 후 sha256.
@@ -116,19 +119,28 @@ def build_reference() -> dict:
             "wiki_version_history": "https://www.poewiki.net/wiki/Version_history",
         },
         "anchored_to": {
-            "league": "3.28 Mirage",
-            "verified_at": "2026-04-17",
-            "patch_notes_url": "https://www.poewiki.net/wiki/Version_3.28.0",
+            "league": "3.29 Curse of the Allflame",
+            "verified_at": "2026-08-19",
+            "patch_notes_url": "https://www.poewiki.net/wiki/Version_3.29.0",
             "expected_changes": [
-                "Scion 신규 ascendancy Reliquarian 추가 (Ascendancy 20 → Characters 7 유지)",
-                "신규 스킬 젬 Holy Hammers (ActiveSkills/SkillGems 증가)",
-                "Atlas Keystone 재편 (Shadow Shaping/Bold Undertakings/Singular Focus 제거, The Paths Not Taken/Synthesised Stability 추가)",
+                "Scion 신규 ascendancy Luminary 추가 (Ascendancy 20 → 21). 추출본에서 관측 확인.",
+                "BaseItemTypes 5334 → 5461 (+127). 점술 카드 467 → 470: Divine Shard / Energy Sword / Pearls Before Swine 추가, 제거 0.",
+                "Mods 39291 → 40354 (+1063), ModType +315, ModFamily +166, PassiveSkills +114, Tags +34.",
+                "ActiveSkills +24 / SkillGems +7 (신규 행 83), GemTags 신규 태그 pact.",
+                "추출 대상 확장: Quest / UniqueStashTypes / Words / WorldAreas 신규 확보 (19 → 23 테이블).",
             ],
+            "previous_anchor": {
+                "league": "3.28 Mirage",
+                "verified_at": "2026-04-17",
+                "patch_notes_url": "https://www.poewiki.net/wiki/Version_3.28.0",
+            },
         },
         "schema_pin": schema_pin(),
         "extractor_pin": {
             "binary": "src-tauri/src/bin/extract_data.rs",
-            "targets_count": 19,
+            "targets_count": 24,
+            "extracted_count": 23,
+            "known_failure": "AttributeRequirements — 3.28 추출본에도 없던 기존 결함, 이번 재추출에서도 실패.",
         },
         "tables": build_tables_block(),
         "notes": {

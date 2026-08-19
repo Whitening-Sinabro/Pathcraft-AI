@@ -81,9 +81,13 @@ def test_mod_and_passive_lookup_are_available():
     assert lava_lash["is_notable"] is True
     assert lava_lash["stats"]
     assert "30% increased Fire Damage with Attack Skills" in lava_lash["display_stats"]
-    by_stat_key = {row["stats_key"]: row for row in lava_lash["stat_semantics"]}
-    assert by_stat_key[6149]["text"] == "30% increased Fire Damage with Attack Skills"
-    assert by_stat_key[3955]["text"] == "Damage with Weapons Penetrates 8% Fire Resistance"
+    # Numeric stats_key values shift whenever the Stats table grows (3.28 6149/3955
+    # became 3.29 6160/3960), so pin the stat text and only require that every row
+    # carries an integer key back into the table.
+    semantics = {row["text"]: row["stats_key"] for row in lava_lash["stat_semantics"]}
+    assert "30% increased Fire Damage with Attack Skills" in semantics
+    assert "Damage with Weapons Penetrates 8% Fire Resistance" in semantics
+    assert all(isinstance(key, int) for key in semantics.values())
     assert {"damage", "fire", "attack", "penetration"}.issubset(set(lava_lash["stat_categories"]))
 
     armour_display = index.get_passive_by_graph_id(36489)

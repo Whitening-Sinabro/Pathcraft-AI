@@ -1492,7 +1492,16 @@ class TestLoadGGPKItems:
             "Timeless Maraketh Splinter", "Timeless Templar Splinter",
             "Timeless Vaal Splinter",
         )
-        assert len(d.scarabs_all) == 190, f"scarabs_all 190 고정, got {len(d.scarabs_all)}"
+        # 2026-08-19 (3.29 Curse of the Allflame): Trarthan 4종 + Abyss of Crystals/the Consort
+        # 추가, Abyss of Edifice/Profound Depth 제거 → 190 → 194.
+        # 개수만 pin 하면 추가와 삭제가 상쇄될 때 못 잡는다. 신규/삭제 항목도 함께 고정한다.
+        assert len(d.scarabs_all) == 194, f"scarabs_all 194 고정, got {len(d.scarabs_all)}"
+        assert {
+            "Trarthan Scarab", "Trarthan Scarab of Infamy", "Trarthan Scarab of Renown",
+            "Trarthan Scarab of Surprising Alliances",
+            "Abyss Scarab of Crystals", "Abyss Scarab of the Consort",
+        }.issubset(set(d.scarabs_all))
+        assert not {"Abyss Scarab of Edifice", "Abyss Scarab of Profound Depth"} & set(d.scarabs_all)
         # scarabs_special: GGPK 태그(uber/uniques/influence) UNION 위키 Name prefix = 26
         # 2026-04-25: dat64 List element-type 분기 적용 후 BaseItemTypes.Tags 가 정확히 채워져
         # Elder/Reliquary/Shaper 각 4티어 (Rusted/Polished/Gilded/Winged) 12 종이 추가 매칭.
