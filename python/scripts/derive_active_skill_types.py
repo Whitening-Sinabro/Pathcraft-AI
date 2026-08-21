@@ -113,6 +113,14 @@ SEED_CASES: dict[str, tuple[list[str], list[str], int | None]] = {
         ["Fireball", "Ice Nova", "Arc", "Split Arrow"],
         41,
     ),
+    # 전령은 누르지 않아도 스스로 발동한다 — delivery 축에서 self_cast 와 갈라야 하는 근거다.
+    # 분리 결과가 유일하고(51), 그 id 보유 스킬이 정확히 전령 6종이라 모호성이 없다.
+    "herald": (
+        ["Herald of Thunder", "Herald of Ash", "Herald of Ice", "Herald of Agony", "Herald of Purity"],
+        ["Grace", "Hatred", "Righteous Fire", "Fireball", "Cyclone", "Flame Link", "Flammability",
+         "Summon Skitterbots"],
+        None,
+    ),
     # range 의 aoe 판정 근거.
     "area": (
         ["Firestorm", "Ground Slam", "Ice Nova", "Righteous Fire"],

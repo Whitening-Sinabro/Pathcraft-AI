@@ -70,6 +70,15 @@ def test_link_id_is_exactly_the_six_link_skills(table, pinned):
     }
 
 
+def test_herald_id_is_exactly_the_herald_skills(table, pinned):
+    """전령 id 가 전령만 담는지 본다. 여기 다른 스킬이 섞이면 delivery 축이 오염된다."""
+    members = set(_members(table, pinned["types"]["herald"]["id"]))
+    assert members == {
+        "Herald of Agony", "Herald of Ash", "Herald of Ice",
+        "Herald of Purity", "Herald of Thunder", "Herald of the Hive",
+    }
+
+
 @pytest.mark.parametrize("category,must_contain,must_not_contain", [
     ("totem", "Ancestral Protector", "Fireball"),
     ("trap", "Bear Trap", "Stormblast Mine"),
@@ -79,6 +88,7 @@ def test_link_id_is_exactly_the_six_link_skills(table, pinned):
     ("minion", "Raise Zombie", "Cyclone"),
     ("melee", "Cyclone", "Split Arrow"),
     ("projectile", "Split Arrow", "Ground Slam"),
+    ("herald", "Herald of Thunder", "Righteous Fire"),
 ])
 def test_category_membership_is_pure(table, pinned, category, must_contain, must_not_contain):
     members = set(_members(table, pinned["types"][category]["id"]))

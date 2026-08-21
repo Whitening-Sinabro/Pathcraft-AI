@@ -36,7 +36,11 @@ _ACTIVE_GEM_KINDS = {"active_gem", "active_skill_only", "active_transfigured_or_
 _PREFIX_RE = re.compile(r"^(Vaal|Awakened)\s+")
 
 # delivery 는 우선순위가 있다. 토템 트랩 지뢰 소환은 attack/spell 을 이긴다.
-_DELIVERY_PRIORITY = ("totem", "trap", "mine", "minion", "link", "curse", "aura", "attack", "spell")
+# herald 는 attack/spell 보다 앞이다 — 전령은 spell 타입도 함께 갖는데,
+# 누르지 않아도 스스로 발동한다는 쪽이 이 빌드의 정체성이라 그게 primary 가 돼야 한다.
+# minion 이 herald 보다 앞인 건 의도다 (Herald of Agony 는 소환수 빌드로 잡혀야 한다).
+_DELIVERY_PRIORITY = ("totem", "trap", "mine", "minion", "link", "curse", "aura", "herald",
+                      "attack", "spell")
 _DELIVERY_TO_AXIS = {
     "totem": "totem",
     "trap": "trap",
@@ -45,6 +49,7 @@ _DELIVERY_TO_AXIS = {
     "link": "aura_link",
     "curse": "curse",
     "aura": "aura_self",
+    "herald": "trigger",
     "attack": "attack",
     "spell": "self_cast",
 }

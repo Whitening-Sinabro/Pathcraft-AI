@@ -119,11 +119,27 @@ def test_every_label_records_its_evidence(labelled):
     ("Flame Link", "aura_link", "proxy"),
     ("Enfeeble", "curse", None),
     ("Determination", "aura_self", None),
+    ("Herald of Thunder", "trigger", None),
 ])
 def test_axis_rules_on_known_skills(skill, expected_delivery, expected_range):
     primary, _ = classify_delivery(skill)
     assert primary == expected_delivery, f"{skill}: delivery"
     assert classify_range(skill, primary)[0] == expected_range, f"{skill}: range"
+
+
+def test_herald_is_trigger_not_self_cast():
+    """전령은 spell 타입도 갖는다. 그걸 self_cast 로 뭉개면 '누르지 않아도 굴러가는'
+    빌드 축이 어휘에서 사라진다 — 그 축으로는 조합 탐색 자체가 불가능해진다."""
+    primary, secondary = classify_delivery("Herald of Thunder")
+    assert primary == "trigger"
+    assert "self_cast" in secondary, "spell 성질은 secondary 로 남아야 한다"
+
+
+def test_herald_of_agony_stays_minion():
+    """전령이면서 소환수인 스킬은 소환수가 primary 다 — 빌드가 그렇게 굴러가기 때문이다."""
+    primary, secondary = classify_delivery("Herald of Agony")
+    assert primary == "minion"
+    assert "trigger" in secondary
 
 
 def test_totem_and_minion_both_proxy_but_different_delivery():
