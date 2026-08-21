@@ -22,11 +22,13 @@ from luminary_divcard_layer import (  # noqa: E402
     load_build_targets,
 )
 
-REQUIRED_UNIQUE_STYLE = (
-    "SetTextColor 255 255 255 255",
-    "SetBorderColor 255 255 255 255",
-    "SetBackgroundColor 190 0 0 255",
-)
+# 카드 라벨 배경만이 이 필터에서 카테고리를 유일하게 가릴 수 있는 자리다.
+# PlayEffect / MinimapIcon 색은 11개 열거값이 전부 이미 쓰여서 전용이 불가능하다.
+# 근거와 감수한 겹침은 luminary_divcard_layer 상단 주석 참조.
+CARD_HUE_EXEMPT_TITLES = {
+    # 미분류 경보. 마젠타는 "아직 티어가 없다" 는 뜻이라 일부러 계열 밖에 둔다.
+    "LUMINARY - DIVINATION CARDS UNTIERED CATCH-ALL",
+}
 
 # Cards that neither the economy tierlist nor the SSF pickup lists classify.
 # Pinned so a silent list change fails loudly.
@@ -230,15 +232,110 @@ def test_build_emphasis_never_removes_a_card(blocks: List[Block]) -> None:
             assert terminal.title.startswith("LUMINARY - "), card
 
 
-def test_build_targets_reuse_the_required_unique_colours(
+def _label_style(block: Block) -> Tuple[Optional[str], ...]:
+    """바닥에 뜬 라벨로 실제 보이는 것만. 미니맵 아이콘은 여기 안 들어간다."""
+    return tuple(
+        block.directive(name)
+        for name in ("SetTextColor", "SetBorderColor", "SetBackgroundColor", "SetFontSize")
+    )
+
+
+def test_card_label_never_looks_like_a_non_card_label(
     ladder_blocks: List[Block], blocks: List[Block]
 ) -> None:
-    target = next(b for b in ladder_blocks if b.title.endswith("BUILD TARGET DIVINATION CARDS"))
-    required_unique = next(b for b in blocks if b.title == "LUMINARY - CORE REQUIRED UNIQUE BASES")
-    for directive in REQUIRED_UNIQUE_STYLE:
-        name = directive.split(" ", 1)[0]
-        assert target.directive(name) == directive
-        assert required_unique.directive(name) == directive
+    """카드가 화폐·유니크와 같은 라벨을 쓰면 주울지 말지를 눈으로 판단할 수 없다.
+
+    한때 T0/T1 카드가 GLOBAL T0 / HIGH VALUE 화폐·유니크와 글씨·테두리·배경·크기가
+    전부 같았다. 미니맵 도형(Square)만 달랐는데 그건 바닥 라벨에 안 보인다.
+
+    비교 대상에서 `Continue` 블록을 빼지 않는다. Continue 블록이 칠한 색은 뒤에서
+    덮이지 않으면 화면에 그대로 남으므로, 종결 블록끼리만 대조하면 파일의 95%가
+    검사 밖으로 빠진다(적대검증 지적).
+    """
+    ladder_titles = {b.title for b in ladder_blocks}
+    others = [b for b in blocks if b.title not in ladder_titles and any(_label_style(b))]
+    collisions = [
+        (card.title, other.title or "(무명)", other.line_number)
+        for card in ladder_blocks
+        if any(_label_style(card))
+        for other in others
+        if _label_style(other) == _label_style(card)
+    ]
+    assert not collisions, "카드와 라벨이 같은 비카드 블록: %r" % (collisions[:8],)
+
+
+def test_card_background_colour_is_used_by_cards_only(
+    ladder_blocks: List[Block], blocks: List[Block]
+) -> None:
+    """배경색 하나가 카테고리 신호 전부를 진다 — 다른 데서 쓰이는 순간 신호가 죽는다.
+
+    글씨·테두리·크기는 다른 블록과 겹쳐도 되지만 배경은 안 된다. Continue 여부와
+    무관하게 파일 전체에서 카드 블록만 이 값을 써야 한다.
+    """
+    ladder_titles = {b.title for b in ladder_blocks}
+    for card in ladder_blocks:
+        if card.title in CARD_HUE_EXEMPT_TITLES:
+            continue
+        background = card.directive("SetBackgroundColor")
+        assert background, "%r has no background" % card.title
+        intruders = [
+            (b.title or "(무명)", b.line_number)
+            for b in blocks
+            if b.title not in ladder_titles and b.directive("SetBackgroundColor") == background
+        ]
+        assert not intruders, "%r 의 배경 %s 를 비카드 블록도 쓴다: %r" % (
+            card.title,
+            background,
+            intruders[:5],
+        )
+
+
+def test_effect_and_minimap_overlap_is_recorded_not_forgotten(
+    ladder_blocks: List[Block], blocks: List[Block]
+) -> None:
+    """빛기둥·미니맵 색은 전용이 불가능하다 — 그 사실을 테스트로 고정해 둔다.
+
+    PlayEffect / MinimapIcon 은 11개 열거값이 전부이고 이 필터에서 전부 쓰인다.
+    카드가 Cyan 을 쓰면 변신·각성 젬과 겹치는데, 이건 몰라서 생긴 게 아니라
+    감수한 값이다. 겹침이 **사라지면** 더 좋은 자리가 생겼다는 뜻이므로 그때도
+    실패시켜서 사람이 다시 판단하게 만든다.
+    """
+    ladder_titles = {b.title for b in ladder_blocks}
+    sharing = [
+        b.line_number
+        for b in blocks
+        if b.title not in ladder_titles
+        and (b.directive("PlayEffect") or "").split()[1:2] == ["Cyan"]
+    ]
+    assert sharing, (
+        "PlayEffect Cyan 을 쓰는 비카드 블록이 사라졌다. "
+        "이제 카드가 빛기둥을 전용할 수 있으니 감수 기록을 다시 판단할 것."
+    )
+
+
+def test_card_ladder_stays_in_the_cyan_family(ladder_blocks: List[Block]) -> None:
+    """등급은 밝기로, 카테고리는 색상으로. 붉은 계열로 돌아가면 여기서 걸린다.
+
+    '전용' 이 아니라 '계열 유지' 만 본다 — 배타성은 배경색 테스트가 따로 맡는다.
+    """
+    for block in ladder_blocks:
+        if block.title in CARD_HUE_EXEMPT_TITLES:
+            continue
+        background = block.directive("SetBackgroundColor")
+        assert background, "%r has no background" % block.title
+        red, green, blue = (int(v) for v in background.split()[1:4])
+        assert blue >= red and green >= red, (
+            "%r 배경 %s 은 청록 계열이 아니다" % (block.title, background)
+        )
+        icon = block.directive("MinimapIcon")
+        assert icon and icon.split()[2] == "Cyan", (
+            "%r 미니맵 색이 Cyan 이 아니다: %s" % (block.title, icon)
+        )
+        effect = block.directive("PlayEffect")
+        if effect:
+            assert effect.split()[1] == "Cyan", (
+                "%r 빛기둥이 Cyan 이 아니다: %s" % (block.title, effect)
+            )
 
 
 def test_ladder_blocks_are_terminal(ladder_blocks: List[Block]) -> None:

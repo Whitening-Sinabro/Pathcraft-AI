@@ -30,6 +30,29 @@ DIVCARD_METADATA_PREFIX = "Metadata/Items/DivinationCards/"
 # Stacked Deck lives under the divination metadata path but is stackable currency.
 DIVCARD_ITEM_CLASS = 42
 
+# 점술 카드 전용 시각 계열 = 청록(시안)
+# ----------------------------------------------------------------------------
+# 화폐·유니크 사다리는 붉은 계열을 쓴다. 카드가 같은 붉은 계열을 쓰면 바닥에 뜬
+# 라벨만 보고는 구분이 안 된다 — 실제로 T0/T1 카드는 GLOBAL T0 / HIGH VALUE
+# 화폐·유니크와 글씨·테두리·배경·글자 크기·알림음이 **전부** 같았다. 미니맵 도형
+# (Square)으로 갈라 놓았지만 그건 바닥 라벨에 안 보이므로 구분 수단이 못 된다.
+#
+# 그래서 카드 라벨 배경을 청록 계열로 전용한다. 근거는 배경색 하나뿐이다:
+#   아래 12개 배경값은 각각 파일 전체에서 정확히 1회, 카드 블록에서만 쓰인다.
+#   (T3 와 STACK 3+ 가 같은 값을 공유하는 건 의도. 둘 다 카드다.)
+# 밝을수록 상위 티어. 배경 알파는 교체 전 값을 그대로 유지해 투명도는 안 건드린다.
+#
+# 전용이 아닌 것 — 착각하면 안 되는 자리:
+#   * PlayEffect / MinimapIcon 색은 11개 열거값뿐이고 **전부 이미 사용 중**이다.
+#     Cyan 도 예외가 아니다: 변신/각성 젬이 PlayEffect Cyan + MinimapIcon Cyan
+#     Circle|Star 을 이미 쓴다(필터 11060~11090). 빛기둥은 도형이 없으므로 카드와
+#     젬의 기둥은 인게임에서 같아 보인다. 이 필터 안에서 카테고리를 유일하게
+#     가릴 수 있는 자리는 라벨 배경색뿐이라는 뜻이고, 그래서 이 겹침은 감수한 값이다.
+#     (젬도 카드도 '주워서 확인' 부류라 오인 비용이 낮다. 화폐 오인과 달리 건너뛰지 않는다.)
+#   * MinimapIcon Square 도 전용이 아니다 — 지도/균열/영향력 장비 등 16블록이 같이 쓴다.
+#   * 필터 자체 범례(8951행)는 Cyan 을 젬/시체, Grey 를 점술 카드에 배정해 두었다.
+#     Grey 는 T0 경보로 쓸 수 없을 만큼 어두워서 따르지 않았다. 의도적 이탈이다.
+#   * 알림음은 이번 교체 범위 밖이라 T0/T1 은 아직 화폐와 같은 소리를 쓴다.
 GENERATED_BLOCK_PREFIX = "Show # LUMINARY - "
 
 BEGIN_MARKER = "# LUMINARY DIVINATION CARD LADDER - BEGIN"
@@ -270,18 +293,17 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
         Section(
             "build_target",
             "LUMINARY - BUILD TARGET DIVINATION CARDS",
-            "# Guide-named target cards. Same colours as LUMINARY - CORE REQUIRED UNIQUE BASES;\n"
-            "# the square minimap shape still marks the divination-card category.\n"
+            "# Guide-named target cards. Loudest rung of the cyan card family.\n"
             "# Light and Truth -> Nycta's Lantern, The King's Heart -> Kaom's Heart,\n"
             "# The Spark and the Flame -> Berek's Respite, Pride Before the Fall -> corrupted Kaom's Heart.",
             (
                 "    SetFontSize 45",
-                "    SetTextColor 255 255 255 255",
+                "    SetTextColor 0 0 0 255",
                 "    SetBorderColor 255 255 255 255",
-                "    SetBackgroundColor 190 0 0 255",
+                "    SetBackgroundColor 60 255 245 255",
                 '    CustomAlertSound "DivinationCard.mp3" 300',
-                "    PlayEffect Red",
-                "    MinimapIcon 0 Red Square",
+                "    PlayEffect Cyan",
+                "    MinimapIcon 0 Cyan Square",
             ),
             buckets["build_target"],
         ),
@@ -291,27 +313,27 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             "# Guide section 8.6: Betrayal Hillock pays this out as Fertile Catalyst, so it must stay visible.",
             (
                 "    SetFontSize 42",
-                "    SetTextColor 255 255 255 255",
-                "    SetBorderColor 235 105 145 255",
-                "    SetBackgroundColor 52 5 20 250",
+                "    SetTextColor 0 0 0 255",
+                "    SetBorderColor 255 255 255 255",
+                "    SetBackgroundColor 130 240 255 250",
                 '    CustomAlertSound "DivinationCard.mp3" 260',
-                "    PlayEffect Pink",
-                "    MinimapIcon 1 Pink Square",
+                "    PlayEffect Cyan",
+                "    MinimapIcon 1 Cyan Square",
             ),
             buckets["build_keep"],
         ),
         Section(
             "league_new",
             "LUMINARY - LEAGUE NEW DIVINATION CARDS",
-            "# 3.29 cards from the SSF league/new list. Their value is unsettled, so they stay loud and orange.",
+            "# 3.29 cards from the SSF league/new list. Their value is unsettled, so they stay near the top.",
             (
                 "    SetFontSize 42",
-                "    SetTextColor 255 235 225 255",
-                "    SetBorderColor 255 123 0 255",
-                "    SetBackgroundColor 45 14 3 245",
+                "    SetTextColor 0 0 0 255",
+                "    SetBorderColor 255 255 255 255",
+                "    SetBackgroundColor 175 235 255 245",
                 "    PlayAlertSound 12 300",
-                "    PlayEffect Orange",
-                "    MinimapIcon 1 Orange Square",
+                "    PlayEffect Cyan",
+                "    MinimapIcon 1 Cyan Square",
             ),
             buckets["league_new"],
         ),
@@ -321,12 +343,12 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             "# Economy tiers below follow the NeverSink reference tierlist (t1..t5) in filtersample.txt.",
             (
                 "    SetFontSize 45",
-                "    SetTextColor 151 7 7 255",
-                "    SetBorderColor 151 7 7 255",
-                "    SetBackgroundColor 255 245 240 255",
+                "    SetTextColor 0 0 0 255",
+                "    SetBorderColor 255 255 255 255",
+                "    SetBackgroundColor 0 200 255 255",
                 '    CustomAlertSound "HolyMotherfuckingShit.mp3" 300',
-                "    PlayEffect Red",
-                "    MinimapIcon 0 Red Square",
+                "    PlayEffect Cyan",
+                "    MinimapIcon 0 Cyan Square",
             ),
             buckets["t0"],
         ),
@@ -336,12 +358,12 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             "",
             (
                 "    SetFontSize 45",
-                "    SetTextColor 255 255 255 255",
-                "    SetBorderColor 255 225 215 255",
-                "    SetBackgroundColor 151 7 7 255",
+                "    SetTextColor 0 0 0 255",
+                "    SetBorderColor 200 245 255 255",
+                "    SetBackgroundColor 0 160 195 255",
                 '    CustomAlertSound "Thatsworthsomething.mp3" 270',
-                "    PlayEffect Red",
-                "    MinimapIcon 0 Yellow Square",
+                "    PlayEffect Cyan",
+                "    MinimapIcon 0 Cyan Square",
             ),
             buckets["t1"],
         ),
@@ -351,12 +373,12 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             "# SSF pickup targets the economy tierlist ranks lower. The player's own list wins here.",
             (
                 "    SetFontSize 45",
-                "    SetTextColor 255 235 235 255",
-                "    SetBorderColor 245 125 95 255",
-                "    SetBackgroundColor 72 4 7 250",
+                "    SetTextColor 255 255 255 255",
+                "    SetBorderColor 120 225 245 255",
+                "    SetBackgroundColor 0 132 165 250",
                 "    PlayAlertSound 1 300",
-                "    PlayEffect Red",
-                "    MinimapIcon 0 White Square",
+                "    PlayEffect Cyan",
+                "    MinimapIcon 0 Cyan Square",
             ),
             buckets["ssf_wanted"],
         ),
@@ -366,12 +388,12 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             "",
             (
                 "    SetFontSize 42",
-                "    SetTextColor 255 225 200 255",
-                "    SetBorderColor 215 85 55 255",
-                "    SetBackgroundColor 62 8 6 250",
+                "    SetTextColor 235 250 255 255",
+                "    SetBorderColor 85 195 220 255",
+                "    SetBackgroundColor 0 106 134 250",
                 "    PlayAlertSound 2 280",
-                "    PlayEffect Yellow",
-                "    MinimapIcon 1 Yellow Square",
+                "    PlayEffect Cyan",
+                "    MinimapIcon 1 Cyan Square",
             ),
             buckets["t2"],
         ),
@@ -381,11 +403,11 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             "# Second SSF pickup list. Kept audible even where the economy tierlist is lukewarm.",
             (
                 "    SetFontSize 40",
-                "    SetTextColor 245 205 200 255",
-                "    SetBorderColor 195 70 55 255",
-                "    SetBackgroundColor 45 4 6 245",
+                "    SetTextColor 220 242 250 255",
+                "    SetBorderColor 62 168 195 255",
+                "    SetBackgroundColor 8 86 108 245",
                 "    PlayAlertSound 12 280",
-                "    MinimapIcon 1 White Square",
+                "    MinimapIcon 1 Cyan Square",
             ),
             buckets["ssf_notable"],
         ),
@@ -395,11 +417,11 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             "",
             (
                 "    SetFontSize 40",
-                "    SetTextColor 235 180 190 255",
-                "    SetBorderColor 175 65 90 255",
-                "    SetBackgroundColor 42 3 5 245",
+                "    SetTextColor 205 232 242 255",
+                "    SetBorderColor 46 142 168 255",
+                "    SetBackgroundColor 7 68 88 245",
                 "    PlayAlertSound 2 220",
-                "    MinimapIcon 2 White Square",
+                "    MinimapIcon 2 Cyan Square",
             ),
             buckets["t3"],
         ),
@@ -411,11 +433,11 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             " falling through to the catch-all alarm even when it drops as a stack.",
             (
                 "    SetFontSize 40",
-                "    SetTextColor 235 180 190 255",
-                "    SetBorderColor 175 65 90 255",
-                "    SetBackgroundColor 42 3 5 245",
+                "    SetTextColor 205 232 242 255",
+                "    SetBorderColor 46 142 168 255",
+                "    SetBackgroundColor 7 68 88 245",
                 "    PlayAlertSound 2 200",
-                "    MinimapIcon 1 Grey Square",
+                "    MinimapIcon 1 Cyan Square",
             ),
             sorted(buckets["t4"] + buckets["bulk"] + buckets["low"]),
             ("    StackSize >= 3",),
@@ -426,11 +448,11 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             "",
             (
                 "    SetFontSize 38",
-                "    SetTextColor 225 170 180 255",
-                "    SetBorderColor 140 55 75 255",
-                "    SetBackgroundColor 35 2 4 240",
+                "    SetTextColor 180 210 224 255",
+                "    SetBorderColor 34 112 138 255",
+                "    SetBackgroundColor 6 52 68 240",
                 "    PlayAlertSoundPositional 12 200",
-                "    MinimapIcon 2 Red Square",
+                "    MinimapIcon 2 Cyan Square",
             ),
             buckets["t4"],
         ),
@@ -440,11 +462,11 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             "# Vendor and stack fodder: visible and silent.",
             (
                 "    SetFontSize 34",
-                "    SetTextColor 190 150 155 255",
-                "    SetBorderColor 105 45 55 255",
-                "    SetBackgroundColor 24 6 8 235",
+                "    SetTextColor 150 182 196 255",
+                "    SetBorderColor 26 86 106 255",
+                "    SetBackgroundColor 5 38 50 235",
                 "    PlayAlertSoundPositional 12 200",
-                "    MinimapIcon 2 Grey Square",
+                "    MinimapIcon 2 Cyan Square",
             ),
             buckets["bulk"],
         ),
@@ -455,11 +477,11 @@ def build_sections(buckets: Dict[str, List[str]]) -> List[Section]:
             " The quiet positional cue from the SSF source is kept so nothing drops unheard.",
             (
                 "    SetFontSize 32",
-                "    SetTextColor 165 130 135 255",
-                "    SetBorderColor 85 35 45 255",
-                "    SetBackgroundColor 20 8 9 230",
+                "    SetTextColor 130 160 175 255",
+                "    SetBorderColor 20 68 86 255",
+                "    SetBackgroundColor 4 28 38 230",
                 "    PlayAlertSoundPositional 12 200",
-                "    MinimapIcon 2 Grey Square",
+                "    MinimapIcon 2 Cyan Square",
             ),
             buckets["low"],
         ),
