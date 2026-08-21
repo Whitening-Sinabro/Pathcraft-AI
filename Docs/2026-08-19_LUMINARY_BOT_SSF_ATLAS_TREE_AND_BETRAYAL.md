@@ -23,7 +23,7 @@
 | 아틀라스 포인트 조기 확보 | **Unwavering Vision** 키스톤 | "패시브 스킬 포인트 20포인트 제공". 대가는 *성스러운 시험관(Divine Vessel) 외 조각으로 지도 속성 부여 불가* + *지도에서 갑충석 발견 불가*. 리그 1주차엔 어차피 갑충석이 없으니 순수 이득. ([PoEDB KR](https://poedb.tw/kr/Unwavering_Vision)) |
 | 수량 대신 **희귀도** | **Meticulous Appraiser** 키스톤 | "지도 아이템 수량 증가 모드가 대신 희귀도에 300% 값으로 적용". 유니크 사냥이 목표라 수량보다 희귀도가 낫다. (3.22 Ancestor 도입, [PoE Wiki](https://www.poewiki.net/wiki/Passive_Skill:Atlas~keystone~quantity~converted~to~rarity)) |
 | 메인 딜러(용병) 확보 | 용병 조우 확률 + **House Azadi** + Infamous | Blade Ambusher와 Combatant가 **둘 다 Azadi 가문**이라, Azadi 확률 노드 하나로 두 용병을 동시에 타깃 파밍한다(원문 §2). |
-| 크래프팅 해금 + 유니크 | 배신(Jun) 100% | Rin→요새(유니크 지도 = 메타모드 해금), Janus→연구(Cadiro 유니크 상점), Riker→연구(고대 오브), Vagan→운송(**트라투스 갑충석 상자**), Leo→요새(이중 타락 유니크). |
+| 크래프팅 해금 + 유니크 | 배신(Jun) 100% | Rin→방어(유니크 지도 = 메타모드 해금), Janus→연구(Cadiro 유니크 상점), Riker→연구(고대 오브), Vagan→수송(**트라투스 갑충석 상자**), Leo→방어(이중 타락 유니크). |
 | 유니크·레어 대량 생산 | 균열 → **생명의 결실(Wombgift)** + Genesis Tree | 고대 결실=유니크, 베푸는 결실=레어 장비, 수수께끼 결실=벌레집 두뇌 분비선. |
 | 닉타의 등불 확정 루트 | 점술 카드 **빛과 진실** | 유일하게 "확정적으로" 주무기를 주는 경로. |
 
@@ -142,23 +142,23 @@ https://poeplanner.com/a/65kJ  for Breach and Div cards wheel
 
 | # | 배치 | 노리는 것 | 검증 |
 |---|---|---|---|
-| 1 | **Rin Yuushu → 요새(Fortification)** | **유니크 지도 상자.** 유니크 지도를 클리어해야 메타모드 크래프팅이 열린다 | 3.28 기준 Rin 요새 = Unique map chest (repo `data/syndicate_members.json`) |
+| 1 | **Rin Yuushu → 방어(Fortification)** | **유니크 지도 상자.** 유니크 지도를 클리어해야 메타모드 크래프팅이 열린다 | 3.28 기준 Rin 방어 = Unique map chest (repo `data/syndicate_members.json`) |
 | 2 | **Janus Perandus → 연구(Research)** | **Cadiro의 유니크 상점.** 광범위한 유니크를 골드로 구매. "Cadiro 이상 현상(Anomaly)만큼 강력하진 않지만 초반 유니크 수급으로는 훌륭" | Janus 연구 = Unique purchase trade (Kalguur 상인) |
-| 3 | **Riker Maloney → 연구 / 요새 / 운송 중 택1** | 셋 다 유니크 관련. **연구가 최강 — 고대 오브(Ancient Orb) 30개 슬램** | Riker 연구 = Craft: Ancient Orb, 요새 = Unique chest, 운송 = Unique items drop |
-| 4 | **Vagan → 운송(Transportation)** | **트라투스 갑충석 상자** | **공식 3.29.0 패치노트**: *"Vagan's Transportation Safehouse Reward is now a chest containing Trarthan Scarabs."* (3.28까진 인큐베이터 — 3.29 변경점) |
-| 5 | **Leo Redmane → 요새** | **이중 타락(double-corrupted) 유니크.** 원하는 유니크가 아니어도 **장갑(피격 시 저주)** 과 **투구(광휘 반경 임플리싯)** 는 반드시 확인 | Leo 요새 = Trapped chest: Corrupted Unique |
-| 6 | **Gravicius → 운송** | **점술 카드 한 스택.** 원문 저자는 3.29에서 King's Heart 카드를 풀스택으로 받았다 | Gravicius 운송 = Full stack of Divination Cards |
-| 7 | **It That Fled → 운송 또는 개입(Intervention)** | 운송 = **Foulborn 유니크** / 개입 = Eye of Terror 카드(너프됨) + **균열 갑충석** | It That Fled 운송 = Foulborn Unique, 개입 = Breach Scarabs |
+| 3 | **Riker Maloney → 연구 / 방어 / 수송 중 택1** | 셋 다 유니크 관련. **연구가 최강 — 고대 오브(Ancient Orb) 30개 슬램** | Riker 연구 = Craft: Ancient Orb, 방어 = Unique chest, 수송 = Unique items drop |
+| 4 | **Vagan → 수송(Transportation)** | **트라투스 갑충석 상자** | **공식 3.29.0 패치노트**: *"Vagan's Transportation Safehouse Reward is now a chest containing Trarthan Scarabs."* (3.28까진 인큐베이터 — 3.29 변경점) |
+| 5 | **Leo Redmane → 방어** | **이중 타락(double-corrupted) 유니크.** 원하는 유니크가 아니어도 **장갑(피격 시 저주)** 과 **투구(광휘 반경 임플리싯)** 는 반드시 확인 | Leo 방어 = Trapped chest: Corrupted Unique |
+| 6 | **Gravicius → 수송** | **점술 카드 한 스택.** 원문 저자는 3.29에서 King's Heart 카드를 풀스택으로 받았다 | Gravicius 수송 = Full stack of Divination Cards |
+| 7 | **It That Fled → 수송 또는 조정(Intervention)** | 수송 = **Foulborn 유니크** / 조정 = Eye of Terror 카드(너프됨) + **균열 갑충석** | It That Fled 수송 = Foulborn Unique, 조정 = Breach Scarabs |
 | 8 | **Hillock → 아무 부서나** | 점술 카드 **「화룡점정(The Finishing Touch)」 → 풍요의 기폭제(Fertile Catalyst)** | 카드 확정: [PoEDB](https://poedb.tw/us/The_Finishing_Touch) — 보상 "1x Fertile Catalyst", 2장 세트, 드롭 레벨 61. **KR 공식명이 실제로 「화룡점정」** |
 
 > **3.29 중요 변경**: 공식 패치노트에 *"Ultimatum is now the exclusive source of Catalysts"* — 기폭제는 얼티메이텀 전용이 되었고 원정 상자·Tujen 상점·의식 보상에서 제거되었다. 따라서 **점술 카드 경로(화룡점정)와 킹스마치 매퍼가 사실상 남은 우회로**다. 원문 §6.2의 *"Source of other Catalysts are from either (1) Hillock in Betrayal or (2) Kingsmarch mappers"* 가 이 맥락이다.
 
-### 3-2-B. 배신 보드 세팅 실전 절차 — "Rin을 요새로"를 실제로 하는 법
+### 3-2-B. 배신 보드 세팅 실전 절차 — "Rin을 방어로"를 실제로 하는 법
 
 원문은 **결과(어느 멤버를 어느 분과에)** 만 적어놨고 **과정**은 생략했다. 아래가 그 과정이다.
 
 **보드 기본**
-- 4개 분과(운송 / 요새 / 연구 / 개입), 총 **14 슬롯**. 중위 17명이므로 항상 3명은 미배치(무계급) 상태다.
+- 4개 분과(수송 / 방어 / 연구 / 조정), 총 **14 슬롯**. 중위 17명이므로 항상 3명은 미배치(무계급) 상태다.
 - 계급: **무계급(0) → 1 → 2 → 3**. **계급이 있어야만 분과 슬롯을 차지**한다.
 - 각 분과의 **리더(최고 계급자)가 안가(Safehouse) 보상을 지배**한다. 나머지 단원은 보조 보상.
 - 정보력(Intelligence)이 가득 차면 그 분과의 안가가 열리고, 배정된 멤버 전원이 그리로 이동한다.
@@ -178,7 +178,7 @@ https://poeplanner.com/a/65kJ  for Breach and Div cards wheel
 
 1. **비운다** — 목표 멤버가 엉뚱한 분과에 있으면 **심문을 반복**해 계급을 0으로 떨어뜨린다 → 분과에서 이탈, 무계급 풀로 간다.
 2. **넣는다** — **목표 분과의 조우**에서 그 무계급 멤버가 등장할 때 **처형**한다 → 계급 1 + **그 분과에 배정**.
-   - 기준이 "**가장 최근 조우한 분과**"이므로, **요새 조우에서 처형해야 요새로 간다.** 조우 종류를 확인하고 실행할 것.
+   - 기준이 "**가장 최근 조우한 분과**"이므로, **방어 조우에서 처형해야 방어로 간다.** 조우 종류를 확인하고 실행할 것.
    - 처형은 목격자가 필요하므로 **2명 이상 등장하는 조우**를 노린다.
 3. **키운다** — 같은 분과 조우에서 그 멤버를 계속 **처형** → 계급 3까지. 리더가 되면 안가 보상이 그 멤버 것으로 고정된다.
 
@@ -198,13 +198,13 @@ https://poeplanner.com/a/65kJ  for Breach and Div cards wheel
 
 | 순번 | 작업 | 목적 |
 |---|---|---|
-| 1 | **요새 리더 = Rin** (계급 3) | 유니크 지도 → 메타모드 크래프팅 해금 |
+| 1 | **방어 리더 = Rin** (계급 3) | 유니크 지도 → 메타모드 크래프팅 해금 |
 | 2 | **연구 리더 = Janus** (계급 3) | Cadiro 유니크 상점 — 초반 유니크 수급 |
 | 3 | Janus 안가를 턴 뒤 **연구 리더를 Riker로 교체** | 고대 오브 30개 슬램 |
-| 4 | **요새 리더를 Leo로 교체** | 이중 타락 유니크 (장갑=피격 시 저주 / 투구=광휘 반경 임플리싯 반드시 확인) |
-| 5 | **운송 리더 = Gravicius** | 점술 카드 한 스택 (King's Heart 노림) |
-| 6 | **운송 리더를 It That Fled로 교체** | Foulborn 유니크 (Foulborn 솔라리스 흉갑 / 히네코라의 통찰력) |
-| 7 | **운송 리더를 Vagan으로 교체** | 트라투스 갑충석 상자 — **단, Unwavering Vision을 뺀 뒤**(= 두 번째 트리 이후) |
+| 4 | **방어 리더를 Leo로 교체** | 이중 타락 유니크 (장갑=피격 시 저주 / 투구=광휘 반경 임플리싯 반드시 확인) |
+| 5 | **수송 리더 = Gravicius** | 점술 카드 한 스택 (King's Heart 노림) |
+| 6 | **수송 리더를 It That Fled로 교체** | Foulborn 유니크 (Foulborn 솔라리스 흉갑 / 히네코라의 통찰력) |
+| 7 | **수송 리더를 Vagan으로 교체** | 트라투스 갑충석 상자 — **단, Unwavering Vision을 뺀 뒤**(= 두 번째 트리 이후) |
 | 8 | **Hillock은 아무 분과에나 계급만 올려둠** | 「화룡점정」 카드 → 풍요의 기폭제 |
 
 **주의**
@@ -263,9 +263,9 @@ https://poeplanner.com/a/65kJ  for Breach and Div cards wheel
 | 3 | **Voideye** (원문 표기 "Void Eye") | 공허의 눈 | 무보석 반지 | [나] | **소켓 젬 +5 레벨** → 화염 연결(Flame Link) +5 | 저티어 유니크 드롭 | 권장 |
 | 4 | **Kaom's Binding** | 카옴의 속박 | 육중한 허리띠 | [나] | 생명력 허리띠 | 저티어 유니크 드롭 | 권장 |
 | 5 | **Ceinture of Benevolence** | 관대함의 띠 | 헝겊 허리띠 | [나] | 카옴의 속박 대안(§6.17 바알 오브 타락 대상) | 저티어 유니크 드롭 | **권장** — 원문: "Cloth Belt 유니크 비주얼을 필터에서 잘 보이게" |
-| 6 | **Solaris Lorica** / **Foulborn 판본** | 솔라리스 흉갑 | 구리 판금 갑옷 | [나] | 초·중반 갑옷. **Foulborn 판본 = 광휘 반경 25% + 원소 피해 25%를 카오스로 받음** | 드롭 / **`Copper Plate (ilvl 1+)` 기회의 오브** / Foulborn은 It That Fled → 운송 | 찬스 베이스 노출 |
+| 6 | **Solaris Lorica** / **Foulborn 판본** | 솔라리스 흉갑 | 구리 판금 갑옷 | [나] | 초·중반 갑옷. **Foulborn 판본 = 광휘 반경 25% + 원소 피해 25%를 카오스로 받음** | 드롭 / **`Copper Plate (ilvl 1+)` 기회의 오브** / Foulborn은 It That Fled → 수송 | 찬스 베이스 노출 |
 | 7 | **Ignomon** | *(공식 KR명 미확인)* | 금 목걸이 | [나] | 광휘 반경 + **적 실명** → 초반 용병 명중률 부족 보완 | 저티어 유니크 드롭 | 권장 |
-| 8 | **Hinekora's Sight (Foulborn)** | 히네코라의 통찰력 | 오닉스 목걸이 | [나] | **Foulborn 판본에서 광휘 반경 최대 50%** | Foulborn = It That Fled → 운송 | 권장 |
+| 8 | **Hinekora's Sight (Foulborn)** | 히네코라의 통찰력 | 오닉스 목걸이 | [나] | **Foulborn 판본에서 광휘 반경 최대 50%** | Foulborn = It That Fled → 수송 | 권장 |
 | 9 | **Dying Breath** | 죽어가는 숨결 | 철제 지팡이 | **[AG]** | 오라/저주 효과를 아군에 증폭 | 저티어 유니크 드롭 | 권장 |
 | 10 | **Leer Cast** | 음흉한 시선 | 축제용 가면 | **[AG]** | 주변 아군 피해 증가 | 저티어 유니크 드롭 | 권장 |
 | 11 | **Belly of the Beast** | 짐승의 소굴 | 전신 아룡 비늘 갑옷 | **[AG]** (초반엔 [나]도 가능) | AG 생존력 | 저티어 유니크 드롭 | 권장 |
@@ -361,7 +361,7 @@ https://poeplanner.com/a/65kJ  for Breach and Div cards wheel
 
 5. **poeplanner 스냅샷 시점.** poeplanner v2.10.8.3 / Atlas Tree Version 3.29.0 기준. 3.29.1 이후 아틀라스 패시브 수치 변경(예: Swelling Ranks 20%→10%, Evolving Hives 25%→15%)이 플래너에 반영됐는지는 노드별로 대조하지 않았다. **인게임과 1~2% 차이가 날 수 있다.**
 
-6. **Unwavering Vision 트레이드오프 재평가 시점.** 원문 §5.2가 *"Drop Abyss or Breach if you don't like to have Unwavering Vision blocking your scarabs drop"* 라고 적은 그대로, 갑충석 경제가 돌기 시작하면(특히 Vagan 운송의 트라투스 갑충석 상자를 쓰려면) **UV를 빼는 판단**이 필요하다. 첫 트리에서는 유지가 맞다.
+6. **Unwavering Vision 트레이드오프 재평가 시점.** 원문 §5.2가 *"Drop Abyss or Breach if you don't like to have Unwavering Vision blocking your scarabs drop"* 라고 적은 그대로, 갑충석 경제가 돌기 시작하면(특히 Vagan 수송의 트라투스 갑충석 상자를 쓰려면) **UV를 빼는 판단**이 필요하다. 첫 트리에서는 유지가 맞다.
 
 7. **배신 보드 세부 수치의 출처 등급 — 주의.** §3-2-B의 4가지 선택지 효과(심문 −1/투옥 3회, 처형 +1/최근 조우 분과 배정, 목격자 조건)는 **독립 2차 출처 2곳이 일치**하고 GGG 아틀라스 노드 문구(*"Members Executed … gain an additional Rank"*, *"Executing … grants intelligence … equal to 2 times their Rank"*)와도 정합한다. 다만 **보드 14 슬롯**과 분과별 슬롯 배분은 repo `data/syndicate_layouts.json`(3.28 기준)에서 온 값으로 **3.29 공식 재확인은 하지 않았다.** 배신(Betray) 옵션의 세부 결과도 2차 출처 수준이다.
 
