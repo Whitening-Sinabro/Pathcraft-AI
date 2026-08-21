@@ -1,3 +1,57 @@
+## 2026-08-21 — 갑충석 생성기 적대검증 결함 3건 해결
+
+**지금**: `51a6e92`에 남긴 결함 3건 전부 해결.
+1. 갑충석 우주를 이름 필터에서 `Metadata/Items/Scarabs/` 네임스페이스 + `scarab` 태그
+   합집합으로 교체. 198 = 현행 130 + 구 티어 64 + Bestiary Lure 4로 전수 분류.
+2. `Uniques` 갑충석은 Unique Maps와 의미가 다르므로 아틀라스 조인을 명시적으로 `null` 처리.
+3. 테스트 우주를 GGPK 구조로 독립 정의하고, 태그 없는 Lure 4개와 전수 합계를 회귀 가드화.
+   반복 우주 계산으로 생긴 일시적 성능 회귀도 제거(갑충석 테스트 약 1.7초).
+
+**검증**: 갑충석+파생 인벤토리 49 passed. 전체 Python **1440 passed / 1 failed**.
+실패 1건은 기존 red `test_representative_build_board_marks_3_28_shock_nova_confirmed`
+(`near_confirmed != confirmed`)와 동일하며 이번 변경과 무관.
+
+**착지**: 관련 변경을 `3edf2ae`~`ba35ef3` 5개 로컬 커밋으로 확정. 워킹 트리 clean,
+미푸시. 다음 세션은 backlog의 **빌드 생성 A안(PoB 헤드리스 채점기 실물 검증)** 또는
+사용자 지정 주제로 시작한다.
+
+---
+
+## 2026-08-20 — 필터 카드 시각 분리 + 가이드 docx 3차 교정
+
+**지금**: 둘 다 착지. 워킹 트리 미커밋.
+1. 필터 — 점술 카드 사다리 13블록 라벨 배경을 청록 전용화(화폐·유니크 붉은 계열과 분리).
+   `python/luminary_divcard_layer.py` → `apply_luminary_divcard_layer.py` 로 3곳 동기
+   (레포 / 게임 설치본 / Downloads, md5 `bbef45ac753b`).
+2. 가이드 docx — 표 27개·셀 533개 + 본문 전수 대조. 산출물
+   `C:/Users/User/Downloads/(POE용어 3차교정) …docx` + 같은 이름 대조표.
+   재번역 534 / 용어 치환 126, 미적용 0. 전역 스윕 0건(존댓말·~요체·번역투·조사).
+   입력은 `(POE용어 교정 번역)` docx 고정 — 이 판본만 문단 804로 영문과 1:1 정렬.
+
+**다음**: ① 갑충석 계열 결함 3건(`51a6e92`) — 2026-08-21 해결 완료.
+② 이번 변경 커밋(미커밋 12 + 신규 3).
+
+**블로커**: 없음. **인게임 검증 미완**(사용자 영역) — 카드 시안 팔레트 실물 확인 대기.
+
+**미해결(요청 범위 밖이라 손 안 댐)**: T0/T1 카드 알림음이 아직 화폐와 같다
+(`HolyMotherfuckingShit.mp3` / `Thatsworthsomething.mp3`).
+카드 Cyan 빛기둥이 변신·각성 젬과 겹친다 — 11개 열거색이 전부 사용 중이라 감수한 값
+(근거는 `luminary_divcard_layer.py` 상단 주석, 재논쟁 금지).
+
+**가이드 해석 주의**: 4.x 장비표에 유니크가 적혀 있다고 **필수가 아니다**.
+p37 원문 = "The build functions unique-less" — 닉타의 등불·로리의 등불 전부 선택이다.
+실제 요구는 **최대 생명력 → 시야 반경** 스탯 두 개. 시야 반경은 희귀템 접미어
+`Of Radiance`(시야 반경/전역 정확도 15%)와 패시브 트리 40%(p139)로 채운다.
+p700 = 로리 2개는 임시, **최종형은 오히려 희귀 주색 반지**. 수정 셉터 DropLevel 41 이라
+골드 도박은 레벨 41 부캐가 최적(레벨 오를수록 셉터 풀이 커져 지분이 떨어진다).
+3.29 골드 도박 확률표는 GGG 미공개 — 레포·웹 모두 근거 없음.
+
+**세션 함정은 메모리로 이관, 여기선 포인터만**:
+[[reference_poe_filter_block_parsing]] · [[feedback_mt_source_no_authorial_intent]] ·
+[[project_guide_docx_retranslation]] · [[reference_poe_korean_terms_from_repo]]
+
+---
+
 ## 2026-08-19 — 점술 카드 전수 사다리 + GGPK 3.29 재추출
 
 **지금**: 필터 점술 카드 470장을 Luminary 사다리 13섹션(terminal Show)으로 재편 완료. 빌드 타깃은

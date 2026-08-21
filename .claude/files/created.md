@@ -238,3 +238,6 @@
 | python/scripts/derive_atlas_mechanics.py | PassiveSkills.AtlasGroup 에서 아틀라스 메커니즘 42개 도출 (--write 로 pin 갱신). 레포 최초로 ggpk_fingerprint 를 쓰는 생성기 | 아니오 |
 | data/atlas_mechanics.json | 아틀라스 메커니즘 정본 42개 + provenance + ggpk_fingerprint. atlas_farming_knowledge.json(10개, boss_rush 는 가짜 이름) 대체 근거 | 아니오 |
 | python/tests/test_atlas_mechanics.py | pin↔GGPK 재도출 일치 / 42개 / group 0 falsy 함정 / 이름 결정성 / boss_rush 부재 / 커버리지 격차 테스트 15건 | 아니오 |
+| python/scripts/guide_retranslations.py | 가이드 docx 문단 재번역 표(501항목, 0~8장 본문 + 표 셀). 키=영문 원문이라 원본 개정 시 엉뚱한 자리에 안 붙고 미적용으로 보고됨. 한국어 용어는 레포 번역 데이터 확인분만 사용, 미확인은 영문 유지 | 아니오 |
+| python/tests/test_guide_retranslations.py | 자리 오배치 방지 / 링크 run 불가침 / link_label 선언 강제(미선언·불일치·중복표기 거부) / 서식 경계 모호 시 포기 / XML 이스케이프 / 재번역↔용어치환 비침범 테스트 21건 | 아니오 |
+| python/scripts/guide_terms.py | 가이드 docx 용어 치환 규칙표(192건). 엔진(fix_guide_translation)과 분리 — 규칙 추가가 엔진 파일을 건드리지 않게. 근거 정규식이 없으면 치환 금지가 이 표의 유일한 안전장치 | 아니오 |
