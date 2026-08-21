@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "dataset_kind": "poe1_scarab_families",
   "generated_by": "python/scripts/derive_scarab_families.py",
   "source_tables": [
@@ -9,10 +9,10 @@
     "data/game_data/Tags.json"
   ],
   "ggpk_fingerprint": "019fe48f83f63484",
-  "description": "Scarabs.Type → ScarabTypes 계열, Scarabs.Items → BaseItemTypes 변형으로 도출. 아틀라스 메커니즘 조인은 앵커 노드 id 의 내부 토큰을 쓴다(Anarchy=Rogue Exiles).",
+  "description": "Scarabs.Type → ScarabTypes 계열, Scarabs.Items → BaseItemTypes 변형으로 도출. 갑충석 우주는 Metadata/Items/Scarabs/ 네임스페이스와 scarab 태그의 합집합이다. 아틀라스 메커니즘 조인은 앵커 노드 id 의 내부 토큰을 쓴다(Anarchy=Rogue Exiles).",
   "family_count": 28,
   "active_variant_count": 130,
-  "retired_count": 66,
+  "retired_count": 68,
   "families": {
     "bestiary": {
       "type_index": 0,
@@ -60,7 +60,7 @@
       "type_index": 3,
       "scarab_type_id": "Uniques",
       "tag": "uniques_scarab",
-      "atlas_mechanic": "unique_maps",
+      "atlas_mechanic": null,
       "variant_count": 3,
       "variants": [
         "Titanic Scarab",
@@ -398,6 +398,7 @@
     }
   },
   "unmapped_to_atlas_mechanic": {
+    "uniques": "Titanic/Reliquary 갑충석은 유니크 몬스터·아이템용이다. 아틀라스의 Unique Maps 그룹과 의미가 달라 조인하지 않는다",
     "influence": "영향(Shaper/Elder/Conqueror) 갑충석. 아틀라스 그룹은 이 축으로 안 쪼개져 있다",
     "misc": "단일 메커니즘이 아니다 — Monstrous Lineage / Adversaries 등 잡다한 효과 묶음",
     "uber": "Horned 계열(정점 보스). 아틀라스에 대응하는 단일 그룹이 없다"
@@ -512,16 +513,30 @@
       },
       "note": "구 티어 체계. 현행 Scarabs 계열 어디에도 없고 현행 130종에는 티어 접두사가 하나도 없다. 언제 빠졌는지는 이 레포로 말할 수 없다(patch_notes 는 3.25 부터)."
     },
-    "not_scarab_items": [
+    "other_retired_scarabs": [
       {
-        "name": "Maven's Chisel of Scarabs",
-        "inherits_from": "Metadata/Items/Currency/StackableCurrency",
-        "reason": "이름에 Scarab 이 들어갔을 뿐 갑충석 상속 루트가 아니다"
+        "name": "Craicic Lure",
+        "id": "Metadata/Items/Scarabs/ScarabBeasts4d",
+        "inherits_from": "Metadata/Items/MapFragments/AbstractMapFragment",
+        "reason": "갑충석 네임스페이스에 있으나 현행 Scarabs.Items 계열에 없고 구 티어 접두사도 없다"
       },
       {
-        "name": "Veiled Scarab",
-        "inherits_from": "Metadata/Items/Currency/StackableCurrency",
-        "reason": "이름에 Scarab 이 들어갔을 뿐 갑충석 상속 루트가 아니다"
+        "name": "Farric Lure",
+        "id": "Metadata/Items/Scarabs/ScarabBeasts4a",
+        "inherits_from": "Metadata/Items/MapFragments/AbstractMapFragment",
+        "reason": "갑충석 네임스페이스에 있으나 현행 Scarabs.Items 계열에 없고 구 티어 접두사도 없다"
+      },
+      {
+        "name": "Fenumal Lure",
+        "id": "Metadata/Items/Scarabs/ScarabBeasts4c",
+        "inherits_from": "Metadata/Items/MapFragments/AbstractMapFragment",
+        "reason": "갑충석 네임스페이스에 있으나 현행 Scarabs.Items 계열에 없고 구 티어 접두사도 없다"
+      },
+      {
+        "name": "Saqawine Lure",
+        "id": "Metadata/Items/Scarabs/ScarabBeasts4b",
+        "inherits_from": "Metadata/Items/MapFragments/AbstractMapFragment",
+        "reason": "갑충석 네임스페이스에 있으나 현행 Scarabs.Items 계열에 없고 구 티어 접두사도 없다"
       }
     ]
   }

@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
-"""갑충석 계열 정본을 GGPK 에서 도출한다 — 28계열 / 현행 130종 / 폐기 66종.
+"""갑충석 계열 정본을 GGPK 에서 도출한다 — 28계열 / 현행 130종 / 비현행 68종.
 
 왜 필요한가:
-    `BaseItemTypes` 에 'Scarab' 이 들어간 이름은 196개인데 `Scarabs` 테이블이 계열로
-    묶는 것은 130개뿐이다. 남은 66개를 "미분류 — 리서치 필요"로 두면, 필터나 전략이
+    `Metadata/Items/Scarabs/` 네임스페이스에는 198개가 있고 `Scarabs` 테이블이 계열로
+    묶는 것은 130개뿐이다. 남은 68개를 "미분류 — 리서치 필요"로 두면, 필터나 전략이
     이미 게임에서 빠진 갑충석을 계속 취급하게 된다.
 
-66개의 정체(GGPK 구조만으로 판명):
+68개의 정체(GGPK 구조만으로 판명):
     - 64개 = 구 티어 체계. `{Rusted|Polished|Gilded|Winged} × 16계열` 로 정확히 4×16 이며,
       현행 `Scarabs` 계열 어디에도 안 들어간다. 현행 130개에는 티어 접두사가 하나도 없다.
-    - 2개 = 애초에 갑충석이 아니다. `Maven's Chisel of Scarabs` 와 `Veiled Scarab` 은
-      `StackableCurrency` 이고, 갑충석은 `AbstractMapFragment` 다. 이름에 'Scarab' 이
-      들어갔을 뿐이다.
+    - 4개 = 구 Bestiary Lure. 갑충석 네임스페이스와 상속 루트에는 있으나 현행
+      `Scarabs.Items` 에 없고 `scarab` 태그도 비어 있다.
     (언제 빠졌는지는 이 레포로 말할 수 없다 — `data/patch_notes/` 는 3.25 부터다.)
 
 아틀라스 메커니즘 조인:
@@ -62,9 +61,16 @@ UNMAPPABLE_REASONS = {
     "Influence": "영향(Shaper/Elder/Conqueror) 갑충석. 아틀라스 그룹은 이 축으로 안 쪼개져 있다",
     "Misc": "단일 메커니즘이 아니다 — Monstrous Lineage / Adversaries 등 잡다한 효과 묶음",
     "Uber": "Horned 계열(정점 보스). 아틀라스에 대응하는 단일 그룹이 없다",
+    "Uniques": (
+        "Titanic/Reliquary 갑충석은 유니크 몬스터·아이템용이다. "
+        "아틀라스의 Unique Maps 그룹과 의미가 달라 조인하지 않는다"
+    ),
 }
 
-EXPECTED = {"families": 28, "active_variants": 130, "retired": 66}
+EXPECTED = {"families": 28, "active_variants": 130, "retired": 68}
+
+SCARAB_NAMESPACE = "Metadata/Items/Scarabs/"
+SCARAB_TAG_ID = "scarab"
 
 
 def load_table(name: str) -> list[dict[str, Any]]:
@@ -105,8 +111,11 @@ def atlas_mechanic_index() -> dict[str, str]:
 
 def join_to_mechanic(scarab_type_id: str, index: dict[str, str]) -> str | None:
     """단수/복수 흔들림만 흡수한다. 그 이상은 추측이라 하지 않는다."""
+    if scarab_type_id in UNMAPPABLE_REASONS:
+        return None
     slug = slugify(scarab_type_id)
-    for candidate in (slug, slug.rstrip("s"), f"{slug}s", slug.replace("_", "")):
+    singular = slug[:-1] if slug.endswith("s") else slug
+    for candidate in (slug, singular, f"{slug}s", slug.replace("_", "")):
         if candidate in index:
             return index[candidate]
     return None
@@ -130,25 +139,48 @@ def derive_families(scarabs, scarab_types, base_items, tags, index) -> dict[str,
     return families
 
 
-def derive_retired(scarabs, base_items) -> dict[str, Any]:
+def scarab_universe_indices(base_items, tags) -> set[int]:
+    """이름이 아니라 GGPK 구조로 갑충석 후보 우주를 정의한다.
+
+    현행 데이터에서 `scarab` 태그는 194개를 잡지만 Bestiary Lure 4개에는 비어 있다.
+    네임스페이스와 태그의 합집합을 써야 두 신호 중 하나가 흔들려도 누락이 드러난다.
+    """
+    scarab_tag_indices = {
+        i for i, tag in enumerate(tags) if tag.get("Id") == SCARAB_TAG_ID
+    }
+    if not scarab_tag_indices:
+        raise ValueError("Tags.json 에 scarab 태그가 없다")
+    return {
+        i for i, item in enumerate(base_items)
+        if item.get("Id", "").startswith(SCARAB_NAMESPACE)
+        or bool(scarab_tag_indices.intersection(item.get("TagsKeys", [])))
+    }
+
+
+def derive_retired(scarabs, base_items, tags) -> dict[str, Any]:
     """현행 계열에 안 들어간 것들을 버리지 않고 정체를 밝혀 남긴다."""
     classified = {i for row in scarabs for i in row["Items"]}
+    universe = scarab_universe_indices(base_items, tags)
     leftover = [
         (i, base_items[i]["Name"]) for i, item in enumerate(base_items)
-        if "Scarab" in item.get("Name", "") and i not in classified
+        if i in universe and i not in classified
     ]
 
     legacy = collections.defaultdict(list)
-    not_scarabs = []
+    other_retired = []
     for index, name in leftover:
         match = LEGACY_PREFIX.match(name)
         if match and base_items[index].get("InheritsFrom") == SCARAB_INHERITS:
             legacy[LEGACY_PREFIX.sub("", name)].append(match.group(1))
         else:
-            not_scarabs.append({
+            other_retired.append({
                 "name": name,
+                "id": base_items[index].get("Id"),
                 "inherits_from": base_items[index].get("InheritsFrom"),
-                "reason": "이름에 Scarab 이 들어갔을 뿐 갑충석 상속 루트가 아니다",
+                "reason": (
+                    "갑충석 네임스페이스에 있으나 현행 Scarabs.Items 계열에 없고 "
+                    "구 티어 접두사도 없다"
+                ),
             })
 
     return {
@@ -162,7 +194,7 @@ def derive_retired(scarabs, base_items) -> dict[str, Any]:
                 "하나도 없다. 언제 빠졌는지는 이 레포로 말할 수 없다(patch_notes 는 3.25 부터)."
             ),
         },
-        "not_scarab_items": sorted(not_scarabs, key=lambda x: x["name"]),
+        "other_retired_scarabs": sorted(other_retired, key=lambda x: x["name"]),
     }
 
 
@@ -174,14 +206,14 @@ def build_payload() -> dict[str, Any]:
     index = atlas_mechanic_index()
 
     families = derive_families(scarabs, scarab_types, base_items, tags, index)
-    retired = derive_retired(scarabs, base_items)
+    retired = derive_retired(scarabs, base_items, tags)
     unmapped = {
         key: UNMAPPABLE_REASONS.get(info["scarab_type_id"], "사유 미기재 — 조사 필요")
         for key, info in families.items() if info["atlas_mechanic"] is None
     }
 
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "dataset_kind": "poe1_scarab_families",
         "generated_by": "python/scripts/derive_scarab_families.py",
         "source_tables": [
@@ -193,12 +225,14 @@ def build_payload() -> dict[str, Any]:
         "ggpk_fingerprint": ggpk_fingerprint(),
         "description": (
             "Scarabs.Type → ScarabTypes 계열, Scarabs.Items → BaseItemTypes 변형으로 도출. "
+            "갑충석 우주는 Metadata/Items/Scarabs/ 네임스페이스와 scarab 태그의 합집합이다. "
             "아틀라스 메커니즘 조인은 앵커 노드 id 의 내부 토큰을 쓴다(Anarchy=Rogue Exiles)."
         ),
         "family_count": len(families),
         "active_variant_count": sum(f["variant_count"] for f in families.values()),
         "retired_count": (
-            retired["legacy_tier_scarabs"]["count"] + len(retired["not_scarab_items"])
+            retired["legacy_tier_scarabs"]["count"]
+            + len(retired["other_retired_scarabs"])
         ),
         "families": families,
         "unmapped_to_atlas_mechanic": unmapped,

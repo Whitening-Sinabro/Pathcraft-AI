@@ -95,8 +95,8 @@
       "status": "generated_no_fingerprint"
     },
     "data/active_skill_types.json": {
-      "bytes": 4897,
-      "sha256_16": "8cb626ef54c303aa",
+      "bytes": 5131,
+      "sha256_16": "c88d1680d88d4d3f",
       "parse_error": null,
       "provenance": {
         "generator": null,
@@ -112,8 +112,8 @@
       "declared_generator": null,
       "externally_pinned": false,
       "last_commit": {
-        "commit": "4d128b8e",
-        "date": "2026-08-19"
+        "commit": "3edf2aea",
+        "date": "2026-08-21"
       },
       "in_db_catalog": false,
       "status": "generated_no_fingerprint"
@@ -2209,8 +2209,8 @@
       "status": "orphan"
     },
     "data/scarab_families.json": {
-      "bytes": 15018,
-      "sha256_16": "84e31ca3038b3426",
+      "bytes": 16099,
+      "sha256_16": "0da2de519cd24594",
       "parse_error": null,
       "provenance": {
         "generator": "python/scripts/derive_scarab_families.py",
@@ -2225,7 +2225,10 @@
       ],
       "declared_generator": "python/scripts/derive_scarab_families.py",
       "externally_pinned": false,
-      "last_commit": {},
+      "last_commit": {
+        "commit": "e6f040ff",
+        "date": "2026-08-19"
+      },
       "in_db_catalog": false,
       "status": "current"
     },

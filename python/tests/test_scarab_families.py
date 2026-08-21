@@ -3,8 +3,8 @@
 핀을 믿지 않는다 — 매 실행 GGPK 에서 재도출해 핀과 대조한다.
 
 이 파일이 지키는 핵심 주장 두 가지:
-1. 'Scarab' 이름 196개 중 현행은 130개뿐이고, 나머지 66개의 정체가 밝혀져 있다
-   (구 티어 64 + 갑충석 아닌 것 2). "미분류"로 남겨두면 필터가 없는 아이템을 취급한다.
+1. GGPK 구조상 갑충석 198개 중 현행은 130개뿐이고, 나머지 68개의 정체가 밝혀져 있다
+   (구 티어 64 + Bestiary Lure 4). 이름 필터는 Lure를 구조적으로 놓치므로 쓰지 않는다.
 2. 계열 → 아틀라스 메커니즘 조인은 **표시 이름으로는 불가능**하다. Anarchy=Rogue Exiles,
    Domination=Shrines 는 앵커 노드 id 의 내부 토큰으로만 붙는다.
 """
@@ -26,10 +26,12 @@ from derive_scarab_families import (  # noqa: E402
     LEGACY_TIERS,
     OUT_PATH,
     SCARAB_INHERITS,
+    SCARAB_NAMESPACE,
     atlas_mechanic_index,
     build_payload,
     join_to_mechanic,
     load_table,
+    scarab_universe_indices,
     slugify,
 )
 from derived_data_inventory import ggpk_fingerprint  # noqa: E402
@@ -80,13 +82,19 @@ def test_measured_counts_match_league_values(derived, key):
     )
 
 
-# --- 196 = 130 + 66, 남는 것 없음 -----------------------------------------------
+# --- 198 = 130 + 68, 남는 것 없음 -----------------------------------------------
 
 
-def test_every_scarab_named_item_is_accounted_for(derived):
-    """분류도 폐기도 아닌 갑충석이 남으면 안 된다 — 그게 '미분류 66' 의 정체였다."""
+def test_every_structural_scarab_is_accounted_for(derived):
+    """생성기와 독립된 구조 우주에서 분류도 폐기도 아닌 갑충석이 남으면 안 된다."""
     base_items = load_table("BaseItemTypes")
-    named = {b["Name"] for b in base_items if "Scarab" in b.get("Name", "")}
+    tags = load_table("Tags")
+    scarab_tag = next(i for i, tag in enumerate(tags) if tag.get("Id") == "scarab")
+    structural = {
+        b["Name"] for b in base_items
+        if b.get("Id", "").startswith(SCARAB_NAMESPACE)
+        or scarab_tag in b.get("TagsKeys", [])
+    }
 
     active = {v for f in derived["families"].values() for v in f["variants"]}
     legacy = {
@@ -94,11 +102,24 @@ def test_every_scarab_named_item_is_accounted_for(derived):
         for family, tiers in derived["retired"]["legacy_tier_scarabs"]["families"].items()
         for tier in tiers
     }
-    not_scarab = {x["name"] for x in derived["retired"]["not_scarab_items"]}
+    other_retired = {x["name"] for x in derived["retired"]["other_retired_scarabs"]}
 
-    unaccounted = named - active - legacy - not_scarab
+    unaccounted = structural - active - legacy - other_retired
     assert not unaccounted, f"어디에도 안 잡힌 갑충석: {sorted(unaccounted)}"
-    assert len(named) == len(active) + len(legacy) + len(not_scarab)
+    assert len(structural) == 198
+    assert len(structural) == len(active) + len(legacy) + len(other_retired)
+
+
+def test_structural_universe_catches_lures_without_scarab_name_or_tag():
+    base_items = load_table("BaseItemTypes")
+    tags = load_table("Tags")
+    universe = scarab_universe_indices(base_items, tags)
+    lures = {
+        base_items[i]["Name"] for i in universe
+        if base_items[i].get("Id", "").startswith("Metadata/Items/Scarabs/ScarabBeasts4")
+        and base_items[i]["Name"].endswith("Lure")
+    }
+    assert lures == {"Farric Lure", "Saqawine Lure", "Fenumal Lure", "Craicic Lure"}
 
 
 def test_active_scarabs_carry_no_legacy_tier_prefix(derived):
@@ -118,14 +139,13 @@ def test_legacy_tiers_form_a_complete_grid(derived):
         assert sorted(tiers) == sorted(LEGACY_TIERS), f"{family}: 티어가 빠졌다 {tiers}"
 
 
-def test_non_scarab_items_are_excluded_by_inheritance_not_by_name(derived):
-    """이름 규칙이 아니라 상속 루트로 갈라야 한다 — 이름만 보면 갑충석으로 오인한다."""
-    base_items = load_table("BaseItemTypes")
-    by_name = {b["Name"]: b for b in base_items if b.get("Name")}
-    assert derived["retired"]["not_scarab_items"], "갑충석 아닌 항목 탐지가 죽었다"
-    for entry in derived["retired"]["not_scarab_items"]:
-        assert entry["inherits_from"] != SCARAB_INHERITS
-        assert by_name[entry["name"]].get("InheritsFrom") == entry["inherits_from"]
+def test_other_retired_scarabs_are_the_four_bestiary_lures(derived):
+    entries = derived["retired"]["other_retired_scarabs"]
+    assert {entry["name"] for entry in entries} == {
+        "Farric Lure", "Saqawine Lure", "Fenumal Lure", "Craicic Lure",
+    }
+    assert all(entry["inherits_from"] == SCARAB_INHERITS for entry in entries)
+    assert all(entry["id"].startswith(SCARAB_NAMESPACE) for entry in entries)
 
 
 # --- 아틀라스 메커니즘 조인 -----------------------------------------------------
@@ -135,7 +155,6 @@ def test_non_scarab_items_are_excluded_by_inheritance_not_by_name(derived):
     # 표시 이름으로는 절대 못 붙는 것들 — 내부 토큰 조인이 살아 있는지 보는 게 핵심이다.
     ("anarchy", "rogue_exiles"),
     ("domination", "shrines"),
-    ("uniques", "unique_maps"),
     ("settlers", "settlers_of_kalguur"),
     # 단수/복수만 흔들리는 것들
     ("strongbox", "strongboxes"),
@@ -161,7 +180,7 @@ def test_unmapped_families_declare_a_reason(derived):
     """못 붙인 것을 조용히 null 로 두면 '아직 안 한 것' 과 '붙일 수 없는 것' 이 구분 안 된다."""
     unmapped = {k for k, v in derived["families"].items() if v["atlas_mechanic"] is None}
     assert unmapped == set(derived["unmapped_to_atlas_mechanic"])
-    assert unmapped == {"influence", "misc", "uber"}
+    assert unmapped == {"influence", "misc", "uber", "uniques"}
     for reason in derived["unmapped_to_atlas_mechanic"].values():
         assert reason and "미기재" not in reason
 
@@ -170,6 +189,7 @@ def test_join_does_not_guess_beyond_plural_forms():
     index = atlas_mechanic_index()
     assert join_to_mechanic("Bestiary", index) == "bestiary"
     assert join_to_mechanic("Misc", index) is None
+    assert join_to_mechanic("Uniques", index) is None
     assert join_to_mechanic("완전히없는것", index) is None
 
 
