@@ -29,7 +29,8 @@ INDEX_FILE = os.path.join(REDDIT_BUILDS_DIR, "index.json")
 POB_LINK_PATTERNS = {
     'pobb_in': r'(?:https?://)?(?:www\.)?pobb\.in/([a-zA-Z0-9_-]+)',
     'pastebin': r'(?:https?://)?(?:www\.)?pastebin\.com/(?:raw/)?([a-zA-Z0-9]+)',
-    'poe_ninja': r'(?:https?://)?poe\.ninja/pob/([a-zA-Z0-9]+)'
+    'poe_ninja': r'(?:https?://)?poe\.ninja/pob/([a-zA-Z0-9]+)',
+    'poedb': r'(?:https?://)?(?:www\.)?poedb\.tw/(?:[a-z]{2}/)?pob/([a-zA-Z0-9_-]+)'
 }
 
 def ensure_reddit_builds_dir():
@@ -158,8 +159,13 @@ def extract_pob_links(text: str) -> List[str]:
     for code in matches:
         links.append(f"https://poe.ninja/pob/{code}")
 
-    # 중복 제거
-    return list(set(links))
+    # poedb.tw build shares (locale prefix is optional)
+    matches = re.findall(POB_LINK_PATTERNS['poedb'], text, re.IGNORECASE)
+    for code in matches:
+        links.append(f"https://poedb.tw/pob/{code}")
+
+    # 패턴 순서를 유지하며 중복 제거
+    return list(dict.fromkeys(links))
 
 def extract_pob_links_from_post(post: Dict) -> List[str]:
     """

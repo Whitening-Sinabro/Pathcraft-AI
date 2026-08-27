@@ -4,6 +4,7 @@
 import sys
 import os
 import pytest
+from unittest.mock import MagicMock, patch
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
@@ -75,6 +76,7 @@ class TestParsePobXml:
         assert result is not None
         assert result["meta"]["class"] == "Witch"
         assert result["meta"]["ascendancy"] == "Occultist"
+        assert result["meta"]["version"] == "3_25"
 
     def test_extracts_stats(self):
         """스탯 추출 (life, dps, es)"""
@@ -121,6 +123,30 @@ class TestGetPobCodeFromUrl:
 
         assert code is not None
         assert decode_pob_code(code) == "<PathOfBuilding><Build /></PathOfBuilding>"
+
+    @pytest.mark.parametrize(
+        "url,expected_raw_url",
+        [
+            (
+                "https://poedb.tw/pob/GXoW7hsWd6",
+                "https://poedb.tw/pob/GXoW7hsWd6/raw",
+            ),
+            (
+                "https://poedb.tw/us/pob/gcNfqrGAAe",
+                "https://poedb.tw/pob/gcNfqrGAAe/raw",
+            ),
+        ],
+    )
+    def test_poedb_build_page_uses_raw_export(self, url, expected_raw_url):
+        response = MagicMock()
+        response.text = "encoded-pob-code"
+        response.raise_for_status.return_value = None
+
+        with patch("pob_parser._http_get_with_proxy_fallback", return_value=response) as http_get:
+            code = get_pob_code_from_url(url)
+
+        assert code == "encoded-pob-code"
+        http_get.assert_called_once_with(expected_raw_url, timeout=30)
 
 
 if __name__ == "__main__":

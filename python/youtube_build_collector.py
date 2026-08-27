@@ -240,6 +240,7 @@ def extract_pob_links(text: str) -> List[str]:
         r'https?://pobb\.in/[A-Za-z0-9_-]+',
         r'https?://pastebin\.com/[A-Za-z0-9]+',
         r'https?://poe\.ninja/pob/[A-Za-z0-9]+',
+        r'https?://(?:www\.)?poedb\.tw/(?:[a-z]{2}/)?pob/[A-Za-z0-9_-]+',
     ]
 
     links = []
@@ -248,8 +249,8 @@ def extract_pob_links(text: str) -> List[str]:
         matches = re.findall(pattern, text)
         links.extend(matches)
 
-    # 중복 제거
-    return list(set(links))
+    # 패턴별 발견 순서를 안정적으로 유지하며 중복 제거
+    return list(dict.fromkeys(links))
 
 
 

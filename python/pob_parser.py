@@ -32,6 +32,10 @@ except ImportError:
 TEST_POB_URL = "https://pobb.in/wXVStDuZrqHX"
 HEADERS = {'User-Agent': 'Mozilla/5.0'}
 DIRECT_XML_PREFIX = "__XML_DIRECT__"
+POEDB_POB_URL_RE = re.compile(
+    r"^https?://(?:www\.)?poedb\.tw/(?:[a-z]{2}/)?pob/([A-Za-z0-9_-]+)(?:/raw)?/?$",
+    re.IGNORECASE,
+)
 
 
 def _http_get_with_proxy_fallback(url, *, timeout):
@@ -71,6 +75,11 @@ def get_pob_code_from_url(pob_url):
             pob_url = pob_url.replace('pastebin.com/', 'pastebin.com/raw/')
             logger.info(f"   > Pastebin URL detected, using raw: {pob_url}")
 
+        poedb_match = POEDB_POB_URL_RE.fullmatch(pob_url)
+        if poedb_match:
+            pob_url = f"https://poedb.tw/pob/{poedb_match.group(1)}/raw"
+            logger.info(f"   > PoEDB build detected, using raw: {pob_url}")
+
         # pobb.in은 간헐적으로 느림 — 30초 타임아웃 + 타임아웃 시 1회 재시도.
         # 커넥션 에러/4xx/5xx는 재시도하지 않음 (서버 문제는 반복해도 소용 없음).
         response = None
@@ -101,7 +110,11 @@ def get_pob_code_from_url(pob_url):
             return None
 
         # raw text endpoints return the encoded PoB payload directly.
-        if 'pastebin.com/raw/' in pob_url or '/poe1/pob/raw/' in pob_url:
+        if (
+            'pastebin.com/raw/' in pob_url
+            or '/poe1/pob/raw/' in pob_url
+            or ('poedb.tw/pob/' in pob_url and pob_url.rstrip('/').endswith('/raw'))
+        ):
             return response.text.strip()
 
         # pobb.in은 HTML 파싱 필요
@@ -301,6 +314,7 @@ def parse_pob_xml(xml_string, pob_url):
         # 패시브 트리 URL + 모든 Tree Spec 추출
         passive_tree_url = ""
         passive_tree_options = []
+        tree_version = ""
         if tree_element is not None:
             # PoB stores activeSpec as a one-based Spec position when Spec nodes do
             # not carry IDs. Some older/custom XMLs instead use an explicit id.
@@ -328,12 +342,17 @@ def parse_pob_xml(xml_string, pob_url):
                 })
 
             if active_spec is not None:
+                tree_version = active_spec.get('treeVersion', '')
                 url_element = active_spec.find('URL')
                 if url_element is not None and url_element.text:
                     passive_tree_url = url_element.text.strip()
                 logger.info("활성 Tree Spec id=%s 제목=%r",
                             active_spec.get('id', '?'),
                             active_spec.get('title', ''))
+            if not tree_version:
+                first_spec = tree_element.find('Spec')
+                if first_spec is not None:
+                    tree_version = first_spec.get('treeVersion', '')
 
         # 최종 JSON 데이터 조립
         asc_name = build.get('ascendClassName', 'Unknown')
@@ -397,7 +416,9 @@ def parse_pob_xml(xml_string, pob_url):
                 "class": class_name,
                 "ascendancy": asc_name,
                 "pob_link": pob_url,
-                "version": build.get('targetVersion'),
+                # targetVersion is the PoB format generation (commonly 3_0),
+                # while Tree/Spec.treeVersion is the actual game patch.
+                "version": tree_version or build.get('targetVersion'),
                 "has_xml_stats": bool(xml_stats)
             },
             "build_notes": build_notes,

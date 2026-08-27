@@ -140,3 +140,26 @@ def test_direct_poe_ninja_raw_endpoint_is_treated_as_pob_source():
 
     assert result["source_type"] == "poe_ninja_pob_raw"
     assert result["pob_url"] == "https://poe.ninja/poe1/pob/raw/8c8b9"
+
+
+def test_poedb_build_page_resolves_to_raw_export_endpoint():
+    result = resolve_source("https://poedb.tw/us/pob/gcNfqrGAAe")
+
+    assert result["source_type"] == "poedb_pob_page"
+    assert result["pob_url"] == "https://poedb.tw/pob/gcNfqrGAAe/raw"
+    assert any("raw Path of Building" in warning for warning in result["warnings"])
+
+
+def test_direct_poedb_raw_endpoint_is_treated_as_pob_source():
+    result = resolve_source("https://poedb.tw/pob/GXoW7hsWd6/raw")
+
+    assert result["source_type"] == "poedb_pob_raw"
+    assert result["pob_url"] == "https://poedb.tw/pob/GXoW7hsWd6/raw"
+
+
+def test_extracts_poedb_build_url_from_generic_html_as_raw_export():
+    html = '<a href="https://poedb.tw/pob/GXoW7hsWd6">PoB</a>'
+
+    result = resolve_from_html("https://example.com/build", html)
+
+    assert result["pob_url"] == "https://poedb.tw/pob/GXoW7hsWd6/raw"

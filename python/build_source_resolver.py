@@ -18,7 +18,7 @@ sys.stderr.reconfigure(encoding="utf-8")
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 POB_URL_RE = re.compile(
-    r"https?://(?:www\.)?(?:pobb\.in|pastebin\.com(?:/raw)?|poe\.ninja/poe1/pob/raw|planners\.maxroll\.gg/profiles/load/poe)/[A-Za-z0-9/_-]+",
+    r"https?://(?:www\.)?(?:(?:pobb\.in|pastebin\.com(?:/raw)?|poe\.ninja/poe1/pob/raw|planners\.maxroll\.gg/profiles/load/poe)/[A-Za-z0-9/_-]+|poedb\.tw/(?:[a-z]{2}/)?pob/[A-Za-z0-9_-]+)",
     re.IGNORECASE,
 )
 PASSIVE_URL_RE = re.compile(
@@ -60,10 +60,26 @@ def _source_type_for_host(url: str) -> str:
         if path.startswith("/poe1/pob/"):
             return "poe_ninja_pob_page"
     if "poedb.tw" in host:
+        if re.fullmatch(r"/(?:[a-z]{2}/)?pob/[A-Za-z0-9_-]+/raw/?", path, re.IGNORECASE):
+            return "poedb_pob_raw"
+        if re.fullmatch(r"/(?:[a-z]{2}/)?pob/[A-Za-z0-9_-]+/?", path, re.IGNORECASE):
+            return "poedb_pob_page"
         return "poedb"
     if url.startswith("file://"):
         return "file"
     return "webpage"
+
+
+def _poedb_raw_url(url: str) -> str:
+    parsed = urlparse(url)
+    match = re.fullmatch(
+        r"/(?:[a-z]{2}/)?pob/([A-Za-z0-9_-]+)(?:/raw)?/?",
+        parsed.path,
+        re.IGNORECASE,
+    )
+    if not match:
+        return url
+    return f"https://poedb.tw/pob/{match.group(1)}/raw"
 
 
 def _normalize_pob_url(url: str) -> str:
@@ -72,6 +88,8 @@ def _normalize_pob_url(url: str) -> str:
         path = parsed.path
         if path and path != "/":
             return f"{parsed.scheme}://{parsed.netloc}/raw{path}"
+    if "poedb.tw" in parsed.netloc.lower():
+        return _poedb_raw_url(url)
     return url
 
 
@@ -185,7 +203,14 @@ def resolve_source(url: str) -> dict:
     url = url.strip()
     source_type = _source_type_for_host(url)
 
-    if source_type in {"pobb", "pastebin", "file", "poe_ninja_pob_raw", "maxroll_profile_api"}:
+    if source_type in {
+        "pobb",
+        "pastebin",
+        "file",
+        "poe_ninja_pob_raw",
+        "poedb_pob_raw",
+        "maxroll_profile_api",
+    }:
         normalized = _normalize_pob_url(url)
         return {
             "dataset_kind": "poe1_build_source_resolution",
@@ -198,6 +223,21 @@ def resolve_source(url: str) -> dict:
             "maxroll_tool_url": None,
             "warnings": [],
             "all_candidates": {"pob_urls": [normalized], "passive_tree_urls": [], "tool_urls": []},
+        }
+
+    if source_type == "poedb_pob_page":
+        raw_url = _poedb_raw_url(url)
+        return {
+            "dataset_kind": "poe1_build_source_resolution",
+            "input_url": url,
+            "source_type": source_type,
+            "canonical_url": url,
+            "title": None,
+            "pob_url": raw_url,
+            "passive_tree_url": None,
+            "maxroll_tool_url": None,
+            "warnings": ["PoEDB build page resolved to its raw Path of Building export endpoint."],
+            "all_candidates": {"pob_urls": [raw_url], "passive_tree_urls": [], "tool_urls": []},
         }
 
     if source_type in {"maxroll_pob_page", "maxroll_planner_page"}:
