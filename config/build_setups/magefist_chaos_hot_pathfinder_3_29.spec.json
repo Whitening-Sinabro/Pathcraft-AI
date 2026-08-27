@@ -1,0 +1,972 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_kind": "pathcraft_poe1_user_build_setup",
+  "build_id": "magefist_chaos_hot_pathfinder_3_29",
+  "display_name": "MAGEFIST Chaos Herald of Thunder Pathfinder 3.29",
+  "created_at": "2026-08-22",
+  "game": "poe1",
+  "patch": "3.29",
+  "league": "Curse of the Allflame",
+  "mode": "softcore_trade",
+  "identity": {
+    "class": "Ranger",
+    "ascendancy": "Pathfinder",
+    "main_skill": "Herald of Thunder",
+    "damage_model": [
+      "lightning damage converted to chaos damage",
+      "poison",
+      "wither"
+    ],
+    "leveling_skill": "Poisonous Concoction of Bouncing"
+  },
+  "sources": {
+    "videos": [
+      {
+        "stage": "part_1",
+        "published": "2026-08-19",
+        "url": "https://www.youtube.com/watch?v=9KGgy7ofDZk",
+        "title": "CHAOS HERALD OF THUNDER [FROM ZERO TO HERO] PART 1 - ANOTHER WALKING SIMULATOR - ACTUALLY TANKY?"
+      },
+      {
+        "stage": "part_2",
+        "published": "2026-08-21",
+        "url": "https://www.youtube.com/watch?v=qtB0hKvP3hA",
+        "title": "CHAOS HERALD OF THUNDER [FROM ZERO TO HERO] PART 2 - POPPIN OFF - 200 MOVEMENT SPEED"
+      }
+    ],
+    "campaign_pob": {
+      "id": "o39wtJ3fp-zj",
+      "creator": "MrRonit",
+      "relationship": "independent campaign companion; not an official MAGEFIST PoB",
+      "guide_url": "https://mobalytics.gg/poe/profile/mrronit/builds/mrronit-s-poisonous-concoction-starters-noob-friendly",
+      "url": "https://pobb.in/o39wtJ3fp-zj",
+      "raw_url": "https://pobb.in/o39wtJ3fp-zj/raw",
+      "guide_patch": "3.29",
+      "source_tree_version": "3_27",
+      "conversion_target_tree_version": "3_29",
+      "stages": [
+        {
+          "source_title": "Act 1 (Pre-Level 12)",
+          "title": "01 Act 1 Lv1-11 - Caustic Arrow",
+          "level": 11,
+          "main_skill": "Caustic Arrow",
+          "config_source_title": "Act 1-2"
+        },
+        {
+          "source_title": "Act 1-4",
+          "title": "02 Act 1-4 Lv12-40 - Poisonous Concoction",
+          "level": 40,
+          "main_skill": "Poisonous Concoction",
+          "config_source_title": "Act 1-2"
+        },
+        {
+          "source_title": "Act 5-6",
+          "title": "03 Act 5-6 Lv41-55 - PConc / Bouncing if obtained",
+          "level": 55,
+          "main_skill": "Poisonous Concoction",
+          "config_source_title": "Earlygame"
+        },
+        {
+          "source_title": "Act 7-8",
+          "title": "04 Act 7-8 Lv56-67 - PConc / Bouncing",
+          "level": 67,
+          "main_skill": "Poisonous Concoction",
+          "config_source_title": "Earlygame"
+        },
+        {
+          "source_title": "Act 9-10",
+          "title": "05 Act 9-10 Lv68-72 - PConc / Bouncing",
+          "level": 72,
+          "main_skill": "Poisonous Concoction",
+          "config_source_title": "Earlygame"
+        },
+        {
+          "source_title": "Earlygame",
+          "title": "06 Early Maps Lv73-90 - Farm HoT set",
+          "level": 90,
+          "main_skill": "Poisonous Concoction of Bouncing",
+          "config_source_title": "Earlygame"
+        }
+      ]
+    },
+    "minimum_transition_tree": {
+      "relationship": "independent non-cluster Voltaxic poison Herald of Thunder skeleton; adapted mechanically, not an official MAGEFIST tree",
+      "guide_url": "https://odealo.com/articles/herald-of-thunder-poison-auto-bomber-pathfinder-build",
+      "source_tree_url": "https://www.pathofexile.com/fullscreen-passive-skill-tree/3.22.0/AAAABgIDYgEkAbwDWQQHBbUGcAahCaoOXBEPEjAUsBqNHwIj9i4jL28wfDbFN0w31DhAOlg7DT9sQfJFfkcGSVFJUkwtTZJQAFFHUilVxlXgVkhW-lhaWyZirGSmZXJsCGyMcLtw53MOd9d6f3thfyt_gH-Wf_uAIoIeg9uGd40LjX2Nv4_6khuVZpazm42fbaHMrJitHLTFu_bBxcKcwuzHncgNzqjQ0Ngk2RPZ_NsL2-fp2uwY7T_uDu967-vw1fGK9Rj3E_zF_xAABoXCASQCOwNZ9bFw5_sIlrO6Gq0csQXCnA==",
+      "source_patch": "3.22",
+      "target_tree_version": "3_29",
+      "source_normal_points": 90,
+      "source_ascendancy_points": 8,
+      "minimum_ascendancy_points": 6,
+      "removed_until_uber_lab": [32640, 65296],
+      "validation": "all retained node IDs and mastery effects must exist in the installed 3.29 tree data"
+    },
+    "pob_stages": [
+      {
+        "id": "GXoW7hsWd6",
+        "stage": "part_1",
+        "title": "01 Lv95 Part 1 - 100% chaos conversion",
+        "url": "https://poedb.tw/pob/GXoW7hsWd6",
+        "raw_url": "https://poedb.tw/pob/GXoW7hsWd6/raw",
+        "level": 95,
+        "combined_dps": 7094854,
+        "total_ehp": 36004
+      },
+      {
+        "id": "gcNfqrGAAe",
+        "stage": "part_2",
+        "title": "02 Lv98 Part 2 - weapon and block endgame",
+        "url": "https://poedb.tw/us/pob/gcNfqrGAAe",
+        "raw_url": "https://poedb.tw/pob/gcNfqrGAAe/raw",
+        "level": 98,
+        "combined_dps": 16500585,
+        "total_ehp": 104584
+      }
+    ]
+  },
+  "outputs": {
+    "pob": "C:\\Users\\User\\Desktop\\Game\\POE1&2 분리 - 비밀번호 pob\\POE1 한글 POB (2026.08.07)\\POE1 한글 POB (2026.08.07)\\POE1 POB\\Builds\\3.29-CotA\\Magefist_Chaos_HoT_Pathfinder_3.29.xml",
+    "campaign_pob": "C:\\Users\\User\\Desktop\\Game\\POE1&2 분리 - 비밀번호 pob\\POE1 한글 POB (2026.08.07)\\POE1 한글 POB (2026.08.07)\\POE1 POB\\Builds\\3.29-CotA\\Magefist_Chaos_HoT_Pathfinder_3.29_00_Campaign_PConc.xml",
+    "minimum_transition_pob": "C:\\Users\\User\\Desktop\\Game\\POE1&2 분리 - 비밀번호 pob\\POE1 한글 POB (2026.08.07)\\POE1 한글 POB (2026.08.07)\\POE1 POB\\Builds\\3.29-CotA\\Magefist_Chaos_HoT_Pathfinder_3.29_01_Minimum_Transition_Voltaxic.xml",
+    "filter": {
+      "status": "awaiting_user_choice",
+      "format": null,
+      "main_colour": null
+    }
+  },
+  "minimum_transition": {
+    "level": 80,
+    "relationship": "video-faithful Voltaxic gear transition using the official MAGEFIST Part 1 tree pruned for unavailable cluster and jewel sockets; not a published level-80 MAGEFIST PoB",
+    "tree": {
+      "source_tree_url": "https://www.pathofexile.com/fullscreen-passive-skill-tree/3.22.0/AAAABgIDYgEkAbwDWQQHBbUGcAahCaoOXBEPEjAUsBqNHwIj9i4jL28wfDbFN0w31DhAOlg7DT9sQfJFfkcGSVFJUkwtTZJQAFFHUilVxlXgVkhW-lhaWyZirGSmZXJsCGyMcLtw53MOd9d6f3thfyt_gH-Wf_uAIoIeg9uGd40LjX2Nv4_6khuVZpazm42fbaHMrJitHLTFu_bBxcKcwuzHncgNzqjQ0Ngk2RPZ_NsL2-fp2uwY7T_uDu967-vw1fGK9Rj3E_zF_xAABoXCASQCOwNZ9bFw5_sIlrO6Gq0csQXCnA==",
+      "target_tree_version": "3_29",
+      "official_pruned_node_count": 109,
+      "nodes": [292, 444, 857, 1031, 1461, 1648, 1697, 2474, 3676, 4367, 4656, 5296, 6797, 7938, 9206, 11811, 12143, 12412, 14021, 14156, 14292, 14400, 14936, 15117, 16236, 16882, 17790, 18182, 18769, 18770, 19501, 19858, 20480, 20807, 21033, 21958, 21984, 22088, 22266, 22618, 23334, 25260, 25766, 25970, 27656, 27788, 28859, 28903, 29454, 30679, 31359, 31585, 32555, 32662, 32763, 32802, 33310, 33755, 34423, 36107, 36221, 36287, 36858, 37403, 38246, 38579, 39821, 40813, 41420, 44184, 44316, 46277, 48118, 49605, 49820, 49900, 51101, 51213, 52904, 53456, 55332, 55571, 55804, 56075, 56295, 59866, 60440, 60735, 60942, 61306, 61419, 61653, 61834, 62744, 63251, 64709],
+      "masteries": [
+        {"node": 292, "effect": 34242},
+        {"node": 857, "effect": 571},
+        {"node": 28903, "effect": 62897},
+        {"node": 38579, "effect": 64264},
+        {"node": 44316, "effect": 47642},
+        {"node": 49820, "effect": 45317}
+      ],
+      "calamitous_socket_node": 61834,
+      "normal_points": 90,
+      "ascendancy_points": 6,
+      "next_uber_lab_nodes": [32640, 65296]
+    },
+    "calamitous_item_id": 16,
+    "required_items": [
+      "Voltaxic Rift",
+      "Dendrobate",
+      "Storm Secret",
+      "Calamitous Visions"
+    ],
+    "excluded_expensive_items": [
+      "Progenesis",
+      "The Tides of Time",
+      "Vessel of Vinktar",
+      "Foulborn The Blue Nightmare",
+      "Nebulis",
+      "Replica Dragonfang's Flight"
+    ],
+    "main_link": [
+      "Herald of Thunder",
+      "Empower",
+      "Unbound Ailments",
+      "Void Manipulation",
+      "Elemental Focus",
+      "Added Lightning Damage"
+    ],
+    "items": [
+      {
+        "id": 1,
+        "slot": "Weapon 1",
+        "text": [
+          "Rarity: UNIQUE",
+          "Voltaxic Rift",
+          "Spine Bow",
+          "Item Level: 80",
+          "Quality: 20",
+          "Sockets: G-B R-R-R B",
+          "LevelReq: 64",
+          "Implicits: 0",
+          "Adds 1 to 675 Lightning Damage",
+          "12% increased Attack Speed",
+          "100% of Lightning Damage Converted to Chaos Damage",
+          "Treats Enemy Monster Chaos Resistance values as inverted",
+          "Your Chaos Damage can Shock",
+          "+40% to Maximum Effect of Shock"
+        ]
+      },
+      {
+        "id": 2,
+        "slot": "Weapon 2",
+        "text": [
+          "Rarity: RARE",
+          "Transition Dart",
+          "Spike-Point Arrow Quiver",
+          "Item Level: 80",
+          "LevelReq: 60",
+          "Implicits: 1",
+          "30% increased Global Critical Strike Chance",
+          "+80 to maximum Life",
+          "+55 to Dexterity",
+          "+35% to Lightning Resistance",
+          "+30% to Chaos Resistance"
+        ]
+      },
+      {
+        "id": 3,
+        "slot": "Ring 1",
+        "text": [
+          "Rarity: UNIQUE",
+          "Storm Secret",
+          "Topaz Ring",
+          "Item Level: 80",
+          "LevelReq: 56",
+          "Implicits: 1",
+          "+25% to Lightning Resistance",
+          "+25 to Intelligence",
+          "25% increased Lightning Damage",
+          "12% chance to Shock",
+          "Herald of Thunder also creates a storm when you Shock an Enemy",
+          "Herald of Thunder's Storms Hit Enemies with 50% increased Frequency",
+          "Take 250 Lightning Damage when Herald of Thunder Hits an Enemy"
+        ]
+      },
+      {
+        "id": 4,
+        "slot": "Ring 2",
+        "text": [
+          "Rarity: UNIQUE",
+          "Storm Secret",
+          "Topaz Ring",
+          "Item Level: 80",
+          "LevelReq: 56",
+          "Implicits: 1",
+          "+25% to Lightning Resistance",
+          "+25 to Intelligence",
+          "25% increased Lightning Damage",
+          "12% chance to Shock",
+          "Herald of Thunder also creates a storm when you Shock an Enemy",
+          "Herald of Thunder's Storms Hit Enemies with 50% increased Frequency",
+          "Take 250 Lightning Damage when Herald of Thunder Hits an Enemy"
+        ]
+      },
+      {
+        "id": 5,
+        "slot": "Body Armour",
+        "text": [
+          "Rarity: UNIQUE",
+          "Dendrobate",
+          "Sentinel Jacket",
+          "Item Level: 80",
+          "Quality: 20",
+          "Sockets: G-W-W-W-W-W",
+          "LevelReq: 59",
+          "Implicits: 0",
+          "Socketed Gems are Supported by Level 10 Chance to Poison",
+          "140% increased Evasion and Energy Shield",
+          "+40 to maximum Energy Shield",
+          "+20% to all Elemental Resistances",
+          "90% increased Damage with Poison if you have at least 300 Dexterity",
+          "20% increased Poison Duration if you have at least 150 Intelligence"
+        ]
+      },
+      {
+        "id": 6,
+        "slot": "Belt",
+        "text": [
+          "Rarity: RARE",
+          "Transition Harness",
+          "Heavy Belt",
+          "Item Level: 80",
+          "LevelReq: 60",
+          "Implicits: 1",
+          "+30 to Strength",
+          "+100 to maximum Life",
+          "20% increased Flask Charges gained",
+          "20% increased Flask Effect Duration",
+          "+35% to Chaos Resistance"
+        ]
+      },
+      {
+        "id": 7,
+        "slot": "Helmet",
+        "text": [
+          "Rarity: RARE",
+          "Transition Shelter",
+          "Sinner Tricorne",
+          "Item Level: 80",
+          "Quality: 20",
+          "Sockets: R-B-B-B",
+          "LevelReq: 64",
+          "Implicits: 0",
+          "+90 to maximum Life",
+          "+35% to Fire Resistance",
+          "+35% to Cold Resistance",
+          "+10% chance to Suppress Spell Damage"
+        ]
+      },
+      {
+        "id": 8,
+        "slot": "Gloves",
+        "text": [
+          "Rarity: RARE",
+          "Transition Grasp",
+          "Shagreen Gloves",
+          "Item Level: 80",
+          "Quality: 20",
+          "Sockets: B-B-B-R",
+          "LevelReq: 60",
+          "Implicits: 0",
+          "+90 to maximum Life",
+          "+35% to Fire Resistance",
+          "+35% to Lightning Resistance",
+          "+10% chance to Suppress Spell Damage"
+        ]
+      },
+      {
+        "id": 9,
+        "slot": "Boots",
+        "text": [
+          "Rarity: RARE",
+          "Transition Pace",
+          "Harpyskin Boots",
+          "Item Level: 80",
+          "Quality: 20",
+          "Sockets: G-R-B",
+          "LevelReq: 62",
+          "Implicits: 0",
+          "+90 to maximum Life",
+          "30% increased Movement Speed",
+          "+35% to Cold Resistance",
+          "+35% to Lightning Resistance",
+          "+12% chance to Suppress Spell Damage"
+        ]
+      },
+      {
+        "id": 10,
+        "slot": "Amulet",
+        "text": [
+          "Rarity: RARE",
+          "Transition Thread",
+          "Turquoise Amulet",
+          "Item Level: 80",
+          "LevelReq: 60",
+          "Implicits: 1",
+          "+24 to Dexterity and Intelligence",
+          "+75 to maximum Life",
+          "+45 to Intelligence",
+          "+35 to Dexterity",
+          "+35% to all Elemental Resistances"
+        ]
+      },
+      {
+        "id": 11,
+        "slot": "Flask 1",
+        "text": [
+          "Rarity: MAGIC",
+          "Experimenter's Topaz Flask of the Eel",
+          "Topaz Flask",
+          "Item Level: 80",
+          "Quality: 20",
+          "LevelReq: 74",
+          "Implicits: 1",
+          "{crafted}Used when Charges reach full",
+          "25% increased Duration",
+          "35% less Duration",
+          "Immunity to Shock during Effect"
+        ]
+      },
+      {
+        "id": 12,
+        "slot": "Flask 2",
+        "text": [
+          "Rarity: MAGIC",
+          "Experimenter's Ruby Flask of Bog Moss",
+          "Ruby Flask",
+          "Item Level: 82",
+          "Quality: 20",
+          "LevelReq: 65",
+          "Implicits: 1",
+          "{crafted}Used when Charges reach full",
+          "25% increased Duration",
+          "54% chance to Avoid being Shocked during Effect"
+        ]
+      },
+      {
+        "id": 13,
+        "slot": "Flask 3",
+        "text": [
+          "Rarity: MAGIC",
+          "Experimenter's Sapphire Flask of the Armadillo",
+          "Sapphire Flask",
+          "Item Level: 80",
+          "Quality: 20",
+          "LevelReq: 64",
+          "Implicits: 1",
+          "{crafted}Used when Charges reach full",
+          "25% increased Duration",
+          "55% increased Armour during Effect"
+        ]
+      },
+      {
+        "id": 14,
+        "slot": "Flask 4",
+        "text": [
+          "Rarity: MAGIC",
+          "Experimenter's Amethyst Flask of the Impala",
+          "Amethyst Flask",
+          "Item Level: 80",
+          "Quality: 20",
+          "LevelReq: 65",
+          "Implicits: 1",
+          "{crafted}Used when Charges reach full",
+          "25% increased Duration",
+          "55% increased Evasion Rating during Effect"
+        ]
+      },
+      {
+        "id": 15,
+        "slot": "Flask 5",
+        "text": [
+          "Rarity: MAGIC",
+          "Experimenter's Quicksilver Flask of the Cheetah",
+          "Quicksilver Flask",
+          "Item Level: 80",
+          "Quality: 20",
+          "LevelReq: 65",
+          "Implicits: 1",
+          "{crafted}Used when Charges reach full",
+          "25% increased Duration",
+          "12% increased Movement Speed during Effect"
+        ]
+      },
+      {
+        "id": 16,
+        "slot": null,
+        "text": [
+          "Rarity: UNIQUE",
+          "Calamitous Visions",
+          "Small Cluster Jewel",
+          "Item Level: 80",
+          "Implicits: 0",
+          "Adds Lone Messenger"
+        ]
+      }
+    ],
+    "config": [
+      {"name": "conditionUsingFlask", "type": "boolean", "value": true},
+      {"name": "conditionBeenHitRecently", "type": "boolean", "value": true},
+      {"name": "conditionEnemyPoisoned", "type": "boolean", "value": true},
+      {"name": "conditionCritRecently", "type": "boolean", "value": true},
+      {"name": "conditionEnemyShocked", "type": "boolean", "value": true},
+      {"name": "conditionShockEffect", "type": "number", "value": 15},
+      {"name": "multiplierWitheredStackCount", "type": "number", "value": 5},
+      {"name": "multiplierNearbyEnemies", "type": "number", "value": 1},
+      {"name": "enemyIsBoss", "type": "string", "value": "Pinnacle"},
+      {"name": "bandit", "type": "string", "value": "Eramir"},
+      {"name": "pantheonMajorGod", "type": "string", "value": "Lunaris"},
+      {"name": "pantheonMinorGod", "type": "string", "value": "Ralakesh"}
+    ]
+  },
+  "minimum_transition_pob_notes": [
+    "^xFFD27FMAGEFIST 3.29 Lv80 Minimum Voltaxic Transition^7",
+    "",
+    "이 파일은 영상의 레벨 80 최소 전환 장면을 재구성한 동반 PoB다. MAGEFIST가 공개한 별도 레벨 80 PoB는 아니다.",
+    "패시브와 젬은 Part 1 공식 PoB를 직접 사용하고, 레벨 80에 아직 없는 동적 클러스터 노드와 Lone Messenger 이외의 장착 주얼 소켓만 제거했다.",
+    "",
+    "^xFF66CCFF즉시구매 핵심 가격 - Allflame 2026-08-22 18:21 +07^7",
+    "- 공식 거래소 online + Buyout or Fixed Price + 귓속말 가능 매물만 사용했다. offline/any/unpriced는 제외했다.",
+    "- Voltaxic Rift 35c, 6링크 비타락 Dendrobate 30c, Storm Secret 2개 2c, Calamitous Visions 1c, Empower 3레벨 12c = 80c.",
+    "- 30c Dendrobate는 G-W-W-W-W-W라 현재 메인 3B2G1R 링크를 그대로 수용한다. 정확히 3B2G1R인 온라인 매물은 확인 시점 0개였다.",
+    "- 캠페인 06 트리를 전부 찍었다면 환불 67포인트, 퀘스트 환불 20개 적용 후 후회의 오브 최대 47개다. 당시 대량 즉구는 약 1c/개였다.",
+    "- 캠페인 레어를 재사용하면 핵심+재분배가 약 127c다. 저항/억제/속성 레어를 전부 새로 사면 별도 비용이 든다.",
+    "",
+    "^xFFFFAA55전환 전에 반드시 확인^7",
+    "- 레벨 80, 민첩 300, 지능 150, 원소 저항 75%, 가능한 만큼 주문 억제를 먼저 맞춘다.",
+    "- Storm Secret 두 개, Calamitous Visions가 61834 주얼 소켓에 장착되어 Lone Messenger가 적용되는지 확인한다.",
+    "- Topaz Flask를 포함한 다섯 유틸리티 플라스크에 Used when Charges reach full을 붙인다.",
+    "- Voltaxic 소켓은 Lightning Arrow-Overcharge / CWDT-Immortal Call-More Duration / Flame Dash로 나눠 사용한다.",
+    "- Lightning Arrow + Overcharge로 첫 감전을 걸고, HoT 폭풍이 끊긴 보스에서 다시 사용한다.",
+    "",
+    "^xFF66FF99몸통 6링크^7",
+    "Herald of Thunder - Empower 3 - Unbound Ailments - Void Manipulation - Elemental Focus - Added Lightning Damage",
+    "",
+    "^xFFFF5555최소 버전에서 의도적으로 제외^7",
+    "- Progenesis, The Tides of Time, Vessel of Vinktar, Foulborn 전환, Nebulis, 비싼 클러스터, Bloodline은 없다.",
+    "- 우버 미궁 후 Nature's Boon 두 노드(32640, 65296)를 다음으로 찍는다.",
+    "- 첫 업그레이드는 Unspeakable Gifts Large, Self-Fulfilling Prophecy Medium, Enduring Composure Small 순서다.",
+    "- 이 장비의 희귀 아이템 이름/베이스는 예시다. 표시된 생명력·저항·억제·속성 총합을 맞추면 된다."
+  ],
+  "pob_notes": [
+    "^xFFD27FMAGEFIST 3.29 Chaos Herald of Thunder Pathfinder - Softcore Trade^7",
+    "",
+    "원본 영상",
+    "- Part 1: https://www.youtube.com/watch?v=9KGgy7ofDZk",
+    "- Part 2: https://www.youtube.com/watch?v=qtB0hKvP3hA",
+    "",
+    "원본 PoB",
+    "- Part 1: https://poedb.tw/pob/GXoW7hsWd6",
+    "- Part 2: https://poedb.tw/us/pob/gcNfqrGAAe",
+    "",
+    "이 파일은 원본 PoB 두 개의 활성 장비/젬/패시브/설정만 보존해 합친 진행 파일이다.",
+    "Animated Guardian 장비 세트는 제외했다. Part 2 영상에서 이 플레이 방식에서는 AG와 소환수가 생존하지 못한다고 확인했다.",
+    "",
+    "^xFFFF5555중요: 이 빌드는 리그 스타터가 아니다^7",
+    "- 캠페인과 초기 맵은 별도 설치된 Campaign PConc PoB로 진행한다.",
+    "- 제작자가 말한 15 Divine은 영상 당시의 보수적 파밍 기준이다. 2026-08-22 온라인 즉구 핵심 5종은 합계 80c였다.",
+    "- 실제 최소 전환은 별도 설치된 01_Minimum_Transition_Voltaxic PoB를 사용한다.",
+    "- MAGEFIST 공개 PoB 두 개에는 캠페인/PConc 트리가 없고, 둘 다 이미 비싼 천둥의 전령 캐릭터다.",
+    "",
+    "^xFFFFAA55전환 1 - 임시 Voltaxic Rift 버전^7",
+    "- 레벨 80 이후, Voltaxic Rift + Dendrobate + Storm Secret 2개를 먼저 준비한다.",
+    "- Calamitous Visions의 Lone Messenger를 빼먹으면 피해가 크게 떨어진다.",
+    "- Dendrobate 조건: 민첩 300, 지능 150. 생명력/저항/주문 억제와 플라스크도 교체 전에 맞춘다.",
+    "",
+    "^xFFFFAA55전환 2 - 100% 카오스 전환^7",
+    "- 성역 한 바퀴를 완료해 Lycia를 처치하고 필요한 혈통 진행을 연다.",
+    "- 우버 미궁을 완료한다.",
+    "- Foulborn The Blue Nightmare 반경의 할당 소형 패시브에 Valako Stormrider 문신을 넣는다.",
+    "- Voltaxic Rift를 빼면 Vessel of Vinktar가 적 감전과 HoT 시작을 담당한다.",
+    "- Vinktar는 자신도 감전시킨다. 감전 회피 플라스크가 먼저 활성화된 뒤 Vinktar가 켜져야 한다.",
+    "",
+    "^xFF66CCFFPoB 단계^7",
+    "01 Lv95 Part 1 - 약 7.09M Combined DPS / 36k Total EHP",
+    "- 쌍 Nebulis, 84/84/83/75 저항, Progenesis 방어가 들어간 첫 완성 상태다.",
+    "",
+    "02 Lv98 Part 2 - 약 16.50M Combined DPS / 104k Total EHP",
+    "- Elemental Overload 암시가 있는 Oscillating Sceptre, Transfer-attuned Spirit Shield, 막기 세팅.",
+    "- Rumi's Concoction + Jade Flask, Tempest Shield, Replica Reckless Defence 2개.",
+    "- +4 Dendrobate, +3 Lightning/+2 Herald 계열 장비, 강화 4레벨과 갱신된 보조젬.",
+    "",
+    "^xFF66FF99핵심 작동 조건^7",
+    "- 천둥의 전령은 주문 피해로 증폭되지 않는다.",
+    "- Storm Secret 2개가 폭풍 빈도와 자해 루프를 만든다.",
+    "- Calamitous Visions의 Lone Messenger가 핵심 증폭이다.",
+    "- 피해는 번개에서 카오스로 전환되고 독/위축을 사용한다.",
+    "- Part 2 장갑의 카오스 피해 생명력 흡수 암시가 주 유지력이다. 반드시 챙긴다.",
+    "- Tides of Time, Progenesis, 플라스크 효과/충전 유지, 재생 보충(recoup)이 방어의 핵심이다.",
+    "",
+    "^xFFFF5555주의^7",
+    "- Part 2 수치는 플라스크, 15 위축, 인내 충전, 치명타 최근, 생명력 흡수, 거미줄 4중첩 등 조건부 설정이다.",
+    "- Part 2도 물리 최대 피격은 약 7.9k라 큰 물리 한 방에는 약하다.",
+    "- 감전 회피가 Vinktar보다 늦으면 자신에게 50% 감전이 걸린다.",
+    "- 생명력 흡수 불가, 플라스크 충전/효과 약화, 독 회피, 회복률 감소 계열 지도는 피한다.",
+    "- 장착된 희귀 장비의 베이스가 전부 필수는 아니다. 옵션 기능을 맞추는 것이 우선이다.",
+    "",
+    "정확한 아이템 옵션, 문신 위치, 패시브와 설정은 각 단계 탭의 원본 데이터를 기준으로 본다."
+  ],
+  "campaign_pob_notes": [
+    "^xFFD27FMAGEFIST 3.29 Campaign Companion - Pathfinder PConc^7",
+    "",
+    "이 파일은 MAGEFIST가 공개하지 않은 캠페인 구간을 채우기 위한 독립 동반 PoB다.",
+    "MAGEFIST 영상의 실제 진행과 같은 흐름인 Caustic Arrow -> Poisonous Concoction -> PConc of Bouncing을 사용한다.",
+    "액트별 원본: MrRonit 3.29 PConc Starter (https://pobb.in/o39wtJ3fp-zj)",
+    "가이드: https://mobalytics.gg/poe/profile/mrronit/builds/mrronit-s-poisonous-concoction-starters-noob-friendly",
+    "이 캠페인 데이터는 MAGEFIST가 만든 PoB가 아니다. HoT 전환 이후는 별도 Magefist_Chaos_HoT_Pathfinder_3.29.xml을 본다.",
+    "",
+    "^xFF66CCFF진행 탭^7",
+    "01 Act 1 Lv1-11 - Caustic Arrow + Mirage Archer + Pierce",
+    "02 Act 1-4 Lv12-40 - 일반 Poisonous Concoction 3링크",
+    "03 Act 5-6 Lv41-55 - 4링크, 첫 미궁에서 Bouncing을 얻으면 교체 가능",
+    "04 Act 7-8 Lv56-67 - 5링크와 방어 오라 정리",
+    "05 Act 9-10 Lv68-72 - 캠페인 완료",
+    "06 Early Maps Lv73-90 - PConc of Bouncing 6링크로 HoT 세트 파밍",
+    "",
+    "^xFFFFAA55Bouncing 젬^7",
+    "- MAGEFIST는 첫 미궁에서 반동의 독성 혼합물을 얻어 바로 사용했다.",
+    "- 원본 액트 탭은 일반 Poisonous Concoction을 보수적으로 유지한다. 첫 미궁에서 Bouncing을 얻으면 사용하고, 못 얻으면 일반 젬으로 계속 진행해도 된다.",
+    "- 06 Early Maps 탭에는 PConc of Bouncing 6링크가 들어 있다.",
+    "",
+    "^xFFFFAA55레벨 80 HoT 전환 젬 미리 준비^7",
+    "- Act 6 릴리에게서 젬을 산 뒤 아무 6소켓 활을 보조 무기칸에 넣고 다음 6개를 계속 레벨링한다: Herald of Thunder, Added Lightning Damage 2개, Elemental Focus 2개, Overcharge.",
+    "- 캠페인 주력 링크의 Unbound Ailments와 Void Manipulation, 유틸리티의 Automation은 그대로 키워서 전환 때 재사용한다.",
+    "- 레벨 80에 별도 구매: Empower 3레벨, Crackling Lance of Branching. 나머지 일반 젬은 Act 6 릴리에게 구매할 수 있다.",
+    "- 레벨 고정: Cast when Damage Taken 1레벨 3개, Crackling Lance of Branching 4레벨, Lightning Conduit 4레벨, Immortal Call 3레벨. 이 이상 올리지 않는다.",
+    "- 보조무기칸은 레벨링 전용이다. 80레벨 전환 후에는 아래 실제 장비 슬롯으로 전부 옮긴다.",
+    "- 활 6소켓: Lightning Arrow-Overcharge / CWDT(1)-Immortal Call(3)-More Duration / Flame Dash 단독.",
+    "- 장갑 4링크: Despair-Crackling Lance of Branching(4)-Hextouch-CWDT(1).",
+    "- 장화 3링크: Withering Step-More Duration-Automation.",
+    "- 투구 4링크: CWDT(1)-Lightning Conduit(4)-Added Lightning Damage-Elemental Focus.",
+    "- 갑옷 6링크 3B2G1R: Herald of Thunder-Empower(3)-Unbound Ailments-Void Manipulation-Elemental Focus-Added Lightning Damage.",
+    "- 전환 PoB 전체 젬: Lightning Arrow-Overcharge, Flame Dash, Despair-Crackling Lance of Branching-Hextouch-CWDT, Withering Step-More Duration-Automation, CWDT-Lightning Conduit-Added Lightning-Elemental Focus, CWDT-Immortal Call-More Duration, Herald of Thunder-Empower-Unbound Ailments-Void Manipulation-Elemental Focus-Added Lightning.",
+    "",
+    "^xFFFF5555HoT 전환 금지선^7",
+    "- 캠페인 중에는 천둥의 전령으로 억지 전환하지 않는다.",
+    "- 영상의 15 Divine은 당시 보수적 파밍 기준이다. 2026-08-22 Allflame 온라인 즉구 핵심 5종은 합계 80c였다.",
+    "- 레벨 80 최소 전환 장비/젬/패시브는 별도 01_Minimum_Transition_Voltaxic PoB에 넣었다.",
+    "- Voltaxic Rift, Dendrobate, Storm Secret 2개, Calamitous Visions, 속성 조건, 저항, 생명력, 주문 억제, 플라스크를 모두 창고에 준비한 뒤 한 번에 바꾼다.",
+    "- Progenesis가 없는 임시 버전과 Part 1 방어 완성 버전은 같은 예산 단계가 아니다.",
+    "",
+    "^xFF66FF993.29 트리 호환 처리^7",
+    "- 원본 가이드 표시는 3.29지만 포함된 캠페인 트리 데이터 태그는 3_27이다.",
+    "- 생성기는 보존한 여섯 단계의 모든 노드 ID와 숙련 효과가 로컬 PoB 3_29 트리에 존재하는지 검증한 뒤 treeVersion만 3_29로 올린다.",
+    "- 검증에 실패하면 파일을 설치하지 않는다. 원본 Endgame 탭은 이 동반 파일에서 제외했다."
+  ],
+  "campaign_transition_gem_preparation": {
+    "start_stage": 3,
+    "slot": "Weapon 1 Swap",
+    "label": "Lv80 HoT PREP - level these in any 6-socket swap bow",
+    "gems": [
+      {
+        "name": "Herald of Thunder",
+        "gem_id": "Metadata/Items/Gems/SkillGemHeraldOfThunder",
+        "skill_id": "HeraldOfThunder",
+        "variant_id": "HeraldOfThunder",
+        "target_level": 20
+      },
+      {
+        "name": "Added Lightning Damage",
+        "gem_id": "Metadata/Items/Gems/SupportGemAddedLightningDamage",
+        "skill_id": "SupportAddedLightningDamage",
+        "variant_id": "SupportAddedLightningDamage",
+        "target_level": 20
+      },
+      {
+        "name": "Added Lightning Damage",
+        "gem_id": "Metadata/Items/Gems/SupportGemAddedLightningDamage",
+        "skill_id": "SupportAddedLightningDamage",
+        "variant_id": "SupportAddedLightningDamage",
+        "target_level": 20
+      },
+      {
+        "name": "Elemental Focus",
+        "gem_id": "Metadata/Items/Gems/SupportGemElementalFocus",
+        "skill_id": "SupportElementalFocus",
+        "variant_id": "SupportElementalFocus",
+        "target_level": 20
+      },
+      {
+        "name": "Elemental Focus",
+        "gem_id": "Metadata/Items/Gems/SupportGemElementalFocus",
+        "skill_id": "SupportElementalFocus",
+        "variant_id": "SupportElementalFocus",
+        "target_level": 20
+      },
+      {
+        "name": "Overcharge",
+        "gem_id": "Metadata/Items/Gems/SupportGemOvercharge",
+        "skill_id": "SupportOvercharge",
+        "variant_id": "SupportOvercharge",
+        "target_level": 20
+      }
+    ]
+  },
+  "market_snapshot": {
+    "checked_at": "2026-08-22T18:21:00+07:00",
+    "league": "Allflame",
+    "method": {
+      "status": "online",
+      "sale_type": "Buyout or Fixed Price",
+      "requires_displayed_price": true,
+      "requires_whisper": true,
+      "excluded": ["offline", "any-status", "unpriced"]
+    },
+    "chaos_per_divine_observed": "184-195c; use approximately 190c for budget conversion",
+    "divine_exchange_url": "https://www.pathofexile.com/trade/exchange/Allflame/4D6MKEu9",
+    "items": [
+      {
+        "name": "Voltaxic Rift",
+        "quantity": 1,
+        "cheapest_observed": "35 Chaos Orbs",
+        "result_count": 9,
+        "trade_url": "https://www.pathofexile.com/trade/search/Allflame/jWQwy3VbuX"
+      },
+      {
+        "name": "Dendrobate",
+        "quantity": 1,
+        "requirements": "uncorrupted, exactly six linked sockets; the 30c G-W-W-W-W-W listing is immediately compatible with 3B2G1R",
+        "cheapest_observed": "30 Chaos Orbs",
+        "result_count": 12,
+        "trade_url": "https://www.pathofexile.com/trade/search/Allflame/7nEPm3Oru5"
+      },
+      {
+        "name": "Dendrobate exact 3B2G1R",
+        "quantity": 1,
+        "requirements": "uncorrupted, exactly six links and exact non-white colours",
+        "cheapest_observed": null,
+        "result_count": 0,
+        "trade_url": "https://www.pathofexile.com/trade/search/Allflame/yYv2O3mrSR"
+      },
+      {
+        "name": "Storm Secret",
+        "quantity": 2,
+        "cheapest_observed": "1 Chaos Orb each; 2 Chaos Orbs total",
+        "result_count": 1007,
+        "trade_url": "https://www.pathofexile.com/trade/search/Allflame/4mKzbJwLc9"
+      },
+      {
+        "name": "Calamitous Visions",
+        "quantity": 1,
+        "cheapest_observed": "1 Chaos Orb",
+        "result_count": 180,
+        "trade_url": "https://www.pathofexile.com/trade/search/Allflame/EBPqmveBt5"
+      },
+      {
+        "name": "Empower Support level 3",
+        "quantity": 1,
+        "cheapest_observed": "12 Chaos Orbs among whisperable online listings",
+        "result_count": 169,
+        "trade_url": "https://www.pathofexile.com/trade/search/Allflame/lg0wOqq6uV"
+      }
+    ],
+    "core_total_chaos": 80,
+    "respec": {
+      "maximum_refunds_from_full_campaign_stage_06": 67,
+      "quest_refund_points": 20,
+      "maximum_regret_orbs_after_quests": 47,
+      "observed_bulk_rate": "approximately 1 Chaos Orb per Orb of Regret",
+      "exchange_url": "https://www.pathofexile.com/trade/exchange/Allflame/mw7Dwh6"
+    },
+    "rare_searches": [
+      {
+        "slot": "belt",
+        "criteria": "100 life, 20% flask charges gained, 20% flask effect duration, 30 total elemental resistance",
+        "online_buyout_floor": "10 Chaos Orbs",
+        "result_count": 3,
+        "trade_url": "https://www.pathofexile.com/trade/search/Allflame/eRbwvGl4iL"
+      },
+      {
+        "slot": "boots",
+        "criteria": "80 life, 30% movement speed, 10% spell suppression, 70 total elemental resistance",
+        "online_buyout_floor": "120 Chaos Orbs",
+        "result_count": 5,
+        "trade_url": "https://www.pathofexile.com/trade/search/Allflame/BgPqX3o4u8"
+      },
+      {
+        "slot": "gloves",
+        "criteria": "80 life, 10% spell suppression, 70 total elemental resistance",
+        "online_buyout_floor": "15 Chaos Orbs",
+        "result_count": 13,
+        "trade_url": "https://www.pathofexile.com/trade/search/Allflame/4mKzgM5wS9"
+      },
+      {
+        "slot": "helmet",
+        "criteria": "80 life, 80 total elemental resistance, 20 intelligence",
+        "online_buyout_floor": "1 Chaos Orb",
+        "result_count": 62,
+        "trade_url": "https://www.pathofexile.com/trade/search/Allflame/rPo9gGBztQ"
+      }
+    ],
+    "conclusion": "The current mechanical core is 80c, or about 127c including the worst-case 47-Regret respec after quest refunds. Reusing campaign rares puts the transition below one Divine at this snapshot; replacing all rare slots warrants a two-to-three-Divine reserve. The creator's 15-Divine figure is a historical safety target, not the current online-buyout minimum."
+  },
+  "transition_gates": [
+    {
+      "id": "level_with_pconc",
+      "from": "campaign start",
+      "to": "Poisonous Concoction of Bouncing",
+      "requirements": [
+        "Use Poisonous Concoction while leveling; the creator found the Bouncing transfigured gem in the first Labyrinth.",
+        "Do not force Herald of Thunder during the campaign."
+      ],
+      "evidence": "video_part_1"
+    },
+    {
+      "id": "budget_hot_swap",
+      "from": "Poisonous Concoction of Bouncing",
+      "to": "budget Voltaxic Rift Herald of Thunder",
+      "requirements": [
+        "Level 80 or later",
+        "Current online fixed/buyout mechanical core is 80 Chaos Orbs in the 2026-08-22 snapshot; the creator's 15-Divine figure is only a historical safety target",
+        "Voltaxic Rift",
+        "Dendrobate",
+        "two Storm Secret rings",
+        "Calamitous Visions for Lone Messenger",
+        "life, elemental resistances, chaos resistance, spell suppression, and attribute thresholds for Dendrobate",
+        "flasks prepared before the passive and gear swap"
+      ],
+      "evidence": "video_part_1"
+    },
+    {
+      "id": "full_conversion_swap",
+      "from": "budget Voltaxic Rift Herald of Thunder",
+      "to": "100% chaos conversion Herald of Thunder",
+      "requirements": [
+        "Complete a Sanctum run and defeat Lycia to unlock the required Bloodline progression",
+        "Complete the Uber Labyrinth",
+        "Foulborn The Blue Nightmare socketed in the shown radius",
+        "Tattoo of the Valako Stormrider on the allocated small passives in that radius",
+        "Vessel of Vinktar to shock nearby enemies after Voltaxic Rift is removed",
+        "shock avoidance active before Vessel of Vinktar is used"
+      ],
+      "evidence": "video_part_1"
+    },
+    {
+      "id": "defensive_commit",
+      "from": "functional full conversion",
+      "to": "Part 1 defensive baseline",
+      "requirements": [
+        "The Tides of Time",
+        "Progenesis",
+        "flask effect and flask sustain",
+        "life recoup",
+        "chaos damage leeched as life on the glove implicit in the final version"
+      ],
+      "evidence": "video_parts_1_and_2"
+    }
+  ],
+  "filter_target_candidates": [
+    {
+      "id": "build.swap.voltaxic_rift",
+      "display_name": "Voltaxic Rift",
+      "resolved_base_types": ["Spine Bow"],
+      "priority": "required_budget_swap",
+      "source": "video_part_1",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": false
+    },
+    {
+      "id": "build.core.storm_secret",
+      "display_name": "Storm Secret",
+      "resolved_base_types": ["Topaz Ring"],
+      "priority": "required_two_copies",
+      "source": "video_part_1_and_both_pobs",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": true,
+      "warning": "A loot filter can identify the unique Topaz Ring base, not Storm Secret by name. Other unique Topaz Rings can also be shown."
+    },
+    {
+      "id": "build.core.dendrobate",
+      "display_name": "Dendrobate",
+      "resolved_base_types": ["Sentinel Jacket"],
+      "priority": "required",
+      "source": "video_part_1_and_both_pobs",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": false
+    },
+    {
+      "id": "build.core.calamitous_visions",
+      "display_name": "Calamitous Visions",
+      "resolved_base_types": ["Small Cluster Jewel"],
+      "priority": "required",
+      "source": "video_part_1_and_both_pobs",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": true,
+      "warning": "The filter matches the unique Small Cluster Jewel base; it cannot inspect the granted keystone."
+    },
+    {
+      "id": "build.conversion.foulborn_blue_nightmare",
+      "display_name": "Foulborn The Blue Nightmare",
+      "resolved_base_types": ["Cobalt Jewel"],
+      "priority": "required_full_conversion",
+      "source": "video_part_1_and_both_pobs",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": true,
+      "warning": "The filter must show unique Cobalt Jewels and cannot distinguish the Foulborn variant by name."
+    },
+    {
+      "id": "build.core.vessel_of_vinktar",
+      "display_name": "Vessel of Vinktar",
+      "resolved_base_types": ["Topaz Flask"],
+      "priority": "required_full_conversion",
+      "source": "video_part_1_and_both_pobs",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": false
+    },
+    {
+      "id": "build.flask.tides_of_time",
+      "display_name": "The Tides of Time",
+      "resolved_base_types": ["Vanguard Belt"],
+      "priority": "important",
+      "source": "both_pobs",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": false
+    },
+    {
+      "id": "build.defence.progenesis",
+      "display_name": "Progenesis",
+      "resolved_base_types": ["Amethyst Flask"],
+      "priority": "important_near_mandatory",
+      "source": "video_part_1_and_both_pobs",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": false
+    },
+    {
+      "id": "build.ailment.stormshroud",
+      "display_name": "Stormshroud",
+      "resolved_base_types": ["Viridian Jewel"],
+      "priority": "important",
+      "source": "video_part_1_and_both_pobs",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": true
+    },
+    {
+      "id": "build.damage.light_of_meaning",
+      "display_name": "The Light of Meaning",
+      "resolved_base_types": ["Prismatic Jewel"],
+      "priority": "upgrade",
+      "source": "video_part_1_and_both_pobs",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": true,
+      "warning": "Only the increased Lightning Damage variant matches the PoB."
+    },
+    {
+      "id": "build.block.replica_reckless_defence",
+      "display_name": "Replica Reckless Defence",
+      "resolved_base_types": ["Cobalt Jewel"],
+      "priority": "part_2_upgrade",
+      "source": "video_part_2_and_part_2_pob",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": true
+    },
+    {
+      "id": "build.block.rumis_concoction",
+      "display_name": "Rumi's Concoction",
+      "resolved_base_types": ["Granite Flask"],
+      "priority": "part_2_upgrade",
+      "source": "video_part_2_and_part_2_pob",
+      "filter_approval": "pending_user",
+      "ambiguity_warning": false
+    }
+  ],
+  "crafting_target_candidates": [
+    {
+      "base_type": "Oscillating Sceptre",
+      "item_level": 85,
+      "priority": "part_2_weapon",
+      "required_feature": "Elemental Overload implicit and fractured +1 to Level of all Spell Skill Gems",
+      "filter_approval": "pending_user"
+    },
+    {
+      "base_type": "Transfer-attuned Spirit Shield",
+      "item_level": 85,
+      "priority": "part_2_shield",
+      "required_feature": "fractured +1 to Level of all Lightning Spell Skill Gems",
+      "filter_approval": "pending_user"
+    },
+    {
+      "base_type": "Scrabbler Talisman",
+      "item_level": 85,
+      "priority": "part_2_amulet",
+      "required_feature": "+2 to Level of all Herald Skill Gems implicit and fractured +1 to Level of all Lightning Skill Gems",
+      "filter_approval": "pending_user"
+    },
+    {
+      "base_type": "Medium Cluster Jewel",
+      "item_level": 83,
+      "priority": "herald_clusters",
+      "required_feature": "4 passives with Herald Damage; Empowered Envoy and Lasting Impression",
+      "filter_approval": "pending_user"
+    },
+    {
+      "base_type": "Large Cluster Jewel",
+      "item_level": 83,
+      "priority": "chaos_clusters",
+      "required_feature": "8 passives with Chaos Damage; Unspeakable Gifts, Unwaveringly Evil, and Touch of Cruelty",
+      "filter_approval": "pending_user"
+    }
+  ],
+  "excluded_from_targets": [
+    {
+      "items": ["Leer Cast", "Dying Breath", "Belly of the Beast", "Vixen's Entrapment"],
+      "reason": "They only appear in an unused Animated Guardian item set. Part 2 explicitly says Animate Guardian and spectres did not survive this playstyle."
+    },
+    {
+      "items": ["Majestic Pelt", "Shagreen Gloves", "Harpyskin Boots"],
+      "reason": "These are equipped rare bases, not automatically mandatory build targets. They stay in the PoB but are not approved filter targets."
+    }
+  ]
+}
