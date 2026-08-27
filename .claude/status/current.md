@@ -1,3 +1,18 @@
+## 2026-08-27 — Smokiezone Boneshatter 가이드를 문서형(Google Docs)으로 재납품
+
+**지금**: 시트 트래커가 아니라 Path of Chores 루미너리 가이드식 0~8장 문서를 원했던 것. 원고
+`Docs/2026-08-27_SMOKIEZONE_HYDROSPHERE_BONESHATTER_3_29_SSF_GUIDE_DOC.html` → 사용자 계정 Google Doc
+`https://docs.google.com/document/d/100yeA0JCFXRR2hYjRIxrpe7-tOPFFMi9F2sVT9nyvB4/edit` (합성 paste 주입, export 텍스트로 수정본 확인).
+PoB 4개(934b0/936d2/9386f/93dc2) 실파싱 근거. adversarial-verifier 13건 지적 전부 반영(탭3 Molten Shell[off]·Momentum 없음,
+플라스크 Turf Moss=감전 회피, VMS[off], 근거 없는 설명문 삭제, 전직 순서 추정 제거, 필터 Essence 명시 대상만).
+
+**다음**: 사용자 검토 후 수정 요청 시 HTML 고치고 재주입(절차는 메모리 [[reference-google-docs-delivery-via-browser]]).
+시트 트래커(`Docs/…_TRACKER.xlsx`, `scripts/build_smokiezone_ssf_tracker.py`)는 사용자가 원치 않은 형식 — 삭제 여부 확인 필요.
+
+**블로커**: 없음. 8월 미커밋 32건(수정 6 + 신규 26) 여전히 미커밋.
+
+---
+
 ## 2026-08-21 — 갑충석 생성기 적대검증 결함 3건 해결
 
 **지금**: `51a6e92`에 남긴 결함 3건 전부 해결.
