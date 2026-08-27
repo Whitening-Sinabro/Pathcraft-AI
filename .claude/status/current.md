@@ -7,9 +7,9 @@ PoB 4개(934b0/936d2/9386f/93dc2) 실파싱 근거. adversarial-verifier 13건 �
 플라스크 Turf Moss=감전 회피, VMS[off], 근거 없는 설명문 삭제, 전직 순서 추정 제거, 필터 Essence 명시 대상만).
 
 **다음**: 사용자 검토 후 수정 요청 시 HTML 고치고 재주입(절차는 메모리 [[reference-google-docs-delivery-via-browser]]).
-시트 트래커(`Docs/…_TRACKER.xlsx`, `scripts/build_smokiezone_ssf_tracker.py`)는 사용자가 원치 않은 형식 — 삭제 여부 확인 필요.
+시트 트래커(xlsx + 생성 스크립트)는 사용자 지시로 삭제·푸시 완료(2026-08-28).
 
-**블로커**: 없음. 8월 미커밋 32건(수정 6 + 신규 26) 여전히 미커밋.
+**블로커**: 없음. 8월 작업 전부 커밋·푸시 완료.
 
 ---
 
