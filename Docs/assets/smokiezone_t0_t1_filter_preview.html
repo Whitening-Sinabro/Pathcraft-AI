@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smokiezone T0/T1 FilterBlade-style Overview</title>
+  <style>
+    :root {
+      --p500: rgb(124, 58, 237);
+      --p300: rgb(163, 117, 242);
+      --p100: rgb(218, 200, 250);
+      --n50: rgb(248, 248, 250);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 1600px; height: 900px; margin: 0; overflow: hidden; }
+
+    body {
+      padding: 22px;
+      color: #d8d3df;
+      background:
+        radial-gradient(circle at 50% -20%, rgba(124,58,237,.18), transparent 42%),
+        #07070a;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+    }
+
+    .topbar {
+      display: flex;
+      height: 76px;
+      margin-bottom: 18px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      border: 1px solid #332b3d;
+      background: linear-gradient(#191421, #0e0c12);
+      box-shadow: 0 8px 22px rgba(0,0,0,.55);
+    }
+
+    .brand {
+      color: #fff;
+      font-family: Georgia, serif;
+      font-size: 31px;
+      font-weight: 700;
+      letter-spacing: .025em;
+    }
+
+    .brand span { color: var(--p300); }
+
+    .subtitle {
+      color: #aaa0b6;
+      font-size: 14px;
+      letter-spacing: .04em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      height: 738px;
+    }
+
+    .overview-card {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #64576f;
+      background: #060608;
+      box-shadow: inset 0 0 0 7px #17131c, 0 10px 28px rgba(0,0,0,.52);
+    }
+
+    .ornament-title {
+      position: relative;
+      height: 58px;
+      margin: 12px 14px 0;
+      border: 2px solid #7851aa;
+      background:
+        linear-gradient(90deg, rgba(124,58,237,.12), rgba(124,58,237,.36), rgba(124,58,237,.12)),
+        linear-gradient(#23172f, #100b16);
+      box-shadow: inset 0 0 0 4px #0e0913, inset 0 0 18px rgba(163,117,242,.3);
+      color: var(--p300);
+      font-family: Georgia, serif;
+      font-size: 28px;
+      line-height: 54px;
+      text-align: center;
+      letter-spacing: .055em;
+      text-shadow: 0 2px 2px #000;
+    }
+
+    .ornament-title::before,
+    .ornament-title::after {
+      content: "◆";
+      position: absolute;
+      top: 0;
+      color: #7653a3;
+      font-size: 18px;
+    }
+
+    .ornament-title::before { left: 18px; }
+    .ornament-title::after { right: 18px; }
+
+    .description {
+      position: relative;
+      z-index: 4;
+      min-height: 118px;
+      margin: 0 14px;
+      padding: 17px 22px;
+      border-right: 1px solid #2c2632;
+      border-left: 1px solid #2c2632;
+      color: #bdb6c5;
+      background: rgba(4,4,6,.94);
+      font-size: 18px;
+      line-height: 1.38;
+    }
+
+    .description b { color: #f4f0f7; }
+    .description .accent { color: var(--p300); }
+
+    .ground {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      left: 14px;
+      height: 522px;
+      overflow: hidden;
+      border: 1px solid #322b38;
+      background:
+        radial-gradient(ellipse at 20% 15%, rgba(179,100,51,.42), transparent 31%),
+        radial-gradient(ellipse at 82% 77%, rgba(50,61,81,.50), transparent 36%),
+        radial-gradient(ellipse at 50% 55%, rgba(78,60,45,.52), transparent 45%),
+        repeating-linear-gradient(24deg, transparent 0 73px, rgba(0,0,0,.30) 76px 83px, transparent 87px 145px),
+        linear-gradient(145deg, #3b2921, #111216 58%, #28252a);
+    }
+
+    .ground::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .30;
+      background:
+        repeating-linear-gradient(112deg, transparent 0 96px, rgba(203,181,150,.12) 98px 102px, transparent 106px 178px),
+        repeating-linear-gradient(18deg, transparent 0 56px, rgba(0,0,0,.35) 60px 68px, transparent 72px 135px);
+      filter: blur(1px);
+    }
+
+    .scene-caption {
+      position: absolute;
+      top: 17px;
+      left: 20px;
+      z-index: 4;
+      padding: 6px 10px;
+      border: 1px solid rgba(218,200,250,.22);
+      background: rgba(0,0,0,.67);
+      color: #aaa1b5;
+      font-size: 12px;
+      letter-spacing: .06em;
+    }
+
+    .labels {
+      position: absolute;
+      z-index: 4;
+      inset: 74px 24px 20px;
+    }
+
+    .label-wrap { position: absolute; }
+    .label-wrap.one { top: 28px; left: 20px; }
+    .label-wrap.two { top: 150px; right: 16px; }
+    .label-wrap.three { top: 274px; left: 80px; }
+
+    .loot-label {
+      display: flex;
+      min-width: 276px;
+      min-height: 62px;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 18px 7px;
+      border: 3px solid;
+      box-shadow: 0 0 0 2px #000, 0 7px 16px rgba(0,0,0,.82), 0 0 22px rgba(124,58,237,.25);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .t0 .loot-label {
+      color: var(--p500);
+      border-color: var(--p500);
+      background: var(--n50);
+    }
+
+    .t1 .loot-label {
+      color: var(--n50);
+      border-color: var(--p100);
+      background: var(--p500);
+    }
+
+    .effect-icon {
+      position: absolute;
+      top: 50%;
+      left: -35px;
+      width: 25px;
+      height: 25px;
+      transform: translateY(-50%);
+      filter: drop-shadow(0 0 5px var(--p300));
+    }
+
+    .effect-icon.cross::before,
+    .effect-icon.cross::after {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 9px;
+      width: 7px;
+      height: 23px;
+      border: 1px solid #efe5ff;
+      background: var(--p500);
+    }
+    .effect-icon.cross::after { transform: rotate(90deg); }
+
+    .effect-icon.square {
+      border: 6px solid var(--p500);
+      box-shadow: inset 0 0 0 1px #efe5ff;
+    }
+
+    .effect-icon.star {
+      color: var(--p500);
+      font-size: 30px;
+      line-height: 22px;
+      text-shadow: -1px -1px 0 #efe5ff, 1px -1px 0 #efe5ff, -1px 1px 0 #efe5ff, 1px 1px 0 #efe5ff;
+    }
+
+    .tag {
+      position: absolute;
+      right: 0;
+      bottom: -24px;
+      color: #d7cce4;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-shadow: 0 2px 3px #000;
+    }
+
+    .footnote {
+      position: absolute;
+      right: 0;
+      bottom: 7px;
+      left: 0;
+      color: #786f82;
+      font-size: 11px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span>◆</span> Pathcraft Filter Overview</div>
+    <div class="subtitle">FilterBlade Overview 형식 · 필터의 실제 RGBA와 FontSize 적용</div>
+  </header>
+
+  <main class="grid">
+    <section class="overview-card t0">
+      <div class="ornament-title">T0 · TOP-VALUE ITEMS</div>
+      <div class="description">
+        절대 놓치면 안 되는 최상위 드롭. <b>흰 배경을 보라색으로 감싼 반전형</b>이며,
+        <span class="accent">영구 Purple 빔</span>과 최상급 미니맵 아이콘이 붙는다.
+        사운드: <b>HolyMotherfuckingShit</b>
+      </div>
+      <div class="ground">
+        <div class="scene-caption">SET FONT SIZE 45 · BACKGROUND #F8F8FA · TEXT/BORDER #7C3AED</div>
+        <div class="labels">
+          <div class="label-wrap one">
+            <span class="effect-icon cross"></span>
+            <div class="loot-label">Mirror of Kalandra</div>
+            <span class="tag">CURRENCY · PURPLE CROSS</span>
+          </div>
+          <div class="label-wrap two">
+            <span class="effect-icon star">★</span>
+            <div class="loot-label">Siege Axe</div>
+            <span class="tag">UNIQUE BASE · PURPLE STAR</span>
+          </div>
+          <div class="label-wrap three">
+            <span class="effect-icon square"></span>
+            <div class="loot-label">The Apothecary</div>
+            <span class="tag">DIVINATION CARD · PURPLE SQUARE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="overview-card t1">
+      <div class="ornament-title">T1 · HIGH-VALUE ITEMS</div>
+      <div class="description">
+        바로 확인하고 챙길 고가치 드롭. <b>진한 보라 배경 + 흰 글자 + 연보라 테두리</b>이며,
+        <span class="accent">영구 Purple 빔</span>을 공유하지만 배경 반전과 소리로 T0와 구분한다.
+        사운드: <b>Thatsworthsomething</b>
+      </div>
+      <div class="ground">
+        <div class="scene-caption">SET FONT SIZE 45 · BACKGROUND #7C3AED · TEXT #F8F8FA · BORDER #DAC8FA</div>
+        <div class="labels">
+          <div class="label-wrap one">
+            <span class="effect-icon cross"></span>
+            <div class="loot-label">Eldritch Chaos Orb</div>
+            <span class="tag">CURRENCY · PURPLE CROSS</span>
+          </div>
+          <div class="label-wrap two">
+            <span class="effect-icon star">★</span>
+            <div class="loot-label">Leviathan Greaves</div>
+            <span class="tag">UNIQUE BASE · PURPLE STAR</span>
+          </div>
+          <div class="label-wrap three">
+            <span class="effect-icon square"></span>
+            <div class="loot-label">The Fortunate</div>
+            <span class="tag">DIVINATION CARD · PURPLE SQUARE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="footnote">라벨 색·테두리·글자 크기는 생성된 .filter 값 그대로이며, 바닥 장면만 프리뷰용 합성 배경입니다.</div>
+</body>
+</html>

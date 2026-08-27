@@ -1,0 +1,396 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_filter_build_targets",
+  "build_id": "poe1_smokiezone_hydrosphere_boneshatter_hcssf_3_29",
+  "output": {
+    "mode": "progressive",
+    "name": "Smokiezone_Hydrosphere_Boneshatter_HCSSF_3.29_Progressive.filter"
+  },
+  "theme": {
+    "name": "violet",
+    "main_color": "#7C3AED",
+    "poe_effect_color": "Purple"
+  },
+  "progression": {
+    "campaign_max_area_level": 67,
+    "early_maps_max_area_level": 82,
+    "endgame_min_area_level": 83,
+    "endgame_weapon_item_level": 83,
+    "optimal_armour_item_level": 84,
+    "endgame_jewellery_item_level": 83,
+    "hcssf_visibility_policy": "Approved build crafting bases are terminal Show rules whenever their ItemLevel tier matches, at every AreaLevel. Broad rare-equipment safety remains only through AreaLevel 82; AreaLevel 83+ permanently shows the exact approved bases instead of every rare equipment drop."
+  },
+  "source": {
+    "title": "PoE 3.29 SSF Hydrosphere Boneshatter Berserker 실전 가이드",
+    "creator": "smokie_777",
+    "patch": "3.29",
+    "mode_override": "HCSSF requested by user on 2026-08-26",
+    "local_guide": "Docs/2026-08-26_SMOKIEZONE_HYDROSPHERE_BONESHATTER_3_29_SSF_GUIDE.md",
+    "crafting_sheet": "https://docs.google.com/spreadsheets/d/1beKrOw84jYvR8bcAxIdUqasIjvPCgwco4zjL8c7q5KM/edit?gid=1833976205#gid=1833976205",
+    "main_video": "https://www.youtube.com/watch?v=LwiJh2wc75w",
+    "main_pob": "https://poe.ninja/poe1/pob/934b0",
+    "ssf_progression_video": "https://www.youtube.com/watch?v=VpaneE2CVDs",
+    "actual_progression_pobs": [
+      "https://poe.ninja/poe1/pob/936d2",
+      "https://poe.ninja/poe1/pob/9386f",
+      "https://poe.ninja/poe1/pob/93dc2"
+    ]
+  },
+  "hcssf_research_basis": [
+    {
+      "name": "Wreckers SSF Filter for Everyone",
+      "version": "3.29.1",
+      "url": "https://poe.kakaogames.com/account/view-profile/Wrecker_of_Days-7691/item-filters",
+      "use": "Primary automatic AreaLevel progression and broad SSF visibility authority."
+    },
+    {
+      "name": "Sovereign General",
+      "version": "3.29.1",
+      "url": "https://poe.kakaogames.com/account/view-profile/StupidFatHobbit-5880/item-filters",
+      "use": "HC league-start and low-gear safety reference; Strict and Uberstrict assumptions were rejected for an automatic HCSSF filter."
+    },
+    {
+      "name": "NeverSink Regular Hardcore",
+      "version": "8.20.1d",
+      "url": "https://poe.kakaogames.com/account/view-profile/NeverSink-3349/item-filters",
+      "use": "Current global economy and visual tier reference, not the SSF visibility authority."
+    },
+    {
+      "name": "Narnach SSF",
+      "version": "retired after 3.15",
+      "url": "https://github.com/Narnach/path_of_exile_loot_filters",
+      "use": "Architecture-only reference for a single level-1-to-100 filter, map-relative importance, flask progression and a visible unknown-item fallback."
+    }
+  ],
+  "unique_targets": [
+    {
+      "id": "build.core.unique.soul_tether_family",
+      "priority": "required",
+      "display_names": [
+        "Soul Tether",
+        "Replica Soul Tether"
+      ],
+      "resolved_base_types": [
+        "Cloth Belt"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Loot filters can only match the unidentified unique Cloth Belt base, so other unique Cloth Belts can also be shown.",
+      "source_section": "벨트 선택"
+    },
+    {
+      "id": "build.core.unique.the_burden_of_truth",
+      "priority": "required",
+      "display_names": [
+        "The Burden of Truth"
+      ],
+      "resolved_base_types": [
+        "Crystal Belt"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Loot filters can only match the unidentified unique Crystal Belt base, so other unique Crystal Belts can also be shown.",
+      "source_section": "벨트 선택"
+    },
+    {
+      "id": "build.optional.unique.stormblood",
+      "priority": "optional",
+      "display_names": [
+        "Stormblood"
+      ],
+      "resolved_base_types": [
+        "Sapphire Flask"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Loot filters can only match the unidentified unique Sapphire Flask base, so other unique Sapphire Flasks can also be shown.",
+      "source_section": "플라스크 — Day 3 치명타 선택"
+    }
+  ],
+  "identified_targets": [
+    {
+      "id": "build.late.helmet.infamy",
+      "priority": "important",
+      "classes": [
+        "Helmets"
+      ],
+      "identified": true,
+      "has_explicit_mod": [
+        "of Infamy"
+      ],
+      "ambiguity_warning": "The loot-filter language exposes the shared displayed suffix 'of Infamy', not the exact MercenaryModAddCritPerExert identifier. Inspect every alerted helmet manually.",
+      "source_section": "Day 3 치명타 투구 전환"
+    }
+  ],
+  "crafting_base_groups": [
+    {
+      "id": "build.weapon.endgame_vaal_axe",
+      "priority": "required",
+      "minimum_item_level": 83,
+      "always_show": true,
+      "base_types": [
+        "Vaal Axe"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "메인 PoB Notes / Day 2·3 실제 PoB / 엔드게임 제작 요약",
+      "rationale": "The creator calls Vaal Axe the best endgame balance of hit damage and attack speed; both Day 2 and Day 3 use an item-level 83 Vaal Axe."
+    },
+    {
+      "id": "build.weapon.fast_trauma_axes",
+      "priority": "crafting",
+      "always_show": true,
+      "base_types": [
+        "Despot Axe",
+        "Ezomyte Axe"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "메인 PoB Notes / 초기 장비 우선순위",
+      "rationale": "Despot Axe is preferred over Ezomyte Axe before the Complex Trauma transition because their faster attacks ramp normal Trauma more quickly."
+    },
+    {
+      "id": "build.weapon.vaal_axe_transition",
+      "priority": "crafting",
+      "always_show": true,
+      "base_types": [
+        "Vaal Axe"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "메인 PoB Notes / 엔드게임 제작 요약",
+      "rationale": "Lower-item-level Vaal Axes stay visible as quiet transition or practice bases; item level 83+ is caught by the stronger rule above."
+    },
+    {
+      "id": "build.armour.optimal_breach_bases",
+      "priority": "important",
+      "minimum_item_level": 84,
+      "always_show": true,
+      "base_types": [
+        "Royal Plate",
+        "Giantslayer Helmet",
+        "Leviathan Gauntlets",
+        "Leviathan Greaves"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "메인 PoB Notes / 계획·Day 1·2·3 실제 PoB / 엔드게임 제작 요약",
+      "rationale": "The creator explicitly calls these the optimal armour bases to collect from Breach; the planned setup and every Day 1-3 snapshot use these four bases at item level 84-85."
+    },
+    {
+      "id": "build.armour.pre_breach_progression",
+      "priority": "crafting",
+      "maximum_area_level": 82,
+      "base_types": [
+        "Astral Plate",
+        "Gladiator Plate",
+        "Glorious Plate",
+        "Titan Plate",
+        "Legion Plate",
+        "Royal Burgonet",
+        "Eternal Burgonet",
+        "General's Helmet",
+        "Conqueror's Helmet",
+        "Vaal Gauntlets",
+        "Titan Gauntlets",
+        "Precursor Gauntlets",
+        "Vaal Greaves",
+        "Titan Greaves",
+        "Precursor Greaves"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "HCSSF 캠페인·초기 지도 생존 / 3.29 순수 Armour 베이스 계단",
+      "rationale": "These are temporary high-armour bases through AreaLevel 82; the item-level 84 optimal Breach bases are handled by the stronger always-show rule above."
+    },
+    {
+      "id": "build.jewellery.endgame_crafting",
+      "priority": "important",
+      "minimum_item_level": 83,
+      "always_show": true,
+      "base_types": [
+        "Amethyst Ring",
+        "Turquoise Amulet"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "Harvest / Day 1·2·3 실제 PoB / 엔드게임 제작 요약",
+      "rationale": "The actual SSF snapshots use item-level 84-85 Amethyst Rings and Turquoise Amulets; item level 83+ is highlighted as an endgame collection tier, while lower copies remain visible for progression crafts."
+    },
+    {
+      "id": "build.jewellery.progression",
+      "priority": "crafting",
+      "always_show": true,
+      "base_types": [
+        "Amethyst Ring",
+        "Turquoise Amulet"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "Harvest / 중간 장비 제작",
+      "rationale": "Lower-item-level copies remain useful for early Harvest crafts and anointing; item level 83+ is caught by the stronger rule above."
+    }
+  ],
+  "resource_groups": [
+    {
+      "id": "build.resources.core",
+      "priority": "important",
+      "match_mode": "exact",
+      "base_types": [
+        "Cyaxan's Ducat",
+        "Essence of Insanity",
+        "Gemcutter's Prism",
+        "Vaal Orb",
+        "Vivid Crystallised Lifeforce",
+        "Opalescent Oil"
+      ],
+      "minimap_shape": "Cross",
+      "source_section": "Essence / Searing Exarch / Blight / Harvest / Day 3 치명타 투구 전환"
+    },
+    {
+      "id": "hcssf.resources.crafting",
+      "priority": "crafting",
+      "match_mode": "contains",
+      "base_types": [
+        "Essence of Contempt",
+        "Essence of Zeal",
+        "Essence of Greed",
+        "Essence of Envy",
+        "Essence of Anger",
+        "Essence of Hatred",
+        "Essence of Wrath",
+        "Essence of Scorn",
+        "Essence of Misery"
+      ],
+      "minimap_shape": "Cross",
+      "source_section": "Essence / HCSSF 생존 오버라이드"
+    },
+    {
+      "id": "build.resources.oils",
+      "priority": "crafting",
+      "match_mode": "exact",
+      "base_types": [
+        "Clear Oil",
+        "Sepia Oil",
+        "Azure Oil",
+        "Indigo Oil",
+        "Violet Oil"
+      ],
+      "minimap_shape": "Cross",
+      "source_section": "Blight"
+    },
+    {
+      "id": "hcssf.resources.pantheon",
+      "priority": "important",
+      "match_mode": "exact",
+      "base_types": [
+        "Divine Vessel"
+      ],
+      "minimap_shape": "Hexagon",
+      "source_section": "캠페인 체크리스트 / HCSSF 생존 오버라이드"
+    },
+    {
+      "id": "build.resources.breach",
+      "priority": "important",
+      "match_mode": "contains",
+      "base_types": [
+        "Breachstone",
+        "Splinter of"
+      ],
+      "minimap_shape": "Hexagon",
+      "source_section": "Breach / 벨트 준비"
+    },
+    {
+      "id": "build.resources.heist_blueprints",
+      "priority": "important",
+      "classes": [
+        "Blueprints"
+      ],
+      "minimap_shape": "Hexagon",
+      "source_section": "Heist와 Huck / 최종 벨트 분기"
+    }
+  ],
+  "gem_targets": [
+    {
+      "id": "build.gem.complex_trauma",
+      "priority": "required",
+      "display_names": [
+        "Boneshatter of Complex Trauma"
+      ],
+      "transfigured_gem_names": [
+        "Boneshatter"
+      ],
+      "classes": [
+        "Skill Gems"
+      ],
+      "source_section": "단계 D — 벨트 획득 후 마나 기반 Complex Trauma"
+    },
+    {
+      "id": "build.gem.less_duration",
+      "priority": "important",
+      "base_types": [
+        "Less Duration Support"
+      ],
+      "classes": [
+        "Support Gems"
+      ],
+      "source_section": "Complex Trauma 전환"
+    }
+  ],
+  "flask_targets": [
+    {
+      "id": "hcssf.flasks.core",
+      "priority": "important",
+      "base_types": [
+        "Divine Life Flask",
+        "Quicksilver Flask",
+        "Ruby Flask",
+        "Sapphire Flask",
+        "Topaz Flask"
+      ],
+      "source_section": "플라스크 / HCSSF 생존 오버라이드"
+    }
+  ],
+  "divination_cards": {
+    "build_target": [],
+    "keep": []
+  },
+  "unresolved_targets": [
+    {
+      "display_name": "Allflame Divine",
+      "reason": "The guide describes the reroll action but does not provide a verified exact droppable BaseType. Keep this in the Korean/English item-name search flow instead of guessing a filter rule."
+    }
+  ]
+}

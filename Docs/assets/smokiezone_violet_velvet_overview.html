@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smokiezone Violet Velvet Visual System</title>
+  <style>
+    :root {
+      --violet: #7c3aed;
+      --orchid: #c865f2;
+      --lavender: #dac8fa;
+      --cream: #f8f8fa;
+      --aubergine: #251147;
+      --normal: #c8c8c8;
+      --magic: #8888ff;
+      --rare: #ffff77;
+      --unique: #af6025;
+      --ink: #09090c;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 1800px; height: 1100px; margin: 0; overflow: hidden; }
+
+    body {
+      padding: 24px;
+      color: #d9d4e0;
+      background:
+        radial-gradient(circle at 15% -10%, rgba(200,101,242,.19), transparent 31%),
+        radial-gradient(circle at 84% 0%, rgba(124,58,237,.18), transparent 34%),
+        linear-gradient(155deg, #110d16, #050507 55%, #0c0910);
+      font-family: Arial, "Noto Sans KR", sans-serif;
+    }
+
+    .topbar {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      border: 1px solid #493c55;
+      background: linear-gradient(180deg, #21172a, #0e0b12);
+      box-shadow: 0 10px 28px rgba(0,0,0,.58), inset 0 0 28px rgba(124,58,237,.08);
+    }
+
+    .brand {
+      color: #fff;
+      font-family: Georgia, serif;
+      font-size: 33px;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+
+    .brand span { color: var(--orchid); }
+
+    .subtitle {
+      text-align: right;
+      color: #afa5b8;
+      font-size: 15px;
+      line-height: 1.42;
+    }
+
+    .subtitle b { color: var(--lavender); }
+
+    .principles {
+      height: 66px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .principle {
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      border: 1px solid #352d3c;
+      background: rgba(12,10,15,.92);
+      color: #a9a1b0;
+      font-size: 14px;
+    }
+
+    .principle strong {
+      margin-right: 9px;
+      color: #f5f1f7;
+      font-size: 15px;
+    }
+
+    .principle:nth-child(1) strong { color: var(--rare); }
+    .principle:nth-child(2) strong { color: var(--orchid); }
+    .principle:nth-child(3) strong { color: var(--lavender); }
+    .principle:nth-child(4) strong { color: #fff; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.08fr 1fr 1fr;
+      gap: 18px;
+      height: 852px;
+    }
+
+    .overview-card {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #5c5065;
+      background: #060608;
+      box-shadow: inset 0 0 0 7px #17121b, 0 12px 30px rgba(0,0,0,.55);
+    }
+
+    .card-title {
+      position: relative;
+      height: 62px;
+      margin: 12px 14px 0;
+      border: 2px solid #7851aa;
+      background:
+        linear-gradient(90deg, rgba(124,58,237,.10), rgba(124,58,237,.33), rgba(124,58,237,.10)),
+        linear-gradient(#251931, #100b16);
+      color: var(--orchid);
+      font-family: Georgia, serif;
+      font-size: 25px;
+      line-height: 58px;
+      text-align: center;
+      letter-spacing: .055em;
+      text-shadow: 0 2px 2px #000;
+      box-shadow: inset 0 0 0 4px #0e0913, inset 0 0 18px rgba(163,117,242,.28);
+    }
+
+    .card-title::before,
+    .card-title::after {
+      content: "◆";
+      position: absolute;
+      color: #7653a3;
+      font-size: 17px;
+    }
+    .card-title::before { left: 16px; }
+    .card-title::after { right: 16px; }
+
+    .card-copy {
+      height: 105px;
+      margin: 0 14px;
+      padding: 15px 18px;
+      border-right: 1px solid #2f2835;
+      border-left: 1px solid #2f2835;
+      background: #08070a;
+      color: #b9b1c0;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .card-copy b { color: #f5f1f7; }
+    .card-copy .accent { color: var(--orchid); }
+
+    .ground {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      left: 14px;
+      height: 645px;
+      overflow: hidden;
+      border: 1px solid #322b38;
+      background:
+        radial-gradient(ellipse at 16% 10%, rgba(174,98,53,.35), transparent 29%),
+        radial-gradient(ellipse at 80% 75%, rgba(50,61,81,.50), transparent 38%),
+        radial-gradient(ellipse at 52% 52%, rgba(78,60,45,.48), transparent 45%),
+        repeating-linear-gradient(24deg, transparent 0 73px, rgba(0,0,0,.30) 76px 83px, transparent 87px 145px),
+        linear-gradient(145deg, #392820, #101115 58%, #28242a);
+    }
+
+    .ground::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .28;
+      background:
+        repeating-linear-gradient(112deg, transparent 0 96px, rgba(203,181,150,.12) 98px 102px, transparent 106px 178px),
+        repeating-linear-gradient(18deg, transparent 0 56px, rgba(0,0,0,.35) 60px 68px, transparent 72px 135px);
+    }
+
+    .section-tag {
+      position: relative;
+      z-index: 2;
+      margin: 18px 20px 11px;
+      color: #cfc6d6;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .09em;
+    }
+
+    .section-tag span { color: #807587; font-weight: 400; }
+
+    .label-list {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 0 21px;
+    }
+
+    .loot-row {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .loot-meta {
+      color: #9d93a6;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.25;
+      text-align: right;
+      letter-spacing: .06em;
+    }
+
+    .loot-label {
+      position: relative;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 16px 7px;
+      border: 3px solid;
+      box-shadow: 0 0 0 2px #000, 0 7px 16px rgba(0,0,0,.82);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .normal {
+      color: var(--normal);
+      border-color: #5a5860;
+      background: rgba(17,17,20,.94);
+    }
+
+    .magic {
+      color: var(--magic);
+      border-color: #50558e;
+      background: rgba(14,14,34,.94);
+    }
+
+    .rare {
+      color: var(--rare);
+      border-color: #8c7829;
+      background: rgba(29,26,7,.95);
+    }
+
+    .build-base {
+      border-color: var(--violet);
+      background: rgba(37,17,71,.95);
+      box-shadow: 0 0 0 2px #000, 0 7px 16px rgba(0,0,0,.82), 0 0 18px rgba(124,58,237,.40);
+    }
+
+    .build-base::before {
+      content: "◆";
+      position: absolute;
+      left: 10px;
+      color: var(--orchid);
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      text-shadow: 0 0 7px var(--violet);
+    }
+
+    .t0 {
+      color: var(--violet);
+      border-color: var(--violet);
+      background: var(--cream);
+      box-shadow: 0 0 0 2px #000, 0 7px 16px rgba(0,0,0,.82), 0 0 21px rgba(248,248,250,.35);
+    }
+
+    .t1 {
+      color: var(--cream);
+      border-color: var(--lavender);
+      background: var(--violet);
+      box-shadow: 0 0 0 2px #000, 0 7px 16px rgba(0,0,0,.82), 0 0 21px rgba(124,58,237,.42);
+    }
+
+    .build-resource {
+      color: #130a1d;
+      border-color: var(--violet);
+      background: var(--orchid);
+    }
+
+    .routine {
+      color: #aca0bc;
+      border-color: #645a70;
+      background: rgba(18,16,22,.96);
+    }
+
+    .unique {
+      color: var(--unique);
+      border-color: #67421f;
+      background: rgba(20,13,8,.96);
+    }
+
+    .required-unique {
+      color: var(--cream);
+      border-color: var(--orchid);
+      background: rgba(37,17,71,.97);
+      box-shadow: 0 0 0 2px #000, 0 7px 16px rgba(0,0,0,.82), 0 0 20px rgba(200,101,242,.48);
+    }
+
+    .required-unique::before {
+      content: "★";
+      position: absolute;
+      left: 10px;
+      color: var(--orchid);
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      text-shadow: 0 0 8px var(--violet);
+    }
+
+    .optional-unique {
+      color: var(--unique);
+      border-color: var(--violet);
+      background: rgba(25,13,29,.96);
+    }
+
+    .gem {
+      color: #1bd9d9;
+      border-color: #198b8b;
+      background: rgba(5,31,34,.96);
+    }
+
+    .sixlink {
+      color: #fff;
+      border-color: #ff5858;
+      background: rgba(110,4,12,.97);
+    }
+
+    .quest {
+      color: #b8ffb3;
+      border-color: #36b64b;
+      background: rgba(6,52,15,.97);
+    }
+
+    .native-card .loot-label { font-size: 29px; }
+    .native-card .loot-label.gem { font-size: 22px; }
+    .value-card .loot-label { font-size: 31px; }
+
+    .icon {
+      position: absolute;
+      left: -34px;
+      top: 50%;
+      width: 24px;
+      height: 24px;
+      transform: translateY(-50%);
+      color: var(--orchid);
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      line-height: 24px;
+      text-align: center;
+      text-shadow: 0 0 6px var(--violet);
+    }
+
+    .value-card .loot-row { grid-template-columns: 82px 1fr; }
+    .value-card .label-list { gap: 16px; }
+
+    .legend {
+      position: absolute;
+      right: 17px;
+      bottom: 17px;
+      left: 17px;
+      z-index: 2;
+      padding: 12px 15px;
+      border: 1px solid rgba(218,200,250,.20);
+      background: rgba(0,0,0,.70);
+      color: #8e8498;
+      font-size: 11px;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .legend b { color: #d9d0df; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span>◆</span> Smokiezone · Violet Velvet</div>
+    <div class="subtitle">
+      Allie 3.29의 가치 명도 계단 + LuminarySSF의 빌드 강조 방식<br>
+      <b>희귀도 가독성을 보존하도록 재설계한 FilterBlade-style 시안</b>
+    </div>
+  </header>
+
+  <section class="principles">
+    <div class="principle"><strong>글자색</strong> 장비 희귀도</div>
+    <div class="principle"><strong>배경 명도</strong> 드롭 가치</div>
+    <div class="principle"><strong>테두리·아이콘</strong> 빌드 관련성</div>
+    <div class="principle"><strong>빔·사운드</strong> 확인 긴급도</div>
+  </section>
+
+  <main class="grid">
+    <section class="overview-card gear-card">
+      <div class="card-title">GEAR · RARITY FIRST</div>
+      <div class="card-copy">
+        장비는 <b>흰색·파란색·노란색</b>만 보면 바로 희귀도를 안다.
+        빌드 베이스도 글자색을 바꾸지 않고 <span class="accent">보라 테두리·짙은 자주 배경</span>으로만 표시한다.
+      </div>
+      <div class="ground">
+        <div class="section-tag">ORDINARY EQUIPMENT <span>· 조용한 중립 배경</span></div>
+        <div class="label-list">
+          <div class="loot-row"><div class="loot-meta">NORMAL<br>#C8C8C8</div><div class="loot-label normal">Titan Greaves</div></div>
+          <div class="loot-row"><div class="loot-meta">MAGIC<br>#8888FF</div><div class="loot-label magic">Titan Greaves</div></div>
+          <div class="loot-row"><div class="loot-meta">RARE<br>#FFFF77</div><div class="loot-label rare">Titan Greaves</div></div>
+        </div>
+
+        <div class="section-tag">APPROVED CRAFTING BASE · ILVL 83+ <span>· 같은 희귀도 + Violet accent</span></div>
+        <div class="label-list">
+          <div class="loot-row"><div class="loot-meta">NORMAL<br>◆ BASE</div><div class="loot-label normal build-base">Vaal Axe</div></div>
+          <div class="loot-row"><div class="loot-meta">MAGIC<br>◆ BASE</div><div class="loot-label magic build-base">Vaal Axe</div></div>
+          <div class="loot-row"><div class="loot-meta">RARE<br>◆ BASE</div><div class="loot-label rare build-base">Vaal Axe</div></div>
+        </div>
+        <div class="legend"><b>핵심:</b> 노란 Vaal Axe는 끝까지 희귀 장비로 보이면서도, 보라 외곽선 때문에 일반 희귀 장비와 즉시 구분된다.</div>
+      </div>
+    </section>
+
+    <section class="overview-card value-card">
+      <div class="card-title">VALUE · VELVET LADDER</div>
+      <div class="card-copy">
+        Allie처럼 새 색을 계속 추가하지 않고 <b>흰색 → 진보라 → 연보라 → 암색</b>의 명도 반전만 사용한다.
+        화폐·에센스·카드는 아이콘 모양으로 구분한다.
+      </div>
+      <div class="ground">
+        <div class="section-tag">ECONOMY &amp; SSF PRIORITY <span>· 한 보라 계열, 네 단계</span></div>
+        <div class="label-list">
+          <div class="loot-row"><div class="loot-meta">T0<br>PERMANENT</div><div class="loot-label t0"><span class="icon">✚</span>Mirror of Kalandra</div></div>
+          <div class="loot-row"><div class="loot-meta">T1<br>PERMANENT</div><div class="loot-label t1"><span class="icon">✚</span>Eldritch Chaos Orb</div></div>
+          <div class="loot-row"><div class="loot-meta">BUILD<br>TEMP BEAM</div><div class="loot-label build-resource"><span class="icon">★</span>Essence of Contempt</div></div>
+          <div class="loot-row"><div class="loot-meta">ROUTINE<br>NO BEAM</div><div class="loot-label routine">Orb of Alteration</div></div>
+        </div>
+
+        <div class="section-tag">SAME LADDER, DIFFERENT SHAPES <span>· 색을 더 만들지 않음</span></div>
+        <div class="label-list">
+          <div class="loot-row"><div class="loot-meta">CARD<br>■ SQUARE</div><div class="loot-label t1"><span class="icon">■</span>The Fortunate</div></div>
+          <div class="loot-row"><div class="loot-meta">BREACH<br>⬢ HEX</div><div class="loot-label build-resource"><span class="icon">⬢</span>Splinter of Xoph</div></div>
+        </div>
+        <div class="legend"><b>T0/T1은 기존 시안 유지.</b> 제작 재료는 같은 Velvet 계열의 중간 단계로 내려서, 고가치 드롭과 경쟁하지 않게 한다.</div>
+      </div>
+    </section>
+
+    <section class="overview-card native-card">
+      <div class="card-title">NATIVE CUES · PRESERVED</div>
+      <div class="card-copy">
+        일반 고유는 갈색을 유지하되 <b>필수 유니크 후보 베이스</b>는 Violet 전용 라벨로 승격한다.
+        선택 유니크는 갈색 글씨와 얇은 보라 테두리만 사용해 위계를 낮춘다.
+      </div>
+      <div class="ground">
+        <div class="section-tag">UNIQUE PRIORITY <span>· 새 색 없이 보라 계열 안에서 위계화</span></div>
+        <div class="label-list">
+          <div class="loot-row"><div class="loot-meta">ORDINARY<br>NO BEAM</div><div class="loot-label unique">Leather Belt</div></div>
+          <div class="loot-row"><div class="loot-meta">REQUIRED<br>PURPLE ★</div><div class="loot-label required-unique">Cloth Belt</div></div>
+          <div class="loot-row"><div class="loot-meta">OPTIONAL<br>THIN ACCENT</div><div class="loot-label optional-unique">Sapphire Flask</div></div>
+        </div>
+
+        <div class="section-tag">FAMILIAR POE SEMANTICS <span>· 학습 부담 없음</span></div>
+        <div class="label-list">
+          <div class="loot-row"><div class="loot-meta">TARGET GEM<br>CYAN</div><div class="loot-label gem">Boneshatter of Complex Trauma</div></div>
+          <div class="loot-row"><div class="loot-meta">6-LINK<br>RED</div><div class="loot-label sixlink">Royal Plate</div></div>
+          <div class="loot-row"><div class="loot-meta">QUEST<br>GREEN</div><div class="loot-label quest">Map to Tsoatha</div></div>
+        </div>
+        <div class="legend"><b>필수 후보:</b> Cloth Belt(Soul Tether 계열), Crystal Belt(The Burden of Truth). 미확인 고유는 이름을 판별할 수 없어 같은 베이스의 다른 고유도 함께 울린다.</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
