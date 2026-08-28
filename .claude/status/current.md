@@ -15,7 +15,7 @@
 PoB 4개(934b0/936d2/9386f/93dc2) 실파싱 근거. adversarial-verifier 13건 지적 전부 반영(탭3 Molten Shell[off]·Momentum 없음,
 플라스크 Turf Moss=감전 회피, VMS[off], 근거 없는 설명문 삭제, 전직 순서 추정 제거, 필터 Essence 명시 대상만).
 
-**다음**: 사용자 검토 후 수정 요청 시 HTML 고치고 재주입(절차는 메모리 [[reference-google-docs-delivery-via-browser]]).
+**다음**: 사용자 검토 후 수정 요청 시 HTML 고치고 재주입(절차 [[reference-google-docs-delivery-via-browser]], 형식 지시 [[feedback-guide-doc-format]]). 2026-08-28 반영: 표 중심 재구성, 다크 페이지, PoB 표 전체 URL — 사용자 OK.
 시트 트래커(xlsx + 생성 스크립트)는 사용자 지시로 삭제·푸시 완료(2026-08-28).
 
 **블로커**: 없음. 8월 작업 전부 커밋·푸시 완료.
