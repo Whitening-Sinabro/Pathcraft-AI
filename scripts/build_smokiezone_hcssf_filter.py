@@ -22,6 +22,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable, Iterator, Sequence
 
+import filter_cascade
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 BASE_FILTER = REPO_ROOT / "filters" / "Luminary_Bot_SSF_3.29_Progressive.filter"
@@ -624,32 +626,24 @@ def render_native_category_policy() -> list[str]:
 
 
 def render_rarity_guard() -> list[str]:
-    """Apply final semantic text colours after imported Continue decorators."""
-    classes = f"Class == {quoted(EQUIPMENT_CLASSES)}"
+    """Apply the gem text colour after imported Continue decorators.
+
+    Rarity text colours are no longer forced here. A text-only Continue rule
+    placed after the imported decorators inherits whatever background the
+    decorator chose, and the imported unique tiers paint the ordinary unique
+    brown as a *background* (black or white text on 175 96 37). Forcing brown
+    text afterwards made those labels unreadable (text == background) in game.
+    Rarity defaults now live before the decorators: the audit baseline for
+    Normal/Magic/Rare equipment and the rewritten ordinary-unique default from
+    ``neutralise_sentinel_decorators``.
+    """
     lines = [
         SEPARATOR,
         "# SMOKIEZONE VIOLET VELVET - NATIVE TEXT COLOUR GUARD",
-        "# Text communicates rarity/category; later terminal rules communicate value and urgency.",
+        "# Gem text stays cyan; rarity text comes from the pre-decorator defaults.",
         SEPARATOR,
         "",
     ]
-    for rarity in ("Normal", "Magic", "Rare"):
-        lines += render_block(
-            f"SMOKIEZONE - {rarity.upper()} EQUIPMENT TEXT GUARD",
-            [classes, f"Rarity {rarity}"],
-            [
-                f"SetTextColor {rgba(RARITY_TEXT[rarity])}",
-                "Continue",
-            ],
-        )
-    lines += render_block(
-        "SMOKIEZONE - ORDINARY UNIQUE TEXT GUARD",
-        ["Rarity Unique"],
-        [
-            f"SetTextColor {rgba(RARITY_TEXT['Unique'])}",
-            "Continue",
-        ],
-    )
     lines += render_block(
         "SMOKIEZONE - NATIVE GEM TEXT GUARD",
         ['Class == "Skill Gems" "Support Gems"'],
@@ -1505,6 +1499,74 @@ def render_utility_currency(
     return lines
 
 
+GENERATED_HEADER_MARKERS = ("SMOKIEZONE", "HCSSF", "PATHCRAFT HCSSF")
+
+
+def own_label_text_colours(lines: list[str]) -> list[str]:
+    """Give every generated background-setting block its own text colour.
+
+    A terminal block that paints a background but leaves the text colour to
+    earlier Continue decorators renders whatever text colour those decorators
+    chose (black for several Death Oath value tiers) on top of the new
+    background. Blocks that list several rarities are split into one block per
+    rarity so the text can still carry the rarity cue.
+    """
+    result: list[str] = []
+    for block in parse_blocks(lines):
+        body = list(block.lines[1:])
+        try:
+            blank = body.index("")
+        except ValueError:
+            blank = len(body)
+        content, trailer = body[:blank], body[blank:]
+        directives = [line.strip() for line in content if line.strip()]
+        needs_text = (
+            any(marker in block.header for marker in GENERATED_HEADER_MARKERS)
+            and any(line.startswith("SetBackgroundColor") for line in directives)
+            and not any(line.startswith("SetTextColor") for line in directives)
+        )
+        if not needs_text:
+            result.extend(block.lines)
+            continue
+        rarity_line = next((line for line in directives if line.startswith("Rarity ")), None)
+        rarities = rarity_line.split()[1:] if rarity_line else []
+        title = block.header.split("#", 1)[1].strip()
+        styles = [line for line in directives if line.startswith(STYLE_PREFIXES)]
+        conditions = [line for line in directives if not line.startswith(STYLE_PREFIXES)]
+        if not rarities or any(rarity not in RARITY_TEXT for rarity in rarities):
+            # No rarity cue to carry: pick the readable neutral for this background.
+            background = next(line for line in styles if line.startswith("SetBackgroundColor"))
+            channels = [int(part) for part in background.split()[1:4]]
+            dark = filter_cascade.relative_luminance(channels) < 0.4
+            text = (248, 248, 250) if dark else (19, 10, 29)
+            result.extend(
+                render_block(
+                    title,
+                    conditions,
+                    [f"SetTextColor {rgba(text)}", *styles],
+                    action=block.action,
+                )
+            )
+            result.extend(trailer)
+            continue
+        for rarity in rarities:
+            split_conditions = [
+                f"Rarity {rarity}" if line.startswith("Rarity ") else line
+                for line in conditions
+            ]
+            suffix = "" if len(rarities) == 1 else f" - {rarity.upper()}"
+            result.extend(
+                render_block(
+                    f"{title}{suffix}",
+                    split_conditions,
+                    [f"SetTextColor {rgba(RARITY_TEXT[rarity])}", *styles],
+                    action=block.action,
+                )
+            )
+        result.extend(trailer)
+    return result
+
+
 def render_build_layer(
     spec: dict, economy: dict, base_lines: Sequence[str]
 ) -> list[str]:
@@ -1718,13 +1780,135 @@ def render_build_layer(
             "",
         ]
     )
-    return lines
+    return own_label_text_colours(lines)
 
 
 def previous_separator(lines: Sequence[str], marker_index: int) -> int:
     if marker_index > 0 and lines[marker_index - 1].startswith("#==="):
         return marker_index - 1
     return marker_index
+
+
+SENTINEL_STYLE = (
+    "SetTextColor 255 0 255 255",
+    "SetBorderColor 255 0 255 255",
+    "SetBackgroundColor 100 0 100 255",
+    "Continue",
+)
+STYLE_PREFIXES = filter_cascade.STYLE_PREFIXES
+ORDINARY_UNIQUE_DEFAULT = "SMOKIEZONE - ORDINARY UNIQUE DEFAULT"
+# WCAG contrast of a label whose text and background are the same colour is
+# 1.0; anything under this threshold is unreadable on the loot label.
+MINIMUM_LABEL_CONTRAST = 1.6
+ARCHETYPE_AREA_LEVELS = (3, 20, 45, 70, 85)
+
+
+def equipment_archetypes() -> list[filter_cascade.SimulatedItem]:
+    """Equipment archetypes that must stay readable after the Continue cascade.
+
+    Every equipment base from BaseItemTypes is simulated as a Unique (the tier
+    lists are keyed by base), and one representative base per class covers the
+    Normal/Magic/Rare and socket/link variants.
+    """
+    rows = read_json(REPO_ROOT / "data" / "game_data" / "BaseItemTypes.json")
+    bases: dict[str, tuple[str, int, int, int]] = {}
+    for row in rows:
+        name = row.get("Name")
+        item_class = filter_cascade.class_from_metadata_id(str(row.get("Id", "")))
+        if not name or item_class is None or name in bases:
+            continue
+        bases[name] = (
+            item_class,
+            int(row.get("DropLevel") or 1),
+            int(row.get("Width") or 2),
+            int(row.get("Height") or 3),
+        )
+    items: list[filter_cascade.SimulatedItem] = []
+    representative: dict[str, str] = {}
+    for name, (item_class, drop_level, width, height) in bases.items():
+        representative.setdefault(item_class, name)
+        for area in (3, 45, 85):
+            items.append(
+                filter_cascade.SimulatedItem(
+                    base_type=name,
+                    item_class=item_class,
+                    rarity="Unique",
+                    area_level=area,
+                    item_level=area,
+                    drop_level=drop_level,
+                    width=width,
+                    height=height,
+                )
+            )
+    for item_class, name in representative.items():
+        _, drop_level, width, height = bases[name]
+        for rarity in ("Normal", "Magic", "Rare"):
+            for area in ARCHETYPE_AREA_LEVELS:
+                for linked, sockets in ((0, 1), (4, 4), (6, 6)):
+                    items.append(
+                        filter_cascade.SimulatedItem(
+                            base_type=name,
+                            item_class=item_class,
+                            rarity=rarity,
+                            area_level=area,
+                            item_level=area,
+                            drop_level=drop_level,
+                            linked_sockets=linked,
+                            sockets=sockets,
+                            width=width,
+                            height=height,
+                        )
+                    )
+    return items
+
+
+def neutralise_sentinel_decorators(lines: list[str]) -> list[str]:
+    """Remove the imported magenta reset decorators that leak into labels.
+
+    The Death Oath source starts with an unconditional magenta Continue rule and
+    repeats it as a ``Rarity Unique`` reset before its unique tiers. In the source
+    filter a later normalisation layer covered them; this composition removed
+    that layer, so the resets would either reach the screen as magenta or force
+    a later text-only guard (the cause of unreadable unique labels).
+
+    * unconditional reset -> dropped, so the audit baseline stays in effect
+    * ``Rarity Unique`` reset -> ordinary unique default (brown text, dark
+      background) that the following unique tiers may still override with their
+      own coherent text/background pairs
+    """
+    blocks = parse_blocks(lines)
+    replacements: list[tuple[int, int, list[str]]] = []
+    for block in blocks:
+        if not block.header.startswith("Show # Pathcraft Death Oath visual rule"):
+            continue
+        directives = block.directives
+        styles = tuple(line for line in directives if line.startswith(STYLE_PREFIXES))
+        conditions = [line for line in directives if not line.startswith(STYLE_PREFIXES)]
+        if styles != SENTINEL_STYLE:
+            continue
+        end = block.start_line - 1 + len(block.lines)
+        if not conditions:
+            replacements.append((block.start_line - 1, end, []))
+        elif conditions == ["Rarity Unique"]:
+            replacements.append(
+                (
+                    block.start_line - 1,
+                    end,
+                    render_block(
+                        ORDINARY_UNIQUE_DEFAULT,
+                        ["Rarity Unique"],
+                        [
+                            f"SetTextColor {rgba(RARITY_TEXT['Unique'])}",
+                            f"SetBorderColor {rgba(RARITY_TEXT['Unique'])}",
+                            "SetBackgroundColor 20 20 0 255",
+                            "Continue",
+                        ],
+                    ),
+                )
+            )
+    for start, end, replacement in sorted(replacements, reverse=True):
+        lines[start:end] = replacement
+    return lines
 
 
 def replace_theme_layers(
@@ -1756,7 +1940,7 @@ def replace_theme_layers(
     lines = (
         lines[:category_start] + render_native_category_policy() + lines[allie_start:]
     )
-    return lines
+    return neutralise_sentinel_decorators(lines)
 
 
 def compose_filter(spec: dict, economy: dict) -> tuple[str, dict]:
@@ -1990,15 +2174,40 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
         if marker not in output:
             errors.append(f"Required marker missing: {marker}")
 
-    semantic_guards = {
-        "NORMAL EQUIPMENT TEXT GUARD": "SetTextColor 200 200 200 255",
-        "MAGIC EQUIPMENT TEXT GUARD": "SetTextColor 136 136 255 255",
-        "RARE EQUIPMENT TEXT GUARD": "SetTextColor 255 255 119 255",
-        "ORDINARY UNIQUE TEXT GUARD": "SetTextColor 175 96 37 255",
-        "NATIVE GEM TEXT GUARD": "SetTextColor 27 217 217 255",
-    }
-    for marker, colour in semantic_guards.items():
-        require_block_style(marker, [colour, "Continue"])
+    require_block_style(
+        "NATIVE GEM TEXT GUARD", ["SetTextColor 27 217 217 255", "Continue"]
+    )
+    require_block_style(
+        ORDINARY_UNIQUE_DEFAULT,
+        [
+            "SetTextColor 175 96 37 255",
+            "SetBorderColor 175 96 37 255",
+            "SetBackgroundColor 20 20 0 255",
+            "Continue",
+        ],
+    )
+    for marker in (
+        "NORMAL EQUIPMENT TEXT GUARD",
+        "MAGIC EQUIPMENT TEXT GUARD",
+        "RARE EQUIPMENT TEXT GUARD",
+        "ORDINARY UNIQUE TEXT GUARD",
+    ):
+        if marker in output:
+            errors.append(f"Text-only rarity guard must not be emitted: {marker}")
+    for block in blocks:
+        if tuple(block.directives) == SENTINEL_STYLE:
+            errors.append(
+                f"Unconditional magenta reset decorator survived: {block.header}"
+            )
+        generated = any(marker in block.header for marker in GENERATED_HEADER_MARKERS)
+        paints_background = any(
+            line.startswith("SetBackgroundColor") for line in block.directives
+        )
+        owns_text = any(line.startswith("SetTextColor") for line in block.directives)
+        if generated and paints_background and not owns_text:
+            errors.append(
+                f"Generated block paints a background without owning its text colour: {block.header}"
+            )
 
     essence_styles = {
         "SMOKIEZONE - ESSENCES HIGH VIOLET": [
@@ -2225,31 +2434,48 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
                 continue
             marker = f"SMOKIEZONE - {group['id'].upper()}"
             matching = [block for block in blocks if marker in block.header]
-            if len(matching) != 1:
+            expected_rarities = list(group.get("rarities") or ["Normal", "Magic", "Rare"])
+            if len(matching) != len(expected_rarities):
                 errors.append(
-                    f"Always-show crafting group must render exactly once: {marker} ({len(matching)})"
+                    "Always-show crafting group must render once per rarity: "
+                    f"{marker} ({len(matching)} of {len(expected_rarities)})"
                 )
                 continue
-            block = matching[0]
-            if block.action != "Show" or block.start_line >= first_hide:
-                errors.append(
-                    f"Always-show crafting group is not a pre-Hide Show: {marker}"
+            for block in matching:
+                if block.action != "Show" or block.start_line >= first_hide:
+                    errors.append(
+                        f"Always-show crafting group is not a pre-Hide Show: {block.header}"
+                    )
+                if "Continue" in block.directives:
+                    errors.append(
+                        f"Always-show crafting group is not terminal: {block.header}"
+                    )
+                rarity_line = next(
+                    (line for line in block.directives if line.startswith("Rarity ")),
+                    "",
                 )
-            if "Continue" in block.directives:
-                errors.append(f"Always-show crafting group is not terminal: {marker}")
-            if any(line.startswith("SetTextColor") for line in block.directives):
-                errors.append(f"Crafting base overwrites rarity text colour: {marker}")
-            if "SetBorderColor 124 58 237 255" not in block.directives:
-                errors.append(
-                    f"Crafting base lacks the shared violet relevance border: {marker}"
+                rarity_values = rarity_line.split()[1:]
+                expected_text = (
+                    f"SetTextColor {rgba(RARITY_TEXT[rarity_values[0]])}"
+                    if len(rarity_values) == 1 and rarity_values[0] in RARITY_TEXT
+                    else None
                 )
-            if not any(
-                line.startswith("SetBackgroundColor 37 17 71 ")
-                for line in block.directives
-            ):
-                errors.append(
-                    f"Crafting base lacks the shared aubergine background: {marker}"
-                )
+                if expected_text is None or expected_text not in block.directives:
+                    errors.append(
+                        "Crafting base must carry exactly its own rarity text colour: "
+                        f"{block.header}"
+                    )
+                if "SetBorderColor 124 58 237 255" not in block.directives:
+                    errors.append(
+                        f"Crafting base lacks the shared violet relevance border: {block.header}"
+                    )
+                if not any(
+                    line.startswith("SetBackgroundColor 37 17 71 ")
+                    for line in block.directives
+                ):
+                    errors.append(
+                        f"Crafting base lacks the shared aubergine background: {block.header}"
+                    )
             if group.get("maximum_area_level") is not None:
                 errors.append(
                     f"Always-show crafting group has an AreaLevel ceiling: {marker}"
@@ -2275,6 +2501,22 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
 
     if "MinimapIcon 0 Pink UpsideDownHouse" not in output:
         errors.append("Unclassified divination-card safety icon is missing")
+
+    collisions = filter_cascade.find_collisions(
+        filter_cascade.parse_cascade(lines),
+        equipment_archetypes(),
+        minimum_contrast=MINIMUM_LABEL_CONTRAST,
+    )
+    for collision in collisions[:10]:
+        item = collision.item
+        errors.append(
+            "Unreadable label after Continue cascade: "
+            f"{item.rarity} {item.base_type} ({item.item_class}) area {item.area_level} "
+            f"links {item.linked_sockets} -> text {collision.text} on "
+            f"{collision.background} contrast {collision.contrast:.2f} via {collision.chain[-3:]}"
+        )
+    if len(collisions) > 10:
+        errors.append(f"... and {len(collisions) - 10} more label collisions")
     if errors:
         raise FilterBuildError("Filter validation failed:\n- " + "\n- ".join(errors))
 

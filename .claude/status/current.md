@@ -1,3 +1,12 @@
+## 2026-08-28 — 필터 라벨 글자=배경 충돌 수정 (Unique Crude Bow 신고)
+
+**지금**: 원인 = Continue 캐스케이드(Death Oath 고유 티어 갈색 배경 + Smokiezone 글자색 가드). 수정: 가드 4종 제거(젬만 유지),
+`Rarity Unique` 마젠타 센티널 → ORDINARY UNIQUE DEFAULT 치환, 무조건 센티널 제거, 배경 칠하는 생성 블록은 희귀도별 분할로 글자색 소유,
+`scripts/filter_cascade.py` 시뮬레이터가 검증 게이트(아키타입 4,548 조합 대비<1.6 → 빌드 실패). 재빌드·설치 완료(sha 021A04CD…).
+**다음**: 인게임 재확인(사용자). 남은 sub-2.5 대비 4건은 허용 범위 — 신고 시 조정.
+
+---
+
 ## 2026-08-27 — Smokiezone Boneshatter 가이드를 문서형(Google Docs)으로 재납품
 
 **지금**: 시트 트래커가 아니라 Path of Chores 루미너리 가이드식 0~8장 문서를 원했던 것. 원고

@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_smokiezone_hcssf_filter as filter_builder  # noqa: E402
+import filter_cascade  # noqa: E402
 
 
 SPEC_PATH = (
@@ -133,20 +134,80 @@ def test_area_level_83_does_not_force_every_rare_equipment_drop_to_show():
     assert "PlayEffect None" in text
 
 
-def test_native_rarity_and_category_text_guards_are_exact():
+def test_text_guard_only_recolours_gems():
+    """Text-only rarity guards after the decorators made unique labels unreadable."""
     blocks = filter_builder.parse_blocks(filter_builder.render_rarity_guard())
 
-    expected = {
-        "NORMAL EQUIPMENT TEXT GUARD": "SetTextColor 200 200 200 255",
-        "MAGIC EQUIPMENT TEXT GUARD": "SetTextColor 136 136 255 255",
-        "RARE EQUIPMENT TEXT GUARD": "SetTextColor 255 255 119 255",
-        "ORDINARY UNIQUE TEXT GUARD": "SetTextColor 175 96 37 255",
-        "NATIVE GEM TEXT GUARD": "SetTextColor 27 217 217 255",
-    }
-    for marker, colour in expected.items():
-        block = one_block(blocks, marker)
-        assert colour in block.directives
-        assert "Continue" in block.directives
+    assert [block.header for block in blocks] == [
+        "Show # SMOKIEZONE - NATIVE GEM TEXT GUARD"
+    ]
+    gem_guard = blocks[0]
+    assert "SetTextColor 27 217 217 255" in gem_guard.directives
+    assert "Continue" in gem_guard.directives
+    assert not any("SetBackgroundColor" in line for line in gem_guard.directives)
+
+
+def test_sentinel_decorators_are_neutralised_not_guarded():
+    source_lines = BASE_FILTER.read_text(encoding="utf-8").splitlines()
+    source_blocks = filter_builder.parse_blocks(source_lines)
+    sentinel_headers = [
+        block.header
+        for block in source_blocks
+        if tuple(block.directives) == filter_builder.SENTINEL_STYLE
+    ]
+    assert sentinel_headers, "the Death Oath source should carry the magenta reset"
+
+    lines = filter_builder.neutralise_sentinel_decorators(list(source_lines))
+    blocks = filter_builder.parse_blocks(lines)
+
+    assert not any(tuple(block.directives) == filter_builder.SENTINEL_STYLE for block in blocks)
+    default = one_block(blocks, filter_builder.ORDINARY_UNIQUE_DEFAULT)
+    assert default.directives == (
+        "Rarity Unique",
+        "SetTextColor 175 96 37 255",
+        "SetBorderColor 175 96 37 255",
+        "SetBackgroundColor 20 20 0 255",
+        "Continue",
+    )
+    unique_tier_blocks = [
+        block
+        for block in blocks
+        if block.header.startswith("Show # Pathcraft Death Oath visual rule")
+        and "Rarity Unique" in block.directives
+        and any(line.startswith("BaseType") for line in block.directives)
+    ]
+    assert default.start_line < unique_tier_blocks[0].start_line
+
+
+def test_unique_crude_bow_label_is_readable_after_cascade():
+    """Regression: black-on-brown unique tier + brown text guard rendered text == background."""
+    spec = load_spec()
+    economy = json.loads(ECONOMY_PATH.read_text(encoding="utf-8"))
+    output, _ = filter_builder.compose_filter(spec, economy)
+    blocks = filter_cascade.parse_cascade(output.splitlines())
+
+    probes = [
+        filter_cascade.SimulatedItem("Crude Bow", "Bows", "Unique", 5, 5, sockets=2),
+        filter_cascade.SimulatedItem("Onyx Amulet", "Amulets", "Unique", 45, 45),
+        filter_cascade.SimulatedItem("Royal Plate", "Body Armours", "Unique", 85, 85),
+        filter_cascade.SimulatedItem(
+            "Gold Amulet", "Amulets", "Magic", 3, 3, linked_sockets=0, sockets=6
+        ),
+        filter_cascade.SimulatedItem("Iron Flask", "Utility Flasks", "Rare", 85, 85),
+    ]
+    for item in probes:
+        result = filter_cascade.simulate(blocks, item)
+        assert result.action == "Show", item
+        text = result.colour("SetTextColor")
+        background = result.colour("SetBackgroundColor")
+        assert text is not None and background is not None, item
+        assert text[:3] != background[:3], (item, result.chain[-4:])
+        assert filter_cascade.contrast_ratio(text, background) >= 2.0, (
+            item,
+            text,
+            background,
+            result.chain[-4:],
+        )
 
 
 def test_essence_visual_ladder_partitions_all_current_currency_bases():
