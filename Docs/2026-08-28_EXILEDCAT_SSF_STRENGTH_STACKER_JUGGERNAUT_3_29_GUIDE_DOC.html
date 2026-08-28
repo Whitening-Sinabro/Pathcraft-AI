@@ -1,0 +1,292 @@
+<meta charset="utf-8">
+<title>[SSF] Strength Stacker Juggernaut 빌드 가이드 (Exiled Cat)</title>
+<style>
+body{background:#434343;color:#f3f3f3;font-family:Arial,system-ui,sans-serif;font-size:11pt;line-height:1.45;max-width:980px;margin:24px auto;padding:0 16px}
+h1{color:#d8c3ff;font-size:20pt;margin:28px 0 10px}
+h2{color:#d8c3ff;font-size:14pt;margin:22px 0 8px}
+p,li{color:#f3f3f3}
+a{color:#9ec5ff}
+table{border-collapse:collapse;width:100%;margin:6px 0 16px}
+th{background:#5f5f5f;color:#ffffff;border:1px solid #b0b0b0;padding:5px 7px;text-align:left;font-weight:bold;vertical-align:top}
+td{background:#333333;color:#f3f3f3;border:1px solid #9a9a9a;padding:5px 7px;vertical-align:top}
+.note{font-style:italic;color:#d9d9d9}
+hr.page{page-break-before:always;border:0;border-top:1px solid #7c3aed;margin:28px 0}
+</style>
+
+<p><a href="https://www.youtube.com/watch?v=Oo7j-hC1ELk">https://www.youtube.com/watch?v=Oo7j-hC1ELk</a> (EXILED CAT — How To Make SSF Strength Stacker · From Zero to Hero · Part 1 · 3.29)</p>
+
+<p><b>[SSF] Strength Stacker Juggernaut 빌드 가이드</b><br>
+<b>PoE 3.29 · Marauder → Juggernaut · Sunder 로 시작해 Smite of Divine Judgement 로 마무리하는 힘 스태커</b></p>
+
+<p class="note">이 문서는 Exiled Cat 의 Part 1 영상(20분 09초, 2026-08-27 업로드) 자동 자막 전문과 설명란의 PoB 4개(Act 10 / 전환 전 / STR 스타터 / Smite)를 대조해 정리한 것이다. 근거는 행마다 표기한다 — <b>PoB</b> = 설명란 PoB 실물, <b>영상 mm:ss</b> = 자막 발언, <b>설명란</b>, <b>poedb</b> = 외부 확인. 제작자 Notes 는 PoB 4개 모두 비어 있고, 영상은 Part 1 이라 이후 단계(타임리스 주얼·클러스터 등)는 예고만 있다. 아이템·젬 이름은 영문 원본명.</p>
+
+<table>
+<tr><th>장</th><th>내용</th><th>장</th><th>내용</th></tr>
+<tr><td><b>0.</b></td><td><b>빌드 이론 · FAQ</b></td><td><b>5.</b></td><td><b>아틀라스 트리 및 파밍 루트</b></td></tr>
+<tr><td><b>1.</b></td><td><b>PoB 진행 단계</b></td><td><b>6.</b></td><td><b>고유 아이템 &amp; 후기 업그레이드</b></td></tr>
+<tr><td><b>2.</b></td><td><b>젬 링크</b></td><td><b>7.</b></td><td><b>필터에 띄울 베이스</b></td></tr>
+<tr><td><b>3.</b></td><td><b>캠페인</b></td><td><b>8.</b></td><td><b>제작</b></td></tr>
+<tr><td><b>4.</b></td><td><b>장비 세팅</b></td><td></td><td><b>출처</b></td></tr>
+</table>
+
+<table>
+<tr><th>한 줄 요약</th><th>내용</th></tr>
+<tr><td>진행 순서</td><td>액트 1~2 리그 메커니즘으로 골드 비축 → 레벨 28 셉터 도박으로 Brutus' Lead Sprinkler → 레벨 49 도박으로 Alberon's Warpath → Sunder Juggernaut 로 캠페인·초기 지도 → Breach 벨트 + The Watcher 카드(Crown of Eyes) + 주문 피해 방패 → <b>STR 스태커 전환</b> → Heist(Replica Alberon's) + Syndicate(Paradoxica) → 미궁에서 <b>Smite of Divine Judgement</b> 로 교체 → Breach 트리로 The Iron Fortress</td></tr>
+<tr><td>스타터 최소 세트</td><td>Brutus' Lead Sprinkler · Alberon's Warpath · Crown of Eyes · 힘 벨트(실물 Foulborn Meginord's Girdle) · 주문 피해 방패 (+ Breach 트리 선물 Xoph's Blood). 영상 00:30 "minimum set of gear".</td></tr>
+<tr><td>힘 → 피해</td><td>Brutus' Lead Sprinkler(힘 10당 화염 4~7 추가) + Iron Will(주문 피해 보너스를 힘에서) + Crown of Eyes(Attacks have 150% Arcane Might → 주문 피해가 공격 피해로) + Xoph's Blood(Avatar of Fire). 최종형은 The Iron Fortress(힘 10당 근접 물리 3% 증가·힘 50당 막기 1%).</td></tr>
+<tr><td>절대 규칙</td><td>제작자 자신의 교훈(영상 06:18): "Juggernaut ZDPS in SSF 를 얕보지 마라" — 퀘스트 보스 전엔 빌드를 손보고 간다. 기어 없이 뛰어들 수 있는 아키타입이 아니다(영상 00:21).</td></tr>
+</table>
+
+<hr class="page">
+<h1>0. 빌드 이론</h1>
+<table>
+<tr><th>축</th><th>설명</th><th>근거</th></tr>
+<tr><td>왜 힘 스태커</td><td>SSF 에서 이 아키타입을 맞추는 것 자체가 어려워서 도전 과제로 골랐다. 기어 없이 바로 시작할 수 없고 고유 아이템이 여럿 필요하다.</td><td>영상 00:00~00:28</td></tr>
+<tr><td>진행 철학</td><td>"메타 빌드로 90% 파밍하고 마지막에 갈아타는 zero-to-hero 낚시"를 피하려고, 최소 기어 세트를 정해 최대한 빨리 모은 뒤 그 상태로 진행하며 개선한다.</td><td>영상 00:30, 07:28~07:55</td></tr>
+<tr><td>피해 변환 사슬</td><td>Brutus' Lead Sprinkler: "Adds 4 to 7 Fire Damage to Attacks with this Weapon per 10 Strength". Iron Will 키스톤으로 힘의 피해 보너스를 주문 피해에도 적용하고, Crown of Eyes 의 "Attacks have 150% Arcane Might" 로 주문 피해 증가를 공격에 끌어온다. 방패에 주문 피해가 붙는 이유가 이것이다.</td><td>PoB ③④ 아이템·키스톤, 영상 06:48 "spell damage combined with this unique helmet will increase my attack damage"</td></tr>
+<tr><td>원소 변환</td><td>Xoph's Blood 의 Avatar of Fire 로 물리·냉기·번개를 화염으로 몰고, 트리(Divine Fervour · Lava Lash · Holy Dominion · Sanctity)와 Fire Penetration / Elemental Damage with Attacks 로 화염 피해를 키운다.</td><td>PoB ③④</td></tr>
+<tr><td>힘 수치</td><td>전환 전 318 → STR 스타터 1,042 → Smite 최종 1,366. 실물 PoB(캐릭터 임포트) 기준 DPS 75만 → 121만 → 165만, EHP 2.2만 → 4.4만 → 6.4만.</td><td>PoB ②③④ PlayerStat</td></tr>
+<tr><td>방어</td><td>Juggernaut(Unflinching · Unyielding · Unrelenting · Undeniable) + 방어도 1.2~1.5만 + Iron Fortress 힘 비례 막기. 최종형 Alberon's 는 Unwavering Stance 타락 임플리싯.</td><td>PoB ④</td></tr>
+</table>
+
+<h2>FAQ</h2>
+<table>
+<tr><th>질문</th><th>답</th><th>근거</th></tr>
+<tr><td>왜 Juggernaut 인가?</td><td>"classic Juggernaut". "이 노드가 정확도와 공격 속도를 많이 준다"(노드명은 말하지 않음 — 정확도·공격 속도를 주는 Juggernaut 노드는 Undeniable 이고 PoB ③④에만 있으므로 그것으로 추정)고, 방어 선택지가 넉넉해 탱키하게 만들 수 있다.</td><td>영상 02:24~02:29, PoB ③④ 전직</td></tr>
+<tr><td>왜 Sunder 로 시작하나?</td><td>주력 스킬은 유연해서 나중에 정하기로 했고, 쓰고 싶은 스킬 대부분이 미궁(변형 젬)에서만 나오는데 당장 랩을 돌기 싫었다. 캠페인부터 STR 전환 직후까지 Sunder 유지.</td><td>영상 03:21~03:50</td></tr>
+<tr><td>Smite of Divine Judgement 로 바꾸면 피해가 오르나?</td><td>제작자 말로는 피해는 크게 안 바뀌었고 "게임 감각"이 완전히 달라졌다 — 매핑이 훨씬 편해졌다. 12번째 랩 시도에서 뽑았다.</td><td>영상 12:39~13:49</td></tr>
+<tr><td>Replica Headhunter 가 나왔는데 왜 안 쓰나?</td><td>이 빌드에는 쓸모없는 아이템이라 진행에 영향 없다. Heist 청사진 3개에서 희귀 고유 2개가 나온 건 운이었을 뿐.</td><td>영상 10:16~11:10</td></tr>
+<tr><td>Syndicate 는 왜 하나?</td><td>초반 경험치 소스이고, 나중에 필요한 Paradoxica 가 Syndicate 에서만 나온다. 평균적으로 긴 파밍이라 보드를 최대한 일찍 세팅한다.</td><td>영상 04:46</td></tr>
+<tr><td>전환 시점에 기어가 허접해도 되나?</td><td>제작자 실물도 "pretty scuffed", 힘이 낮았다. Legion 타임리스 주얼·에센스 제작 방패/반지는 시간이 너무 걸려 뒤로 미뤘다. 최소 세트로 넘어가서 점진 개선.</td><td>영상 07:28</td></tr>
+<tr><td>퀘스트 보스에서 막혔다?</td><td>제작자도 4차 랩·공허석 퀘스트 보스 전에 피해가 부족해 빌드를 손봐야 했다. "slow and steady" 였고 교훈으로 남겼다.</td><td>영상 05:49~06:18</td></tr>
+<tr><td>Heist 는 어떻게 굴리나?</td><td>청사진 100~150 wing 을 모아 한 번에 돈다. 기본은 1 wing 청사진(계약을 돌려 공개하는 것보다 훨씬 쉽고, 캐릭터가 느려서), Rogue's Marker 가 쌓이면 Deception 계약(가장 빠름, Gianna 로 공개 2회)으로 완전 공개 청사진을 만든다.</td><td>영상 09:49, 11:38~12:06, 17:20~18:00</td></tr>
+</table>
+
+<hr class="page">
+<h1>1. PoB 진행 단계</h1>
+<p>설명란의 PoB 4개. 네 개 모두 트리 버전 3_29, Notes 비어 있음. 서로 다른 단계의 트리·젬·장비를 섞지 않는다.</p>
+<table>
+<tr><th>PoB 링크</th><th>레벨</th><th>설명</th><th>주요 수치 (PoB)</th></tr>
+<tr><td><a href="https://pobb.in/f6OAnJ0coqso">https://pobb.in/f6OAnJ0coqso</a><br><b>Act 10</b></td><td>67</td><td>캠페인 종료 시점. Sunder 5링크, 함성 Autoexertion. 전부 희귀 장비, 고유 없음. Bandit Alira. 키스톤 Resolute Technique. 전직 Unstoppable · Unflinching · Unyielding.</td><td>힘 252 / 생명력 2,934 / 방어도 2,530 / DPS 14.6만 / EHP 6.1k / 카오스 저항 -60</td></tr>
+<tr><td><a href="https://pobb.in/wVNxoO7HlLB1">https://pobb.in/wVNxoO7HlLB1</a><br><b>전환 전 (Sunder 매핑)</b></td><td>93</td><td>STR 전환 직전 매핑 세팅. Vaal Axe Sunder, Herald of Purity, Purity of Elements + Precision. 전직 +Unrelenting. 아직 고유 없음.</td><td>힘 318 / 생명력 4,817 / 방어도 15,114 / DPS 75만 / EHP 22k / 카오스 저항 22</td></tr>
+<tr><td><a href="https://pobb.in/Id77R_U3qZx3">https://pobb.in/Id77R_U3qZx3</a><br><b>STR 스태커 스타터</b></td><td>95</td><td>최소 세트 전환본. Brutus' Lead Sprinkler + Ancient Spirit Shield(주문 피해 75%), Crown of Eyes, Xoph's Blood, Alberon's Warpath, Foulborn Meginord's Girdle. 키스톤 <b>Iron Will</b> + Unwavering Stance. 전직 Unflinching · Unyielding · Unrelenting · <b>Undeniable</b>. 주력은 아직 Sunder 6링크.</td><td>힘 1,042 / 생명력 6,369 / 방어도 14,036 / DPS 121만 / EHP 44k / 카오스 저항 -35</td></tr>
+<tr><td><a href="https://pobb.in/OS_Z2QioInuj">https://pobb.in/OS_Z2QioInuj</a><br><b>Smite 최종형 (Part 1 종료)</b></td><td>98</td><td>Smite of Divine Judgement 6링크, The Iron Fortress, Walnut Spirit Shield(+57 힘), 제작 Amethyst Ring ×2(-7 마나 비용), Exarch+Eater 장갑(화염 노출 + Strike +1). Alberon's 는 Unwavering Stance 타락본이라 키스톤은 Iron Will 만. Bandit Alira.</td><td>힘 1,366 / 생명력 7,451 / 방어도 12,587 / DPS 165만 / EHP 64k / 카오스 저항 7</td></tr>
+</table>
+<p class="note">Replica Alberon's Warpath, 타임리스 주얼, Split Personality·클러스터는 Part 1 종료 시점에 아직 없다(영상 18:49~19:45 예고). 위 PoB 는 "계획"이 아니라 제작자의 실제 스냅샷이다.</p>
+
+<hr class="page">
+<h1>2. 젬 링크</h1>
+<p>PoB Skill Set 의 젬 구성. 표기 순서는 읽기 쉽게 주력 젬을 앞에 뒀고(PoB 내부 소켓 순서와 다름), [off] 는 PoB 에서 비활성.</p>
+
+<h2>2.1 캠페인 — Act 10 (PoB ①)</h2>
+<table>
+<tr><th>구분</th><th>링크</th><th>비고</th></tr>
+<tr><td>본체 5L</td><td>Sunder — Pulverise — Fortify — Fist of War — Overexertion</td><td>Overexertion 은 함성 exert 피해</td></tr>
+<tr><td>자동 함성 4L (부츠)</td><td>Seismic Cry — Intimidating Cry — Infernal Cry — Autoexertion</td><td></td></tr>
+<tr><td>직접 함성 (장갑)</td><td>Rallying Cry — Urgent Orders / Herald of Ash</td><td></td></tr>
+<tr><td>이동·유틸</td><td>Leap Slam — Faster Attacks — Blood and Sand / Frostblink / Vulnerability / Bloodlust</td><td></td></tr>
+</table>
+
+<h2>2.2 전환 전 매핑 (PoB ②, 레벨 93)</h2>
+<table>
+<tr><th>구분</th><th>링크</th><th>비고</th></tr>
+<tr><td>본체 5L</td><td>Sunder — Pulverise — Fortify — Fist of War — Overexertion</td><td>①과 동일</td></tr>
+<tr><td>자동 함성 4L</td><td>Seismic Cry — Intimidating Cry — Infernal Cry — Autoexertion</td><td></td></tr>
+<tr><td>직접 함성</td><td>Rallying Cry — Urgent Orders</td><td></td></tr>
+<tr><td>오라</td><td>Herald of Purity / Purity of Elements — Precision(스왑 슬롯)</td><td></td></tr>
+<tr><td>유틸</td><td>Leap Slam — Faster Attacks — Vulnerability — Blood and Sand / CWDT Lv1 — Molten Shell[off] / Blood Rage — Frostblink</td><td></td></tr>
+<tr><td>스왑 슬롯</td><td>Fire Penetration — Elemental Damage with Attacks (Weapon 2 Swap, 레벨 18)</td><td>전환 뒤 6링크에 들어갈 보조를 미리 키우는 자리</td></tr>
+</table>
+
+<h2>2.3 STR 스태커 스타터 (PoB ③, 레벨 95)</h2>
+<table>
+<tr><th>구분</th><th>링크</th><th>비고</th></tr>
+<tr><td>본체 6L</td><td>Sunder — Pulverise — Fist of War — Fortify — Elemental Damage with Attacks — Fire Penetration</td><td>Overexertion 이 빠지고 화염 피해 보조로 교체(함성 자동화 제거)</td></tr>
+<tr><td>오라</td><td>Precision — Arrogance(방패) / Purity of Elements — Blood Rage(투구) / Flesh and Stone(무기)</td><td></td></tr>
+<tr><td>저주</td><td>Flammability 20/0 (별도 슬롯, 활성)</td><td>부츠 그룹의 Flammability 18[off] — Lifetap — Frostblink 는 Lifetap·Frostblink 만 활성</td></tr>
+<tr><td>방어</td><td>CWDT Lv1 — Molten Shell[off]</td><td></td></tr>
+<tr><td>이동</td><td>Leap Slam — Faster Attacks — Momentum — Lifetap / Frostblink</td><td></td></tr>
+</table>
+
+<h2>2.4 Smite 최종형 (PoB ④, 레벨 98)</h2>
+<table>
+<tr><th>구분</th><th>링크</th><th>비고</th></tr>
+<tr><td>본체 6L</td><td>Smite of Divine Judgement — Multistrike — Inspiration — Fortify — Elemental Damage with Attacks — Fire Penetration</td><td>주력 20/20, Multistrike 20/20, EDwA 20/20, Fire Pen 20/20</td></tr>
+<tr><td>오라</td><td>Precision — Arrogance(방패) / Purity of Elements 20/20(부츠) / Flesh and Stone(무기) / Blood Rage(부츠)</td><td></td></tr>
+<tr><td>저주</td><td>Flammability — Frostblink(투구)</td><td>직접 시전</td></tr>
+<tr><td>방어</td><td>CWDT Lv1 — Molten Shell[off]</td><td></td></tr>
+<tr><td>이동</td><td>Leap Slam — Faster Attacks — Momentum(장갑)</td><td></td></tr>
+</table>
+
+<hr class="page">
+<h1>3. 캠페인</h1>
+
+<h2>3.1 진행 요령</h2>
+<table>
+<tr><th>구간</th><th>할 일</th><th>근거</th></tr>
+<tr><td><b>액트 1~2</b></td><td>이번 리그 메커니즘이 골드를 많이 주므로 액트 1~2 내내 돌려 골드를 비축한다. 진행은 느려지지만(총 캠페인 약 2시간 추가) 도박 자금이 된다.</td><td>영상 00:58~01:27, 02:51</td></tr>
+<tr><td><b>레벨 28 — 셉터 도박</b></td><td>Brutus' Lead Sprinkler 는 저레벨 아이템이고 "사실상 유일한 고유 Ritual Sceptre" 라 이 레벨에서 셉터 도박 적중률이 높다. 1회 220 골드. 제작자 평: "생각보다 훨씬 쉽고 빨랐다"(시도 횟수는 말하지 않음). 실패하면 몇 레벨 뒤 골드를 더 모아 재시도.</td><td>영상 01:27~02:24</td></tr>
+<tr><td><b>레벨 49 — 부츠 도박</b></td><td>Alberon's Warpath 는 레벨 49 베이스(Soldier Boots). 약 20만 골드 가까이 써서 획득했고, 같은 도박에서 쓸 만한 도끼도 얻었다.</td><td>영상 02:24~03:21</td></tr>
+<tr><td><b>주력 스킬</b></td><td>캠페인 내내 Sunder. 미궁 변형 젬은 나중.</td><td>영상 03:21~03:50, PoB ①</td></tr>
+<tr><td><b>캠페인 직후</b></td><td>골드 재비축 겸 잠수(다이빙) 콘텐츠 — 첫 Divine Orb, 투구 카드 첫 장, 후기 제작 재료를 여기서 얻었다.</td><td>영상 03:50~04:46</td></tr>
+</table>
+<p class="note">액트별 세부 동선(웨이포인트·퀘스트 순서)은 영상에 없다. Bandit 은 PoB ①·④ 기준 Alira(②③은 미설정).</p>
+
+<h2>3.2 미궁 및 전직 순서</h2>
+<table>
+<tr><th>단계</th><th>전직 노드 (PoB 실물)</th><th>비고</th></tr>
+<tr><td><b>Act 10 (PoB ①)</b></td><td>Unstoppable · Unflinching · Unyielding</td><td>영상은 순서를 말하지 않는다 — PoB 스냅샷의 보유 노드만 확인됨</td></tr>
+<tr><td><b>전환 전 (PoB ②)</b></td><td>+ Unrelenting (4개)</td><td></td></tr>
+<tr><td><b>STR 전환 후 (PoB ③④)</b></td><td>Unflinching · Unyielding · Unrelenting · <b>Undeniable</b> — Unstoppable 을 빼고 Undeniable 로 교체</td><td>PoB ③④. 영상 02:29 "이 노드가 정확도와 공격 속도를 많이 준다"는 노드명을 말하지 않는다(Undeniable 추정)</td></tr>
+<tr><td><b>Smite 획득</b></td><td>Smite of Divine Judgement 는 미궁 변형 젬. 제작자는 12번째 시도에서 뽑았다(Heist 100 wing 뒤, 지도 복귀 전).</td><td>영상 12:39~13:14</td></tr>
+</table>
+
+<h2>3.3 캠페인 후 첫 목표 (스타터 세트 완성 순서)</h2>
+<table>
+<tr><th>순서</th><th>목표</th><th>방법</th><th>근거</th></tr>
+<tr><td>1</td><td>Brutus' Lead Sprinkler</td><td>레벨 28 셉터 도박</td><td>영상 01:27</td></tr>
+<tr><td>2</td><td>Alberon's Warpath</td><td>레벨 49 부츠 도박</td><td>영상 02:24</td></tr>
+<tr><td>3</td><td>힘 벨트 (Meginord's Girdle)</td><td>Breach — "common item", 3번째 Breach 퀘스트를 끝내기도 전에 획득</td><td>영상 00:58, 05:39</td></tr>
+<tr><td>4</td><td>4차 미궁 + 첫 공허석</td><td>변칙(anomaly) 접근권 — 희귀 아이템 소스. 퀘스트 보스에서 ZDPS 교훈.</td><td>영상 05:49~06:20</td></tr>
+<tr><td>5</td><td>Xoph's Blood</td><td>Breach 트리 선물 — 기대하지 않던 획득</td><td>영상 06:37</td></tr>
+<tr><td>6</td><td>Crown of Eyes</td><td>The Watcher 점술 카드 12장을 Breach 돌며 수집(첫 장은 잠수에서). 영상은 지도명을 말하지 않고 "이 지도에서 the watcher 가 나온다"고만 한다 — poedb 기준 드롭 지도는 Lair Map.</td><td>영상 00:30, 04:08, 05:14, 06:48 · poedb</td></tr>
+<tr><td>7</td><td>주문 피해 방패</td><td>"Fast gamba"(도박)로 해결. Crown of Eyes 와 조합해 주문 피해 → 공격 피해</td><td>영상 06:52</td></tr>
+<tr><td>8</td><td>주얼 제작 → <b>STR 스태커 전환</b></td><td>PoB ③ 상태. 힘 1,042.</td><td>영상 07:10~07:28, PoB ③</td></tr>
+</table>
+
+<hr class="page">
+<h1>4. 장비 세팅</h1>
+
+<h2>4.1 STR 스태커 스타터 — PoB ③ 실물 (레벨 95)</h2>
+<table>
+<tr><th>슬롯</th><th>실제 아이템</th><th>핵심 옵션 · 획득</th></tr>
+<tr><td><b>무기</b></td><td>Brutus' Lead Sprinkler (Ritual Sceptre)</td><td>Adds 4 to 7 Fire Damage to Attacks per 10 Strength, 17% 공격 속도, 32% 치명타 확률. 레벨 28 셉터 도박.</td></tr>
+<tr><td><b>방패</b></td><td>Mind Charm — Ancient Spirit Shield</td><td>75% + 5% 주문 피해, +54 ES, 막기 60% 증가. 도박.</td></tr>
+<tr><td><b>투구</b></td><td>Crown of Eyes (Hubris Circlet)</td><td>Attacks have 150% Arcane Might, +309 정확도, 공격 피해 생명력 0.51%·마나 0.27% 흡수, 화염 저항 -30%. The Watcher 12장.</td></tr>
+<tr><td><b>갑옷</b></td><td>Glyph Shroud — Astral Plate</td><td>+47 힘, +394 방어도, +63 생명력, 모든 원소 저항 8%, 벤치 65% 방어도</td></tr>
+<tr><td><b>장갑</b></td><td>Rune Palm — Goliath Gauntlets</td><td>+33 힘, +76 생명력, 화염 42% / 번개 32%</td></tr>
+<tr><td><b>부츠</b></td><td>Alberon's Warpath (Soldier Boots)</td><td>15% 힘 증가, Adds 1 to 80 Chaos Damage to Attacks, 25% 이동 속도. 레벨 49 도박.</td></tr>
+<tr><td><b>목걸이</b></td><td>Xoph's Blood (Amber Amulet)</td><td>+21 힘, 10% 힘 증가, 10% 최대 생명력, 화염 관통 10%, Avatar of Fire. Breach 트리.</td></tr>
+<tr><td><b>반지</b></td><td>Gold Ring / Two-Stone Ring</td><td>생명력 109 / 97, 저항, Two-Stone 에 +29 힘 +15 모든 능력치, 벤치 피해 17% / 15%</td></tr>
+<tr><td><b>벨트</b></td><td>Foulborn Meginord's Girdle (Heavy Belt)</td><td>+32 힘 +25 힘, mutated 15% 힘 증가, 10% 최대 생명력. Breach.</td></tr>
+<tr><td><b>플라스크</b></td><td>Quicksilver(자동) / Granite / Diamond of the Pangolin(방어도 54%, 자동) / Prismatic Tincture(근접 원소 피해 80%, 관통 10%) / Eternal Life of Sealing(출혈·CB)</td><td></td></tr>
+</table>
+<p class="note">이 상태에서 제작자는 카오스 저항 -35, 치명타 확률 52%(Brutus' 셉터 기본치 영향). 제작자 스스로 "scuffed" 라고 평가한 전환 직후 기어다.</p>
+
+<h2>4.2 Smite 최종형 — PoB ④ 실물 (레벨 98, Part 1 종료)</h2>
+<table>
+<tr><th>슬롯</th><th>실제 아이템</th><th>핵심 옵션 · 획득</th></tr>
+<tr><td><b>무기</b></td><td>Brutus' Lead Sprinkler</td><td>동일</td></tr>
+<tr><td><b>방패</b></td><td>Entropy Spell — Walnut Spirit Shield</td><td>62% + 9% 주문 피해, <b>+57 힘</b>, +49 지능, 번개 47%, 벤치 +69 생명력</td></tr>
+<tr><td><b>투구</b></td><td>Crown of Eyes</td><td>동일</td></tr>
+<tr><td><b>갑옷</b></td><td><b>The Iron Fortress</b> (Crusader Plate)</td><td>+92 힘, 82% 방어도, 힘 50당 공격 막기 1%, 힘 10당 근접 물리 피해 3% 증가(힘 피해 보너스 대체), 이동 속도 -10%. Breach 트리에서 약 25,000 graveblood 로 획득(영상 13:49). poedb: Abyss 리그 고유, 요구 레벨 59.</td></tr>
+<tr><td><b>장갑</b></td><td>Empyrean Vise — Leviathan Gauntlets (Exarch+Eater)</td><td>+49 힘, +121 생명력, Adds 5–13 Fire, 화염 42%. 임플리싯 2개: Eater 화염 노출 -11% + Exarch Strike +1 target(Exarch+Eater 이중 영향). 영상 15:20~15:53 제작(알터 스팸 → Allflame/두캇으로 DEX→STR → 벤치 → 엑잘트)</td></tr>
+<tr><td><b>부츠</b></td><td>Alberon's Warpath — Unwavering Stance 타락</td><td>16% 힘 증가, +209 방어도</td></tr>
+<tr><td><b>목걸이</b></td><td>Xoph's Blood</td><td>+29 힘 굴림</td></tr>
+<tr><td><b>반지 ×2</b></td><td>Amethyst Ring (제작)</td><td>+58 힘 / +53 힘, 생명력 110 / 90, 카오스 22% / 21%, 벤치 <b>Non-Channelling Skills -7 Total Mana Cost</b>. 영상 14:50~15:20: 에센스 → Harvest → Allflame 으로 DEX 를 STR 로 변환 → T1 생명력 마무리.</td></tr>
+<tr><td><b>벨트</b></td><td>Foulborn Meginord's Girdle</td><td>동일</td></tr>
+<tr><td><b>플라스크</b></td><td>4.1 과 동일</td><td></td></tr>
+</table>
+
+<hr class="page">
+<h1>5. 아틀라스 트리 및 파밍 루트</h1>
+<p class="note">poeplanner 링크는 설명란·자막에 없다(화면에만 비친 트리는 확인 못 함). 아래는 영상 발언 기준의 메커니즘 구성이다.</p>
+
+<h2>5.1 첫 번째 아틀라스: Syndicate + Breach (스타터 세트)</h2>
+<table>
+<tr><th>메커니즘</th><th>목적</th><th>운영 방법</th><th>근거</th></tr>
+<tr><td><b>Syndicate</b></td><td>초반 경험치 + 나중에 Paradoxica(Syndicate 전용, 희귀). 보드를 최대한 일찍 세팅.</td><td>보드는 "classic 2-5-5-2" 배치. Intervention 은신처가 Paradoxica 드롭처 = 주력. Transportation 은 Gravicius 배치(너프됐지만 다른 선택지보다 낫다) — 제작자는 여기서 6링크를 받았다.</td><td>영상 04:46, 08:24~08:53</td></tr>
+<tr><td><b>Breach</b></td><td>힘 벨트 + 점술 카드(너프 후에도 좋은 카드 소스). "이 지도"에서 Breach 를 돌며 The Watcher 수집 — 지도명은 발언에 없고 poedb 기준 Lair Map.</td><td>3번째 Breach 퀘스트 전에 벨트 획득. 카드는 잠수 콘텐츠에서도 1장 나옴.</td><td>영상 04:46~05:49 · poedb(Lair)</td></tr>
+<tr><td><b>4차 미궁 · 공허석 1</b></td><td>변칙(anomaly) 개방 — 희귀 아이템 소스</td><td>퀘스트 보스 전에 빌드 보강 필요(ZDPS 교훈)</td><td>영상 05:49~06:18</td></tr>
+</table>
+
+<h2>5.2 두 번째 아틀라스: Heist + Syndicate (Replica Alberon's · Paradoxica)</h2>
+<table>
+<tr><th>메커니즘</th><th>목적</th><th>운영 방법</th><th>근거</th></tr>
+<tr><td><b>Heist</b></td><td>Replica Alberon's Warpath</td><td>지도에서 청사진 비축(1 wing 위주 — 계약 공개보다 쉽고 캐릭터가 느려서), 아틀라스 노드로 일부는 완전 공개. 100~150 revealed wing 모이면 한 번에 돌린다. Rogue's Marker·Deception 계약이 쌓이면 Gianna 로 공개 2회 → 완전 공개 청사진. Part 1 종료까지 3회 세션(≈100 + 100 + 150 wing)에도 Replica Alberon's 미획득.</td><td>영상 07:55, 09:49~12:39, 16:24~18:49</td></tr>
+<tr><td><b>Syndicate</b></td><td>Paradoxica</td><td>은신처 19회 만에 획득(종류는 발언에 없음; 드롭처는 Intervention). 원하는 옵션은 카오스 관통(다음 단계용).</td><td>영상 11:10~11:38</td></tr>
+<tr><td><b>지도 선택</b></td><td>Mesa</td><td>구조가 좋고 광장에 변칙이 잘 뜬다. Cadiro 상점 · Gamba 상자 · Heist 변칙(무료 1 wing 청사진).</td><td>영상 08:53~09:49</td></tr>
+<tr><td><b>Voidborn Key</b></td><td>Gamba 상자 직후 언급(출처는 발언 순서로 추정)</td><td>Maven 처치 전엔 못 연다 — 보관.</td><td>영상 09:35~09:42</td></tr>
+</table>
+
+<h2>5.3 곁가지: Breach 트리 → The Iron Fortress, 미궁 → Smite</h2>
+<table>
+<tr><th>목표</th><th>방법</th><th>근거</th></tr>
+<tr><td>The Iron Fortress</td><td>"이 고유 갑옷"을 Breach 트리에서 약 25,000 graveblood 로 획득(발언엔 이름이 없고 PoB ④ 실물로 특정). 빌드에 큰 업그레이드. 6링크도 바로 해결.</td><td>영상 14:05~14:21, PoB ④</td></tr>
+<tr><td>Smite of Divine Judgement</td><td>미궁 12회 시도</td><td>영상 12:39~13:14</td></tr>
+</table>
+
+<h2>5.4 세 번째 아틀라스: Essence + Harvest (반지·장갑 제작)</h2>
+<table>
+<tr><th>메커니즘</th><th>목적</th><th>운영 방법</th><th>근거</th></tr>
+<tr><td><b>Essence</b></td><td>반지·장갑 제작 재료</td><td>에센스를 모아 Harvest 벤치에서 교환한 뒤 제작</td><td>영상 14:21~14:50</td></tr>
+<tr><td><b>Harvest</b></td><td>제작 juice</td><td>위와 같이</td><td>영상 14:21</td></tr>
+</table>
+
+<h2>5.5 Part 2 예고 (제작자 계획, 미실행)</h2>
+<table>
+<tr><th>메커니즘</th><th>목적</th><th>근거</th></tr>
+<tr><td>Legion</td><td>타임리스 주얼</td><td>영상 18:49</td></tr>
+<tr><td>Delirium</td><td>Split Personality + 클러스터 주얼</td><td>영상 18:49~19:17</td></tr>
+<tr><td>Essence · Harvest · Blight(성유) · 촉매</td><td>추가 제작 재료</td><td>영상 19:17</td></tr>
+<tr><td>Heist (매 아틀라스에 포함)</td><td>청사진 계속 비축, 100~150 wing 마다 세션</td><td>영상 19:45</td></tr>
+</table>
+
+<hr class="page">
+<h1>6. 고유 아이템 &amp; 후기 업그레이드</h1>
+<table>
+<tr><th>아이템</th><th>획득처</th><th>용도 · 주의</th><th>근거</th></tr>
+<tr><td><b>Brutus' Lead Sprinkler</b></td><td>레벨 28 셉터 골드 도박, 1회 220 골드</td><td>힘 10당 화염 4~7 추가 — 빌드의 피해 원천. "사실상 유일한 고유 Ritual Sceptre" 라 셉터 도박 적중률이 높다.</td><td>영상 01:27~02:24, PoB ③④</td></tr>
+<tr><td><b>Alberon's Warpath</b></td><td>레벨 49 부츠 골드 도박(약 20만 골드)</td><td>15~16% 힘 증가, 카오스 1~80 추가. 최종형은 Unwavering Stance 타락본.</td><td>영상 02:24~03:21, PoB ③④</td></tr>
+<tr><td><b>Crown of Eyes</b></td><td>The Watcher 카드 12장 — Lair Map</td><td>주문 피해 → 공격 피해(150% Arcane Might). 화염 저항 -30% 주의.</td><td>영상 00:30, 05:14, 06:48 · poedb</td></tr>
+<tr><td><b>Meginord's Girdle</b> (Foulborn)</td><td>Breach — "common"</td><td>힘 벨트. 실물은 Foulborn(mutated 15% 힘 증가).</td><td>영상 00:58, 05:14, PoB ③④</td></tr>
+<tr><td><b>Xoph's Blood</b></td><td>Breach 트리 선물(영상). poedb: Burning Blood 카드 또는 Xoph's Heart + Blessing of Xoph</td><td>Avatar of Fire + 힘 10% + 화염 관통 10%. 제작자도 "기대하지 않던" 획득.</td><td>영상 06:18 · poedb</td></tr>
+<tr><td><b>The Iron Fortress</b></td><td>Breach 트리 약 25,000 graveblood</td><td>+60~120 힘, 힘 50당 막기 1%, 힘 10당 근접 물리 3%. Abyss 리그 고유(poedb). 영상은 "이 고유 갑옷"이라고만 함 — PoB ④로 특정.</td><td>영상 14:05 · PoB ④ · poedb</td></tr>
+<tr><td><b>Paradoxica</b></td><td>Syndicate Intervention 은신처 — 은신처 19회 만에 획득(종류 미명시)</td><td>다음 단계용. 원하는 옵션 카오스 관통. Part 1 PoB 에는 아직 미장착.</td><td>영상 11:10~11:38</td></tr>
+<tr><td><b>Replica Alberon's Warpath</b></td><td>Heist 청사진</td><td>주 목표. 약 350 wing 까지 미획득. 첫 세션에서 나온 Replica Headhunter 는 "Replica Alberon's 보다 훨씬 희귀"하지만 빌드엔 무용(영상 10:16~11:10). 150 wing 세션에서 나온 같은 등급의 고유 4개는 영상에서 이름을 말하지 않는다(18:20~18:49).</td><td>영상 10:16~11:10, 18:20~18:49</td></tr>
+<tr><td><b>6링크</b></td><td>Gravicius(Transportation) 보상 / 이후 Iron Fortress</td><td></td><td>영상 08:53, 14:21</td></tr>
+<tr><td><b>Voidborn Key</b></td><td>Gamba 상자 직후 언급(추정)</td><td>Maven 처치 후 개봉</td><td>영상 09:35~09:42</td></tr>
+<tr><td><b>후속 목표</b></td><td>Legion 타임리스 주얼 / Delirium Split Personality·클러스터 / Blight 성유·촉매</td><td>Part 2 예고. 자막에 "Helico ring", "Simplex" 도 언급되나 아이템명 표기가 불명확해 여기선 확정하지 않는다.</td><td>영상 16:24, 18:49~19:45</td></tr>
+</table>
+
+<hr class="page">
+<h1>7. 필터에 띄울 베이스</h1>
+<table>
+<tr><th>구분</th><th>베이스</th><th>근거</th></tr>
+<tr><td><b>도박 대상</b></td><td>Ritual Sceptre (레벨 28~), Soldier Boots (레벨 49~) — 골드 도박 상인에서</td><td>영상 01:27, 02:24</td></tr>
+<tr><td><b>점술 카드</b></td><td>The Watcher (Lair Map) → Crown of Eyes. Burning Blood → Xoph's Blood(대안)</td><td>poedb</td></tr>
+<tr><td><b>방패</b></td><td>주문 피해 접두가 붙은 Spirit Shield 계열 — 실물 Ancient Spirit Shield → Walnut Spirit Shield(+힘)</td><td>PoB ③④</td></tr>
+<tr><td><b>갑옷</b></td><td>Astral Plate (스타터), Crusader Plate(= The Iron Fortress 베이스)</td><td>PoB ③④</td></tr>
+<tr><td><b>장갑</b></td><td>Goliath Gauntlets → Leviathan Gauntlets (Exarch+Eater 임플리싯 제작)</td><td>PoB ③④</td></tr>
+<tr><td><b>반지</b></td><td>Amethyst Ring (카오스 저항 + 힘 + 생명력 제작), Two-Stone Ring</td><td>PoB ③④, 영상 14:50</td></tr>
+<tr><td><b>벨트</b></td><td>Heavy Belt (Meginord's Girdle 베이스 — 미감정 고유 Heavy Belt 전부 확인)</td><td>PoB ③④</td></tr>
+<tr><td><b>목걸이</b></td><td>Amber Amulet (Xoph's Blood 베이스)</td><td>PoB ③④</td></tr>
+<tr><td><b>플라스크</b></td><td>Diamond Flask, Granite Flask, Prismatic Tincture, Quicksilver, Eternal Life Flask</td><td>PoB ③④</td></tr>
+<tr><td><b>Heist</b></td><td>청사진 전부(1 wing 포함), Deception 계약, Rogue's Marker</td><td>영상 11:38~12:06, 17:20</td></tr>
+</table>
+
+<hr class="page">
+<h1>8. 제작</h1>
+<p>영상에서 보여 준 제작만 담는다(제작자 Notes 없음). 정확한 화폐 수량·확률은 영상에 없다.</p>
+<table>
+<tr><th>부위</th><th>절차 (영상)</th><th>실물 결과 (PoB ④)</th><th>근거</th></tr>
+<tr><td><b>8.1 반지</b></td><td>에센스를 파밍해 Harvest 벤치에서 교환 → 제작. "정말 좋은 반지"는 <b>Allflame 제작으로 DEX 를 STR 로 바꾼</b> 것. 마무리로 T1 생명력이 붙었다.</td><td>Amethyst Ring +58 힘 / +53 힘, 생명력 110 / 90, 카오스 22 / 21%, 벤치 Non-Channelling Skills -7 Total Mana Cost</td><td>영상 14:21~15:20</td></tr>
+<tr><td><b>8.2 장갑</b></td><td>에센스가 떨어져 <b>변화의 오브(alteration) 스팸</b>으로 베이스를 띄움 → DEX 가 떴지만 Allflame + 두캇으로 STR 로 변환 → 벤치 제작 + 엑잘트 슬램.</td><td>Leviathan Gauntlets +49 힘, +121 생명력, Adds 5–13 Fire, 화염 42%, 벤치 번개 29%, Eater 화염 노출 + Strike +1</td><td>영상 15:20~15:53</td></tr>
+<tr><td><b>8.3 방패</b></td><td>스타터: "fast gamba"(도박)로 주문 피해 방패. 최종: Walnut Spirit Shield 에 +힘 +지능 + 주문 피해, 벤치 생명력.</td><td>Walnut Spirit Shield 62% 주문 피해, +57 힘, 벤치 +69 생명력</td><td>영상 06:48, PoB ④</td></tr>
+<tr><td><b>8.4 주얼</b></td><td>전환 직전 "some jewels crafting" — 상세 없음</td><td>—</td><td>영상 06:48</td></tr>
+<tr><td><b>8.5 Paradoxica</b></td><td>드롭 후 "right mods" 를 노림 — 카오스 관통이 목표, 다른 좋은 옵션도 있었다.</td><td>Part 1 PoB 미장착</td><td>영상 11:10~11:38</td></tr>
+<tr><td><b>8.6 The Iron Fortress</b></td><td>Breach 트리 약 25,000 graveblood → 6링크 바로 확보</td><td>+92 힘, 82% 방어도</td><td>영상 13:49~14:21</td></tr>
+</table>
+
+<hr class="page">
+<h1>출처</h1>
+<table>
+<tr><th>중요도</th><th>종류</th><th>링크</th><th>확인 내용</th></tr>
+<tr><td>핵심</td><td>영상 (Part 1)</td><td><a href="https://www.youtube.com/watch?v=Oo7j-hC1ELk">How To Make SSF Strength Stacker — From Zero to Hero — Part 1 — 3.29</a></td><td>자동 자막 전문(20:09), 진행·파밍·제작 발언</td></tr>
+<tr><td>핵심</td><td>PoB ① Act 10</td><td><a href="https://pobb.in/f6OAnJ0coqso">https://pobb.in/f6OAnJ0coqso</a></td><td>레벨 67, Sunder 5L, 전직 3개</td></tr>
+<tr><td>핵심</td><td>PoB ② 전환 전</td><td><a href="https://pobb.in/wVNxoO7HlLB1">https://pobb.in/wVNxoO7HlLB1</a></td><td>레벨 93, 힘 318</td></tr>
+<tr><td>핵심</td><td>PoB ③ STR 스타터</td><td><a href="https://pobb.in/Id77R_U3qZx3">https://pobb.in/Id77R_U3qZx3</a></td><td>레벨 95, 힘 1,042, 최소 세트</td></tr>
+<tr><td>핵심</td><td>PoB ④ Smite</td><td><a href="https://pobb.in/OS_Z2QioInuj">https://pobb.in/OS_Z2QioInuj</a></td><td>레벨 98, 힘 1,366, Iron Fortress</td></tr>
+<tr><td>참고</td><td>채널</td><td><a href="https://www.youtube.com/@ExiledCat_PoE">https://www.youtube.com/@ExiledCat_PoE</a></td><td>Part 2 대기</td></tr>
+<tr><td>검증</td><td>poedb</td><td><a href="https://poedb.tw/us/The_Watcher">The Watcher</a> · <a href="https://poedb.tw/us/The_Iron_Fortress">The Iron Fortress</a> · <a href="https://poedb.tw/us/Xophs_Blood">Xoph's Blood</a></td><td>카드 12장·Lair Map / Abyss 고유·옵션 범위 / Burning Blood·Xoph's Heart 승급</td></tr>
+</table>
