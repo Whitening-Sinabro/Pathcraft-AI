@@ -243,4 +243,4 @@
 | python/scripts/guide_terms.py | 가이드 docx 용어 치환 규칙표(192건). 엔진(fix_guide_translation)과 분리 — 규칙 추가가 엔진 파일을 건드리지 않게. 근거 정규식이 없으면 치환 금지가 이 표의 유일한 안전장치 | 아니오 |
 | Docs/2026-08-27_SMOKIEZONE_HYDROSPHERE_BONESHATTER_3_29_SSF_GUIDE_DOC.html | Smokiezone Boneshatter 가이드의 Google Docs 원고(루미너리 가이드식 0~8장). Google Doc 1wS6VWfSAhukqzuT3Nvr6XixlTu5OMgklwCWLu2lxM4w 의 소스 — 수정 시 이 파일 고치고 재주입 | 아니오 |
 | scripts/filter_cascade.py | 아이템 필터 Continue 캐스케이드 시뮬레이터(유효 스타일 합성 + 글자/배경 대비). 생성기 검증 게이트와 테스트가 사용 | 아니오 |
-| Docs/2026-08-28_EXILEDCAT_SSF_STRENGTH_STACKER_JUGGERNAUT_3_29_GUIDE_DOC.html | Exiled Cat SSF Strength Stacker Juggernaut(3.29 Part 1) 가이드 Google Docs 원고. 영상 자동자막 + pobb.in PoB 4개 근거, 행마다 근거 표기 | 아니오 |
+| Docs/2026-08-28_EXILEDCAT_SSF_STRENGTH_STACKER_JUGGERNAUT_3_29_GUIDE_DOC.html | Exiled Cat SSF Strength Stacker Juggernaut(3.29 Part 1) 가이드 Google Docs 원고(0~9장). 영상 자동자막 + pobb.in PoB 4개 근거, 행마다 근거 표기. Google Doc 1kOH5Q5v9iy1ECuUwru9hEJ-JnXxi8mlcTsS7WwHqV2c 의 소스 — 수정 시 이 파일 고치고 재주입 | 아니오 |

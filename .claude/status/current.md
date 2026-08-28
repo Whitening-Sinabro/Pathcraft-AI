@@ -1,3 +1,12 @@
+## 2026-08-28 — Exiled Cat SSF Strength Stacker Juggernaut(3.29 Part 1) 가이드 납품
+
+**지금**: 원고 `Docs/2026-08-28_EXILEDCAT_SSF_STRENGTH_STACKER_JUGGERNAUT_3_29_GUIDE_DOC.html`(0~8장 + 출처 + **9장 보강(비제작자 출처)**) →
+사용자 계정 Google Doc `https://docs.google.com/document/d/1kOH5Q5v9iy1ECuUwru9hEJ-JnXxi8mlcTsS7WwHqV2c/edit` (다크 페이지 + 밝은 글자, 새로고침 검증 완료).
+근거 = 영상 자동자막(20:09) + pobb.in PoB 4개 실파싱. adversarial-verifier 17건 반영. 9장은 리서치 에이전트 결과(Maxroll/poedb/poe-atlas 등, 행마다 URL·신뢰도), poewiki 차단으로 정본 미확인 항목은 "미확인" 표기.
+**다음**: 사용자 검토. Exiled Cat Part 2 공개 시 5.5/6장 갱신. 수정 시 HTML 고치고 재주입([[reference-google-docs-delivery-via-browser]] — 페이지 색은 키보드 선택만 됨).
+
+---
+
 ## 2026-08-28 — 필터 라벨 글자=배경 충돌 수정 (Unique Crude Bow 신고)
 
 **지금**: 원인 = Continue 캐스케이드(Death Oath 고유 티어 갈색 배경 + Smokiezone 글자색 가드). 수정: 가드 4종 제거(젬만 유지),
