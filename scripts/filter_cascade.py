@@ -128,7 +128,10 @@ class ParsedCondition:
             if ordered and ordered.group(2) in RARITY_ORDER:
                 rarity_bound = (ordered.group(1), RARITY_ORDER.index(ordered.group(2)))
         elif keyword in BOOLEAN_CONDITIONS:
-            boolean = rest.lower() == "true"
+            # Only a bare True/False is a boolean test; "HasSearingExarchImplicit >= 1"
+            # style counts are never satisfied by the flagless simulated archetypes.
+            flag = rest.strip().lower()
+            boolean = True if flag == "true" else False if flag == "false" else None
         return cls(keyword, values, exact, operator, number, rarity_bound, boolean)
 
 
@@ -221,16 +224,25 @@ def _condition_matches(condition: ParsedCondition, item: SimulatedItem) -> bool:
 
 
 def simulate(blocks: Iterable[CascadeBlock], item: SimulatedItem) -> CascadeResult:
+    """Walk the cascade the way the client does.
+
+    A ``Continue`` block applies its action and styles and keeps going; when no
+    later block matches, the last applied action stands (a trailing
+    ``Hide`` + ``Continue`` hides the item).  Only an item that matches no block
+    at all falls back to the client's default Show.
+    """
     styles: dict[str, str] = {}
     chain: list[int] = []
+    action = "Show"
     for block in blocks:
         if not all(_condition_matches(condition, item) for condition in block.conditions):
             continue
         chain.append(block.line)
         styles.update(block.styles)
+        action = block.action
         if not block.continues:
-            return CascadeResult(block.action, styles, tuple(chain))
-    return CascadeResult("Show", styles, tuple(chain))
+            break
+    return CascadeResult(action, styles, tuple(chain))
 
 
 def relative_luminance(rgb: Sequence[int]) -> float:

@@ -86,6 +86,76 @@ def configure_labels(spec: dict) -> None:
 
 def output_path(spec: dict) -> Path:
     return FILTER_DIR / spec["output"]["name"]
+
+
+# What each build's guide requires is pinned here, outside the spec that an
+# edit could silently shrink: a spec that drops or re-bases one of these ids
+# fails validation instead of quietly producing a filter without it.
+# Unique targets also pin their resolved bases; other ids only need to exist.
+REQUIRED_TARGET_IDS: dict[str, dict[str, tuple[str, ...] | None]] = {
+    "poe1_smokiezone_hydrosphere_boneshatter_hcssf_3_29": {
+        "build.core.unique.soul_tether_family": ("Cloth Belt",),
+        "build.core.unique.the_burden_of_truth": ("Crystal Belt",),
+        "build.late.helmet.infamy": None,
+        "build.weapon.endgame_vaal_axe": None,
+        "build.armour.optimal_breach_bases": None,
+        "build.jewellery.endgame_crafting": None,
+        "build.gem.complex_trauma": None,
+        "build.resources.core": None,
+    },
+    "poe1_exiledcat_ssf_strength_stacker_juggernaut_3_29": {
+        "build.core.unique.brutus_lead_sprinkler": ("Ritual Sceptre",),
+        "build.core.unique.alberons_warpath_family": ("Soldier Boots",),
+        "build.core.unique.crown_of_eyes": ("Hubris Circlet",),
+        "build.core.unique.meginords_girdle": ("Heavy Belt",),
+        "build.core.unique.xophs_blood": ("Amber Amulet",),
+        "build.core.unique.the_iron_fortress": ("Crusader Plate",),
+        "build.core.unique.paradoxica": ("Vaal Rapier",),
+        "build.shield.spell_damage_spirit_shield": None,
+        "build.gloves.strength_gauntlets": None,
+        "build.jewellery.strength_rings": None,
+        "build.gem.smite_of_divine_judgement": None,
+        "build.resources.core": None,
+    },
+}
+
+TARGET_SECTIONS = (
+    "unique_targets",
+    "identified_targets",
+    "crafting_base_groups",
+    "resource_groups",
+    "gem_targets",
+    "flask_targets",
+)
+
+
+def validate_pinned_targets(spec: dict) -> list[str]:
+    """Return the ways ``spec`` fails the pinned requirements for its build id."""
+    pinned = REQUIRED_TARGET_IDS.get(spec["build_id"])
+    if pinned is None:
+        return [
+            f"Build id has no pinned required targets; register it in REQUIRED_TARGET_IDS: {spec['build_id']}"
+        ]
+    present = {
+        entry["id"]: entry for section in TARGET_SECTIONS for entry in spec.get(section, [])
+    }
+    errors: list[str] = []
+    for target_id, bases in pinned.items():
+        entry = present.get(target_id)
+        if entry is None:
+            errors.append(f"Pinned required target is missing from the spec: {target_id}")
+            continue
+        if bases is not None:
+            if tuple(entry.get("resolved_base_types", ())) != bases:
+                errors.append(
+                    f"Pinned unique target changed its base: {target_id} expected {list(bases)}, "
+                    f"got {entry.get('resolved_base_types')}"
+                )
+            if entry.get("priority") != "required":
+                errors.append(
+                    f"Pinned unique target is no longer required: {target_id} ({entry.get('priority')})"
+                )
+    return errors
 SEPARATOR = "#" + "=" * 111
 
 BLOCK_START_RE = re.compile(r"^(Show|Hide)(?:\s+#.*)?\s*$")
@@ -1004,7 +1074,7 @@ def render_card_ladder(
     lines = [
         NEW_CARD_BEGIN,
         f"# {total_cards} known cards resolve to exactly one terminal Show rule.",
-        "# Build targets are empty because the guide names no divination-card farm.",
+        f"# Build target cards: {len(buckets['build_target'])}; guide keep cards: {len(buckets['build_keep'])}.",
         "# The unconditional magenta catch-all protects future or unclassified cards.",
         SEPARATOR,
         "",
@@ -1333,7 +1403,7 @@ def render_hcssf_safety(
         native_rare_safety_style(),
         [f"Life, resistances and armour upgrades stay visible longer for {MODE_LABEL}."],
     )
-    for weapon_class in progression.get("safety_weapon_classes", ["Two Hand Axes"]):
+    for weapon_class in progression.get("safety_weapon_classes", []):
         lines += render_block(
             f"{MODE_LABEL} - RARE {weapon_class.upper()} THROUGH RED MAPS",
             [
@@ -1731,6 +1801,26 @@ def render_build_layer(
         ],
     )
 
+    # Creator priorities outrank the global economy tiers: an optional creator
+    # base must not be re-styled by a NeverSink T0/T1 list that happens to hold it.
+    if optional_bases:
+        lines += render_block(
+            f"{CREATOR_LABEL} - OPTIONAL UNIQUE BASES",
+            ["Rarity Unique", f"BaseType == {quoted(optional_bases)}"],
+            [
+                "SetFontSize 38",
+                f"SetTextColor {rgba(RARITY_TEXT['Unique'])}",
+                f"SetBorderColor {rgba(palette['P-500'])}",
+                f"SetBackgroundColor {rgba(palette['U-optional-bg'], 245)}",
+                "PlayAlertSound None",
+                "PlayEffect None",
+                f"MinimapIcon 2 {effect_color} Star",
+            ],
+            [
+                *unique_target_comments(spec, "optional"),
+                "Unidentified unique-base matching can also show another unique on the same base.",
+            ],
+        )
     unique_tiers = economy["unique_tiers"]
     currency_tiers = economy["currency_tiers"]
     lines += render_block(
@@ -1785,24 +1875,6 @@ def render_build_layer(
     )
 
     lines += render_link_rules(palette, effect_color, progression)
-    if optional_bases:
-        lines += render_block(
-            f"{CREATOR_LABEL} - OPTIONAL UNIQUE BASES",
-            ["Rarity Unique", f"BaseType == {quoted(optional_bases)}"],
-            [
-                "SetFontSize 38",
-                f"SetTextColor {rgba(RARITY_TEXT['Unique'])}",
-                f"SetBorderColor {rgba(palette['P-500'])}",
-                f"SetBackgroundColor {rgba(palette['U-optional-bg'], 245)}",
-                "PlayAlertSound None",
-                "PlayEffect None",
-                f"MinimapIcon 2 {effect_color} Star",
-            ],
-            [
-                *unique_target_comments(spec, "optional"),
-                "Unidentified unique-base matching can also show another unique on the same base.",
-            ],
-        )
     for target in spec["identified_targets"]:
         lines += render_block(
             identified_target_marker(target),
@@ -2057,7 +2129,7 @@ def validate_target_names(spec: dict) -> None:
     active_skill_names = {
         row.get("DisplayedName") for row in active_skills if row.get("DisplayedName")
     }
-    errors: list[str] = []
+    errors: list[str] = validate_pinned_targets(spec)
     exact_base_names: set[str] = set()
     exact_gem_base_names: set[str] = set()
     contains_names: set[str] = set()

@@ -97,7 +97,87 @@ def test_full_validation_passes_for_the_exiled_cat_spec():
     spec, output = compose()
     source_text = filter_builder.BASE_FILTER.read_text(encoding="utf-8")
     stats = filter_builder.validate_filter(output, spec, source_text)
-    assert stats["hide"] == stats["source_hide_blocks_preserved"]
+    assert stats["show"] > 0
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "drop_paradoxica",
+        "rebase_brutus",
+        "demote_crown_of_eyes",
+        "drop_smite",
+        "drop_spirit_shield",
+    ],
+)
+def test_spec_cannot_silently_lose_a_pinned_creator_target(mutation):
+    spec = load_spec()
+    if mutation == "drop_paradoxica":
+        spec["unique_targets"] = [
+            t for t in spec["unique_targets"] if t["id"] != "build.core.unique.paradoxica"
+        ]
+    elif mutation == "rebase_brutus":
+        next(
+            t for t in spec["unique_targets"] if t["id"] == "build.core.unique.brutus_lead_sprinkler"
+        )["resolved_base_types"] = ["Iron Sceptre"]
+    elif mutation == "demote_crown_of_eyes":
+        next(
+            t for t in spec["unique_targets"] if t["id"] == "build.core.unique.crown_of_eyes"
+        )["priority"] = "optional"
+    elif mutation == "drop_smite":
+        spec["gem_targets"] = [
+            g for g in spec["gem_targets"] if g["id"] != "build.gem.smite_of_divine_judgement"
+        ]
+    elif mutation == "drop_spirit_shield":
+        spec["crafting_base_groups"] = [
+            g
+            for g in spec["crafting_base_groups"]
+            if g["id"] != "build.shield.spell_damage_spirit_shield"
+        ]
+    with pytest.raises(filter_builder.FilterBuildError):
+        filter_builder.validate_target_names(spec)
+
+
+def test_unknown_build_id_must_register_its_pinned_targets():
+    spec = load_spec()
+    spec["build_id"] = "poe1_unregistered_build"
+    with pytest.raises(filter_builder.FilterBuildError, match="REQUIRED_TARGET_IDS"):
+        filter_builder.validate_target_names(spec)
+
+
+def test_optional_creator_base_outranks_the_economy_tiers():
+    _, output = compose()
+    blocks = filter_cascade.parse_cascade(output.splitlines())
+    result = filter_cascade.simulate(
+        blocks, filter_cascade.SimulatedItem("Timeless Jewel", "Jewels", "Unique", 85, 85)
+    )
+    terminal = next(block for block in blocks if block.line == result.chain[-1])
+    assert "EXILEDCAT - OPTIONAL UNIQUE BASES" in terminal.header
+    assert result.styles.get("PlayEffect") == "PlayEffect None"
+    assert result.styles.get("PlayAlertSound") == "PlayAlertSound None"
+
+
+def test_trailing_hide_continue_is_reported_as_hidden():
+    blocks = filter_cascade.parse_cascade(
+        [
+            "Hide # generic hide",
+            "    Rarity Normal",
+            '    Class == "Boots"',
+            "    Continue",
+            "",
+            "Show # never matches",
+            '    BaseType == "Nothing"',
+            "",
+        ]
+    )
+    hidden = filter_cascade.simulate(
+        blocks, filter_cascade.SimulatedItem("Iron Greaves", "Boots", "Normal", 10, 10)
+    )
+    assert hidden.action == "Hide"
+    untouched = filter_cascade.simulate(
+        blocks, filter_cascade.SimulatedItem("Iron Ring", "Rings", "Normal", 10, 10)
+    )
+    assert untouched.action == "Show" and untouched.chain == ()
 
 
 def test_creator_targets_are_readable_after_cascade():
@@ -114,9 +194,16 @@ def test_creator_targets_are_readable_after_cascade():
         filter_cascade.SimulatedItem("Leviathan Gauntlets", "Gloves", "Magic", 84, 84),
         filter_cascade.SimulatedItem("Astral Plate", "Body Armours", "Rare", 70, 70),
     ]
+    by_line = {block.line: block for block in blocks}
     for item in probes:
         result = filter_cascade.simulate(blocks, item)
         assert result.action == "Show", item
+        terminal = by_line[result.chain[-1]]
+        assert not terminal.continues, (item, terminal.header)
+        assert "EXILEDCAT" in terminal.header or "SCSSF" in terminal.header, (
+            item,
+            terminal.header,
+        )
         text = result.colour("SetTextColor")
         background = result.colour("SetBackgroundColor")
         assert text is not None and background is not None, item

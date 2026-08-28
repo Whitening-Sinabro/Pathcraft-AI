@@ -349,3 +349,22 @@ def test_resources_currency_and_target_gems_use_the_approved_shared_tokens():
     assert "SetTextColor 27 217 217 255" in target.directives
     assert "SetBackgroundColor 5 31 34 245" in target.directives
     assert "PlayEffect Purple" in target.directives
+
+
+def test_smokiezone_spec_cannot_silently_drop_the_infamy_helmet_or_vaal_axe():
+    import pytest
+
+    for mutation in ("identified", "vaal_axe", "complex_trauma"):
+        spec = load_spec()
+        if mutation == "identified":
+            spec["identified_targets"] = []
+        elif mutation == "vaal_axe":
+            spec["crafting_base_groups"] = [
+                g for g in spec["crafting_base_groups"] if g["id"] != "build.weapon.endgame_vaal_axe"
+            ]
+        else:
+            spec["gem_targets"] = [
+                g for g in spec["gem_targets"] if g["id"] != "build.gem.complex_trauma"
+            ]
+        with pytest.raises(filter_builder.FilterBuildError):
+            filter_builder.validate_target_names(spec)
