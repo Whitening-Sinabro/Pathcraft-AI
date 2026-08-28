@@ -11,7 +11,7 @@
 
 **지금**: 시트 트래커가 아니라 Path of Chores 루미너리 가이드식 0~8장 문서를 원했던 것. 원고
 `Docs/2026-08-27_SMOKIEZONE_HYDROSPHERE_BONESHATTER_3_29_SSF_GUIDE_DOC.html` → 사용자 계정 Google Doc
-`https://docs.google.com/document/d/100yeA0JCFXRR2hYjRIxrpe7-tOPFFMi9F2sVT9nyvB4/edit` (합성 paste 주입, export 텍스트로 수정본 확인).
+`https://docs.google.com/document/d/1wS6VWfSAhukqzuT3Nvr6XixlTu5OMgklwCWLu2lxM4w/edit` (2026-08-28 표 중심으로 재구성한 최신본; 이전 100yeA0… 문서는 휴지통).
 PoB 4개(934b0/936d2/9386f/93dc2) 실파싱 근거. adversarial-verifier 13건 지적 전부 반영(탭3 Molten Shell[off]·Momentum 없음,
 플라스크 Turf Moss=감전 회피, VMS[off], 근거 없는 설명문 삭제, 전직 순서 추정 제거, 필터 Essence 명시 대상만).
 
