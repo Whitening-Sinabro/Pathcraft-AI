@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build and validate the Smokiezone Hydrosphere Boneshatter HCSSF filter.
+"""Build and validate a creator-sourced Pathcraft progressive filter.
+
+Every build-specific fact (labels, targets, source hashes, thresholds) comes from
+a build-target spec under data/filter_build_targets/.  The default spec is the
+Smokiezone Hydrosphere Boneshatter HCSSF build; pass --spec for another build.
 
 The validated Luminary progressive filter is treated as an immutable composition
 source.  This generator replaces only Pathcraft-owned theme/build layers, keeps
@@ -27,7 +31,7 @@ import filter_cascade
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 BASE_FILTER = REPO_ROOT / "filters" / "Luminary_Bot_SSF_3.29_Progressive.filter"
-SPEC_PATH = (
+DEFAULT_SPEC_PATH = (
     REPO_ROOT
     / "data"
     / "filter_build_targets"
@@ -36,27 +40,12 @@ SPEC_PATH = (
 ECONOMY_PATH = (
     REPO_ROOT / "data" / "filter_sources" / "neversink_poe1_8_20_1d_903189_economy.json"
 )
-OUTPUT_FILTER = (
-    REPO_ROOT
-    / "filters"
-    / "Smokiezone_Hydrosphere_Boneshatter_HCSSF_3.29_Progressive.filter"
-)
+FILTER_DIR = REPO_ROOT / "filters"
 GAME_FILTER_DIR = Path(r"C:\Users\User\Documents\My Games\Path of Exile")
 
 EXPECTED_BASE_SHA256 = (
     "C8332945290D367DF633884B2C66A8DCF894D6C369BC451DFB7872321839F188"
 )
-SOURCE_HASHES = {
-    Path(
-        r"C:\Users\User\Desktop\SSF.txt"
-    ): "94CC3493AD7374B8AD8C54A88D3C43527E4DA557CA1D5723719064E3A98971E9",
-    Path(
-        r"C:\Users\User\Desktop\death oath.txt"
-    ): "E637B4BB917E670CA332B350CA094DDB0AF467364B75B0922240507C81A1F8CF",
-    Path(
-        r"C:\Users\User\Desktop\allie.txt"
-    ): "BEE3CC4352B3403DA752796FD764E45EEB25E9F1F76C491091CA6A59FD90B497",
-}
 
 NEVERSINK_COMMIT = "903189340cdafa1f4ed73c9968380826312a51f0"
 NEVERSINK_VERSION = "8.20.1d"
@@ -72,8 +61,31 @@ OLD_BUILD_MARKER = (
 OLD_BUILD_END = "# END PATH OF CHORES LUMINARY BUILD-SPECIFIC TARGETS"
 OLD_CARD_BEGIN = "# LUMINARY DIVINATION CARD LADDER - BEGIN"
 OLD_CARD_END = "# LUMINARY DIVINATION CARD LADDER - END"
+# Build labels are module state so every renderer and validator shares one
+# vocabulary; configure_labels() rebinds them from the spec before composing.
+CREATOR_LABEL = "SMOKIEZONE"
+MODE_LABEL = "HCSSF"
 NEW_CARD_BEGIN = "# SMOKIEZONE HCSSF DIVINATION CARD LADDER - BEGIN"
 NEW_CARD_END = "# SMOKIEZONE HCSSF DIVINATION CARD LADDER - END"
+GENERATED_HEADER_MARKERS = ("SMOKIEZONE", "HCSSF", "PATHCRAFT HCSSF")
+ORDINARY_UNIQUE_DEFAULT = f"{CREATOR_LABEL} - ORDINARY UNIQUE DEFAULT"
+
+
+def configure_labels(spec: dict) -> None:
+    """Bind the shared block-label vocabulary to the build described by ``spec``."""
+    global CREATOR_LABEL, MODE_LABEL, NEW_CARD_BEGIN, NEW_CARD_END
+    global GENERATED_HEADER_MARKERS, ORDINARY_UNIQUE_DEFAULT
+    labels = spec.get("labels", {})
+    CREATOR_LABEL = labels.get("creator", "SMOKIEZONE")
+    MODE_LABEL = labels.get("mode", "HCSSF")
+    NEW_CARD_BEGIN = f"# {CREATOR_LABEL} {MODE_LABEL} DIVINATION CARD LADDER - BEGIN"
+    NEW_CARD_END = f"# {CREATOR_LABEL} {MODE_LABEL} DIVINATION CARD LADDER - END"
+    GENERATED_HEADER_MARKERS = (CREATOR_LABEL, MODE_LABEL, f"PATHCRAFT {MODE_LABEL}")
+    ORDINARY_UNIQUE_DEFAULT = f"{CREATOR_LABEL} - ORDINARY UNIQUE DEFAULT"
+
+
+def output_path(spec: dict) -> Path:
+    return FILTER_DIR / spec["output"]["name"]
 SEPARATOR = "#" + "=" * 111
 
 BLOCK_START_RE = re.compile(r"^(Show|Hide)(?:\s+#.*)?\s*$")
@@ -356,7 +368,7 @@ def refresh_economy_snapshot() -> dict:
     return payload
 
 
-def validate_source_hashes() -> None:
+def validate_source_hashes(spec: dict) -> None:
     if not BASE_FILTER.exists():
         raise FilterBuildError(f"Composition source missing: {BASE_FILTER}")
     actual_base = sha256_file(BASE_FILTER)
@@ -364,7 +376,8 @@ def validate_source_hashes() -> None:
         raise FilterBuildError(
             f"Composition source changed: expected {EXPECTED_BASE_SHA256}, got {actual_base}"
         )
-    for path, expected in SOURCE_HASHES.items():
+    for entry in spec["source"].get("local_source_hashes", []):
+        path, expected = Path(entry["path"]), entry["sha256"]
         if not path.exists():
             raise FilterBuildError(f"Original filter source missing: {path}")
         actual = sha256_file(path)
@@ -515,7 +528,7 @@ def build_relevance_style(
 
 
 def native_rare_safety_style() -> list[str]:
-    """Quiet terminal style for broad HCSSF rare-equipment safety rules."""
+    """Quiet terminal style for broad SSF rare-equipment safety rules."""
     return [
         "SetFontSize 36",
         f"SetTextColor {rgba(RARITY_TEXT['Rare'])}",
@@ -574,12 +587,12 @@ def render_audit_baseline(palette: dict[str, tuple[int, int, int]]) -> list[str]
     classes = f"Class == {quoted(EQUIPMENT_CLASSES)}"
     lines = [
         SEPARATOR,
-        "# PATHCRAFT FULL AUDIT BASELINE - VIOLET HCSSF EQUIPMENT COVERAGE",
+        f"# PATHCRAFT FULL AUDIT BASELINE - VIOLET {MODE_LABEL} EQUIPMENT COVERAGE",
         "# These Continue rules only provide a rarity baseline; later specific rules may override them.",
         SEPARATOR,
     ]
     lines += render_block(
-        "PATHCRAFT HCSSF - NORMAL EQUIPMENT FALLBACK",
+        f"PATHCRAFT {MODE_LABEL} - NORMAL EQUIPMENT FALLBACK",
         [classes, "Rarity Normal"],
         [
             "SetFontSize 34",
@@ -590,7 +603,7 @@ def render_audit_baseline(palette: dict[str, tuple[int, int, int]]) -> list[str]
         ],
     )
     lines += render_block(
-        "PATHCRAFT HCSSF - MAGIC EQUIPMENT FALLBACK",
+        f"PATHCRAFT {MODE_LABEL} - MAGIC EQUIPMENT FALLBACK",
         [classes, "Rarity Magic"],
         [
             "SetFontSize 35",
@@ -601,7 +614,7 @@ def render_audit_baseline(palette: dict[str, tuple[int, int, int]]) -> list[str]
         ],
     )
     lines += render_block(
-        "PATHCRAFT HCSSF - RARE EQUIPMENT FALLBACK",
+        f"PATHCRAFT {MODE_LABEL} - RARE EQUIPMENT FALLBACK",
         [classes, "Rarity Rare"],
         [
             "SetFontSize 36",
@@ -639,13 +652,13 @@ def render_rarity_guard() -> list[str]:
     """
     lines = [
         SEPARATOR,
-        "# SMOKIEZONE VIOLET VELVET - NATIVE TEXT COLOUR GUARD",
+        f"# {CREATOR_LABEL} VIOLET VELVET - NATIVE TEXT COLOUR GUARD",
         "# Gem text stays cyan; rarity text comes from the pre-decorator defaults.",
         SEPARATOR,
         "",
     ]
     lines += render_block(
-        "SMOKIEZONE - NATIVE GEM TEXT GUARD",
+        f"{CREATOR_LABEL} - NATIVE GEM TEXT GUARD",
         ['Class == "Skill Gems" "Support Gems"'],
         [
             f"SetTextColor {rgba(GEM_TEXT)}",
@@ -734,14 +747,14 @@ def render_essence_visual_ladder(
         ],
     }
     titles = {
-        "high": "SMOKIEZONE - ESSENCES HIGH VIOLET",
-        "important": "SMOKIEZONE - ESSENCES IMPORTANT VIOLET",
-        "routine": "SMOKIEZONE - ESSENCES ROUTINE VIOLET",
-        "quiet": "SMOKIEZONE - ESSENCES QUIET VIOLET",
+        "high": f"{CREATOR_LABEL} - ESSENCES HIGH VIOLET",
+        "important": f"{CREATOR_LABEL} - ESSENCES IMPORTANT VIOLET",
+        "routine": f"{CREATOR_LABEL} - ESSENCES ROUTINE VIOLET",
+        "quiet": f"{CREATOR_LABEL} - ESSENCES QUIET VIOLET",
     }
     lines = [
         SEPARATOR,
-        "# SMOKIEZONE VIOLET VELVET - ESSENCE VALUE LADDER",
+        f"# {CREATOR_LABEL} VIOLET VELVET - ESSENCE VALUE LADDER",
         "# Colour-only Continue rules replace legacy red/white essence colours.",
         "# Visibility, font size, sounds, beams and icons remain owned by their layers.",
         SEPARATOR,
@@ -974,19 +987,19 @@ def render_card_ladder(
         ),
     }
     titles = {
-        "build_target": "SMOKIEZONE - BUILD TARGET DIVINATION CARDS",
-        "build_keep": "SMOKIEZONE - GUIDE KEEP DIVINATION CARDS",
-        "league_new": "SMOKIEZONE - LEAGUE NEW DIVINATION CARDS",
-        "t0": "SMOKIEZONE - DIVINATION CARDS T0",
-        "t1": "SMOKIEZONE - DIVINATION CARDS T1",
-        "ssf_wanted": "SMOKIEZONE - DIVINATION CARDS HCSSF WANTED",
-        "t2": "SMOKIEZONE - DIVINATION CARDS T2",
-        "ssf_notable": "SMOKIEZONE - DIVINATION CARDS HCSSF NOTABLE",
-        "t3": "SMOKIEZONE - DIVINATION CARDS T3",
-        "stack": "SMOKIEZONE - DIVINATION CARDS STACK 3+",
-        "t4": "SMOKIEZONE - DIVINATION CARDS T4",
-        "bulk": "SMOKIEZONE - DIVINATION CARDS BULK",
-        "low": "SMOKIEZONE - DIVINATION CARDS LOW",
+        "build_target": f"{CREATOR_LABEL} - BUILD TARGET DIVINATION CARDS",
+        "build_keep": f"{CREATOR_LABEL} - GUIDE KEEP DIVINATION CARDS",
+        "league_new": f"{CREATOR_LABEL} - LEAGUE NEW DIVINATION CARDS",
+        "t0": f"{CREATOR_LABEL} - DIVINATION CARDS T0",
+        "t1": f"{CREATOR_LABEL} - DIVINATION CARDS T1",
+        "ssf_wanted": f"{CREATOR_LABEL} - DIVINATION CARDS {MODE_LABEL} WANTED",
+        "t2": f"{CREATOR_LABEL} - DIVINATION CARDS T2",
+        "ssf_notable": f"{CREATOR_LABEL} - DIVINATION CARDS {MODE_LABEL} NOTABLE",
+        "t3": f"{CREATOR_LABEL} - DIVINATION CARDS T3",
+        "stack": f"{CREATOR_LABEL} - DIVINATION CARDS STACK 3+",
+        "t4": f"{CREATOR_LABEL} - DIVINATION CARDS T4",
+        "bulk": f"{CREATOR_LABEL} - DIVINATION CARDS BULK",
+        "low": f"{CREATOR_LABEL} - DIVINATION CARDS LOW",
     }
     lines = [
         NEW_CARD_BEGIN,
@@ -1034,7 +1047,7 @@ def render_card_ladder(
                 styles[key],
             )
     lines += render_block(
-        "SMOKIEZONE - DIVINATION CARDS UNTIERED CATCH-ALL",
+        f"{CREATOR_LABEL} - DIVINATION CARDS UNTIERED CATCH-ALL",
         ['Class == "Divination Cards"'],
         [
             "SetFontSize 45",
@@ -1060,7 +1073,7 @@ def render_link_rules(
     }
     for rarity, text in rarity_text.items():
         lines += render_block(
-            f"SMOKIEZONE - FIVE LINK {rarity.upper()}",
+            f"{CREATOR_LABEL} - FIVE LINK {rarity.upper()}",
             [f"Rarity {rarity}", "LinkedSockets = 5"],
             [
                 "SetFontSize 45",
@@ -1074,7 +1087,7 @@ def render_link_rules(
         )
     for rarity, text in rarity_text.items():
         lines += render_block(
-            f"SMOKIEZONE - FOUR LINK {rarity.upper()} CAMPAIGN",
+            f"{CREATOR_LABEL} - FOUR LINK {rarity.upper()} CAMPAIGN",
             [f"AreaLevel <= {campaign_max}", f"Rarity {rarity}", "LinkedSockets >= 4"],
             [
                 "SetFontSize 40",
@@ -1088,7 +1101,7 @@ def render_link_rules(
         )
     for rarity, text in rarity_text.items():
         lines += render_block(
-            f"SMOKIEZONE - THREE LINK {rarity.upper()} EARLY CAMPAIGN",
+            f"{CREATOR_LABEL} - THREE LINK {rarity.upper()} EARLY CAMPAIGN",
             ["AreaLevel <= 25", f"Rarity {rarity}", "LinkedSockets >= 3"],
             [
                 "SetFontSize 36",
@@ -1127,7 +1140,7 @@ def render_crafting_bases(
                 "Approved crafting base: terminal Show at every AreaLevel whenever all listed conditions match."
             )
         lines += render_block(
-            f"SMOKIEZONE - {group['id'].upper()}",
+            f"{CREATOR_LABEL} - {group['id'].upper()}",
             conditions,
             build_relevance_style(
                 palette,
@@ -1179,7 +1192,7 @@ def render_resource_groups(
                 builtin_sound="2 170",
             )
         lines += render_block(
-            f"SMOKIEZONE - {group['id'].upper()}",
+            f"{CREATOR_LABEL} - {group['id'].upper()}",
             conditions,
             style,
             [f"Source: {group['source_section']}"],
@@ -1206,7 +1219,7 @@ def render_gem_rules(
         else:
             conditions.append(f"BaseType == {quoted(gem['base_types'])}")
         lines += render_block(
-            f"SMOKIEZONE - TARGET GEM {gem['id'].upper()}",
+            f"{CREATOR_LABEL} - TARGET GEM {gem['id'].upper()}",
             conditions,
             styles,
             [f"Source: {gem['source_section']}"],
@@ -1217,12 +1230,12 @@ def render_gem_rules(
         sound="Shiny.mp3",
     )
     lines += render_block(
-        "SMOKIEZONE - PREMIUM TRANSFIGURED GEMS",
+        f"{CREATOR_LABEL} - PREMIUM TRANSFIGURED GEMS",
         ['Class "Gem"', "TransfiguredGem True"],
         premium_style,
     )
     lines += render_block(
-        "SMOKIEZONE - PREMIUM NAMED GEMS",
+        f"{CREATOR_LABEL} - PREMIUM NAMED GEMS",
         [
             'Class "Gem"',
             'BaseType "Awakened" "Vaal" "Empower Support" "Enhance Support" "Enlighten Support" "Portal" "Item Quantity Support"',
@@ -1230,7 +1243,7 @@ def render_gem_rules(
         premium_style,
     )
     lines += render_block(
-        "SMOKIEZONE - QUALITY GEMS",
+        f"{CREATOR_LABEL} - QUALITY GEMS",
         ['Class "Gem"', "Quality >= 10"],
         native_gem_style(
             "routine",
@@ -1239,7 +1252,7 @@ def render_gem_rules(
         ),
     )
     lines += render_block(
-        "SMOKIEZONE - CAMPAIGN GEMS",
+        f"{CREATOR_LABEL} - CAMPAIGN GEMS",
         ['Class "Gem"', "AreaLevel < 45"],
         native_gem_style("quiet", effect_color=effect_color),
     )
@@ -1255,7 +1268,7 @@ def render_flask_rules(
     early_maps = spec["progression"]["early_maps_max_area_level"]
     endgame = spec["progression"]["endgame_min_area_level"]
     lines = render_block(
-        "HCSSF - QUALITY CORE FLASK BASES",
+        f"{MODE_LABEL} - QUALITY CORE FLASK BASES",
         ["Rarity Normal Magic", "Quality >= 10", f"BaseType == {quoted(bases)}"],
         build_relevance_style(
             palette,
@@ -1265,7 +1278,7 @@ def render_flask_rules(
         ),
     )
     lines += render_block(
-        "HCSSF - CORE FLASK BASES THROUGH RED MAPS",
+        f"{MODE_LABEL} - CORE FLASK BASES THROUGH RED MAPS",
         [
             f"AreaLevel <= {early_maps}",
             "Rarity Normal Magic",
@@ -1282,7 +1295,7 @@ def render_flask_rules(
         ],
     )
     lines += render_block(
-        "HCSSF - CORE FLASK BASES IN ENDGAME",
+        f"{MODE_LABEL} - CORE FLASK BASES IN ENDGAME",
         [
             f"AreaLevel >= {endgame}",
             "Rarity Normal Magic",
@@ -1297,7 +1310,7 @@ def render_flask_rules(
             "MinimapIcon -1",
         ],
         [
-            "HCSSF never assumes the flask setup is finished; endgame drops are shown quietly."
+            f"{MODE_LABEL} never assumes the flask setup is finished; endgame drops are shown quietly."
         ],
     )
     return lines
@@ -1311,27 +1324,28 @@ def render_hcssf_safety(
         'Class == "Amulets" "Belts" "Body Armours" "Boots" "Gloves" "Helmets" "Rings"'
     )
     lines = render_block(
-        "HCSSF - RARE ARMOUR AND JEWELLERY THROUGH RED MAPS",
+        f"{MODE_LABEL} - RARE ARMOUR AND JEWELLERY THROUGH RED MAPS",
         [
             f"AreaLevel <= {early_maps}",
             "Rarity Rare",
             relevant_armour_jewellery,
         ],
         native_rare_safety_style(),
-        ["Life, resistances and armour upgrades stay visible longer for HCSSF."],
+        [f"Life, resistances and armour upgrades stay visible longer for {MODE_LABEL}."],
     )
-    lines += render_block(
-        "HCSSF - RARE TWO HAND AXES THROUGH RED MAPS",
-        [
-            f"AreaLevel <= {early_maps}",
-            "Rarity Rare",
-            'Class == "Two Hand Axes"',
-        ],
-        native_rare_safety_style(),
-        [
-            "Unidentified rare axes remain inspectable until the endgame craft is established."
-        ],
-    )
+    for weapon_class in progression.get("safety_weapon_classes", ["Two Hand Axes"]):
+        lines += render_block(
+            f"{MODE_LABEL} - RARE {weapon_class.upper()} THROUGH RED MAPS",
+            [
+                f"AreaLevel <= {early_maps}",
+                "Rarity Rare",
+                f"Class == {quoted([weapon_class])}",
+            ],
+            native_rare_safety_style(),
+            [
+                "Unidentified rare weapons of the build class remain inspectable until the endgame craft is established."
+            ],
+        )
     return lines
 
 
@@ -1384,7 +1398,7 @@ def render_utility_currency(
         "Orb of Chance",
     ]
     lines = render_block(
-        "HCSSF - WISDOM SCROLLS CAMPAIGN",
+        f"{MODE_LABEL} - WISDOM SCROLLS CAMPAIGN",
         ['BaseType == "Scroll of Wisdom"', f"AreaLevel <= {campaign_max}"],
         [
             "SetFontSize 42",
@@ -1397,7 +1411,7 @@ def render_utility_currency(
         ],
     )
     lines += render_block(
-        "HCSSF - WISDOM SCROLLS MAP STACK",
+        f"{MODE_LABEL} - WISDOM SCROLLS MAP STACK",
         ['BaseType == "Scroll of Wisdom"', "AreaLevel >= 68", "StackSize >= 5"],
         velvet_value_style(
             palette,
@@ -1409,14 +1423,14 @@ def render_utility_currency(
         ),
     )
     lines += render_block(
-        "HCSSF - WISDOM SCROLLS MAP SINGLE",
+        f"{MODE_LABEL} - WISDOM SCROLLS MAP SINGLE",
         ['BaseType == "Scroll of Wisdom"', "AreaLevel >= 68"],
         velvet_value_style(
             palette, "QUIET", shape="Cross", effect_color=effect_color, show_icon=False
         ),
     )
     lines += render_block(
-        "HCSSF - PORTAL SCROLLS CAMPAIGN",
+        f"{MODE_LABEL} - PORTAL SCROLLS CAMPAIGN",
         ['BaseType == "Portal Scroll"', f"AreaLevel <= {campaign_max}"],
         [
             "SetFontSize 42",
@@ -1429,7 +1443,7 @@ def render_utility_currency(
         ],
     )
     lines += render_block(
-        "HCSSF - PORTAL SCROLLS MAP STACK",
+        f"{MODE_LABEL} - PORTAL SCROLLS MAP STACK",
         ['BaseType == "Portal Scroll"', "AreaLevel >= 68", "StackSize >= 5"],
         [
             "SetFontSize 40",
@@ -1442,7 +1456,7 @@ def render_utility_currency(
         ],
     )
     lines += render_block(
-        "HCSSF - PORTAL SCROLLS MAP SINGLE",
+        f"{MODE_LABEL} - PORTAL SCROLLS MAP SINGLE",
         ['BaseType == "Portal Scroll"', "AreaLevel >= 68"],
         [
             "SetFontSize 34",
@@ -1455,7 +1469,7 @@ def render_utility_currency(
         ],
     )
     lines += render_block(
-        "HCSSF - BASIC CRAFTING CURRENCY CAMPAIGN",
+        f"{MODE_LABEL} - BASIC CRAFTING CURRENCY CAMPAIGN",
         [f"BaseType == {quoted(basic)}", f"AreaLevel <= {campaign_max}"],
         velvet_value_style(
             palette,
@@ -1467,7 +1481,7 @@ def render_utility_currency(
         ),
     )
     lines += render_block(
-        "HCSSF - BASIC CRAFTING CURRENCY MAP STACK",
+        f"{MODE_LABEL} - BASIC CRAFTING CURRENCY MAP STACK",
         [f"BaseType == {quoted(basic)}", "AreaLevel >= 68", "StackSize >= 5"],
         velvet_value_style(
             palette,
@@ -1479,7 +1493,7 @@ def render_utility_currency(
         ),
     )
     lines += render_block(
-        "HCSSF - USEFUL CRAFTING CURRENCY MAP SINGLE",
+        f"{MODE_LABEL} - USEFUL CRAFTING CURRENCY MAP SINGLE",
         [f"BaseType == {quoted(useful)}", "AreaLevel >= 68"],
         velvet_value_style(
             palette,
@@ -1490,16 +1504,13 @@ def render_utility_currency(
         ),
     )
     lines += render_block(
-        "HCSSF - LOW CRAFTING CURRENCY MAP SINGLE",
+        f"{MODE_LABEL} - LOW CRAFTING CURRENCY MAP SINGLE",
         [f"BaseType == {quoted(low)}", "AreaLevel >= 68"],
         velvet_value_style(
             palette, "QUIET", shape="Cross", effect_color=effect_color, show_icon=False
         ),
     )
     return lines
-
-
-GENERATED_HEADER_MARKERS = ("SMOKIEZONE", "HCSSF", "PATHCRAFT HCSSF")
 
 
 def own_label_text_colours(lines: list[str]) -> list[str]:
@@ -1567,6 +1578,55 @@ def own_label_text_colours(lines: list[str]) -> list[str]:
     return result
 
 
+def unique_target_comments(spec: dict, priority: str) -> list[str]:
+    return [
+        f"{' / '.join(target['display_names'])} -> {', '.join(target['resolved_base_types'])}"
+        f" ({target['source_section']})"
+        for target in spec["unique_targets"]
+        if target["priority"] == priority
+    ]
+
+
+def identified_target_marker(target: dict) -> str:
+    return f"{MODE_LABEL} - IDENTIFIED {target['id'].upper()}"
+
+
+def required_gem_markers(spec: dict) -> list[str]:
+    return [
+        f"{CREATOR_LABEL} - TARGET GEM {gem['id'].upper()}"
+        for gem in spec["gem_targets"]
+        if gem["priority"] == "required"
+    ]
+
+
+def required_markers(spec: dict) -> list[str]:
+    """Block headers whose absence means the build layer silently lost a target."""
+    markers = [
+        f"{CREATOR_LABEL} - SIX LINK SAFETY",
+        f"{CREATOR_LABEL} - CORE REQUIRED UNIQUE BASES",
+    ]
+    markers += [
+        f"{CREATOR_LABEL} - {group['id'].upper()}"
+        for group in spec["crafting_base_groups"]
+        if group["priority"] in ("required", "important")
+    ]
+    markers += [identified_target_marker(target) for target in spec["identified_targets"]]
+    markers += required_gem_markers(spec)
+    markers += [
+        f"{CREATOR_LABEL} - {group['id'].upper()}"
+        for group in spec["resource_groups"]
+        if group["id"] == "build.resources.core"
+    ]
+    markers += [
+        f"{CREATOR_LABEL} - ESSENCES HIGH VIOLET",
+        f"{CREATOR_LABEL} - ESSENCES IMPORTANT VIOLET",
+        f"{CREATOR_LABEL} - ESSENCES ROUTINE VIOLET",
+        f"{CREATOR_LABEL} - ESSENCES QUIET VIOLET",
+        f"{CREATOR_LABEL} - DIVINATION CARDS UNTIERED CATCH-ALL",
+    ]
+    return markers
+
+
 def render_build_layer(
     spec: dict, economy: dict, base_lines: Sequence[str]
 ) -> list[str]:
@@ -1592,9 +1652,9 @@ def render_build_layer(
 
     lines = [
         SEPARATOR,
-        "# PATHCRAFT: SMOKIEZONE HYDROSPHERE BONESHATTER 3.29 HCSSF TARGETS",
-        "# Output: one automatic progressive filter; theme: violet #7C3AED.",
-        "# Visibility authority remains the preserved Wrecker SSF source; this layer adds HCSSF safety Shows.",
+        f"# PATHCRAFT: {spec['labels']['layer_title']}",
+        f"# Output: one automatic progressive filter; theme: {spec['theme']['name']} {spec['theme']['main_color']}.",
+        f"# Visibility authority remains the preserved Wrecker SSF source; this layer adds {MODE_LABEL} safety Shows.",
         "# Exact targets come from the canonical JSON spec, not from every item equipped in a PoB snapshot.",
         "# Endgame crafting tiers use ItemLevel; AreaLevel only controls broad campaign/map progression.",
         SEPARATOR,
@@ -1603,7 +1663,7 @@ def render_build_layer(
     lines += render_rarity_guard()
     lines += render_essence_visual_ladder(palette)
     lines += render_block(
-        "SMOKIEZONE - SIX LINK SAFETY",
+        f"{CREATOR_LABEL} - SIX LINK SAFETY",
         ["LinkedSockets >= 6"],
         [
             "SetFontSize 45",
@@ -1616,7 +1676,7 @@ def render_build_layer(
         ],
     )
     lines += render_block(
-        "SMOKIEZONE - DEAD MAN'S SULPHUR",
+        f"{CREATOR_LABEL} - DEAD MAN'S SULPHUR",
         ['BaseType == "Dead Man\'s Sulphur"'],
         [
             "SetFontSize 45",
@@ -1629,7 +1689,7 @@ def render_build_layer(
         ],
     )
     lines += render_block(
-        "SMOKIEZONE - QUEST ITEMS DARK GREEN",
+        f"{CREATOR_LABEL} - QUEST ITEMS DARK GREEN",
         ['Class "Quest" "Atlas Upgrade Item"'],
         [
             "SetFontSize 45",
@@ -1642,7 +1702,7 @@ def render_build_layer(
         ],
     )
     lines += render_block(
-        "SMOKIEZONE - ALLFLAME CHARTS",
+        f"{CREATOR_LABEL} - ALLFLAME CHARTS",
         ['Class == "Chart"'],
         [
             "SetFontSize 45",
@@ -1654,7 +1714,7 @@ def render_build_layer(
         ],
     )
     lines += render_block(
-        "SMOKIEZONE - CORE REQUIRED UNIQUE BASES",
+        f"{CREATOR_LABEL} - CORE REQUIRED UNIQUE BASES",
         ["Rarity Unique", f"BaseType == {quoted(required_bases)}"],
         [
             "SetFontSize 45",
@@ -1666,7 +1726,7 @@ def render_build_layer(
             f"MinimapIcon 0 {effect_color} Star",
         ],
         [
-            "Soul Tether/Replica Soul Tether share Cloth Belt; The Burden of Truth uses Crystal Belt.",
+            *unique_target_comments(spec, "required"),
             "Unidentified unique-base matching can also show other uniques on the same bases.",
         ],
     )
@@ -1674,7 +1734,7 @@ def render_build_layer(
     unique_tiers = economy["unique_tiers"]
     currency_tiers = economy["currency_tiers"]
     lines += render_block(
-        "SMOKIEZONE - GLOBAL T0 UNIQUE BASES",
+        f"{CREATOR_LABEL} - GLOBAL T0 UNIQUE BASES",
         ["Rarity Unique", f"BaseType == {quoted(unique_tiers['t1'])}"],
         velvet_value_style(
             palette,
@@ -1685,7 +1745,7 @@ def render_build_layer(
         ),
     )
     lines += render_block(
-        "SMOKIEZONE - GLOBAL T0 CURRENCY",
+        f"{CREATOR_LABEL} - GLOBAL T0 CURRENCY",
         [
             'Class == "Stackable Currency"',
             f"BaseType == {quoted(currency_tiers['t1exalted'])}",
@@ -1699,7 +1759,7 @@ def render_build_layer(
         ),
     )
     lines += render_block(
-        "SMOKIEZONE - GLOBAL HIGH VALUE UNIQUE BASES",
+        f"{CREATOR_LABEL} - GLOBAL HIGH VALUE UNIQUE BASES",
         ["Rarity Unique", f"BaseType == {quoted(unique_tiers['t2'])}"],
         velvet_value_style(
             palette,
@@ -1710,7 +1770,7 @@ def render_build_layer(
         ),
     )
     lines += render_block(
-        "SMOKIEZONE - GLOBAL HIGH VALUE CURRENCY",
+        f"{CREATOR_LABEL} - GLOBAL HIGH VALUE CURRENCY",
         [
             'Class == "Stackable Currency"',
             f"BaseType == {quoted(currency_tiers['t2divine'])}",
@@ -1725,26 +1785,27 @@ def render_build_layer(
     )
 
     lines += render_link_rules(palette, effect_color, progression)
-    lines += render_block(
-        "SMOKIEZONE - OPTIONAL UNIQUE BASES",
-        ["Rarity Unique", f"BaseType == {quoted(optional_bases)}"],
-        [
-            "SetFontSize 38",
-            f"SetTextColor {rgba(RARITY_TEXT['Unique'])}",
-            f"SetBorderColor {rgba(palette['P-500'])}",
-            f"SetBackgroundColor {rgba(palette['U-optional-bg'], 245)}",
-            "PlayAlertSound None",
-            "PlayEffect None",
-            f"MinimapIcon 2 {effect_color} Star",
-        ],
-        [
-            "Stormblood is a late crit variant, not a league-start requirement.",
-            "Unidentified Sapphire Flask matching can also show another unique on that base.",
-        ],
-    )
+    if optional_bases:
+        lines += render_block(
+            f"{CREATOR_LABEL} - OPTIONAL UNIQUE BASES",
+            ["Rarity Unique", f"BaseType == {quoted(optional_bases)}"],
+            [
+                "SetFontSize 38",
+                f"SetTextColor {rgba(RARITY_TEXT['Unique'])}",
+                f"SetBorderColor {rgba(palette['P-500'])}",
+                f"SetBackgroundColor {rgba(palette['U-optional-bg'], 245)}",
+                "PlayAlertSound None",
+                "PlayEffect None",
+                f"MinimapIcon 2 {effect_color} Star",
+            ],
+            [
+                *unique_target_comments(spec, "optional"),
+                "Unidentified unique-base matching can also show another unique on the same base.",
+            ],
+        )
     for target in spec["identified_targets"]:
         lines += render_block(
-            "HCSSF - IDENTIFIED INFAMY HELMETS",
+            identified_target_marker(target),
             [
                 "Identified True",
                 f"Class == {quoted(target['classes'])}",
@@ -1757,10 +1818,7 @@ def render_build_layer(
                 effect_color=effect_color,
                 sound="Shiny.mp3",
             ),
-            [
-                "The filter can only see the shared suffix 'of Infamy'.",
-                "Inspect each alerted helmet for the exact per-exerting-Warcry critical strike modifier.",
-            ],
+            [target["ambiguity_warning"]],
         )
     lines += render_crafting_bases(spec, palette, effect_color)
     lines += render_hcssf_safety(palette, effect_color, progression)
@@ -1775,7 +1833,7 @@ def render_build_layer(
     lines.extend(
         [
             SEPARATOR,
-            "# END SMOKIEZONE HYDROSPHERE BONESHATTER HCSSF TARGETS",
+            f"# END {spec['labels']['layer_title']}",
             SEPARATOR,
             "",
         ]
@@ -1796,7 +1854,6 @@ SENTINEL_STYLE = (
     "Continue",
 )
 STYLE_PREFIXES = filter_cascade.STYLE_PREFIXES
-ORDINARY_UNIQUE_DEFAULT = "SMOKIEZONE - ORDINARY UNIQUE DEFAULT"
 # WCAG contrast of a label whose text and background are the same colour is
 # 1.0; anything under this threshold is unreadable on the loot label.
 MINIMUM_LABEL_CONTRAST = 1.6
@@ -1944,6 +2001,7 @@ def replace_theme_layers(
 
 
 def compose_filter(spec: dict, economy: dict) -> tuple[str, dict]:
+    configure_labels(spec)
     base_text = BASE_FILTER.read_text(encoding="utf-8")
     base_lines = base_text.splitlines()
     if base_lines.count(OLD_BUILD_MARKER) != 1 or base_lines.count(OLD_BUILD_END) != 1:
@@ -1967,13 +2025,15 @@ def compose_filter(spec: dict, economy: dict) -> tuple[str, dict]:
     header_end = composed.index("")
     header = [
         SEPARATOR,
-        "# PATHCRAFT SMOKIEZONE HYDROSPHERE BONESHATTER 3.29 HCSSF - VIOLET PROGRESSIVE FILTER",
-        "# Visibility/progression source: C:\\Users\\User\\Desktop\\SSF.txt",
-        "# Broad visual source: C:\\Users\\User\\Desktop\\death oath.txt",
-        "# High-value accent source: C:\\Users\\User\\Desktop\\allie.txt",
+        f"# PATHCRAFT {spec['labels']['filter_title']}",
+        *[
+            f"# {entry['role']}: {entry['path']}"
+            for entry in spec["source"].get("local_source_hashes", [])
+        ],
+        f"# Composition source: filters/{BASE_FILTER.name}",
         f"# Global economy source: NeverSink {economy['source']['version']} @ {economy['source']['commit']}",
-        "# Canonical build targets: data/filter_build_targets/poe1_smokiezone_hydrosphere_boneshatter_hcssf_3_29.json",
-        "# Architecture: visual Continue layers -> terminal HCSSF/build overrides -> preserved SSF visibility rules",
+        f"# Canonical build targets: data/filter_build_targets/{spec['build_id']}.json",
+        f"# Architecture: visual Continue layers -> terminal {MODE_LABEL}/build overrides -> preserved SSF visibility rules",
         SEPARATOR,
         "",
     ]
@@ -2077,26 +2137,18 @@ def validate_target_names(spec: dict) -> None:
                 f"Partial BaseType matches nothing in 3.29 game data: {fragment}"
             )
 
-    crafting_groups = {group["id"]: group for group in spec["crafting_base_groups"]}
-    researched_thresholds = {
-        "build.weapon.endgame_vaal_axe": spec["progression"][
-            "endgame_weapon_item_level"
-        ],
-        "build.armour.optimal_breach_bases": spec["progression"][
-            "optimal_armour_item_level"
-        ],
-        "build.jewellery.endgame_crafting": spec["progression"][
-            "endgame_jewellery_item_level"
-        ],
-    }
-    for group_id, expected_item_level in researched_thresholds.items():
-        group = crafting_groups.get(group_id)
-        if group is None:
-            errors.append(f"Researched crafting group is missing: {group_id}")
+    for group in spec["crafting_base_groups"]:
+        progression_key = group.get("progression_key")
+        if progression_key is None:
             continue
-        if group.get("minimum_item_level") != expected_item_level:
+        expected_item_level = spec["progression"].get(progression_key)
+        if expected_item_level is None:
             errors.append(
-                f"Researched ItemLevel threshold drifted for {group_id}: "
+                f"Crafting group {group['id']} names an unknown progression key: {progression_key}"
+            )
+        elif group.get("minimum_item_level") != expected_item_level:
+            errors.append(
+                f"Researched ItemLevel threshold drifted for {group['id']}: "
                 f"expected {expected_item_level}, got {group.get('minimum_item_level')}"
             )
     for group in spec["crafting_base_groups"]:
@@ -2153,24 +2205,10 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
         errors.append("Old Crimson category-normalization marker survived recolouring")
     if (
         "VIOLET CATEGORY NORMALIZATION" in output
-        or "PATHCRAFT HCSSF - GENERIC" in output
+        or f"PATHCRAFT {MODE_LABEL} - GENERIC" in output
     ):
         errors.append("Global violet category wash survived the native-cue refactor")
-    for marker in (
-        "SMOKIEZONE - SIX LINK SAFETY",
-        "SMOKIEZONE - CORE REQUIRED UNIQUE BASES",
-        "SMOKIEZONE - BUILD.WEAPON.ENDGAME_VAAL_AXE",
-        "SMOKIEZONE - BUILD.ARMOUR.OPTIMAL_BREACH_BASES",
-        "SMOKIEZONE - BUILD.JEWELLERY.ENDGAME_CRAFTING",
-        "HCSSF - IDENTIFIED INFAMY HELMETS",
-        "SMOKIEZONE - TARGET GEM BUILD.GEM.COMPLEX_TRAUMA",
-        "SMOKIEZONE - BUILD.RESOURCES.CORE",
-        "SMOKIEZONE - ESSENCES HIGH VIOLET",
-        "SMOKIEZONE - ESSENCES IMPORTANT VIOLET",
-        "SMOKIEZONE - ESSENCES ROUTINE VIOLET",
-        "SMOKIEZONE - ESSENCES QUIET VIOLET",
-        "SMOKIEZONE - DIVINATION CARDS UNTIERED CATCH-ALL",
-    ):
+    for marker in required_markers(spec):
         if marker not in output:
             errors.append(f"Required marker missing: {marker}")
 
@@ -2210,25 +2248,25 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
             )
 
     essence_styles = {
-        "SMOKIEZONE - ESSENCES HIGH VIOLET": [
+        f"{CREATOR_LABEL} - ESSENCES HIGH VIOLET": [
             "SetTextColor 248 248 250 255",
             "SetBorderColor 218 200 250 255",
             "SetBackgroundColor 124 58 237 250",
             "Continue",
         ],
-        "SMOKIEZONE - ESSENCES IMPORTANT VIOLET": [
+        f"{CREATOR_LABEL} - ESSENCES IMPORTANT VIOLET": [
             "SetTextColor 218 200 250 255",
             "SetBorderColor 163 117 242 255",
             "SetBackgroundColor 68 32 130 245",
             "Continue",
         ],
-        "SMOKIEZONE - ESSENCES ROUTINE VIOLET": [
+        f"{CREATOR_LABEL} - ESSENCES ROUTINE VIOLET": [
             "SetTextColor 163 117 242 255",
             "SetBorderColor 124 58 237 255",
             "SetBackgroundColor 37 17 71 240",
             "Continue",
         ],
-        "SMOKIEZONE - ESSENCES QUIET VIOLET": [
+        f"{CREATOR_LABEL} - ESSENCES QUIET VIOLET": [
             "SetTextColor 190 190 200 255",
             "SetBorderColor 68 32 130 255",
             "SetBackgroundColor 22 10 43 225",
@@ -2249,7 +2287,7 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
         )
 
     require_block_style(
-        "SMOKIEZONE - CORE REQUIRED UNIQUE BASES",
+        f"{CREATOR_LABEL} - CORE REQUIRED UNIQUE BASES",
         [
             "SetTextColor 248 248 250 255",
             "SetBorderColor 200 101 242 255",
@@ -2259,18 +2297,19 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
             "MinimapIcon 0 Purple Star",
         ],
     )
+    if any(target["priority"] == "optional" for target in spec["unique_targets"]):
+        require_block_style(
+            f"{CREATOR_LABEL} - OPTIONAL UNIQUE BASES",
+            [
+                "SetTextColor 175 96 37 255",
+                "SetBorderColor 124 58 237 255",
+                "SetBackgroundColor 25 13 29 245",
+                "PlayAlertSound None",
+                "PlayEffect None",
+            ],
+        )
     require_block_style(
-        "SMOKIEZONE - OPTIONAL UNIQUE BASES",
-        [
-            "SetTextColor 175 96 37 255",
-            "SetBorderColor 124 58 237 255",
-            "SetBackgroundColor 25 13 29 245",
-            "PlayAlertSound None",
-            "PlayEffect None",
-        ],
-    )
-    require_block_style(
-        "SMOKIEZONE - GLOBAL T0 CURRENCY",
+        f"{CREATOR_LABEL} - GLOBAL T0 CURRENCY",
         [
             "SetTextColor 124 58 237 255",
             "SetBackgroundColor 248 248 250 255",
@@ -2278,7 +2317,7 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
         ],
     )
     require_block_style(
-        "SMOKIEZONE - GLOBAL HIGH VALUE CURRENCY",
+        f"{CREATOR_LABEL} - GLOBAL HIGH VALUE CURRENCY",
         [
             "SetTextColor 248 248 250 255",
             "SetBorderColor 218 200 250 255",
@@ -2287,7 +2326,7 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
         ],
     )
     require_block_style(
-        "SMOKIEZONE - BUILD.RESOURCES.CORE",
+        f"{CREATOR_LABEL} - BUILD.RESOURCES.CORE",
         [
             "SetTextColor 19 10 29 255",
             "SetBorderColor 124 58 237 255",
@@ -2295,18 +2334,19 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
             "PlayEffect Purple Temp",
         ],
     )
-    require_block_style(
-        "SMOKIEZONE - TARGET GEM BUILD.GEM.COMPLEX_TRAUMA",
-        [
-            "SetTextColor 27 217 217 255",
-            "SetBackgroundColor 5 31 34 245",
-            "PlayEffect Purple",
-        ],
-    )
+    for gem_marker in required_gem_markers(spec):
+        require_block_style(
+            gem_marker,
+            [
+                "SetTextColor 27 217 217 255",
+                "SetBackgroundColor 5 31 34 245",
+                "PlayEffect Purple",
+            ],
+        )
 
     for retired_marker in (
-        "HCSSF - RARE ARMOUR AND JEWELLERY IN ENDGAME",
-        "HCSSF - RARE TWO HAND AXES IN ENDGAME",
+        f"{MODE_LABEL} - RARE ARMOUR AND JEWELLERY IN ENDGAME",
+        f"{MODE_LABEL} - RARE TWO HAND AXES IN ENDGAME",
     ):
         if retired_marker in output:
             errors.append(
@@ -2417,9 +2457,9 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
         errors.append("No Hide block remains in the progressive SSF visibility layer")
     else:
         for marker in (
-            "SMOKIEZONE - SIX LINK SAFETY",
-            "SMOKIEZONE - CORE REQUIRED UNIQUE BASES",
-            "SMOKIEZONE - TARGET GEM BUILD.GEM.COMPLEX_TRAUMA",
+            f"{CREATOR_LABEL} - SIX LINK SAFETY",
+            f"{CREATOR_LABEL} - CORE REQUIRED UNIQUE BASES",
+            *required_gem_markers(spec),
         ):
             marker_line = next(
                 (i for i, line in enumerate(lines, 1) if marker in line), None
@@ -2432,7 +2472,7 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
         for group in spec["crafting_base_groups"]:
             if not group.get("always_show"):
                 continue
-            marker = f"SMOKIEZONE - {group['id'].upper()}"
+            marker = f"{CREATOR_LABEL} - {group['id'].upper()}"
             matching = [block for block in blocks if marker in block.header]
             expected_rarities = list(group.get("rarities") or ["Normal", "Magic", "Rare"])
             if len(matching) != len(expected_rarities):
@@ -2492,7 +2532,7 @@ def validate_filter(output: str, spec: dict, source_text: str) -> dict:
                 for marker in (
                     "SIX LINK SAFETY",
                     "CORE REQUIRED UNIQUE BASES",
-                    "TARGET GEM BUILD.GEM.COMPLEX_TRAUMA",
+                    *required_gem_markers(spec),
                 )
             )
             and "Continue" in block.directives
@@ -2566,14 +2606,21 @@ def main() -> int:
         help="Refresh the pinned official NeverSink 8.20.1d economy snapshot.",
     )
     parser.add_argument(
+        "--spec",
+        type=Path,
+        default=DEFAULT_SPEC_PATH,
+        help="Build-target spec JSON under data/filter_build_targets/.",
+    )
+    parser.add_argument(
         "--install",
         action="store_true",
         help="Install the validated output into the Path of Exile filter directory.",
     )
     args = parser.parse_args()
 
-    validate_source_hashes()
-    spec = read_json(SPEC_PATH)
+    spec = read_json(args.spec)
+    configure_labels(spec)
+    validate_source_hashes(spec)
     validate_target_names(spec)
     economy = (
         refresh_economy_snapshot() if args.refresh_economy else read_json(ECONOMY_PATH)
@@ -2586,11 +2633,12 @@ def main() -> int:
     output, metadata = compose_filter(spec, economy)
     source_text = BASE_FILTER.read_text(encoding="utf-8")
     stats = validate_filter(output, spec, source_text)
-    OUTPUT_FILTER.write_text(output, encoding="utf-8", newline="\n")
-    output_hash = sha256_file(OUTPUT_FILTER)
+    output_filter = output_path(spec)
+    output_filter.write_text(output, encoding="utf-8", newline="\n")
+    output_hash = sha256_file(output_filter)
 
     result = {
-        "output": str(OUTPUT_FILTER),
+        "output": str(output_filter),
         "sha256": output_hash,
         "source_sha256": sha256_file(BASE_FILTER),
         "economy": economy["source"],
@@ -2598,7 +2646,7 @@ def main() -> int:
         **metadata,
     }
     if args.install:
-        result["installation"] = install_filter(OUTPUT_FILTER)
+        result["installation"] = install_filter(output_filter)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0
 

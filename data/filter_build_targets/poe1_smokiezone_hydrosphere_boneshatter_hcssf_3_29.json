@@ -6,6 +6,12 @@
     "mode": "progressive",
     "name": "Smokiezone_Hydrosphere_Boneshatter_HCSSF_3.29_Progressive.filter"
   },
+  "labels": {
+    "creator": "SMOKIEZONE",
+    "mode": "HCSSF",
+    "layer_title": "SMOKIEZONE HYDROSPHERE BONESHATTER 3.29 HCSSF TARGETS",
+    "filter_title": "SMOKIEZONE HYDROSPHERE BONESHATTER 3.29 HCSSF - VIOLET PROGRESSIVE FILTER"
+  },
   "theme": {
     "name": "violet",
     "main_color": "#7C3AED",
@@ -18,7 +24,10 @@
     "endgame_weapon_item_level": 83,
     "optimal_armour_item_level": 84,
     "endgame_jewellery_item_level": 83,
-    "hcssf_visibility_policy": "Approved build crafting bases are terminal Show rules whenever their ItemLevel tier matches, at every AreaLevel. Broad rare-equipment safety remains only through AreaLevel 82; AreaLevel 83+ permanently shows the exact approved bases instead of every rare equipment drop."
+    "hcssf_visibility_policy": "Approved build crafting bases are terminal Show rules whenever their ItemLevel tier matches, at every AreaLevel. Broad rare-equipment safety remains only through AreaLevel 82; AreaLevel 83+ permanently shows the exact approved bases instead of every rare equipment drop.",
+    "safety_weapon_classes": [
+      "Two Hand Axes"
+    ]
   },
   "source": {
     "title": "PoE 3.29 SSF Hydrosphere Boneshatter Berserker 실전 가이드",
@@ -34,6 +43,23 @@
       "https://poe.ninja/poe1/pob/936d2",
       "https://poe.ninja/poe1/pob/9386f",
       "https://poe.ninja/poe1/pob/93dc2"
+    ],
+    "local_source_hashes": [
+      {
+        "role": "Visibility/progression source",
+        "path": "C:\\Users\\User\\Desktop\\SSF.txt",
+        "sha256": "94CC3493AD7374B8AD8C54A88D3C43527E4DA557CA1D5723719064E3A98971E9"
+      },
+      {
+        "role": "Broad visual source",
+        "path": "C:\\Users\\User\\Desktop\\death oath.txt",
+        "sha256": "E637B4BB917E670CA332B350CA094DDB0AF467364B75B0922240507C81A1F8CF"
+      },
+      {
+        "role": "High-value accent source",
+        "path": "C:\\Users\\User\\Desktop\\allie.txt",
+        "sha256": "BEE3CC4352B3403DA752796FD764E45EEB25E9F1F76C491091CA6A59FD90B497"
+      }
     ]
   },
   "hcssf_research_basis": [
@@ -136,7 +162,8 @@
       "mirrored": false,
       "corrupted": false,
       "source_section": "메인 PoB Notes / Day 2·3 실제 PoB / 엔드게임 제작 요약",
-      "rationale": "The creator calls Vaal Axe the best endgame balance of hit damage and attack speed; both Day 2 and Day 3 use an item-level 83 Vaal Axe."
+      "rationale": "The creator calls Vaal Axe the best endgame balance of hit damage and attack speed; both Day 2 and Day 3 use an item-level 83 Vaal Axe.",
+      "progression_key": "endgame_weapon_item_level"
     },
     {
       "id": "build.weapon.fast_trauma_axes",
@@ -192,7 +219,8 @@
       "mirrored": false,
       "corrupted": false,
       "source_section": "메인 PoB Notes / 계획·Day 1·2·3 실제 PoB / 엔드게임 제작 요약",
-      "rationale": "The creator explicitly calls these the optimal armour bases to collect from Breach; the planned setup and every Day 1-3 snapshot use these four bases at item level 84-85."
+      "rationale": "The creator explicitly calls these the optimal armour bases to collect from Breach; the planned setup and every Day 1-3 snapshot use these four bases at item level 84-85.",
+      "progression_key": "optimal_armour_item_level"
     },
     {
       "id": "build.armour.pre_breach_progression",
@@ -242,7 +270,8 @@
       "mirrored": false,
       "corrupted": false,
       "source_section": "Harvest / Day 1·2·3 실제 PoB / 엔드게임 제작 요약",
-      "rationale": "The actual SSF snapshots use item-level 84-85 Amethyst Rings and Turquoise Amulets; item level 83+ is highlighted as an endgame collection tier, while lower copies remain visible for progression crafts."
+      "rationale": "The actual SSF snapshots use item-level 84-85 Amethyst Rings and Turquoise Amulets; item level 83+ is highlighted as an endgame collection tier, while lower copies remain visible for progression crafts.",
+      "progression_key": "endgame_jewellery_item_level"
     },
     {
       "id": "build.jewellery.progression",

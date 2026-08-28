@@ -244,3 +244,6 @@
 | Docs/2026-08-27_SMOKIEZONE_HYDROSPHERE_BONESHATTER_3_29_SSF_GUIDE_DOC.html | Smokiezone Boneshatter 가이드의 Google Docs 원고(루미너리 가이드식 0~8장). Google Doc 1wS6VWfSAhukqzuT3Nvr6XixlTu5OMgklwCWLu2lxM4w 의 소스 — 수정 시 이 파일 고치고 재주입 | 아니오 |
 | scripts/filter_cascade.py | 아이템 필터 Continue 캐스케이드 시뮬레이터(유효 스타일 합성 + 글자/배경 대비). 생성기 검증 게이트와 테스트가 사용 | 아니오 |
 | Docs/2026-08-28_EXILEDCAT_SSF_STRENGTH_STACKER_JUGGERNAUT_3_29_GUIDE_DOC.html | Exiled Cat SSF Strength Stacker Juggernaut(3.29 Part 1) 가이드 Google Docs 원고(0~9장). 영상 자동자막 + pobb.in PoB 4개 근거, 행마다 근거 표기. Google Doc 1kOH5Q5v9iy1ECuUwru9hEJ-JnXxi8mlcTsS7WwHqV2c 의 소스 — 수정 시 이 파일 고치고 재주입 | 아니오 |
+| data/filter_build_targets/poe1_exiledcat_ssf_strength_stacker_juggernaut_3_29.json | Exiled Cat SSF Strength Stacker 필터의 정본 스펙(라벨·타깃·근거). 빌더 `--spec` 입력 | 아니오 |
+| python/tests/test_build_exiledcat_ssf_filter.py | Exiled Cat 스펙 해석·조합·검증·캐스케이드 가독성 + 라벨 상태 복원 테스트 | 아니오 |
+| Docs/2026-08-28_EXILEDCAT_SSF_STRENGTH_STACKER_FILTER.md | Exiled Cat 필터 설명(규칙 표·검증 게이트·미해결) | 아니오 |

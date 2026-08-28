@@ -1,0 +1,421 @@
+{
+  "schema_version": "1.0",
+  "dataset_kind": "poe1_filter_build_targets",
+  "build_id": "poe1_exiledcat_ssf_strength_stacker_juggernaut_3_29",
+  "output": {
+    "mode": "progressive",
+    "name": "ExiledCat_SSF_Strength_Stacker_Juggernaut_3.29_Progressive.filter"
+  },
+  "labels": {
+    "creator": "EXILEDCAT",
+    "mode": "SCSSF",
+    "layer_title": "EXILED CAT SSF STRENGTH STACKER JUGGERNAUT 3.29 TARGETS",
+    "filter_title": "EXILED CAT SSF STRENGTH STACKER JUGGERNAUT 3.29 - VIOLET PROGRESSIVE FILTER"
+  },
+  "theme": {
+    "name": "violet",
+    "main_color": "#7C3AED",
+    "poe_effect_color": "Purple"
+  },
+  "progression": {
+    "campaign_max_area_level": 67,
+    "early_maps_max_area_level": 82,
+    "endgame_min_area_level": 83,
+    "safety_weapon_classes": [],
+    "visibility_policy": "Approved build crafting bases are terminal Show rules at every AreaLevel. Broad rare armour/jewellery safety remains only through AreaLevel 82 because the creator crafted rings and gloves from scratch after the transition; the weapon is a unique (Brutus' Lead Sprinkler) so no rare weapon class is kept visible."
+  },
+  "source": {
+    "title": "How To Make SSF Strength Stacker - From Zero to Hero - Part 1 - 3.29",
+    "creator": "EXILED CAT",
+    "patch": "3.29",
+    "mode": "SSF (softcore) as played by the creator",
+    "local_guide": "Docs/2026-08-28_EXILEDCAT_SSF_STRENGTH_STACKER_JUGGERNAUT_3_29_GUIDE_DOC.html",
+    "google_doc": "https://docs.google.com/document/d/1kOH5Q5v9iy1ECuUwru9hEJ-JnXxi8mlcTsS7WwHqV2c/edit",
+    "main_video": "https://www.youtube.com/watch?v=Oo7j-hC1ELk",
+    "actual_progression_pobs": [
+      "https://pobb.in/f6OAnJ0coqso",
+      "https://pobb.in/wVNxoO7HlLB1",
+      "https://pobb.in/Id77R_U3qZx3",
+      "https://pobb.in/OS_Z2QioInuj"
+    ],
+    "local_source_hashes": []
+  },
+  "research_basis": [
+    {
+      "name": "Wreckers SSF Filter for Everyone",
+      "version": "3.29.1",
+      "url": "https://poe.kakaogames.com/account/view-profile/Wrecker_of_Days-7691/item-filters",
+      "use": "Primary automatic AreaLevel progression and broad SSF visibility authority (preserved byte-for-byte at the Hide-block level)."
+    },
+    {
+      "name": "NeverSink Regular",
+      "version": "8.20.1d",
+      "url": "https://poe.kakaogames.com/account/view-profile/NeverSink-3349/item-filters",
+      "use": "Current global economy and visual tier reference, not the SSF visibility authority."
+    },
+    {
+      "name": "Guide chapter 7 (필터에 띄울 베이스)",
+      "version": "2026-08-28",
+      "url": "https://docs.google.com/document/d/1kOH5Q5v9iy1ECuUwru9hEJ-JnXxi8mlcTsS7WwHqV2c/edit",
+      "use": "Every target below cites the guide chapter/row it comes from; chapter 9 rows are non-creator sources and are marked as such."
+    }
+  ],
+  "unique_targets": [
+    {
+      "id": "build.core.unique.brutus_lead_sprinkler",
+      "priority": "required",
+      "display_names": [
+        "Brutus' Lead Sprinkler"
+      ],
+      "resolved_base_types": [
+        "Ritual Sceptre"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Loot filters can only match the unidentified unique Ritual Sceptre base, so other unique Ritual Sceptres can also be shown.",
+      "source_section": "3.1 레벨 28 셉터 도박 / 4.1·4.2 PoB ③④ 무기"
+    },
+    {
+      "id": "build.core.unique.alberons_warpath_family",
+      "priority": "required",
+      "display_names": [
+        "Alberon's Warpath",
+        "Replica Alberon's Warpath"
+      ],
+      "resolved_base_types": [
+        "Soldier Boots"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Alberon's Warpath and Replica Alberon's Warpath share the Soldier Boots base; other unique Soldier Boots can also be shown.",
+      "source_section": "3.1 레벨 49 부츠 도박 / 5.2 Heist (Replica) / 4.1·4.2 PoB ③④ 부츠"
+    },
+    {
+      "id": "build.core.unique.crown_of_eyes",
+      "priority": "required",
+      "display_names": [
+        "Crown of Eyes"
+      ],
+      "resolved_base_types": [
+        "Hubris Circlet"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Loot filters can only match the unidentified unique Hubris Circlet base, so other unique Hubris Circlets can also be shown.",
+      "source_section": "3.3 The Watcher 12장 / 4.1·4.2 PoB ③④ 투구"
+    },
+    {
+      "id": "build.core.unique.meginords_girdle",
+      "priority": "required",
+      "display_names": [
+        "Meginord's Girdle",
+        "Foulborn Meginord's Girdle"
+      ],
+      "resolved_base_types": [
+        "Heavy Belt"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Loot filters can only match the unidentified unique Heavy Belt base, so other unique Heavy Belts can also be shown.",
+      "source_section": "3.3 Breach 힘 벨트 / 4.1·4.2 PoB ③④ 벨트"
+    },
+    {
+      "id": "build.core.unique.xophs_blood",
+      "priority": "required",
+      "display_names": [
+        "Xoph's Blood"
+      ],
+      "resolved_base_types": [
+        "Amber Amulet"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Loot filters can only match the unidentified unique Amber Amulet base, so other unique Amber Amulets can also be shown.",
+      "source_section": "3.3 Breach 트리 선물 / 4.1·4.2 PoB ③④ 목걸이"
+    },
+    {
+      "id": "build.core.unique.the_iron_fortress",
+      "priority": "required",
+      "display_names": [
+        "The Iron Fortress"
+      ],
+      "resolved_base_types": [
+        "Crusader Plate"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Loot filters can only match the unidentified unique Crusader Plate base, so other unique Crusader Plates can also be shown.",
+      "source_section": "5.3 Genesis Tree 약 25,000 Hiveblood / 4.2 PoB ④ 갑옷"
+    },
+    {
+      "id": "build.core.unique.paradoxica",
+      "priority": "required",
+      "display_names": [
+        "Paradoxica"
+      ],
+      "resolved_base_types": [
+        "Vaal Rapier"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Loot filters can only match the unidentified unique Vaal Rapier base, so other unique Vaal Rapiers can also be shown.",
+      "source_section": "5.2 Syndicate Intervention 은신처 (19회) / 8.5"
+    },
+    {
+      "id": "build.optional.unique.timeless_jewel",
+      "priority": "optional",
+      "display_names": [
+        "Lethal Pride"
+      ],
+      "resolved_base_types": [
+        "Timeless Jewel"
+      ],
+      "rarity": "Unique",
+      "ambiguity_warning": "Every unique Timeless Jewel shares the base, so Glorious Vanity / Brutal Restraint / Militant Faith / Elegant Hubris are shown too; the Part 2 target is Lethal Pride (non-creator practice, chapter 9.6).",
+      "source_section": "5.5 Part 2 예고 (Legion 타임리스 주얼) / 9.6 외부 빌드 관행"
+    }
+  ],
+  "identified_targets": [],
+  "crafting_base_groups": [
+    {
+      "id": "build.shield.spell_damage_spirit_shield",
+      "priority": "important",
+      "always_show": true,
+      "base_types": [
+        "Ancient Spirit Shield",
+        "Walnut Spirit Shield"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "0 피해 변환 사슬 / 4.1·4.2 PoB ③④ 방패 / 8.3",
+      "rationale": "Crown of Eyes turns spell damage into attack damage, so the shield slot carries a spell-damage prefix; the transition snapshot uses an Ancient Spirit Shield (75% spell damage) and the end of Part 1 a Walnut Spirit Shield with +57 Strength."
+    },
+    {
+      "id": "build.gloves.strength_gauntlets",
+      "priority": "important",
+      "always_show": true,
+      "base_types": [
+        "Goliath Gauntlets",
+        "Leviathan Gauntlets"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "4.1·4.2 PoB ③④ 장갑 / 8.2 장갑 제작 (영상 15:20~15:53)",
+      "rationale": "The creator alteration-spammed Leviathan Gauntlets, converted the DEX roll to STR with Allflame crafting and finished with bench + exalt; Goliath Gauntlets were the transition pair."
+    },
+    {
+      "id": "build.jewellery.strength_rings",
+      "priority": "important",
+      "always_show": true,
+      "base_types": [
+        "Amethyst Ring",
+        "Two-Stone Ring"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "4.1·4.2 PoB ③④ 반지 / 8.1 반지 제작 (영상 14:21~15:20)",
+      "rationale": "Both end-of-Part-1 rings are crafted Amethyst Rings (+58/+53 Strength, chaos resistance, -7 mana cost bench craft) made from essences via the Harvest bench and Allflame DEX-to-STR conversion; the transition Two-Stone Ring carried +29 Strength."
+    },
+    {
+      "id": "build.armour.starter_astral_plate",
+      "priority": "crafting",
+      "maximum_area_level": 82,
+      "base_types": [
+        "Astral Plate"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "4.1 PoB ③ 갑옷 (Glyph Shroud — Astral Plate, +47 힘)",
+      "rationale": "Transition body armour until The Iron Fortress is birthed from the Genesis Tree; kept as a quiet crafting base through AreaLevel 82."
+    },
+    {
+      "id": "build.jewels.cluster_jewels",
+      "priority": "crafting",
+      "base_types": [
+        "Large Cluster Jewel",
+        "Medium Cluster Jewel"
+      ],
+      "rarities": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "mirrored": false,
+      "corrupted": false,
+      "source_section": "5.5 Part 2 예고 (Delirium Split Personality + 클러스터 주얼, 영상 18:49~19:17)",
+      "rationale": "Announced for Part 2 only; shown quietly so early cluster drops are not vendored before the creator's plan is published."
+    }
+  ],
+  "resource_groups": [
+    {
+      "id": "build.resources.core",
+      "priority": "important",
+      "match_mode": "exact",
+      "base_types": [
+        "Cyaxan's Ducat",
+        "Vivid Crystallised Lifeforce",
+        "Wild Crystallised Lifeforce",
+        "Primal Crystallised Lifeforce",
+        "Rogue's Marker"
+      ],
+      "minimap_shape": "Cross",
+      "source_section": "8.1 Harvest 벤치 / 8.2 Allflame + 두캇 / 5.2 Heist Gianna 공개 (영상 17:20)"
+    },
+    {
+      "id": "build.resources.eldritch_implicits",
+      "priority": "important",
+      "match_mode": "exact",
+      "base_types": [
+        "Lesser Eldritch Ember",
+        "Greater Eldritch Ember",
+        "Grand Eldritch Ember",
+        "Exceptional Eldritch Ember",
+        "Lesser Eldritch Ichor",
+        "Greater Eldritch Ichor",
+        "Grand Eldritch Ichor",
+        "Exceptional Eldritch Ichor"
+      ],
+      "minimap_shape": "Cross",
+      "source_section": "4.2 PoB ④ 장갑 Exarch(화염 노출) + Eater(Strike +1) 임플리싯"
+    },
+    {
+      "id": "build.resources.essences",
+      "priority": "crafting",
+      "match_mode": "contains",
+      "base_types": [
+        "Essence of Rage",
+        "Essence of Greed"
+      ],
+      "minimap_shape": "Cross",
+      "source_section": "8.1 에센스 → Harvest (영상 14:21~14:50 은 에센스 종류를 말하지 않음; Rage = Strength, Greed = Life 는 게임 데이터 기준 선택)"
+    },
+    {
+      "id": "build.resources.breach",
+      "priority": "important",
+      "match_mode": "contains",
+      "base_types": [
+        "Breachstone",
+        "Splinter of",
+        "Wombgift"
+      ],
+      "minimap_shape": "Hexagon",
+      "source_section": "5.1 Breach / 5.3 Genesis Tree → The Iron Fortress / 9.5 Wombgift (비제작자 출처)"
+    },
+    {
+      "id": "build.resources.heist_blueprints",
+      "priority": "important",
+      "classes": [
+        "Blueprints"
+      ],
+      "minimap_shape": "Hexagon",
+      "source_section": "5.2 Heist 청사진 100~150 wing 세션 / 7 청사진 전부(1 wing 포함)"
+    },
+    {
+      "id": "build.resources.heist_contracts",
+      "priority": "crafting",
+      "classes": [
+        "Contracts"
+      ],
+      "minimap_shape": "Hexagon",
+      "source_section": "5.2 Deception 계약 → Gianna 공개 (계약 직업은 필터 조건으로 구분 불가)"
+    }
+  ],
+  "gem_targets": [
+    {
+      "id": "build.gem.smite_of_divine_judgement",
+      "priority": "required",
+      "display_names": [
+        "Smite of Divine Judgement"
+      ],
+      "transfigured_gem_names": [
+        "Smite"
+      ],
+      "classes": [
+        "Skill Gems"
+      ],
+      "source_section": "3.2 미궁 12회 시도 / 2.4 PoB ④ 본체 6L"
+    },
+    {
+      "id": "build.gem.sunder",
+      "priority": "important",
+      "base_types": [
+        "Sunder"
+      ],
+      "classes": [
+        "Skill Gems"
+      ],
+      "source_section": "2.1~2.3 캠페인부터 STR 전환 직후까지 주력"
+    },
+    {
+      "id": "build.gem.fire_attack_supports",
+      "priority": "important",
+      "base_types": [
+        "Fire Penetration Support",
+        "Elemental Damage with Attacks Support",
+        "Multistrike Support",
+        "Inspiration Support"
+      ],
+      "classes": [
+        "Support Gems"
+      ],
+      "source_section": "2.2 스왑 슬롯 / 2.3·2.4 본체 6L"
+    }
+  ],
+  "flask_targets": [
+    {
+      "id": "build.flasks.core",
+      "priority": "important",
+      "base_types": [
+        "Diamond Flask",
+        "Granite Flask",
+        "Quicksilver Flask",
+        "Eternal Life Flask",
+        "Prismatic Tincture"
+      ],
+      "source_section": "4.1 PoB ③ 플라스크 / 7 플라스크"
+    }
+  ],
+  "divination_cards": {
+    "build_target": [
+      {
+        "card": "The Watcher",
+        "reward": "Crown of Eyes",
+        "source_section": "3.3 The Watcher 12장 (Lair Map — poedb)"
+      }
+    ],
+    "keep": [
+      {
+        "card": "Burning Blood",
+        "reward": "Xoph's Blood",
+        "source_section": "7 점술 카드 (poedb 대안 경로)"
+      }
+    ]
+  },
+  "unresolved_targets": [
+    {
+      "display_name": "Allflame Ember (DEX → STR 변환)",
+      "reason": "The video shows Allflame crafting converting a DEX roll to STR (15:20) but never names the specific Allflame Ember; 20+ Allflame Ember bases exist, so no exact rule is guessed."
+    },
+    {
+      "display_name": "Deception contract",
+      "reason": "Contract job (Deception) is not exposed to the filter language; all Contracts are shown quietly instead."
+    },
+    {
+      "display_name": "Lethal Pride seed",
+      "reason": "SSF cannot pick a seed; the Timeless Jewel base is shown as an optional unique and the seed is left to manual inspection."
+    }
+  ]
+}
