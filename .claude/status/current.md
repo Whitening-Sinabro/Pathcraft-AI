@@ -1,3 +1,18 @@
+## 2026-09-01 — 탱정 커스마스터 크로노맨서 0.5.5 가이드 납품 (분석→선택→납품 완결)
+
+**지금**: ①정밀분석(36편+PoB 14개) → ②유저 커스마스터 선택 → ③0.5.5 유효성 검증(Forbidden Rites 9/4 이벤트 리그, 밸런스 무변경 — 유효 판정) → ④가이드 문서 납품 완료.
+- 원고 `Docs/2026-09-01_TANGJEONG_CURSEMASTER_CHRONOMANCER_0_5_5_GUIDE_DOC.html` (0~8장) → 사용자 Google Doc
+  `https://docs.google.com/document/d/1eayunVXW2a9KslRGvfX-cfUWPeeZncYbyFXoJjmLp8s/edit` (다크 페이지+밝은 글자).
+- **adversarial-verifier REFUTED 17건(MAJOR 7) 전부 반영** + 댓글 발굴 정정(전향 65렙 권장, 상위 기민 에센스, 절망 40 확보처, CI 사유).
+- **주입 함정 2건 실측**: 합성 paste는 iframe contenteditable에 focus 후 dispatch해야 함(defaultPrevented=true 확인) / **다중 열 표는 열 폭 붕괴 → 표를 "▶라벨 · 본문 〔근거〕" 문단으로 변환**(장 구분 띠 단일 셀 표만 유지). 페이지 색은 적용 대상="문서 전체"일 때만 팔레트 열림.
+- **인게임 Build Planner 납품**: poe.ninja pob 페이지 "Build Planner" 버튼 JSON을 클립보드 패치로 캡처 →
+  `Documents/My Games/Path of Exile 2/BuildPlanner/Cursemaster Final - Tangjeong [0.5].build` 설치(passives 134/skills 15 검증). 유저는 EASY Sorceress Leveling 액트 시리즈 기보유(1~64 커버).
+- 분석 문서 `Docs/2026-09-01_TANGJEONG_POE2_CURSEMASTER_SHIELDWALL_ANALYSIS.md` 병존. 전부 미커밋.
+**다음**: ①0.5.5 풀 패치노트("이번 주 후반") 공개 시 가이드 8장 체크리스트 4건 확인·갱신 ②방패벽 2.0 본편 영상 공개 시 분석 갱신 ③Docs 2건+트래킹 커밋 여부 유저 확인.
+**주의**: 프로젝트는 POE1 우선 — 이 트랙은 POE2 크리에이터 소싱/개인 플레이 지원 (게임 데이터 이관 없음).
+
+---
+
 ## 2026-08-28 — Exiled Cat SSF Strength Stacker Juggernaut(3.29 Part 1) 가이드 납품
 
 **지금**: 원고 `Docs/2026-08-28_EXILEDCAT_SSF_STRENGTH_STACKER_JUGGERNAUT_3_29_GUIDE_DOC.html`(0~8장 + 출처 + **9장 보강(비제작자 출처)**) →

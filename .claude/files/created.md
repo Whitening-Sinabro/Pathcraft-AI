@@ -247,3 +247,6 @@
 | data/filter_build_targets/poe1_exiledcat_ssf_strength_stacker_juggernaut_3_29.json | Exiled Cat SSF Strength Stacker 필터의 정본 스펙(라벨·타깃·근거). 빌더 `--spec` 입력 | 아니오 |
 | python/tests/test_build_exiledcat_ssf_filter.py | Exiled Cat 스펙 해석·조합·검증·캐스케이드 가독성 + 라벨 상태 복원 테스트 | 아니오 |
 | Docs/2026-08-28_EXILEDCAT_SSF_STRENGTH_STACKER_FILTER.md | Exiled Cat 필터 설명(규칙 표·검증 게이트·미해결) | 아니오 |
+| Docs/2026-09-01_TANGJEONG_POE2_CURSEMASTER_SHIELDWALL_ANALYSIS.md | 탱정(탱커의정석) POE2 0.5 커스마스터 크로노맨서 + 방패벽 키타바 정밀분석 (자막 4편 + ninja PoB 14개 실파싱 근거) | 아니오 |
+| Docs/2026-09-01_TANGJEONG_CURSEMASTER_CHRONOMANCER_0_5_5_GUIDE_DOC.html | 커스마스터 크로노맨서 0.5.5 가이드 원고(0~8장, 검증 17건 반영) — Google Doc 1eayunVXW2a9… 재주입용 정본 | 아니오 |
+| C:/Users/User/Documents/My Games/Path of Exile 2/BuildPlanner/Cursemaster Final - Tangjeong [0.5].build | 커마 최종(닌자 25f87) 인게임 빌드 플래너 파일 (passives 134 + skills 15) | 예(게임 폴더, 재생성 가능) |
