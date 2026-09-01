@@ -250,3 +250,4 @@
 | Docs/2026-09-01_TANGJEONG_POE2_CURSEMASTER_SHIELDWALL_ANALYSIS.md | 탱정(탱커의정석) POE2 0.5 커스마스터 크로노맨서 + 방패벽 키타바 정밀분석 (자막 4편 + ninja PoB 14개 실파싱 근거) | 아니오 |
 | Docs/2026-09-01_TANGJEONG_CURSEMASTER_CHRONOMANCER_0_5_5_GUIDE_DOC.html | 커스마스터 크로노맨서 0.5.5 가이드 원고(0~8장, 검증 17건 반영) — Google Doc 1eayunVXW2a9… 재주입용 정본 | 아니오 |
 | C:/Users/User/Documents/My Games/Path of Exile 2/BuildPlanner/Cursemaster Final - Tangjeong [0.5].build | 커마 최종(닌자 25f87) 인게임 빌드 플래너 파일 (passives 134 + skills 15) | 예(게임 폴더, 재생성 가능) |
+| C:/Users/User/Documents/My Games/Path of Exile 2/BuildPlanner/ACT 1~4 - [0.5.5] ED Contagion*.build (4파일) | 커마용 1~65 ED 레벨링 플래너 (deadrabbit/mobalytics 캡처, ACT3부터 절망·신성모독·어둠의 제웅) | 예(게임 폴더, 재획득 가능) |
