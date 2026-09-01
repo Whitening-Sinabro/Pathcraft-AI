@@ -54,19 +54,41 @@ def _run_build(tmp_path: Path, base_text: str):
 
 def test_vocab_gate_drops_unknown_names(tmp_path, spec):
     # 베이스에 코어 이름 몇 개만 존재 → 나머지는 드랍되고, 드랍 경고가 남아야 한다
+    base_text = 'Show\n\tBaseType "Doedre\'s Undoing" "Withered Wand" "Skill Gems" "Support Gems"\n'
+    out, stderr = _run_build(tmp_path, base_text)
+    overlay = out.split(base_text)[0]
+    assert "Doedre's Undoing" in overlay
+    # 혈통잼은 Support Gems 클래스이므로 두 클래스 모두 걸어야 한다 (verifier F1)
+    assert 'Class == "Skill Gems" "Support Gems"' in overlay
+    assert "Betrayal of Aldur" not in overlay
+    assert "vocabulary gate dropped" in stderr
+
+
+def test_class_vocab_gate_drops_rule_when_class_missing(tmp_path, spec):
+    # 베이스에 "Support Gems" 클래스가 없으면 혈통잼 룰 전체가 드랍되어야 한다
     base_text = 'Show\n\tBaseType "Doedre\'s Undoing" "Withered Wand" "Skill Gems"\n'
     out, stderr = _run_build(tmp_path, base_text)
-    assert "Doedre's Undoing" in out
-    assert "Betrayal of Aldur" not in out.split("# NeverSink")[0]
-    assert "vocabulary gate dropped" in stderr
+    overlay = out.split(base_text)[0]
+    assert "Class ==" not in overlay
+    assert "class ['Support Gems']" in stderr
 
 
 def test_overlay_is_show_only_and_blocks_end_with_blank_line(tmp_path, spec):
     names = " ".join(f'"{b}"' for r in spec["rules"] for b in r["base_types"])
-    base_text = f'Show\n\tClass == "Skill Gems"\n\tBaseType {names}\n'
+    base_text = f'Show\n\tClass == "Skill Gems" "Support Gems"\n\tBaseType {names}\n'
     out, _ = _run_build(tmp_path, base_text)
     overlay = out.split(base_text)[0]
     assert "Hide" not in overlay
     # 모든 오버레이 블록은 빈 줄로 종료되어야 한다 (POE 필터 블록 규칙)
     blocks = [b for b in overlay.split("\n\n") if b.strip().startswith(("#", "Show"))]
     assert len([b for b in blocks if "Show" in b]) == len(spec["rules"])
+
+
+def test_unique_rule_uses_exact_basetype_match(tmp_path, spec):
+    # 유니크 베이스 룰은 substring 오버매치 금지 — BaseType == 정확 매치여야 한다 (verifier F2)
+    unique_rules = [r for r in spec["rules"] if r.get("rarity") == "Unique"]
+    assert unique_rules and all(r.get("exact") for r in unique_rules)
+    # NeverSink T1 잭팟 베이스는 오버레이가 가로채면 안 된다 (verifier F3)
+    unique_bases = {b for r in unique_rules for b in r["base_types"]}
+    for t1 in ["Ruby", "Sapphire", "Time-Lost Diamond", "Breach Ring"]:
+        assert t1 not in unique_bases, t1

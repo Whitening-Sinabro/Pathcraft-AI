@@ -49,9 +49,9 @@
     {
       "style": "core",
       "name": "혈통잼 - 커마 코어",
-      "note": "파멸=65 전환 코어(첫날 100딥→400딥), 매혹=반사 엔진, 성찬식=방패벽 겸사, 별자리=시간동결 3충전",
-      "class": "Skill Gems",
-      "base_types": ["Doedre's Undoing", "Atziri's Allure", "Atziri's Communion", "Uhtred's Constellation"]
+      "note": "파멸=65 전환 코어(첫날 100딥→400딥), 매혹=반사 엔진, 별자리=시간동결 3충전, 의뢰=동결 플라스크 회복. 성찬식은 커마 외(방패벽 코어·100~400딥 고가)라 동봉 — 혈통잼은 Support Gems 클래스(valid_gems_poe2 SupportGem* 확인)",
+      "class": ["Skill Gems", "Support Gems"],
+      "base_types": ["Doedre's Undoing", "Atziri's Allure", "Uhtred's Constellation", "Uhtred's Rite", "Atziri's Communion"]
     },
     {
       "style": "core",
@@ -61,15 +61,16 @@
     },
     {
       "style": "core",
-      "name": "커마 고유 베이스 (유니크 드랍)",
-      "note": "Tribal Mask=최정점 / Utility Belt=마법사의 피 / Breach Ring=칼란드라 후보 / Feathered Sandals=바람의 개성 / Time-Lost·주얼=분광기·이중인격·어둠을 거슬러 후보",
+      "name": "커마 고유 베이스 (유니크 드랍, 정확 매치)",
+      "note": "Tribal Mask=최정점 / Utility Belt=마법사의 피 / Feathered Sandals=바람의 개성 / Ring=칼란드라의 손길(PoB 베이스) / Diamond=분광기 후보 / Transcendent Mana Flask=우트레드의 성배. ※Ruby·Sapphire·Time-Lost는 NeverSink T1 잭팟 알림(사운드6)이 이미 최상위 처리하므로 의도적으로 제외(가로채기 방지)",
       "rarity": "Unique",
-      "base_types": ["Tribal Mask", "Utility Belt", "Breach Ring", "Feathered Sandals", "Time-Lost Diamond", "Diamond", "Ruby", "Sapphire"]
+      "exact": true,
+      "base_types": ["Tribal Mask", "Utility Belt", "Feathered Sandals", "Ring", "Diamond", "Transcendent Mana Flask"]
     },
     {
       "style": "gear",
       "name": "커마 무기·베이스",
-      "note": "말라버린 마법봉(위축봉·전 티어 substring) / 타임벨 지팡이=Chiming Staff / 집중구 / 룬숙련 쇠스랑=Runic Fork(카페 #65) / 균열 반지",
+      "note": "말라버린 마법봉(위축봉) / 타임벨=차임벨 지팡이(Chiming Staff, poe_translations 확인) / 집중구 / 룬숙련 쇠스랑=Runic Fork(카페 #65) / 균열 반지=레어 제작 베이스(빌드 실물은 Dragon Finger 레어)",
       "base_types": ["Withered Wand", "Chiming Staff", "Hallowed Focus", "Runic Fork", "Breach Ring"]
     },
     {
@@ -81,14 +82,14 @@
     {
       "style": "craft",
       "name": "마법봉 제작 - 턱뼈·징조·오브",
-      "note": "영혼의 우물 훼손 도박 세트(문서 §2·§3): 턱뼈+강령술/메아리 징조, 분열 1/3 트릭, 찬미+완엑 게인 작업",
-      "base_types": ["Ancient Jawbone", "Preserved Jawbone", "Omen of Sinistral Necromancy", "Omen of Dextral Necromancy", "Omen of Abyssal Echoes", "Omen of Sinistral Exaltation", "Omen of Dextral Exaltation", "Fracturing Orb", "Perfect Jeweller's Orb", "Transcendent Alloy"]
+      "note": "영혼의 우물 훼손 도박 세트(문서 §2·§3): 턱뼈+강령술/메아리 징조, 분열 1/3 트릭, 상위·좌측 찬미+완벽한 엑잘 게인 작업",
+      "base_types": ["Ancient Jawbone", "Preserved Jawbone", "Omen of Sinistral Necromancy", "Omen of Dextral Necromancy", "Omen of Abyssal Echoes", "Omen of Sinistral Exaltation", "Omen of Dextral Exaltation", "Omen of Greater Exaltation", "Perfect Exalted Orb", "Fracturing Orb", "Perfect Jeweller's Orb", "Transcendent Alloy"]
     },
     {
       "style": "craft",
-      "name": "룬·유동체 (세팅 재료)",
-      "note": "크라칸=Craiceann(저주 효과 감소, 갑옷) / 페누무스=장갑 / 수호의 룬=우트레드 성배 조건 / 맹렬한 유동체=저항 화염 전환",
-      "base_types": ["Craiceann's Rune of Warding", "Craiceann's Rune of Recovery", "Fenumus' Rune of Draining", "Fenumus' Rune of Agony", "Warding Rune", "Blazing Flux", "Perfect Flux"]
+      "name": "룬·영혼핵·유동체 (세팅 재료)",
+      "note": "크라칸=Craiceann's Rune of Warding(PoB 실물 '50% reduced effect of Curses' 확인, Recovery는 동계열 동봉) / 페누무스=장갑(PoB=Draining) / 수호의 룬=우트레드 성배 발동 조건 / 카틀라(Katla's Gloom)·타카티 영혼핵=하이엔드 소켓 / 맹렬한 유동체=저항 화염 전환(방패벽 하이엔드 가이드 14:43 실측 — 커마 문서 밖 출처)",
+      "base_types": ["Craiceann's Rune of Warding", "Craiceann's Rune of Recovery", "Fenumus' Rune of Draining", "Fenumus' Rune of Agony", "Warding Rune", "Katla's Gloom", "Soul Core of Tacati", "Blazing Flux", "Perfect Flux"]
     }
   ]
 }

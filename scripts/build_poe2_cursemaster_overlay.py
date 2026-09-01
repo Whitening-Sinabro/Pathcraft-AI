@@ -52,9 +52,12 @@ def build_block(rule: dict, style: dict) -> str:
     if rule.get("rarity"):
         lines.append(f'\tRarity == "{rule["rarity"]}"')
     if rule.get("class"):
-        lines.append(f'\tClass == "{rule["class"]}"')
+        classes = rule["class"] if isinstance(rule["class"], list) else [rule["class"]]
+        quoted_cls = " ".join(f'"{c}"' for c in classes)
+        lines.append(f"\tClass == {quoted_cls}")
     quoted = " ".join(f'"{b}"' for b in rule["base_types"])
-    lines.append(f"\tBaseType {quoted}")
+    op = "== " if rule.get("exact") else ""
+    lines.append(f"\tBaseType {op}{quoted}")
     t, bo, bg = style["text"], style["border"], style["background"]
     lines.append(f"\tSetTextColor {t[0]} {t[1]} {t[2]} 255")
     lines.append(f"\tSetBorderColor {bo[0]} {bo[1]} {bo[2]} 255")
@@ -88,9 +91,13 @@ def main() -> int:
     blocks: list[str] = []
     dropped: list[str] = []
     for rule in spec["rules"]:
-        if rule.get("class") and not vocab_ok(f'"{rule["class"]}"', base_text):
-            dropped.append(f"{rule['name']}: class {rule['class']}")
-            continue
+        classes = rule.get("class")
+        if classes:
+            classes = classes if isinstance(classes, list) else [classes]
+            bad = [c for c in classes if not vocab_ok(f'"{c}"', base_text)]
+            if bad:
+                dropped.append(f"{rule['name']}: class {bad}")
+                continue
         kept = [b for b in rule["base_types"] if vocab_ok(b, base_text)]
         missing = [b for b in rule["base_types"] if b not in kept]
         for m in missing:
