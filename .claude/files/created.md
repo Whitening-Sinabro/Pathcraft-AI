@@ -251,3 +251,7 @@
 | Docs/2026-09-01_TANGJEONG_CURSEMASTER_CHRONOMANCER_0_5_5_GUIDE_DOC.html | 커스마스터 크로노맨서 0.5.5 가이드 원고(0~8장, 검증 17건 반영) — Google Doc 1eayunVXW2a9… 재주입용 정본 | 아니오 |
 | C:/Users/User/Documents/My Games/Path of Exile 2/BuildPlanner/Cursemaster Final - Tangjeong [0.5].build | 커마 최종(닌자 25f87) 인게임 빌드 플래너 파일 (passives 134 + skills 15) | 예(게임 폴더, 재생성 가능) |
 | C:/Users/User/Documents/My Games/Path of Exile 2/BuildPlanner/ACT 1~4 - [0.5.5] ED Contagion*.build (4파일) | 커마용 1~65 ED 레벨링 플래너 (deadrabbit/mobalytics 캡처, ACT3부터 절망·신성모독·어둠의 제웅) | 예(게임 폴더, 재획득 가능) |
+| data/filter_build_targets/poe2_cursemaster_tangjeong_0_5_5.json | POE2 커마 오버레이 필터 정본 스펙 (스타일 3계층 + 룰 7, NeverSink 어휘 게이트 대상) | 아니오 |
+| scripts/build_poe2_cursemaster_overlay.py | NeverSink POE2 위 Show-only 커마 강조 오버레이 생성기 (어휘/대비 게이트) | 아니오 |
+| python/tests/test_build_poe2_cursemaster_overlay.py | 오버레이 스펙·생성 가드 (대비/코어 타깃/어휘 드랍/Show-only/빈 줄) | 아니오 |
+| C:/Users/User/Documents/My Games/Path of Exile 2/PathcraftAI_Cursemaster_on_NeverSink-REGULAR.filter | 설치된 커마 필터 (생성물 — 재생성 가능) | 예 |
