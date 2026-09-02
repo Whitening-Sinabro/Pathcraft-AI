@@ -5,7 +5,7 @@
 - Fartfinder https://docs.google.com/document/d/1XK5Vpoeka4Ad6JqeLwAf34ivW8z2RA4gGQw4mz7Wtt8/edit
 - 젬링 https://docs.google.com/document/d/1kIJRvBvBvIo8DsBtJaB2E8mjQeQRL6iDSqR28JCSybs/edit
 - **방패벽 키타바(신규)** https://docs.google.com/document/d/1GS5amNLoi3ZHYpS-uxDgfOoZC0E-n_ntmekasORPK9M/edit
-- **아르세리나 젬링 무한 점화(신규)** https://docs.google.com/document/d/12dxZp3qdQJvihAi3HSMcYISnUfe6oVOJVg6_b1juBdY/edit
+- **아르세리나 젬링 무한 점화(신규)** https://docs.google.com/document/d/12dxZp3qdQJvihAi3HSMcYISnUfe6oVOJVg6_b1juBdY/edit  ← **이미지 16장 배치본**(영상 프레임 캡처)
 - **주입 방식 확정(이전 세션 핸드오프 대체)**: Playwright MCP 기본 프로필이 이미 구글 로그인 상태 →
   `browser_run_code_unsafe` + `page.route('https://docs.google.com/__pcpayload__.html', r=>r.fulfill({path}))`로
   **동일 출처 URL을 로컬 파일로 응답**시키고, 페이지에서 `fetch` → 합성 `ClipboardEvent('paste')` 디스패치.
