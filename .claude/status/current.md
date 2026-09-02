@@ -1,3 +1,33 @@
+## 2026-09-02 — v4 단일문서 구글 닥 4종 납품 완료 (커마 · Fartfinder · 젬링 · 키타바)
+
+**지금**: v4(Luminary 스타일 · H1 아웃라인 단일문서) 주입 **완료**. 문서 4개 전부 라이브.
+- 커스마스터 https://docs.google.com/document/d/1hc7WGAfvgqyrmHfwpKqp_mNvSL-n6wMNnZgNJuGb124/edit
+- Fartfinder https://docs.google.com/document/d/1XK5Vpoeka4Ad6JqeLwAf34ivW8z2RA4gGQw4mz7Wtt8/edit
+- 젬링 https://docs.google.com/document/d/1kIJRvBvBvIo8DsBtJaB2E8mjQeQRL6iDSqR28JCSybs/edit
+- **방패벽 키타바(신규)** https://docs.google.com/document/d/1GS5amNLoi3ZHYpS-uxDgfOoZC0E-n_ntmekasORPK9M/edit
+- **아르세리나 젬링 무한 점화(신규)** https://docs.google.com/document/d/12dxZp3qdQJvihAi3HSMcYISnUfe6oVOJVg6_b1juBdY/edit
+- **주입 방식 확정(이전 세션 핸드오프 대체)**: Playwright MCP 기본 프로필이 이미 구글 로그인 상태 →
+  `browser_run_code_unsafe` + `page.route('https://docs.google.com/__pcpayload__.html', r=>r.fulfill({path}))`로
+  **동일 출처 URL을 로컬 파일로 응답**시키고, 페이지에서 `fetch` → 합성 `ClipboardEvent('paste')` 디스패치.
+  페이로드가 LLM 컨텍스트를 안 거친다. 재주입은 툴 호출 1회. 상세·사장된 대안은 [[reference-google-docs-delivery-via-browser]].
+- **사용자 지시 반영(9/2)**: ①시세 금액 전면 제거(부록 시세표·환율·ninja 재조회 주석 → 구매 우선순위 표로 대체.
+  거래 검색 링크·구매 전략·파밍·제작·메커니즘은 유지) ②문서 제작 경위/적대검증 문구 등 군더더기 제거
+  ③Fartfinder에 **피의 정령 확보 위치** 보강 = 3막 아고라트(Lv44), 바알 골리앗을 피의 여사제에게 유인해
+  찔리게 하면 소환(제작자 쇼츠 tQfXwRtQO8Q · poe2spectrewiki · game8 · GGPK WorldAreas 교차확인).
+- 커밋: c9f2fce(3가이드 정리+망령) · c646aed(키타바 신규).
+
+**다음**: ①키타바 가이드 적대검증 결과 반영 후 재주입 ②사용자 인게임 검토 피드백 반영
+③0.5.5 풀 패치노트 공개 시 각 가이드 8장 갱신 ④탱정 방패벽 **2.0 전용 가이드 영상 공개 시** 키타바 2·6장 갱신.
+
+- **아르세리나(=arserina) 채널 확정**: `@arserinagame`. 레포 creator matrix에 채널 미확정으로 있던 것 해소. 0.5.5 스타터 2종 = ①젬링 무한 점화(I8GpKlVcq-s, PoB 27e13 단계별 5세트) ②바라시타 켈라리×나비라 풀가이드(NI3lqWUdKyo, PoB 27b7d). ②는 미문서화.
+- **적대검증 2회 전부 REFUTED → 반영**: 키타바(MAJOR 5) · 무한 점화(MAJOR 3). 둘 다 원본 자막·PoB XML 대조로 실결함 확인. 커밋 fed2776 · a5dca73.
+
+**블로커**: 없음.
+
+**주의**: 프로젝트는 POE1 우선 — 이 트랙은 POE2 크리에이터 소싱/개인 플레이 지원.
+
+---
+
 ## 2026-09-01 — 탱정 커스마스터 크로노맨서 0.5.5 가이드 납품 (분석→선택→납품 완결)
 
 **지금**: ①정밀분석(36편+PoB 14개) → ②유저 커스마스터 선택 → ③0.5.5 유효성 검증(Forbidden Rites 9/4 이벤트 리그, 밸런스 무변경 — 유효 판정) → ④가이드 문서 납품 완료.
@@ -18,7 +48,6 @@
 - **가이드 Doc v3 재구축(9/2, 사용자 지적: 가독성·링크·문서탭·용어)**: 문서 탭 11개(개요·용어/0~8장/부록·출처·거래), 제목 계층(16pt/13pt), **근거 전부 하이퍼링크**(유튜브 타임스탬프 53개 + 카페 글 7편 실링크 + PoB/문서/GGG/maxroll), 개요 탭에 **용어 사전 20항**(커마/혈통잼/게인/타임벨/룬수호 등 KR·EN 병기). 생성기 = scratchpad/build_gdoc_v3.mjs(레포 HTML이 소스, 탭별 페이로드 자동 변환·재생성 가능). 카페 글번호=전역 articleId 검증(#65=쇠스랑 글). 주입 절차 함정은 [[reference-google-docs-delivery-via-browser]]에 추가.
 - **Skadoosh 가이드 2종 완성+QA 반영(9/2)**: Fartfinder(`Docs/2026-09-02_SKADOOSH_FARTFINDER_CORPSEWADE_0_5_5_GUIDE_DOC.html`) + 젬링(`Docs/2026-09-02_SKADOOSH_CORRUPTING_WINGS_GEMLING_0_5_5_GUIDE_DOC.html`). Opus 에이전트 2기 작성 → **코덱스 max QA 3종 전부 REFUTED 판정 → 실결함 수정 완료**(커마 M1~m3 커밋 459eea7·독스 반영 / Fartfinder B0M4m4·11~58 레벨링 자립+군왕의 합금 등 / 젬링 B0M4m3·파콰테 소모 메커니즘·뒤틀린 맹약 등). **Fartfinder·젬링 HTML은 아직 미커밋**(수정 반영본). QA findings = scratchpad/qa_codex/{cursemaster,fartfinder,gemling}/findings.md.
 - **문서 포맷 v4 확정(9/2, 사용자)**: 다크·문단식 폐기 → **Luminary(Path of Chores) 스타일 = 흰 배경·청록 H1·역할 프리픽스 불릿·이름 색코딩(스킬 파랑/보조 보라/혈통잼·유니크 주황/키스톤 자주)·노랑 형광 경고·장비/시세만 다크헤더 표**. 구조 = **단일 문서 + H1 아웃라인**(문서 탭 X — 레퍼런스 실측 확인). 공용 렌더러 = `scratchpad/build_gdoc_v4.mjs <config.json>`, 설정 3개 `v4_{cursemaster,fartfinder,gemling}.json`, 산출 = `gdoc_v4_*/combined.js`(통합 단일 페이로드: 커마 55KB/Fart 167KB/젬 125KB) + tab*.js. 자체검증 통과(센티널 0·색 오염 0·딥링크 커마53/Fart77/젬96).
-**다음(핸드오프)**: **v4 combined.js 3개를 각 단일 구글 닥에 주입**하는 것만 남음. 절차·자산·함정 전부 → `~/.claude/projects/D--Pathcraft-AI/2026-09-02-v4-doc-injection-handoff.md`. 요지: ①**Playwright MCP를 사용자 config에 추가·연결 완료**(`claude mcp add playwright`) — **다음 세션 재시작부터 mcp__playwright__* 사용 가능**(이번 세션은 미로드). ②주입 전송 함정: Google Docs CSP가 localhost fetch 차단 / .NET Clipboard.SetText(Html)은 원시 HTML을 받아 CF_HTML 자기가 감쌈(내가 이중포장해서 첫 시도 실패, 원시 HTML로 재세팅함) / 문서 탭 rename은 활성탭 실더블클릭 필요+앱 프리즈로 느림 → 그래서 아웃라인으로 전환. ③커마용 빈 단일문서 이미 생성=`https://docs.google.com/document/d/1hc7WGAfvgqyrmHfwpKqp_mNvSL-n6wMNnZgNJuGb124/edit`(방금 비움). Fart·젬은 새 문서 생성 필요. 구 v3 탭문서(1eayun…)는 폐기 예정.
 **그 다음**: ①사용자 RoA 연습 지원(65 전환·자기저주 착용 순서·필터 인게임) ②0.5.5 풀 패치노트 공개 시 가이드 8장 체크리스트 갱신 + NeverSink 0.5.5 필터 재생성 + 거래 링크 리그명 갱신 ③방패벽 2.0 영상 공개 시 갱신.
 **주의**: 프로젝트는 POE1 우선 — 이 트랙은 POE2 크리에이터 소싱/개인 플레이 지원 (게임 데이터 이관 없음).
 
