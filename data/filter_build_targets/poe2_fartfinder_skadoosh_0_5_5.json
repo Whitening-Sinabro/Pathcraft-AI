@@ -1,0 +1,318 @@
+{
+  "_meta": {
+    "build": "Fartfinder — Corpsewade Decompose Pathfinder (Skadoosh)",
+    "game": "poe2",
+    "patch": "0.5 / 0.5.5 Forbidden Rites",
+    "base_filter": "NeverSink's filter 2 - 1-REGULAR (0.10.3)",
+    "generated_by": "scripts/build_poe2_build_overlay.py",
+    "sources": "Docs/2026-09-02_SKADOOSH_FARTFINDER_CORPSEWADE_0_5_5_GUIDE_DOC.html; mobalytics skadoosh-decompose-pathfinder (Starter/Endgame/Uber variant equipment); mobalytics pathfinder-leveling-skadoosh; PoB pobb.in/weBOTm4VXT0j; BuildPlanner .build files (8 stages)",
+    "palette": "purple family across all four tiers (user request)",
+    "notes": [
+      "Show-only overlay. It never hides anything; unmatched items fall through to NeverSink.",
+      "Covers the whole progression: leveling (1~58) → Starter → Endgame → Uber, each block labelled with its stage.",
+      "Unique names are NOT in NeverSink's POE2 filter — it matches uniques by BaseType. Every unique below is mapped to its real base, taken from the decoded PoB / .build files.",
+      "Deliberately excluded: Timeless Jewel (Heroic Tragedy), Time-Lost Diamond (Against the Darkness), Diamond (Megalomaniac/From Nothing), Heavy Belt (Headhunter). NeverSink already gives these a top-tier jackpot alert; overlaying them would downgrade a louder alarm.",
+      "Leveling bow/quiver/armour bases carry AreaLevel caps so they stop showing once you are past that stage.",
+      "Vocabulary mismatches resolved against the base filter: PoB 'Talisman of Thruldana' -> 'Idol of Thruldana'; 'Arcanist Etcher' -> \"Arcanist's Etcher\"; 'Brigand Mace' does not exist in NeverSink's vocabulary, so the mace craft target is expressed as the One Hand Maces class with its seven real bases."
+    ]
+  },
+  "styles": {
+    "core": {
+      "comment": "S급 — 빌드가 성립하려면 반드시 있어야 하는 것 (시신걸음/참호목/혈통 보조젬)",
+      "text": [
+        255,
+        255,
+        255
+      ],
+      "border": [
+        198,
+        140,
+        255
+      ],
+      "background": [
+        74,
+        0,
+        140
+      ],
+      "font": 45,
+      "sound": [
+        1,
+        300
+      ],
+      "beam": "Purple",
+      "icon": [
+        0,
+        "Purple",
+        "Star"
+      ]
+    },
+    "uber": {
+      "comment": "A급 — 우버 단계 목표물 (룬/영혼핵/고급 재료)",
+      "text": [
+        255,
+        240,
+        255
+      ],
+      "border": [
+        230,
+        180,
+        255
+      ],
+      "background": [
+        120,
+        0,
+        190
+      ],
+      "font": 42,
+      "sound": [
+        2,
+        280
+      ],
+      "beam": "Purple",
+      "icon": [
+        0,
+        "Purple",
+        "Diamond"
+      ]
+    },
+    "gear": {
+      "comment": "B급 — 단계별 장비 베이스 (레벨링 무기/방어구, 슬롯 베이스)",
+      "text": [
+        232,
+        215,
+        255
+      ],
+      "border": [
+        150,
+        105,
+        220
+      ],
+      "background": [
+        48,
+        16,
+        86
+      ],
+      "font": 38,
+      "sound": [
+        4,
+        200
+      ],
+      "beam": "Purple",
+      "icon": [
+        1,
+        "Purple",
+        "Circle"
+      ]
+    },
+    "craft": {
+      "comment": "C급 — 제작·소모 재료 (주얼/에센스/징조/주얼러 오브)",
+      "text": [
+        40,
+        0,
+        72
+      ],
+      "border": [
+        140,
+        80,
+        210
+      ],
+      "background": [
+        226,
+        206,
+        252
+      ],
+      "font": 36,
+      "sound": [
+        3,
+        180
+      ],
+      "beam": "Purple",
+      "icon": [
+        2,
+        "Purple",
+        "Triangle"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "style": "core",
+      "name": "[전 구간] 시신걸음 — 빌드 필수",
+      "note": "Corpsewade = Iron Greaves. 부패 스킬을 주는 장화라 이게 없으면 빌드가 성립하지 않는다. 11레벨부터 착용 가능해 레벨링 중에도 신는다. 높은 아이템 레벨일수록 스킬 레벨이 높아 보조 소켓이 늘어난다",
+      "base_types": [
+        "Iron Greaves"
+      ],
+      "exact": true
+    },
+    {
+      "style": "core",
+      "name": "[Starter~Uber] 참호목 — 소환수 스킬 레벨",
+      "note": "Trenchtimbre = Spiked Club. +2 모든 소환수 스킬 레벨이 붙은 물건을 노린다. 우버에서는 아즈카파의 영혼핵 2개를 위해 타락 소켓이 필요하다",
+      "base_types": [
+        "Spiked Club"
+      ],
+      "exact": true
+    },
+    {
+      "style": "core",
+      "name": "[Starter~Uber] 혈통 보조젬 — 빌드 스케일링 축",
+      "note": "아라칼리의 욕망(1순위·가장 싸다) / 우트레드의 점술 / 울네톨의 포옹 / 디알라의 갈망 / 그녀의 선언 / 우트레드의 징조 순서. 쿠르갈의 가죽끈·브루투스의 두뇌는 젬 링크 구성용",
+      "class": [
+        "Skill Gems",
+        "Support Gems"
+      ],
+      "base_types": [
+        "Arakaali's Lust",
+        "Uhtred's Augury",
+        "Uul-Netol's Embrace",
+        "Dialla's Desire",
+        "Her Declaration",
+        "Uhtred's Omen",
+        "Kurgal's Leash",
+        "Brutus' Brain"
+      ]
+    },
+    {
+      "style": "uber",
+      "name": "[Endgame~Uber] 룬 · 영혼핵 — 세팅 완성 재료",
+      "note": "아즈카파 영혼핵=참호목 2소켓(우버) / 스룰다나의 부적=세트1 메이스 / 상위 사막·강철 룬=저항·방어 / 아마나무의 응시=몸통 ※PoB는 'Talisman of Thruldana'로 적지만 필터 어휘는 'Idol of Thruldana'",
+      "base_types": [
+        "Soul Core of Azcapa",
+        "Idol of Thruldana",
+        "Greater Desert Rune",
+        "Greater Iron Rune"
+      ]
+    },
+    {
+      "style": "uber",
+      "name": "[Uber] 소켓 확장 — 주얼러 오브",
+      "note": "퍼펙트 주얼러 오브로 시신걸음의 부패를 5소켓으로. 망령 속박 젬은 하위 주얼러 오브 + 바알 오브로 +1 타락을 노린다",
+      "base_types": [
+        "Perfect Jeweller's Orb",
+        "Greater Jeweller's Orb",
+        "Lesser Jeweller's Orb",
+        "Vaal Orb"
+      ]
+    },
+    {
+      "style": "gear",
+      "name": "[Starter~Uber] 슬롯 베이스 — 스탯 우선순위대로 굴릴 물건",
+      "note": "엄숙한 셉터=세트1/2 정신력(래틀링 셉터만 아니면 됨) / 미장착 반지=우버에 2개 필요 / 조상의 티아라·희생의 예복=우버 슬롯 / 달·태양·항성 목걸이 / 프리즘 반지",
+      "base_types": [
+        "Stoic Sceptre",
+        "Unset Ring",
+        "Ancestral Tiara",
+        "Sacrificial Regalia",
+        "Sorcerous Tiara",
+        "Rambler Jacket",
+        "Engraved Bracers",
+        "Secured Wraps",
+        "Prismatic Ring",
+        "Lunar Amulet",
+        "Solar Amulet",
+        "Stellar Amulet"
+      ]
+    },
+    {
+      "style": "gear",
+      "name": "[레벨링 1~20] 활 · 화살통 · 몸통",
+      "note": "레벨링 가이드 1-10 / 11-20 구간 표시 베이스. AreaLevel 상한을 걸어 이 구간을 지나면 조용해진다",
+      "base_types": [
+        "Shortbow",
+        "Recurve Bow",
+        "Broadhead Quiver",
+        "Shrouded Vest"
+      ],
+      "area_level_max": 30
+    },
+    {
+      "style": "gear",
+      "name": "[레벨링 21~40] 활 · 화살통 · 몸통",
+      "note": "레벨링 가이드 21-30 / 31-40 구간 표시 베이스",
+      "base_types": [
+        "Dualstring Bow",
+        "Zealot Bow",
+        "Sacral Quiver",
+        "Toxic Quiver",
+        "Studded Vest",
+        "Serpentscale Coat"
+      ],
+      "area_level_max": 55
+    },
+    {
+      "style": "gear",
+      "name": "[레벨링 41~58] 활 — 58 전환 직전",
+      "note": "레벨링 가이드 41-58 구간. 58에서 희생이 열리며 Starter 변형으로 넘어간다",
+      "base_types": [
+        "Artillery Bow"
+      ],
+      "area_level_max": 68
+    },
+    {
+      "style": "craft",
+      "name": "[Starter~Uber] 주얼 — 중독·범위 스케일링",
+      "note": "사파이어/에메랄드에 중독·범위 옵션이 이 빌드의 주얼 목표. 엔드게임에서는 방어 막기·소환수 생명력 루비도 대안",
+      "base_types": [
+        "Sapphire",
+        "Emerald",
+        "Ruby"
+      ]
+    },
+    {
+      "style": "craft",
+      "name": "[Endgame~Uber] 철퇴 제작 재료",
+      "note": "가이드 제작 사다리: 완벽한 마모의 에센스 → 좌측 강령술 징조 + 군주의 징조 + 보존된 턱뼈로 '완전히 파괴된 방어구 대상 피해 증가' 발현. 아스트리드의 창의성은 제작 모드 2개를 동시에 얻기 위한 임시 소켓, 분광 합금은 상태이상 강도",
+      "base_types": [
+        "Perfect Essence of Abrasion",
+        "Greater Essence of Abrasion",
+        "Omen of Sinistral Necromancy",
+        "Omen of the Liege",
+        "Preserved Jawbone",
+        "Astrid's Creativity",
+        "Prismatic Alloy",
+        "Exalted Orb"
+      ]
+    },
+    {
+      "style": "craft",
+      "name": "[Uber] 오라 강도 · 퀄리티 재료",
+      "note": "완벽한 지휘의 에센스=엄숙한 셉터 오라 강도(세트1 정신력 413) / 비전 각인기=단련 오라 퀄리티 20%",
+      "base_types": [
+        "Perfect Essence of Command",
+        "Greater Essence of Command",
+        "Arcanist's Etcher"
+      ]
+    },
+    {
+      "style": "craft",
+      "name": "[레벨링] 부적 — 상태이상 대비",
+      "note": "레벨링 가이드가 구간별로 지정한 부적. 사파이어=빙결, 루비=점화, 자수정=카오스, 해동=빙결 해제",
+      "base_types": [
+        "Stone Charm",
+        "Sapphire Charm",
+        "Ruby Charm",
+        "Amethyst Charm",
+        "Thawing Charm",
+        "Dousing Charm"
+      ],
+      "area_level_max": 68
+    },
+    {
+      "style": "craft",
+      "name": "[Starter~Uber] 철퇴 베이스 — 한손 철퇴(낮은 힘 요구치)",
+      "note": "가이드 제작 1단계 = '낮은 힘 요구치의 아무 한손 철퇴'를 산다. NeverSink 어휘에 'Brigand Mace'는 없고 One Hand Maces 클래스가 있으므로 클래스 단위로 잡는다. 마법(파랑) 이하 등급만 대상 — 레어는 NeverSink 자체 규칙이 이미 처리",
+      "class": [
+        "One Hand Maces"
+      ],
+      "base_types": [
+        "Bandit Mace",
+        "Crown Mace",
+        "Flanged Mace",
+        "Marauding Mace",
+        "Marching Mace",
+        "Plated Mace",
+        "Slim Mace"
+      ]
+    }
+  ]
+}

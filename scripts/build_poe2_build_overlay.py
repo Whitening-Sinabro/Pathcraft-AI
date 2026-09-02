@@ -1,0 +1,141 @@
+"""Generate a Show-only Cursemaster highlight overlay on top of NeverSink's POE2 filter.
+
+Usage:
+    python scripts/build_poe2_cursemaster_overlay.py \
+        --base <NeverSink .filter> \
+        --spec data/filter_build_targets/poe2_cursemaster_tangjeong_0_5_5.json \
+        --out <output .filter> [--install-dir <dir>]
+
+Safety model (silent-failure guards):
+  * Vocabulary gate: every Class/BaseType token must appear verbatim in the base
+    filter text; unknown names are dropped with a warning (never emitted blind).
+  * Show-only: the overlay cannot hide anything; unmatched items fall through to
+    NeverSink's own rules (first-match-wins).
+  * Contrast gate: text vs background relative-luminance difference must clear a
+    fixed threshold, so no label can render unreadable.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import logging
+import shutil
+import sys
+from pathlib import Path
+
+logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+log = logging.getLogger("cursemaster-overlay")
+
+CONTRAST_MIN = 0.35  # relative luminance gap; POE1 cascade-gate lesson, lightweight port
+
+
+def luminance(rgb: list[int]) -> float:
+    r, g, b = (c / 255.0 for c in rgb[:3])
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def check_contrast(style_name: str, style: dict) -> None:
+    gap = abs(luminance(style["text"]) - luminance(style["background"]))
+    if gap < CONTRAST_MIN:
+        raise SystemExit(
+            f"contrast gate FAIL: style '{style_name}' text/background gap {gap:.2f} < {CONTRAST_MIN}"
+        )
+
+
+def vocab_ok(token: str, base_text: str) -> bool:
+    return token in base_text
+
+
+def build_block(rule: dict, style: dict) -> str:
+    lines = [f"# [overlay] {rule['name']} — {rule.get('note', '')}".rstrip(), "Show"]
+    if rule.get("rarity"):
+        lines.append(f'\tRarity == "{rule["rarity"]}"')
+    if rule.get("class"):
+        classes = rule["class"] if isinstance(rule["class"], list) else [rule["class"]]
+        quoted_cls = " ".join(f'"{c}"' for c in classes)
+        lines.append(f"\tClass == {quoted_cls}")
+    quoted = " ".join(f'"{b}"' for b in rule["base_types"])
+    op = "== " if rule.get("exact") else ""
+    lines.append(f"\tBaseType {op}{quoted}")
+    if rule.get("area_level_max"):
+        lines.append(f"	AreaLevel <= {int(rule['area_level_max'])}")
+    t, bo, bg = style["text"], style["border"], style["background"]
+    lines.append(f"\tSetTextColor {t[0]} {t[1]} {t[2]} 255")
+    lines.append(f"\tSetBorderColor {bo[0]} {bo[1]} {bo[2]} 255")
+    lines.append(f"\tSetBackgroundColor {bg[0]} {bg[1]} {bg[2]} 255")
+    lines.append(f"\tSetFontSize {style['font']}")
+    snd = style["sound"]
+    lines.append(f"\tPlayAlertSound {snd[0]} {snd[1]}")
+    lines.append(f"\tPlayEffect {style['beam']}")
+    icon = style["icon"]
+    lines.append(f"\tMinimapIcon {icon[0]} {icon[1]} {icon[2]}")
+    return "\n".join(lines)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--base", required=True)
+    ap.add_argument("--spec", required=True)
+    ap.add_argument("--out", required=True)
+    ap.add_argument("--install-dir", default=None)
+    args = ap.parse_args()
+
+    base_path, spec_path = Path(args.base), Path(args.spec)
+    if not base_path.exists():
+        raise SystemExit(f"base filter not found: {base_path}")
+    base_text = base_path.read_text(encoding="utf-8")
+    spec = json.loads(spec_path.read_text(encoding="utf-8"))
+
+    for name, style in spec["styles"].items():
+        check_contrast(name, style)
+
+    blocks: list[str] = []
+    dropped: list[str] = []
+    for rule in spec["rules"]:
+        classes = rule.get("class")
+        if classes:
+            classes = classes if isinstance(classes, list) else [classes]
+            bad = [c for c in classes if not vocab_ok(f'"{c}"', base_text)]
+            if bad:
+                dropped.append(f"{rule['name']}: class {bad}")
+                continue
+        kept = [b for b in rule["base_types"] if vocab_ok(b, base_text)]
+        missing = [b for b in rule["base_types"] if b not in kept]
+        for m in missing:
+            dropped.append(f"{rule['name']}: {m}")
+        if not kept:
+            log.warning("rule '%s' lost every BaseType — skipped", rule["name"])
+            continue
+        rule = {**rule, "base_types": kept}
+        blocks.append(build_block(rule, spec["styles"][rule["style"]]))
+
+    if dropped:
+        log.warning("vocabulary gate dropped %d name(s):", len(dropped))
+        for d in dropped:
+            log.warning("  - %s", d)
+
+    header = "\n".join(
+        [
+            "#===============================================================================",
+            f"# PathcraftAI build overlay: {spec.get(chr(39)+chr(95)+chr(109)+chr(101)+chr(116)+chr(97)+chr(39), {}).get(chr(39)+chr(98)+chr(117)+chr(105)+chr(108)+chr(100)+chr(39), spec_path.stem)} — Show-only, generated",
+            f"# spec: {spec_path.name} | base: {base_path.name}",
+            f"# regenerate: python scripts/build_poe2_build_overlay.py --spec {spec_path.name} --base <NeverSink .filter> --out <out>",
+            "#===============================================================================",
+            "",
+        ]
+    )
+    out_text = header + "\n\n".join(blocks) + "\n\n" + base_text
+    out_path = Path(args.out)
+    out_path.write_text(out_text, encoding="utf-8", newline="\n")
+    log.info("wrote %s (%d overlay blocks, %d bytes)", out_path, len(blocks), out_path.stat().st_size)
+
+    if args.install_dir:
+        dest = Path(args.install_dir) / out_path.name
+        shutil.copy(out_path, dest)
+        log.info("installed -> %s", dest)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
