@@ -1,0 +1,224 @@
+{
+  "_meta": {
+    "build": "Arserina — Gemling Legionnaire Infinite Ignite (Flameblast + Oil Grenade)",
+    "game": "poe2",
+    "patch": "0.5 / 0.5.5 Forbidden Rites",
+    "base_filter": "NeverSink's filter 2 (0.10.3) -- SOFT / REGULAR / STRICT, one per stage",
+    "generated_by": "scripts/build_poe2_build_overlay.py",
+    "sources": "Docs/2026-09-02_ARSERINA_GEMLING_INFINITE_IGNITE_0_5_5_GUIDE_DOC.html (chapters cited per rule; the guide was under independent review when this spec was written, so only claims that carry a source link were used); PoB https://poe.ninja/poe2/pob/27e13 decoded from /poe2/pob/raw/27e13 (5 item sets: 01 / 02 / 03 Swap / 04 / 05, Mercenary classId 9, ascendClassId 1 for set 02 and 3 from 03 Swap on); poe2db.tw/us pages for Perfect Essence of Sorcery, Greater Desert Rune, Saqawal's Rune of Erosion, Courtesan Mannan's Rune of Cruelty, Hedgewitch Assandra's Rune of Wisdom, Conqueror Plate, Chiming Staff, Paragon, Pyromancer (fetched 2026-09-03); data/base_items_poe2.json (GGPK drop levels)",
+    "palette": "fire family -- red / orange / amber across all four tiers, so it reads differently from the Fartfinder overlay (purple) at a glance",
+    "notes": [
+      "Show-only overlay. It never hides anything; unmatched items fall through to NeverSink.",
+      "Progression: 1~51 grenade Mercenary (Tactician) -> level 52 swap to Gemling Legionnaire with Flameblast + a Chiming Staff -> set 04 growth -> set 05 starter-final around Kaom's Heart. Rules are labelled with the PoB set / guide chapter they come from.",
+      "Unique names are NOT in NeverSink's POE2 filter -- it matches uniques by BaseType. The single unique in this build (Kaom's Heart) is matched as Conqueror Plate with Rarity Unique; poe2db lists no other unique on that base, so the rule catches exactly that item.",
+      "Chiming Staff is scoped to Normal/Magic/Rare on purpose: Sire of Shards and The Burden of Shadows share the base, and an unscoped rule would swallow NeverSink's unique-tier alert for them.",
+      "Deliberately excluded, with reasons: Concentrated Liquid Isolation (one of the three Paragon anoint emotions -- NeverSink already gives it its S-tier jackpot alert, sound 6, and overlaying it would downgrade that alarm); Greater Essence of Sorcery (spell damage only, the guide asks for the Perfect tier's +5 spell skill levels); rings (the PoB uses the placeholder base 'Ring' and the guide names no base); Rawhide Belt (set 02 belt, drop level 1, generic); the Ultimate Life/Mana flasks (generic to every build, NeverSink already tiers flasks by level); early crossbows before Bombard Crossbow (the guide says 'any crossbow with high damage', which a filter cannot judge, and NeverSink SOFT already shows campaign weapons); the unique amulet the guide calls 화염꽃 (the guide explicitly recommends against it this league); Uncut Skill Gems for Flameblast (NeverSink already alerts on every uncut gem).",
+      "The armour-slot rules (sets 02 / 04 / 05) name the bases the PoB author actually wore. The guide itself only asks for life, resistances and movement speed on those slots, so those rules are 'bases to roll', not requirements -- their notes say so.",
+      "Levelling-only rules (set 02 armour) carry AreaLevel caps and stages:[campaign]; the Bombard Crossbow and set 04 armour stop at the maps file because set 05 replaces them. Everything else is emitted in all three files, because a rule whose items do not drop yet is silent while omitting it could hide a real drop.",
+      "Verified against the guide while deriving this list (flag, not fix): the guide's Korean item base names are still working translations (its own note says so); the PoB's charm/flask rows are not in the video; the anoint is contradictory between video (Paragon) and PoB (Pyromancer) and this spec covers both recipes rather than choosing.",
+      "The NeverSink base filters are not vendored (.gitignore excludes *.filter). _meta.bases pins each one by URL + SHA-256, identical to the Fartfinder spec's pins; `python scripts/fetch_neversink_poe2_bases.py` restores and verifies them."
+    ],
+    "outputs": [
+      {
+        "stage": "campaign",
+        "file": "PathcraftAI_Ignite_1-Campaign_on_NeverSink-SOFT.filter",
+        "base": "neversink_poe2_soft.filter",
+        "why": "1~51 grenade levelling plus the level-52 swap: the campaign needs to see the Bombard Crossbow, the first Chiming Staff, charms and the set-02 armour bases. SOFT hides the least."
+      },
+      {
+        "stage": "maps",
+        "file": "PathcraftAI_Ignite_2-EarlyMaps_on_NeverSink-REGULAR.filter",
+        "base": "neversink_poe2_regular.filter",
+        "why": "Set 04 growth: staff crafting, set-04 armour bases, Cannonade Crossbow, jewels and runes while the set-02 leveling bases are gone."
+      },
+      {
+        "stage": "endgame",
+        "file": "PathcraftAI_Ignite_3-Endgame_on_NeverSink-STRICT.filter",
+        "base": "neversink_poe2_strict.filter",
+        "why": "Set 05 starter-final: Kaom's Heart, the four named runes, Perfect Essence of Sorcery, set-05 armour bases, anoint emotions. STRICT rather than VERY-STRICT for the same reason as the Fartfinder overlay."
+      }
+    ],
+    "bases": [
+      {
+        "file": "neversink_poe2_soft.filter",
+        "upstream": "NeverSink's filter 2 - 0-SOFT.filter",
+        "used_for": "campaign",
+        "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%200-SOFT.filter",
+        "sha256": "4982d9531e17313c0d26e58ce39e636e4a870035d4e91702a051fd5263cc961d",
+        "bytes": 252540
+      },
+      {
+        "file": "neversink_poe2_regular.filter",
+        "upstream": "NeverSink's filter 2 - 1-REGULAR.filter",
+        "used_for": "maps",
+        "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%201-REGULAR.filter",
+        "sha256": "16a0333e07d0bce8a4886dc2ab0d34d6190e652a58a9d784ff06616853606572",
+        "bytes": 252572
+      },
+      {
+        "file": "neversink_poe2_strict.filter",
+        "upstream": "NeverSink's filter 2 - 3-STRICT.filter",
+        "used_for": "endgame",
+        "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%203-STRICT.filter",
+        "sha256": "efd5631032846353a15d8cfe0165296ab124bd6057c15f7d66b8f4bdfa1e9fd8",
+        "bytes": 252655
+      }
+    ]
+  },
+  "styles": {
+    "core": {
+      "comment": "S급 — 빌드가 성립하려면 반드시 있어야 하는 것 (종소리 지팡이 / 카옴의 심장 / 완벽한 마법 에센스)",
+      "text": [255, 255, 255],
+      "border": [255, 140, 0],
+      "background": [140, 30, 0],
+      "font": 45,
+      "sound": [1, 300],
+      "beam": "Red",
+      "icon": [0, "Red", "Star"]
+    },
+    "endgame": {
+      "comment": "A급 — 스타터 마감 세팅을 완성하는 지정 룬",
+      "text": [255, 245, 225],
+      "border": [255, 190, 80],
+      "background": [175, 65, 0],
+      "font": 42,
+      "sound": [2, 280],
+      "beam": "Orange",
+      "icon": [0, "Orange", "Diamond"]
+    },
+    "gear": {
+      "comment": "B급 — 단계별 장비 베이스 (석궁, 슬롯 베이스, PoB 착용 방어구). 폰트 40 = NeverSink 가 무음으로 40 을 주는 레어/레벨링 티어와 같은 크기 — 38 이면 소리를 얹고도 글자가 작아지는 상태가 250건 넘게 생겼다",
+      "text": [255, 215, 170],
+      "border": [225, 125, 40],
+      "background": [85, 30, 0],
+      "font": 40,
+      "sound": [4, 200],
+      "beam": "Orange",
+      "icon": [1, "Orange", "Circle"]
+    },
+    "craft": {
+      "comment": "C급 — 제작·소모 재료 (주얼 / 상위 룬 / 호신부 / 성유 재료). 폰트 40 은 B급과 같은 이유 (NeverSink 의 무음 40 티어 아래로 내려가지 않기 위함); 등급 구분은 밝은 배경 + 어두운 글자 + 노란 빔으로 한다",
+      "text": [70, 25, 0],
+      "border": [235, 140, 45],
+      "background": [255, 215, 150],
+      "font": 40,
+      "sound": [3, 180],
+      "beam": "Yellow",
+      "icon": [2, "Yellow", "Triangle"]
+    }
+  },
+  "rules": [
+    {
+      "style": "core",
+      "name": "[전 구간] 종소리 지팡이 — 빌드 최우선 무기",
+      "note": "가이드 §4 '지팡이(최우선) — 다른 장비보다 지팡이를 먼저 맞춘다, 이 빌드는 스킬 레벨 효율이 매우 높다'. PoB 세트 03 Swap·05 실물이 모두 종소리 지팡이(Chiming Staff)이고, 힘의 부적을 스킬로 부여하는 것은 이 베이스의 고유 속성이다(PoB 암시 'Grants Skill: Sigil of Power' · poe2db 요구 레벨 25 · 지능 46). 52 전환에 지팡이 하나가 필요하므로 캠페인부터 켠다. 같은 베이스의 고유(Sire of Shards · The Burden of Shadows)는 NeverSink 고유 티어 경보에 맡기려고 고유 등급을 뺀다",
+      "class": ["Staves"],
+      "base_types": ["Chiming Staff"],
+      "rarity": ["Normal", "Magic", "Rare"]
+    },
+    {
+      "style": "core",
+      "name": "[스타터 마감] 카옴의 심장 — 이 세팅의 유일한 고유",
+      "note": "가이드 §4 갑옷 행: '이 세팅에서 쓰는 유일한 고유 아이템(정복자 판금 베이스)', 생명력 최대치 +1500 대신 '정신력이 없음'. PoB 세트 05 실물 = Kaom's Heart / Conqueror Plate. poe2db 기준 정복자 판금을 베이스로 쓰는 고유는 카옴의 심장 하나뿐이라 고유 등급만 잡으면 정확히 이 물건이다. 노멀·매직·레어 정복자 판금은 NeverSink 티어에 맡긴다",
+      "base_types": ["Conqueror Plate"],
+      "rarity": ["Unique"]
+    },
+    {
+      "style": "core",
+      "name": "[전환 후] 완벽한 마법 에센스 — 지팡이 모든 주문 스킬 레벨 +5",
+      "note": "가이드 §4·§7 지팡이 제작: '주문 피해가 높은 지팡이에 완벽한 에센스로 모든 주문 스킬 레벨 5'. 가이드는 에센스 이름을 대지 않지만 poe2db 기준 지팡이에 '+5 to Level of all Spell Skills'를 붙이는 완벽 에센스는 Perfect Essence of Sorcery뿐이고, PoB 세트 05 지팡이의 커스텀 모드(+5 모든 주문 스킬 레벨)와 일치한다. 상위(Greater) 등급은 주문 피해만 주므로 넣지 않는다",
+      "base_types": ["Perfect Essence of Sorcery"]
+    },
+    {
+      "style": "endgame",
+      "name": "[스타터 마감] 지정 룬 4종 — 지팡이 · 투구 · 장갑 · 장화",
+      "note": "가이드 §7 룬 표 + PoB 세트 05 실물 룬. 헤지위치 아산드라의 지혜 룬 = 지팡이 모든 주문 스킬 레벨 +1(결속: Archon 회복 30% 빨리 종료) / 사카왈의 침식 룬 = 투구 노출 효과 25% 증가(기름 유탄의 화염 노출 강화) / 매춘부 만난의 잔혹 룬 = 장갑 피해 상태이상 강도 20% 증가('가능하면 꼭 챙길 것') / 곡예 룬 = 장화 구르기 거리 +0.3m. 네 이름 모두 poe2db 영문 페이지에서 효과를 대조했다",
+      "class": ["Augment"],
+      "base_types": [
+        "Hedgewitch Assandra's Rune of Wisdom",
+        "Saqawal's Rune of Erosion",
+        "Courtesan Mannan's Rune of Cruelty",
+        "Rune of Acrobatics"
+      ]
+    },
+    {
+      "style": "gear",
+      "name": "[캠페인 33~ · 전환 후 스왑] 폭격 석궁",
+      "note": "가이드 §3 무기: '유탄 스킬이 투사체를 추가 발사하는 폭격 석궁을 구하면 가장 좋다'. 암시 '유탄 스킬 투사체 1개 추가 발사'는 베이스 속성이라 등급과 무관하다(PoB 세트 03 스왑 석궁은 암시만 남긴 폭격 석궁). 세트 02 주무기 → 세트 03·04 무기 스왑(기름 유탄용)까지 쓰이고 세트 05에서 포격 석궁으로 바뀌므로 엔드게임 파일에서는 뺀다. GGPK 드랍 레벨 33",
+      "class": ["Crossbows"],
+      "base_types": ["Bombard Crossbow"],
+      "rarity": ["Normal", "Magic", "Rare"],
+      "stages": ["campaign", "maps"]
+    },
+    {
+      "style": "gear",
+      "name": "[스타터 마감 스왑] 포격 석궁",
+      "note": "PoB 세트 05 무기 스왑 = Cannonade Crossbow(암시 유탄 투사체 +1, 룬 생명력 +80 · 유탄 재발동 10%). 가이드 §1 세트 05 행과 §7 석궁 룬 행이 이 실물을 그대로 적는다. 전환 후 석궁은 '옵션이 없어도 무방'(§7)하므로 베이스 자체가 목표다. GGPK 드랍 레벨 59",
+      "class": ["Crossbows"],
+      "base_types": ["Cannonade Crossbow"],
+      "rarity": ["Normal", "Magic", "Rare"]
+    },
+    {
+      "style": "gear",
+      "name": "[세트 02·04·05] 목걸이 · 허리띠 베이스",
+      "note": "PoB 세트 02·04·05 목걸이가 전부 황금 목걸이(Gold Amulet), 세트 04·05 허리띠가 Utility Belt(플라스크 회복량 20% 즉시 적용 암시). 가이드 §4는 목걸이에 '모든 주문 스킬 레벨 우선', 허리띠에 '생명력·저항 우선'을 요구할 뿐 베이스를 지정하지 않으므로 이 룰은 굴릴 베이스 후보 표시다. 고유 등급은 NeverSink 티어에 맡긴다",
+      "base_types": ["Gold Amulet", "Utility Belt"],
+      "rarity": ["Normal", "Magic", "Rare"]
+    },
+    {
+      "style": "gear",
+      "name": "[세트 05 · 스타터 마감] 방어구 베이스",
+      "note": "PoB 세트 05 실물: 챔피언 투구(사카왈의 침식 룬) · Cultist Gauntlets(만난의 잔혹 룬) · 요새 사바톤(곡예 룬). 가이드 §4는 투구·장갑에 '생명력 + 부족한 저항', 장화에 '이동 속도 최대'만 요구하므로 베이스는 PoB 착용 실물 기준 후보다. 몸통은 카옴의 심장으로 대체된다. GGPK 드랍 레벨 75라 캠페인에서는 나오지 않는다",
+      "base_types": ["Champion Helm", "Cultist Gauntlets", "Fortress Sabatons"],
+      "rarity": ["Normal", "Magic", "Rare"]
+    },
+    {
+      "style": "gear",
+      "name": "[세트 04 · 전환 직후] 방어구 베이스",
+      "note": "PoB 세트 04 실물 — 가이드 §1 세트 04 행 '방어구 전 부위 방어도/회피 62~67% + 생명력 + 저항 + 룬'. Gallant Helm(상위 사막 룬) · Ornate Gauntlets · Bold Sabatons · Golden Mail(상위 육신 룬 2개). GGPK 드랍 레벨 62~65라 액트 후반~초기 맵 물건이고 세트 05에서 전부 교체되므로 엔드게임 파일에서는 뺀다",
+      "base_types": ["Gallant Helm", "Ornate Gauntlets", "Bold Sabatons", "Golden Mail"],
+      "rarity": ["Normal", "Magic", "Rare"],
+      "stages": ["campaign", "maps"]
+    },
+    {
+      "style": "gear",
+      "name": "[세트 02 · 캠페인] 방어구 베이스",
+      "note": "PoB 세트 02(Lv6~14 이후 액트 전 구간) 실물 방어구. 가이드 §3 방어구: '어렵게 생각하지 말고 생명력과 저항을 맞춘다, 장화는 이동 속도'라 베이스 요구는 없다 — PoB 착용 실물을 후보로 표시할 뿐이다. GGPK 드랍 레벨 51, AreaLevel 64 상한으로 액트를 지나면 조용해진다",
+      "base_types": ["Fierce Greathelm", "Elegant Mitts", "Lionheart Greaves", "Wanderer Armour"],
+      "rarity": ["Normal", "Magic", "Rare"],
+      "stages": ["campaign"],
+      "area_level_max": 64
+    },
+    {
+      "style": "craft",
+      "name": "[전환 후] 루비 주얼 — 화염 피해 · 점화 강도",
+      "note": "가이드 §4 주얼: '화염 피해와 점화 강도를 본다, 그중 점화 강도의 효율이 굉장히 좋다'. PoB 세트 04(화염 피해 10%)·05(화염 피해 10% · 점화 강도 10%) 모두 루비. Class를 Jewels로 못박고 정확 일치로 잡는다 — 이름만으로 잡으면 루비 반지·루비 호신부·Time-Lost 루비까지 딸려온다. 고유 주얼은 NeverSink에 맡긴다",
+      "class": ["Jewels"],
+      "base_types": ["Ruby"],
+      "rarity": ["Normal", "Magic", "Rare"]
+    },
+    {
+      "style": "craft",
+      "name": "[전 구간] 상위 룬 — 사막(지팡이 추가 화염) · 육신(생명력)",
+      "note": "가이드 §4·§7: 지팡이 룬은 상위 사막 룬(poe2db 지팡이: 피해의 10%를 추가 화염 피해로, 결속 점화 강도 30%), 갑옷 룬은 상위 육신 룬(최대 생명력). PoB 세트 03 지팡이 = 상위 사막 룬 2개, 세트 04 Golden Mail·세트 05 카옴의 심장 = 상위 육신 룬 2개. 하위(Lesser)·기본 등급은 가이드가 부르지 않아 넣지 않는다",
+      "class": ["Augment"],
+      "base_types": ["Greater Desert Rune", "Greater Body Rune"]
+    },
+    {
+      "style": "craft",
+      "name": "[52 전환~초기 맵] 호신부 — 해동 · 돌 · 은",
+      "note": "가이드 §4 '플라스크·호신부(PoB)': 영상에는 없고 PoB 세트 03~05에만 있는 구성 — 해동 호신부(동결 시) · 돌 호신부(기절 시) · 은 호신부(둔화 시). 52 전환 세트부터 들어오므로 캠페인부터 켜고, 초기 맵까지 갖추면 끝이라 엔드게임 파일에서는 뺀다(STRICT 가 일부러 숨기는 은 호신부를 소리까지 붙여 되살리지 않기 위함). AreaLevel 79 상한: NeverSink 는 아이템 레벨 82 이상 · 퀄리티 18 이상 호신부에 42/300 경보를 따로 주는데 이 빌더는 퀄리티 조건을 못 쓰므로, 그 구간이 나오기 전에 룰이 물러나 NeverSink 경보가 살아남게 한다. 가이드·PoB가 이름을 대지 않는 다른 호신부는 넣지 않고, 호신부는 NeverSink 도 노멀·매직만 다루므로 같은 범위로 잡는다",
+      "class": ["Charms"],
+      "base_types": ["Thawing Charm", "Stone Charm", "Silver Charm"],
+      "rarity": ["Normal", "Magic"],
+      "stages": ["campaign", "maps"],
+      "area_level_max": 79
+    },
+    {
+      "style": "craft",
+      "name": "[스타터 마감] 목걸이 성유 — 액체 감정",
+      "note": "가이드 §4·§7 목걸이 성유: 영상은 흉포함 · 고립 · 절망 = 모범(poe2db 레시피 Ferocity · Isolation · Despair), PoB 세트 05 목걸이는 희석된 액체 죄책감 ×3 = 화염술사(poe2db) — 어느 쪽이 제작자 실제 세팅인지 가이드 §8 ⑦이 미확인으로 남겼으므로 두 레시피 재료를 모두 잡는다. 농축된 액체 고립은 NeverSink S급(경보 6) 잭팟이라 덮지 않고 뺀다",
+      "base_types": ["Potent Liquid Ferocity", "Liquid Despair", "Diluted Liquid Guilt"]
+    }
+  ]
+}

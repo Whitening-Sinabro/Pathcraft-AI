@@ -48,7 +48,10 @@ GAME_CLASS_TO_FILTER_CLASS = {
     "OneHandAxes": "One Hand Axes", "TwoHandAxes": "Two Hand Axes",
     "OneHandSwords": "One Hand Swords", "TwoHandSwords": "Two Hand Swords",
     "Bows": "Bows", "Crossbows": "Crossbows", "Claws": "Claws", "Daggers": "Daggers",
-    "Spears": "Spears", "Staves": "Staves", "Flail": "Flails", "Quivers": "Quivers",
+    "Spears": "Spears", "Flail": "Flails", "Quivers": "Quivers",
+    "Staves": "Quarterstaves",  # GGPK 'Staves' 테이블은 전부 쿼터스태프다.
+    # 캐스터용 지팡이(필터 클래스 "Staves")는 base_items_poe2.json 에 아예 없어,
+    # 그 이름은 NeverSink 어휘로만 해결된다.
     "BodyArmours": "Body Armours", "Boots": "Boots", "Gloves": "Gloves",
     "Helmets": "Helmets", "Shields": "Shields", "Focus": "Foci",
     "Amulets": "Amulets", "Belts": "Belts", "Rings": "Rings",
