@@ -27,11 +27,30 @@ SPEC_PATH = REPO_ROOT / "data" / "filter_build_targets" / "poe2_fartfinder_skado
 FILTERS_DIR = REPO_ROOT / "filters"
 NEVERSINK_HEADER = "NeverSink's Indepth Loot Filter"
 
+SOURCES_DIR = REPO_ROOT / "data" / "filter_sources"
+
 STAGE_FILES = {
     "campaign": "PathcraftAI_Fartfinder_1-Campaign_on_NeverSink-SOFT.filter",
     "maps": "PathcraftAI_Fartfinder_2-EarlyMaps_on_NeverSink-REGULAR.filter",
     "endgame": "PathcraftAI_Fartfinder_3-Endgame_on_NeverSink-STRICT.filter",
 }
+
+# .gitignore excludes *.filter, so a fresh clone has neither the NeverSink bases
+# nor the generated overlays. Those tests skip with an actionable message instead
+# of failing -- but the pin check below still runs, so the pins themselves can
+# never rot unnoticed.
+FETCH_HINT = "run: python scripts/fetch_neversink_poe2_bases.py"
+BUILD_HINT = "regenerate: see the header of any filters/PathcraftAI_Fartfinder_*.filter"
+
+needs_bases = pytest.mark.skipif(
+    not all((SOURCES_DIR / n).exists() for n in
+            ("neversink_poe2_soft.filter", "neversink_poe2_regular.filter", "neversink_poe2_strict.filter")),
+    reason=f"NeverSink base filters absent -- {FETCH_HINT}",
+)
+needs_outputs = pytest.mark.skipif(
+    not all((FILTERS_DIR / f).exists() for f in STAGE_FILES.values()),
+    reason=f"generated overlays absent -- {BUILD_HINT}",
+)
 
 
 def _load_module():
@@ -60,6 +79,37 @@ def spec() -> dict:
     return json.loads(SPEC_PATH.read_text(encoding="utf-8"))
 
 
+class TestBasePins:
+    """_meta.bases is the only committed record of what the overlays were built
+    against. If it drifts from the files on disk, every other gate in this file
+    is checking the wrong vocabulary."""
+
+    def test_pin_block_covers_every_declared_output(self, spec):
+        pinned = {b["file"] for b in spec["_meta"]["bases"]}
+        for output in spec["_meta"]["outputs"]:
+            assert output["base"] in pinned, f"{output['base']} 가 _meta.bases 에 없다"
+
+    def test_pins_are_well_formed(self, spec):
+        for b in spec["_meta"]["bases"]:
+            assert len(b["sha256"]) == 64 and int(b["sha256"], 16) >= 0
+            assert b["bytes"] > 100_000, b["file"]
+            assert b["url"].startswith("https://raw.githubusercontent.com/NeverSinkDev/")
+
+    @needs_bases
+    def test_on_disk_bases_match_their_pins(self, spec):
+        import hashlib
+
+        for b in spec["_meta"]["bases"]:
+            path = SOURCES_DIR / b["file"]
+            if not path.exists():
+                continue
+            data = path.read_bytes()
+            assert hashlib.sha256(data).hexdigest() == b["sha256"], (
+                f"{b['file']} 가 핀과 다르다 — NeverSink 새 릴리스라면 어휘 게이트부터 재검사"
+            )
+            assert len(data) == b["bytes"]
+
+
 class TestContrastGate:
     def test_all_spec_styles_clear_the_threshold(self, mod, spec):
         for name, style in spec["styles"].items():
@@ -81,6 +131,7 @@ class TestVocabularyGate:
         assert mod.vocab_ok("Iron Greaves", base)
         assert not mod.vocab_ok("Brigand Mace", base)
 
+    @needs_bases
     def test_every_spec_name_survives_against_its_real_base(self, spec):
         """스펙에 적힌 이름이 실제 NeverSink 어휘에 전부 있는지 — 오타 1글자면 조용히 빠진다."""
         for output in spec["_meta"]["outputs"]:
@@ -95,6 +146,7 @@ class TestVocabularyGate:
                     assert base_type in base, f"{output['stage']}: BaseType {base_type!r} 없음"
 
 
+@needs_outputs
 class TestStageGate:
     def test_stage_rule_counts(self, spec):
         """단계별로 몇 개가 나가야 하는지를 스펙에서 직접 센다."""
@@ -123,6 +175,7 @@ class TestStageGate:
             assert "Iron Greaves" in _overlay_text(FILTERS_DIR / path), f"{stage} 에 시신걸음 없음"
 
 
+@needs_outputs
 class TestShowOnly:
     def test_no_hide_block_in_any_overlay(self):
         for stage, path in STAGE_FILES.items():
@@ -136,12 +189,14 @@ class TestShowOnly:
             assert text.index("# [overlay]") < text.index(NEVERSINK_HEADER), stage
 
 
+@needs_outputs
 class TestEmittedFilesMatchTheirDeclaredBase:
     def test_each_file_carries_the_base_its_spec_declares(self, spec):
         for output in spec["_meta"]["outputs"]:
             text = (FILTERS_DIR / output["file"]).read_text(encoding="utf-8")
             assert f"# stage: {output['stage']} | base: {output['base']}" in text
 
+    @needs_bases
     def test_regeneration_is_reproducible(self, spec, tmp_path):
         """스펙만 있으면 같은 바이트가 다시 나와야 한다 — 손으로 고친 필터를 잡는다."""
         for output in spec["_meta"]["outputs"]:

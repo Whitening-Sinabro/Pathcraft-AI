@@ -14,7 +14,8 @@
       "Deliberately excluded: Timeless Jewel (Heroic Tragedy), Time-Lost Diamond (Against the Darkness), Diamond (Megalomaniac/From Nothing), Heavy Belt (Headhunter). NeverSink already gives these a top-tier jackpot alert; overlaying them would downgrade a louder alarm.",
       "Leveling bow/quiver/armour bases carry AreaLevel caps so they stop showing once you are past that stage.",
       "Vocabulary mismatches resolved against the base filter: PoB 'Talisman of Thruldana' -> 'Idol of Thruldana'; 'Arcanist Etcher' -> \"Arcanist's Etcher\"; 'Brigand Mace' does not exist in NeverSink's vocabulary, so the mace craft target is expressed as the One Hand Maces class with its seven real bases.",
-      "Split into three stage files (campaign / early maps / endgame+uber shared). Rules carry a 'stages' key only when they would actually misfire at the wrong stage; everything else is emitted in all three, because a rule whose items do not drop yet is silent, while omitting it could hide a real drop."
+      "Split into three stage files (campaign / early maps / endgame+uber shared). Rules carry a 'stages' key only when they would actually misfire at the wrong stage; everything else is emitted in all three, because a rule whose items do not drop yet is silent, while omitting it could hide a real drop.",
+      "The NeverSink base filters are not vendored (.gitignore excludes *.filter). _meta.bases pins each one by URL + SHA-256; `python scripts/fetch_neversink_poe2_bases.py` restores and verifies them. A hash mismatch means NeverSink shipped a new release -- re-check the vocabulary gate before re-pinning, because a renamed BaseType would otherwise be dropped silently and just stop showing up in game."
     ],
     "outputs": [
       {
@@ -34,6 +35,40 @@
         "file": "PathcraftAI_Fartfinder_3-Endgame_on_NeverSink-STRICT.filter",
         "base": "neversink_poe2_strict.filter",
         "why": "Shared by endgame and uber endgame at the user's request. STRICT rather than VERY-STRICT because VERY-STRICT (32 Hide blocks) also drops things still worth picking up in low-tier maps; regenerate against neversink_poe2_very_strict.filter if you want it quieter."
+      }
+    ],
+    "bases": [
+      {
+        "file": "neversink_poe2_soft.filter",
+        "upstream": "NeverSink's filter 2 - 0-SOFT.filter",
+        "used_for": "campaign",
+        "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%200-SOFT.filter",
+        "sha256": "4982d9531e17313c0d26e58ce39e636e4a870035d4e91702a051fd5263cc961d",
+        "bytes": 252540
+      },
+      {
+        "file": "neversink_poe2_regular.filter",
+        "upstream": "NeverSink's filter 2 - 1-REGULAR.filter",
+        "used_for": "maps",
+        "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%201-REGULAR.filter",
+        "sha256": "16a0333e07d0bce8a4886dc2ab0d34d6190e652a58a9d784ff06616853606572",
+        "bytes": 252572
+      },
+      {
+        "file": "neversink_poe2_strict.filter",
+        "upstream": "NeverSink's filter 2 - 3-STRICT.filter",
+        "used_for": "endgame",
+        "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%203-STRICT.filter",
+        "sha256": "efd5631032846353a15d8cfe0165296ab124bd6057c15f7d66b8f4bdfa1e9fd8",
+        "bytes": 252655
+      },
+      {
+        "file": "neversink_poe2_very_strict.filter",
+        "upstream": "NeverSink's filter 2 - 4-VERY-STRICT.filter",
+        "used_for": "(unused -- quieter alternative for the endgame file)",
+        "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%204-VERY-STRICT.filter",
+        "sha256": "431f7802ecb519fead8529f6da287e84ec2fe435c49dd75bd862fd0f85eac5ae",
+        "bytes": 251499
       }
     ]
   },
