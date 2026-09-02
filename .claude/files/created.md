@@ -255,3 +255,15 @@
 | scripts/build_poe2_cursemaster_overlay.py | NeverSink POE2 위 Show-only 커마 강조 오버레이 생성기 (어휘/대비 게이트) | 아니오 |
 | python/tests/test_build_poe2_cursemaster_overlay.py | 오버레이 스펙·생성 가드 (대비/코어 타깃/어휘 드랍/Show-only/빈 줄) | 아니오 |
 | C:/Users/User/Documents/My Games/Path of Exile 2/PathcraftAI_Cursemaster_on_NeverSink-REGULAR.filter | 설치된 커마 필터 (생성물 — 재생성 가능) | 예 |
+| data/filter_build_targets/poe2_infinite_ignite_arserina_0_5_5.json | 아르세리나 젬링 무한 점화 POE2 오버레이 필터 정본 스펙 (스타일 4계층 + 룰 14, NeverSink SOFT/REGULAR/STRICT 3단계 출력; filters/PathcraftAI_Ignite_*.filter 는 재생성 산출물) | 아니오 |
+| scripts/check_guide_contract.py | 가이드 HTML 구조 계약 + 템플릿 준수 검사 (장 띠·이미지 마커·3열 표·필수 장·부록 번호·평문 타임스탬프). 장이 조용히 사라져 아웃라인에서 빠지는 사고 방지 | 아니오 |
+| scripts/guide_evidence_check.py | 가이드 기계 검증 — 딥링크 산술·영상 길이 초과·중첩 앵커·기준 대비 사라진 본문. 6종 1.2초. `--adopt` 로 세션별 캐시를 data/_cache/ 로 통합 | 아니오 |
+| scripts/poe2_filter_eval.py | POE2 필터 독립 평가기 (first-match-wins + Continue). 빌더를 import 하지 않아 라우드니스 검증의 오라클이 된다 | 아니오 |
+| scripts/poe2_filter_sweep.py | 오버레이 vs 베이스 회귀 스윕 (REAL/폴백/무음 3분류). `--spec` 로 3단계 일괄, 15초 | 아니오 |
+| scripts/build_poe2_build_overlay.py | 빌드별 Show-only 오버레이 생성기(일반화). 어휘·대비·값·라우드니스·단계 게이트 | 아니오 |
+| scripts/fetch_neversink_poe2_bases.py | NeverSink POE2 베이스 필터를 `_meta.bases` 핀(URL+SHA-256)대로 복원·검증. 해시 불일치 시 exit 1 | 아니오 |
+| data/filter_build_targets/poe2_fartfinder_skadoosh_0_5_5.json | Fartfinder 오버레이 필터 정본 스펙 (룰 15 · 3단계 출력 · 보라 팔레트) | 아니오 |
+| python/tests/test_build_poe2_build_overlay.py | 오버레이 빌더 게이트 테스트 25건 (대비 반례·어휘 토큰·단계 분기·라우드니스 불변식·재현성) | 아니오 |
+| .claude/status/poe2_guides.md | POE2 가이드/필터 파이프라인 도메인 파일 — 산출물 위치, 발행 닥 ID, 검사 도구, 밟은 지뢰 목록 | 아니오 |
+| ~/.claude/projects/D--Pathcraft-AI/POE2_BUILD_GUIDE_TEMPLATE.md | 가이드 기준 템플릿 스펙(장 구성 고정·근거 계약·가독성 규칙). 문서마다 손으로 만들어 드리프트하던 것을 계약으로 고정 | 아니오 |
+| D:/discord-admin/templates/build-cards-poe2/*.md | POE2 빌드 카드 5종 정본(하우스 템플릿 준수). POE1 퍼블리셔 sourceDirectory 와 분리 | 아니오 |
