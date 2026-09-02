@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -125,39 +126,84 @@ class TestContrastGate:
         assert mod.luminance([0, 0, 0]) < mod.luminance([128, 128, 128]) < mod.luminance([255, 255, 255])
 
 
+class TestValueGate:
+    def test_nonsense_beam_colour_is_rejected(self, mod):
+        allowed = {"font": {36, 45}, "sound_id": {1, 3}, "volume": {100, 300},
+                   "beam": {"Purple", "Red"}, "icon_size": {0, 1, 2},
+                   "icon_color": {"Purple"}, "icon_shape": {"Star"}}
+        good = {"font": 36, "sound": [1, 200], "beam": "Purple", "icon": [0, "Purple", "Star"]}
+        mod.check_style_values("ok", good, allowed)
+        for broken in (
+            {**good, "beam": "Chartreuse"},
+            {**good, "icon": [0, "Chartreuse", "Star"]},
+            {**good, "icon": [0, "Purple", "Banana"]},
+            {**good, "font": 999},
+            {**good, "sound": [1, 9999]},
+        ):
+            with pytest.raises(SystemExit):
+                mod.check_style_values("broken", broken, allowed)
+
+
 class TestVocabularyGate:
-    def test_unknown_token_is_rejected(self, mod):
-        base = 'BaseType "Iron Greaves" "Spiked Club"'
-        assert mod.vocab_ok("Iron Greaves", base)
-        assert not mod.vocab_ok("Brigand Mace", base)
+    def test_vocabulary_is_a_token_set_not_a_substring_test(self, mod):
+        """`"Club" in base_text` 는 'Spiked Club' 때문에 통과한다 — 게임에는 없는 이름인데도.
+
+        적대검증이 실제로 이 구멍으로 깨진 필터를 초록으로 통과시켰다.
+        """
+        base = 'Show\n\tBaseType == "Iron Greaves" "Spiked Club"\n\tClass == "Boots"\n'
+        vocab = mod.base_vocabulary(base)
+        assert "Spiked Club" in vocab and "Boots" in vocab
+        assert "Club" not in vocab, "부분 문자열이 어휘로 통과하면 안 된다"
+        assert "Greaves" not in vocab
+
+    def test_comments_do_not_contribute_vocabulary(self, mod):
+        base = '# Brigand Mace is mentioned only in a comment\nShow\n\tBaseType == "Slim Mace"\n'
+        assert mod.base_vocabulary(base) == {"Slim Mace"}
+
+    def test_game_data_supplements_the_base_filter(self, mod):
+        """NeverSink 가 안 부르는 실존 베이스(도둑 철퇴)를 게임 데이터가 살려준다."""
+        names = mod.game_base_names()
+        assert "Brigand Mace" in names
+        assert "Spined Bracers" in names
 
     @needs_bases
-    def test_every_spec_name_survives_against_its_real_base(self, spec):
-        """스펙에 적힌 이름이 실제 NeverSink 어휘에 전부 있는지 — 오타 1글자면 조용히 빠진다."""
+    def test_every_spec_name_survives_against_its_real_base(self, mod, spec):
+        """스펙 이름이 전부 실제 어휘에 있는지 — 오타 1글자면 조용히 빠진다.
+
+        어휘 = 베이스 필터의 인용 토큰 ∪ GGPK 파생 베이스명. 후자가 없으면
+        NeverSink 가 안 부르는 실존 베이스(도둑 철퇴)를 스펙에 쓸 수 없다.
+        """
+        game = mod.game_base_names()
         for output in spec["_meta"]["outputs"]:
-            base = (REPO_ROOT / "data" / "filter_sources" / output["base"]).read_text(encoding="utf-8")
+            base = (SOURCES_DIR / output["base"]).read_text(encoding="utf-8")
+            vocab = mod.base_vocabulary(base) | game
             for rule in spec["rules"]:
                 stages = rule.get("stages")
                 if stages and output["stage"] not in stages:
                     continue
                 for cls in rule.get("class", []) or []:
-                    assert f'"{cls}"' in base, f"{output['stage']}: class {cls!r} 없음"
+                    assert cls in vocab, f"{output['stage']}: class {cls!r} 없음"
                 for base_type in rule["base_types"]:
-                    assert base_type in base, f"{output['stage']}: BaseType {base_type!r} 없음"
+                    assert base_type in vocab, f"{output['stage']}: BaseType {base_type!r} 없음"
 
 
 @needs_outputs
 class TestStageGate:
     def test_stage_rule_counts(self, spec):
-        """단계별로 몇 개가 나가야 하는지를 스펙에서 직접 센다."""
-        expected = {"campaign": 0, "maps": 0, "endgame": 0}
+        """단계별로 어떤 룰이 나가야 하는지를 스펙에서 직접 센다.
+
+        블록 수로 세면 안 된다 — 라우드니스 게이트가 한 룰을 볼륨별로 쪼개므로
+        블록 수는 스펙에서 예측되지 않는다. 룰 이름 집합이 계약이다.
+        """
+        expected: dict[str, set[str]] = {"campaign": set(), "maps": set(), "endgame": set()}
         for rule in spec["rules"]:
             for stage in rule.get("stages", list(expected)):
-                expected[stage] += 1
+                expected[stage].add(rule["name"])
         for stage, path in STAGE_FILES.items():
-            overlay = _overlay_text(FILTERS_DIR / path)
-            emitted = overlay.count("\nShow\n")
-            assert emitted == expected[stage], f"{stage}: {emitted} != {expected[stage]}"
+            emitted = set(re.findall(r"^# \[overlay\] (.+)$", _overlay_text(FILTERS_DIR / path), re.M))
+            assert emitted == expected[stage], (
+                f"{stage}: 빠짐={sorted(expected[stage] - emitted)} 남음={sorted(emitted - expected[stage])}"
+            )
 
     def test_levelling_rules_never_reach_the_map_files(self, spec):
         levelling_bases = [
@@ -173,6 +219,75 @@ class TestStageGate:
         """시신걸음은 11레벨부터 우버까지 계속 필요하다 — 한 단계라도 빠지면 빌드가 끊긴다."""
         for stage, path in STAGE_FILES.items():
             assert "Iron Greaves" in _overlay_text(FILTERS_DIR / path), f"{stage} 에 시신걸음 없음"
+
+
+@needs_outputs
+class TestNoAlertDowngrade:
+    """첫 매치 승리 = 오버레이가 NeverSink 경보를 대체한다.
+
+    NeverSink 가 소리치던 것을 우리가 속삭이면 필터를 나쁘게 만든 것이다.
+    적대검증이 Astrid's Creativity(최상위 45/300) 가 가장 조용한 스타일로
+    내려앉은 것을 포함해 40건을 찾아냈다.
+    """
+
+    @needs_bases
+    def test_no_emitted_block_is_quieter_than_the_base(self, mod, spec):
+        for output in spec["_meta"]["outputs"]:
+            base_text = (SOURCES_DIR / output["base"]).read_text(encoding="utf-8")
+            base_blocks = mod.parse_base_blocks(base_text)
+            overlay = _overlay_text(FILTERS_DIR / output["file"])
+            for block in overlay.split("\nShow\n")[1:]:
+                body = block.split("\n\n")[0]
+                names = re.findall(r'"([^"]+)"', re.search(r"\tBaseType [^\n]+", body).group())
+                rarity_line = re.search(r"\tRarity ([^\n]+)", body)
+                scope = set(rarity_line.group(1).split()) if rarity_line else set(mod.ALL_RARITIES)
+                font = int(re.search(r"\tSetFontSize (\d+)", body).group(1))
+                volume = int(re.search(r"\tPlayAlertSound \d+ (\d+)", body).group(1))
+                for name in names:
+                    req_font, req_vol, _, _ = mod.required_loudness(name, scope, set(), base_blocks)
+                    assert font >= req_font, f"{output['stage']} {name}: font {font} < base {req_font}"
+                    assert volume >= req_vol, f"{output['stage']} {name}: volume {volume} < base {req_vol}"
+
+
+@needs_outputs
+class TestExactMatching:
+    """`BaseType "Exalted Orb"` 는 'Perfect Exalted Orb'(S급)까지 삼킨다."""
+
+    def test_every_overlay_basetype_line_is_exact(self):
+        for stage, path in STAGE_FILES.items():
+            for line in _overlay_text(FILTERS_DIR / path).splitlines():
+                if line.startswith("\tBaseType"):
+                    assert line.startswith("\tBaseType == "), f"{stage}: 부분 일치 — {line.strip()}"
+
+    def test_no_overlay_token_is_a_prefix_of_a_longer_real_base(self, mod, spec):
+        """정확 일치라도 스펙에 'Ruby' 같은 짧은 이름이 있으면 의도를 의심해야 한다."""
+        names = mod.game_base_names()
+        for rule in spec["rules"]:
+            if rule.get("substring"):
+                continue
+            for token in rule["base_types"]:
+                longer = [n for n in names if n != token and token in n]
+                if longer and token not in names:
+                    raise AssertionError(f"{token!r} 은 실존 베이스가 아니면서 {longer[:3]} 의 부분 문자열")
+
+
+@needs_outputs
+class TestBuildCriticalItems:
+    """가이드가 못박은 3대 핵심 유니크가 전 단계에 살아 있어야 한다."""
+
+    CORE = {"Iron Greaves": "시신걸음", "Spiked Club": "참호목", "Spined Bracers": "뱀 이빨"}
+
+    def test_all_three_core_uniques_present_at_every_stage(self):
+        for stage, path in STAGE_FILES.items():
+            overlay = _overlay_text(FILTERS_DIR / path)
+            for base, korean in self.CORE.items():
+                assert f'"{base}"' in overlay, f"{stage} 에 {korean}({base}) 없음"
+
+    def test_core_unique_rules_are_rarity_scoped(self, spec):
+        """유니크 룰이 등급을 안 걸면 같은 베이스의 레어까지 먹어 티어 경보를 덮는다."""
+        for rule in spec["rules"]:
+            if rule["base_types"] and rule["base_types"][0] in self.CORE:
+                assert rule.get("rarity") == ["Unique"], rule["name"]
 
 
 @needs_outputs

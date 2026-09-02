@@ -13,9 +13,10 @@
       "Unique names are NOT in NeverSink's POE2 filter — it matches uniques by BaseType. Every unique below is mapped to its real base, taken from the decoded PoB / .build files.",
       "Deliberately excluded: Timeless Jewel (Heroic Tragedy), Time-Lost Diamond (Against the Darkness), Diamond (Megalomaniac/From Nothing), Heavy Belt (Headhunter). NeverSink already gives these a top-tier jackpot alert; overlaying them would downgrade a louder alarm.",
       "Leveling bow/quiver/armour bases carry AreaLevel caps so they stop showing once you are past that stage.",
-      "Vocabulary mismatches resolved against the base filter: PoB 'Talisman of Thruldana' -> 'Idol of Thruldana'; 'Arcanist Etcher' -> \"Arcanist's Etcher\"; 'Brigand Mace' does not exist in NeverSink's vocabulary, so the mace craft target is expressed as the One Hand Maces class with its seven real bases.",
       "Split into three stage files (campaign / early maps / endgame+uber shared). Rules carry a 'stages' key only when they would actually misfire at the wrong stage; everything else is emitted in all three, because a rule whose items do not drop yet is silent, while omitting it could hide a real drop.",
-      "The NeverSink base filters are not vendored (.gitignore excludes *.filter). _meta.bases pins each one by URL + SHA-256; `python scripts/fetch_neversink_poe2_bases.py` restores and verifies them. A hash mismatch means NeverSink shipped a new release -- re-check the vocabulary gate before re-pinning, because a renamed BaseType would otherwise be dropped silently and just stop showing up in game."
+      "The NeverSink base filters are not vendored (.gitignore excludes *.filter). _meta.bases pins each one by URL + SHA-256; `python scripts/fetch_neversink_poe2_bases.py` restores and verifies them. A hash mismatch means NeverSink shipped a new release -- re-check the vocabulary gate before re-pinning, because a renamed BaseType would otherwise be dropped silently and just stop showing up in game.",
+      "Vocabulary names resolved against the base filter: PoB 'Talisman of Thruldana' -> 'Idol of Thruldana'; 'Arcanist Etcher' -> \"Arcanist's Etcher\". 'Brigand Mace' is absent from NeverSink's vocabulary but is a real base (data/base_items_poe2.json: OneHandMaces, req_str 60, drop_level 33), so the gate now accepts game data as a second source of truth.",
+      "Adversarial verification 2026-09-02 returned REFUTED; this spec is the corrected state. Fixed: unique-scoped rules were swallowing NeverSink's unique-tier alerts; bare BaseType matching let 'Sapphire'/'Exalted Orb'/'Shortbow' capture unrelated items including S-tier currency; Snakebite (Spined Bracers) -- one of the build's three core uniques -- was missing entirely; the mace rule named four bases the guide's own STR<100 rule excludes while omitting the base it names; charms were tagged levelling-only though the guide treats them as an endgame slot."
     ],
     "outputs": [
       {
@@ -198,7 +199,20 @@
       "base_types": [
         "Iron Greaves"
       ],
-      "exact": true
+      "rarity": [
+        "Unique"
+      ]
+    },
+    {
+      "style": "core",
+      "name": "[전 구간] 뱀 이빨 — 빌드 필수",
+      "note": "Snakebite = Spined Bracers(장갑). 가이드가 참호목·시신걸음과 함께 '이 셋 말고는 전부 쓰레기 장비였다'고 못박은 3대 핵심 유니크. 33레벨부터 드랍",
+      "rarity": [
+        "Unique"
+      ],
+      "base_types": [
+        "Spined Bracers"
+      ]
     },
     {
       "style": "core",
@@ -207,7 +221,9 @@
       "base_types": [
         "Spiked Club"
       ],
-      "exact": true
+      "rarity": [
+        "Unique"
+      ]
     },
     {
       "style": "core",
@@ -231,7 +247,7 @@
     {
       "style": "uber",
       "name": "[Endgame~Uber] 룬 · 영혼핵 — 세팅 완성 재료",
-      "note": "아즈카파 영혼핵=참호목 2소켓(우버) / 스룰다나의 부적=세트1 메이스 / 상위 사막·강철 룬=저항·방어 / 아마나무의 응시=몸통 ※PoB는 'Talisman of Thruldana'로 적지만 필터 어휘는 'Idol of Thruldana'",
+      "note": "아즈카파 영혼핵=참호목 2소켓(우버) / 스룰다나의 부적=세트1 메이스 / 상위 사막·강철 룬=저항·방어. PoB 는 'Talisman of Thruldana'로 적지만 필터 어휘는 'Idol of Thruldana'. 아마나무의 응시는 유니크 몸통이라 베이스 매핑이 확인되지 않아 이 룰에 넣지 않았다 — NeverSink 유니크 티어 경보로 처리된다",
       "base_types": [
         "Soul Core of Azcapa",
         "Idol of Thruldana",
@@ -253,7 +269,7 @@
     {
       "style": "gear",
       "name": "[Starter~Uber] 슬롯 베이스 — 스탯 우선순위대로 굴릴 물건",
-      "note": "엄숙한 셉터=세트1/2 정신력(래틀링 셉터만 아니면 됨) / 미장착 반지=우버에 2개 필요 / 조상의 티아라·희생의 예복=우버 슬롯 / 달·태양·항성 목걸이 / 프리즘 반지",
+      "note": "엄숙한 셉터=세트1/2 정신력(래틀링 셉터만 아니면 됨) / 미장착 반지=우버에 2개 필요 / 조상의 티아라·희생의 예복=우버 슬롯 / 달·태양·항성 목걸이 / 프리즘 반지. 굴릴 베이스를 찾는 룰이므로 유니크 등급은 제외한다 — NeverSink 유니크 티어 경보를 덮지 않기 위함",
       "base_types": [
         "Stoic Sceptre",
         "Unset Ring",
@@ -267,6 +283,11 @@
         "Lunar Amulet",
         "Solar Amulet",
         "Stellar Amulet"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
       ]
     },
     {
@@ -282,6 +303,11 @@
       "area_level_max": 30,
       "stages": [
         "campaign"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
       ]
     },
     {
@@ -299,6 +325,11 @@
       "area_level_max": 55,
       "stages": [
         "campaign"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
       ]
     },
     {
@@ -311,22 +342,35 @@
       "area_level_max": 68,
       "stages": [
         "campaign"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
       ]
     },
     {
       "style": "craft",
       "name": "[Starter~Uber] 주얼 — 중독·범위 스케일링",
-      "note": "사파이어/에메랄드에 중독·범위 옵션이 이 빌드의 주얼 목표. 엔드게임에서는 방어 막기·소환수 생명력 루비도 대안",
+      "note": "사파이어/에메랄드에 중독·범위 옵션이 이 빌드의 주얼 목표. 엔드게임에서는 방어 막기·소환수 생명력 루비도 대안. Class 를 Jewels 로 못박고 유니크를 제외한다 — 이름만으로 잡으면 사파이어 반지·호신부·Time-Lost 사파이어까지 딸려온다",
       "base_types": [
         "Sapphire",
         "Emerald",
         "Ruby"
+      ],
+      "class": [
+        "Jewels"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
       ]
     },
     {
       "style": "craft",
       "name": "[Endgame~Uber] 철퇴 제작 재료",
-      "note": "가이드 제작 사다리: 완벽한 마모의 에센스 → 좌측 강령술 징조 + 군주의 징조 + 보존된 턱뼈로 '완전히 파괴된 방어구 대상 피해 증가' 발현. 아스트리드의 창의성은 제작 모드 2개를 동시에 얻기 위한 임시 소켓, 분광 합금은 상태이상 강도",
+      "note": "가이드 제작 사다리: 완벽한 마모의 에센스 → 좌측 강령술 징조 + 군주의 징조 + 보존된 턱뼈로 '완전히 파괴된 방어구 대상 피해 증가' 발현. 아스트리드의 창의성은 제작 모드 2개를 동시에 얻기 위한 임시 소켓, 분광 합금은 상태이상 강도. 전부 정확 일치로 잡는다 — 부분 일치면 'Exalted Orb'가 'Perfect Exalted Orb'(NeverSink S급)까지 먹어 경보를 낮춘다",
       "base_types": [
         "Perfect Essence of Abrasion",
         "Greater Essence of Abrasion",
@@ -350,8 +394,8 @@
     },
     {
       "style": "craft",
-      "name": "[레벨링] 부적 — 상태이상 대비",
-      "note": "레벨링 가이드가 구간별로 지정한 부적. 사파이어=빙결, 루비=점화, 자수정=카오스, 해동=빙결 해제",
+      "name": "[전 구간] 호신부 — 상태이상 대비",
+      "note": "가이드 §4.2 가 호신부를 엔드게임 장비 슬롯으로 다룬다(해동 호신부 계열로 빙결 제거). 레벨링 구간에도 같은 물건이 필요하므로 단계 제한과 AreaLevel 상한을 걸지 않는다. 유니크 호신부는 NeverSink 티어 경보에 맡긴다",
       "base_types": [
         "Stone Charm",
         "Sapphire Charm",
@@ -360,29 +404,26 @@
         "Thawing Charm",
         "Dousing Charm"
       ],
-      "area_level_max": 68,
-      "stages": [
-        "campaign"
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
       ]
     },
     {
       "style": "craft",
-      "name": "[Starter~Uber] 철퇴 베이스 — 한손 철퇴(낮은 힘 요구치)",
-      "note": "가이드 제작 1단계 = '낮은 힘 요구치의 아무 한손 철퇴'를 산다. NeverSink 어휘에 'Brigand Mace'는 없고 One Hand Maces 클래스가 있으므로 클래스 단위로 잡는다. 마법(파랑) 이하 등급만 대상 — 레어는 NeverSink 자체 규칙이 이미 처리",
-      "class": [
-        "One Hand Maces"
-      ],
+      "name": "[Endgame~Uber] 도둑 철퇴 — 제작 대상 베이스",
+      "note": "가이드 §7.1 제작 1단계 = '힘 요구치가 낮은(100 미만) 한손 철퇴', 지목 베이스는 도둑 철퇴(Brigand Mace). 힘 60 / 33레벨 드랍 — GGPK base_items_poe2.json 확인. NeverSink 어휘에 이 이름이 없어 한때 클래스 단위로 대체했었는데, 그러면 힘 104~163짜리 레어 철퇴까지 엔드게임 파일에서 시끄럽게 떠서 되돌렸다. 제작 전 상태만 보면 되므로 노멀·매직만",
       "base_types": [
-        "Bandit Mace",
-        "Crown Mace",
-        "Flanged Mace",
-        "Marauding Mace",
-        "Marching Mace",
-        "Plated Mace",
-        "Slim Mace"
+        "Brigand Mace"
       ],
       "stages": [
+        "maps",
         "endgame"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
       ]
     }
   ]

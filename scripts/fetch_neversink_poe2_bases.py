@@ -47,6 +47,32 @@ def load_pins(spec_path: Path) -> tuple[dict, list[dict]]:
     return spec, pins
 
 
+# A repin accepts whatever upstream serves, so it needs its own floor. Without
+# one, a redirect to an error page rewrites every pin to the hash of that page,
+# overwrites the real bases and exits 0 -- after which the vocabulary gate drops
+# every name and the overlay ships empty. Reproduced during adversarial review.
+MIN_BASE_BYTES = 100_000
+REQUIRED_MARKERS = ("NeverSink", "Show")
+MIN_SHOW_BLOCKS = 100
+
+
+def reject_reason(data: bytes) -> str | None:
+    """Why this payload is not a NeverSink filter, or None if it looks like one."""
+    if len(data) < MIN_BASE_BYTES:
+        return f"only {len(data)} bytes (expected at least {MIN_BASE_BYTES})"
+    try:
+        text = data.decode("utf-8")
+    except UnicodeDecodeError:
+        return "not valid UTF-8"
+    missing = [m for m in REQUIRED_MARKERS if m not in text]
+    if missing:
+        return f"missing marker(s) {missing}"
+    shows = sum(1 for line in text.splitlines() if line.startswith("Show"))
+    if shows < MIN_SHOW_BLOCKS:
+        return f"only {shows} Show blocks (expected at least {MIN_SHOW_BLOCKS})"
+    return None
+
+
 def download(url: str) -> bytes:
     log.info("GET %s", url)
     with urllib.request.urlopen(url, timeout=120) as resp:
@@ -88,6 +114,10 @@ def main() -> int:
             continue
 
         data = download(pin["url"])
+        bad = reject_reason(data)
+        if bad:
+            failures.append(f"{pin['file']}: refusing payload from {pin['url']} -- {bad}")
+            continue
         actual = sha256(data)
         if args.repin:
             if actual != pin["sha256"]:
