@@ -68,6 +68,13 @@ QUOTED = re.compile(r'"([^"]+)"')
 # on the same item, so raising our whole rule to its volume is wrong.
 COMPARABLE_CONDITIONS = frozenset({"BaseType", "Class", "Rarity"})
 
+# `Corrupted False` and friends only *remove* items from a block. The block still
+# fires on most of what our rule matches, so being quieter than it is a real
+# regression -- while being louder on the excluded remainder (a corrupted drop)
+# costs nothing. NeverSink L401 (2-socket one-hand mace, font 42 / volume 300)
+# reaches the guide's own craft base only through this path.
+NARROWING_FLAGS = frozenset({"Corrupted", "Mirrored", "Identified", "Replica", "Scourged"})
+
 
 def repo_relative(path: Path) -> str:
     """Render a path for the regenerate hint.
@@ -92,7 +99,10 @@ def repo_relative(path: Path) -> str:
 class BaseBlock:
     """One Show block of the base filter, reduced to what the gates need."""
 
-    __slots__ = ("base_types", "classes", "rarities", "font", "volume", "icon_size", "line", "extra")
+    __slots__ = (
+        "base_types", "classes", "rarities", "font", "volume",
+        "icon_size", "line", "extra", "sockets_min", "item_level_min",
+    )
 
     def __init__(self) -> None:
         self.base_types: set[str] = set()
@@ -103,6 +113,8 @@ class BaseBlock:
         self.icon_size: int | None = None
         self.line: int = 0
         self.extra: set[str] = set()  # conditions we cannot express -> narrower than us
+        self.sockets_min: int = 0  # from `Sockets >= n`
+        self.item_level_min: int = 0  # from `ItemLevel >= n`
 
 
 def parse_base_blocks(text: str) -> list[BaseBlock]:
@@ -135,6 +147,12 @@ def parse_base_blocks(text: str) -> list[BaseBlock]:
             "MinimapIcon", "CustomAlertSound", "DisableDropSound", "EnableDropSound", "Continue",
         }:
             pass  # an action, not a condition
+        elif keyword == "Sockets" and re.match(r"^Sockets\s*>=\s*\d+$", line):
+            current.sockets_min = int(line.split(">=")[1])
+        elif keyword == "ItemLevel" and re.match(r"^ItemLevel\s*>=\s*\d+$", line):
+            current.item_level_min = int(line.split(">=")[1])
+        elif keyword in NARROWING_FLAGS and line.split()[-1] == "False":
+            pass  # excludes items from the block; the rest of our scope still lands in it
         elif keyword not in COMPARABLE_CONDITIONS:
             current.extra.add(keyword)
 
@@ -185,6 +203,51 @@ def game_base_names() -> set[str]:
             if isinstance(entries, list):
                 names |= {e["name"] for e in entries if isinstance(e, dict) and e.get("name")}
     return names
+
+
+GAME_CLASS_TO_FILTER_CLASS = {
+    "OneHandMaces": "One Hand Maces", "TwoHandMaces": "Two Hand Maces",
+    "OneHandAxes": "One Hand Axes", "TwoHandAxes": "Two Hand Axes",
+    "OneHandSwords": "One Hand Swords", "TwoHandSwords": "Two Hand Swords",
+    "Bows": "Bows", "Crossbows": "Crossbows", "Claws": "Claws", "Daggers": "Daggers",
+    "Spears": "Spears", "Staves": "Staves", "Flail": "Flails", "Quivers": "Quivers",
+    "BodyArmours": "Body Armours", "Boots": "Boots", "Gloves": "Gloves",
+    "Helmets": "Helmets", "Shields": "Shields", "Focus": "Foci",
+    "Amulets": "Amulets", "Belts": "Belts", "Rings": "Rings",
+    "Jewels": "Jewels", "Charms": "Charms", "Flasks": "Flasks",
+}
+
+
+def class_index(text: str) -> dict[str, str]:
+    """base name -> filter Class, from the base filter first, then game data.
+
+    Needed because NeverSink's loudest gear rules are Class-only: they never name
+    a BaseType, so without this a rule about `Brigand Mace` cannot tell that
+    `Class == "One Hand Maces"` covers it.
+    """
+    index: dict[str, str] = {}
+    blocks_classes: str | None = None
+    for raw in text.splitlines():
+        line = raw.strip()
+        if line.startswith(("Show", "Hide")):
+            blocks_classes = None
+        elif line.startswith("Class"):
+            found = QUOTED.findall(line)
+            blocks_classes = found[0] if len(found) == 1 else None
+        elif line.startswith("BaseType") and blocks_classes:
+            for name in QUOTED.findall(line):
+                index.setdefault(name, blocks_classes)
+    if BASE_ITEMS.exists():
+        data = json.loads(BASE_ITEMS.read_text(encoding="utf-8"))
+        for group in ("weapons", "armours", "other"):
+            for game_class, entries in data.get(group, {}).items():
+                filter_class = GAME_CLASS_TO_FILTER_CLASS.get(game_class)
+                if not filter_class or not isinstance(entries, list):
+                    continue
+                for entry in entries:
+                    if isinstance(entry, dict) and entry.get("name"):
+                        index.setdefault(entry["name"], filter_class)
+    return index
 
 
 def base_value_vocabulary(text: str) -> dict[str, set]:
@@ -264,36 +327,99 @@ def check_style_values(style_name: str, style: dict, allowed: dict[str, set]) ->
             )
 
 
+def constrains_us(block: BaseBlock, base_type: str, scope: dict) -> bool:
+    """True when every drop our rule matches also matches this base block.
+
+    That is the only sound basis for "NeverSink was louder here". Membership in
+    the block's BaseType list is not required -- its loudest gear rules are
+    Class-only -- but a condition we do not also impose disqualifies it, because
+    then the block may simply not fire on the drop we are colouring.
+    """
+    names_it = base_type in block.base_types
+    if block.base_types and not names_it:
+        return False
+    if block.classes and not names_it:
+        # The block reaches us by class alone, so our class must be inside its set.
+        # When the block names the BaseType outright, its Class line is satisfied by
+        # construction -- NeverSink would not list a base under a class it cannot be.
+        if not scope["classes"] or not scope["classes"] <= block.classes:
+            return False
+    if not scope["rarities"] <= block.rarities:
+        return False
+    if block.sockets_min and scope["sockets_min"] < block.sockets_min:
+        return False
+    if block.item_level_min and scope["item_level_min"] < block.item_level_min:
+        return False
+    if block.extra:
+        return False
+    if not block.base_types and not block.classes:
+        return False  # a catch-all block; treating it as our floor is meaningless
+    return True
+
+
 def required_loudness(
-    base_type: str, rarities: set[str], classes: set[str], blocks: list[BaseBlock]
+    base_type: str, scope: dict, blocks: list[BaseBlock]
 ) -> tuple[int, int, int | None, list[BaseBlock]]:
-    """What the base filter already says about this item: (font, volume, icon size).
+    """What the base filter already guarantees for this item: (font, volume, icon).
 
-    Only blocks that name the BaseType, overlap our rarity scope and use no
-    condition we cannot express count -- a T1-unique block does not constrain a
-    rule that excludes uniques, and a "chance this if it has 3 sockets" block
-    does not constrain a rule about the plain base.
-
-    The fourth return value is the list of narrower blocks we shadow anyway, so
-    the caller can report them rather than silently swallowing them.
+    The fourth value lists blocks that might fire but are not implied by our
+    scope, so the caller can report what the overlay answers ahead of.
     """
     font = volume = 0
     icon: int | None = None
     shadowed: list[BaseBlock] = []
     for block in blocks:
-        if base_type not in block.base_types or not (rarities & block.rarities):
+        names_it = base_type in block.base_types
+        covers_class = bool(block.classes) and bool(scope["classes"] & block.classes)
+        if not names_it and not covers_class:
             continue
-        if block.classes and classes and not (block.classes & classes):
-            continue
-        if block.extra:
-            if block.volume or block.font >= 40:
-                shadowed.append(block)
-            continue
-        font = max(font, block.font)
-        volume = max(volume, block.volume)
-        if block.icon_size is not None:
-            icon = block.icon_size if icon is None else min(icon, block.icon_size)
+        if constrains_us(block, base_type, scope):
+            font = max(font, block.font)
+            volume = max(volume, block.volume)
+            if block.icon_size is not None:
+                icon = block.icon_size if icon is None else min(icon, block.icon_size)
+        elif block.volume or block.font >= 40:
+            shadowed.append(block)
     return font, volume, icon, shadowed
+
+
+def narrower_louder_blocks(
+    base_type: str, scope: dict, blocks: list[BaseBlock], style: dict
+) -> list[tuple[frozenset, int, int, int, int | None]]:
+    """Blocks that beat our style on a subset of our scope we can still express.
+
+    Returns (rarities, sockets_min, font, volume, icon) for each -- the recipe for
+    a variant block. Only Rarity and `Sockets >= n` qualify: they are the two
+    narrowings the filter language lets us restate.
+    """
+    out = []
+    for block in blocks:
+        if block.extra:
+            continue
+        if block.base_types and base_type not in block.base_types:
+            continue
+        if block.classes and base_type not in block.base_types:
+            if not (scope["classes"] and scope["classes"] <= block.classes):
+                continue
+        if not block.base_types and not block.classes:
+            continue  # catch-all fallback ("unknown item"); recognising it is not a downgrade
+        rarities = scope["rarities"] & block.rarities
+        if not rarities:
+            continue
+        sockets = max(scope["sockets_min"], block.sockets_min)
+        item_level = max(scope["item_level_min"], block.item_level_min)
+        if (block.font, block.volume) <= (style["font"], style["sound"][1]):
+            continue
+        if (
+            rarities == scope["rarities"]
+            and sockets == scope["sockets_min"]
+            and item_level == scope["item_level_min"]
+        ):
+            continue  # not narrower -- required_loudness already handles it
+        out.append(
+            (frozenset(rarities), sockets, item_level, block.font, block.volume, block.icon_size)
+        )
+    return out
 
 
 # --------------------------------------------------------------------------- #
@@ -319,6 +445,10 @@ def render_block(
         lines.append("\tClass == " + " ".join(f'"{c}"' for c in classes))
     op = "" if rule.get("substring") else "== "
     lines.append("\tBaseType " + op + " ".join(f'"{b}"' for b in base_types))
+    if rule.get("sockets_min"):
+        lines.append(f"\tSockets >= {int(rule['sockets_min'])}")
+    if rule.get("item_level_min"):
+        lines.append(f"\tItemLevel >= {int(rule['item_level_min'])}")
     if rule.get("area_level_max"):
         lines.append(f"\tAreaLevel <= {int(rule['area_level_max'])}")
     t, bo, bg = style["text"], style["border"], style["background"]
@@ -333,18 +463,28 @@ def render_block(
 
 
 def build_rule_blocks(
-    rule: dict, style: dict, base_blocks: list[BaseBlock]
+    rule: dict, style: dict, base_blocks: list[BaseBlock], classes_of: dict[str, str]
 ) -> tuple[list[str], list[str], list[str]]:
     """Emit one block per loudness class so no item ends up quieter than vanilla."""
     rarities = set(rule.get("rarity") or ALL_RARITIES)
     declared = rule.get("class") or []
-    classes = set(declared if isinstance(declared, list) else [declared])
+    declared = set(declared if isinstance(declared, list) else [declared])
     groups: dict[tuple[int, int, int], list[str]] = {}
+    variants: dict[tuple, list[str]] = {}
     raises: list[str] = []
     shadows: list[str] = []
     for base_type in rule["base_types"]:
+        # A rule need not declare a Class; resolve the item's own class so
+        # Class-only base blocks are still comparable.
+        resolved = declared or {classes_of[base_type]} if base_type in classes_of else declared
+        scope = {
+            "rarities": rarities,
+            "classes": resolved,
+            "sockets_min": int(rule.get("sockets_min") or 0),
+            "item_level_min": int(rule.get("item_level_min") or 0),
+        }
         req_font, req_volume, req_icon, shadowed = required_loudness(
-            base_type, rarities, classes, base_blocks
+            base_type, scope, base_blocks
         )
         for block in shadowed:
             shadows.append(
@@ -360,7 +500,40 @@ def build_rule_blocks(
                 f"icon {style['icon'][0]}->{icon}"
             )
         groups.setdefault((font, volume, icon), []).append(base_type)
-    blocks = [
+
+        # Distinct names: reusing `rarities`/`sockets` here would rebind the rule
+        # scope and every later base type would inherit the last variant's scope.
+        for v_rarities, v_sockets, v_ilvl, v_font, v_volume, v_icon in narrower_louder_blocks(
+            base_type, scope, base_blocks, style
+        ):
+            key = (tuple(sorted(v_rarities)), v_sockets, v_ilvl, v_font, v_volume,
+                   style["icon"][0] if v_icon is None else min(style["icon"][0], v_icon))
+            variants.setdefault(key, []).append(base_type)
+
+    blocks = []
+    # Variants carry extra conditions, so they must precede the general block --
+    # first-match-wins would otherwise never reach them.
+    for (rarities, sockets, ilvl, v_font, v_volume, v_icon), names in sorted(
+        variants.items(), key=lambda kv: (-kv[0][3], -kv[0][4], kv[0])
+    ):
+        variant_rule = {
+            **rule,
+            "name": f"{rule['name']} [조건부 상향]",
+            "note": (
+                f"NeverSink 가 이 구간(등급 {' '.join(rarities)}"
+                + (f" · 소켓 {sockets}+" if sockets else "")
+                + (f" · 아이템 레벨 {ilvl}+" if ilvl else "")
+                + f")에 폰트 {v_font} / 음량 {v_volume} 를 준다. 오버레이가 앞서므로 "
+                "같은 크기로 맞춘 변이 블록을 먼저 깐다 — 안 그러면 빌드 색을 얻는 대신 "
+                "경보가 작아진다"
+            ),
+            "rarity": list(rarities),
+            "sockets_min": sockets or None,
+            "item_level_min": ilvl or None,
+        }
+        blocks.append(render_block(variant_rule, style, sorted(set(names)), v_font, v_volume, v_icon))
+
+    blocks += [
         render_block(rule, style, sorted(names), font, volume, icon)
         for (font, volume, icon), names in sorted(groups.items())
     ]
@@ -394,6 +567,7 @@ def main() -> int:
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
 
     base_blocks = parse_base_blocks(base_text)
+    classes_of = class_index(base_text)
     allowed_values = base_value_vocabulary(base_text)
     vocabulary = base_vocabulary(base_text) | game_base_names()
 
@@ -427,7 +601,7 @@ def main() -> int:
             continue
 
         rule_blocks, rule_raises, rule_shadows = build_rule_blocks(
-            {**rule, "base_types": kept}, spec["styles"][rule["style"]], base_blocks
+            {**rule, "base_types": kept}, spec["styles"][rule["style"]], base_blocks, classes_of
         )
         blocks += rule_blocks
         raised += [f"{rule['name']} / {r}" for r in rule_raises]

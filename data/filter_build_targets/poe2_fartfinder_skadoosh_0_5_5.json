@@ -16,7 +16,8 @@
       "Split into three stage files (campaign / early maps / endgame+uber shared). Rules carry a 'stages' key only when they would actually misfire at the wrong stage; everything else is emitted in all three, because a rule whose items do not drop yet is silent, while omitting it could hide a real drop.",
       "The NeverSink base filters are not vendored (.gitignore excludes *.filter). _meta.bases pins each one by URL + SHA-256; `python scripts/fetch_neversink_poe2_bases.py` restores and verifies them. A hash mismatch means NeverSink shipped a new release -- re-check the vocabulary gate before re-pinning, because a renamed BaseType would otherwise be dropped silently and just stop showing up in game.",
       "Vocabulary names resolved against the base filter: PoB 'Talisman of Thruldana' -> 'Idol of Thruldana'; 'Arcanist Etcher' -> \"Arcanist's Etcher\". 'Brigand Mace' is absent from NeverSink's vocabulary but is a real base (data/base_items_poe2.json: OneHandMaces, req_str 60, drop_level 33), so the gate now accepts game data as a second source of truth.",
-      "Adversarial verification 2026-09-02 returned REFUTED; this spec is the corrected state. Fixed: unique-scoped rules were swallowing NeverSink's unique-tier alerts; bare BaseType matching let 'Sapphire'/'Exalted Orb'/'Shortbow' capture unrelated items including S-tier currency; Snakebite (Spined Bracers) -- one of the build's three core uniques -- was missing entirely; the mace rule named four bases the guide's own STR<100 rule excludes while omitting the base it names; charms were tagged levelling-only though the guide treats them as an endgame slot."
+      "Adversarial verification 2026-09-02 returned REFUTED; this spec is the corrected state. Fixed: unique-scoped rules were swallowing NeverSink's unique-tier alerts; bare BaseType matching let 'Sapphire'/'Exalted Orb'/'Shortbow' capture unrelated items including S-tier currency; Snakebite (Spined Bracers) -- one of the build's three core uniques -- was missing entirely; the mace rule named four bases the guide's own STR<100 rule excludes while omitting the base it names; charms were tagged levelling-only though the guide treats them as an endgame slot.",
+      "Adversarial verification round 2 (2026-09-02) returned REFUTED again. Fixed: required_loudness could not see NeverSink's Class-only blocks, so a 2-socket Brigand Mace -- the exact item the guide names -- shipped quieter than vanilla (base font 42 / volume 300 at L401 vs overlay 36 / 180); the mace rule had been cut to a single base when the guide asks for any 2-socket one-hand mace under 100 STR; the charm rule un-hid four bases the guide never names; and the loudness test called the builder's own function, so disabling the gate still left the suite green. scripts/poe2_filter_eval.py is now an independent first-match-wins evaluator used as the test oracle."
     ],
     "outputs": [
       {
@@ -394,13 +395,9 @@
     },
     {
       "style": "craft",
-      "name": "[전 구간] 호신부 — 상태이상 대비",
-      "note": "가이드 §4.2 가 호신부를 엔드게임 장비 슬롯으로 다룬다(해동 호신부 계열로 빙결 제거). 레벨링 구간에도 같은 물건이 필요하므로 단계 제한과 AreaLevel 상한을 걸지 않는다. 유니크 호신부는 NeverSink 티어 경보에 맡긴다",
+      "name": "[전 구간] 해동 호신부 — 빙결 해제",
+      "note": "가이드 §4.2 는 부적함 3칸 중 하나를 통과의례(유니크)로, 나머지 2칸을 '해동 호신부 계열로 빙결 제거'로 지정한다. 가이드가 이름을 대지 않는 돌·사파이어·루비·자수정 호신부는 뺀다 — NeverSink STRICT 가 일부러 숨기는 것을 소리까지 붙여 되살리는 꼴이었다. 유니크 호신부는 NeverSink 티어 경보에 맡긴다",
       "base_types": [
-        "Stone Charm",
-        "Sapphire Charm",
-        "Ruby Charm",
-        "Amethyst Charm",
         "Thawing Charm",
         "Dousing Charm"
       ],
@@ -412,10 +409,26 @@
     },
     {
       "style": "craft",
-      "name": "[Endgame~Uber] 도둑 철퇴 — 제작 대상 베이스",
-      "note": "가이드 §7.1 제작 1단계 = '힘 요구치가 낮은(100 미만) 한손 철퇴', 지목 베이스는 도둑 철퇴(Brigand Mace). 힘 60 / 33레벨 드랍 — GGPK base_items_poe2.json 확인. NeverSink 어휘에 이 이름이 없어 한때 클래스 단위로 대체했었는데, 그러면 힘 104~163짜리 레어 철퇴까지 엔드게임 파일에서 시끄럽게 떠서 되돌렸다. 제작 전 상태만 보면 되므로 노멀·매직만",
+      "name": "[Endgame~Uber] 세트 1 철퇴 베이스 — 2소켓 · 힘 100 미만",
+      "note": "가이드 원문: '베이스는 기본 2소켓·힘 요구 100 미만이면 아무거나 — 예로 특출난 도둑 철퇴'. 도둑 철퇴는 예시일 뿐이라 조건을 만족하는 한손 철퇴 17종 전부를 잡는다(base_items_poe2.json 의 OneHandMaces 중 req_str<100). 2소켓은 필터 조건으로 직접 표현한다 — 소켓 수는 베이스 속성이 아니라 개별 아이템 속성이라 이름만으로는 가려낼 수 없다. 제작 전 상태만 보면 되므로 노멀·매직",
       "base_types": [
-        "Brigand Mace"
+        "Battle Pick",
+        "Brigand Mace",
+        "Calescent Hammer",
+        "Construct Hammer",
+        "Execratus Hammer",
+        "Flared Mace",
+        "Jade Club",
+        "Kalguuran Forgehammer",
+        "Lumen Mace",
+        "Marching Mace",
+        "Morning Star",
+        "Plated Mace",
+        "Slim Mace",
+        "Smithing Hammer",
+        "Spiked Club",
+        "Warpick",
+        "Wooden Club"
       ],
       "stages": [
         "maps",
@@ -424,7 +437,8 @@
       "rarity": [
         "Normal",
         "Magic"
-      ]
+      ],
+      "sockets_min": 2
     }
   ]
 }

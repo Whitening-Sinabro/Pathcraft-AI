@@ -76,6 +76,18 @@ def mod():
 
 
 @pytest.fixture(scope="module")
+def evaluator():
+    spec = importlib.util.spec_from_file_location(
+        "poe2_filter_eval", REPO_ROOT / "scripts" / "poe2_filter_eval.py"
+    )
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+@pytest.fixture(scope="module")
 def spec() -> dict:
     return json.loads(SPEC_PATH.read_text(encoding="utf-8"))
 
@@ -200,7 +212,10 @@ class TestStageGate:
             for stage in rule.get("stages", list(expected)):
                 expected[stage].add(rule["name"])
         for stage, path in STAGE_FILES.items():
-            emitted = set(re.findall(r"^# \[overlay\] (.+)$", _overlay_text(FILTERS_DIR / path), re.M))
+            emitted = {
+                re.sub(r"\s*\[조건부 상향\]$", "", name)
+                for name in re.findall(r"^# \[overlay\] (.+)$", _overlay_text(FILTERS_DIR / path), re.M)
+            }
             assert emitted == expected[stage], (
                 f"{stage}: 빠짐={sorted(expected[stage] - emitted)} 남음={sorted(emitted - expected[stage])}"
             )
@@ -222,31 +237,86 @@ class TestStageGate:
 
 
 @needs_outputs
+@needs_bases
 class TestNoAlertDowngrade:
     """첫 매치 승리 = 오버레이가 NeverSink 경보를 대체한다.
 
     NeverSink 가 소리치던 것을 우리가 속삭이면 필터를 나쁘게 만든 것이다.
-    적대검증이 Astrid's Creativity(최상위 45/300) 가 가장 조용한 스타일로
-    내려앉은 것을 포함해 40건을 찾아냈다.
+    판정은 반드시 빌더 바깥에서 해야 한다 — 이전 판은 빌더의 required_loudness
+    를 그대로 불러서, 라우드니스 게이트를 통째로 꺼도 23건이 초록이었다.
+    여기서는 완성된 .filter 두 개를 게임처럼 평가하는 독립 평가기만 쓴다.
     """
 
-    @needs_bases
-    def test_no_emitted_block_is_quieter_than_the_base(self, mod, spec):
+    # 실제로 회귀했던 조합 + 빌드 핵심품. 전수 스윕은 파일당 4분이라 테스트에 못 넣는다.
+    PROBES = [
+        ("Brigand Mace", "One Hand Maces", 2),      # 가이드가 지목한 제작 베이스
+        ("Spiked Club", "One Hand Maces", 2),
+        ("Engraved Bracers", "Gloves", 2),
+        ("Sorcerous Tiara", "Helmets", 2),
+        ("Ancestral Tiara", "Helmets", 2),
+        ("Astrid's Creativity", "", 0),             # NeverSink 최상위 45/300
+        ("Perfect Jeweller's Orb", "Stackable Currency", 0),
+        ("Exalted Orb", "Stackable Currency", 0),
+        ("Sapphire", "Jewels", 0),
+        ("Iron Greaves", "Boots", 0),
+        ("Spined Bracers", "Gloves", 0),
+    ]
+
+    def _outcomes(self, ev, base_blocks, over_blocks, base_type, item_class, sockets):
+        for rarity in ("Normal", "Magic", "Rare", "Unique"):
+            for area in (10, 40, 70, 80):
+                item = ev.Item(
+                    base_type=base_type, item_class=item_class, rarity=rarity,
+                    sockets=sockets, area_level=area, item_level=area,
+                )
+                yield rarity, area, ev.evaluate(base_blocks, item), ev.evaluate(over_blocks, item)
+
+    def test_no_probe_state_is_quieter_than_vanilla(self, evaluator, spec):
+        ev = evaluator
+        failures = []
         for output in spec["_meta"]["outputs"]:
-            base_text = (SOURCES_DIR / output["base"]).read_text(encoding="utf-8")
-            base_blocks = mod.parse_base_blocks(base_text)
-            overlay = _overlay_text(FILTERS_DIR / output["file"])
-            for block in overlay.split("\nShow\n")[1:]:
-                body = block.split("\n\n")[0]
-                names = re.findall(r'"([^"]+)"', re.search(r"\tBaseType [^\n]+", body).group())
-                rarity_line = re.search(r"\tRarity ([^\n]+)", body)
-                scope = set(rarity_line.group(1).split()) if rarity_line else set(mod.ALL_RARITIES)
-                font = int(re.search(r"\tSetFontSize (\d+)", body).group(1))
-                volume = int(re.search(r"\tPlayAlertSound \d+ (\d+)", body).group(1))
-                for name in names:
-                    req_font, req_vol, _, _ = mod.required_loudness(name, scope, set(), base_blocks)
-                    assert font >= req_font, f"{output['stage']} {name}: font {font} < base {req_font}"
-                    assert volume >= req_vol, f"{output['stage']} {name}: volume {volume} < base {req_vol}"
+            base_blocks = ev.load(SOURCES_DIR / output["base"])
+            over_blocks = ev.load(FILTERS_DIR / output["file"])
+            for base_type, item_class, sockets in self.PROBES:
+                for rarity, area, base, over in self._outcomes(
+                    ev, base_blocks, over_blocks, base_type, item_class, sockets
+                ):
+                    if not base.visible or not over.matched:
+                        continue
+                    winner = next((b for b in base_blocks if b.line == base.block_line), None)
+                    if winner is not None and not any(
+                        k in ("BaseType", "Class") for k, _, _ in winner.conditions
+                    ):
+                        continue  # NeverSink 의 "모르는 물건" 폴백 — 알아보는 건 하향이 아니다
+                    if base.volume == 0 and over.volume > 0:
+                        continue  # 무음 블록보다 소리를 얹었다
+                    if (over.font, over.volume) < (base.font, base.volume):
+                        failures.append(
+                            f"{output['stage']} {base_type} {rarity} alvl{area} sock{sockets}: "
+                            f"base f{base.font}/v{base.volume}(L{base.block_line}) -> "
+                            f"overlay f{over.font}/v{over.volume}(L{over.block_line})"
+                        )
+        assert not failures, "오버레이가 vanilla 보다 조용해진 상태:\n  " + "\n  ".join(failures)
+
+    def test_overlay_never_hides_what_the_base_shows(self, evaluator, spec):
+        ev = evaluator
+        for output in spec["_meta"]["outputs"]:
+            base_blocks = ev.load(SOURCES_DIR / output["base"])
+            over_blocks = ev.load(FILTERS_DIR / output["file"])
+            for base_type, item_class, sockets in self.PROBES:
+                for rarity, area, base, over in self._outcomes(
+                    ev, base_blocks, over_blocks, base_type, item_class, sockets
+                ):
+                    assert not (base.visible and not over.visible), (
+                        f"{output['stage']} {base_type} {rarity} alvl{area} 를 오버레이가 숨긴다"
+                    )
+
+    def test_the_evaluator_is_not_the_builder(self, evaluator, mod):
+        """오라클이 빌더를 재사용하면 이 파일의 판정은 전부 순환 논증이 된다."""
+        source = (REPO_ROOT / "scripts" / "poe2_filter_eval.py").read_text(encoding="utf-8")
+        assert "build_poe2_build_overlay" not in source
+        assert not hasattr(evaluator, "required_loudness")
+        assert hasattr(evaluator, "evaluate") and hasattr(mod, "required_loudness")
 
 
 @needs_outputs
