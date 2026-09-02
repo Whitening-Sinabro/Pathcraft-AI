@@ -41,7 +41,10 @@ NEVERSINK_HEADER = "NeverSink's Indepth Loot Filter"
 RARITIES = ("Normal", "Magic", "Rare", "Unique")
 AREA_LEVELS = (10, 35, 60, 70, 80)
 SOCKETS = (0, 2)
-QUALITIES = (0, 20)
+# NeverSink 의 chancing/over-quality 티어는 Quality >= 24 에서 켜진다. 20 까지만
+# 훑으면 그 구간 회귀가 그리드에 아예 안 잡힌다 — 실제로 점화 필터에서 이 차원
+# 에서만 드러난 회귀가 있었다(고퀄 노멀 호신부·장갑).
+QUALITIES = (0, 20, 28)
 
 GAME_CLASS_TO_FILTER_CLASS = {
     "OneHandMaces": "One Hand Maces", "TwoHandMaces": "Two Hand Maces",

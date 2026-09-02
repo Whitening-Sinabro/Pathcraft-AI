@@ -101,7 +101,7 @@ class BaseBlock:
 
     __slots__ = (
         "base_types", "classes", "rarities", "font", "volume",
-        "icon_size", "line", "extra", "sockets_min", "item_level_min",
+        "icon_size", "line", "extra", "sockets_min", "item_level_min", "quality_min",
     )
 
     def __init__(self) -> None:
@@ -115,6 +115,7 @@ class BaseBlock:
         self.extra: set[str] = set()  # conditions we cannot express -> narrower than us
         self.sockets_min: int = 0  # from `Sockets >= n`
         self.item_level_min: int = 0  # from `ItemLevel >= n`
+        self.quality_min: int = 0  # from `Quality >= n` -- NeverSink's chancing tier
 
 
 def parse_base_blocks(text: str) -> list[BaseBlock]:
@@ -151,6 +152,8 @@ def parse_base_blocks(text: str) -> list[BaseBlock]:
             current.sockets_min = int(line.split(">=")[1])
         elif keyword == "ItemLevel" and re.match(r"^ItemLevel\s*>=\s*\d+$", line):
             current.item_level_min = int(line.split(">=")[1])
+        elif keyword == "Quality" and re.match(r"^Quality\s*>=\s*\d+$", line):
+            current.quality_min = int(line.split(">=")[1])
         elif keyword in NARROWING_FLAGS and line.split()[-1] == "False":
             pass  # excludes items from the block; the rest of our scope still lands in it
         elif keyword not in COMPARABLE_CONDITIONS:
@@ -353,6 +356,8 @@ def constrains_us(block: BaseBlock, base_type: str, scope: dict) -> bool:
         return False
     if block.item_level_min and scope["item_level_min"] < block.item_level_min:
         return False
+    if block.quality_min and scope["quality_min"] < block.quality_min:
+        return False
     if block.extra:
         return False
     if not block.base_types and not block.classes:
@@ -411,16 +416,19 @@ def narrower_louder_blocks(
             continue
         sockets = max(scope["sockets_min"], block.sockets_min)
         item_level = max(scope["item_level_min"], block.item_level_min)
+        quality = max(scope["quality_min"], block.quality_min)
         if (block.font, block.volume) <= (style["font"], style["sound"][1]):
             continue
         if (
             rarities == scope["rarities"]
             and sockets == scope["sockets_min"]
             and item_level == scope["item_level_min"]
+            and quality == scope["quality_min"]
         ):
             continue  # not narrower -- required_loudness already handles it
         out.append(
-            (frozenset(rarities), sockets, item_level, block.font, block.volume, block.icon_size)
+            (frozenset(rarities), sockets, item_level, quality,
+             block.font, block.volume, block.icon_size)
         )
     return out
 
@@ -452,6 +460,8 @@ def render_block(
         lines.append(f"\tSockets >= {int(rule['sockets_min'])}")
     if rule.get("item_level_min"):
         lines.append(f"\tItemLevel >= {int(rule['item_level_min'])}")
+    if rule.get("quality_min"):
+        lines.append(f"\tQuality >= {int(rule['quality_min'])}")
     if rule.get("area_level_max"):
         lines.append(f"\tAreaLevel <= {int(rule['area_level_max'])}")
     t, bo, bg = style["text"], style["border"], style["background"]
@@ -485,6 +495,7 @@ def build_rule_blocks(
             "classes": resolved,
             "sockets_min": int(rule.get("sockets_min") or 0),
             "item_level_min": int(rule.get("item_level_min") or 0),
+            "quality_min": int(rule.get("quality_min") or 0),
         }
         req_font, req_volume, req_icon, shadowed = required_loudness(
             base_type, scope, base_blocks
@@ -506,18 +517,18 @@ def build_rule_blocks(
 
         # Distinct names: reusing `rarities`/`sockets` here would rebind the rule
         # scope and every later base type would inherit the last variant's scope.
-        for v_rarities, v_sockets, v_ilvl, v_font, v_volume, v_icon in narrower_louder_blocks(
-            base_type, scope, base_blocks, style
+        for v_rarities, v_sockets, v_ilvl, v_qual, v_font, v_volume, v_icon in (
+            narrower_louder_blocks(base_type, scope, base_blocks, style)
         ):
-            key = (tuple(sorted(v_rarities)), v_sockets, v_ilvl, v_font, v_volume,
+            key = (tuple(sorted(v_rarities)), v_sockets, v_ilvl, v_qual, v_font, v_volume,
                    style["icon"][0] if v_icon is None else min(style["icon"][0], v_icon))
             variants.setdefault(key, []).append(base_type)
 
     blocks = []
     # Variants carry extra conditions, so they must precede the general block --
     # first-match-wins would otherwise never reach them.
-    for (rarities, sockets, ilvl, v_font, v_volume, v_icon), names in sorted(
-        variants.items(), key=lambda kv: (-kv[0][3], -kv[0][4], kv[0])
+    for (rarities, sockets, ilvl, qual, v_font, v_volume, v_icon), names in sorted(
+        variants.items(), key=lambda kv: (-kv[0][4], -kv[0][5], kv[0])
     ):
         variant_rule = {
             **rule,
@@ -526,6 +537,7 @@ def build_rule_blocks(
                 f"NeverSink 가 이 구간(등급 {' '.join(rarities)}"
                 + (f" · 소켓 {sockets}+" if sockets else "")
                 + (f" · 아이템 레벨 {ilvl}+" if ilvl else "")
+                + (f" · 퀄리티 {qual}+" if qual else "")
                 + f")에 폰트 {v_font} / 음량 {v_volume} 를 준다. 오버레이가 앞서므로 "
                 "같은 크기로 맞춘 변이 블록을 먼저 깐다 — 안 그러면 빌드 색을 얻는 대신 "
                 "경보가 작아진다"
@@ -533,6 +545,7 @@ def build_rule_blocks(
             "rarity": list(rarities),
             "sockets_min": sockets or None,
             "item_level_min": ilvl or None,
+            "quality_min": qual or None,
         }
         blocks.append(render_block(variant_rule, style, sorted(set(names)), v_font, v_volume, v_icon))
 
