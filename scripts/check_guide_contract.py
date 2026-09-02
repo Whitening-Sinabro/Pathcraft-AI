@@ -37,6 +37,10 @@ BARE_TS = re.compile(r"(?<!\d)\d{1,2}:\d{2}(?!\d)")
 DEEPLINK = re.compile(r'<a href="[^"]*(?:youtu\.be|youtube\.com)[^"]*[?&]t=\d+')
 REQUIRED_BANDS = ["제0장", "제1장", "제2장", "제3장", "제4장",
                   "제5장", "제6장", "제7장", "제8장", "출처"]
+# A chapter is identified by its key, not its full title: renaming
+# "부록 — 구매 우선순위" to "부록 1·2 — …" is a retitle, not a lost chapter, and
+# reporting it as loss trains the reader to ignore the loss warning.
+BAND_KEY = re.compile(r"^(제\d장|출처|부록\s*[\d·]*)")
 TAG = re.compile(r"<[^>]+>")
 
 
@@ -111,7 +115,21 @@ def check(path: Path, baseline: str | None) -> list[str]:
             problems.append(f"{baseline} 에 이 파일이 없어 비교 불가")
         else:
             old = stats(old_text)
-            lost_bands = [b for b in old["bands"] if b not in cur["bands"]]
+            def key(title: str) -> str:
+                m = BAND_KEY.match(title.strip())
+                if not m:
+                    return title.strip()
+                k = m.group(1).replace(" ", "")
+                # Appendices get renumbered legitimately (부록 -> 부록 1·2), so they
+                # are one class here; the numbering itself is checked separately.
+                return "부록" if k.startswith("부록") else k
+
+            cur_keys = [key(b) for b in cur["bands"]]
+            lost_bands = [b for b in old["bands"] if key(b) not in cur_keys]
+            old_appendix = sum(1 for b in old["bands"] if key(b) == "부록")
+            new_appendix = cur_keys.count("부록")
+            if new_appendix < old_appendix:
+                problems.append(f"부록 띠 감소: {old_appendix} -> {new_appendix}")
             lost_imgs = [i for i in old["images"] if i not in cur["images"]]
             if lost_bands:
                 problems.append(f"사라진 장: {lost_bands}")
