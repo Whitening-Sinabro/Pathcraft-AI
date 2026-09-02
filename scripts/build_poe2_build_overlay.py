@@ -1,10 +1,17 @@
 """Generate a Show-only Cursemaster highlight overlay on top of NeverSink's POE2 filter.
 
 Usage:
-    python scripts/build_poe2_cursemaster_overlay.py \
+    python scripts/build_poe2_build_overlay.py \
         --base <NeverSink .filter> \
-        --spec data/filter_build_targets/poe2_cursemaster_tangjeong_0_5_5.json \
-        --out <output .filter> [--install-dir <dir>]
+        --spec data/filter_build_targets/<build>.json \
+        --out <output .filter> [--stage campaign|maps|endgame] [--install-dir <dir>]
+
+Stages:
+  A spec rule may declare "stages" — which progression stages it belongs to.
+  Under --stage, a rule that declares stages and does not list the requested one
+  is left out, so the campaign file is not polluted by endgame-only crafting
+  materials and the endgame file is not polluted by levelling bases. A rule with
+  no "stages" key counts as all-stages. Without --stage every rule is emitted.
 
 Safety model (silent-failure guards):
   * Vocabulary gate: every Class/BaseType token must appear verbatim in the base
@@ -25,9 +32,26 @@ import sys
 from pathlib import Path
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-log = logging.getLogger("cursemaster-overlay")
+log = logging.getLogger("build-overlay")
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 CONTRAST_MIN = 0.35  # relative luminance gap; POE1 cascade-gate lesson, lightweight port
+
+
+def repo_relative(path: Path) -> str:
+    """Render a path for the regenerate hint.
+
+    The hint has to be identical no matter which directory the build was run
+    from, otherwise two byte-identical filters compare unequal and the
+    reproducibility check becomes noise. Paths outside the repo keep their
+    absolute form, which is the honest answer for an external base filter.
+    """
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        return resolved.as_posix()
 
 
 def luminance(rgb: list[int]) -> float:
@@ -78,6 +102,12 @@ def main() -> int:
     ap.add_argument("--base", required=True)
     ap.add_argument("--spec", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument(
+        "--stage",
+        default=None,
+        choices=["campaign", "maps", "endgame"],
+        help="emit only the rules that apply to this progression stage",
+    )
     ap.add_argument("--install-dir", default=None)
     args = ap.parse_args()
 
@@ -92,7 +122,12 @@ def main() -> int:
 
     blocks: list[str] = []
     dropped: list[str] = []
+    skipped_stage = 0
     for rule in spec["rules"]:
+        stages = rule.get("stages")
+        if args.stage and stages and args.stage not in stages:
+            skipped_stage += 1
+            continue
         classes = rule.get("class")
         if classes:
             classes = classes if isinstance(classes, list) else [classes]
@@ -115,20 +150,32 @@ def main() -> int:
         for d in dropped:
             log.warning("  - %s", d)
 
+    meta = spec.get("_meta", {})
+    stage_label = args.stage or "all stages"
     header = "\n".join(
         [
-            "#===============================================================================",
-            f"# PathcraftAI build overlay: {spec.get(chr(39)+chr(95)+chr(109)+chr(101)+chr(116)+chr(97)+chr(39), {}).get(chr(39)+chr(98)+chr(117)+chr(105)+chr(108)+chr(100)+chr(39), spec_path.stem)} — Show-only, generated",
-            f"# spec: {spec_path.name} | base: {base_path.name}",
-            f"# regenerate: python scripts/build_poe2_build_overlay.py --spec {spec_path.name} --base <NeverSink .filter> --out <out>",
-            "#===============================================================================",
+            "#" + "=" * 79,
+            f"# PathcraftAI build overlay: {meta.get('build', spec_path.stem)}",
+            f"# stage: {stage_label} | base: {base_path.name}",
+            f"# spec: {spec_path.name}",
+            "# Show-only. Nothing is hidden; unmatched items fall through to NeverSink.",
+            f"# regenerate: python scripts/build_poe2_build_overlay.py"
+            f" --spec {repo_relative(spec_path)} --base {repo_relative(base_path)} --out <out>"
+            + (f" --stage {args.stage}" if args.stage else ""),
+            "#" + "=" * 79,
             "",
         ]
     )
     out_text = header + "\n\n".join(blocks) + "\n\n" + base_text
     out_path = Path(args.out)
     out_path.write_text(out_text, encoding="utf-8", newline="\n")
-    log.info("wrote %s (%d overlay blocks, %d bytes)", out_path, len(blocks), out_path.stat().st_size)
+    log.info(
+        "wrote %s (%d overlay blocks, %d bytes, %d rule(s) skipped by stage)",
+        out_path,
+        len(blocks),
+        out_path.stat().st_size,
+        skipped_stage,
+    )
 
     if args.install_dir:
         dest = Path(args.install_dir) / out_path.name
