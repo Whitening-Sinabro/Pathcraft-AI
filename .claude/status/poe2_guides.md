@@ -39,6 +39,13 @@
 `poe-build-card-update.mjs --file <카드>` 가 "게시 이력을 찾지 못했습니다"로 죽는다.
 ID 를 잃으면 채널을 훑어 되찾아야 한다(카드에 `[자동-빌드카드:...]` 마커도 없다).
 
+메시지를 PATCH 할 때 `attachments` 필드를 **빼면 기존 첨부가 그대로 남는다**. 그래서
+같은 파일을 다시 올리면 같은 zip 이 두 개 달린다(실제로 한 번 그랬다). 남길 첨부를
+id 로 명시하고, 이미 같은 파일명이 붙어 있으면 재업로드하지 않는다.
+
+1시간 지난 메시지 편집에는 별도 레이트리밋(`code 30046`)이 있다. 429 는 실패가 아니라
+`retry_after` 만큼 기다렸다 다시 보내면 된다.
+
 윈도우 경로는 **반드시 백틱 코드 스팬 안에** 적는다 — 디스코드 마크다운이 `\` 를
 이스케이프로 먹어서 `문서\My Games\` 가 `문서My Games` 로 렌더된다.
 
@@ -97,3 +104,34 @@ Martial Weapons"), 죽음과의 춤("a One-Handed Martial Weapon equipped in you
 
 **함정: 14 와 57 은 GGPK 경로가 둘 다 `TwoHandWeapons/Staves/` 다.** 경로로 가르면
 캐스터 지팡이와 쿼터스태프가 한 덩어리가 된다. 갈라 주는 것은 `ItemClass` 다.
+
+**Martial ≠ Caster 는 GGG 자신의 분류다.** PoB-PoE2 의 GGPK 추출 스크립트
+(`src/Export/Scripts/soulcores.lua`)가 `SoulCoreStats.Category` 를 그대로 옮긴다:
+
+```
+["Martial Weapon"]          = { "weapon" }
+["Caster Weapon"]           = { "caster" }
+["Martial Or Caster Weapon"]= { "weapon", "caster" }
+["Wand or Staff"]           = { "wand", "staff" }
+```
+
+둘을 합치려면 **합집합 카테고리를 따로 만들어야 했다** — 즉 서로소다.
+`ActiveSkills.json` 의 무기 발현은 `[Melee] [MartialWeapon|Martial Weapon]` 처럼
+**Melee 를 별도 수식어로** 붙이므로 Martial ⊋ Melee 다(석궁·활도 Martial).
+
+**우리 레포 안의 대조군** — `arserina_gemling_ignite_055.xml` 한 파일에 증거가 다 있다:
+
+| 아이템 | 룬 | 나온 줄 |
+|---|---|---|
+| Bombard Crossbow (마샬) | Greater Storm Rune | `Adds 2 to 60 Lightning Damage` = **Martial Weapon 줄** |
+| Chiming Staff (캐스터) | Greater Desert Rune | `Gain 20% of Damage as Extra Fire Damage` = **staff 줄** |
+
+같은 계열 룬인데 무기 클래스에 따라 다른 줄이 나온다. 지팡이는 Martial 줄을 못 받는다.
+
+**비활성 무기 세트 아이템은 아무것도 안 준다.** PoB 는 `CalcSetup.lua` 에서 스왑 슬롯
+아이템을 통째로 건너뛰고, 0.5.5 는 비활성 세트의 오라·서포트가 새던 것을 버그로
+고쳤다(`poe2_0_5_5.txt:196-197`). 세트 2 무기에 낀 영혼핵으로 세트 1 스킬을 버프할 수 없다.
+
+**주의:** 이건 전부 0.5.5 **이전** 데이터로 세운 분류다(poe2db·PoB dev·트레이드 API 모두
+푸우아르테를 아직 구 옵션으로 표시). 분류가 뒤집힐 근거는 못 찾았지만, 패치 후 실물로
+한 번 확인할 것.
