@@ -274,3 +274,4 @@
 | Docs/2026-09-04_ARSERINA_GEMLING_INFINITE_IGNITE_HARDCORE_GUIDE_DOC.html | 젬링 무한 점화 하드코어 보조 문서. 래더 실측 결과가 기대와 반대(HC 1.57% < SC 1.92%)라 그 사실을 제0장에 먼저 적었다. 구글 닥 `1yvyIuL5EwEj…` | 아니오 |
 | python/tests/test_check_guide_contract.py | 가이드 구조 계약 체커 게이트 테스트 13건. 평문 타임스탬프 오탐 경계(05:00 KST 면제)와 보조 문서 필수 장 분기를 고정. 돌연변이 2종으로 red 확인 | 아니오 |
 | build_planner/Fartfinder *.build (8) | Skadoosh Fartfinder 인게임 플래너 8파일(레벨링 5 + Starter/Endgame/Uber 3). 제작자 정본 zip 과 패시브 수 전부 일치 확인. 디스코드 카드 001 에 zip 으로 첨부돼 있으나 원본이 gitignore 폴더에만 있어 이관 | 예(재생성 가능, PoB 캐시 필요) |
+| build_planner/Kitava Endgame 2.0 - Tangjeong.build | 탱정 방패벽 키타바 2.0 인게임 플래너. PoB 28010 이 트리 세트를 하나(97레벨)만 갖고 있어 엔드게임 단일 파일이다. 베일 신체 부위 4칸(Combat/Guarding Arm · Sturdy/Sprinters Leg)은 플래너 슬롯 이름을 확인할 정본이 없어 뺐다 | 예(재생성 가능) |
