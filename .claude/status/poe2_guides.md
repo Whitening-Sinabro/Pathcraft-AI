@@ -20,7 +20,11 @@
 젬링 `1kIJRvBvBvIo8DsBtJaB2E8mjQeQRL6iDSqR28JCSybs` · 키타바 `1GS5amNLoi3ZHYpS-uxDgfOoZC0E-n_ntmekasORPK9M` ·
 점화 `12dxZp3qdQJvihAi3HSMcYISnUfe6oVOJVg6_b1juBdY`
 
-5종 모두 "링크가 있는 모든 사용자 = 뷰어, 로그인 불필요". 공유 링크는 `?usp=sharing` 형식으로 건다.
+하드코어 보조 2종 (2026-09-04 신규):
+키타바 HC `1wFlU2G0PWUbQ-Vckhtf8tVgjc-y3wgruLHnZZrLERzw` · 점화 HC `1yvyIuL5EwEjnIdUhqtQUKqvPm6ohL5Fjxr_nMQiduao`
+
+본 가이드 5종은 "링크가 있는 모든 사용자 = 뷰어, 로그인 불필요". 공유 링크는 `?usp=sharing` 형식으로 건다.
+**하드코어 2종은 아직 공유 설정을 안 걸었다** — 만든 계정만 열린다.
 
 ## 디스코드 카드 메시지 ID (수정은 새 글이 아니라 PATCH)
 
@@ -48,6 +52,25 @@ id 로 명시하고, 이미 같은 파일명이 붙어 있으면 재업로드하
 
 윈도우 경로는 **반드시 백틱 코드 스팬 안에** 적는다 — 디스코드 마크다운이 `\` 를
 이스케이프로 먹어서 `문서\My Games\` 가 `문서My Games` 로 렌더된다.
+
+## 구글 닥 주입에서 밟은 것들
+
+`.playwright-mcp/inject_new_doc.mjs` 가 템플릿, `inject_<빌드>_hc.mjs` 가 값을 박은 사본이다.
+`browser_run_code_unsafe` 는 Playwright 서버 프로세스에서 돌아 **우리 환경변수를 못 본다** —
+파라미터는 env 가 아니라 파일에 박아야 한다.
+
+- **기존 문서를 비우고 다시 채우면 문서 전체가 기울어진다.** `Ctrl+A` → `Delete` 뒤 캐럿이
+  마지막 문단(부제)의 기울임을 물고 있고, 붙여 넣는 HTML 에서 `font-style` 을 명시 안 한
+  문단이 그걸 상속한다. 비운 직후 `Control+Backslash`(서식 지우기)를 넣는다.
+  `press('Control+')` 는 JS 문자열을 깨뜨리니 키 이름 `Backslash` 를 쓴다.
+- **주입 스크립트는 돌리기 전에 구문 검사한다.** 위 오타로 브라우저 왕복 한 번을 통째로 날렸다.
+  `node -e "new Function('page','('+require('fs').readFileSync(f,'utf8')+')')"`.
+- **ninja 스크린샷은 그대로 넣으면 못 읽는다.** 상단 클립이 1291px 인데 본문 폭은 570px 이라
+  2.3배로 줄어든다. 주장에 필요한 부분만 남겨 폭 ~513px 로 자른다(`PIL`).
+- 소스 HTML 에 `<h1>` 이 있으면 `build_gdoc_v4.mjs` 의 `CFG.title` 과 겹쳐 제목이 두 번 찍힌다.
+  빌드러가 preamble 선두의 `<h1>` 을 걷어내게 고쳐 뒀다.
+- 표의 3열째가 **근거가 아니라 대응·확인 항목**이면 `list` 모드를 쓰면 안 된다. 회색 9pt
+  〔근거〕로 접혀서 지시문이 각주처럼 보인다. 제0장만 `list`, 나머지는 `table`.
 
 ## 검사 도구 (에이전트에게 반드시 먼저 돌리게 할 것)
 

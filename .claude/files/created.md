@@ -270,3 +270,6 @@
 | scripts/build_poe2_planner_files.py | PoB XML -> 인게임 빌드 플래너 `.build` 생성기. 패시브 stringId / 젬 경로(GGPK 표) / 어센던시(할당 노드 역산) / weapon_set(`<WeaponSet1,2>`) / 장비(`<ItemSet>` -> inventory_slots) 5개 매핑. `--verify-against` 로 Mobalytics 정본과 대조 | 아니오 |
 | python/tests/test_build_poe2_planner_files.py | 플래너 생성기 테스트 24건. 돌연변이 8종(전역 weapon_set·GGPK 무시·빈 support_skills·마크업 누출·임플리싯 혼입·노드 무단폐기·슬롯 무단폐기·물음표 제목) 전부 red 확인 | 아니오 |
 | build_planner/Ignite *.build (5) | 아르세리나 젬링 무한 점화 인게임 빌드 플래너 파일 5단계. 게임 폴더에도 설치됨(`--install`). 재생성 가능하나 PoB 캐시 필요 | 예(재생성 가능) |
+| Docs/2026-09-04_TANGJEONG_SHIELDWALL_KITAVA_HARDCORE_GUIDE_DOC.html | 탱정 방패벽 키타바 하드코어 보조 문서. 본 가이드에 운용법을 맡기고 HC 에서 달라지는 것만 다룬다. 판정 근거는 poe.ninja HC 래더 실측(458명/174명 표본). 구글 닥 `1wFlU2G0PWUb…` | 아니오 |
+| Docs/2026-09-04_ARSERINA_GEMLING_INFINITE_IGNITE_HARDCORE_GUIDE_DOC.html | 젬링 무한 점화 하드코어 보조 문서. 래더 실측 결과가 기대와 반대(HC 1.57% < SC 1.92%)라 그 사실을 제0장에 먼저 적었다. 구글 닥 `1yvyIuL5EwEj…` | 아니오 |
+| python/tests/test_check_guide_contract.py | 가이드 구조 계약 체커 게이트 테스트 13건. 평문 타임스탬프 오탐 경계(05:00 KST 면제)와 보조 문서 필수 장 분기를 고정. 돌연변이 2종으로 red 확인 | 아니오 |

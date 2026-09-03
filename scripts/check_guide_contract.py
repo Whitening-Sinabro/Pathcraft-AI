@@ -22,6 +22,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+# 이 스크립트는 게이트다. 윈도 콘솔 기본 코덱(cp949)이 보고문의 기호를
+# 못 찍는다고 도중에 죽으면, 통과도 실패도 아닌 상태로 끝나 결함을 놓친다.
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 REPO = Path(__file__).resolve().parents[1]
 DOCS = REPO / "Docs"
 GUIDE_GLOB = "*_GUIDE_DOC.html"
@@ -33,7 +37,9 @@ CELL = re.compile(r"<td[^>]*>", re.S)
 ANCHOR = re.compile(r"<a href=")
 # A timestamp that is not inside an <a> is a claim the reader cannot check without
 # scrubbing a 30-minute video by hand. The template calls this a defect.
-BARE_TS = re.compile(r"(?<!\d)\d{1,2}:\d{2}(?!\d)")
+# 시간대가 붙은 시각(05:00 KST)은 영상 인용점이 아니라 리그 개막 시각이다.
+# 오탐을 남겨 두면 진짜 평문 타임스탬프 경고까지 같이 무시하게 된다.
+BARE_TS = re.compile(r"(?<!\d)\d{1,2}:\d{2}(?!\d)(?!\s*(?:KST|UTC|GMT|AM|PM))")
 DEEPLINK = re.compile(r'<a href="[^"]*(?:youtu\.be|youtube\.com)[^"]*[?&]t=\d+')
 REQUIRED_BANDS = ["제0장", "제1장", "제2장", "제3장", "제4장",
                   "제5장", "제6장", "제7장", "제8장", "출처"]
