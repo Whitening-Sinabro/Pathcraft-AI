@@ -267,3 +267,6 @@
 | .claude/status/poe2_guides.md | POE2 가이드/필터 파이프라인 도메인 파일 — 산출물 위치, 발행 닥 ID, 검사 도구, 밟은 지뢰 목록 | 아니오 |
 | ~/.claude/projects/D--Pathcraft-AI/POE2_BUILD_GUIDE_TEMPLATE.md | 가이드 기준 템플릿 스펙(장 구성 고정·근거 계약·가독성 규칙). 문서마다 손으로 만들어 드리프트하던 것을 계약으로 고정 | 아니오 |
 | D:/discord-admin/templates/build-cards-poe2/*.md | POE2 빌드 카드 5종 정본(하우스 템플릿 준수). POE1 퍼블리셔 sourceDirectory 와 분리 | 아니오 |
+| scripts/build_poe2_planner_files.py | PoB XML -> 인게임 빌드 플래너 `.build` 생성기. 패시브 stringId / 젬 경로(GGPK 표) / 어센던시(할당 노드 역산) / weapon_set(`<WeaponSet1,2>`) / 장비(`<ItemSet>` -> inventory_slots) 5개 매핑. `--verify-against` 로 Mobalytics 정본과 대조 | 아니오 |
+| python/tests/test_build_poe2_planner_files.py | 플래너 생성기 테스트 24건. 돌연변이 8종(전역 weapon_set·GGPK 무시·빈 support_skills·마크업 누출·임플리싯 혼입·노드 무단폐기·슬롯 무단폐기·물음표 제목) 전부 red 확인 | 아니오 |
+| build_planner/Ignite *.build (5) | 아르세리나 젬링 무한 점화 인게임 빌드 플래너 파일 5단계. 게임 폴더에도 설치됨(`--install`). 재생성 가능하나 PoB 캐시 필요 | 예(재생성 가능) |

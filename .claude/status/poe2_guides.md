@@ -12,6 +12,7 @@
 | NeverSink 베이스 | 커밋 안 됨. `_meta.bases` 의 URL+SHA-256 핀, `scripts/fetch_neversink_poe2_bases.py` 로 복원 |
 | 공용 캐시 | `data/_cache/` (gitignore) — 자막·PoB XML·영상 길이. 에이전트는 받기 전에 여기부터 볼 것 |
 | 디스코드 빌드 카드 | `D:/discord-admin/templates/build-cards-poe2/` (POE1 퍼블리셔의 `templates/build-cards` 와 분리 — 2시간 주기 자동 게시에 끼어들지 않게) |
+| 인게임 빌드 플래너 | `build_planner/*.build` (커밋됨 — `.filter` 와 달리 gitignore 안 걸린다). 설치 위치 `문서/My Games/Path of Exile 2/BuildPlanner/` |
 
 ## 발행된 구글 닥
 
@@ -20,6 +21,26 @@
 점화 `12dxZp3qdQJvihAi3HSMcYISnUfe6oVOJVg6_b1juBdY`
 
 5종 모두 "링크가 있는 모든 사용자 = 뷰어, 로그인 불필요". 공유 링크는 `?usp=sharing` 형식으로 건다.
+
+## 디스코드 카드 메시지 ID (수정은 새 글이 아니라 PATCH)
+
+채널 `POE2_MEPHI / #빌드-정보공유` = `1362444418757558364`.
+
+| 카드 | messageId |
+|---|---|
+| 001 Fartfinder | `1544714747411169340` |
+| 002 커스마스터 | `1544699205824548869` |
+| 003 방패의 벽 키타바 | `1544699216037675088` |
+| 004 Corrupting Wings | `1544699225160417330` |
+| 005 무한 점화 | `1544864580801531924` |
+
+이 표가 있는 이유: POE2 카드는 `poe-build-card-publisher` 를 안 거치고 손으로 올려서
+`announce-data/poe-build-card-publisher-state.json` 에 게시 이력이 **없다**. 그래서
+`poe-build-card-update.mjs --file <카드>` 가 "게시 이력을 찾지 못했습니다"로 죽는다.
+ID 를 잃으면 채널을 훑어 되찾아야 한다(카드에 `[자동-빌드카드:...]` 마커도 없다).
+
+윈도우 경로는 **반드시 백틱 코드 스팬 안에** 적는다 — 디스코드 마크다운이 `\` 를
+이스케이프로 먹어서 `문서\My Games\` 가 `문서My Games` 로 렌더된다.
 
 ## 검사 도구 (에이전트에게 반드시 먼저 돌리게 할 것)
 
@@ -41,6 +62,9 @@ python scripts/poe2_filter_sweep.py --spec <filter spec>.json    # 오버레이 
 - **poe2db 는 POE2, `data/merged_translations.json` 은 POE1.** 후자로 POE2 한국어명을 판정하면 안 된다.
 - **mobalytics·pathofexile·cafe.naver 는 봇에 403 을 준다.** 죽은 링크가 아니다. 브라우저로 확인할 것.
 - **필터 오버레이는 앞에 붙어 first-match-wins.** NeverSink 가 더 크게 알리던 것을 덮으면 회귀다. 유니크 룰은 `rarity: ["Unique"]` 로 스코프를 걸고, BaseType 은 정확 일치를 쓴다.
+- **빌드 플래너 형식의 정본은 Mobalytics/제작자 다운로드본뿐이다.** `BuildPlanner/` 안의 `Cursemaster Final - Tangjeong [0.5].build` 는 **우리가 만든 것**이다(`files/created.md`, author 가 `poe.ninja`). 그걸 기준으로 대조하면 자기 출력과 자기를 비교하는 순환 검증이 된다 — 실제로 그렇게 해서 "완전 재현"이라고 볼 뻔했다. 진짜 정본에서는 `level_interval` 이 **모든 스킬에 존재**한다.
+- **`--verify-against` 의 노드 불일치는 매핑 오류가 아닐 수 있다.** Fartfinder PoB 는 `treeVersion="0_3"` 이라 캐시한 `tree_0_5.json` 에 없는 노드가 2개 나온다. 그래서 판정 기준을 어센던시·weapon_set·젬 경로 3개 매핑으로 좁혔다. 우리가 실제로 쓰는 빌드에서 미해석 노드가 나오면 `build_file` 이 중단시킨다.
+- **heredoc 이 백슬래시를 먹는다 — 문법 오류가 아니라 조용한 오작동으로.** `<<'PY'` 안의 `\b` 가 **실제 백스페이스 바이트(0x08)** 로 들어가 `<ItemSet\b...>` 정규식이 영원히 매칭 실패했고, `od -c` 로 보기 전까지 화면상으로는 정상이었다. 정규식·이스케이프가 들어가는 편집은 Write/Edit 도구로 할 것.
 
 ## 검증에서 반복적으로 잡히는 실패 유형
 

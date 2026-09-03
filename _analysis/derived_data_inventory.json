@@ -20,11 +20,15 @@
     "game_data",
     "game_data_poe2",
     "builds",
-    "patch_notes"
+    "patch_notes",
+    "filter_build_targets",
+    "filter_sources"
   ],
   "untracked_present": [
     "data/.claude/skillmaker/logs/prompts/1e578250-69cf-49ae-9d0e-857ce8f416c6.jsonl",
     "data/.claude/skillmaker/observation/session_state.json",
+    "data/_cache/tree_0_5.json",
+    "data/_cache/video_durations.json",
     "data/atlastree-export/.claude/skillmaker/logs/prompts/189e1d1d-1e40-4c77-a12d-18d16e40eea2.jsonl",
     "data/atlastree-export/.claude/skillmaker/observation/session_state.json",
     "data/atlastree-export/data.json",
@@ -48,13 +52,13 @@
   ],
   "untracked_note": "레포에 실재하지만 git 미추적이라 인벤토리 밖. 핀이 클론에서 재현되려면 여기 있어야 한다. 감시가 필요하면 gitignore 에서 빼거나 생성기 + ggpk_fingerprint 를 갖출 것.",
   "totals": {
-    "files": 117,
+    "files": 116,
     "fingerprinted": 2,
-    "untracked_present": 22,
+    "untracked_present": 24,
     "by_status": {
       "broken": 1,
       "current": 2,
-      "declared_no_generator": 44,
+      "declared_no_generator": 43,
       "generated_no_fingerprint": 30,
       "orphan": 39,
       "pinned_elsewhere": 1
@@ -910,28 +914,6 @@
         "date": "2026-04-07"
       },
       "in_db_catalog": true,
-      "status": "declared_no_generator"
-    },
-    "data/filter_build_targets/poe1_luminary_bot_ssf_3_29.json": {
-      "bytes": 2013,
-      "sha256_16": "75770208c7a4da38",
-      "parse_error": null,
-      "provenance": {
-        "generator": null,
-        "generated_at": null,
-        "source": "{'title': '(SSF) Luminary bot - League start guide [POE]', 'creator': 'Path of Chores', 'patch': '3.29', 'local_file': 'C:\\\\Users\\\\User\\\\Downloads\\\\(POE용어 교정 번역) (SSF) Luminary bot - League start guid",
-        "ggpk_fingerprint": null,
-        "has_meta_block": false,
-        "declared_dataset_kind": "poe1_filter_build_targets"
-      },
-      "writer_candidates": [],
-      "declared_generator": null,
-      "externally_pinned": false,
-      "last_commit": {
-        "commit": "59df4c1b",
-        "date": "2026-08-19"
-      },
-      "in_db_catalog": false,
       "status": "declared_no_generator"
     },
     "data/gear_aliases.json": {
@@ -2226,8 +2208,8 @@
       "declared_generator": "python/scripts/derive_scarab_families.py",
       "externally_pinned": false,
       "last_commit": {
-        "commit": "e6f040ff",
-        "date": "2026-08-19"
+        "commit": "cc6a2eaa",
+        "date": "2026-08-21"
       },
       "in_db_catalog": false,
       "status": "current"

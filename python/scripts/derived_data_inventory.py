@@ -48,7 +48,16 @@ OUT_PATH = ROOT / "_analysis" / "derived_data_inventory.json"
 
 # 원본(추출물)과 대용량 수집 코퍼스는 파생 DB 가 아니다 — 조사 대상에서 뺀다.
 # game_data*: GGPK 원본. builds/patch_notes: 수집물이라 생성기·지문 개념이 없다.
-EXCLUDED_TOP_LEVEL = ("game_data", "game_data_poe2", "builds", "patch_notes")
+#
+# filter_build_targets/filter_sources 도 같은 이유로 뺀다. 앞은 손으로 쓴 필터 스펙
+# (입력물이지 파생물이 아니다), 뒤는 NeverSink 원본 필터를 받아 둔 수집물이다. 둘 다
+# 생성기가 없으므로 `declared_no_generator` 로 쌓이며 지문 없는 파일 계수만 올렸다
+# (2026-08-28 이후 인벤토리 테스트 3건이 이것 때문에 red 였다). 감시가 필요 없는 게
+# 아니라 **다른 방식으로 감시된다**: 베이스 필터의 출처와 무결성은 스펙 안
+# `_meta.bases` 의 URL + SHA-256 핀이 잡고, scripts/fetch_neversink_poe2_bases.py 가
+# 해시 불일치 시 exit 1 로 막는다.
+EXCLUDED_TOP_LEVEL = ("game_data", "game_data_poe2", "builds", "patch_notes",
+                      "filter_build_targets", "filter_sources")
 
 # 파생물은 .json 만이 아니다 — build_ggpk_derived_item_mod_index.py 는 같은 GGPK 테이블에서
 # .jsonl 과 .csv 도 함께 뽑는다. 확장자로 갈라놓으면 같은 데이터셋의 절반이 감시 밖으로 샌다.
