@@ -12,7 +12,7 @@
 | NeverSink 베이스 | 커밋 안 됨. `_meta.bases` 의 URL+SHA-256 핀, `scripts/fetch_neversink_poe2_bases.py` 로 복원 |
 | 공용 캐시 | `data/_cache/` (gitignore) — 자막·PoB XML·영상 길이. 에이전트는 받기 전에 여기부터 볼 것 |
 | 디스코드 빌드 카드 | `D:/discord-admin/templates/build-cards-poe2/` (POE1 퍼블리셔의 `templates/build-cards` 와 분리 — 2시간 주기 자동 게시에 끼어들지 않게) |
-| 인게임 빌드 플래너 | `build_planner/*.build` (커밋됨 — `.filter` 와 달리 gitignore 안 걸린다). 설치 위치 `문서/My Games/Path of Exile 2/BuildPlanner/` |
+| 인게임 빌드 플래너 | `build_planner/*.build` (커밋됨 — `.filter` 와 달리 gitignore 안 걸린다). 설치 위치 `문서/My Games/Path of Exile 2/BuildPlanner/`. **2026-09-03 사용자가 인게임 로드 확인** — 생성기 출력 형식이 게임에서 실제로 읽힌다 |
 
 ## 발행된 구글 닥
 
