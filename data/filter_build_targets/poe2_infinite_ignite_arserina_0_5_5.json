@@ -67,7 +67,7 @@
   },
   "styles": {
     "core": {
-      "comment": "S급 — 빌드가 성립하려면 반드시 있어야 하는 것 (종소리 지팡이 / 카옴의 심장 / 완벽한 마법 에센스)",
+      "comment": "S급 — 빌드가 성립하려면 반드시 있어야 하는 것 (차임벨 지팡이 / 카옴의 심장 / 완벽한 마법 에센스)",
       "text": [255, 255, 255],
       "border": [255, 140, 0],
       "background": [140, 30, 0],
@@ -110,8 +110,8 @@
   "rules": [
     {
       "style": "core",
-      "name": "[전 구간] 종소리 지팡이 — 빌드 최우선 무기",
-      "note": "가이드 §4 '지팡이(최우선) — 다른 장비보다 지팡이를 먼저 맞춘다, 이 빌드는 스킬 레벨 효율이 매우 높다'. PoB 세트 03 Swap·05 실물이 모두 종소리 지팡이(Chiming Staff)이고, 힘의 부적을 스킬로 부여하는 것은 이 베이스의 고유 속성이다(PoB 암시 'Grants Skill: Sigil of Power' · poe2db 요구 레벨 25 · 지능 46). 52 전환에 지팡이 하나가 필요하므로 캠페인부터 켠다. 같은 베이스의 고유(Sire of Shards · The Burden of Shadows)는 NeverSink 고유 티어 경보에 맡기려고 고유 등급을 뺀다",
+      "name": "[전 구간] 차임벨 지팡이 — 빌드 최우선 무기",
+      "note": "가이드 §4 '지팡이(최우선) — 다른 장비보다 지팡이를 먼저 맞춘다, 이 빌드는 스킬 레벨 효율이 매우 높다'. PoB 세트 03 Swap·05 실물이 모두 차임벨 지팡이(Chiming Staff)이고, 힘의 부적을 스킬로 부여하는 것은 이 베이스의 고유 속성이다(PoB 암시 'Grants Skill: Sigil of Power' · poe2db 요구 레벨 25 · 지능 46). 52 전환에 지팡이 하나가 필요하므로 캠페인부터 켠다. 같은 베이스의 고유(Sire of Shards · The Burden of Shadows)는 NeverSink 고유 티어 경보에 맡기려고 고유 등급을 뺀다",
       "class": ["Staves"],
       "base_types": ["Chiming Staff"],
       "rarity": ["Normal", "Magic", "Rare"]
@@ -168,7 +168,7 @@
     {
       "style": "gear",
       "name": "[세트 05 · 스타터 마감] 방어구 베이스",
-      "note": "PoB 세트 05 실물: 챔피언 투구(사카왈의 침식 룬) · Cultist Gauntlets(만난의 잔혹 룬) · 요새 사바톤(곡예 룬). 가이드 §4는 투구·장갑에 '생명력 + 부족한 저항', 장화에 '이동 속도 최대'만 요구하므로 베이스는 PoB 착용 실물 기준 후보다. 몸통은 카옴의 심장으로 대체된다. GGPK 드랍 레벨 75라 캠페인에서는 나오지 않는다",
+      "note": "PoB 세트 05 실물: 용사 헬름(사카왈의 침식 룬) · Cultist Gauntlets(만난의 잔혹 룬) · 요새 발 덮개(곡예 룬). 가이드 §4는 투구·장갑에 '생명력 + 부족한 저항', 장화에 '이동 속도 최대'만 요구하므로 베이스는 PoB 착용 실물 기준 후보다. 몸통은 카옴의 심장으로 대체된다. GGPK 드랍 레벨 75라 캠페인에서는 나오지 않는다",
       "base_types": ["Champion Helm", "Cultist Gauntlets", "Fortress Sabatons"],
       "rarity": ["Normal", "Magic", "Rare"]
     },
