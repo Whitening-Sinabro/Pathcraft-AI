@@ -38,6 +38,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+# 이 스크립트는 게이트다. 윈도 콘솔 기본 코덱(cp949)이 보고문의 기호를
+# 못 찍는다고 도중에 죽으면, 통과도 실패도 아닌 상태로 끝나 결함을 놓친다.
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 REPO = Path(__file__).resolve().parents[1]
 CACHE = REPO / "data" / "_cache"
 SCRATCH_ROOT = Path.home() / "AppData/Local/Temp/claude/D--Pathcraft-AI"
