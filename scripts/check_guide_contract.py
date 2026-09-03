@@ -102,9 +102,17 @@ def check(path: Path, baseline: str | None) -> list[str]:
     # template conformance -- only for files that use the band format at all
     if cur["bands"]:
         joined = " | ".join(cur["bands"])
-        missing = [b for b in REQUIRED_BANDS if b not in joined]
-        if missing:
-            problems.append(f"템플릿 필수 장 누락: {missing}")
+        # 보조 문서(하드코어 편 등)는 빌드 운용법을 본 가이드에 맡기고 달라지는 것만
+        # 다루므로 제0~8장을 다 갖지 않는다. 전체 가이드의 장 누락은 여전히 잡아야
+        # 하니 면제가 아니라 파일명으로 문서 종류를 가른다.
+        is_supplement = "_HARDCORE_GUIDE_DOC" in str(path).upper()
+        if is_supplement:
+            if "출처" not in joined:
+                problems.append("보조 문서에도 출처 장은 있어야 한다")
+        else:
+            missing = [b for b in REQUIRED_BANDS if b not in joined]
+            if missing:
+                problems.append(f"템플릿 필수 장 누락: {missing}")
         appendix = re.findall(r"부록\s*(\d*)", joined)
         if appendix and any(a == "" for a in appendix) and len(appendix) > 1:
             problems.append("부록에 번호 없는 항목이 섞여 있다 — 번호 체계 고정")

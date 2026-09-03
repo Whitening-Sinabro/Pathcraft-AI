@@ -1,0 +1,128 @@
+<meta charset="utf-8">
+<title>방패의 벽 키타바 — 하드코어 가이드 (탱정 빌드 기준) POE2 0.5.5</title>
+<style>body{background:#4a4a4a;color:#e8e8e8;font-family:'Malgun Gothic',system-ui,sans-serif;font-size:11pt;line-height:1.7;max-width:1100px;margin:0 auto;padding:24px}
+table{border-collapse:collapse;width:100%;margin:6px 0 16px}
+td,th{border:1px solid #999;padding:4px 6px;background:#333;vertical-align:top}
+th{background:#5f5f5f;text-align:left}
+a{color:#7fb3ff}
+h1{font-size:19pt;margin-bottom:2pt}
+p{margin:8px 0}</style>
+
+<h1 style="color:#000000;font-size:19pt;font-weight:700;margin-bottom:2pt">방패의 벽 키타바 — 하드코어 가이드</h1>
+<p style="color:#666666;font-size:10pt"><i>탱정 「방패벽 키타바」 빌드를 하드코어에서 굴릴 수 있는지, 무엇을 바꿔야 하는지를 <b>poe.ninja 하드코어 래더 실측</b>으로 판정한 문서다. 빌드 자체의 운용법은 <b>본 가이드</b>를 보고, 이 문서는 <b>하드코어에서 달라지는 것만</b> 다룬다. 2026-09-04 기준.</i></p>
+
+<table><tr><td style="background:#7c3aed;border:1px solid #7c3aed;padding:3px 8px"><b>제0장 — 한 줄 결론</b></td></tr></table>
+
+<table>
+<tr><th>항목</th><th>내용</th><th>근거</th></tr>
+<tr><td><b>쓸 수 있나</b></td><td><b>쓸 수 있다.</b> 방패의 벽은 하드코어에서 <b>소프트코어보다 2.5배 더 많이</b> 채택된다. 죽으면 끝인 환경에서 오히려 더 고른다는 것이 가장 직접적인 증거다.</td><td>ninja 래더 실측(아래 제1장)</td></tr>
+<tr><td><b>이번 리그에 시작해도 되나</b></td><td><b>하드코어로 시작하는 편이 손해가 없다.</b> 0.5.5 패치노트가 <b>"Hardcore Forbidden Rites에서 죽으면 Standard Forbidden Rites로 넘어간다"</b>고 명시한다. 캐릭터가 사라지는 게 아니라 <b>같은 신규 경제 안에 남는다</b>. 살아남으면 하드코어, 죽으면 원래 하려던 소프트코어를 그 자리에서 계속하면 된다.</td><td><a href="https://www.pathofexile.com/forum/view-thread/4000864">0.5.5 패치노트 25행</a></td></tr>
+<tr><td><b>탱정 세팅 그대로 되나</b></td><td><b>구조는 맞고 수치가 모자란다.</b> 방어 축(생명력·방어도, ES 0)은 하드코어 생존자들과 동일하지만, 공개된 하이엔드 PoB의 EHP는 생존자 분포의 <b>하위 25% 미만</b>이었다. 목표치를 올려 잡아야 한다.</td><td>제2장</td></tr>
+<tr><td><b>가장 큰 위험</b></td><td><b>운명의 저항에 생존이 걸려 있다.</b> 제작자 본인이 "생명력이 출렁거려 불안정하다"고 인정한 <b>아탈루이의 사열</b>을 채택한 근거가 "운명의 저항이 피격 직전마다 생명력을 채운다"는 것이다. 소프트코어에선 합리적이지만 하드코어에서는 <b>그 전제가 한 번 깨지면 죽는다</b>.</td><td>제3장</td></tr>
+</table>
+
+<table><tr><td style="background:#7c3aed;border:1px solid #7c3aed;padding:3px 8px"><b>제1장 — 하드코어에서 실제로 쓰이는가 (래더 실측)</b></td></tr></table>
+
+<p><b>채택률: 하드코어가 소프트코어의 2.5배</b></p>
+<table>
+<tr><th>리그</th><th>방패의 벽</th><th>전체</th><th>비율</th></tr>
+<tr><td><b>HC Runes of Aldur</b></td><td><b>458명</b></td><td>12,354명</td><td><b>3.71%</b></td></tr>
+<tr><td>Runes of Aldur (SC)</td><td>1,860명</td><td>124,109명</td><td>1.50%</td></tr>
+<tr><td><b>HC SSF</b></td><td><b>505명</b></td><td>—</td><td>—</td></tr>
+</table>
+<p><b>HC SSF(505명)가 일반 HC(458명)보다 많다</b>는 점이 중요하다. 거래가 막힌 환경에서 더 쓰인다는 것은 <b>유니크 의존이 낮다</b>는 뜻이고, 리그 초 매물이 얇을 때 유리하다는 실증이다.</p>
+
+<p><b>어센던시: 키타바는 소수지만 방패의 벽과 강하게 묶여 있다</b></p>
+<table>
+<tr><th>항목</th><th>수</th><th>해석</th></tr>
+<tr><td>HC 전체 Smith of Kitava</td><td>293명 (2.4%)</td><td>주류는 아니다</td></tr>
+<tr><td>그중 방패의 벽 사용</td><td><b>174명 (59%)</b></td><td>키타바를 고른 사람의 과반이 방패의 벽을 쓴다</td></tr>
+<tr><td>방패의 벽 중 키타바</td><td>174 / 458 (38%)</td><td>나머지 62%는 타이탄 등 다른 어센던시로 굴린다</td></tr>
+</table>
+
+<p><b>무기: 하드코어는 한손 철퇴+방패로 수렴한다</b></p>
+<table>
+<tr><th>무기 구성</th><th>HC</th><th>SC</th><th>차이</th></tr>
+<tr><td><b>한손 철퇴 / 방패</b></td><td><b>80%</b></td><td>54%</td><td><b>+26%p</b></td></tr>
+<tr><td>양손 철퇴 / 방패</td><td>5%</td><td>16%</td><td>-11%p</td></tr>
+<tr><td>셉터 / 방패</td><td>3%</td><td>11%</td><td>-8%p</td></tr>
+</table>
+<p>하드코어에서는 <b>한손+방패가 압도적</b>이고 양손·셉터는 급감한다. 방패를 포기하는 변형은 하드코어에서 살아남지 못한다는 뜻으로 읽힌다. <b>탱정 빌드는 한손 철퇴+방패이므로 이 흐름에 정확히 맞는다.</b></p>
+
+<p><b>키스톤: 하드코어에서만 올라가는 것들</b></p>
+<table>
+<tr><th>키스톤</th><th>HC</th><th>SC</th><th>메모</th></tr>
+<tr><td>Colossal Capacity</td><td>39%</td><td>41%</td><td>양쪽 공통 1위</td></tr>
+<tr><td>Hulking Form</td><td>39%</td><td>40%</td><td>공통</td></tr>
+<tr><td><b>Smith's Masterwork</b>(대장장이의 걸작)</td><td><b>36%</b></td><td>25%</td><td><b>HC에서 +11%p</b> — 흰 갑옷 라인이 하드코어에서 더 선호된다</td></tr>
+<tr><td><b>Kitavan Engraving</b></td><td><b>32%</b></td><td>21%</td><td><b>HC에서 +11%p</b></td></tr>
+<tr><td><b>Dedication to Kitava</b></td><td><b>30%</b></td><td>—</td><td>SC 상위 8위 밖</td></tr>
+<tr><td><b>Molten Symbol</b>(녹아내린 상징)</td><td><b>29%</b></td><td>—</td><td>SC 상위 8위 밖</td></tr>
+<tr><td><b>Blood Magic</b></td><td>—</td><td><b>35%</b></td><td><b>HC 상위 8위 밖</b> — 생명력을 자원으로 태우는 선택은 하드코어에서 기피된다</td></tr>
+<tr><td>Coal Stoker(석탄 때기)</td><td>—</td><td>28%</td><td>SC 전용 상위</td></tr>
+</table>
+<p>가장 눈에 띄는 건 <b>Blood Magic이 SC 35%인데 HC 상위권에서 사라진다</b>는 것이다. 반대로 <b>키타바 계열 키스톤(걸작·각인·헌신·녹아내린 상징)이 전부 HC에서 올라간다</b>. 탱정 빌드가 기대는 축이 하드코어에서 더 선호되는 축이라는 뜻이다.</p>
+
+<table><tr><td style="background:#7c3aed;border:1px solid #7c3aed;padding:3px 8px"><b>제2장 — 목표 수치 (얼마면 안전한가)</b></td></tr></table>
+
+<p>HC 래더에서 <b>키타바 + 방패의 벽</b>으로 살아남은 174명 중 72명을 표본으로 뽑은 분포다. 레벨 97~100 구간이다.</p>
+<table>
+<tr><th>지표</th><th>최소</th><th>25%</th><th><b>중앙값</b></th><th>75%</th><th>최대</th></tr>
+<tr><td><b>EHP</b></td><td>4.8k</td><td><b>41k</b></td><td><b>56k</b></td><td>97k</td><td>162k</td></tr>
+<tr><td><b>생명력</b></td><td>1,776</td><td>2,719</td><td><b>3,178</b></td><td>3,487</td><td>4,157</td></tr>
+</table>
+<p><b>72명 중 61명(85%)이 ES 0</b>이다. 하드코어 전체 1위 키스톤은 Chaos Inoculation(32%)이지만, 방패의 벽 키타바는 그 메타를 타지 않고 생명력·방어도로 간다.</p>
+
+<table>
+<tr><th>목표</th><th>값</th><th>의미</th></tr>
+<tr><td><b>최소선</b></td><td>EHP <b>41k</b> · 생명력 <b>2,700</b></td><td>생존자 하위 25% 경계. 여기 미만이면 하드코어에서 얇다</td></tr>
+<tr><td><b>권장</b></td><td>EHP <b>56k</b> · 생명력 <b>3,200</b></td><td>생존자 중앙값</td></tr>
+<tr><td><b>여유</b></td><td>EHP <b>97k</b> · 생명력 <b>3,500</b></td><td>상위 25%</td></tr>
+</table>
+
+<p><b>탱정 공개 PoB와의 격차</b></p>
+<table>
+<tr><th>스냅샷</th><th>레벨</th><th>생명력</th><th>EHP</th><th>방어도</th><th>판정</th></tr>
+<tr><td>variant_b (7/19)</td><td>—</td><td>2,113</td><td>15,104</td><td>7,271</td><td>초기형</td></tr>
+<tr><td>live (8/08)</td><td>97</td><td>2,100</td><td>29,132</td><td>26,901</td><td>—</td></tr>
+<tr><td><b>26e5d 하이엔드 (8/02)</b></td><td><b>97</b></td><td><b>2,113</b></td><td><b>31,268</b></td><td>28,884</td><td><b>하위 25% 미만</b></td></tr>
+<tr><td>2.0 trailer (8/25)</td><td>96</td><td>1,984</td><td>26,042</td><td>24,273</td><td>—</td></tr>
+<tr><td><b>28010 (2.0 본편, 9/3)</b></td><td>97</td><td colspan="3"><b>계산 캐시 없이 업로드돼 수치를 읽을 수 없다</b></td><td><b>미확인</b></td></tr>
+</table>
+<p>레벨 97로 래더 생존자와 같은 구간인데도 <b>EHP 31,268은 25백분위(41k)에 못 미치고 중앙값(56k)의 56%</b>다. 생명력 2,113도 25백분위(2,719) 아래다. 다만 <b>저항은 87/87/87에 카오스 75</b>로 오버캡돼 있어 이쪽은 부족함이 없다.</p>
+<p><b>주의</b>: 위 EHP는 <b>ninja와 PoB의 생명력·ES 기반 계산</b>이다. 제작자는 이 빌드를 <b>"생명력 기반이 아니라 마나가 메인인 생존"</b>이라고 설명하므로, 표시된 EHP가 실제 생존력을 <b>과소평가할 가능성</b>이 있다. 그러나 래더의 174명도 같은 방식으로 계산된 값이므로 <b>비교 자체는 공정하다</b>.</p>
+
+<table><tr><td style="background:#7c3aed;border:1px solid #7c3aed;padding:3px 8px"><b>제3장 — 하드코어에서만 문제가 되는 것</b></td></tr></table>
+
+<table>
+<tr><th>항목</th><th>왜 위험한가</th><th>대응</th></tr>
+<tr><td><b>아탈루이의 사열 + 운명의 저항</b></td><td>제작자가 <b>"생명력이 출렁거리면 생존이 불안정해진다"</b>고 직접 말한 젬을, <b>운명의 저항이 피격 직전마다 생명력을 최대로 되돌린다</b>는 전제로 채택했다. 하드코어에서는 이 전제가 <b>한 번만 깨져도 죽는다</b> — 회복이 막히는 맵 모드, 연속 피격, 지속 피해 구간이 그렇다.</td><td>회복 감소·지속 피해 맵 모드를 피하거나, 아탈루이를 빼고 안정형으로 간다. 딜 손실은 감수한다.</td></tr>
+<tr><td><b>2.0 원버튼을 너무 일찍 쓰는 것</b></td><td>제작자 정오표: <b>"안의 성채와 카옴의 광기를 채용하면 DPS가 반토막나는 것을 확인"</b>. 딜이 모자라면 벽이 안 터지고, 벽이 안 터지면 적 한가운데서 멈춘다.</td><td><b>딜이 확보되기 전에는 기존 방식(2버튼)을 유지</b>한다. 제작자 권고 그대로다.</td></tr>
+<tr><td><b>살아있는 번개가 안 켜지는 것</b></td><td>제작자 정오표: <b>"공격 시 번개 피해를 조금이라도 챙겨줘야 살아있는 번개가 작동한다"</b>. 이것이 벽이 안 터질 때의 <b>마지막 안전장치</b>다.</td><td>장비에 <b>공격 시 번개 피해</b>를 반드시 하나 확보한다.</td></tr>
+<tr><td><b>무기 세트 의존 (해소됨)</b></td><td>구 버전(26e5d)은 <b>얼음의 정화를 스왑 무기</b>에 두고 있었다. 0.5.5가 <b>비활성 세트의 오라·보조 젬 적용을 막았으므로</b> 그대로 두면 냉기 저항이 빠진다.</td><td><b>2.0에서 제작자가 스왑 세트를 통째로 제거해 해결했다.</b> 구 PoB를 쓰고 있다면 반드시 갱신한다.</td></tr>
+<tr><td><b>Blood Magic 유혹</b></td><td>SC 방패의 벽의 <b>35%</b>가 쓰지만 <b>HC 상위권에서는 사라진다</b>. 생명력을 자원으로 태우는 구조는 하드코어와 맞지 않는다.</td><td>쓰지 않는다.</td></tr>
+</table>
+
+<table><tr><td style="background:#7c3aed;border:1px solid #7c3aed;padding:3px 8px"><b>제4장 — 하드코어 진행 순서</b></td></tr></table>
+
+<table>
+<tr><th>단계</th><th>할 일</th><th>확인</th></tr>
+<tr><td><b>1. 액트</b></td><td>본 가이드의 레벨링을 그대로 따른다. 하드코어라고 다른 스킬을 쓰지 않는다.</td><td>저항을 캡에 붙이는 것을 딜보다 먼저 본다</td></tr>
+<tr><td><b>2. 저자본 구간</b></td><td><b>함성 로테이션</b>으로 굴린다(보강·지옥불·지진 3종). 공명하는 방패도 2.0 원버튼도 아직 쓰지 않는다.</td><td>EHP <b>41k</b>를 넘기기 전에는 맵 티어를 올리지 않는다</td></tr>
+<tr><td><b>3. 딜 확보 후</b></td><td>딜이 충분해지면 2.0 원버튼(안의 성채 + 카옴의 광기)으로 전환한다. <b>공격 시 번개 피해</b>를 먼저 확보한다.</td><td>전환 후 벽이 실제로 터지는지 안전한 맵에서 확인</td></tr>
+<tr><td><b>4. 목표</b></td><td>EHP <b>56k</b>(중앙값)를 넘기면 하드코어 생존자 평균선이다.</td><td>—</td></tr>
+</table>
+
+<table><tr><td style="background:#7c3aed;border:1px solid #7c3aed;padding:3px 8px"><b>출처</b></td></tr></table>
+
+<table>
+<tr><th>무엇</th><th>어디</th></tr>
+<tr><td>하드코어 래더 (458명 / 174명 표본)</td><td><a href="https://poe.ninja/poe2/builds/runesofaldurhc?skills=Shield+Wall">poe.ninja HC Runes of Aldur</a> · <a href="https://poe.ninja/poe2/builds/runesofaldurhc?skills=Shield+Wall&class=Smith+of+Kitava">키타바 필터</a></td></tr>
+<tr><td>소프트코어 대조군</td><td><a href="https://poe.ninja/poe2/builds/runesofaldur?skills=Shield+Wall">poe.ninja Runes of Aldur</a></td></tr>
+<tr><td>2.0 본편 가이드 (11:51, 2026-09-03)</td><td><a href="https://www.youtube.com/watch?v=kS80oF3VbJI">유튜브</a> · 제작자 댓글 정오표 동일 페이지</td></tr>
+<tr><td>PoB 스냅샷</td><td><a href="https://poe.ninja/poe2/pob/28010">28010 (2.0)</a> · <a href="https://poe.ninja/poe2/pob/26e5d">26e5d (1.x 하이엔드)</a></td></tr>
+<tr><td>0.5.5 패치노트 (하드코어 변형·사망 시 이관)</td><td><a href="https://www.pathofexile.com/forum/view-thread/4000864">공식 포럼</a></td></tr>
+<tr><td>빌드 본 가이드</td><td>방패의 벽 키타바 0.5.5 가이드 (별도 문서)</td></tr>
+</table>
+
+<p style="color:#999;font-size:9pt"><i>수치는 2026-09-04 기준 스냅샷이다. 0.5.5 Forbidden Rites는 9월 5일 05:00 KST에 새 경제로 시작하므로, 리그가 진행되면 래더 분포가 달라진다.</i></p>
