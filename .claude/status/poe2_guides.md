@@ -73,3 +73,27 @@ python scripts/poe2_filter_sweep.py --spec <filter spec>.json    # 오버레이 
 3. **관찰은 맞고 설명이 틀림** — 주얼이 유니크가 아니라는 관찰은 맞았는데 "미장착"이라 설명.
 
 적대검증도 틀릴 수 있다. 녹아내린 존재/상징 건은 1차 검증(자막·설명란만 확인)이 틀리고 2차(게임 데이터 원본까지)가 맞았다.
+
+## POE2 무기 분류 (Martial vs Caster)
+
+`Soul Core` 계열 다수가 "when socketed into a **Martial Weapon**" 조건을 쓴다.
+게임 안에서 쓰는 공식 용어다 — 트리의 거인의 피("Triple Attribute requirements of
+Martial Weapons"), 죽음과의 춤("a One-Handed Martial Weapon equipped in your Main Hand").
+
+`data/game_data_poe2/BaseItemTypes.json` 의 `ItemClass` 정수 -> 무기 계열
+(BaseItemTypes 를 ItemClass 로 묶어서 얻은 것. `ItemClasses` 테이블은 아직 추출 안 됨):
+
+| ItemClass | 계열 | 수 |
+|---|---|---|
+| 8 | Wands | 13 |
+| 12 / 17 | One Hand Maces / Two Hand Maces | 27 / 26 |
+| 13 | Bows | 26 |
+| **14** | **Staves (캐스터 지팡이)** — 종소리 지팡이가 여기 | **17** |
+| 32 | Sceptres | 16 |
+| **57** | **Quarterstaves** | **27** |
+| 77 | Spears | 28 |
+| 78 | Crossbows | 26 |
+| 108 | Talismans | 25 |
+
+**함정: 14 와 57 은 GGPK 경로가 둘 다 `TwoHandWeapons/Staves/` 다.** 경로로 가르면
+캐스터 지팡이와 쿼터스태프가 한 덩어리가 된다. 갈라 주는 것은 `ItemClass` 다.

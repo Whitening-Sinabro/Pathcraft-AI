@@ -80,10 +80,20 @@ def _title(candidate_id: str) -> str:
     return ' '.join(parts)
 
 
-def build_representative_build_board() -> dict:
+def build_representative_build_board(site_probe: dict | None = None) -> dict:
+    """`site_probe` 를 주지 않으면 외부 사이트를 실시간으로 훑는다.
+
+    회귀 테스트는 반드시 스냅샷을 주입해야 한다. 이 판정의 입력 절반이 maxroll 과
+    poe-vault 의 **오늘자 색인 페이지**이기 때문이다. 실제로 그 때문에 한 번 깨졌다:
+    3.28 Shock Nova 가 7/9 스냅샷에서는 `['maxroll', 'poe_vault']` 2개 계열이라
+    confirmed 였는데, poe-vault 가 색인에서 빼면서(HTTP 200 · 본문에 해당 문구 0회 —
+    차단이 아니다) `['maxroll']` 하나가 되어 near_confirmed 로 내려갔다. 코드가 아니라
+    바깥 세상이 바뀐 것인데 테스트가 red 로 남았다.
+    """
     queue = _load_json(QUEUE_PATH)
     verification = build_verification_audit()
-    site_probe = build_site_index_probe()
+    if site_probe is None:
+        site_probe = build_site_index_probe()
 
     verification_index = {item['candidate_id']: item for item in verification['items']}
     site_probe_index = {item['candidate_id']: item for item in site_probe['items']}
