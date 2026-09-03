@@ -535,7 +535,7 @@ def main() -> int:
     if skipped:
         print(f"\n  플래너에 대응 슬롯이 없어 버린 PoB 슬롯: {sorted(set(skipped))}")
     if inferred:
-        print("\n  GGPK 표에 없어 계열 다수결로 추론한 젬:")
+        print("\n  GGPK 표와 대조하지 못한 젬 (PoB 경로를 그대로 썼다):")
         for note in sorted(set(inferred)):
             print(f"    ~ {note}")
 
