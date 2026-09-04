@@ -520,12 +520,16 @@ def build_rule_blocks(
         for v_rarities, v_sockets, v_ilvl, v_qual, v_font, v_volume, v_icon in (
             narrower_louder_blocks(base_type, scope, base_blocks, style)
         ):
-            # 일반 경로(위 `volume = max(...)`)와 같은 바닥을 변이에도 적용한다.
-            # 안 하면 NeverSink 가 큰 폰트를 무음으로 주는 구간에서 우리 스타일의
-            # 음량(예: gear 200)까지 0 으로 따라 내려가 드롭이 조용해진다.
-            v_volume = max(style["sound"][1], v_volume)
-            key = (tuple(sorted(v_rarities)), v_sockets, v_ilvl, v_qual, v_font, v_volume,
-                   style["icon"][0] if v_icon is None else min(style["icon"][0], v_icon))
+            # 변이의 바닥은 스타일이 아니라 **일반 블록이 확보한 값**이다.
+            # 변이는 일반 블록보다 앞에 깔리므로, 일반 블록이 NeverSink 때문에
+            # 올려둔 폰트·음량보다 조용하면 그 상향분이 통째로 사라진다.
+            # 실제로 그랬다: 진주광 목걸이는 NeverSink 가 Exotic Base 로 음량 300 을
+            # 주는데(soft L207), 등급을 {Magic,Normal} 로 좁힌 변이가 스타일 바닥
+            # 200 만 쥐고 앞을 막아 회귀 72건이 났다.
+            v_font = max(font, v_font)
+            v_volume = max(volume, v_volume)
+            v_icon = icon if v_icon is None else min(icon, v_icon)
+            key = (tuple(sorted(v_rarities)), v_sockets, v_ilvl, v_qual, v_font, v_volume, v_icon)
             variants.setdefault(key, []).append(base_type)
 
     blocks = []

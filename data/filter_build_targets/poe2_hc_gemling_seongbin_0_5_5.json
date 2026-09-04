@@ -1,0 +1,474 @@
+{
+ "_meta": {
+  "build": "Flameblast + Oil Grenade Gemling Legionnaire 하드코어 — 임성빈 기준 / ds lily·fubgun 보조",
+  "game": "poe2",
+  "patch": "0.5 / 0.5.5 Forbidden Rites",
+  "base_filter": "NeverSink's filter 2 (0.10.3) -- SOFT / REGULAR / STRICT, one per stage",
+  "generated_by": "scripts/build_poe2_build_overlay.py (스펙은 scratchpad/make_hc_spec.py 가 플래너 정본에서 유도)",
+  "sources": "임성빈 Mobalytics 하드코어 4탭 https://mobalytics.gg/poe-2/profile/seongbin-poe2-hardcore-zaxjdu/builds/11f193d5-8baf-44ea-9938-579451232125 | ds lily Mobalytics 6탭 https://mobalytics.gg/poe-2/profile/ds_lily/builds/oil-flameblast-gemling | fubgun Mobalytics 7탭 https://mobalytics.gg/poe-2/builds/fubgun-flameblast-oil-grenade | 세 사람의 인게임 플래너 다운로드본(build_planner/) inventory_slots 에서 베이스를 직접 유도했다 | 룬·영혼핵은 소프트코어 가이드(Docs/2026-09-02_ARSERINA_...) 제4·7·8장 | 실재성은 data/game_data_poe2/BaseItemTypes.json (GGPK, 2026-09-04 추출) 로 전수 확인",
+  "palette": "purple family -- a single violet identity across all four tiers (user request). The S tier deliberately mirrors NeverSink's apex jackpot silhouette (white background, font 45, size-0 star) in purple instead of red; the remaining tiers are told apart by font size 45/42/40/40, background lightness, minimap icon size + shape, and the craft tier's inverted light-on-dark, not by hue",
+  "notes": [
+   "Show-only overlay. 아무것도 숨기지 않는다 — 안 걸린 아이템은 NeverSink 규칙대로 흐른다.",
+   "역할 배치: 임성빈=기준(트리 골격+방어 축) / ds lily=생존 보조 / fubgun=레벨링 해상도+능력치 경로. fubgun 은 생존 출처가 아니다 — 엔드게임 방어/생존 노드가 3개뿐이고 반지 2개가 아이템 희귀도용 금 반지다.",
+   "엔드게임 패시브 트리 실측: 넷(3인+아르세리나) 공통 84노드 / 합집합 269, 쌍별 자카드 48~59%. 점화 노드는 넷 다 14~15개로 동일하고, 갈리는 축은 전적으로 방어다 — 임성빈 38 · ds lily 30 · 아르세리나 15 · fubgun 3.",
+   "방어구 베이스를 개별로 나열하는 축은 원래 약하다. 63종 합집합 중 셋 다 쓰는 것은 석궁 2종뿐이고, 이는 취향 문제가 아니라 POE2 방어구가 '생명력+저항을 굴리는 그릇'이라 베이스가 중요하지 않기 때문이다. 그래서 방어구 룰의 주석은 전부 '굴릴 그릇이지 요구사항이 아니다'라고 적었다.",
+   "룬각인(Runeforged) 은 별개 BaseType 이다 — 메타데이터 경로가 `...Verisium` 으로 끝난다. `Cryptic Crown` 룰은 `Runeforged Cryptic Crown` 을 잡지 못하므로 양쪽 다 넣었다.",
+   "제작자 셋 다 아이템 필터는 배포하지 않는다(세 페이지 모두 loot filter 언급 0건). 그래서 이 필터가 필요하다.",
+   "NeverSink 베이스 필터는 vendoring 하지 않는다(.gitignore). `_meta.bases` 의 URL+SHA-256 핀으로 `python scripts/fetch_neversink_poe2_bases.py` 가 복원·검증한다."
+  ],
+  "outputs": [
+   {
+    "stage": "campaign",
+    "file": "PathcraftAI_HC-Gemling_1-Campaign_on_NeverSink-SOFT.filter",
+    "base": "neversink_poe2_soft.filter",
+    "why": "액트 1~4 하드코어 레벨링. 임성빈의 액트별 착용 베이스와 생존 키트(호신부·생명력 플라스크)를 봐야 한다. SOFT 가 가장 적게 숨긴다."
+   },
+   {
+    "stage": "maps",
+    "file": "PathcraftAI_HC-Gemling_2-EarlyMaps_on_NeverSink-REGULAR.filter",
+    "base": "neversink_poe2_regular.filter",
+    "why": "52 전환 직후 ~ 초반 맵. 지팡이 3종·마감 방어구·영혼핵이 켜지고 액트1/2 레벨링 베이스는 꺼진다."
+   },
+   {
+    "stage": "endgame",
+    "file": "PathcraftAI_HC-Gemling_3-Endgame_on_NeverSink-STRICT.filter",
+    "base": "neversink_poe2_strict.filter",
+    "why": "마감. VERY-STRICT 이 아니라 STRICT 인 이유는 점화 오버레이와 같다 — 하드코어에서 생존 소모품을 놓치면 안 된다."
+   }
+  ],
+  "bases": [
+   {
+    "file": "neversink_poe2_soft.filter",
+    "upstream": "NeverSink's filter 2 - 0-SOFT.filter",
+    "used_for": "campaign",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%200-SOFT.filter",
+    "sha256": "4982d9531e17313c0d26e58ce39e636e4a870035d4e91702a051fd5263cc961d",
+    "bytes": 252540
+   },
+   {
+    "file": "neversink_poe2_regular.filter",
+    "upstream": "NeverSink's filter 2 - 1-REGULAR.filter",
+    "used_for": "maps",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%201-REGULAR.filter",
+    "sha256": "16a0333e07d0bce8a4886dc2ab0d34d6190e652a58a9d784ff06616853606572",
+    "bytes": 252572
+   },
+   {
+    "file": "neversink_poe2_strict.filter",
+    "upstream": "NeverSink's filter 2 - 3-STRICT.filter",
+    "used_for": "endgame",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%203-STRICT.filter",
+    "sha256": "efd5631032846353a15d8cfe0165296ab124bd6057c15f7d66b8f4bdfa1e9fd8",
+    "bytes": 252655
+   }
+  ]
+ },
+ "styles": {
+  "core": {
+   "comment": "S급 — 빌드가 성립하려면 반드시 있어야 하는 것 (차임벨 지팡이 / 카옴의 심장 / 완벽한 마법 에센스). 흰 배경 + 진보라 글자 + 폰트 45. NeverSink 의 apex 잭팟(흰 배경 + 빨간 글자 45 + 빨간 별 + 소리 6)과 같은 실루엣을 일부러 쓴다 — '이 빌드에서는 이게 미러급' 이라는 뜻이고, 색(보라)과 소리(1)로 갈린다",
+   "text": [
+    120,
+    0,
+    190
+   ],
+   "border": [
+    120,
+    0,
+    190
+   ],
+   "background": [
+    255,
+    255,
+    255
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Purple",
+   "icon": [
+    0,
+    "Purple",
+    "Star"
+   ]
+  },
+  "endgame": {
+   "comment": "A급 — 스타터 마감 세팅을 완성하는 지정 룬. 배경을 한 단계 밝혀 S급과 가른다",
+   "text": [
+    255,
+    240,
+    255
+   ],
+   "border": [
+    230,
+    180,
+    255
+   ],
+   "background": [
+    120,
+    0,
+    190
+   ],
+   "font": 42,
+   "sound": [
+    2,
+    280
+   ],
+   "beam": "Purple",
+   "icon": [
+    0,
+    "Purple",
+    "Diamond"
+   ]
+  },
+  "gear": {
+   "comment": "B급 — 단계별 장비 베이스 (석궁, 슬롯 베이스, PoB 착용 방어구). 폰트 40 = NeverSink 가 무음으로 40 을 주는 레어/레벨링 티어와 같은 크기 — 38 이면 소리를 얹고도 글자가 작아지는 상태가 250건 넘게 생겼다",
+   "text": [
+    232,
+    215,
+    255
+   ],
+   "border": [
+    150,
+    105,
+    220
+   ],
+   "background": [
+    48,
+    16,
+    86
+   ],
+   "font": 40,
+   "sound": [
+    4,
+    200
+   ],
+   "beam": "Purple",
+   "icon": [
+    1,
+    "Purple",
+    "Circle"
+   ]
+  },
+  "craft": {
+   "comment": "C급 — 제작·소모 재료 (주얼 / 상위 룬 / 호신부 / 성유 재료). 폰트 40 은 B급과 같은 이유 (NeverSink 의 무음 40 티어 아래로 내려가지 않기 위함). 배경이 네 등급 중 가장 어둡고 글자도 흐리다 — S급이 흰 배경을 가져가면서 '밝을수록 중요' 로 방향을 통일했고, 예전의 '밝은 배경 = 낮은 등급' 반전은 폐기했다",
+   "text": [
+    178,
+    150,
+    210
+   ],
+   "border": [
+    96,
+    62,
+    150
+   ],
+   "background": [
+    32,
+    10,
+    58
+   ],
+   "font": 40,
+   "sound": [
+    3,
+    180
+   ],
+   "beam": "Purple",
+   "icon": [
+    2,
+    "Purple",
+    "Triangle"
+   ]
+  }
+ },
+ "rules": [
+  {
+   "style": "core",
+   "name": "[전 구간] 화염파 지팡이 3종 — 52 전환의 전제",
+   "note": "52 전환이 이 빌드의 축이고 셋 중 먼저 떨어지는 것을 쓰면 된다. 제작자마다 다른 지팡이를 쓴다: Chiming Staff(임성빈) / Sanctified Staff(ds lily) / Pyrophyte Staff(fubgun). 셋 다 캐스터 무기라 화염파를 올리는 역할은 같다. 고유 등급은 뺀다 — 같은 베이스의 고유는 NeverSink 고유 티어 경보에 맡긴다.",
+   "class": [
+    "Staves"
+   ],
+   "base_types": [
+    "Chiming Staff",
+    "Sanctified Staff",
+    "Pyrophyte Staff"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "core",
+   "name": "[액트 3~ · 마감] 폭격 · 포격 석궁",
+   "note": "유탄 축의 주무기. Bombard Crossbow(임성빈·ds lily·fubgun) / Cannonade Crossbow(임성빈·ds lily). 폭격 석궁은 셋 다 쓰고, 포격 석궁은 임성빈·ds lily 의 마감 무기다.",
+   "class": [
+    "Crossbows"
+   ],
+   "base_types": [
+    "Bombard Crossbow",
+    "Cannonade Crossbow"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "endgame",
+   "name": "[생존] 호신부 5종 — 임성빈 축 + ds lily·fubgun 보강",
+   "note": "하코에서 사람을 죽이는 것은 평균 피해가 아니라 상태 이상 한 방이다. Sapphire Charm(임성빈) / Stone Charm(임성빈) / Thawing Charm(임성빈·fubgun) / Dousing Charm(fubgun) / Silver Charm(fubgun). 임성빈은 액트1 사파이어 -> 액트3/4 돌·해동으로 가고, fubgun 은 해동·소화·은을 상시 낀다.",
+   "class": [
+    "Charms"
+   ],
+   "base_types": [
+    "Sapphire Charm",
+    "Stone Charm",
+    "Thawing Charm",
+    "Dousing Charm",
+    "Silver Charm"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "endgame",
+   "name": "[생존] 생명력 플라스크 등급 진행",
+   "note": "임성빈이 액트별로 등급을 갈아탄다: Greater Life Flask(임성빈) / Giant Life Flask(임성빈) / Gargantuan Life Flask(임성빈) / Transcendent Life Flask(fubgun). fubgun 의 초월 생명력 플라스크(즉시 회복 20%)가 최종형이다. NeverSink 는 플라스크를 레벨로만 티어링해서 등급 진행이 눈에 안 띈다.",
+   "base_types": [
+    "Greater Life Flask",
+    "Giant Life Flask",
+    "Gargantuan Life Flask",
+    "Transcendent Life Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "endgame",
+   "name": "[생존] 마나 플라스크 등급",
+   "note": "화염파는 마나 소모가 크다. Greater Mana Flask(임성빈) / Gargantuan Mana Flask(임성빈·fubgun).",
+   "base_types": [
+    "Greater Mana Flask",
+    "Gargantuan Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "endgame",
+   "name": "[마감] 영혼핵 2종 — 티카바(치명타 방어) · 푸우아르테(장갑 화염저항)",
+   "note": "0.5.5 패치노트 원문. 티카바 = 몸통·방패에 '당신을 맞히는 피격의 치명타 피해 보너스 50% 감소'(이전 20%) — 하코에서 이번 패치 최대 수혜다. 푸우아르테는 장갑 '최대 화염 저항 +2%' 용도. 무장 무기 점화 40%는 이 빌드에 안 붙는다(지팡이가 캐스터 무기 + 석궁은 무기 세트가 다르다). 소프트코어 편 제8장 판정.",
+   "class": [
+    "Augment"
+   ],
+   "base_types": [
+    "Soul Core of Ticaba",
+    "Soul Core of Puhuarte"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "gear",
+   "name": "[액트 1] 임성빈·fubgun 착용 베이스",
+   "note": "임성빈 액트1 전신 + fubgun 1-32 구간. Horned Crown(임성빈) / Pelt Mantle(임성빈) / Rope Cuffs(임성빈) / Padded Leggings(임성빈) / Rawhide Belt(임성빈) / Iron Ring(임성빈·fubgun) / Face Mask(fubgun) / Bronze Greaves(fubgun) / Sombre Gloves(SC 가이드). 이건 굴릴 그릇이지 요구사항이 아니다 — 세 제작자가 방어구에서 겹치는 게 거의 없다(63종 중 셋 다 쓰는 건 석궁 2종뿐). 생명력과 저항만 맞으면 된다.",
+   "base_types": [
+    "Horned Crown",
+    "Pelt Mantle",
+    "Rope Cuffs",
+    "Padded Leggings",
+    "Rawhide Belt",
+    "Iron Ring",
+    "Face Mask",
+    "Bronze Greaves",
+    "Sombre Gloves"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 20,
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "gear",
+   "name": "[액트 2] 임성빈·fubgun 착용 베이스",
+   "note": "임성빈 액트2 전신 + fubgun 33-51 반지. Martyr Crown(임성빈) / Shaman Mantle(임성빈) / Aged Cuffs(임성빈) / Secured Leggings(임성빈) / Plate Belt(임성빈) / Ruby Ring(임성빈) / Topaz Ring(임성빈·fubgun) / Sapphire Ring(fubgun).",
+   "base_types": [
+    "Martyr Crown",
+    "Shaman Mantle",
+    "Aged Cuffs",
+    "Secured Leggings",
+    "Plate Belt",
+    "Ruby Ring",
+    "Topaz Ring",
+    "Sapphire Ring"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 45,
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "gear",
+   "name": "[액트 3/4] 임성빈 착용 베이스",
+   "note": "임성빈 액트3/4 전신. Spiritbone Crown(임성빈) / Braided Cuffs(임성빈) / Weaver Leggings(임성빈) / Prismatic Ring(임성빈) / Pearlescent Amulet(임성빈). 프리즘 반지 2개가 전 원소 저항을 메운다.",
+   "base_types": [
+    "Spiritbone Crown",
+    "Braided Cuffs",
+    "Weaver Leggings",
+    "Prismatic Ring",
+    "Pearlescent Amulet"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 60,
+   "stages": [
+    "campaign",
+    "maps"
+   ]
+  },
+  {
+   "style": "gear",
+   "name": "[마감] 방어구 베이스 — 세 제작자 합집합",
+   "note": "셋이 서로 다른 베이스를 쓰므로 전부 켠다. fubgun·ds lily 의 마감 장비는 **룬각인(Runeforged) 변형**인데 그 이름은 뺐다 — GGPK 에는 535종 실재하지만 파생 `base_items_poe2.json`(4/25)에 0종이라 어휘 게이트를 통과하지 못하고, NeverSink 도 방어구 룬각인 이름을 쓰지 않는다(NeverSink 의 `Runeforged Blades` 는 혈통 젬이다). 대신 **룬각인 안 된 쌍둥이 베이스**를 넣었다: 지혜의 관/부착 소맷동/암호 각반/매잡이 상의/사령관 건틀릿. 9/5 재추출로 파생 DB 를 갱신하면 룬각인 이름도 넣을 수 있다. Cryptic Crown(임성빈) / Adherent Cuffs(임성빈·ds lily) / Cryptic Leggings(SC 가이드) / Falconer's Jacket(SC 가이드) / Gallant Helm(ds lily) / Golden Mail(ds lily) / Commander Gauntlets(SC 가이드) / Bastion Sabatons(ds lily) / Ancestral Mail(fubgun) / Decorated Helm(ds lily) / Champion Cuirass(ds lily) / Adorned Wraps(ds lily) / Bound Boots(ds lily).",
+   "base_types": [
+    "Cryptic Crown",
+    "Adherent Cuffs",
+    "Cryptic Leggings",
+    "Falconer's Jacket",
+    "Gallant Helm",
+    "Golden Mail",
+    "Commander Gauntlets",
+    "Bastion Sabatons",
+    "Ancestral Mail",
+    "Decorated Helm",
+    "Champion Cuirass",
+    "Adorned Wraps",
+    "Bound Boots"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "gear",
+   "name": "[전 구간] 목걸이 · 허리띠 · 마감 반지",
+   "note": "Bloodstone Amulet(임성빈·ds lily) / Amber Amulet(ds lily·fubgun) / Absent Amulet(fubgun) / Utility Belt(fubgun) / Double Belt(ds lily) / Amethyst Ring(임성빈·ds lily) / Gold Ring(fubgun). 자수정 반지는 임성빈·ds lily 마감 공통(카오스 저항).",
+   "base_types": [
+    "Bloodstone Amulet",
+    "Amber Amulet",
+    "Absent Amulet",
+    "Utility Belt",
+    "Double Belt",
+    "Amethyst Ring",
+    "Gold Ring"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "gear",
+   "name": "[액트 1~2] 초반 석궁",
+   "note": "Tense Crossbow(임성빈·fubgun) / Varnished Crossbow(임성빈·ds lily·fubgun). 임성빈 액트1/2, fubgun 1-32 구간과 일치한다.",
+   "class": [
+    "Crossbows"
+   ],
+   "base_types": [
+    "Tense Crossbow",
+    "Varnished Crossbow"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 45,
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "craft",
+   "name": "[전 구간] 룬 진행 — 하위 육체 -> 육체 -> 상급",
+   "note": "세 플래너 모두 룬 소켓 내용을 담지 않는다(플래너 형식의 한계). 이 목록은 소프트코어 가이드 제4·7장에서 가져왔다 — 같은 아키타입이라 룬은 동일하다. Lesser Body Rune, Body Rune, Greater Body Rune, Greater Desert Rune, Greater Iron Rune.",
+   "class": [
+    "Augment"
+   ],
+   "base_types": [
+    "Lesser Body Rune",
+    "Body Rune",
+    "Greater Body Rune",
+    "Greater Desert Rune",
+    "Greater Iron Rune"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  }
+ ]
+}
