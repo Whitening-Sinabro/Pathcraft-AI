@@ -243,3 +243,19 @@ Martial Weapons"), 죽음과의 춤("a One-Handed Martial Weapon equipped in you
 **주의:** 이건 전부 0.5.5 **이전** 데이터로 세운 분류다(poe2db·PoB dev·트레이드 API 모두
 푸우아르테를 아직 구 옵션으로 표시). 분류가 뒤집힐 근거는 못 찾았지만, 패치 후 실물로
 한 번 확인할 것.
+
+## 인게임 로드 검증 (2026-09-04)
+
+`PathcraftAI_Ignite_1/2/3` 3파일 모두 POE2 아이템 필터 목록에 뜨고 선택된다 —
+사용자 확인. **보라 팔레트 문법이 게임에 받아들여진다는 뜻이다.**
+
+이 경로로 검증되는 것과 안 되는 것을 구분해 둔다.
+
+- **검증됨**: 파일 파싱, 토큰 어휘(`PlayEffect Purple` · `MinimapIcon 0 Purple Star` 등),
+  블록 구조. 하나라도 틀리면 목록에 안 뜨거나 선택이 안 된다.
+- **검증 안 됨**: 실제 드롭이 의도한 등급으로 뜨는지, 대비가 눈으로 읽히는지.
+  그건 아이템이 실제로 떨어져야 안다. S급(흰 배경 + 진보라 45)이 NeverSink
+  미러급 잭팟(흰 배경 + 빨강 45)과 헷갈리는지도 여기서만 판별된다.
+
+참고: `Purple` 은 NeverSink POE2 원본이 `PlayEffect` 21회 · `MinimapIcon` 11회 쓰는
+유효 값이고, 쓰인 모양 4종(Star/Diamond/Circle/Triangle)도 전부 원본 어휘 안에 있다.
