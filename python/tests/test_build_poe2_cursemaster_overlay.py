@@ -1,6 +1,7 @@
 """Guards for the POE2 Cursemaster overlay generator (spec + block hygiene)."""
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -43,10 +44,16 @@ def _run_build(tmp_path: Path, base_text: str):
     base = tmp_path / "base.filter"
     base.write_text(base_text, encoding="utf-8")
     out = tmp_path / "out.filter"
+    # 자식이 쓰는 인코딩과 부모가 읽는 인코딩을 양쪽 다 못박는다. 둘 중 하나라도
+    # 주변 환경(윈도 cp949 vs PYTHONIOENCODING=utf-8)에 맡기면 어긋나는 순간
+    # 한글 경고문 디코딩이 터져 stderr 가 None 이 되고, 이 게이트는 결함이 아니라
+    # 실행 환경 때문에 빨간불이 된다.
     proc = subprocess.run(
         [sys.executable, str(SCRIPT), "--base", str(base), "--spec", str(SPEC), "--out", str(out)],
         capture_output=True,
-        text=True,
+        encoding="utf-8",
+        errors="replace",
+        env={**os.environ, "PYTHONIOENCODING": "utf-8"},
     )
     assert proc.returncode == 0, proc.stderr
     return out.read_text(encoding="utf-8"), proc.stderr

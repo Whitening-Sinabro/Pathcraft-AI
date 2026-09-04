@@ -41,3 +41,32 @@ python scripts/ggpk_explore.py verify Bundles2/_.index.bin --deep
 
 추출본에 한국어 문자열이 없다(영문 클라이언트). 중재자 등 한국어명은 poe2db/kr 이나
 인게임 확인이 필요하다.
+
+## 재추출이 파생 DB 를 낡게 만든다 (2026-09-04 실측)
+
+`data/game_data_poe2/` 는 **gitignore** 라 git 이 드리프트를 못 본다. 9/4 재추출로
+`SkillGems.json` / `BaseItemTypes.json` 이 갱신됐는데 `data/valid_gems_poe2.json` 은
+**4월 22일자** 그대로다. 그래서 지금 이 테스트 1건이 빨간불이다:
+
+    test_valid_gems_poe2_categories.py::TestMetaGemsInActiveCategory
+      -> GemType=2 메타 젬 3건 없음: Animus Splinters · Hollow Form · Spirit Vessel
+
+**재생성하면 어떻게 되는지 실측해 봤다** (`python scripts/build_valid_gems_poe2.py`):
+
+    active   420 -> 475  (+55)
+    support  592 -> 624  (+33, -1 Shock Conduction I)
+    spirit     2 ->   3  (+1 Spirit Vessel)
+
+빠져 있던 젬이 88개다. 다만 **재생성은 연쇄를 일으킨다** — 통과하던 3건이 빨간불이 된다:
+
+    test_build_poe2_planner_files.py::TestGemPaths::test_only_two_gems_are_missing_from_the_table
+    test_build_poe2_planner_files.py::TestGemPaths::test_gem_missing_from_the_stale_table_keeps_pobs_plural_form
+    test_derived_data_inventory.py::test_pinned_content_hash_matches_current_scan
+
+앞의 둘은 플래너 젬 표의 검증된 핀이고, 셋째는 파생 DB staleness 게이트가 설계대로
+작동한 것이다(`--accept-ggpk-change` 로 받는다).
+
+**그래서 지금은 재생성하지 않고 되돌렸다.** 지금 데이터가 0.5 시점이라 9/5 0.5.5
+재추출 후에 어차피 다시 해야 하고, 핀 3개를 두 번 갱신하면 두 번째가 "테스트를
+초록으로 만들려고 핀을 고친" 것과 구분되지 않는다. **재추출 직후 한 번에 처리할 것** —
+재생성 -> 플래너 핀 2건이 왜 바뀌는지 확인 -> `--accept-ggpk-change`.
