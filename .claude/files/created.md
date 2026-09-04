@@ -278,3 +278,5 @@
 | .claude/status/poe2_hardcore_sources.md | POE2 하드코어 1차 소스 명부(한/영/스/독/불/포/러/일 + 트위치). 하코 문서를 래더 집계가 아니라 크리에이터 원본으로 쓰기 위한 근거 목록. 확보한 자막 캐시 대응표 포함 | 아니오 |
 | scripts/read_subs.py | `data/_cache/subs/*.json3` 자막 -> 타임스탬프 붙은 평문. 가이드 인용 스탬프(`영상 12:34`)의 원천이라 `tStartMs` 보존이 유일한 책임. 검색어 주면 앞뒤 2줄 문맥까지. Windows 는 `PYTHONIOENCODING=utf-8` 필수 | 아니오 |
 | python/tests/test_read_subs.py | 자막 리더 테스트 11건. 스탬프 포맷(mm:ss/h:mm:ss 경계) · seg 분할 결합 · 문맥 윈도우 · 한국어 UTF-8 로드 · 없는 파일/무일치 종료코드 · broken pipe(Windows EINVAL) | 아니오 |
+| scripts/ggpk_explore.py | GGPK 탐색기 — `ls` / `cat` / `verify`. 핵심은 verify: FILE 레코드의 저장 SHA256 이 전부 0 이면 그 파일은 **패치 미완료**다. POE2 추출 실패 원인을 두 번 오진(리더 결함 -> 포맷 변경)한 뒤 이걸로 끝냈다. 142GB 라 트리 전체 재귀 금지 — 경로를 한 단계씩 탄다 | 아니오 |
+| python/tests/test_ggpk_explore.py | GGPK 탐색기 테스트 9건. 합성 GGPK(정상 파일 + 해시 0 파일)로 루트 역산·이름 UTF-16·해시 대조·미완료 판정·--deep 손상 검출·hexdump·덤프·없는 경로를 고정 | 아니오 |
