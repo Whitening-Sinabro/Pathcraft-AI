@@ -281,3 +281,6 @@
 | scripts/ggpk_explore.py | GGPK 탐색기 — `ls` / `cat` / `verify`. 핵심은 verify: FILE 레코드의 저장 SHA256 이 전부 0 이면 그 파일은 **패치 미완료**다. POE2 추출 실패 원인을 두 번 오진(리더 결함 -> 포맷 변경)한 뒤 이걸로 끝냈다. 142GB 라 트리 전체 재귀 금지 — 경로를 한 단계씩 탄다 | 아니오 |
 | python/tests/test_ggpk_explore.py | GGPK 탐색기 테스트 9건. 합성 GGPK(정상 파일 + 해시 0 파일)로 루트 역산·이름 UTF-16·해시 대조·미완료 판정·--deep 손상 검출·hexdump·덤프·없는 경로를 고정 | 아니오 |
 | scripts/build_all_filters.py | 스펙의 `_meta.outputs` 를 읽어 `filters/` 를 전부 재생성. `--check` 상태만 · `--install` 게임 폴더 설치(기존본 .bak 백업) · 스펙에서 안 나오는 고아 파일도 보고. 베이스 경로를 손으로 넘기다 세 번 틀린 뒤 만들었다 | 아니오 |
+| scripts/send_to_discord.py | 빌드 산출물(필터 `_meta.outputs` · 플래너 접두사 · 임의 파일)을 디스코드 채널로 전송. **레포가 공개라** 토큰·채널 ID 를 커밋하지 않고 환경변수/gitignore 된 `.env` 에서만 읽으며, 모든 예외·로그 출구를 `redact()` 로 덮는다. 첨부 10개/8MB 한계를 보내기 전에 쪼갠다 | 아니오 |
+| python/tests/test_send_to_discord.py | 디스코드 전송 테스트 24건. 조용히 틀리는 3지점 고정 — 목록을 `_meta.outputs` 에서 유도(빌드와 갈리지 않게) · 토큰이 네트워크/HTTP 오류 본문으로 새지 않게 · 한계 초과를 보내기 전에 배치 분할 | 아니오 |
+| .claude/status/poe2_ggpk.md | POE2 GGPK 추출 운용 메모. 추출 커맨드(자동 탐지 실패 → 경로 직접 지정) · 0.5 vs 0.5.5 데이터 격차(신규 영혼핵 17종 부재) · **추출 실패 시 진단 순서**(저장 SHA256 이 0 이면 패치 미완료, 리버싱 대상 아님) | 아니오 |
