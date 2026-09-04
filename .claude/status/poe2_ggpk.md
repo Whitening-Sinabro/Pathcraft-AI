@@ -70,3 +70,26 @@ python scripts/ggpk_explore.py verify Bundles2/_.index.bin --deep
 재추출 후에 어차피 다시 해야 하고, 핀 3개를 두 번 갱신하면 두 번째가 "테스트를
 초록으로 만들려고 핀을 고친" 것과 구분되지 않는다. **재추출 직후 한 번에 처리할 것** —
 재생성 -> 플래너 핀 2건이 왜 바뀌는지 확인 -> `--accept-ggpk-change`.
+
+## 9/5 0.5.5 재추출 직후 처리 목록 (한 번에)
+
+재추출로 `data/game_data_poe2/` 가 갱신되면 파생 DB 두 개가 같이 낡는다.
+**두 번 갱신하지 말고 재추출 직후 한 묶음으로 처리한다** — 핀을 두 번 고치면
+두 번째가 "테스트를 초록으로 만들려고 핀을 고친 것"과 구분되지 않는다.
+
+1. **`data/valid_gems_poe2.json`** — `python scripts/build_valid_gems_poe2.py`
+   - 젬 88개가 돌아온다(active +55 · support +33 · spirit +1, -1 Shock Conduction I)
+   - 그 뒤 빨간불 3건을 확인하고 받는다:
+     `test_build_poe2_planner_files.py::TestGemPaths` 2건(플래너 젬 표 핀 — 왜 바뀌는지 먼저 확인),
+     `test_derived_data_inventory.py::test_pinned_content_hash_matches_current_scan`(`--accept-ggpk-change`)
+
+2. **`data/base_items_poe2.json`** (4/25, GGPK BaseItemTypes + AttributeRequirements JOIN)
+   - **`Runeforged *` 가 0종**인데 GGPK 에는 **535종** 있다(메타데이터가 `...Verisium` 으로 끝나는 별개 베이스).
+   - 이것 때문에 하코 필터의 어휘 게이트가 fubgun·ds lily 의 마감 장비
+     (Runeforged Cryptic Crown / Adherent Cuffs / Cryptic Leggings / Falconer's Jacket /
+     Commander Gauntlets / Sombre Gloves)를 막았고, 지금은 룬각인 안 된 쌍둥이 베이스로 대체해 뒀다.
+   - 갱신 후 `scratchpad/make_hc_spec.py` 의 `ENDGAME_ARMOUR` 에 룬각인 이름을 되살리고 재빌드.
+   - **급하지 않다** — 룬각인은 최후 엔드게임 장비다(사용자 판단 2026-09-04).
+
+3. 재추출 자체가 성공했는지: 0.5.5 신규 영혼핵 17종(Jiquani's 13 · Atziri's 4)이
+   `BaseItemTypes` 에 나오는지로 확인한다. 안 나오면 아직 0.5 데이터다.
