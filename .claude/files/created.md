@@ -284,3 +284,6 @@
 | scripts/send_to_discord.py | 빌드 산출물(필터 `_meta.outputs` · 플래너 접두사 · 임의 파일)을 디스코드 채널로 전송. **레포가 공개라** 토큰·채널 ID 를 커밋하지 않고 환경변수/gitignore 된 `.env` 에서만 읽으며, 모든 예외·로그 출구를 `redact()` 로 덮는다. 첨부 10개/8MB 한계를 보내기 전에 쪼갠다 | 아니오 |
 | python/tests/test_send_to_discord.py | 디스코드 전송 테스트 24건. 조용히 틀리는 3지점 고정 — 목록을 `_meta.outputs` 에서 유도(빌드와 갈리지 않게) · 토큰이 네트워크/HTTP 오류 본문으로 새지 않게 · 한계 초과를 보내기 전에 배치 분할 | 아니오 |
 | .claude/status/poe2_ggpk.md | POE2 GGPK 추출 운용 메모. 추출 커맨드(자동 탐지 실패 → 경로 직접 지정) · 0.5 vs 0.5.5 데이터 격차(신규 영혼핵 17종 부재) · **추출 실패 시 진단 순서**(저장 SHA256 이 0 이면 패치 미완료, 리버싱 대상 아님) | 아니오 |
+| build_planner/~Lvl * - [0.5.5] Oil Nade Flameblast Ge*.build (6) | ds lily 인게임 플래너 정본(Mobalytics 다운로드본). 하코 보조1 — 생존 축. **파일명·내부 name 을 바꾸지 않았다**: 정본 형식은 제작자 다운로드본뿐이고, 이름만 갈면 예전에 밟은 stale-name 함정을 재현한다 | 예(재다운 가능) |
+| build_planner/ACT * - [0.5.5 Hardcore] 젬링 리그*.build (4) | 임성빈 인게임 플래너 정본. **하코 기준(base)** — 액트별 4탭. 엔드게임 무기가 차임벨 지팡이라 우리 SC 필터 S급 룰과 일치 | 예(재다운 가능) |
+| build_planner/*Fubgun Flameblast Oil*.build (7) | fubgun 인게임 플래너 정본. 하코 보조2 — 7단계로 가장 촘촘. 지팡이가 Pyrophyte Staff 로 셋 중 유일 | 예(재다운 가능) |
