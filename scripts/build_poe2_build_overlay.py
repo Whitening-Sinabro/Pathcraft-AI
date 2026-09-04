@@ -520,6 +520,10 @@ def build_rule_blocks(
         for v_rarities, v_sockets, v_ilvl, v_qual, v_font, v_volume, v_icon in (
             narrower_louder_blocks(base_type, scope, base_blocks, style)
         ):
+            # 일반 경로(위 `volume = max(...)`)와 같은 바닥을 변이에도 적용한다.
+            # 안 하면 NeverSink 가 큰 폰트를 무음으로 주는 구간에서 우리 스타일의
+            # 음량(예: gear 200)까지 0 으로 따라 내려가 드롭이 조용해진다.
+            v_volume = max(style["sound"][1], v_volume)
             key = (tuple(sorted(v_rarities)), v_sockets, v_ilvl, v_qual, v_font, v_volume,
                    style["icon"][0] if v_icon is None else min(style["icon"][0], v_icon))
             variants.setdefault(key, []).append(base_type)
@@ -527,8 +531,16 @@ def build_rule_blocks(
     blocks = []
     # Variants carry extra conditions, so they must precede the general block --
     # first-match-wins would otherwise never reach them.
+    #
+    # 변이끼리도 순서가 있다. **넓은 것이 좁은 것을 먹는다.** 예전에는 폰트·음량
+    # (=시끄러운 순)으로 정렬해서, `Rarity Magic Normal`(폰트 42) 변이가
+    # `Rarity Normal + ItemLevel>=82`(폰트 40 · 음량 300) 변이를 통째로 가렸다.
+    # 좁은 쪽이 영영 안 걸려 NeverSink 의 시끄러운 경보가 조용해졌다.
+    # 어떤 변이 A 가 B 를 가리려면 A 는 모든 축에서 B 보다 넓어야 하므로,
+    # (등급 수 오름차순, 나머지 조건 내림차순) = 좁은 것부터가 정확한 순서다.
     for (rarities, sockets, ilvl, qual, v_font, v_volume, v_icon), names in sorted(
-        variants.items(), key=lambda kv: (-kv[0][4], -kv[0][5], kv[0])
+        variants.items(),
+        key=lambda kv: (len(kv[0][0]), -kv[0][1], -kv[0][2], -kv[0][3], kv[0]),
     ):
         variant_rule = {
             **rule,
