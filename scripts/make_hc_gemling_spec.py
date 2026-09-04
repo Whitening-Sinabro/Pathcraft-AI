@@ -113,7 +113,9 @@ CRIMSON = {
 
 STAVES = ["Chiming Staff", "Sanctified Staff", "Pyrophyte Staff"]
 CROSSBOW_LATE = ["Bombard Crossbow", "Cannonade Crossbow"]
-CROSSBOW_EARLY = ["Tense Crossbow", "Varnished Crossbow"]
+CROSSBOW_EARLY = ["Makeshift Crossbow", "Tense Crossbow", "Sturdy Crossbow", "Alloy Crossbow"]
+VARNISHED = ["Varnished Crossbow"]
+PREP_52 = ["Gemcutter's Prism", "Greater Jeweller's Orb", "Lesser Jeweller's Orb"]
 CHARMS = ["Sapphire Charm", "Stone Charm", "Thawing Charm", "Dousing Charm", "Silver Charm"]
 LIFE_FLASKS = ["Greater Life Flask", "Giant Life Flask", "Gargantuan Life Flask", "Transcendent Life Flask"]
 MANA_FLASKS = ["Greater Mana Flask", "Gargantuan Mana Flask"]
@@ -229,10 +231,36 @@ rules = [
          base_types=check(JEWELLERY, "jewellery"),
          rarity=["Normal", "Magic", "Rare"], stages=ALL_STAGES),
 
-    dict(style="weapon_gear", name="[액트 1~2] 초반 석궁",
-         note=f"{src(CROSSBOW_EARLY)}. 임성빈 액트1/2, fubgun 1-32 구간과 일치한다.",
+    dict(style="weapon_gear", name="[액트 1~2] 초반 석궁 — 갈아타며 쓰는 것",
+         note=("아르세리나 2026-09-04 영상(youtu.be/rNIXxLrQY6E, 0:14~1:10): 임시(1)·팽팽한(4)·"
+               "튼튼한(10)은 '화폐를 많이 투자할 필요가 없다, 좋은 게 나오면 가볍게 바꿔 쓴다'. "
+               "10레벨에는 상점에서 원소 플랫 붙은 것을 확인. 합금(26)은 '잘 만든 광택 나는 석궁이 "
+               "있으면 패스해도 된다' — 33레벨 미만은 DPS 차이가 크지 않다. "
+               f"{src(CROSSBOW_EARLY)}"),
          **{"class": ["Crossbows"]}, base_types=check(CROSSBOW_EARLY, "crossbow-early"),
          rarity=["Normal", "Magic", "Rare"], area_level_max=45, stages=["campaign"]),
+
+    dict(style="weapon_core", name="[액트 2~] 광택 나는 석궁 — 아이템 레벨 18 이상만",
+         note=("같은 영상 0:36~1:03. 광택 나는 석궁은 16레벨부터 쓸 수 있지만 **아이템 레벨 18 "
+               "이상 베이스를 추천**한다 — ilvl 18부터 투사체 스킬 레벨 옵션이 붙을 수 있기 "
+               "때문이다. '16레벨에 급하게 만들기보다 지역레벨 18 이상에서 나온 베이스로 원소 플랫 + "
+               "투사체 스킬 레벨을 같이 노리는 쪽이 훨씬 좋다.' 투사체 스킬 레벨 + 플랫 두 줄이면 합격. "
+               "그래서 ilvl 조건을 걸어 **살 가치가 있는 것만** 최상위로 띄운다."),
+         **{"class": ["Crossbows"]}, base_types=check(VARNISHED, "varnished"),
+         rarity=["Normal", "Magic", "Rare"], item_level_min=18,
+         area_level_max=45, stages=["campaign"]),
+
+    dict(style="augment_endgame", name="[52 전환 준비] 세공사의 프리즘 · 주얼러 오브",
+         note=("같은 영상 2:44~3:22. 전환 전에 모아둬야 하는 소모품이다. "
+               "**세공사의 프리즘 4개** — 화염파 퀄리티를 올리는 데 쓴다(2차 전직의 퀄리티 효과 강화가 "
+               "이 빌드의 핵심이라 퀄리티가 곧 딜이다). '액트 단계에서 리그 콘텐츠를 진행하면서 미리 "
+               "모아두라'고 명시. **상위 주얼러 오브**로 화염파 4소켓을 열고(액트 4장 리그 콘텐츠에서 "
+               "나온다), 기름 유탄은 **하위 주얼러 오브**로 최소 3소켓. "
+               "**상위가 하나뿐이면 무조건 화염파에 먼저 쓴다.** "
+               "화폐를 건드리지 않는다는 원칙의 유일한 예외 — 이 셋은 화폐 가치가 아니라 "
+               "**52 전환 게이트**라서 띄운다."),
+         **{"class": ["Stackable Currency"]}, base_types=check(PREP_52, "prep-52"),
+         stages=["campaign", "maps"]),
 
     dict(style="augment_craft", name="[전 구간] 룬 진행 — 하위 육체 -> 육체 -> 상급",
          note=("세 플래너 모두 룬 소켓 내용을 담지 않는다(플래너 형식의 한계). "
