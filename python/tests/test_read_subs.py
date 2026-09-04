@@ -90,3 +90,46 @@ def test_main_reports_no_match(tmp_path: Path, capsys):
     path.write_text(json.dumps({"events": [_cue(0, "hello")]}), encoding="utf-8")
     assert read_subs.main([str(path), "kitava"]) == 1
     assert "일치 없음" in capsys.readouterr().err
+
+
+def test_is_pipe_closed_covers_windows_einval():
+    """Windows 는 파이프가 닫히면 BrokenPipeError 가 아니라 OSError(EINVAL) 을 준다."""
+    import errno as _errno
+
+    assert read_subs.is_pipe_closed(BrokenPipeError())
+    assert read_subs.is_pipe_closed(OSError(_errno.EPIPE, "broken pipe"))
+    assert read_subs.is_pipe_closed(OSError(_errno.EINVAL, "Invalid argument"))
+    assert not read_subs.is_pipe_closed(OSError(_errno.ENOENT, "no such file"))
+
+
+def test_emit_swallows_closed_pipe_without_traceback(monkeypatch, capsys):
+    """`| head` 로 자를 때 트레이스백이 뜨면 인코딩 문제로 오진하게 된다."""
+    import errno as _errno
+
+    printed = []
+
+    def fake_print(line):
+        printed.append(line)
+        if len(printed) == 2:
+            raise OSError(_errno.EINVAL, "Invalid argument")
+
+    monkeypatch.setattr(read_subs, "print", fake_print, raising=False)
+
+    assert read_subs.emit(iter(["a", "b", "c"])) == 0
+    assert printed == ["a", "b"]
+
+
+def test_emit_reraises_real_oserror(monkeypatch):
+    """디스크 오류까지 삼키면 안 된다."""
+    import errno as _errno
+
+    def fake_print(_line):
+        raise OSError(_errno.ENOSPC, "no space left on device")
+
+    monkeypatch.setattr(read_subs, "print", fake_print, raising=False)
+    try:
+        read_subs.emit(iter(["a"]))
+    except OSError as error:
+        assert error.errno == _errno.ENOSPC
+    else:
+        raise AssertionError("실제 OSError 는 그대로 올라와야 한다")

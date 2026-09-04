@@ -70,10 +70,13 @@ Gressoul 은 *키타바 어센던시가 하코에서 피너클을 뚫는다*는 
 | **Z3mos** | 스미스 오브 키타바 | **크릿** — 90% 원소 저항 + Nebuloch | "Nebuloch 가 인듀런스 차지를 소모해 방패벽 크릿을 보장한다". 1500만 크릿. **너프됨** |
 | **Kris Droverson** | 스미스 오브 키타바 | **갑옷 = 딜** | "방패가 주 딜 소스다. 갑옷이 높을수록 딜이 올라간다"(1:10). 폭발 방패벽 + 무한 신전 |
 | **Angormus** | 스미스 오브 키타바 | 워리어 레이서 관점 | 4:55 짧은 가이드. 액트 스피드런 세계기록 보유자 |
+| **Big Ducks** | 스미스 오브 키타바 | **시체 폭발 온-히트** | "나는 보스 얼굴 앞에 그냥 서 있을 수 있는 탱키한 걸 한다. PoE2 에서 죽는 건 PoE1 보다 더 기분이 나쁘니까"(0:03~0:12) |
 | **Sarge2** | **인보커** | ES + Protect Me From Harm | 어센던시가 아예 다르다. HCSSF 프레시 스타트 17.5시간 |
 
-Z3mos 는 같은 채널 안에서도 Great Wall / Grape Wall / Resonating Shield / Detonate Dead /
-Self Detonation 으로 계속 갈아엎었다. "방패벽 키타바 빌드"라고 단수로 부르면 안 된다.
+Kris Droverson 만 해도 채널 안에 **Immortal(폭발 방패벽+무한 신전, 0.4)** 과
+**Demon Bear(Fury of the King · Ash Bark Talisman, 0.5)** 두 판이 따로 있다.
+Z3mos 는 Great Wall / Grape Wall / Resonating Shield / Detonate Dead / Self Detonation 으로
+계속 갈아엎었다. **"방패벽 키타바 빌드"라고 단수로 부르면 안 된다.**
 
 ## 발견 2 — 0.5.5 현행 패치 커버리지가 빌드마다 다르다
 
@@ -84,12 +87,50 @@ Self Detonation 으로 계속 갈아엎었다. "방패벽 키타바 빌드"라�
 |---|---|---|
 | **바라시타(디사이플 오브 바라시타 / 켈라리)** | **5명** — 임성빈(ko) · 디넬(ko) · MisoxShiru(en) · Blazeworks(en) · Skadutch(en, 0.5) | — |
 | **화염파(Flameblast) 젬링** | **2명** — 임성빈(ko, HCSSF Verified) · ds lily(en) | MisoxShiru 크로노맨서 변형(HCSSF) |
-| **방패벽 키타바** | **0명** | 탱정 · LexD · Z3mos · Kris Droverson · Angormus (전부 0.5 또는 0.4) |
+| **방패벽 키타바** | **0명** | 탱정 · LexD · Z3mos · Kris Droverson · Angormus · Big Ducks (전부 0.5 또는 0.4) |
 
-LexD 의 0.5.5 콘텐츠는 방패벽 키타바가 아니라 **Spear & Shield Bleed Titan**(`vQibmfLbKFE`)이다.
-0.5.5 에서 방패벽 키타바를 다룬 사람을 아직 못 찾았다 — 없는 것인지 못 찾은 것인지 미확정.
+**방패벽 키타바를 0.5.5 에서 다룬 사람을 6개 채널을 전수 열거하고도 못 찾았다.**
+그 채널들의 0.5.5 콘텐츠는 전부 다른 빌드다 — LexD 는 Spear & Shield Bleed Titan
+(`vQibmfLbKFE`), Big Ducks 는 Explosive Witchhunter(`fXdNmYE5t9Q`).
 
-## 발견 3 — 용어
+**패치가 죽인 게 아니다 — 확인했다.** `data/_cache/patchnotes/poe2_0_5_5.txt`(29.5KB, TOC 와
+섹션 9개가 일치하는 온전한 본문)에 **밸런스/스킬 섹션 자체가 없다.** 목차는 이벤트 리그 ·
+의식 · 혼돈의 시련 · 알두르의 룬 코어 편입 · 엔드게임 · 리그 콘텐츠 · UI · MTX · 버그 수정뿐이다.
+`Shield Wall` 0건, `Kitava` 0건, `Block` 0건. 디넬이 "0.5.5 에서 버프·너프가 없을 예정"이라고
+한 것과 일치한다. **크리에이터들이 옮겨간 것이지 빌드가 죽은 게 아니다.**
+
+## 발견 3 — 0.5.5 는 밸런스 섹션이 없지만 "버그 수정"이 기능을 바꿨다
+
+밸런스 섹션이 없다고 "변경 없음"으로 읽으면 안 된다. **버그 수정 안에 빌드를 깨는 변경이
+섞여 있다.** 캐시한 자막 중 일부가 이것 때문에 이미 낡았다.
+
+| 0.5.5 버그 수정 원문 | 무엇을 깨나 |
+|---|---|
+| "Fixed a bug which would allow Skills from an alternate Weapon Set to be used without the corresponding Weapon swap occurring." | **무기 세트 스냅샷.** LexD `lex_svv8OBfJI_8`(워리어 테크 Ep.3)이 정확히 이 테크를 가르친다 — **그 영상의 해당 구간은 0.5.5 에서 무효**다. 인용하면 안 된다 |
+| "Fixed a bug which would allow Auras and Support Gems from an inactive Weapon Set to still apply to the player." | 비활성 세트 오라·보조 젬. 구 PoB 를 그대로 쓰면 저항이 빠진다 |
+| "Fixed a bug where it was possible to snapshot the effects of the Prism of Belief and From Nothing Unique Jewels." | 주얼 스냅샷 |
+| "Fixed a bug which would allow using a Unique item granted Skill with non-Unique Weapons which were equipped in another Weapon Set." | 유니크 부여 스킬 우회 |
+| "Fixed a bug where Ignites that deal Chaos Damage wouldn't ignite Oil Ground." | **점화 × 기름 지면.** ds lily 의 화염파+기름유탄 젬링(`lily_ds5aPwrmH6c`)이 이 상호작용 위에 있다 — 0.5.5 에서 **버프 방향** |
+| "…Quality bonus granted to Flash Grenade by the Gemling Legionnaire's Advanced Thaumaturgy Passive Skill only showed the extra Lightning Damage…" | 젬링 유탄 표기 |
+| "…the Lead me through Grace… Invoker Ascendancy Passive Skill was not preventing the gain of Spirit Modifiers granted by Medved's Tending." | Sarge2 의 **방패벽 인보커** 축 |
+
+**규칙:** 자막을 인용하기 전에 그 주장이 0.5.5 버그 수정에 걸리는지 위 표로 대조한다.
+0.5 영상은 대부분 유효하지만 **무기 세트 스냅샷 계열은 통째로 무효**다.
+
+## 발견 4 — 사설 하드코어 리그가 커뮤니티 축이다
+
+하코 크리에이터들이 공용 리그가 아니라 **초대제 사설 리그**에서 논다. 여기서 나온 캐릭터가
+"하코에서 실제로 검증됐다"의 근거가 된다.
+
+- **Timmy's Hardcore League (THC)** — Oscrix 가 `IauNVXcS4TQ` 0:08 에서 "Timmy Hardcore
+  Private League" 라고 밝힌다. 그 캐릭터는 **JungRoan 이 만든 기름 유탄 위치헌터**를 패스파인더로
+  옮긴 것. MisoxShiru 팟캐스트 Ep.55 가 `@Timmy_P_onTwitch` 게스트편이다.
+- **릴리리그** — ds lily 가 운영하는 사설 HC GSF 리그. 한국 참가자 VOD 존재.
+
+**JungRoan** 은 아직 채널을 안 텄다. 기름 유탄 계열의 원작자로 보이므로 화염파/기름 축
+문서를 쓸 거면 1차 소스다.
+
+## 발견 5 — 용어
 
 - **화염파 = Flameblast.** 임성빈 본인이 영어 제목에 그렇게 쓴다(`i6_tfxyQfeQ`:
   "0.5.5 Flameblast Gemling Build Guide | Hardcore SSF Verified"). 추측 음차 금지.
@@ -106,7 +147,7 @@ PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3> armor 9,000  # �
 ```
 
 `PYTHONIOENCODING=utf-8` 을 빼면 한국어 자막이 깨져 나온다. 테스트는
-`python/tests/test_read_subs.py`(8건) — 인용 스탬프가 어긋나면 여기서 잡힌다.
+`python/tests/test_read_subs.py`(11건) — 인용 스탬프가 어긋나면 여기서 잡힌다.
 
 ### 한국어
 
@@ -123,6 +164,9 @@ PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3> armor 9,000  # �
 | `dinel_xUy9qUSTr1k.ko` | 디넬 | **하드코어 입문 가이드.** 본인 이력이 여기 있다 — "시즌 1부터 쭉 하드코어", 이번 시즌 **전체 36등 · 리치 1등**(1:21~1:30) | 13:43 |
 | `dinel_ktg8phbLQw8.ko` | 디넬 | **0.5.5 최고의 스타터 바라시타 1렙~100렙.** "0.5.5에서 버프·너프가 없을 예정", "켈라리 바라시타는 엔드 세팅까지 가면 바퀴벌레 같은 생존력"(0:09~0:26) | 12:03 |
 | `dinel_HYVmAyhHYCg.ko` | 디넬 | 하코 랭커의 안 죽는 크산테 전기불꽃 리치 A~Z(저자본~하이엔드) | 13:05 |
+| `dinel_lsJOXOoCHNs.ko` | 디넬 | 죽기 싫은 사람의 하코 100렙 크산테 전기불꽃 리치 | 9:09 |
+| `dinel_RzS-hsyy65M.ko` | 디넬 | **0.5.5 위치 스타터 가이드.** "위치는 얼리엑세스부터 지금까지 국밥 같은 선택지 — 어센던시 4개를 가진 유일한 클래스고 적어도 넷 중 하나는 매 시즌 메타픽"(0:00~0:17) | 16:09 |
+| `dinel_L208yOpJ_D0.ko` | 디넬 | 0.5 직업 티어리스트 | 24:08 |
 
 ### 영어 — 하코 일반 (빌드 무관, 문서 공통 기반)
 
@@ -131,7 +175,10 @@ PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3> armor 9,000  # �
 | `sarge_ggC5mxG5wgo.en` | Sarge2 | **HCSSF 100렙 달성 후 방어에 대해 배운 것.** 갑옷 공식 `갑옷/(갑옷+10×피격)`, T15 원숭이 슬램 **9,000 물리**, 절반 경감에 **10만 갑옷** 필요(1:14~2:42) | 29:40 |
 | `gres_0WeokvPIunQ.en` | Gressoul | **EHP 브레이크포인트.** 엔드게임 목표 = 물리 **6~10k** · 원소 **30k** · 카오스 **12~15k**(3:18~3:29, 6:36). 30k 를 넘겨야 4~5모드 맵을 편히 돈다(7:17~8:28) | 14:58 |
 | `skadu_vUImi-jDdEE.en` | Skadutch | HC 초보가 반복하는 실수 10가지 | 6:04 |
+| `skadu_vZWD5hX149E.en` | Skadutch | 3분 안에 하코 SSF 팁 3가지 | 2:35 |
 | `blaze_UTdyt6wkHJE.en` | Blazeworks | 0.4 HCSSF 리그 스타터 3선 | 12:01 |
+| `blaze_1-sKhCgt1Xg.en` | Blazeworks | **HCSSF 유탄 택티션 — 97렙 랭크 1**(0:28~0:30). 하코 랭커 본인 세팅 | 17:17 |
+| `sarge_O6_UMaQWhYY.en` | Sarge2 | 하드코어 랭크 1 빌드 오버뷰 — 패스파인더 독 활 | 6:16 |
 
 ### 영어 — 방패벽 키타바 (전부 0.5 이하)
 
@@ -142,10 +189,20 @@ PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3> armor 9,000  # �
 | `lex_9FXJsaO-tFY.en` | LexD | 0.5 워리어 전 어센던시 리그 스타터 — "방패벽은 안 죽었다" | 16:58 |
 | `lex_svv8OBfJI_8.en` | LexD | 워리어 테크 Ep.3 — 무기 세트 스냅샷 · 애니메이션 캔슬 | 13:48 |
 | `lex_sO1tLA52AYA.en` | LexD | **막기(Block)에 뭔가 잘못됐다** — 메커니즘 비판 | 8:42 |
+| `lex_yyxhJCoPnic.en` | LexD | 방패벽은 죽었나? 0.5 패치노트 + 방패 빌드 총평 | 17:34 |
+| `lex_EEzXEyF8BgI.en` | LexD | **0.5 방패 빌드용 철퇴 제작법** | 15:58 |
+| `lex_vQibmfLbKFE.en` | LexD | **0.5.5** 창+방패 출혈 타이탄 리그스타터 (방패벽 아님 — 0.5.5 에서 뭘 하고 있는지의 근거) | 37:14 |
 | `z3mos_NgZ7T2AvqWA.en` | Z3mos | **그레이프 월 — 1500만 크릿 방패벽 90% 저항(너프됨).** Nebuloch 로 크릿 보장 | 31:14 |
+| `z3mos_uPx_MQyBAqM.en` | Z3mos | 그레이트 월 — "내가 해본 가장 빠른 워리어" | 31:21 |
+| `z3mos_990mKQ6T7rA.en` | Z3mos | 시체 폭발 + 공명 방패 스미스 빌드 가이드 | 19:37 |
 | `z3mos_bP_co0GgM6Q.en` | Z3mos | 자가 기폭 방패벽 테크 | 5:52 |
-| `kris_o-k5cZJ5VcI.en` | Kris Droverson | **불멸 키타바 — 폭발 방패벽 + 무한 신전. "갑옷이 곧 딜"** | 28:31 |
+| `kris_o-k5cZJ5VcI.en` | Kris Droverson | **불멸 키타바 — 폭발 방패벽 + 무한 신전. "갑옷이 곧 딜"**(0.4) | 28:31 |
+| `kris_2qUcf1rjTa0.en` | Kris Droverson | **데몬 베어 키타바(0.5) — Fury of the King · Ash Bark Talisman.** 같은 채널의 다른 판 | 40:26 |
+| `kris_IOdgcT-JmK8.en` | Kris Droverson | 방패벽 & 키타바 레벨링 가이드(0.4) | 33:41 |
+| `duck_kc7ko5pBeP8.en` | Big Ducks | **시체 폭발 온-히트 방패벽 키타바 리그 스타트**(0.4) | 11:02 |
+| `duck_fXdNmYE5t9Q.en` | Big Ducks | 0.5.5 폭발 위치헌터 리그스타터 (방패벽 아님) | 5:11 |
 | `ango_7VCsAVI_Hvc.en` | Angormus | 0.5 방패벽 키타바 빌드 가이드 | 4:55 |
+| `blaze_G-dKXtf0Ap4.en` | Blazeworks **w/ LexD** | "다들 PoE2 에서 방패를 자고 있나?" — 방패 좌담 | 1:43:19 |
 | `sarge_zfU0YTibkpI.en` | Sarge2 | **방패벽 인보커** HCSSF 프레시 스타트(17.5시간) | 14:20 |
 | `gres_acQnYvisJow.en` | Gressoul | 0.5 하코 전 피너클 클리어 — **롤링 슬램/지진 키타바(방패벽 아님)** | 18:48 |
 | `gres_ENCI15tWM7I.en` | Gressoul | 아탈루이의 사열 2.7배 너프 분석 | 2:55 |
@@ -159,6 +216,7 @@ PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3> armor 9,000  # �
 | `blaze_d2QbaO-sJ3o.en` | Blazeworks | **0.5.5 바라시타 SSF 캠페인 완주 가이드** | 31:02 |
 | `miso_JvSbR8V9EtQ.en` | MisoxShiru | **0.5.5 나비라의 균열 디사이플 오브 바라시타 — "역대 가장 매끄러운 리그 스타터"** | 6:07 |
 | `skadu_ph4cQGdnm70.en` | Skadutch | 0.5 30만 DPS 바라시타 진 소서리스 | 12:41 |
+| `skadu_mZMpuKjtlVo.en` | Skadutch | 0.5 나비라의 균열 진 엔드게임 업데이트 | 12:19 |
 | `miso_XsU9hhN2p00.en` | MisoxShiru | 0.5.5 최상위 메타 리그 스타터 총정리 | 39:59 |
 
 ### 영어 — 화염파(Flameblast) 젬링 (0.5.5 현행)
@@ -170,20 +228,44 @@ PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3> armor 9,000  # �
 | `lily_rDwXsj17K-8.en` | ds lily | 0.5.5 계획 — 기름 연사 무술가(다른 빌드) | 8:56 |
 | `lily_2H4cpcz4Lco.en` · `lily_FUDmptONDlM.en` | ds lily | HC SSF 런 시작 · 소프트코어 마지막 날. **하이라이트 VOD라 정보 밀도가 낮다** | 9:28 / 8:22 |
 
+### 영어 — 하코 전용 빌드 (Oscrix, 소환수·기름 축)
+
+| 파일 | 내용 | 길이 |
+|---|---|---|
+| `oscrix_IauNVXcS4TQ.en` | **기름 패스파인더 — ".4 에서 내가 한 것 중 최강".** Timmy 사설 하코 리그(THC)용이고 **JungRoan 의 기름 유탄 위치헌터**를 옮긴 것이라고 본인이 밝힌다(0:08~0:15) | 9:50 |
+| `oscrix_edI1rDFP3vw.en` | 코이어 오라클 for HC | 14:50 |
+| `oscrix_iW9A5L8-vTI.en` | HC 홀리 스트라이크 | 3:57 |
+
+### 받아봤지만 인용 근거로는 못 쓰는 것
+
+| 파일 | 왜 |
+|---|---|
+| `rip_4rUTdihINB4.en`(Day 5) · `rip_ejIhqVVDxik.en`(Day 20) | RIP Clips 하코 사망 모음. **자막이 스트리머 리액션 욕설뿐이라 인용할 서술이 없다** ("I don't even know what to do that I just died", `[ __ ]` 검열). 죽는 정황(얼음 · 시야에 안 보이는 투사체 · 보스 탱킹 실패)은 영상으로 봐야 나온다. **나머지 12편은 받지 말 것** — 같은 성질이다 |
+| `lily_2H4cpcz4Lco.en` · `lily_FUDmptONDlM.en` | ds lily 하이라이트 VOD. 잡담 비중이 높다 |
+
 ---
 
 ## 아직 안 받은 것 (다음 보강 대상)
 
-| 대상 | 왜 필요한가 | 상태 |
+1차·2차 보강으로 우선순위는 다 받았다. 남은 건 필요할 때만.
+
+| 대상 | 채널 URL | 왜 필요한가 |
 |---|---|---|
-| Blazeworks `G-dKXtf0Ap4` "Is Everyone Sleeping On Shields in PoE 2?" **w/ @lexdtv** | 방패 빌드 좌담 103분. 방패벽 문서의 반대 관점 | 미수신 |
-| Z3mos `uPx_MQyBAqM` Great Wall · `990mKQ6T7rA` Detonate Dead Resonating Shield | 방패벽 내부 변형 2개 더 | 미수신 |
-| Kris Droverson `2qUcf1rjTa0` Demon Bear 키타바 (0.5) · `IOdgcT-JmK8` 방패벽 레벨링 | 0.5 변형 + 레벨링 | 미수신 |
-| Oscrix `IauNVXcS4TQ` Oil Pathfinder for HC · `iW9A5L8-vTI` HC Holy Strike · `edI1rDFP3vw` Choir Oracle for HC | 하코 전용 빌드 3종. 소환수/기름 축 | 미수신 |
-| 디넬 `lsJOXOoCHNs` 하코 100렙 리치 · `L208yOpJ_D0` 0.5 직업 티어리스트 | 한국어 하코 랭커 관점 보강 | 미수신 |
-| eltriki (스페인어) 하드코어 액트 완주 29편 | 캠페인 구간 1차 자료 | 채널 URL 미확정 |
-| **Big Ducks** | 시체 폭발 온-히트 방패벽 키타바 | **핸들 미확정** — `@BigDucksGaming` 은 404 |
-| RIP Clips 일자별 하코 사망 모음 | "무엇이 실제로 죽이는가" 1차 자료 | 채널 URL 미확정 |
+| **eltriki** 하드코어 액트 완주 #1~#29 (스페인어) | `UC1543074v44JJ959q6ckzyQ` | 캠페인 구간을 액트 단위로 쪼갠 유일한 연재. 빌드 문서엔 안 쓰이고 **캠페인 문서를 쓸 때만** 값어치가 있다 |
+| **JungRoan** | 미확정 | 기름 유탄 위치헌터 원작자(Oscrix 증언). 화염파/기름 축 문서의 1차 소스 |
+| RIP Clips 나머지 12편 | `UCUomM5JOVsd9YMctOzLqfBQ` | **받지 말 것** — 위 "인용 근거로는 못 쓰는 것" 참조 |
+| Sarge2 스파크 토템 인보커 · 스톰버스트 | `UCXFZF8jhpIzOHVRSOScgY3w` | Sarge2 는 POE1/POE2 를 섞어 올린다. **제목의 리그명(Mirage=POE1)으로 게임을 먼저 가른 뒤** 받을 것 |
+
+**핸들 정정** — 아래는 `@핸들`이 없거나 틀려서 열거가 실패했던 채널이다. 채널 URL 로 접근한다.
+
+| 이름 | 잘못된 핸들 | 실제 채널 URL |
+|---|---|---|
+| Sarge2 | `@sargetwo` (videos 탭 없음) | `https://www.youtube.com/channel/UCXFZF8jhpIzOHVRSOScgY3w` |
+| Z3mos | `@Z3mos` (videos 탭 없음) | `https://www.youtube.com/channel/UCPuFjk05I4n2kM7ZKR3MoNg` |
+| Big Ducks | `@BigDucksGaming` (404) | `https://www.youtube.com/channel/UC8XfFGnTEJH1CXjucYDA5ng` |
+| eltriki | — | `https://www.youtube.com/channel/UC1543074v44JJ959q6ckzyQ` |
+| RIP Clips | — | `https://www.youtube.com/channel/UCUomM5JOVsd9YMctOzLqfBQ` |
+| 임성빈 · 디넬 | — | `UCvj_myZNbqdHBBFT2IjKJWw` · `UC2Rbd4Wz9MC8yt8xQQtJe_g` |
 
 ## 확인만 되고 자막 없는 사람들
 

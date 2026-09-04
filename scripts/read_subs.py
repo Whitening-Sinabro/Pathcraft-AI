@@ -15,12 +15,20 @@ Windows 콘솔에서는 `PYTHONIOENCODING=utf-8` 이 필요하다(한국어 자�
 from __future__ import annotations
 
 import argparse
+import errno
+import io
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Iterator
 
 CONTEXT_LINES = 2
+
+# 이 도구는 사실상 항상 `| head` 로 잘라 쓴다. Windows 는 소비자가 파이프를 닫을 때
+# BrokenPipeError 가 아니라 OSError(EINVAL) 을 던져서, 정상적인 조기 종료가
+# 트레이스백으로 보인다(인코딩 문제로 오진하기 딱 좋다). 두 형태를 같이 처리한다.
+_PIPE_CLOSED_ERRNOS = {errno.EPIPE, errno.EINVAL}
 
 
 def format_stamp(start_ms: int) -> str:
@@ -68,6 +76,36 @@ def find_matches(cues: list[tuple[str, str]], terms: list[str]) -> list[list[tup
     return windows
 
 
+def is_pipe_closed(error: OSError) -> bool:
+    return isinstance(error, BrokenPipeError) or error.errno in _PIPE_CLOSED_ERRNOS
+
+
+def silence_stdout() -> None:
+    """남은 출력을 버린다 — 실패해도 무시한다.
+
+    이걸 안 하면 인터프리터가 종료 시 stdout 을 한 번 더 flush 하다가 같은 오류를
+    stderr 에 다시 뱉는다. 다만 이건 뒷정리일 뿐이라, stdout 이 fileno 를 안 주는
+    환경(테스트 캡처 등)에서 여기서 터지면 정상 종료가 크래시로 바뀐다.
+    """
+    try:
+        os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
+    except (OSError, ValueError, AttributeError, io.UnsupportedOperation):
+        pass
+
+
+def emit(lines: Iterator[str]) -> int:
+    """소비자가 파이프를 닫으면 조용히 멈춘다."""
+    try:
+        for line in lines:
+            print(line)
+        sys.stdout.flush()
+    except OSError as error:
+        if not is_pipe_closed(error):
+            raise
+        silence_stdout()
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("path", type=Path, help="data/_cache/subs/ 아래 .json3 자막")
@@ -84,17 +122,15 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     if not args.terms:
-        for stamp, text in cues:
-            print(f"[{stamp}] {text}")
-        return 0
+        return emit(f"[{stamp}] {text}" for stamp, text in cues)
 
     windows = find_matches(cues, args.terms)
     if not windows:
         print(f"일치 없음: {' '.join(args.terms)}", file=sys.stderr)
         return 1
-    for window in windows:
-        print("--- " + " ".join(f"[{stamp}] {text}" for stamp, text in window))
-    return 0
+    return emit(
+        "--- " + " ".join(f"[{stamp}] {text}" for stamp, text in window) for window in windows
+    )
 
 
 if __name__ == "__main__":
