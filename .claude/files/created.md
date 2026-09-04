@@ -289,3 +289,4 @@
 | build_planner/*Fubgun Flameblast Oil*.build (7) | fubgun 인게임 플래너 정본. 하코 보조2 — 7단계로 가장 촘촘. 지팡이가 Pyrophyte Staff 로 셋 중 유일 | 예(재다운 가능) |
 | data/filter_build_targets/poe2_hc_gemling_seongbin_0_5_5.json | 하코 젬링 필터 정본 스펙(13룰·67베이스·3단계). 임성빈 기준 / ds lily·fubgun 보조. 베이스는 세 제작자 플래너 `inventory_slots` 에서 유도하고 GGPK 로 67/67 실재성 확인. 생성기: scratchpad/make_hc_spec.py | 아니오 |
 | build_planner/HC Endgame +Stun Defence - Seongbin.build | 임성빈 엔드게임 트리 + ds lily 기절/상태이상 임계값 축 4노드(Unbreaking·Feel no Pain·Stun Threshold·General's Bindings). **+8포인트**, BFS 로 경로를 복원해 연결성 검증(159/159 한 덩어리). 장비·젬·어센던시는 임성빈 정본 그대로 | 예(재생성 가능) |
+| .claude/status/poe2_hc_gemling.md | 하코 젬링 소스 배치(임성빈 기준/ds lily 52~93/fubgun 대조용) · 구간별 방어 비율 실측 · 4인 트리 겹침 · 병합본 재현법(BFS 비용 산출 + 연결성 검증) · `.build` passives 를 딕셔너리째 비교하면 안 되는 함정 | 아니오 |
