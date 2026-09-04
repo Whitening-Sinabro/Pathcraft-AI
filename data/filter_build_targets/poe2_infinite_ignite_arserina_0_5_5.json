@@ -18,7 +18,8 @@
    "Verified against the guide while deriving this list (flag, not fix): the guide's Korean item base names are still working translations (its own note says so); the PoB's charm/flask rows are not in the video; the anoint is contradictory between video (Paragon) and PoB (Pyromancer) and this spec covers both recipes rather than choosing.",
    "The NeverSink base filters are not vendored (.gitignore excludes *.filter). _meta.bases pins each one by URL + SHA-256, identical to the Fartfinder spec's pins; `python scripts/fetch_neversink_poe2_bases.py` restores and verifies them.",
    "2026-09-04 하드코어 보강: 앞선 판에서 '가이드가 베이스를 지정하지 않는다'는 이유로 뺐던 반지와 초반 석궁을 되살렸다 — 임성빈의 하드코어 빌드 문서가 액트별로 베이스를 지정한다(팽팽한/광택 나는 석궁, 토파즈·루비 반지, 무보석 반지 2개). 룬도 하위 육체 -> 육체 -> 상급 철 진행이 드러나게 넓혔다. 유니크 2종(변이하는 별 = Cleric Vestments, 모리오르 인빅투스 = Grand Regalia)은 poe2db 에서 베이스와 동일 베이스 유니크 유무를 확인한 뒤 넣었다 — 둘 다 같은 베이스의 다른 유니크가 자기 룬각인 버전뿐이라 NeverSink 유니크 경보를 삼키지 않는다.",
-   "화염꽃(Fireflower)은 여전히 제외한다. 소코 가이드 제작자가 '이번에 비추천 — 예전에 추천한 적이 있지만 리스크가 있어서'라고 명시했고, ds lily 도 스냅샷용으로 '필요하진 않고 원하면' 수준으로만 둔다. 하드코어에서 '리스크가 있다'는 제작자 평가는 넣지 않을 이유로 충분하다."
+   "화염꽃(Fireflower)은 여전히 제외한다. 소코 가이드 제작자가 '이번에 비추천 — 예전에 추천한 적이 있지만 리스크가 있어서'라고 명시했고, ds lily 도 스냅샷용으로 '필요하진 않고 원하면' 수준으로만 둔다. 하드코어에서 '리스크가 있다'는 제작자 평가는 넣지 않을 이유로 충분하다.",
+   "2026-09-04 정정: 푸우아르테 영혼핵의 점화 강도 40% 는 이 빌드에 적용되지 않는다(캐스터 무기 + 무기 세트 분리). 하드코어 편에서 '미확인' 으로 뒀던 것을 소프트코어 가이드 제8장이 이미 판정해 놓았다. 룰은 유지하되 '장갑 최대 화염 저항 +2%' 용도로 근거를 바꿨다."
   ],
   "outputs": [
    {
@@ -489,8 +490,8 @@
   },
   {
    "style": "endgame",
-   "name": "[0.5.5 · 하드코어] 영혼핵 2종 — 티카바 · 푸우아르테",
-   "note": "0.5.5 패치노트 원문. Soul Core of Ticaba = 몸통 갑옷·방패에 '당신을 맞히는 피격의 치명타 피해 보너스 50% 감소'(이전 20%), 개수 제한 1 — 하드코어에서 사람을 죽이는 것이 평균 피해가 아니라 치명타 한 방이라 이번 패치에서 가장 값어치가 큰 변경이다. Soul Core of Puhuarte = 무장 무기에 '점화 강도 40% 증가'(이전 발화 강도 30%), 장갑에 '최대 화염 저항 +2%'(이전 +1%), 개수 제한 1 — 장갑 쪽은 조건 없이 유효하고, 무장 무기 조건이 캐릭터 전역인지 그 무기 스킬 한정인지는 미확인. 신규 영혼핵 17종을 포함한 0.5.5 신규 아이템은 NeverSink 가 이미 최대 경보로 잡지만, 이 둘은 이 빌드 전용 근거가 있어 따로 올린다.",
+   "name": "[0.5.5] 영혼핵 2종 — 티카바(치명타 방어) · 푸우아르테(장갑 화염저항)",
+   "note": "0.5.5 패치노트 원문. Soul Core of Ticaba = 몸통 갑옷·방패에 '당신을 맞히는 피격의 치명타 피해 보너스 50% 감소'(이전 20%), 개수 제한 1 — 하드코어에서 사람을 죽이는 것이 평균 피해가 아니라 치명타 한 방이라 이번 패치에서 가장 값어치가 큰 변경이다. Soul Core of Puhuarte = 무장 무기에 '점화 강도 40% 증가', 장갑에 '최대 화염 저항 +2%'(이전 +1%). **딜 쪽 40%는 이 빌드에 안 붙는다** — 차임벨 지팡이가 캐스터 무기라 못 받고, 석궁에 끼워도 그 석궁은 무기 세트 2라 세트 1의 화염파 점화에 적용되지 않는다(본 가이드 제8장이 이렇게 판정했다). **장갑의 최대 화염 저항 +2% 는 조건 없이 유효하므로 그 용도로만 집는다.** 0.5.5 신규 아이템은 NeverSink 가 이미 최대 경보로 잡지만 이 둘은 이 빌드 전용 근거가 있어 따로 올린다.",
    "base_types": [
     "Soul Core of Ticaba",
     "Soul Core of Puhuarte"
