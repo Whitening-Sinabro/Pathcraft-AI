@@ -64,126 +64,197 @@
   ]
  },
  "styles": {
-  "core": {
-   "comment": "S급 — 빌드가 성립하려면 반드시 있어야 하는 것 (차임벨 지팡이 / 카옴의 심장 / 완벽한 마법 에센스). 흰 배경 + 진보라 글자 + 폰트 45. NeverSink 의 apex 잭팟(흰 배경 + 빨간 글자 45 + 빨간 별 + 소리 6)과 같은 실루엣을 일부러 쓴다 — '이 빌드에서는 이게 미러급' 이라는 뜻이고, 색(보라)과 소리(1)로 갈린다",
+  "weapon_core": {
+   "comment": "S급 무기 — 지팡이 3종·폭격/포격 석궁. 진홍 배경 + 흰 글자, 영구 빔",
    "text": [
-    120,
-    0,
-    190
-   ],
-   "border": [
-    120,
-    0,
-    190
-   ],
-   "background": [
     255,
     255,
     255
+   ],
+   "border": [
+    255,
+    255,
+    255
+   ],
+   "background": [
+    151,
+    7,
+    7
    ],
    "font": 45,
    "sound": [
     1,
     300
    ],
-   "beam": "Purple",
+   "beam": "Red",
    "icon": [
     0,
-    "Purple",
-    "Star"
+    "Red",
+    "Kite"
    ]
   },
-  "endgame": {
-   "comment": "A급 — 스타터 마감 세팅을 완성하는 지정 룬. 배경을 한 단계 밝혀 S급과 가른다",
+  "charm_endgame": {
+   "comment": "A급 생존 소모품 — 호신부·플라스크. 더스티 로즈. 모양은 물방울(소모품)",
    "text": [
-    255,
-    240,
-    255
+    245,
+    175,
+    180
    ],
    "border": [
-    230,
-    180,
-    255
+    215,
+    110,
+    120
    ],
    "background": [
-    120,
-    0,
-    190
+    72,
+    24,
+    30
    ],
    "font": 42,
    "sound": [
-    2,
-    280
+    3,
+    300
    ],
-   "beam": "Purple",
-   "icon": [
-    0,
-    "Purple",
-    "Diamond"
-   ]
-  },
-  "gear": {
-   "comment": "B급 — 단계별 장비 베이스 (석궁, 슬롯 베이스, PoB 착용 방어구). 폰트 40 = NeverSink 가 무음으로 40 을 주는 레어/레벨링 티어와 같은 크기 — 38 이면 소리를 얹고도 글자가 작아지는 상태가 250건 넘게 생겼다",
-   "text": [
-    232,
-    215,
-    255
-   ],
-   "border": [
-    150,
-    105,
-    220
-   ],
-   "background": [
-    48,
-    16,
-    86
-   ],
-   "font": 40,
-   "sound": [
-    4,
-    200
-   ],
-   "beam": "Purple",
+   "beam": "Orange Temp",
    "icon": [
     1,
-    "Purple",
+    "Orange",
+    "Raindrop"
+   ]
+  },
+  "augment_endgame": {
+   "comment": "A급 룬·영혼핵. Augment 는 화폐 계열이라 모양은 원(레퍼런스 관례)",
+   "text": [
+    245,
+    125,
+    95
+   ],
+   "border": [
+    215,
+    65,
+    50
+   ],
+   "background": [
+    58,
+    4,
+    7
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Red Temp",
+   "icon": [
+    1,
+    "Red",
     "Circle"
    ]
   },
-  "craft": {
-   "comment": "C급 — 제작·소모 재료 (주얼 / 상위 룬 / 호신부 / 성유 재료). 폰트 40 은 B급과 같은 이유 (NeverSink 의 무음 40 티어 아래로 내려가지 않기 위함). 배경이 네 등급 중 가장 어둡고 글자도 흐리다 — S급이 흰 배경을 가져가면서 '밝을수록 중요' 로 방향을 통일했고, 예전의 '밝은 배경 = 낮은 등급' 반전은 폐기했다",
+  "weapon_gear": {
+   "comment": "B급 초반 무기. 소리 없음 — 베이스가 요구할 때만 켜진다",
    "text": [
-    178,
+    235,
     150,
-    210
+    130
    ],
    "border": [
-    96,
-    62,
-    150
+    200,
+    75,
+    55
    ],
    "background": [
-    32,
-    10,
-    58
+    62,
+    14,
+    10
    ],
-   "font": 40,
-   "sound": [
-    3,
-    180
-   ],
-   "beam": "Purple",
+   "font": 42,
+   "sound": null,
+   "beam": "Red Temp",
    "icon": [
     2,
-    "Purple",
-    "Triangle"
+    "Red",
+    "Kite"
    ]
+  },
+  "armour_gear": {
+   "comment": "B급 방어구. 소리·빔 없음 — 굴릴 그릇이지 경보 대상이 아니다",
+   "text": [
+    225,
+    160,
+    140
+   ],
+   "border": [
+    175,
+    80,
+    65
+   ],
+   "background": [
+    42,
+    3,
+    5
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    2,
+    "Red",
+    "Kite"
+   ]
+  },
+  "jewellery_gear": {
+   "comment": "B급 장신구 — 뮤트 코퍼로 방어구와 색조를 가른다. 소리·빔 없음",
+   "text": [
+    230,
+    180,
+    120
+   ],
+   "border": [
+    185,
+    120,
+    55
+   ],
+   "background": [
+    52,
+    26,
+    8
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    2,
+    "Orange",
+    "Kite"
+   ]
+  },
+  "augment_craft": {
+   "comment": "C급 제작 재료 — 가장 어둡고 조용하다. 소리·빔·미니맵 전부 없음",
+   "text": [
+    170,
+    110,
+    100
+   ],
+   "border": [
+    120,
+    45,
+    40
+   ],
+   "background": [
+    18,
+    10,
+    11
+   ],
+   "font": 38,
+   "sound": null,
+   "beam": null,
+   "icon": null
   }
  },
  "rules": [
   {
-   "style": "core",
+   "style": "weapon_core",
    "name": "[전 구간] 화염파 지팡이 3종 — 52 전환의 전제",
    "note": "52 전환이 이 빌드의 축이고 셋 중 먼저 떨어지는 것을 쓰면 된다. 제작자마다 다른 지팡이를 쓴다: Chiming Staff(임성빈) / Sanctified Staff(ds lily) / Pyrophyte Staff(fubgun). 셋 다 캐스터 무기라 화염파를 올리는 역할은 같다. 고유 등급은 뺀다 — 같은 베이스의 고유는 NeverSink 고유 티어 경보에 맡긴다.",
    "class": [
@@ -206,7 +277,7 @@
    ]
   },
   {
-   "style": "core",
+   "style": "weapon_core",
    "name": "[액트 3~ · 마감] 폭격 · 포격 석궁",
    "note": "유탄 축의 주무기. Bombard Crossbow(임성빈·ds lily·fubgun) / Cannonade Crossbow(임성빈·ds lily). 폭격 석궁은 셋 다 쓰고, 포격 석궁은 임성빈·ds lily 의 마감 무기다.",
    "class": [
@@ -228,7 +299,7 @@
    ]
   },
   {
-   "style": "endgame",
+   "style": "charm_endgame",
    "name": "[생존] 호신부 5종 — 임성빈 축 + ds lily·fubgun 보강",
    "note": "하코에서 사람을 죽이는 것은 평균 피해가 아니라 상태 이상 한 방이다. Sapphire Charm(임성빈) / Stone Charm(임성빈) / Thawing Charm(임성빈·fubgun) / Dousing Charm(fubgun) / Silver Charm(fubgun). 임성빈은 액트1 사파이어 -> 액트3/4 돌·해동으로 가고, fubgun 은 해동·소화·은을 상시 낀다.",
    "class": [
@@ -252,7 +323,7 @@
    ]
   },
   {
-   "style": "endgame",
+   "style": "charm_endgame",
    "name": "[생존] 생명력 플라스크 등급 진행",
    "note": "임성빈이 액트별로 등급을 갈아탄다: Greater Life Flask(임성빈) / Giant Life Flask(임성빈) / Gargantuan Life Flask(임성빈) / Transcendent Life Flask(fubgun). fubgun 의 초월 생명력 플라스크(즉시 회복 20%)가 최종형이다. NeverSink 는 플라스크를 레벨로만 티어링해서 등급 진행이 눈에 안 띈다.",
    "base_types": [
@@ -265,14 +336,14 @@
     "Normal",
     "Magic"
    ],
+   "area_level_max": 70,
    "stages": [
     "campaign",
-    "maps",
-    "endgame"
+    "maps"
    ]
   },
   {
-   "style": "endgame",
+   "style": "charm_endgame",
    "name": "[생존] 마나 플라스크 등급",
    "note": "화염파는 마나 소모가 크다. Greater Mana Flask(임성빈) / Gargantuan Mana Flask(임성빈·fubgun).",
    "base_types": [
@@ -283,14 +354,14 @@
     "Normal",
     "Magic"
    ],
+   "area_level_max": 70,
    "stages": [
     "campaign",
-    "maps",
-    "endgame"
+    "maps"
    ]
   },
   {
-   "style": "endgame",
+   "style": "augment_endgame",
    "name": "[마감] 영혼핵 2종 — 티카바(치명타 방어) · 푸우아르테(장갑 화염저항)",
    "note": "0.5.5 패치노트 원문. 티카바 = 몸통·방패에 '당신을 맞히는 피격의 치명타 피해 보너스 50% 감소'(이전 20%) — 하코에서 이번 패치 최대 수혜다. 푸우아르테는 장갑 '최대 화염 저항 +2%' 용도. 무장 무기 점화 40%는 이 빌드에 안 붙는다(지팡이가 캐스터 무기 + 석궁은 무기 세트가 다르다). 소프트코어 편 제8장 판정.",
    "class": [
@@ -306,16 +377,14 @@
    ]
   },
   {
-   "style": "gear",
-   "name": "[액트 1] 임성빈·fubgun 착용 베이스",
-   "note": "임성빈 액트1 전신 + fubgun 1-32 구간. Horned Crown(임성빈) / Pelt Mantle(임성빈) / Rope Cuffs(임성빈) / Padded Leggings(임성빈) / Rawhide Belt(임성빈) / Iron Ring(임성빈·fubgun) / Face Mask(fubgun) / Bronze Greaves(fubgun) / Sombre Gloves(SC 가이드). 이건 굴릴 그릇이지 요구사항이 아니다 — 세 제작자가 방어구에서 겹치는 게 거의 없다(63종 중 셋 다 쓰는 건 석궁 2종뿐). 생명력과 저항만 맞으면 된다.",
+   "style": "armour_gear",
+   "name": "[액트 1] 방어구 베이스 — 임성빈 착용",
+   "note": "임성빈 액트1 방어구. Horned Crown(임성빈) / Pelt Mantle(임성빈) / Rope Cuffs(임성빈) / Padded Leggings(임성빈) / Face Mask(fubgun) / Bronze Greaves(fubgun) / Sombre Gloves(SC 가이드). 굴릴 그릇이지 요구사항이 아니다 — 세 제작자가 방어구에서 겹치는 게 거의 없다. 생명력과 저항만 맞으면 된다.",
    "base_types": [
     "Horned Crown",
     "Pelt Mantle",
     "Rope Cuffs",
     "Padded Leggings",
-    "Rawhide Belt",
-    "Iron Ring",
     "Face Mask",
     "Bronze Greaves",
     "Sombre Gloves"
@@ -331,14 +400,48 @@
    ]
   },
   {
-   "style": "gear",
-   "name": "[액트 2] 임성빈·fubgun 착용 베이스",
-   "note": "임성빈 액트2 전신 + fubgun 33-51 반지. Martyr Crown(임성빈) / Shaman Mantle(임성빈) / Aged Cuffs(임성빈) / Secured Leggings(임성빈) / Plate Belt(임성빈) / Ruby Ring(임성빈) / Topaz Ring(임성빈·fubgun) / Sapphire Ring(fubgun).",
+   "style": "jewellery_gear",
+   "name": "[액트 1] 장신구 · 허리띠 — 임성빈 착용",
+   "note": "임성빈 액트1 장신구. Rawhide Belt(임성빈) / Iron Ring(임성빈·fubgun). 방어구와 색조를 갈라(뮤트 코퍼) 슬롯을 한눈에 구분한다.",
+   "base_types": [
+    "Rawhide Belt",
+    "Iron Ring"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 20,
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "armour_gear",
+   "name": "[액트 2] 방어구 베이스 — 임성빈 착용",
+   "note": "임성빈 액트2 방어구. Martyr Crown(임성빈) / Shaman Mantle(임성빈) / Aged Cuffs(임성빈) / Secured Leggings(임성빈). 굴릴 그릇이지 요구사항이 아니다 — 세 제작자가 방어구에서 겹치는 게 거의 없다. 생명력과 저항만 맞으면 된다.",
    "base_types": [
     "Martyr Crown",
     "Shaman Mantle",
     "Aged Cuffs",
-    "Secured Leggings",
+    "Secured Leggings"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 45,
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "jewellery_gear",
+   "name": "[액트 2] 장신구 · 허리띠 — 임성빈 착용",
+   "note": "임성빈 액트2 장신구. Plate Belt(임성빈) / Ruby Ring(임성빈) / Topaz Ring(임성빈·fubgun) / Sapphire Ring(fubgun). 방어구와 색조를 갈라(뮤트 코퍼) 슬롯을 한눈에 구분한다.",
+   "base_types": [
     "Plate Belt",
     "Ruby Ring",
     "Topaz Ring",
@@ -355,13 +458,30 @@
    ]
   },
   {
-   "style": "gear",
-   "name": "[액트 3/4] 임성빈 착용 베이스",
-   "note": "임성빈 액트3/4 전신. Spiritbone Crown(임성빈) / Braided Cuffs(임성빈) / Weaver Leggings(임성빈) / Prismatic Ring(임성빈) / Pearlescent Amulet(임성빈). 프리즘 반지 2개가 전 원소 저항을 메운다.",
+   "style": "armour_gear",
+   "name": "[액트 3/4] 방어구 베이스 — 임성빈 착용",
+   "note": "임성빈 액트3/4 방어구. Spiritbone Crown(임성빈) / Braided Cuffs(임성빈) / Weaver Leggings(임성빈). 굴릴 그릇이지 요구사항이 아니다 — 세 제작자가 방어구에서 겹치는 게 거의 없다. 생명력과 저항만 맞으면 된다.",
    "base_types": [
     "Spiritbone Crown",
     "Braided Cuffs",
-    "Weaver Leggings",
+    "Weaver Leggings"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 60,
+   "stages": [
+    "campaign",
+    "maps"
+   ]
+  },
+  {
+   "style": "jewellery_gear",
+   "name": "[액트 3/4] 장신구 · 허리띠 — 임성빈 착용",
+   "note": "임성빈 액트3/4 장신구. Prismatic Ring(임성빈) / Pearlescent Amulet(임성빈). 방어구와 색조를 갈라(뮤트 코퍼) 슬롯을 한눈에 구분한다.",
+   "base_types": [
     "Prismatic Ring",
     "Pearlescent Amulet"
    ],
@@ -377,7 +497,7 @@
    ]
   },
   {
-   "style": "gear",
+   "style": "armour_gear",
    "name": "[마감] 방어구 베이스 — 세 제작자 합집합",
    "note": "셋이 서로 다른 베이스를 쓰므로 전부 켠다. fubgun·ds lily 의 마감 장비는 **룬각인(Runeforged) 변형**인데 그 이름은 뺐다 — GGPK 에는 535종 실재하지만 파생 `base_items_poe2.json`(4/25)에 0종이라 어휘 게이트를 통과하지 못하고, NeverSink 도 방어구 룬각인 이름을 쓰지 않는다(NeverSink 의 `Runeforged Blades` 는 혈통 젬이다). 대신 **룬각인 안 된 쌍둥이 베이스**를 넣었다: 지혜의 관/부착 소맷동/암호 각반/매잡이 상의/사령관 건틀릿. 9/5 재추출로 파생 DB 를 갱신하면 룬각인 이름도 넣을 수 있다. Cryptic Crown(임성빈) / Adherent Cuffs(임성빈·ds lily) / Cryptic Leggings(SC 가이드) / Falconer's Jacket(SC 가이드) / Gallant Helm(ds lily) / Golden Mail(ds lily) / Commander Gauntlets(SC 가이드) / Bastion Sabatons(ds lily) / Ancestral Mail(fubgun) / Decorated Helm(ds lily) / Champion Cuirass(ds lily) / Adorned Wraps(ds lily) / Bound Boots(ds lily).",
    "base_types": [
@@ -406,7 +526,7 @@
    ]
   },
   {
-   "style": "gear",
+   "style": "jewellery_gear",
    "name": "[전 구간] 목걸이 · 허리띠 · 마감 반지",
    "note": "Bloodstone Amulet(임성빈·ds lily) / Amber Amulet(ds lily·fubgun) / Absent Amulet(fubgun) / Utility Belt(fubgun) / Double Belt(ds lily) / Amethyst Ring(임성빈·ds lily) / Gold Ring(fubgun). 자수정 반지는 임성빈·ds lily 마감 공통(카오스 저항).",
    "base_types": [
@@ -430,7 +550,7 @@
    ]
   },
   {
-   "style": "gear",
+   "style": "weapon_gear",
    "name": "[액트 1~2] 초반 석궁",
    "note": "Tense Crossbow(임성빈·fubgun) / Varnished Crossbow(임성빈·ds lily·fubgun). 임성빈 액트1/2, fubgun 1-32 구간과 일치한다.",
    "class": [
@@ -451,7 +571,7 @@
    ]
   },
   {
-   "style": "craft",
+   "style": "augment_craft",
    "name": "[전 구간] 룬 진행 — 하위 육체 -> 육체 -> 상급",
    "note": "세 플래너 모두 룬 소켓 내용을 담지 않는다(플래너 형식의 한계). 이 목록은 소프트코어 가이드 제4·7장에서 가져왔다 — 같은 아키타입이라 룬은 동일하다. Lesser Body Rune, Body Rune, Greater Body Rune, Greater Desert Rune, Greater Iron Rune.",
    "class": [

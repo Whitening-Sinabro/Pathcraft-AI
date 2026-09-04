@@ -274,6 +274,10 @@ def base_value_vocabulary(text: str) -> dict[str, set]:
                     found["volume"].add(int(parts[2]))
             elif line.startswith("PlayEffect"):
                 found["beam"].add(parts[1])
+                # `PlayEffect <색> Temp` 는 드롭 순간에만 빔이 뜬다. 베이스가 52번
+                # 쓰는 형태인데 색만 기록하면 우리가 쓰려 할 때 값 게이트가 막는다.
+                if len(parts) > 2 and parts[2] == "Temp":
+                    found["beam"].add(f"{parts[1]} Temp")
             elif line.startswith("MinimapIcon"):
                 found["icon_size"].add(int(parts[1]))
                 found["icon_color"].add(parts[2])
@@ -301,35 +305,59 @@ def check_contrast(style_name: str, style: dict) -> None:
         )
 
 
+# GGG 공식 아이템 필터 문서(pathofexile.com/item-filter/about, 2026-09-04 확인)의
+# 열거값. 베이스 필터가 안 쓰는 값이라도 게임은 받는다 — 베이스는 합법성의 대리
+# 지표일 뿐 권위가 아니다. 여기 없는 값은 여전히 게이트에서 죽는다.
+_BEAM_COLOURS = {"Red", "Green", "Blue", "Brown", "White", "Yellow",
+                 "Cyan", "Grey", "Orange", "Pink", "Purple"}
+OFFICIAL_VALUES: dict[str, set] = {
+    # PlayEffect: 색 단독, 또는 "색 Temp"(드롭 순간에만 빔)
+    "beam": _BEAM_COLOURS | {f"{c} Temp" for c in _BEAM_COLOURS},
+    "icon_color": _BEAM_COLOURS,
+    "icon_shape": {"Circle", "Diamond", "Hexagon", "Square", "Star", "Triangle",
+                   "Cross", "Moon", "Raindrop", "Kite", "Pentagon", "UpsideDownHouse"},
+    "icon_size": {0, 1, 2, -1},
+    "sound_id": set(range(1, 17)),  # 문서상 1-16
+}
+
+
 def check_style_values(style_name: str, style: dict, allowed: dict[str, set]) -> None:
     """Reject values the game would ignore.
 
     Two different kinds of field, so two different checks: font size and volume
     are continuous, and the base filter happening to use only 100 and 300 says
     nothing about what is legal, so those get a range. Beam colour, minimap
-    shape and the rest are enumerations the client either knows or does not, so
-    those must be values the base filter actually uses.
+    shape and the rest are enumerations the client either knows or does not.
+
+    For the enumerations the base filter is a *proxy* for legality, not the
+    authority. GGG publishes the real lists, so a value the official docs allow
+    passes even when NeverSink never happens to use it -- `Raindrop` is a legal
+    minimap shape that NeverSink's POE2 filter does not use, and flasks/charms
+    want it. Anything outside both sets still fails.
     """
     ranges = {"font": (1, 45), "volume": (0, 300)}
     for key, value in [
         ("font", style["font"]),
-        ("sound_id", style["sound"][0]),
-        ("volume", style["sound"][1]),
-        ("beam", style["beam"]),
-        ("icon_size", style["icon"][0]),
-        ("icon_color", style["icon"][1]),
-        ("icon_shape", style["icon"][2]),
+        ("sound_id", style["sound"][0] if style.get("sound") else DEFAULT_SOUND_ID),
+        ("volume", style_volume(style)),
+        ("beam", style.get("beam")),
+        ("icon_size", style_icon_size(style)),
+        ("icon_color", style["icon"][1] if style.get("icon") else None),
+        ("icon_shape", style["icon"][2] if style.get("icon") else None),
     ]:
+        if value is None:
+            continue  # 스타일이 그 지시어를 끈 것 — 아예 안 나가므로 검사 대상이 아니다
         if key in ranges:
             low, high = ranges[key]
             if not (low <= value <= high):
                 raise SystemExit(
                     f"value gate FAIL: style '{style_name}' {key}={value} outside {low}..{high}"
                 )
-        elif allowed[key] and value not in allowed[key]:
+        elif allowed[key] and value not in allowed[key] | OFFICIAL_VALUES.get(key, set()):
             raise SystemExit(
                 f"value gate FAIL: style '{style_name}' {key}={value!r} is not a value the base "
-                f"filter uses (allowed: {sorted(allowed[key])})"
+                f"filter or the official docs allow "
+                f"(allowed: {sorted(allowed[key] | OFFICIAL_VALUES.get(key, set()))})"
             )
 
 
@@ -417,7 +445,7 @@ def narrower_louder_blocks(
         sockets = max(scope["sockets_min"], block.sockets_min)
         item_level = max(scope["item_level_min"], block.item_level_min)
         quality = max(scope["quality_min"], block.quality_min)
-        if (block.font, block.volume) <= (style["font"], style["sound"][1]):
+        if (block.font, block.volume) <= (style["font"], style_volume(style)):
             continue
         if (
             rarities == scope["rarities"]
@@ -436,6 +464,19 @@ def narrower_louder_blocks(
 # --------------------------------------------------------------------------- #
 # emission
 # --------------------------------------------------------------------------- #
+
+
+DEFAULT_SOUND_ID = 3  # 스타일이 소리를 끈 상태에서 베이스가 소리를 요구할 때만 쓰인다
+
+
+def style_volume(style: dict) -> int:
+    """스타일이 스스로 요구하는 음량 바닥. 소리를 끈 스타일은 0."""
+    return style["sound"][1] if style.get("sound") else 0
+
+
+def style_icon_size(style: dict) -> int:
+    """아이콘을 끈 스타일은 '가장 작은 아이콘'(2)으로 취급해 베이스 요구만 반영한다."""
+    return style["icon"][0] if style.get("icon") else 2
 
 
 def render_block(
@@ -469,9 +510,17 @@ def render_block(
     lines.append(f"\tSetBorderColor {bo[0]} {bo[1]} {bo[2]} 255")
     lines.append(f"\tSetBackgroundColor {bg[0]} {bg[1]} {bg[2]} 255")
     lines.append(f"\tSetFontSize {font}")
-    lines.append(f"\tPlayAlertSound {style['sound'][0]} {volume}")
-    lines.append(f"\tPlayEffect {style['beam']}")
-    lines.append(f"\tMinimapIcon {icon_size} {style['icon'][1]} {style['icon'][2]}")
+    # 소리·빔·아이콘은 선택형이다. NeverSink 는 장비 블록의 22~23% 에만 이것들을
+    # 붙이는데 우리가 100% 에 붙이면 흔한 드롭까지 전부 경보가 된다(캠페인 455개
+    # 상황 중 289개가 베이스는 무음인데 우리만 소리를 냈다). 스타일에서 null 로
+    # 끄면, **베이스가 이미 요구하는 경우에만** 다시 켜진다 — 회귀는 그대로 막는다.
+    if style.get("sound") is not None or volume > 0:
+        sound_id = style["sound"][0] if style.get("sound") else DEFAULT_SOUND_ID
+        lines.append(f"\tPlayAlertSound {sound_id} {volume}")
+    if style.get("beam"):
+        lines.append(f"\tPlayEffect {style['beam']}")
+    if style.get("icon"):
+        lines.append(f"\tMinimapIcon {icon_size} {style['icon'][1]} {style['icon'][2]}")
     return "\n".join(lines)
 
 
@@ -506,12 +555,12 @@ def build_rule_blocks(
                 f"extra conditions {sorted(block.extra)}) is shadowed by this overlay"
             )
         font = max(style["font"], req_font)
-        volume = max(style["sound"][1], req_volume)
-        icon = style["icon"][0] if req_icon is None else min(style["icon"][0], req_icon)
-        if (font, volume, icon) != (style["font"], style["sound"][1], style["icon"][0]):
+        volume = max(style_volume(style), req_volume)
+        icon = style_icon_size(style) if req_icon is None else min(style_icon_size(style), req_icon)
+        if (font, volume, icon) != (style["font"], style_volume(style), style_icon_size(style)):
             raises.append(
-                f"{base_type}: font {style['font']}->{font}, volume {style['sound'][1]}->{volume}, "
-                f"icon {style['icon'][0]}->{icon}"
+                f"{base_type}: font {style['font']}->{font}, volume {style_volume(style)}->{volume}, "
+                f"icon {style_icon_size(style)}->{icon}"
             )
         groups.setdefault((font, volume, icon), []).append(base_type)
 
