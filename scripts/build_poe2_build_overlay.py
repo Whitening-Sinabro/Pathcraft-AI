@@ -621,6 +621,71 @@ def build_rule_blocks(
     return blocks, raises, shadows
 
 
+def render_hide_block(rule: dict, spec: dict, vocabulary: set[str]) -> str:
+    """Emit one Hide block, with a gate that makes hiding our own gear impossible.
+
+    Hiding is the one thing a build overlay can do that loses information, and the
+    symptom of getting it wrong is an item that simply never appears. So the gate
+    is mechanical rather than a review note: the rule's Class list is intersected
+    with every Class and BaseType the spec's Show rules name, and any overlap kills
+    the build. That is not paranoia -- NeverSink's own `hideweaponsbytype` block
+    lists "Crossbows" and "Staves", which is exactly what this build wields, so
+    enabling it verbatim would have hidden the build's weapons.
+
+    Structure follows NeverSink's disabled `conditionalhiders` (soft L687-L864)
+    including its three guards, which exist so a hider never eats something worth
+    keeping: `Sockets 0` (no rune slots), `Quality 0` (not a quality base) and
+    `UnidentifiedItemTier <= 3` (not a good rare).
+    """
+    classes = rule.get("class") or []
+    classes = classes if isinstance(classes, list) else [classes]
+    if not classes:
+        raise SystemExit(f"hide gate FAIL: '{rule['name']}' must name at least one Class")
+
+    unknown = [c for c in classes if c not in vocabulary]
+    if unknown:
+        raise SystemExit(f"hide gate FAIL: '{rule['name']}' names unknown class {unknown}")
+
+    shown_classes: set[str] = set()
+    shown_bases: set[str] = set()
+    for other in spec["rules"]:
+        if other.get("kind") == "hide":
+            continue
+        oc = other.get("class") or []
+        shown_classes |= set(oc if isinstance(oc, list) else [oc])
+        shown_bases |= set(other.get("base_types") or [])
+    clash = sorted(set(classes) & shown_classes)
+    if clash:
+        raise SystemExit(
+            f"hide gate FAIL: '{rule['name']}' would hide class(es) the build shows: {clash}"
+        )
+    if rule.get("base_types"):
+        bclash = sorted(set(rule["base_types"]) & shown_bases)
+        if bclash:
+            raise SystemExit(
+                f"hide gate FAIL: '{rule['name']}' would hide base(s) the build shows: {bclash}"
+            )
+
+    lines = [f"# [overlay:hide] {rule['name']}"]
+    if rule.get("note"):
+        lines.append(f"#   {rule['note']}")
+    lines.append("Hide")
+    lines.append("	Rarity " + " ".join(rule.get("rarity") or ["Normal", "Magic"]))
+    lines.append("	Class == " + " ".join(f'"{c}"' for c in classes))
+    if rule.get("base_types"):
+        lines.append("	BaseType == " + " ".join(f'"{b}"' for b in rule["base_types"]))
+    # NeverSink 의 세 안전장치를 그대로 쓴다 -- 룬 슬롯이 뚫렸거나 퀄리티가 붙었거나
+    # 상위 티어 미감정이면 숨기지 않는다.
+    lines.append("	Sockets 0")
+    lines.append("	Quality 0")
+    lines.append(f"	UnidentifiedItemTier <= {int(rule.get('unid_tier_max', 3))}")
+    if rule.get("area_level_min"):
+        lines.append(f"	AreaLevel >= {int(rule['area_level_min'])}")
+    if rule.get("area_level_max"):
+        lines.append(f"	AreaLevel <= {int(rule['area_level_max'])}")
+    return "\n".join(lines)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", required=True)
@@ -657,6 +722,7 @@ def main() -> int:
         check_style_values(name, style, allowed_values)
 
     blocks: list[str] = []
+    hide_blocks: list[str] = []
     dropped: list[str] = []
     raised: list[str] = []
     shadowed: list[str] = []
@@ -665,6 +731,10 @@ def main() -> int:
         stages = rule.get("stages")
         if args.stage and stages and args.stage not in stages:
             skipped_stage += 1
+            continue
+
+        if rule.get("kind") == "hide":
+            hide_blocks.append(render_hide_block(rule, spec, vocabulary))
             continue
 
         classes = rule.get("class")
@@ -739,7 +809,9 @@ def main() -> int:
             "",
         ]
     )
-    out_text = header + "\n\n".join(blocks) + "\n\n" + base_text
+    # Hide 는 Show 뒤, 베이스 앞. 우리 Show 가 먼저 이기고, 그 다음 우리 Hide 가
+    # 베이스보다 먼저 걸린다 -- 순서가 뒤집히면 빌드 아이템을 우리 손으로 지운다.
+    out_text = header + "\n\n".join(blocks + hide_blocks) + "\n\n" + base_text
     out_path = Path(args.out)
     out_path.write_text(out_text, encoding="utf-8", newline="\n")
     log.info(

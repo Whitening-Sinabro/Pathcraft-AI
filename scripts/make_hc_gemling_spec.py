@@ -240,6 +240,22 @@ rules = [
                f"룬은 동일하다. {', '.join(RUNES)}."),
          **{"class": ["Augment"]}, base_types=check(RUNES, "runes"),
          stages=ALL_STAGES),
+
+    # ---- 숨김 --------------------------------------------------------------
+    # NeverSink 는 이 규칙을 이미 다 써놓고 꺼서 배포한다(soft L687-L864,
+    # `conditionalhiders` 14블록, 활성 0). 그대로 켤 수는 없다 -- 그쪽 무기 목록에
+    # "Crossbows" 와 "Staves" 가 들어 있는데 그게 정확히 이 빌드의 무기다.
+    # 그래서 클래스 목록만 갈아끼우고 안전장치 셋(Sockets 0 / Quality 0 /
+    # UnidentifiedItemTier <= 3)은 NeverSink 것을 그대로 쓴다.
+    dict(kind="hide", name="[정리] 이 빌드가 못 쓰는 무기·보조장비",
+         note=("젬링은 석궁(무기 세트 1)과 지팡이(세트 2) 둘 다 양손이라 나머지 무기도 "
+               "보조장비도 영영 못 쓴다. 노말·매직만, 룬 슬롯이 뚫렸거나 퀄리티가 붙었거나 "
+               "상위 티어 미감정이면 남긴다 — NeverSink 의 안전장치 그대로. "
+               "지역레벨 12부터: 그 전은 무기를 고를 여지가 있는 구간이다."),
+         **{"class": ["Bows", "One Hand Maces", "Quarterstaves", "Quivers", "Sceptres",
+                      "Spears", "Talismans", "Two Hand Maces", "Wands",
+                      "Bucklers", "Foci", "Shields"]},
+         rarity=["Normal", "Magic"], area_level_min=12, stages=ALL_STAGES),
 ]
 
 spec = {
@@ -292,9 +308,9 @@ spec = {
 }
 
 OUT.write_text(json.dumps(spec, ensure_ascii=False, indent=1), encoding="utf-8")
-names = {b for r in rules for b in r["base_types"]}
+names = {b for r in rules for b in (r.get("base_types") or [])}
 print(f"{OUT.name} 생성 — 룰 {len(rules)}개 · 베이스 {len(names)}종")
 print(f"  GGPK 실재성: {len(names & KNOWN)}/{len(names)}")
-for tier in ("core", "endgame", "gear", "craft"):
-    n = [r for r in rules if r["style"] == tier]
-    print(f"  {tier:<8} 룰 {len(n)} · 베이스 {sum(len(r['base_types']) for r in n)}")
+for tier in sorted({r.get("style") or "hide" for r in rules}):
+    n = [r for r in rules if (r.get("style") or "hide") == tier]
+    print(f"  {tier:<8} 룰 {len(n)} · 베이스 {sum(len(r.get('base_types') or []) for r in n)}")
