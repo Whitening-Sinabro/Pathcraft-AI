@@ -1,6 +1,7 @@
 # POE2 하드코어 소스 명부
 
-> 하코 문서를 **크리에이터 원본** 기반으로 쓰기 위한 소스 목록. 2026-09-04 조사.
+> 하코 문서를 **크리에이터 원본** 기반으로 쓰기 위한 소스 목록.
+> 2026-09-04 조사 → 같은 날 **채널 열거로 전면 재작성**.
 > 래더 통계(poe.ninja)는 "성숙한 리그에서 살아남은 사람들"을 말할 뿐,
 > "이 빌드를 하코로 굴리면 어떤가"에 답하지 않는다. 그 답은 여기 사람들이 갖고 있다.
 
@@ -10,132 +11,201 @@
 질문은 "탱정 빌드를 하코로 하면 어떠냐"였는데 남 458명 통계로 답했다. 질문 바꿔치기다.
 아래는 그 실수를 반복하지 않기 위한 1차 소스 명부다.
 
-## 조사 방법이 틀렸던 기록 (2026-09-04, 같은 날 정정)
+## 조사 방법 — 검색하지 말고 열거하라
 
-1차 조사를 **제목 키워드 검색**("hardcore", "하드코어", "HCSSF")으로 했다. 그래서:
+1차 조사를 **제목 키워드 검색**("hardcore", "하드코어", "HCSSF")으로 했다가 ds lily·lexdtv 를
+통째로 놓쳤다. 제목 기준 "하코 비율 %" 지표를 만들어 호진·겜창의삶을 0%로 찍기까지 했다.
 
-- **ds lily**(구독 8.9만)를 통째로 놓쳤다. 0.5 중간에 소프트코어를 접고 HC 로 갈아탄
-  사람이고(`My Final Days of Softcore In PoE 2 — rerolling HC`), `Starting A New HC SSF
-  Run in PoE 2 0.5` 연재가 있는데 제목에 hardcore 를 안 써서 한 번도 안 걸렸다.
-- **lexdtv**(=LexD)를 놓쳤다. 워리어·방패 전문에 **방패벽 스미스 오브 키타바 연재**를
-  갖고 있다. "hardcore" 가 아니라 **"shield wall"** 로 검색했어야 나온다.
-- 제목 기준 "하코 비율 %" 지표를 만들어 호진·겜창의삶을 0% 로 찍었다. 그 지표가 틀렸다는
-  증거(임성빈 46%, 디넬 21% — 둘 다 사실상 전용)를 보고도 표에 넣었다.
+2차는 **채널 영상 목록을 통째로 열거**했다. 결과가 완전히 달랐다.
+
+```
+python -m yt_dlp --flat-playlist --playlist-end 60 \
+  --print "%(id)s|%(duration)s|%(title)s" "https://www.youtube.com/@<handle>/videos"
+```
+
+- 핸들을 모르면 `ytsearch6:<이름> <빌드명>` 에 `--print "%(channel)s|%(channel_url)s|%(title)s"`
+  로 **채널 URL 부터 확정**하고 그 URL 을 열거한다. `@sargetwo`·`@Z3mos` 는 존재하지 않는
+  핸들이었고("does not have a videos tab"), 실제 채널은 `UCXFZF8jhpIzOHVRSOScgY3w` ·
+  `UCPuFjk05I4n2kM7ZKR3MoNg` 였다.
+- **콘솔 인코딩에 속지 말 것.** `PYTHONIOENCODING=utf-8` 없이 열거하면 한국어 제목이 전부
+  깨져 나온다. 디넬 채널을 한 번 그렇게 읽고 "제목을 못 읽겠다"로 넘길 뻔했다.
+- 열거 결과는 제목 검색이 절대 못 주는 것을 준다 — **한 채널이 같은 빌드를 몇 번 갈아엎었는지**.
+  그게 아래 "방패벽은 하나의 빌드가 아니다"를 드러낸 경로다.
 
 **교훈:** 사람을 찾을 때는 제목이 아니라 ① 채널 정체성 ② 커뮤니티 연결(팟캐스트 게스트·
 합방 제목의 @핸들) ③ **빌드 이름**으로 판다. 하코를 하는 사람이 제목에 하코를 안 쓴다.
 
-## 방패벽 / 스미스 오브 키타바 전문 (빌드 대조용)
+## 자동 자막은 고유명사를 망가뜨린다 (인용 전 필수 확인)
 
-탱정 하나에만 기대던 부분이다. 같은 빌드를 다루는 사람이 최소 5명 더 있다.
+받아둔 자막은 대부분 YouTube 자동 생성이다. 게임 고유명사가 통째로 다른 단어가 된다.
 
-| 채널 | 무엇을 갖고 있나 |
+| 자막에 찍힌 것 | 실제 |
 |---|---|
-| **lexdtv / LexD** | **0.5 방패벽 스미스 오브 키타바: 최종 업데이트**(54분), 0.5 워리어 전 어센던시 리그 스타터("방패벽은 죽지 않았다"), **"Block 에 뭔가 잘못됐다"**(막기 메커니즘), 워리어 테크(무기 세트 스냅샷·애니메이션 캔슬), 방패 빌드용 철퇴 제작법, HCSSF 방패 강타 온리 챌린지 연재 |
-| **Z3mos** | 15M+ 크릿 방패벽 90% 저항(너프됨), Great Wall 스미스 오브 키타바, 200% 딜리리엄 |
-| **Angormus** | 0.5 방패벽 스미스 오브 키타바 빌드 가이드, 워리어 리그스타터 캠페인 완주(4시간반) |
-| **Kris Droverson** | **Immortal 스미스 오브 키타바**(폭발 방패벽 + 무한 신전), 0.4 방패벽 레벨링 가이드 |
-| **Big Ducks** | 시체 폭발 온-히트 방패벽 키타바 리그 스타트 가이드 |
+| `Smite of the Cathar` | Smith of Kitava (Z3mos `NgZ7T2AvqWA` 0:01) |
+| `Smith of Gitawa` | Smith of Kitava (Gressoul `acQnYvisJow` 0:02) |
+| `path of XL 2` · `power of XL2` | Path of Exile 2 (Sarge2 `ggC5mxG5wgo` 0:05) |
+| `Barathis` | 바라시타 (임성빈 채널 본인 영어 제목 `E8A6HbzPQjM`) |
 
-## 추가로 확인된 하코 소스 (커뮤니티 연결로 발견)
+**이름은 자막에서 뽑지 말고 영상 제목 · PoB · GGPK 에서 뽑는다.** 자막은 *주장과 수치*의
+근거로만 쓴다. 수치도 자막이 흐리면(`25 armor` 가 25,000 인 경우 등) 앞뒤 문맥으로 복원한다.
 
-| 채널 | 메모 |
-|---|---|
-| **ds lily** (8.9만) | 0.5 중간 HC 전환, HC SSF 연재, **0.5.5 리그 스타터 계획 = Oil Barrage Martial Artist**, 화염파+기름유탄 젬링을 "나쁜 장비로도 다 부순다"고 별도 영상. **릴리리그**(사설 HC GSF 리그) 운영 — 한국 참가자 VOD 존재 |
-| **Oscrix** | HC 전용 빌드 다수 — "Oil Pathfinder for HC, 내가 .4 에서 한 것 중 최강", Phrecia 아공의 전령 HC, HC Holy Strike |
-| **DarthMicrotransaction** | 첫 하드코어 우버 처치 |
-| **Woolie** | 하드코어 맥스, SSF Zero-to-Hero 3시간반 |
-| **skr1mps** | 첫 HCSSF 런에서 ES 2만 + 전 저항 최대치 90 |
-| **barricadettv** | 하드코어·소프트코어 양쪽 빌드 가이드 |
+## 정정 — 이전 명부의 틀린 서술
 
-## 등급 기준
+**"Gressoul: 스미스 오브 키타바로 하코 전 피너클 클리어"를 방패벽 근거로 쓰면 안 된다.**
+자막을 열어보니 그 캐릭터는 **롤링 슬램/지진** 축이다("my Smith of Kitava earthquake rolling
+slam character", `gres_acQnYvisJow` 0:02). 같은 어센던시지 같은 빌드가 아니다.
+Gressoul 은 *키타바 어센던시가 하코에서 피너클을 뚫는다*는 근거이지 *방패벽*의 근거가 아니다.
 
-- **A** = 하코 전용 채널이거나 하코 랭커 본인. 근거로 바로 인용 가능.
-- **B** = 하코 콘텐츠를 정기적으로 내지만 전용은 아님.
-- **C** = 하코 소재를 다루지만 가이드가 아님(사망 모음 등). 위험 사례 수집용.
+---
 
-## 한국어
+## 발견 1 — "방패벽"은 하나의 빌드가 아니다
 
-| 등급 | 채널 | 무엇을 갖고 있나 |
-|---|---|---|
-| A | **임성빈 POE2 하드코어** (`UCvj_myZNbqdHBBFT2IjKJWw`) | 채널 13편 전부 하코. 0.5.5 리그 스타터 선택(젬링), HCSSF 신성의 중재자 검증 화염파 가이드 + Mobalytics 100렙 트리, 바라시타 100렙 엔드게임, 하코 SSF Zero-to-Hero, **경로석 정규식으로 원인불명 사망 차단** |
-| A | **디넬** (`UC2Rbd4Wz9MC8yt8xQQtJe_g`) | 채널 소개부터 "**하드코어만 하는 사람**". 하드코어 입문 가이드, 하코 랭커 크산테 전기불꽃 리치 가이드(저자본~하이엔드), 100렙 리치 |
-| B | **혜미 Ham** (`UCIOmHIl1sw9S6BZM8rBX3iw`, 2만) | SSFHC 입문 — 하코와 소프트코어의 차이 설명 |
-| C | **호진** (18.1만) · **겜창의삶** | 하코 생존 전략·보스 공략 단발, 하코 99렙 맨땅 시즌 기록 |
+빌드 이름으로 열거하니 **어센던시부터 갈린다**. 한 명만 보고 쓰면 그 사람의 선택을
+"이 빌드의 정답"으로 적게 된다. 실제로 탱정 하나로 쓴 문서가 그랬다.
 
-## 영어
-
-| 등급 | 채널 | 무엇을 갖고 있나 |
-|---|---|---|
-| A | **Gressoul** (`UChufbMxF9ZiMTXb_Gy0e7Vw`) | **워리어·철퇴 + 하코 전문**. 0.5에서 스미스 오브 키타바로 하코 전 피너클 클리어(중재자·디비니티·보독·쿨라막). "**이 EHP 밑이면 죽는다**" — 물리 10k / 원소 30k / 카오스 12~15k, 캠페인 탈출 5k/15k. 아탈루이의 사열 2.7배 너프 분석. 방어도 브레이크포인트 |
-| A | **Sarge2 / sargetwo** | **하코 랭크 1 빌드 오버뷰**(패스파인더 독 활), 랭크 1 몽크 관점 아이스 스트라이크, **HCSSF 100렙 달성 후 방어에 대해 배운 것** |
-| A | **MisoxShiru** | HCSSF 연재 — **화염파 크로노맨서**로 중재자 처치(Day 4 → Day 12). 화염파를 젬링이 아닌 다른 축으로 굴린 하코 사례 |
-| A | **Blazeworks TV** (7,790) | HCSSF 리그 스타터 3선, **HC SSF 생존 가이드**, 바라시타 SSF 캠페인 완주 가이드(31분), 하코 사망 모음, 대형 팟캐스트(Ziz·Kripparrian·Lolcohol·Raxxanterax) |
-| A | **Skadutch Gaming** | 제목 39%가 하코. HC 초보가 반복하는 실수 10가지, 3분 하코 SSF 팁 |
-| B | **Deucehammer** (4,300) | 신규 유저용 하코 팁 10, HCSSF 리그 스타트로 바라시타 시도 |
-| B | **WhateverMedia** | HCSSF 생존 팁, "0.5 하드코어는 할 만한가" 좌담 |
-| B | **MajorAimless** | HCSSF 리그 스타터(본스톰 리치), 차율라의 신도 100만 DPS |
-| B | **gamerdad98** · **Schwingy** · **OMG Adalrik** · **FriTWOpley** · **Mourn_Sorrow** · **RetroManChild** · **LiLcxxj** · **Exiled Again** · **Augvald** | 하코 챌린지·100렙 도전·신규 하코 팁. Augvald 는 HCSSF 100렙 랭크 8 |
-| C | **RIP Clips** | 리그 진행 일자별 하코 사망 모음(Day 1·3·5·10·20·35·39·46). **무엇이 실제로 사람을 죽이는가**의 1차 자료 |
-
-## 그 외 언어
-
-| 등급 | 채널 | 언어 | 무엇을 갖고 있나 |
+| 크리에이터 | 어센던시 | 딜/방어 축 | 핵심 |
 |---|---|---|---|
-| A | **eltriki** | 스페인어 | **PoE2 0.5 [Hardcore] 가이드 #1~#29+** — 액트 단위 하코 완주 연재 |
-| B | **KrushR** | 독일어 | "PoE2 하드코어 SSF는 생각과 달랐다" |
-| B | **PietSmiet Live** | 독일어 | 코옵 하드코어 |
-| B | **AlphaReplay** | 프랑스어 | 지인들과 하드코어 VOD |
-| B | **Rakin** · **ASUS Gaming Brasil** | 포르투갈어 | 0.5 소프트/하드코어 빌드 5선, SSF 챌린지 |
-| C | **Top MMO Plays** | 러시아어 | 하코 사망·명장면 모음 |
-| C | **毎日切り抜き隊** | 일본어 | 니지산지 **PoE2 하드코어부** 클립 |
+| **탱정** | 스미스 오브 키타바 | 한손 철퇴+방패, 생명력·방어도(ES 0) | 아탈루이의 사열 + 운명의 저항. 제작자 본인이 "마나가 메인인 생존"이라 설명 |
+| **LexD** | 스미스 오브 키타바 | **Avatar of Fire** — 전 피해를 화염으로 | `lmgCL7idCpg` 54:24 최종본. 별도로 Winter Warbringer(Vestige of Darkness) · Fire Titan 변형도 갖고 있다 |
+| **Z3mos** | 스미스 오브 키타바 | **크릿** — 90% 원소 저항 + Nebuloch | "Nebuloch 가 인듀런스 차지를 소모해 방패벽 크릿을 보장한다". 1500만 크릿. **너프됨** |
+| **Kris Droverson** | 스미스 오브 키타바 | **갑옷 = 딜** | "방패가 주 딜 소스다. 갑옷이 높을수록 딜이 올라간다"(1:10). 폭발 방패벽 + 무한 신전 |
+| **Angormus** | 스미스 오브 키타바 | 워리어 레이서 관점 | 4:55 짧은 가이드. 액트 스피드런 세계기록 보유자 |
+| **Sarge2** | **인보커** | ES + Protect Me From Harm | 어센던시가 아예 다르다. HCSSF 프레시 스타트 17.5시간 |
 
-## 스트리머 (트위치)
+Z3mos 는 같은 채널 안에서도 Great Wall / Grape Wall / Resonating Shield / Detonate Dead /
+Self Detonation 으로 계속 갈아엎었다. "방패벽 키타바 빌드"라고 단수로 부르면 안 된다.
+
+## 발견 2 — 0.5.5 현행 패치 커버리지가 빌드마다 다르다
+
+이게 어느 문서부터 쓸지의 실질 기준이다. 하코 문서는 지금 리그에서 쓰이므로,
+0.5 자료만 있는 빌드는 "0.5.5에서도 그런가"를 우리가 판정할 수 없다.
+
+| 빌드 | 0.5.5 소스 | 0.5 이하 소스 |
+|---|---|---|
+| **바라시타(디사이플 오브 바라시타 / 켈라리)** | **5명** — 임성빈(ko) · 디넬(ko) · MisoxShiru(en) · Blazeworks(en) · Skadutch(en, 0.5) | — |
+| **화염파(Flameblast) 젬링** | **2명** — 임성빈(ko, HCSSF Verified) · ds lily(en) | MisoxShiru 크로노맨서 변형(HCSSF) |
+| **방패벽 키타바** | **0명** | 탱정 · LexD · Z3mos · Kris Droverson · Angormus (전부 0.5 또는 0.4) |
+
+LexD 의 0.5.5 콘텐츠는 방패벽 키타바가 아니라 **Spear & Shield Bleed Titan**(`vQibmfLbKFE`)이다.
+0.5.5 에서 방패벽 키타바를 다룬 사람을 아직 못 찾았다 — 없는 것인지 못 찾은 것인지 미확정.
+
+## 발견 3 — 용어
+
+- **화염파 = Flameblast.** 임성빈 본인이 영어 제목에 그렇게 쓴다(`i6_tfxyQfeQ`:
+  "0.5.5 Flameblast Gemling Build Guide | Hardcore SSF Verified"). 추측 음차 금지.
+- **바라시타**는 채널마다 영문 표기가 흔들린다 — `Varashta`(Skadutch·Blazeworks) ·
+  `Varashita`(임성빈) · `Barathis`(임성빈 다른 영상). 우리 문서 파일명은 `VARASHTA` 다.
+
+---
+
+## 확보한 자막 (`data/_cache/subs/`, gitignore)
+
+```
+PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3>              # 전문
+PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3> armor 9,000  # 검색어 주변만
+```
+
+`PYTHONIOENCODING=utf-8` 을 빼면 한국어 자막이 깨져 나온다. 테스트는
+`python/tests/test_read_subs.py`(8건) — 인용 스탬프가 어긋나면 여기서 잡힌다.
+
+### 한국어
+
+| 파일 | 채널 | 내용 | 길이 |
+|---|---|---|---|
+| `lsb_i6_tfxyQfeQ.ko` | 임성빈 | **0.5.5 화염파 젬링 — 하드코어 SSF 검증** | 9:23 |
+| `lsb_NVQRpuUbtqM.ko` | 임성빈 | 금단의 의식 리그 스타터 선택(=잼링) | 4:46 |
+| `lsb_PBWgtjN4Amw.ko` | 임성빈 | **하코 100렙 바라시타 엔드게임 풀가이드** | 13:01 |
+| `lsb_E8A6HbzPQjM.ko` | 임성빈 | 하코 초보 바라시타 빌드업 | 8:46 |
+| `lsb_wmcxUiGjSdA.ko` | 임성빈 | 하코 SSF Zero-to-Hero | 11:52 |
+| `lsb_x5ZIzjnVGtc.ko` | 임성빈 | **경로석 정규식 — 원인불명 사망 99% 차단** | 2:54 |
+| `lsb_3UtpsH81z4A.ko` | 임성빈 | 99렙 시간당 1300만 경험치 레벨링 | 4:10 |
+| `lsb_tSoJlIwCw-I.ko` · `lsb_5ljmPCbXXtQ.ko` · `lsb_HdJE5-CA4jg.ko` · `lsb_u-ICSDdAGfY.ko` | 임성빈 | 왜 하코를 · 어느 리그로 · 0.5.5 실망? · 시즌 준비 | 3:26 / 4:51 / 3:54 / 1:35 |
+| `dinel_xUy9qUSTr1k.ko` | 디넬 | **하드코어 입문 가이드.** 본인 이력이 여기 있다 — "시즌 1부터 쭉 하드코어", 이번 시즌 **전체 36등 · 리치 1등**(1:21~1:30) | 13:43 |
+| `dinel_ktg8phbLQw8.ko` | 디넬 | **0.5.5 최고의 스타터 바라시타 1렙~100렙.** "0.5.5에서 버프·너프가 없을 예정", "켈라리 바라시타는 엔드 세팅까지 가면 바퀴벌레 같은 생존력"(0:09~0:26) | 12:03 |
+| `dinel_HYVmAyhHYCg.ko` | 디넬 | 하코 랭커의 안 죽는 크산테 전기불꽃 리치 A~Z(저자본~하이엔드) | 13:05 |
+
+### 영어 — 하코 일반 (빌드 무관, 문서 공통 기반)
+
+| 파일 | 채널 | 내용 | 길이 |
+|---|---|---|---|
+| `sarge_ggC5mxG5wgo.en` | Sarge2 | **HCSSF 100렙 달성 후 방어에 대해 배운 것.** 갑옷 공식 `갑옷/(갑옷+10×피격)`, T15 원숭이 슬램 **9,000 물리**, 절반 경감에 **10만 갑옷** 필요(1:14~2:42) | 29:40 |
+| `gres_0WeokvPIunQ.en` | Gressoul | **EHP 브레이크포인트.** 엔드게임 목표 = 물리 **6~10k** · 원소 **30k** · 카오스 **12~15k**(3:18~3:29, 6:36). 30k 를 넘겨야 4~5모드 맵을 편히 돈다(7:17~8:28) | 14:58 |
+| `skadu_vUImi-jDdEE.en` | Skadutch | HC 초보가 반복하는 실수 10가지 | 6:04 |
+| `blaze_UTdyt6wkHJE.en` | Blazeworks | 0.4 HCSSF 리그 스타터 3선 | 12:01 |
+
+### 영어 — 방패벽 키타바 (전부 0.5 이하)
+
+| 파일 | 채널 | 내용 | 길이 |
+|---|---|---|---|
+| `lex_lmgCL7idCpg.en` | LexD | **0.5 방패벽 키타바 최종 업데이트 — Avatar of Fire** | 54:24 |
+| `lex_goJd3U20VzQ.en` | LexD | 0.5 방패벽 키타바 빌드 업데이트("딜이 카오틱하다") | 36:14 |
+| `lex_9FXJsaO-tFY.en` | LexD | 0.5 워리어 전 어센던시 리그 스타터 — "방패벽은 안 죽었다" | 16:58 |
+| `lex_svv8OBfJI_8.en` | LexD | 워리어 테크 Ep.3 — 무기 세트 스냅샷 · 애니메이션 캔슬 | 13:48 |
+| `lex_sO1tLA52AYA.en` | LexD | **막기(Block)에 뭔가 잘못됐다** — 메커니즘 비판 | 8:42 |
+| `z3mos_NgZ7T2AvqWA.en` | Z3mos | **그레이프 월 — 1500만 크릿 방패벽 90% 저항(너프됨).** Nebuloch 로 크릿 보장 | 31:14 |
+| `z3mos_bP_co0GgM6Q.en` | Z3mos | 자가 기폭 방패벽 테크 | 5:52 |
+| `kris_o-k5cZJ5VcI.en` | Kris Droverson | **불멸 키타바 — 폭발 방패벽 + 무한 신전. "갑옷이 곧 딜"** | 28:31 |
+| `ango_7VCsAVI_Hvc.en` | Angormus | 0.5 방패벽 키타바 빌드 가이드 | 4:55 |
+| `sarge_zfU0YTibkpI.en` | Sarge2 | **방패벽 인보커** HCSSF 프레시 스타트(17.5시간) | 14:20 |
+| `gres_acQnYvisJow.en` | Gressoul | 0.5 하코 전 피너클 클리어 — **롤링 슬램/지진 키타바(방패벽 아님)** | 18:48 |
+| `gres_ENCI15tWM7I.en` | Gressoul | 아탈루이의 사열 2.7배 너프 분석 | 2:55 |
+| `gres_D5XuObZNZ1E.en` | Gressoul | "내 하코 캐릭터를 이 슬램 빌드에 맡긴다" | 11:09 |
+| `kitava20_kS80oF3VbJI.ko` | 탱정 | 키타바 2.0 (본 가이드 원본) | — |
+
+### 영어 — 바라시타 (0.5.5 현행)
+
+| 파일 | 채널 | 내용 | 길이 |
+|---|---|---|---|
+| `blaze_d2QbaO-sJ3o.en` | Blazeworks | **0.5.5 바라시타 SSF 캠페인 완주 가이드** | 31:02 |
+| `miso_JvSbR8V9EtQ.en` | MisoxShiru | **0.5.5 나비라의 균열 디사이플 오브 바라시타 — "역대 가장 매끄러운 리그 스타터"** | 6:07 |
+| `skadu_ph4cQGdnm70.en` | Skadutch | 0.5 30만 DPS 바라시타 진 소서리스 | 12:41 |
+| `miso_XsU9hhN2p00.en` | MisoxShiru | 0.5.5 최상위 메타 리그 스타터 총정리 | 39:59 |
+
+### 영어 — 화염파(Flameblast) 젬링 (0.5.5 현행)
+
+| 파일 | 채널 | 내용 | 길이 |
+|---|---|---|---|
+| `lily_ds5aPwrmH6c.en` | ds lily | **0.5.5 화염파+기름유탄 젬링 — 나쁜 장비로도 다 부순다.** "챌린지 레이스를 이 빌드로 우승했고 캠페인 장비만으로 전 보스를 잡았다"(0:09~0:17). 단 **"가장 센 스타터라고는 안 하겠다 — 훨씬 느리다"**(0:18~0:23) | 10:11 |
+| `miso_A6K1I8PU_2s.en` | MisoxShiru | **HCSSF 크로노맨서 — "이 크로노맨서는 절대 안 죽는다"** | 20:52 |
+| `lily_rDwXsj17K-8.en` | ds lily | 0.5.5 계획 — 기름 연사 무술가(다른 빌드) | 8:56 |
+| `lily_2H4cpcz4Lco.en` · `lily_FUDmptONDlM.en` | ds lily | HC SSF 런 시작 · 소프트코어 마지막 날. **하이라이트 VOD라 정보 밀도가 낮다** | 9:28 / 8:22 |
+
+---
+
+## 아직 안 받은 것 (다음 보강 대상)
+
+| 대상 | 왜 필요한가 | 상태 |
+|---|---|---|
+| Blazeworks `G-dKXtf0Ap4` "Is Everyone Sleeping On Shields in PoE 2?" **w/ @lexdtv** | 방패 빌드 좌담 103분. 방패벽 문서의 반대 관점 | 미수신 |
+| Z3mos `uPx_MQyBAqM` Great Wall · `990mKQ6T7rA` Detonate Dead Resonating Shield | 방패벽 내부 변형 2개 더 | 미수신 |
+| Kris Droverson `2qUcf1rjTa0` Demon Bear 키타바 (0.5) · `IOdgcT-JmK8` 방패벽 레벨링 | 0.5 변형 + 레벨링 | 미수신 |
+| Oscrix `IauNVXcS4TQ` Oil Pathfinder for HC · `iW9A5L8-vTI` HC Holy Strike · `edI1rDFP3vw` Choir Oracle for HC | 하코 전용 빌드 3종. 소환수/기름 축 | 미수신 |
+| 디넬 `lsJOXOoCHNs` 하코 100렙 리치 · `L208yOpJ_D0` 0.5 직업 티어리스트 | 한국어 하코 랭커 관점 보강 | 미수신 |
+| eltriki (스페인어) 하드코어 액트 완주 29편 | 캠페인 구간 1차 자료 | 채널 URL 미확정 |
+| **Big Ducks** | 시체 폭발 온-히트 방패벽 키타바 | **핸들 미확정** — `@BigDucksGaming` 은 404 |
+| RIP Clips 일자별 하코 사망 모음 | "무엇이 실제로 죽이는가" 1차 자료 | 채널 URL 미확정 |
+
+## 확인만 되고 자막 없는 사람들
 
 | 이름 | 메모 |
 |---|---|
-| **Ben_** | PoE 하드코어의 대명사. PoE2 HCSSF 플레이(다른 채널의 리액션 클립으로 확인) |
-| **sargetwo** | 위 Sarge2 와 동일인. PoE2 HCSSF 100렙 상위권 |
-| **PhazePlays** | PoE2 콘텐츠 다수. *"World First Arbiter +4 HCSSF"* 는 검색 요약에서만 본 것 — **1차 확인 안 됨** |
-| **Kripparrian** | HC 래더 1위 구간에서 사망한 클립이 별도 채널에 있다(IsitMitchell). 상시 하코는 아님 |
+| **Ben_** | PoE 하드코어의 대명사. PoE2 HCSSF 플레이(다른 채널 리액션 클립으로 확인) |
+| **PhazePlays** | *"World First Arbiter +4 HCSSF"* 는 검색 요약에서만 본 것 — **1차 확인 안 됨** |
+| **Kripparrian** | HC 래더 1위 구간 사망 클립이 별도 채널에 있다. 상시 하코는 아님 |
+| **혜미 Ham**(2만) · **호진**(18.1만) · **겜창의삶** | 한국어. SSFHC 입문 · 하코 생존 전략 단발 |
+| **Woolie** · **skr1mps** · **DarthMicrotransaction** · **barricadettv** · **Augvald**(HCSSF 100렙 랭크 8) | Blazeworks 팟캐스트 게스트로 전원 교차 확인됨 |
+| **KrushR**(독) · **PietSmiet**(독) · **AlphaReplay**(프) · **Rakin**(포) | 그 외 언어 |
 
-## 확보한 캐시
-
-`data/_cache/subs/` 에 자막 원본이 있다.
-
-| 파일 | 내용 |
-|---|---|
-| `lsb_i6_tfxyQfeQ.ko` | 임성빈 화염파 젬링 HCSSF 검증 가이드 (9:23) |
-| `lsb_NVQRpuUbtqM.ko` | 임성빈 **금단의 의식 리그 스타터 선택** (4:46) |
-| `lsb_x5ZIzjnVGtc.ko` | 임성빈 **경로석 정규식 사망 차단** (2:54) |
-| `lsb_wmcxUiGjSdA.ko` | 임성빈 하코 SSF Zero-to-Hero (11:52) |
-| `lsb_PBWgtjN4Amw.ko` · `lsb_E8A6HbzPQjM.ko` | 임성빈 바라시타 100렙 엔드게임 · 초보 빌드업 |
-| `lsb_tSoJlIwCw-I.ko` · `lsb_5ljmPCbXXtQ.ko` · `lsb_HdJE5-CA4jg.ko` · `lsb_u-ICSDdAGfY.ko` | 왜 하코를 해야 하나 · 어느 리그로 시작할까 · 0.5.5 실망? · 시즌 준비 |
-| `gres_0WeokvPIunQ.en` | Gressoul **EHP 브레이크포인트** (14:58) |
-| `gres_acQnYvisJow.en` | Gressoul 0.5 철퇴 하코 전 콘텐츠 클리어 (18:48) |
-| `gres_ENCI15tWM7I.en` | Gressoul 아탈루이의 사열 2.7배 너프 (2:55) |
-| `gres_D5XuObZNZ1E.en` | Gressoul "내 하코 캐릭터를 이 슬램 빌드에 맡긴다" (11:09) |
-
-## 왜 같은 빌드를 여러 크리에이터로 보는가
-
-사용자 지시(2026-09-04): **"같은 빌드여도 내부적인 게 좀 다를 수 있다"**.
-
-방패벽 키타바를 다루는 사람이 최소 6명(탱정 · lexdtv · Z3mos · Angormus · Kris Droverson ·
-Big Ducks)인데, 같은 이름의 빌드라도 어센던시 노드 순서 · 방어 축(룬수호 vs 막기 vs 방어도) ·
-핵심 유니크 · 딜 소스가 갈린다. 한 사람만 보고 쓰면 그 사람의 선택을 "이 빌드의 정답"으로
-적게 된다. 실제로 탱정 하나로 쓴 문서가 그랬다.
-
-**그래서 문서는 빌드당 한 명이 아니라 여러 명을 대조해 쓴다.** 갈리는 지점은 감추지 말고
-표로 드러낸다 — 어느 쪽이 맞는지 우리가 판정할 수 없을 때도 "여기서 갈린다"는 사실 자체가
-독자에게 쓸모 있다.
+---
 
 ## 이 명부를 쓸 때
 
 - 하코 문서의 서술은 **이 사람들의 발언**을 근거로 달고, 래더는 보조 수치로만 쓴다.
-- 같은 주제를 두 소스가 다르게 말하면 둘 다 적고 차이를 드러낸다. 예: 임성빈의 리그
-  스타터 선택(젬링·바라시타)에 키타바 방패벽이 없는 반면, 래더에서는 방패벽이 하코에서
-  소프트코어의 2.5배로 쓰인다. **둘은 다른 질문의 답이다** — 전자는 1일차 성장 곡선,
-  후자는 성숙한 리그의 97렙 생존자 분포.
+- 같은 주제를 두 소스가 다르게 말하면 둘 다 적고 차이를 드러낸다. 어느 쪽이 맞는지 우리가
+  판정할 수 없을 때도 **"여기서 갈린다"는 사실 자체가 독자에게 쓸모 있다.**
+  예: 화염파 젬링을 임성빈은 0.5.5 리그 스타터 1순위로 고르는데, ds lily 는 같은 빌드를
+  "센 건 맞지만 훨씬 느리다"고 한다. 둘 다 하코 기준 발언이다.
+- 빌드당 **여러 명을 대조해** 쓴다. 어센던시 노드 순서 · 방어 축 · 핵심 유니크 · 딜 소스가
+  갈린다. 갈리는 지점은 감추지 말고 표로 드러낸다.
 - 채널이 하코 전용인지는 제목 문자열이 아니라 **채널 정체성**으로 판단한다. 제목에
-  "하드코어"를 안 써도 전부 하코인 채널이 있다(임성빈 46%, 디넬 21%로 집계되지만 둘 다
-  사실상 전용).
+  "하드코어"를 안 써도 전부 하코인 채널이 있다.
