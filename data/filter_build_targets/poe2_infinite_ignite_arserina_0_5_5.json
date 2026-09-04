@@ -6,7 +6,7 @@
   "base_filter": "NeverSink's filter 2 (0.10.3) -- SOFT / REGULAR / STRICT, one per stage",
   "generated_by": "scripts/build_poe2_build_overlay.py",
   "sources": "Docs/2026-09-02_ARSERINA_GEMLING_INFINITE_IGNITE_0_5_5_GUIDE_DOC.html (chapters cited per rule; the guide was under independent review when this spec was written, so only claims that carry a source link were used); PoB https://poe.ninja/poe2/pob/27e13 decoded from /poe2/pob/raw/27e13 (5 item sets: 01 / 02 / 03 Swap / 04 / 05, Mercenary classId 9, ascendClassId 1 for set 02 and 3 from 03 Swap on); poe2db.tw/us pages for Perfect Essence of Sorcery, Greater Desert Rune, Saqawal's Rune of Erosion, Courtesan Mannan's Rune of Cruelty, Hedgewitch Assandra's Rune of Wisdom, Conqueror Plate, Chiming Staff, Paragon, Pyromancer (fetched 2026-09-03); data/base_items_poe2.json (GGPK drop levels) | Docs/2026-09-04_ARSERINA_GEMLING_INFINITE_IGNITE_HARDCORE_GUIDE_DOC.html (하드코어 편) | 임성빈 Mobalytics 하드코어 빌드(액트별 4탭) | ds lily Mobalytics 빌드(6단계)",
-  "palette": "fire family -- red / orange / amber across all four tiers, so it reads differently from the Fartfinder overlay (purple) at a glance",
+  "palette": "purple family -- a single violet identity across all four tiers (user request); tiers are told apart by font size 45/42/40/40, background lightness, minimap icon size + shape, and the craft tier's inverted light-on-dark, not by hue",
   "notes": [
    "Show-only overlay. It never hides anything; unmatched items fall through to NeverSink.",
    "Progression: 1~51 grenade Mercenary (Tactician) -> level 52 swap to Gemling Legionnaire with Flameblast + a Chiming Staff -> set 04 growth -> set 05 starter-final around Kaom's Heart. Rules are labelled with the PoB set / guide chapter they come from.",
@@ -70,118 +70,118 @@
  },
  "styles": {
   "core": {
-   "comment": "S급 — 빌드가 성립하려면 반드시 있어야 하는 것 (차임벨 지팡이 / 카옴의 심장 / 완벽한 마법 에센스)",
+   "comment": "S급 — 빌드가 성립하려면 반드시 있어야 하는 것 (차임벨 지팡이 / 카옴의 심장 / 완벽한 마법 에센스). 가장 진한 보라 배경 + 흰 글자 + 폰트 45",
    "text": [
     255,
     255,
     255
    ],
    "border": [
-    255,
+    198,
     140,
-    0
+    255
    ],
    "background": [
-    140,
-    30,
-    0
+    74,
+    0,
+    140
    ],
    "font": 45,
    "sound": [
     1,
     300
    ],
-   "beam": "Red",
+   "beam": "Purple",
    "icon": [
     0,
-    "Red",
+    "Purple",
     "Star"
    ]
   },
   "endgame": {
-   "comment": "A급 — 스타터 마감 세팅을 완성하는 지정 룬",
+   "comment": "A급 — 스타터 마감 세팅을 완성하는 지정 룬. 배경을 한 단계 밝혀 S급과 가른다",
    "text": [
     255,
-    245,
-    225
+    240,
+    255
    ],
    "border": [
-    255,
-    190,
-    80
+    230,
+    180,
+    255
    ],
    "background": [
-    175,
-    65,
-    0
+    120,
+    0,
+    190
    ],
    "font": 42,
    "sound": [
     2,
     280
    ],
-   "beam": "Orange",
+   "beam": "Purple",
    "icon": [
     0,
-    "Orange",
+    "Purple",
     "Diamond"
    ]
   },
   "gear": {
    "comment": "B급 — 단계별 장비 베이스 (석궁, 슬롯 베이스, PoB 착용 방어구). 폰트 40 = NeverSink 가 무음으로 40 을 주는 레어/레벨링 티어와 같은 크기 — 38 이면 소리를 얹고도 글자가 작아지는 상태가 250건 넘게 생겼다",
    "text": [
-    255,
+    232,
     215,
-    170
+    255
    ],
    "border": [
-    225,
-    125,
-    40
+    150,
+    105,
+    220
    ],
    "background": [
-    85,
-    30,
-    0
+    48,
+    16,
+    86
    ],
    "font": 40,
    "sound": [
     4,
     200
    ],
-   "beam": "Orange",
+   "beam": "Purple",
    "icon": [
     1,
-    "Orange",
+    "Purple",
     "Circle"
    ]
   },
   "craft": {
-   "comment": "C급 — 제작·소모 재료 (주얼 / 상위 룬 / 호신부 / 성유 재료). 폰트 40 은 B급과 같은 이유 (NeverSink 의 무음 40 티어 아래로 내려가지 않기 위함); 등급 구분은 밝은 배경 + 어두운 글자 + 노란 빔으로 한다",
+   "comment": "C급 — 제작·소모 재료 (주얼 / 상위 룬 / 호신부 / 성유 재료). 폰트 40 은 B급과 같은 이유 (NeverSink 의 무음 40 티어 아래로 내려가지 않기 위함); 등급 구분은 명암 반전으로 한다 — 연보라 배경 + 어두운 자주 글자",
    "text": [
-    70,
-    25,
-    0
+    40,
+    0,
+    72
    ],
    "border": [
-    235,
     140,
-    45
+    80,
+    210
    ],
    "background": [
-    255,
-    215,
-    150
+    226,
+    206,
+    252
    ],
    "font": 40,
    "sound": [
     3,
     180
    ],
-   "beam": "Yellow",
+   "beam": "Purple",
    "icon": [
     2,
-    "Yellow",
+    "Purple",
     "Triangle"
    ]
   }
