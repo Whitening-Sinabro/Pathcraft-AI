@@ -287,3 +287,5 @@
 | build_planner/~Lvl * - [0.5.5] Oil Nade Flameblast Ge*.build (6) | ds lily 인게임 플래너 정본(Mobalytics 다운로드본). 하코 보조1 — 생존 축. **파일명·내부 name 을 바꾸지 않았다**: 정본 형식은 제작자 다운로드본뿐이고, 이름만 갈면 예전에 밟은 stale-name 함정을 재현한다 | 예(재다운 가능) |
 | build_planner/ACT * - [0.5.5 Hardcore] 젬링 리그*.build (4) | 임성빈 인게임 플래너 정본. **하코 기준(base)** — 액트별 4탭. 엔드게임 무기가 차임벨 지팡이라 우리 SC 필터 S급 룰과 일치 | 예(재다운 가능) |
 | build_planner/*Fubgun Flameblast Oil*.build (7) | fubgun 인게임 플래너 정본. 하코 보조2 — 7단계로 가장 촘촘. 지팡이가 Pyrophyte Staff 로 셋 중 유일 | 예(재다운 가능) |
+| data/filter_build_targets/poe2_hc_gemling_seongbin_0_5_5.json | 하코 젬링 필터 정본 스펙(13룰·67베이스·3단계). 임성빈 기준 / ds lily·fubgun 보조. 베이스는 세 제작자 플래너 `inventory_slots` 에서 유도하고 GGPK 로 67/67 실재성 확인. 생성기: scratchpad/make_hc_spec.py | 아니오 |
+| build_planner/HC Endgame +Stun Defence - Seongbin.build | 임성빈 엔드게임 트리 + ds lily 기절/상태이상 임계값 축 4노드(Unbreaking·Feel no Pain·Stun Threshold·General's Bindings). **+8포인트**, BFS 로 경로를 복원해 연결성 검증(159/159 한 덩어리). 장비·젬·어센던시는 임성빈 정본 그대로 | 예(재생성 가능) |
