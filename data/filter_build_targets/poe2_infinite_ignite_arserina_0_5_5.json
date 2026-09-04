@@ -6,7 +6,7 @@
   "base_filter": "NeverSink's filter 2 (0.10.3) -- SOFT / REGULAR / STRICT, one per stage",
   "generated_by": "scripts/build_poe2_build_overlay.py",
   "sources": "Docs/2026-09-02_ARSERINA_GEMLING_INFINITE_IGNITE_0_5_5_GUIDE_DOC.html (chapters cited per rule; the guide was under independent review when this spec was written, so only claims that carry a source link were used); PoB https://poe.ninja/poe2/pob/27e13 decoded from /poe2/pob/raw/27e13 (5 item sets: 01 / 02 / 03 Swap / 04 / 05, Mercenary classId 9, ascendClassId 1 for set 02 and 3 from 03 Swap on); poe2db.tw/us pages for Perfect Essence of Sorcery, Greater Desert Rune, Saqawal's Rune of Erosion, Courtesan Mannan's Rune of Cruelty, Hedgewitch Assandra's Rune of Wisdom, Conqueror Plate, Chiming Staff, Paragon, Pyromancer (fetched 2026-09-03); data/base_items_poe2.json (GGPK drop levels) | Docs/2026-09-04_ARSERINA_GEMLING_INFINITE_IGNITE_HARDCORE_GUIDE_DOC.html (하드코어 편) | 임성빈 Mobalytics 하드코어 빌드(액트별 4탭) | ds lily Mobalytics 빌드(6단계)",
-  "palette": "purple family -- a single violet identity across all four tiers (user request); tiers are told apart by font size 45/42/40/40, background lightness, minimap icon size + shape, and the craft tier's inverted light-on-dark, not by hue",
+  "palette": "purple family -- a single violet identity across all four tiers (user request). The S tier deliberately mirrors NeverSink's apex jackpot silhouette (white background, font 45, size-0 star) in purple instead of red; the remaining tiers are told apart by font size 45/42/40/40, background lightness, minimap icon size + shape, and the craft tier's inverted light-on-dark, not by hue",
   "notes": [
    "Show-only overlay. It never hides anything; unmatched items fall through to NeverSink.",
    "Progression: 1~51 grenade Mercenary (Tactician) -> level 52 swap to Gemling Legionnaire with Flameblast + a Chiming Staff -> set 04 growth -> set 05 starter-final around Kaom's Heart. Rules are labelled with the PoB set / guide chapter they come from.",
@@ -70,21 +70,21 @@
  },
  "styles": {
   "core": {
-   "comment": "S급 — 빌드가 성립하려면 반드시 있어야 하는 것 (차임벨 지팡이 / 카옴의 심장 / 완벽한 마법 에센스). 가장 진한 보라 배경 + 흰 글자 + 폰트 45",
+   "comment": "S급 — 빌드가 성립하려면 반드시 있어야 하는 것 (차임벨 지팡이 / 카옴의 심장 / 완벽한 마법 에센스). 흰 배경 + 진보라 글자 + 폰트 45. NeverSink 의 apex 잭팟(흰 배경 + 빨간 글자 45 + 빨간 별 + 소리 6)과 같은 실루엣을 일부러 쓴다 — '이 빌드에서는 이게 미러급' 이라는 뜻이고, 색(보라)과 소리(1)로 갈린다",
    "text": [
-    255,
-    255,
-    255
+    120,
+    0,
+    190
    ],
    "border": [
-    198,
-    140,
-    255
+    120,
+    0,
+    190
    ],
    "background": [
-    74,
-    0,
-    140
+    255,
+    255,
+    255
    ],
    "font": 45,
    "sound": [
