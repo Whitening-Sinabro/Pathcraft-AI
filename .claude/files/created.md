@@ -290,3 +290,7 @@
 | data/filter_build_targets/poe2_hc_gemling_seongbin_0_5_5.json | 하코 젬링 필터 정본 스펙(13룰·67베이스·3단계). 임성빈 기준 / ds lily·fubgun 보조. 베이스는 세 제작자 플래너 `inventory_slots` 에서 유도하고 GGPK 로 67/67 실재성 확인. 생성기: scratchpad/make_hc_spec.py | 아니오 |
 | build_planner/HC Endgame +Stun Defence - Seongbin.build | 임성빈 엔드게임 트리 + ds lily 기절/상태이상 임계값 축 4노드(Unbreaking·Feel no Pain·Stun Threshold·General's Bindings). **+8포인트**, BFS 로 경로를 복원해 연결성 검증(159/159 한 덩어리). 장비·젬·어센던시는 임성빈 정본 그대로 | 예(재생성 가능) |
 | .claude/status/poe2_hc_gemling.md | 하코 젬링 소스 배치(임성빈 기준/ds lily 52~93/fubgun 대조용) · 구간별 방어 비율 실측 · 4인 트리 겹침 · 병합본 재현법(BFS 비용 산출 + 연결성 검증) · `.build` passives 를 딕셔너리째 비교하면 안 되는 함정 | 아니오 |
+| .claude/status/poe2_filter_design.md | POE2 필터 디자인 정본. 소음 기준선 실측(NeverSink 장비 블록 22~23%) · 레퍼런스 2축 문법(모양=종류/빔=가치) · Crimson 팔레트 7스타일 · **T0 자리 비우기 규칙** · 숨김 게이트 · GGG 공식 값 목록 출처 · 밟은 지뢰 4건 | 아니오 |
+| data/filter_build_targets/poe2_hc_gemling_seongbin_0_5_5.json | 하코 젬링 필터 정본 스펙(19룰·73베이스·숨김 1). 생성기 scripts/make_hc_gemling_spec.py | 아니오 |
+| scripts/make_hc_gemling_spec.py | 위 스펙 생성기. 베이스를 세 제작자 플래너 `inventory_slots` 에서 유도하고 GGPK 로 실재성 전수 확인 — 손으로 옮기면 오타 하나가 조용한 no-op 이 된다 | 아니오 |
+| data/filter_sources/poe2filter_hc_mercenary_campaign.filter | poe2filter.com 레퍼런스 실물(하코·머시너리·캠페인 프리셋). 소음 기준선과 2축 문법의 근거. gitignore 라 커밋 안 됨 — 재취득은 브라우저로 사이트 열고 Copy to Clipboard 후킹 | 예(재취득 가능) |
