@@ -294,3 +294,22 @@
 | data/filter_build_targets/poe2_hc_gemling_seongbin_0_5_5.json | 하코 젬링 필터 정본 스펙(19룰·73베이스·숨김 1). 생성기 scripts/make_hc_gemling_spec.py | 아니오 |
 | scripts/make_hc_gemling_spec.py | 위 스펙 생성기. 베이스를 세 제작자 플래너 `inventory_slots` 에서 유도하고 GGPK 로 실재성 전수 확인 — 손으로 옮기면 오타 하나가 조용한 no-op 이 된다 | 아니오 |
 | data/filter_sources/poe2filter_hc_mercenary_campaign.filter | poe2filter.com 레퍼런스 실물(하코·머시너리·캠페인 프리셋). 소음 기준선과 2축 문법의 근거. gitignore 라 커밋 안 됨 — 재취득은 브라우저로 사이트 열고 Copy to Clipboard 후킹 | 예(재취득 가능) |
+| scripts/fetch_poe2_patchnotes.py | POE2 공식 패치노트 포럼(view-forum/2212) 전수 캐시. 인덱스 페이지를 훑어 `--since <thread_id>` 이후 스레드의 첫 게시물만 `data/_cache/patchnotes/poe2/` 에 텍스트로 저장 + `_index.json`. 함정 2건을 코드에 적어 뒀다 — 고정 공지의 낮은 id 로 1페이지에서 끊기던 것, 뉴스형 콘텐츠 업데이트는 `td[colspan=2]` 가 본문이고 forumPostListTable 첫 행은 댓글이라는 것 | 아니오 |
+| Docs/2026-09-05_SKADOOSH_CORRUPTING_CRY_TOTEM_WARBRINGER_0_5_5_RESEARCH.md | Skadoosh 워브링어(Corrupting Cry Totem) 0.5.5 HC 스타트 문서. 0장 = 사용자가 직접 따라 하는 실행 계획(레벨링 4밴드·24렙 실캐릭·전직·33/46/53 전환·하지 말 것·추적 URL), 1~8장 = 근거(계보·원리·0.4.0→0.5.5 전수표 135스레드·실캐릭·변형 유효성·HC·타 제작자·미확인). 11명 정독 + 4축 적대검증 + 71건 수정 반영 | 아니오 |
+| python/tests/test_fetch_poe2_patchnotes.py | 패치노트 캐시 스크립트 테스트 5건 — 뉴스형 레이아웃(td colspan=2 본문 vs 첫 행 댓글) 선택, 고정 공지 id 로 페이지 순회 안 끊김, 슬러그 | 아니오 |
+| data/_cache/patchnotes/poe2/ (135 txt + _index.json) | 0.4.0 콘텐츠 업데이트(3883495)~0.5.5 핫픽스 5(4001365) 첫 게시물 텍스트. gitignore. 재생성 = scripts/fetch_poe2_patchnotes.py --since 3883495 | 예(재생성 가능) |
+| scripts/import_poe2_planner_files.py | 서드파티 `.build`(Mobalytics 원본·poe.ninja Build Planner export)를 제작자 정본 형태로 정규화(이름 ≤40자, 스킬마다 level_interval, 저자·링크) + tree.json stringId·valid_gems 젬 경로로 검증 + `build_planner/` 저장 + `--install` 로 게임 폴더 복사. 게임이 조용히 거부하는 파일을 설치 전에 잡는 유일한 관문 | 아니오 |
+| python/tests/test_import_poe2_planner_files.py | 위 스크립트 테스트 6건 — 정본 형태·level_interval 보존·40자 초과 거부·Gem/Gems 경로 교정·미지 노드/젬 탐지 | 아니오 |
+| scripts/make_hc_warbringer_spec.py | Skadoosh 워브링어 0.5.5 HC 필터 스펙 생성기. 베이스를 `build_planner/Warbringer Lv*.build` 착용 + GGPK 드롭 레벨 밴드(철퇴 클래스 12/17, ArmourTypes 방어도 전용)에서 유도. 0.5.5 신규 소울 코어 3종만 캐시된 패치노트 원문을 2차 출처로 허용(FROM_PATCH 에 기록). 룬은 NeverSink 가 더 크게 띄우는 하위·일반을 뺐고 철퇴는 클래스당 룰 하나(소켓 변형 블록 회귀 방지) | 아니오 |
+| data/filter_build_targets/poe2_warbringer_skadoosh_0_5_5_hc.json | 위 스펙(룰 19 · 베이스 193). 3단계 출력 `filters/PathcraftAI_HC-Warbringer_{1-Campaign…SOFT,2-EarlyMaps…REGULAR,3-Endgame…STRICT}.filter`(gitignore) → 게임 루트 설치. 스윕 3단계 REAL 0 / HIDDEN 0 | 재생성 가능(생성기) |
+| build_planner/Warbringer Lv01-10 · Lv11-20 · Lv21-30 ref · Lv31-41 ref · **live** - Skadoosh.build | 인게임 플래너 정본 5개 — Mobalytics "Warrior Leveling 1-33" 원본 4밴드(이름·저자·링크만 정리) + poe.ninja SkadooshShoutedHard 24렙 export(정규화). 게임 폴더 `BuildPlanner/` 설치본과 동일. 21+ 는 live 파일이 정본, 그가 오르면 재export | 아니오 |
+| scripts/track_poe2_character.py | poe.ninja 실캐릭을 몇 시간씩 폴링하며 변화마다 스냅샷·PoB·인게임 플래너를 자동 갱신. `latest` 별칭으로 브라우저 없이 동작하고 `pathOfBuildingExport`(base64url+zlib)를 풀어 생성기에 넘긴다. 전환 레벨(33/41/45/53/…) 도달 시 보존본을 따로 만든다. 제작자 방송 중에만 관측 가능한 전환점을 사람 없이 남기는 것이 목적 | 아니오 |
+| python/tests/test_track_poe2_character.py | 위 스크립트 테스트 17건 — base64url 디코드·패딩 누락, 지문이 방어도 흔들림은 무시하고 레벨/패시브/전직/키스톤/생명력/젬/장비 변화는 잡는지, diff 출력, 얇은 응답 내성 | 아니오 |
+
+## 2026-09-06 임성빈 젬링
+- `Docs/2026-09-06_SEONGBIN_FLAMEBLAST_GEMLING_0_5_5_LIVE_MINING.md` — 라이브 방송 3편 자막 채굴 293건 + GGPK/패치노트/플래너 판정. 삭제 불가(재채굴에 워크플로 13에이전트·162만 토큰)
+- `Docs/2026-09-06_SEONGBIN_FLAMEBLAST_GEMLING_0_5_5_LIVE_MINING_RAW.json` — 위 문서의 원자료(findings/verdicts 구조체). 삭제 가능하나 재생성 비쌈
+- `.tmp/removed_skadoosh/` — 게임 폴더에서 뺀 워브링어 플래너 4 + 필터 3. 삭제 가능
+- `.tmp/removed_planners/` — 임성빈 것이 아닌 플래너 3(HC 4/HC 5/HC 6b). 삭제 가능
+- `scripts/annotate_poe2_planner_notes.py` — 설치 플래너 장비 슬롯에 제작자 방송 발언 주석. 멱등(`— 방송 —` 블록 교체). 삭제 불가(주석 원문이 여기에만 있음)
+- `data/_cache/subs/arserina_0906.{ko,ko-orig}.json3` — 아르세리나 2026-09-06 "약한 점화" 영상 자막. 삭제 가능하나 재수집 필요

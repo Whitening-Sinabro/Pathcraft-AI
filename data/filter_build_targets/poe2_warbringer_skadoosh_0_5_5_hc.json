@@ -1,0 +1,1298 @@
+{
+ "_meta": {
+  "build": "Corrupting Cry / Warcry Totem Warbringer 하드코어 — Skadoosh 0.5.5 (OG Warbringer Warcry Totems)",
+  "game": "poe2",
+  "patch": "0.5.5 Forbidden Rites",
+  "base_filter": "NeverSink's filter 2 (0.10.3) -- SOFT / REGULAR / STRICT, one per stage",
+  "generated_by": "scripts/build_poe2_build_overlay.py (스펙은 scripts/make_hc_warbringer_spec.py 가 플래너 정본 + GGPK 에서 유도)",
+  "sources": "Skadoosh Mobalytics 레벨링 가이드 4밴드 다운로드본 build_planner/Warbringer Lv*.build | poe.ninja SkadooshShoutedHard 24렙 스냅샷 2026-09-05 (HC Forbidden Rites) | 제작자 Discord #build-help 2026-09-02/03 + 방송 1일차 VOD 전사(Docs/2026-09-05_SKADOOSH_... 0.0절) | 0.5.5 패치노트 원문 data/_cache/patchnotes/poe2/4000864_0.5.5_Patch_Notes.txt (신규 소울 코어) | 실재성은 data/game_data_poe2/BaseItemTypes.json + ArmourTypes.json (GGPK 2026-09-04 추출)",
+  "palette": "purple family -- a single violet identity across all four tiers (user request). The S tier deliberately mirrors NeverSink's apex jackpot silhouette (white background, font 45, size-0 star) in purple instead of red; the remaining tiers are told apart by font size 45/42/40/40, background lightness, minimap icon size + shape, and the craft tier's inverted light-on-dark, not by hue",
+  "notes": [
+   "Show-only overlay. 숨김은 못 쓰는 무기 클래스 한 룰뿐 — 나머지는 NeverSink 규칙대로 흐른다.",
+   "단계 의미: campaign=1~45(액트, Corrupting Cry 전) / maps=46~64(Corrupting Cry·AWT 53·혈마법) / endgame=65+.",
+   "미가공 젬(Uncut Skill Gem)은 GemLevel 조건이 필요한데 빌더가 아직 지원하지 않는다 — NeverSink 의 레벨별 티어링을 그대로 쓴다. 함성 젬 레벨이 곧 피해이므로 미가공 스킬 젬 9(32렙)·11(42)·13(53)은 놓치지 말 것.",
+   "유니크는 필터로 이름을 못 잡는다(BaseType 만). Bronzebeard(Horned Crown)·Surefooted Sigil(Jade Amulet)은 베이스 룰로 대신 띄운다. NeverSink 는 유니크를 어차피 전부 보여준다.",
+   "0.5.5 패치노트로만 확인한 이름: [\"Jiquani's Soul Core of Automation\", \"Jiquani's Soul Core of Quaking\", \"Jiquani's Soul Core of Rallying\"]. GGPK 재추출 후 KNOWN 에 들어오면 이 목록은 비어야 한다.",
+   "NeverSink 베이스 필터는 vendoring 하지 않는다(.gitignore). `_meta.bases` 의 URL+SHA-256 핀으로 `python scripts/fetch_neversink_poe2_bases.py` 가 복원·검증한다."
+  ],
+  "outputs": [
+   {
+    "stage": "campaign",
+    "file": "PathcraftAI_HC-Warbringer_1-Campaign_on_NeverSink-SOFT.filter",
+    "base": "neversink_poe2_soft.filter",
+    "why": "액트 1~4 하드코어 레벨링(가이드 1~41 밴드 + 실캐릭). SOFT 가 가장 적게 숨긴다."
+   },
+   {
+    "stage": "maps",
+    "file": "PathcraftAI_HC-Warbringer_2-EarlyMaps_on_NeverSink-REGULAR.filter",
+    "base": "neversink_poe2_regular.filter",
+    "why": "45+ Corrupting Cry 전환 ~ 초반 맵. 소울 코어·45+ 레어 철퇴·맵 방어구가 켜지고 액트 베이스는 꺼진다."
+   },
+   {
+    "stage": "endgame",
+    "file": "PathcraftAI_HC-Warbringer_3-Endgame_on_NeverSink-STRICT.filter",
+    "base": "neversink_poe2_strict.filter",
+    "why": "65+ 마감. STRICT 인 이유는 젬링과 같다 — 하드코어에서 생존 소모품을 놓치면 안 된다."
+   }
+  ],
+  "bases": [
+   {
+    "file": "neversink_poe2_soft.filter",
+    "upstream": "NeverSink's filter 2 - 0-SOFT.filter",
+    "used_for": "campaign",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%200-SOFT.filter",
+    "sha256": "4982d9531e17313c0d26e58ce39e636e4a870035d4e91702a051fd5263cc961d",
+    "bytes": 252540
+   },
+   {
+    "file": "neversink_poe2_regular.filter",
+    "upstream": "NeverSink's filter 2 - 1-REGULAR.filter",
+    "used_for": "maps",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%201-REGULAR.filter",
+    "sha256": "16a0333e07d0bce8a4886dc2ab0d34d6190e652a58a9d784ff06616853606572",
+    "bytes": 252572
+   },
+   {
+    "file": "neversink_poe2_strict.filter",
+    "upstream": "NeverSink's filter 2 - 3-STRICT.filter",
+    "used_for": "endgame",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%203-STRICT.filter",
+    "sha256": "efd5631032846353a15d8cfe0165296ab124bd6057c15f7d66b8f4bdfa1e9fd8",
+    "bytes": 252655
+   }
+  ]
+ },
+ "styles": {
+  "weapon_core": {
+   "comment": "S급 무기 — 지팡이 3종·폭격/포격 석궁. 진홍 배경 + 흰 글자, 영구 빔",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    255,
+    255
+   ],
+   "background": [
+    151,
+    7,
+    7
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Kite"
+   ]
+  },
+  "charm_endgame": {
+   "comment": "A급 생존 소모품 — 호신부·플라스크. 더스티 로즈. 모양은 물방울(소모품)",
+   "text": [
+    245,
+    175,
+    180
+   ],
+   "border": [
+    215,
+    110,
+    120
+   ],
+   "background": [
+    72,
+    24,
+    30
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Orange Temp",
+   "icon": [
+    1,
+    "Orange",
+    "Raindrop"
+   ]
+  },
+  "augment_endgame": {
+   "comment": "A급 룬·영혼핵. Augment 는 화폐 계열이라 모양은 원(레퍼런스 관례)",
+   "text": [
+    245,
+    125,
+    95
+   ],
+   "border": [
+    215,
+    65,
+    50
+   ],
+   "background": [
+    58,
+    4,
+    7
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Red Temp",
+   "icon": [
+    1,
+    "Red",
+    "Circle"
+   ]
+  },
+  "weapon_gear": {
+   "comment": "B급 초반 무기. 소리 없음 — 베이스가 요구할 때만 켜진다",
+   "text": [
+    235,
+    150,
+    130
+   ],
+   "border": [
+    200,
+    75,
+    55
+   ],
+   "background": [
+    62,
+    14,
+    10
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": "Red Temp",
+   "icon": [
+    2,
+    "Red",
+    "Kite"
+   ]
+  },
+  "armour_gear": {
+   "comment": "B급 방어구. 소리·빔 없음 — 굴릴 그릇이지 경보 대상이 아니다",
+   "text": [
+    225,
+    160,
+    140
+   ],
+   "border": [
+    175,
+    80,
+    65
+   ],
+   "background": [
+    42,
+    3,
+    5
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    2,
+    "Red",
+    "Kite"
+   ]
+  },
+  "jewellery_gear": {
+   "comment": "B급 장신구 — 뮤트 코퍼로 방어구와 색조를 가른다. 소리·빔 없음",
+   "text": [
+    230,
+    180,
+    120
+   ],
+   "border": [
+    185,
+    120,
+    55
+   ],
+   "background": [
+    52,
+    26,
+    8
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    2,
+    "Orange",
+    "Kite"
+   ]
+  },
+  "augment_craft": {
+   "comment": "C급 제작 재료 — 가장 어둡고 조용하다. 소리·빔·미니맵 전부 없음",
+   "text": [
+    170,
+    110,
+    100
+   ],
+   "border": [
+    120,
+    45,
+    40
+   ],
+   "background": [
+    18,
+    10,
+    11
+   ],
+   "font": 38,
+   "sound": null,
+   "beam": null,
+   "icon": null
+  }
+ },
+ "rules": [
+  {
+   "style": "weapon_gear",
+   "name": "[한손 철퇴] 드롭 1~4",
+   "note": "세트 1(토템·함성) 무기. Smithing Hammer(Lv01-10) / Wooden Club(GGPK). 지역 20 까지 크게 — 그 뒤는 흘려보낸다.",
+   "class": [
+    "One Hand Maces"
+   ],
+   "base_types": [
+    "Smithing Hammer",
+    "Wooden Club"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 20,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[한손 철퇴] 드롭 10~16",
+   "note": "세트 1(토템·함성) 무기. Slim Mace(Lv11-20) / Spiked Club(Lv33·Lv41·실캐릭24). 지역 30 까지 크게 — 그 뒤는 흘려보낸다.",
+   "class": [
+    "One Hand Maces"
+   ],
+   "base_types": [
+    "Slim Mace",
+    "Spiked Club"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 30,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[한손 철퇴] 드롭 22~26",
+   "note": "세트 1(토템·함성) 무기. Plated Mace(Lv21-30 ref) / Warpick(GGPK). 지역 40 까지 크게 — 그 뒤는 흘려보낸다.",
+   "class": [
+    "One Hand Maces"
+   ],
+   "base_types": [
+    "Plated Mace",
+    "Warpick"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 40,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[한손 철퇴] 드롭 33~36",
+   "note": "세트 1(토템·함성) 무기. Brigand Mace(Lv31-41 ref·Lv45) / Construct Hammer(GGPK). 지역 50 까지 크게 — 그 뒤는 흘려보낸다.",
+   "class": [
+    "One Hand Maces"
+   ],
+   "base_types": [
+    "Brigand Mace",
+    "Construct Hammer"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 50,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[한손 철퇴] 드롭 45~48",
+   "note": "세트 1(토템·함성) 무기. Calescent Hammer(GGPK) / Flared Mace(GGPK) / Kalguuran Forgehammer(GGPK) / Morning Star(Lv45). 지역 60 까지 크게 — 그 뒤는 흘려보낸다.",
+   "class": [
+    "One Hand Maces"
+   ],
+   "base_types": [
+    "Calescent Hammer",
+    "Flared Mace",
+    "Kalguuran Forgehammer",
+    "Morning Star"
+   ],
+   "rarity": [
+    "Rare"
+   ],
+   "area_level_max": 60,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[한손 철퇴] 드롭 49~55",
+   "note": "세트 1(토템·함성) 무기. Battle Pick(GGPK) / Execratus Hammer(GGPK) / Jade Club(GGPK) / Lumen Mace(GGPK) / Marching Mace(GGPK). 지역 70 까지 크게 — 그 뒤는 흘려보낸다.",
+   "class": [
+    "One Hand Maces"
+   ],
+   "base_types": [
+    "Battle Pick",
+    "Execratus Hammer",
+    "Jade Club",
+    "Lumen Mace",
+    "Marching Mace"
+   ],
+   "rarity": [
+    "Rare"
+   ],
+   "area_level_max": 70,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[한손 철퇴] 드롭 59~79",
+   "note": "세트 1(토템·함성) 무기. Akoyan Club(GGPK) / Bandit Mace(GGPK) / Crown Mace(GGPK) / Flanged Mace(GGPK) / Fortified Hammer(GGPK) / Marauding Mace(GGPK) / Molten Hammer(GGPK) / Strife Pick(GGPK) / Structured Hammer(GGPK) / Torment Club(GGPK). 상한 없음 — 마지막 구간.",
+   "class": [
+    "One Hand Maces"
+   ],
+   "base_types": [
+    "Akoyan Club",
+    "Bandit Mace",
+    "Crown Mace",
+    "Flanged Mace",
+    "Fortified Hammer",
+    "Marauding Mace",
+    "Molten Hammer",
+    "Strife Pick",
+    "Structured Hammer",
+    "Torment Club"
+   ],
+   "rarity": [
+    "Rare"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[양손 철퇴] 드롭 1~4",
+   "note": "세트 2(지진·강타, 53+ AWT) 무기. Felled Greatclub(GGPK) / Oak Greathammer(Lv01-10). 지역 20 까지 크게.",
+   "class": [
+    "Two Hand Maces"
+   ],
+   "base_types": [
+    "Felled Greatclub",
+    "Oak Greathammer"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 20,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[양손 철퇴] 드롭 11~16",
+   "note": "세트 2(지진·강타, 53+ AWT) 무기. Forge Maul(Lv11-20) / Studded Greatclub(GGPK). 지역 30 까지 크게.",
+   "class": [
+    "Two Hand Maces"
+   ],
+   "base_types": [
+    "Forge Maul",
+    "Studded Greatclub"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 30,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[양손 철퇴] 드롭 22~28",
+   "note": "세트 2(지진·강타, 53+ AWT) 무기. Cultist Greathammer(Lv21-30 ref) / Temple Maul(GGPK). 지역 40 까지 크게.",
+   "class": [
+    "Two Hand Maces"
+   ],
+   "base_types": [
+    "Cultist Greathammer",
+    "Temple Maul"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 40,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[양손 철퇴] 드롭 33~38",
+   "note": "세트 2(지진·강타, 53+ AWT) 무기. Crumbling Maul(GGPK) / Leaden Greathammer(Lv31-41 ref). 지역 50 까지 크게.",
+   "class": [
+    "Two Hand Maces"
+   ],
+   "base_types": [
+    "Crumbling Maul",
+    "Leaden Greathammer"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 50,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[양손 철퇴] 드롭 45~48",
+   "note": "세트 2(지진·강타, 53+ AWT) 무기. Blacksmith Maul(GGPK) / Pointed Maul(GGPK) / Snakewood Greathammer(GGPK). 지역 60 까지 크게.",
+   "class": [
+    "Two Hand Maces"
+   ],
+   "base_types": [
+    "Blacksmith Maul",
+    "Pointed Maul",
+    "Snakewood Greathammer"
+   ],
+   "rarity": [
+    "Rare"
+   ],
+   "area_level_max": 60,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[양손 철퇴] 드롭 50~54",
+   "note": "세트 2(지진·강타, 53+ AWT) 무기. Greatmace(GGPK) / Precise Greathammer(GGPK) / Solemn Maul(GGPK) / Totemic Greatclub(GGPK) / Zealot Greathammer(GGPK). 지역 70 까지 크게.",
+   "class": [
+    "Two Hand Maces"
+   ],
+   "base_types": [
+    "Greatmace",
+    "Precise Greathammer",
+    "Solemn Maul",
+    "Totemic Greatclub",
+    "Zealot Greathammer"
+   ],
+   "rarity": [
+    "Rare"
+   ],
+   "area_level_max": 70,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[양손 철퇴] 드롭 59~79",
+   "note": "세트 2(지진·강타, 53+ AWT) 무기. Aberrant Sledge(GGPK) / Anvil Maul(GGPK) / Disintegrating Maul(GGPK) / Fanatic Greathammer(GGPK) / Giant Maul(GGPK) / Heavy Greathammer(GGPK) / Ironwood Greathammer(GGPK) / Massive Greathammer(GGPK) / Ruination Maul(GGPK) / Sacred Maul(GGPK) / Tawhoan Greatclub(GGPK). 상한 없음.",
+   "class": [
+    "Two Hand Maces"
+   ],
+   "base_types": [
+    "Aberrant Sledge",
+    "Anvil Maul",
+    "Disintegrating Maul",
+    "Fanatic Greathammer",
+    "Giant Maul",
+    "Heavy Greathammer",
+    "Ironwood Greathammer",
+    "Massive Greathammer",
+    "Ruination Maul",
+    "Sacred Maul",
+    "Tawhoan Greatclub"
+   ],
+   "rarity": [
+    "Rare"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "armour_gear",
+   "name": "[힘 방어구] 드롭 1~6",
+   "note": "방어도 전용 베이스 + 실캐릭 착용 하이브리드. Fur Plate(GGPK) / Painted Tower Shield(Lv01-10) / Ringmail Gauntlets(Lv33·실캐릭24) / Rough Greaves(GGPK) / Rusted Cuirass(GGPK) / Rusted Greathelm(GGPK) / Splintered Tower Shield(GGPK) / Stocky Mitts(GGPK). 굴릴 그릇이지 요구사항이 아니다 — 생명력·저항만 맞으면 된다. 지역 20 까지 크게.",
+   "base_types": [
+    "Fur Plate",
+    "Painted Tower Shield",
+    "Ringmail Gauntlets",
+    "Rough Greaves",
+    "Rusted Cuirass",
+    "Rusted Greathelm",
+    "Splintered Tower Shield",
+    "Stocky Mitts"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 20,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "armour_gear",
+   "name": "[힘 방어구] 드롭 10~16",
+   "note": "방어도 전용 베이스 + 실캐릭 착용 하이브리드. Barricade Tower Shield(Lv11-20) / Braced Tower Shield(Lv33·실캐릭24) / Bronze Greaves(Lv33·Lv41·Lv45) / Horned Crown(실캐릭24) / Iron Cuirass(GGPK) / Iron Greaves(GGPK) / Raider Plate(Lv11-20) / Riveted Mitts(GGPK) / Soldier Greathelm(GGPK) / Tempered Mitts(GGPK) / Threaded Shoes(실캐릭24) / Wrapped Greathelm(GGPK). 굴릴 그릇이지 요구사항이 아니다 — 생명력·저항만 맞으면 된다. 지역 30 까지 크게.",
+   "base_types": [
+    "Barricade Tower Shield",
+    "Braced Tower Shield",
+    "Bronze Greaves",
+    "Horned Crown",
+    "Iron Cuirass",
+    "Iron Greaves",
+    "Raider Plate",
+    "Riveted Mitts",
+    "Soldier Greathelm",
+    "Tempered Mitts",
+    "Threaded Shoes",
+    "Wrapped Greathelm"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 30,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "armour_gear",
+   "name": "[힘 방어구] 드롭 20~28",
+   "note": "방어도 전용 베이스 + 실캐릭 착용 하이브리드. Bolstered Mitts(GGPK) / Effigial Tower Shield(GGPK) / Maraketh Cuirass(Lv21-30 ref·Lv33·실캐릭24) / Rampart Tower Shield(Lv21-30 ref) / Spired Greathelm(GGPK) / Steel Plate(Lv31-41 ref) / Trimmed Greaves(GGPK). 굴릴 그릇이지 요구사항이 아니다 — 생명력·저항만 맞으면 된다. 지역 40 까지 크게.",
+   "base_types": [
+    "Bolstered Mitts",
+    "Effigial Tower Shield",
+    "Maraketh Cuirass",
+    "Rampart Tower Shield",
+    "Spired Greathelm",
+    "Steel Plate",
+    "Trimmed Greaves"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 40,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "armour_gear",
+   "name": "[힘 방어구] 드롭 33~37",
+   "note": "방어도 전용 베이스 + 실캐릭 착용 하이브리드. Elite Greathelm(GGPK) / Full Plate(GGPK) / Heraldric Tower Shield(Lv31-41 ref) / Moulded Mitts(GGPK) / Stone Greaves(GGPK) / Stone Tower Shield(Lv41·Lv45) / Vaal Cuirass(Lv41·Lv45) / Warrior Greathelm(GGPK). 굴릴 그릇이지 요구사항이 아니다 — 생명력·저항만 맞으면 된다. 지역 50 까지 크게.",
+   "base_types": [
+    "Elite Greathelm",
+    "Full Plate",
+    "Heraldric Tower Shield",
+    "Moulded Mitts",
+    "Stone Greaves",
+    "Stone Tower Shield",
+    "Vaal Cuirass",
+    "Warrior Greathelm"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 50,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "armour_gear",
+   "name": "[힘 방어구] 드롭 45~48",
+   "note": "방어도 전용 베이스 + 실캐릭 착용 하이브리드. Aged Tower Shield(GGPK) / Barbarian Plate(GGPK) / Commander Greathelm(GGPK) / Corroded Greathelm(GGPK) / Crucible Tower Shield(GGPK) / Detailed Mitts(Lv45) / Juggernaut Plate(GGPK) / Mercenary Greathelm(GGPK) / Metalworked Tower Shield(GGPK) / Plated Greaves(GGPK) / Plated Mitts(GGPK) / Reefsteel Greaves(GGPK) / Rugged Cuirass(GGPK). 굴릴 그릇이지 요구사항이 아니다 — 생명력·저항만 맞으면 된다. 지역 60 까지 크게.",
+   "base_types": [
+    "Aged Tower Shield",
+    "Barbarian Plate",
+    "Commander Greathelm",
+    "Corroded Greathelm",
+    "Crucible Tower Shield",
+    "Detailed Mitts",
+    "Juggernaut Plate",
+    "Mercenary Greathelm",
+    "Metalworked Tower Shield",
+    "Plated Greaves",
+    "Plated Mitts",
+    "Reefsteel Greaves",
+    "Rugged Cuirass"
+   ],
+   "rarity": [
+    "Rare"
+   ],
+   "area_level_max": 60,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "armour_gear",
+   "name": "[힘 방어구] 드롭 50~58",
+   "note": "방어도 전용 베이스 + 실캐릭 착용 하이브리드. Ancestor Tower Shield(GGPK) / Ancient Mitts(GGPK) / Bulwark Tower Shield(GGPK) / Champion Cuirass(GGPK) / Chieftain Cuirass(GGPK) / Colosseum Plate(GGPK) / Cultist Tower Shield(GGPK) / Defiant Tower Shield(GGPK) / Elegant Greathelm(GGPK) / Elegant Greaves(GGPK) / Elegant Mitts(GGPK) / Elegant Plate(GGPK) / Fierce Greathelm(GGPK) / Goliath Greathelm(GGPK) / Homeguard Greathelm(GGPK) / Lionheart Greaves(GGPK) / Monument Greaves(GGPK) / Phalanx Tower Shield(GGPK) / Sandsworn Cuirass(GGPK) / Sentinel Greathelm(GGPK) / Titan Mitts(GGPK). 굴릴 그릇이지 요구사항이 아니다 — 생명력·저항만 맞으면 된다. 지역 70 까지 크게.",
+   "base_types": [
+    "Ancestor Tower Shield",
+    "Ancient Mitts",
+    "Bulwark Tower Shield",
+    "Champion Cuirass",
+    "Chieftain Cuirass",
+    "Colosseum Plate",
+    "Cultist Tower Shield",
+    "Defiant Tower Shield",
+    "Elegant Greathelm",
+    "Elegant Greaves",
+    "Elegant Mitts",
+    "Elegant Plate",
+    "Fierce Greathelm",
+    "Goliath Greathelm",
+    "Homeguard Greathelm",
+    "Lionheart Greaves",
+    "Monument Greaves",
+    "Phalanx Tower Shield",
+    "Sandsworn Cuirass",
+    "Sentinel Greathelm",
+    "Titan Mitts"
+   ],
+   "rarity": [
+    "Rare"
+   ],
+   "area_level_max": 70,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "armour_gear",
+   "name": "[힘 방어구] 드롭 59~80",
+   "note": "방어도 전용 베이스 + 실캐릭 착용 하이브리드. Abyssal Cuirass(GGPK) / Blacksteel Tower Shield(GGPK) / Bulwark Greaves(GGPK) / Carved Greaves(GGPK) / Conqueror Plate(GGPK) / Feathered Mitts(GGPK) / Fortress Tower Shield(GGPK) / Glacial Fortress(GGPK) / Glorious Plate(GGPK) / Goldworked Tower Shield(GGPK) / Grand Mitts(GGPK) / Guardian Greathelm(GGPK) / Heavy Plate(GGPK) / Imperial Greathelm(GGPK) / Knightly Mitts(GGPK) / Masked Greathelm(GGPK) / Massive Mitts(GGPK) / Noble Greathelm(GGPK) / Noble Tower Shield(GGPK) / Ornate Greaves(GGPK) / Ornate Mitts(GGPK) / Ornate Plate(GGPK) / Paragon Greathelm(GGPK) / Royal Tower Shield(GGPK) / Soldier Cuirass(GGPK) / Stone Cuirass(GGPK) / Tasalian Greaves(GGPK) / Tawhoan Tower Shield(GGPK) / Totemic Greaves(GGPK) / Utzaal Cuirass(GGPK) / Vaal Greaves(GGPK) / Vaal Mitts(GGPK) / Vaal Tower Shield(GGPK) / Warlord Cuirass(GGPK) / Warmonger Greathelm(GGPK). 굴릴 그릇이지 요구사항이 아니다 — 생명력·저항만 맞으면 된다. 상한 없음.",
+   "base_types": [
+    "Abyssal Cuirass",
+    "Blacksteel Tower Shield",
+    "Bulwark Greaves",
+    "Carved Greaves",
+    "Conqueror Plate",
+    "Feathered Mitts",
+    "Fortress Tower Shield",
+    "Glacial Fortress",
+    "Glorious Plate",
+    "Goldworked Tower Shield",
+    "Grand Mitts",
+    "Guardian Greathelm",
+    "Heavy Plate",
+    "Imperial Greathelm",
+    "Knightly Mitts",
+    "Masked Greathelm",
+    "Massive Mitts",
+    "Noble Greathelm",
+    "Noble Tower Shield",
+    "Ornate Greaves",
+    "Ornate Mitts",
+    "Ornate Plate",
+    "Paragon Greathelm",
+    "Royal Tower Shield",
+    "Soldier Cuirass",
+    "Stone Cuirass",
+    "Tasalian Greaves",
+    "Tawhoan Tower Shield",
+    "Totemic Greaves",
+    "Utzaal Cuirass",
+    "Vaal Greaves",
+    "Vaal Mitts",
+    "Vaal Tower Shield",
+    "Warlord Cuirass",
+    "Warmonger Greathelm"
+   ],
+   "rarity": [
+    "Rare"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "jewellery_gear",
+   "name": "[장신구·허리띠] 드롭 1~8",
+   "note": "Amber Amulet(GGPK) / Jade Amulet(실캐릭24) / Rawhide Belt(Lv33·Lv41·Lv45·실캐릭24) / Ruby Ring(Lv41·Lv45). 24렙 실캐릭이 옥 목걸이·토파즈·자수정 반지·생가죽 허리띠를 썼다. 호박·혈석·항성 목걸이와 무거운 허리띠는 힘 빌드 관례로 추가(제작자 발언 아님). 지역 20 까지 크게.",
+   "base_types": [
+    "Amber Amulet",
+    "Jade Amulet",
+    "Rawhide Belt",
+    "Ruby Ring"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 20,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "jewellery_gear",
+   "name": "[장신구·허리띠] 드롭 12~18",
+   "note": "Bloodstone Amulet(GGPK) / Sapphire Ring(GGPK) / Topaz Ring(Lv33·실캐릭24). 24렙 실캐릭이 옥 목걸이·토파즈·자수정 반지·생가죽 허리띠를 썼다. 호박·혈석·항성 목걸이와 무거운 허리띠는 힘 빌드 관례로 추가(제작자 발언 아님). 지역 30 까지 크게.",
+   "base_types": [
+    "Bloodstone Amulet",
+    "Sapphire Ring",
+    "Topaz Ring"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 30,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "jewellery_gear",
+   "name": "[장신구·허리띠] 드롭 20~25",
+   "note": "Amethyst Ring(Lv33·Lv41·Lv45·실캐릭24) / Stellar Amulet(GGPK). 24렙 실캐릭이 옥 목걸이·토파즈·자수정 반지·생가죽 허리띠를 썼다. 호박·혈석·항성 목걸이와 무거운 허리띠는 힘 빌드 관례로 추가(제작자 발언 아님). 지역 40 까지 크게.",
+   "base_types": [
+    "Amethyst Ring",
+    "Stellar Amulet"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 40,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "jewellery_gear",
+   "name": "[장신구·허리띠] 드롭 50",
+   "note": "Heavy Belt(GGPK). 24렙 실캐릭이 옥 목걸이·토파즈·자수정 반지·생가죽 허리띠를 썼다. 호박·혈석·항성 목걸이와 무거운 허리띠는 힘 빌드 관례로 추가(제작자 발언 아님). 지역 70 까지 크게.",
+   "base_types": [
+    "Heavy Belt"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 70,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[호신부] 드롭 5~8",
+   "note": "가이드 진행: 사파이어(5)→루비(5)→자수정(40). Ruby Charm(Lv21-30 ref) / Sapphire Charm(Lv11-20·Lv33·Lv41·Lv45) / Stone Charm(Lv33). 해동·돌 호신부는 HC 동결·기절 사망 방지용 추가(제작자 발언 아님). 지역 20 까지 크게.",
+   "class": [
+    "Charms"
+   ],
+   "base_types": [
+    "Ruby Charm",
+    "Sapphire Charm",
+    "Stone Charm"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 20,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[호신부] 드롭 12",
+   "note": "가이드 진행: 사파이어(5)→루비(5)→자수정(40). Thawing Charm(GGPK). 해동·돌 호신부는 HC 동결·기절 사망 방지용 추가(제작자 발언 아님). 지역 30 까지 크게.",
+   "class": [
+    "Charms"
+   ],
+   "base_types": [
+    "Thawing Charm"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 30,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[호신부] 드롭 40",
+   "note": "가이드 진행: 사파이어(5)→루비(5)→자수정(40). Amethyst Charm(Lv31-41 ref). 해동·돌 호신부는 HC 동결·기절 사망 방지용 추가(제작자 발언 아님). 지역 60 까지 크게.",
+   "class": [
+    "Charms"
+   ],
+   "base_types": [
+    "Amethyst Charm"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 60,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[플라스크] Lesser — 1막 시작 — 첫 플라스크",
+   "note": "Lesser Life Flask(GGPK) / Lesser Mana Flask(GGPK). 지금 쓸 수 있는 티어만 크게 띄운다. 지역 14 까지 — 그 뒤는 NeverSink 가 폰트 18·무음으로 졸업시킨다(soft L4475~L4513). HC 는 플라스크 티어가 곧 목숨이라, 한 덩어리로 묶어 전부 크게 띄우면 '뭐가 떨어져도 크다'가 되어 신호가 죽는다.",
+   "class": [
+    "Life Flasks",
+    "Mana Flasks"
+   ],
+   "base_types": [
+    "Lesser Life Flask",
+    "Lesser Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 14,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[플라스크] Medium — 1막",
+   "note": "Medium Life Flask(Lv01-10) / Medium Mana Flask(Lv01-10). 지금 쓸 수 있는 티어만 크게 띄운다. 지역 14 까지 — 그 뒤는 NeverSink 가 폰트 18·무음으로 졸업시킨다(soft L4475~L4513). HC 는 플라스크 티어가 곧 목숨이라, 한 덩어리로 묶어 전부 크게 띄우면 '뭐가 떨어져도 크다'가 되어 신호가 죽는다.",
+   "class": [
+    "Life Flasks",
+    "Mana Flasks"
+   ],
+   "base_types": [
+    "Medium Life Flask",
+    "Medium Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 14,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[플라스크] Greater — 1막 후반~2막",
+   "note": "Greater Life Flask(GGPK) / Greater Mana Flask(GGPK). 지금 쓸 수 있는 티어만 크게 띄운다. 지역 29 까지 — 그 뒤는 NeverSink 가 폰트 18·무음으로 졸업시킨다(soft L4475~L4513). HC 는 플라스크 티어가 곧 목숨이라, 한 덩어리로 묶어 전부 크게 띄우면 '뭐가 떨어져도 크다'가 되어 신호가 죽는다.",
+   "class": [
+    "Life Flasks",
+    "Mana Flasks"
+   ],
+   "base_types": [
+    "Greater Life Flask",
+    "Greater Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 29,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[플라스크] Grand — 2막",
+   "note": "Grand Life Flask(Lv11-20) / Grand Mana Flask(Lv11-20). 지금 쓸 수 있는 티어만 크게 띄운다. 지역 29 까지 — 그 뒤는 NeverSink 가 폰트 18·무음으로 졸업시킨다(soft L4475~L4513). HC 는 플라스크 티어가 곧 목숨이라, 한 덩어리로 묶어 전부 크게 띄우면 '뭐가 떨어져도 크다'가 되어 신호가 죽는다.",
+   "class": [
+    "Life Flasks",
+    "Mana Flasks"
+   ],
+   "base_types": [
+    "Grand Life Flask",
+    "Grand Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 29,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[플라스크] Giant — 3막",
+   "note": "Giant Life Flask(Lv21-30 ref) / Giant Mana Flask(Lv21-30 ref). 지금 쓸 수 있는 티어만 크게 띄운다. 지역 41 까지 — 그 뒤는 NeverSink 가 폰트 18·무음으로 졸업시킨다(soft L4475~L4513). HC 는 플라스크 티어가 곧 목숨이라, 한 덩어리로 묶어 전부 크게 띄우면 '뭐가 떨어져도 크다'가 되어 신호가 죽는다.",
+   "class": [
+    "Life Flasks",
+    "Mana Flasks"
+   ],
+   "base_types": [
+    "Giant Life Flask",
+    "Giant Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 41,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[플라스크] Colossal — 3막 후반",
+   "note": "Colossal Life Flask(Lv31-41 ref·Lv33) / Colossal Mana Flask(Lv31-41 ref·Lv33). 지금 쓸 수 있는 티어만 크게 띄운다. 지역 41 까지 — 그 뒤는 NeverSink 가 폰트 18·무음으로 졸업시킨다(soft L4475~L4513). HC 는 플라스크 티어가 곧 목숨이라, 한 덩어리로 묶어 전부 크게 띄우면 '뭐가 떨어져도 크다'가 되어 신호가 죽는다.",
+   "class": [
+    "Life Flasks",
+    "Mana Flasks"
+   ],
+   "base_types": [
+    "Colossal Life Flask",
+    "Colossal Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 41,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[플라스크] Gargantuan — 4막",
+   "note": "Gargantuan Life Flask(Lv41·Lv45) / Gargantuan Mana Flask(Lv41·Lv45). 지금 쓸 수 있는 티어만 크게 띄운다. 지역 51 까지 — 그 뒤는 NeverSink 가 폰트 18·무음으로 졸업시킨다(soft L4475~L4513). HC 는 플라스크 티어가 곧 목숨이라, 한 덩어리로 묶어 전부 크게 띄우면 '뭐가 떨어져도 크다'가 되어 신호가 죽는다.",
+   "class": [
+    "Life Flasks",
+    "Mana Flasks"
+   ],
+   "base_types": [
+    "Gargantuan Life Flask",
+    "Gargantuan Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 51,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[플라스크] Transcendent — 잔혹~",
+   "note": "Transcendent Life Flask(GGPK) / Transcendent Mana Flask(GGPK). 지금 쓸 수 있는 티어만 크게 띄운다. 상한 없음 — 마지막 티어. HC 는 플라스크 티어가 곧 목숨이라, 한 덩어리로 묶어 전부 크게 띄우면 '뭐가 떨어져도 크다'가 되어 신호가 죽는다.",
+   "class": [
+    "Life Flasks",
+    "Mana Flasks"
+   ],
+   "base_types": [
+    "Transcendent Life Flask",
+    "Transcendent Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "charm_endgame",
+   "name": "[플라스크] Ultimate — 엔드게임",
+   "note": "Ultimate Life Flask(GGPK) / Ultimate Mana Flask(GGPK). 지금 쓸 수 있는 티어만 크게 띄운다. 상한 없음 — 마지막 티어. HC 는 플라스크 티어가 곧 목숨이라, 한 덩어리로 묶어 전부 크게 띄우면 '뭐가 떨어져도 크다'가 되어 신호가 죽는다.",
+   "class": [
+    "Life Flasks",
+    "Mana Flasks"
+   ],
+   "base_types": [
+    "Ultimate Life Flask",
+    "Ultimate Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "augment_endgame",
+   "name": "[맵~] 0.5.5 소울 코어 — 함성/토템/강타 +1 · Vorana's Carnage",
+   "note": "0.5.5 패치노트 L123~: Jiquani's Soul Core of Rallying(함성 젬 +1) / Automation(토템 젬 +1) / Quaking(강타 젬 +1) — 무기 소켓 하나를 두고 경쟁, 레벨 50 요구(poe2db), 출처 Trial of Chaos. Corrupting Cry 피해 = 소켓 함성 젬 레벨이라 Rallying 이 직접 레버. Vorana's Carnage 는 투구 룬 슬롯: 함성 시 생명력 회복(방송 1:21:06 발언). 이 넷 중 셋은 9/4 GGPK 추출본에 없어 패치노트 원문으로 이름을 확인했다 — 게임 내 표기가 다르면 그 룰은 조용히 안 걸린다(재추출 후 재확인).",
+   "class": [
+    "Augment"
+   ],
+   "base_types": [
+    "Jiquani's Soul Core of Rallying",
+    "Jiquani's Soul Core of Automation",
+    "Jiquani's Soul Core of Quaking",
+    "Vorana's Carnage"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "augment_endgame",
+   "name": "[전 구간] 루비 주얼 — 실캐릭 착용",
+   "note": "Ruby(실캐릭24) / Time-Lost Ruby(GGPK). 24렙 실캐릭이 루비 1개 착용. 토템·근접·함성 옵션이 붙는 힘 주얼.",
+   "class": [
+    "Jewels"
+   ],
+   "base_types": [
+    "Ruby",
+    "Time-Lost Ruby"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "augment_endgame",
+   "name": "[액트~맵 초반] 주얼러 오브 — 함성·AWT 링크 준비",
+   "note": "Lesser Jeweller's Orb(GGPK) / Greater Jeweller's Orb(GGPK). 보강하는 함성(32)·AWT(53) 서포트 4~5개를 꽂을 소켓. 화폐를 건드리지 않는 원칙의 유일한 예외 — 전환 게이트라서 띄운다.",
+   "class": [
+    "Stackable Currency"
+   ],
+   "base_types": [
+    "Lesser Jeweller's Orb",
+    "Greater Jeweller's Orb"
+   ],
+   "stages": [
+    "campaign",
+    "maps"
+   ]
+  },
+  {
+   "style": "augment_craft",
+   "name": "[룬] 드롭 11",
+   "note": "아이언=무기 물리 % / 육체=방어구 생명력 / 사막·빙하·폭풍=저항. Lesser Body Rune(GGPK). 하위·일반 아이언·저항 룬은 NeverSink 가 이미 폰트 40+소리로 띄우므로 여기서 건드리지 않는다. 플래너 형식은 룬 소켓을 담지 않아 제작자 선택은 미확인. 지역 30 까지 크게.",
+   "class": [
+    "Augment"
+   ],
+   "base_types": [
+    "Lesser Body Rune"
+   ],
+   "area_level_max": 30,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "augment_craft",
+   "name": "[룬] 드롭 37",
+   "note": "아이언=무기 물리 % / 육체=방어구 생명력 / 사막·빙하·폭풍=저항. Body Rune(GGPK). 하위·일반 아이언·저항 룬은 NeverSink 가 이미 폰트 40+소리로 띄우므로 여기서 건드리지 않는다. 플래너 형식은 룬 소켓을 담지 않아 제작자 선택은 미확인. 지역 50 까지 크게.",
+   "class": [
+    "Augment"
+   ],
+   "base_types": [
+    "Body Rune"
+   ],
+   "area_level_max": 50,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "augment_craft",
+   "name": "[룬] 드롭 52~57",
+   "note": "아이언=무기 물리 % / 육체=방어구 생명력 / 사막·빙하·폭풍=저항. Greater Body Rune(GGPK) / Greater Desert Rune(GGPK) / Greater Glacial Rune(GGPK) / Greater Iron Rune(GGPK) / Greater Storm Rune(GGPK). 하위·일반 아이언·저항 룬은 NeverSink 가 이미 폰트 40+소리로 띄우므로 여기서 건드리지 않는다. 플래너 형식은 룬 소켓을 담지 않아 제작자 선택은 미확인. 지역 70 까지 크게.",
+   "class": [
+    "Augment"
+   ],
+   "base_types": [
+    "Greater Body Rune",
+    "Greater Desert Rune",
+    "Greater Glacial Rune",
+    "Greater Iron Rune",
+    "Greater Storm Rune"
+   ],
+   "area_level_max": 70,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 이 빌드가 못 쓰는 무기·보조장비",
+   "note": "워브링어 세트 1 = 한손 철퇴 + 타워 방패, 세트 2 = 양손 철퇴. 나머지 무기·버클러·포커스는 영영 못 쓴다. 노말·매직만, 룬 슬롯·퀄리티·상위 티어 미감정이면 남긴다(NeverSink 안전장치). 지역레벨 12부터. 방패 클래스는 타워 방패가 섞여 있어 숨기지 않는다. 셉터도 숨기지 않는다 — 선대의 유대가 토템당 정신력 75를 예약하는데 제작자의 정신력 확보 경로가 미확인(문서 0.5)이라 셉터를 쓸 가능성을 닫지 않는다.",
+   "class": [
+    "Bows",
+    "Crossbows",
+    "Quarterstaves",
+    "Quivers",
+    "Spears",
+    "Staves",
+    "Talismans",
+    "Wands",
+    "Bucklers",
+    "Foci"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  }
+ ]
+}

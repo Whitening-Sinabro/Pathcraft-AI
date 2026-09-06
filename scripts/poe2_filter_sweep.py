@@ -50,20 +50,23 @@ SOCKETS = (0, 2)
 # 에서만 드러난 회귀가 있었다(고퀄 노멀 호신부·장갑).
 QUALITIES = (0, 20, 28)
 
-GAME_CLASS_TO_FILTER_CLASS = {
-    "OneHandMaces": "One Hand Maces", "TwoHandMaces": "Two Hand Maces",
-    "OneHandAxes": "One Hand Axes", "TwoHandAxes": "Two Hand Axes",
-    "OneHandSwords": "One Hand Swords", "TwoHandSwords": "Two Hand Swords",
-    "Bows": "Bows", "Crossbows": "Crossbows", "Claws": "Claws", "Daggers": "Daggers",
-    "Spears": "Spears", "Flail": "Flails", "Quivers": "Quivers",
-    "Staves": "Quarterstaves",  # GGPK 'Staves' 테이블은 전부 쿼터스태프다.
-    # 캐스터용 지팡이(필터 클래스 "Staves")는 base_items_poe2.json 에 아예 없어,
-    # 그 이름은 NeverSink 어휘로만 해결된다.
-    "BodyArmours": "Body Armours", "Boots": "Boots", "Gloves": "Gloves",
-    "Helmets": "Helmets", "Shields": "Shields", "Focus": "Foci",
-    "Amulets": "Amulets", "Belts": "Belts", "Rings": "Rings",
-    "Jewels": "Jewels", "Charms": "Charms", "Flasks": "Flasks",
-}
+def _class_map() -> dict[str, str]:
+    """GGPK 클래스 -> 필터 클래스 매핑은 **빌더가 정본**이다. 사본을 두지 않는다.
+
+    한때 이 파일이 자기 사본을 들고 있었고, 빌더에 `CasterStaves` 를 추가했을 때 여기만
+    낡았다. 그 결과 시뮬레이터가 Chiming/Ashen/Spriggan Staff 의 클래스를 `None` 으로 보고
+    `Class == "Staves"` 조건을 못 맞춰, **우리 지팡이 룰이 없는 것처럼** 보고했다.
+    게임은 멀쩡히 잡는데 검사기만 눈이 먼 것이라 더 나쁘다 — 통과도 실패도 아닌 거짓 결함이다.
+    """
+    spec = importlib.util.spec_from_file_location(
+        "overlay_builder", REPO / "scripts" / "build_poe2_build_overlay.py")
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules["overlay_builder"] = mod
+    spec.loader.exec_module(mod)
+    return dict(mod.GAME_CLASS_TO_FILTER_CLASS)
+
+
+GAME_CLASS_TO_FILTER_CLASS = _class_map()
 
 
 def load_eval():
@@ -108,15 +111,26 @@ def sweep(base_path: Path, overlay_path: Path, verbose: bool) -> int:
     over_blocks = ev.load(overlay_path)
     ours = ev.parse(overlay_only(overlay_path))
 
+    classes = class_index(ev, base_blocks)
     names = sorted({n for b in ours for k, _o, v in b.conditions if k == "BaseType" for n in v})
+    # BaseType 없이 Class 만 거는 블록(우리 숨김 룰이 그렇다)의 대상은 이 목록에 안 들어와서
+    # **한 번도 안 훑였다**. 그래서 그 블록이 무엇을 숨기든 스윕은 0 을 보고했다.
+    # 클래스만 거는 블록의 대상 베이스를 파생 DB 에서 채워 넣는다.
+    class_only = {c for b in ours
+                  if not any(k == "BaseType" for k, _o, _v in b.conditions)
+                  for k, _o, v in b.conditions if k == "Class" for c in v}
+    hidden_classes = {c for b in ours if b.action == "Hide"
+                      for k, _o, v in b.conditions if k == "Class" for c in v}
+    if class_only:
+        names = sorted(set(names) | {n for n, c in classes.items() if c in class_only})
     if not names:
         print(f"  {overlay_path.name}: 오버레이가 지정한 BaseType 이 없다 — 스윕할 것이 없음")
         return 1
-    classes = class_index(ev, base_blocks)
     by_line = {b.line: b for b in base_blocks}
 
     counts = {"louder": 0, "same": 0, "real": 0, "catchall": 0, "silent": 0,
-              "hidden": 0, "unhidden": 0, "total": 0}
+              "hidden": 0, "declared_hidden": 0, "unhidden": 0, "total": 0}
+    our_lines = {b.line for b in ours}
     regressions: list[str] = []
 
     for name in names:
@@ -133,8 +147,16 @@ def sweep(base_path: Path, overlay_path: Path, verbose: bool) -> int:
                         o = ev.evaluate(over_blocks, item)
                         counts["total"] += 1
                         if b.visible and not o.visible:
-                            counts["hidden"] += 1
-                            regressions.append(f"HIDDEN {name} {rarity} alvl{area}")
+                            # 스펙이 **선언한** 숨김(못 쓰는 무기·보조장비)과 사고를 가른다.
+                            # 둘을 합쳐 세면 "HIDDEN 0" 이 의도된 숨김을 지우거나,
+                            # 반대로 의도된 숨김이 실수를 덮는다.
+                            declared = (o.block_line in our_lines
+                                        and classes.get(name, "") in hidden_classes)
+                            if declared:
+                                counts["declared_hidden"] += 1
+                            else:
+                                counts["hidden"] += 1
+                                regressions.append(f"HIDDEN {name} {rarity} alvl{area}")
                             continue
                         if not b.visible:
                             counts["unhidden"] += o.visible
@@ -163,7 +185,8 @@ def sweep(base_path: Path, overlay_path: Path, verbose: bool) -> int:
     print(f"    louder {counts['louder']} · same {counts['same']} · "
           f"un-hidden {counts['unhidden']}")
     print(f"    REAL 회귀 {counts['real']} · HIDDEN {counts['hidden']} "
-          f"| 폴백 대체 {counts['catchall']} · 무음에 소리 추가 {counts['silent']}")
+          f"| 폴백 대체 {counts['catchall']} · 무음에 소리 추가 {counts['silent']} "
+          f"· 선언된 숨김 {counts['declared_hidden']}")
     if verbose:
         seen = set()
         for r in regressions:

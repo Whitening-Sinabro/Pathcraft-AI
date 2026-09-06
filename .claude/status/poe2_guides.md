@@ -178,6 +178,7 @@ python scripts/poe2_filter_sweep.py --spec <filter spec>.json    # 오버레이 
 - **mobalytics·pathofexile·cafe.naver 는 봇에 403 을 준다.** 죽은 링크가 아니다. 브라우저로 확인할 것.
 - **필터 오버레이는 앞에 붙어 first-match-wins.** NeverSink 가 더 크게 알리던 것을 덮으면 회귀다. 유니크 룰은 `rarity: ["Unique"]` 로 스코프를 걸고, BaseType 은 정확 일치를 쓴다.
 - **빌드 플래너 형식의 정본은 Mobalytics/제작자 다운로드본뿐이다.** `BuildPlanner/` 안의 `Cursemaster Final - Tangjeong [0.5].build` 는 **우리가 만든 것**이다(`files/created.md`, author 가 `poe.ninja`). 그걸 기준으로 대조하면 자기 출력과 자기를 비교하는 순환 검증이 된다 — 실제로 그렇게 해서 "완전 재현"이라고 볼 뻔했다. 진짜 정본에서는 `level_interval` 이 **모든 스킬에 존재**한다.
+- **poe.ninja `Build Planner` export 도 정규화하면 로드된다(2026-09-05 사용자 확인).** `scripts/import_poe2_planner_files.py` 가 정본 형태로 맞춘 것 — 스킬·서포트마다 `level_interval`, 빈 `support_skills` 키 제거, `inventory_slots: []`(장비 없음도 허용됨), 이름 40자 이하. 원본 파일 `Warbringer Lv24 live 0905 - Skadoosh.build`. 정규화 전 export(서포트 `level_interval` 없음·빈 리스트 있음)를 그대로 넣은 적은 없으니 그 형태가 로드되는지는 미확인.
 - **`--verify-against` 의 노드 불일치는 매핑 오류가 아닐 수 있다.** Fartfinder PoB 는 `treeVersion="0_3"` 이라 캐시한 `tree_0_5.json` 에 없는 노드가 2개 나온다. 그래서 판정 기준을 어센던시·weapon_set·젬 경로 3개 매핑으로 좁혔다. 우리가 실제로 쓰는 빌드에서 미해석 노드가 나오면 `build_file` 이 중단시킨다.
 - **heredoc 이 백슬래시를 먹는다 — 문법 오류가 아니라 조용한 오작동으로.** `<<'PY'` 안의 `\b` 가 **실제 백스페이스 바이트(0x08)** 로 들어가 `<ItemSet\b...>` 정규식이 영원히 매칭 실패했고, `od -c` 로 보기 전까지 화면상으로는 정상이었다. 정규식·이스케이프가 들어가는 편집은 Write/Edit 도구로 할 것.
 

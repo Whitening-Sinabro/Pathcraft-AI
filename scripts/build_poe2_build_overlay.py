@@ -214,13 +214,18 @@ GAME_CLASS_TO_FILTER_CLASS = {
     "OneHandSwords": "One Hand Swords", "TwoHandSwords": "Two Hand Swords",
     "Bows": "Bows", "Crossbows": "Crossbows", "Claws": "Claws", "Daggers": "Daggers",
     "Spears": "Spears", "Flail": "Flails", "Quivers": "Quivers",
-    "Staves": "Quarterstaves",  # GGPK 'Staves' 테이블은 전부 쿼터스태프다.
-    # 캐스터용 지팡이(필터 클래스 "Staves")는 base_items_poe2.json 에 아예 없어,
-    # 그 이름은 NeverSink 어휘로만 해결된다.
+    "Staves": "Quarterstaves",  # GGPK 'Weapons/TwoHandWeapons/Staves' 는 전부 쿼터스태프다.
+    # 캐스터용 지팡이는 `Metadata/Items/Staves/` 라 Weapons 트리 밖에 산다. 한때
+    # base_items_poe2.json 에 아예 없어서 NeverSink 가 안 쓰는 이름(Spriggan·Dark Staff)이
+    # 어휘 게이트에 걸려 조용히 떨어졌다. 생성기가 이제 CasterStaves 로 담는다.
+    "CasterStaves": "Staves",
     "BodyArmours": "Body Armours", "Boots": "Boots", "Gloves": "Gloves",
     "Helmets": "Helmets", "Shields": "Shields", "Focus": "Foci",
     "Amulets": "Amulets", "Belts": "Belts", "Rings": "Rings",
-    "Jewels": "Jewels", "Charms": "Charms", "Flasks": "Flasks",
+    "Jewels": "Jewels", "Charms": "Charms",
+    # 필터는 `Life Flasks` / `Mana Flasks` 를 따로 쓴다. 한때 둘을 `Flasks` 한 덩어리로
+    # 매핑해서 시뮬레이터가 플라스크 클래스를 틀리게 잡고 엉뚱한 블록을 평가했다.
+    "LifeFlasks": "Life Flasks", "ManaFlasks": "Mana Flasks",
 }
 
 
@@ -801,7 +806,12 @@ def main() -> int:
             f"# PathcraftAI build overlay: {meta.get('build', spec_path.stem)}",
             f"# stage: {stage_label} | base: {base_path.name}",
             f"# spec: {spec_path.name}",
-            "# Show-only. Nothing is hidden; unmatched items fall through to NeverSink.",
+            # 배너는 세지 말고 **계산해서** 쓴다. 한때 여기에 "Nothing is hidden" 이 박혀
+            # 있었는데 숨김 룰이 들어온 뒤에도 그대로라, 배포된 세 필터가 전부 자기를
+            # 잘못 설명했다(각 파일에 Hide 블록 1개). 적대검증이 이걸로 주장을 깼다.
+            (f"# {len(hide_blocks)} hide rule(s) declared by the spec; everything else falls"
+             " through to NeverSink." if hide_blocks
+             else "# Show-only. Nothing is hidden; unmatched items fall through to NeverSink."),
             "# regenerate: python scripts/build_poe2_build_overlay.py"
             f" --spec {repo_relative(spec_path)} --base {repo_relative(base_path)} --out <out>"
             + (f" --stage {args.stage}" if args.stage else ""),

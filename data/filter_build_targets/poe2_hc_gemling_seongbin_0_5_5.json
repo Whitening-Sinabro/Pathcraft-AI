@@ -8,7 +8,7 @@
   "sources": "임성빈 Mobalytics 하드코어 4탭 https://mobalytics.gg/poe-2/profile/seongbin-poe2-hardcore-zaxjdu/builds/11f193d5-8baf-44ea-9938-579451232125 | ds lily Mobalytics 6탭 https://mobalytics.gg/poe-2/profile/ds_lily/builds/oil-flameblast-gemling | fubgun Mobalytics 7탭 https://mobalytics.gg/poe-2/builds/fubgun-flameblast-oil-grenade | 세 사람의 인게임 플래너 다운로드본(build_planner/) inventory_slots 에서 베이스를 직접 유도했다 | 룬·영혼핵은 소프트코어 가이드(Docs/2026-09-02_ARSERINA_...) 제4·7·8장 | 실재성은 data/game_data_poe2/BaseItemTypes.json (GGPK, 2026-09-04 추출) 로 전수 확인",
   "palette": "purple family -- a single violet identity across all four tiers (user request). The S tier deliberately mirrors NeverSink's apex jackpot silhouette (white background, font 45, size-0 star) in purple instead of red; the remaining tiers are told apart by font size 45/42/40/40, background lightness, minimap icon size + shape, and the craft tier's inverted light-on-dark, not by hue",
   "notes": [
-   "Show-only overlay. 아무것도 숨기지 않는다 — 안 걸린 아이템은 NeverSink 규칙대로 흐른다.",
+   "이 스펙은 hide 룰을 하나 선언한다(이 빌드가 못 쓰는 무기·보조장비, 지역레벨 12+). 그 외에는 아무것도 숨기지 않는다 — 안 걸린 아이템은 NeverSink 규칙대로 흐른다. 한때 이 줄이 '아무것도 숨기지 않는다' 였는데 숨김 룰이 들어온 뒤에도 안 고쳐져 산출물이 자기를 잘못 설명했다.",
    "역할 배치: 임성빈=기준(트리 골격+방어 축) / ds lily=생존 보조 / fubgun=레벨링 해상도+능력치 경로. fubgun 은 생존 출처가 아니다 — 엔드게임 방어/생존 노드가 3개뿐이고 반지 2개가 아이템 희귀도용 금 반지다.",
    "엔드게임 패시브 트리 실측: 넷(3인+아르세리나) 공통 84노드 / 합집합 269, 쌍별 자카드 48~59%. 점화 노드는 넷 다 14~15개로 동일하고, 갈리는 축은 전적으로 방어다 — 임성빈 38 · ds lily 30 · 아르세리나 15 · fubgun 3.",
    "방어구 베이스를 개별로 나열하는 축은 원래 약하다. 63종 합집합 중 셋 다 쓰는 것은 석궁 2종뿐이고, 이는 취향 문제가 아니라 POE2 방어구가 '생명력+저항을 굴리는 그릇'이라 베이스가 중요하지 않기 때문이다. 그래서 방어구 룰의 주석은 전부 '굴릴 그릇이지 요구사항이 아니다'라고 적었다.",
@@ -203,6 +203,35 @@
     "Kite"
    ]
   },
+  "armour_core": {
+   "comment": "S급 방어구 — 지금은 흰색 성직자의 법의 하나뿐이다(변이하는 별 기회 베이스). 방어구 색조(흑적)를 유지하되 밝기·폰트·소리·빔만 S로 올린다 — Crimson 3축에서 종류는 색조, 등급은 명도/폰트/소리가 맡는다. 무기 S(진홍 151,7,7)보다 어두운 흑적(110,6,8)이라 무기 경보와 구분된다",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    120,
+    110
+   ],
+   "background": [
+    110,
+    6,
+    8
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red Temp",
+   "icon": [
+    0,
+    "Red",
+    "Kite"
+   ]
+  },
   "jewellery_gear": {
    "comment": "B급 장신구 — 뮤트 코퍼로 방어구와 색조를 가른다. 소리·빔 없음",
    "text": [
@@ -254,16 +283,33 @@
  },
  "rules": [
   {
+   "style": "armour_core",
+   "name": "[액트 3~] 흰색 성직자의 법의 — 변이하는 별 기회 베이스",
+   "note": "이 빌드에서 캠페인 최고 드롭이다. 그의 방송 원문: '성직자의 법의를 (…) 변이하는 별을 만드시는 게 진짜 중요합니다' / '요거는 이제 나중에 변이하는 별을 만들기 위해서 챙겨둬야 됩니다' — 아이템 줍다가 이 베이스만 따로 뺐다. poe2db 확인: 성직자의 법의를 베이스로 쓰는 유니크는 The Mutable Star 하나뿐이라 기회의 오브가 성공하면 다른 게 나올 여지가 없다. 그 유니크 옵션이 이 빌드의 방어 축 그대로다 — '현재 에너지 보호막 1%당 방어도 1% 더 있는 것처럼 피격 방어' + 출혈·점화 지속 30~50% 감소 + ES 재충전 50~100% 증가. 그가 1막에서 두 번 죽을 뻔한 원인이 출혈이었고 출혈은 ES 재충전을 막는데, 이 한 장이 그 사슬을 끊는다. **Normal 등급만 크게 띄운다** — 기회의 오브는 흰색에만 쓴다. Magic·Rare 는 액트3/4 하이브리드 밴드가 알아서 잡는다. 기회의 오브·기회의 파편은 건드리지 않았다: NeverSink 가 이미 폰트 45 + 음량 300(currency tier A)으로 켜고 있어서 덮으면 조용해진다 — 철 룬에서 회귀 108건으로 밟은 지뢰와 같은 함정이다. 룬각인 성직자의 법의로 룬각인 유니크가 나오는지는 확인 못 했다(미검증).",
+   "class": [
+    "Body Armours"
+   ],
+   "base_types": [
+    "Cleric Vestments"
+   ],
+   "rarity": [
+    "Normal"
+   ],
+   "stages": [
+    "campaign",
+    "maps"
+   ]
+  },
+  {
    "style": "weapon_core",
-   "name": "[전 구간] 화염파 지팡이 3종 — 52 전환의 전제",
-   "note": "52 전환이 이 빌드의 축이고 셋 중 먼저 떨어지는 것을 쓰면 된다. 제작자마다 다른 지팡이를 쓴다: Chiming Staff(임성빈) / Sanctified Staff(ds lily) / Pyrophyte Staff(fubgun). 셋 다 캐스터 무기라 화염파를 올리는 역할은 같다. 고유 등급은 뺀다 — 같은 베이스의 고유는 NeverSink 고유 티어 경보에 맡긴다.",
+   "name": "[전 구간] 화염 전용 지팡이 + 차인벨 — 52 전환의 전제",
+   "note": "52 전환이 이 빌드의 축인데 그때 가서 지팡이를 구하면 늦는다. 그의 가이드 영상 원문(7:06~7:17): '미리미리 **화염 베이스 지팡이 또는 차인벨 지팡이**를 구해 두시면 빠른 전환에 도움이 됩니다'. 딱 그것만 켠다 — Ashen Staff(주문 모드가 화염으로 잠김) + Chiming Staff(그가 지목). 한때 `no_fire_spell_mods` 태그가 **없으면** 통과시켜 제약 없는 지팡이 9종이 전부 최상위 경보를 달았다. 태그는 '무슨 모드를 굴릴 수 있나'만 말하고 지팡이의 정체는 **부여 스킬**이다 — Permafrost=Heart of Ice(냉기) · Dark=Dark Pact · Ravenous=Feast of Flesh · Reflecting=Mirror of Refraction · Perching=Spiraling Conspiracy · Roaring=Unleash · Sanctified=Consecrate. 전부 화염과 무관한데 '화염도 굴릴 수 있다'는 이유로 켜져 있었다(사용자 지적). 고유 등급은 NeverSink 고유 티어에 맡긴다.",
    "class": [
     "Staves"
    ],
    "base_types": [
-    "Chiming Staff",
-    "Sanctified Staff",
-    "Pyrophyte Staff"
+    "Ashen Staff",
+    "Chiming Staff"
    ],
    "rarity": [
     "Normal",
@@ -301,16 +347,14 @@
   {
    "style": "charm_endgame",
    "name": "[생존] 호신부 5종 — 임성빈 축 + ds lily·fubgun 보강",
-   "note": "하코에서 사람을 죽이는 것은 평균 피해가 아니라 상태 이상 한 방이다. Sapphire Charm(임성빈) / Stone Charm(임성빈) / Thawing Charm(임성빈·fubgun) / Dousing Charm(fubgun) / Silver Charm(fubgun). 임성빈은 액트1 사파이어 -> 액트3/4 돌·해동으로 가고, fubgun 은 해동·소화·은을 상시 낀다.",
+   "note": "하코에서 사람을 죽이는 것은 평균 피해가 아니라 상태 이상 한 방이다. Sapphire Charm(임성빈) / Stone Charm(임성빈) / Thawing Charm(임성빈·fubgun). 임성빈은 액트1 사파이어 -> 액트3/4 돌·해동으로 가고, fubgun 은 해동·소화·은을 상시 낀다.",
    "class": [
     "Charms"
    ],
    "base_types": [
     "Sapphire Charm",
     "Stone Charm",
-    "Thawing Charm",
-    "Dousing Charm",
-    "Silver Charm"
+    "Thawing Charm"
    ],
    "rarity": [
     "Normal",
@@ -325,12 +369,11 @@
   {
    "style": "charm_endgame",
    "name": "[생존] 생명력 플라스크 등급 진행",
-   "note": "임성빈이 액트별로 등급을 갈아탄다: Greater Life Flask(임성빈) / Giant Life Flask(임성빈) / Gargantuan Life Flask(임성빈) / Transcendent Life Flask(fubgun). fubgun 의 초월 생명력 플라스크(즉시 회복 20%)가 최종형이다. NeverSink 는 플라스크를 레벨로만 티어링해서 등급 진행이 눈에 안 띈다.",
+   "note": "임성빈이 액트별로 등급을 갈아탄다: Greater Life Flask(임성빈) / Giant Life Flask(임성빈) / Gargantuan Life Flask(임성빈). fubgun 의 초월 생명력 플라스크(즉시 회복 20%)가 최종형이다. NeverSink 는 플라스크를 레벨로만 티어링해서 등급 진행이 눈에 안 띈다.",
    "base_types": [
     "Greater Life Flask",
     "Giant Life Flask",
-    "Gargantuan Life Flask",
-    "Transcendent Life Flask"
+    "Gargantuan Life Flask"
    ],
    "rarity": [
     "Normal",
@@ -345,9 +388,10 @@
   {
    "style": "charm_endgame",
    "name": "[생존] 마나 플라스크 등급",
-   "note": "화염파는 마나 소모가 크다. Greater Mana Flask(임성빈) / Gargantuan Mana Flask(임성빈·fubgun).",
+   "note": "화염파는 마나 소모가 크다. Greater Mana Flask(임성빈) / Grand Mana Flask(임성빈) / Gargantuan Mana Flask(임성빈·fubgun).",
    "base_types": [
     "Greater Mana Flask",
+    "Grand Mana Flask",
     "Gargantuan Mana Flask"
    ],
    "rarity": [
@@ -378,23 +422,68 @@
   },
   {
    "style": "armour_gear",
-   "name": "[액트 1] 방어구 베이스 — 임성빈 착용",
-   "note": "임성빈 액트1 방어구. Horned Crown(임성빈) / Pelt Mantle(임성빈) / Rope Cuffs(임성빈) / Padded Leggings(임성빈) / Face Mask(fubgun) / Bronze Greaves(fubgun) / Sombre Gloves(SC 가이드). 굴릴 그릇이지 요구사항이 아니다 — 세 제작자가 방어구에서 겹치는 게 거의 없다. 생명력과 저항만 맞으면 된다.",
+   "name": "[전 구간] 실캐릭이 지금 끼고 있는 베이스 — poe.ninja",
+   "note": "사용자가 정한 1순위 출처(poe.ninja 실캐릭)를 밴드와 무관하게 항상 켠다. 현재 스냅샷 15종: Kalguuran Cuffs, Prismatic Ring, Plate Belt, Bombard Crossbow, Cleric Vestments, Solar Amulet, Amethyst Ring, Ashen Staff, Hallowed Crown, Pelt Leggings, Gargantuan Life Flask, Staunching Charm, Grand Mana Flask, Antidote Charm, Sapphire. 왜 따로 두나 — 드롭 레벨 밴드만으로는 마감에서 그를 못 따라간다. Hallowed Crown(54) · Kalguuran Cuffs(45) · Pelt Leggings(33) · Solar Amulet(30) · Plate Belt(25) 는 마감 밴드(드롭 55+)에 안 들어가서 endgame 필터에서 통째로 빠져 있었다. 그가 61레벨에 실제로 끼고 있는데도. 적대검증이 이 구멍을 짚었다. 이 룰은 스냅샷이 갱신되면 같이 바뀐다 — 추적기가 플래너를 덮어쓰면 재실행하라.",
    "base_types": [
-    "Horned Crown",
-    "Pelt Mantle",
-    "Rope Cuffs",
-    "Padded Leggings",
-    "Face Mask",
-    "Bronze Greaves",
-    "Sombre Gloves"
+    "Kalguuran Cuffs",
+    "Prismatic Ring",
+    "Plate Belt",
+    "Bombard Crossbow",
+    "Cleric Vestments",
+    "Solar Amulet",
+    "Amethyst Ring",
+    "Ashen Staff",
+    "Hallowed Crown",
+    "Pelt Leggings",
+    "Gargantuan Life Flask",
+    "Staunching Charm",
+    "Grand Mana Flask",
+    "Antidote Charm",
+    "Sapphire"
    ],
    "rarity": [
     "Normal",
     "Magic",
     "Rare"
    ],
-   "area_level_max": 20,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "armour_gear",
+   "name": "[액트 1] 방어도+ES 하이브리드 방어구 — 회피·순수ES 제외",
+   "note": "드롭 1~16 의 방어도+에너지 보호막 하이브리드 20종. 이름 목록이 아니라 GGPK 속성으로 골랐다 — 제작자 원문이 '방어도, 에너지 보호막 베이스 장비 착용, 회피 믿다가 죽습니다' 라는 **속성 룰**이기 때문이다. 그의 플래너에 적힌 이름만 베끼면 그가 그 순간 안 입고 있던 같은 성질의 베이스가 통째로 빠진다. 회피가 1이라도 붙은 베이스는 하이브리드까지 전부 뺐다. 굴릴 그릇이지 요구사항이 아니다 — 생명력과 저항만 맞으면 된다.",
+   "base_types": [
+    "Pilgrim Vestments",
+    "Pelt Mantle",
+    "Mail Vestments",
+    "Iron Crown",
+    "Horned Crown",
+    "Cultist Crown",
+    "Rope Cuffs",
+    "Aged Cuffs",
+    "Padded Leggings",
+    "Secured Leggings",
+    "Runeforged Pilgrim Vestments",
+    "Runeforged Pelt Mantle",
+    "Runeforged Mail Vestments",
+    "Runeforged Iron Crown",
+    "Runeforged Horned Crown",
+    "Runeforged Cultist Crown",
+    "Runeforged Rope Cuffs",
+    "Runeforged Aged Cuffs",
+    "Runeforged Padded Leggings",
+    "Runeforged Secured Leggings"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 45,
    "stages": [
     "campaign"
    ]
@@ -412,27 +501,35 @@
     "Magic",
     "Rare"
    ],
-   "area_level_max": 20,
+   "area_level_max": 45,
    "stages": [
     "campaign"
    ]
   },
   {
    "style": "armour_gear",
-   "name": "[액트 2] 방어구 베이스 — 임성빈 착용",
-   "note": "임성빈 액트2 방어구. Martyr Crown(임성빈) / Shaman Mantle(임성빈) / Aged Cuffs(임성빈) / Secured Leggings(임성빈). 굴릴 그릇이지 요구사항이 아니다 — 세 제작자가 방어구에서 겹치는 게 거의 없다. 생명력과 저항만 맞으면 된다.",
+   "name": "[액트 2] 방어도+ES 하이브리드 방어구 — 회피·순수ES 제외",
+   "note": "드롭 17~33 의 방어도+에너지 보호막 하이브리드 12종. 밴드 경계는 WorldAreas 에서 뽑은 액트 진입 레벨이다(액트2 = 지역 16~31). 회피 베이스는 제외.",
    "base_types": [
-    "Martyr Crown",
     "Shaman Mantle",
-    "Aged Cuffs",
-    "Secured Leggings"
+    "Ironclad Vestments",
+    "Martyr Crown",
+    "Heavy Crown",
+    "Goldcast Cuffs",
+    "Pelt Leggings",
+    "Runeforged Shaman Mantle",
+    "Runeforged Ironclad Vestments",
+    "Runeforged Martyr Crown",
+    "Runeforged Heavy Crown",
+    "Runeforged Goldcast Cuffs",
+    "Runeforged Pelt Leggings"
    ],
    "rarity": [
     "Normal",
     "Magic",
     "Rare"
    ],
-   "area_level_max": 45,
+   "area_level_max": 65,
    "stages": [
     "campaign"
    ]
@@ -440,38 +537,60 @@
   {
    "style": "jewellery_gear",
    "name": "[액트 2] 장신구 · 허리띠 — 임성빈 착용",
-   "note": "임성빈 액트2 장신구. Plate Belt(임성빈) / Ruby Ring(임성빈) / Topaz Ring(임성빈·fubgun) / Sapphire Ring(fubgun). 방어구와 색조를 갈라(뮤트 코퍼) 슬롯을 한눈에 구분한다.",
+   "note": "임성빈 액트2 장신구. Plate Belt(임성빈) / Ruby Ring(임성빈) / Topaz Ring(임성빈·fubgun) / Solar Amulet(임성빈). 방어구와 색조를 갈라(뮤트 코퍼) 슬롯을 한눈에 구분한다.",
    "base_types": [
     "Plate Belt",
     "Ruby Ring",
     "Topaz Ring",
-    "Sapphire Ring"
+    "Solar Amulet"
    ],
    "rarity": [
     "Normal",
     "Magic",
     "Rare"
    ],
-   "area_level_max": 45,
+   "area_level_max": 65,
    "stages": [
     "campaign"
    ]
   },
   {
    "style": "armour_gear",
-   "name": "[액트 3/4] 방어구 베이스 — 임성빈 착용",
-   "note": "임성빈 액트3/4 방어구. Spiritbone Crown(임성빈) / Braided Cuffs(임성빈) / Weaver Leggings(임성빈). 굴릴 그릇이지 요구사항이 아니다 — 세 제작자가 방어구에서 겹치는 게 거의 없다. 생명력과 저항만 맞으면 된다.",
+   "name": "[액트 3/4] 방어도+ES 하이브리드 방어구 — 회피·순수ES 제외",
+   "note": "드롭 34~45 의 방어도+에너지 보호막 하이브리드 25종. 그의 실캐릭 61레벨 착용분 중 Kalguuran Cuffs(드롭 45) · Cleric Vestments(45)가 이 밴드다 — 이름 목록 시절에는 둘 다 빠져 있었다. 회피 베이스는 제외.",
    "base_types": [
+    "Sacrificial Mantle",
+    "Cleric Vestments",
+    "Ornate Ringmail",
     "Spiritbone Crown",
+    "Kalguuran Cuffs",
+    "Weaver Leggings",
+    "Templar Vestments",
+    "Mailed Crown",
     "Braided Cuffs",
-    "Weaver Leggings"
+    "Adherent Leggings",
+    "Runeforged Sacrificial Mantle",
+    "Runeforged Cleric Vestments",
+    "Runeforged Spiritbone Crown",
+    "Runeforged Kalguuran Cuffs",
+    "Runeforged Weaver Leggings",
+    "Runemastered Pilgrim Vestments",
+    "Runemastered Mail Vestments",
+    "Runemastered Shaman Mantle",
+    "Runemastered Iron Crown",
+    "Runemastered Horned Crown",
+    "Runemastered Cultist Crown",
+    "Runemastered Martyr Crown",
+    "Runemastered Rope Cuffs",
+    "Runemastered Aged Cuffs",
+    "Runemastered Secured Leggings"
    ],
    "rarity": [
     "Normal",
     "Magic",
     "Rare"
    ],
-   "area_level_max": 60,
+   "area_level_max": 80,
    "stages": [
     "campaign",
     "maps"
@@ -490,7 +609,7 @@
     "Magic",
     "Rare"
    ],
-   "area_level_max": 60,
+   "area_level_max": 80,
    "stages": [
     "campaign",
     "maps"
@@ -498,23 +617,111 @@
   },
   {
    "style": "armour_gear",
-   "name": "[마감] 방어구 베이스 — 세 제작자 합집합",
-   "note": "셋이 서로 다른 베이스를 쓰므로 전부 켠다. fubgun·ds lily 의 마감 장비는 **룬각인(Runeforged) 변형**인데 그 이름은 뺐다 — GGPK 에는 535종 실재하지만 파생 `base_items_poe2.json`(4/25)에 0종이라 어휘 게이트를 통과하지 못하고, NeverSink 도 방어구 룬각인 이름을 쓰지 않는다(NeverSink 의 `Runeforged Blades` 는 혈통 젬이다). 대신 **룬각인 안 된 쌍둥이 베이스**를 넣었다: 지혜의 관/부착 소맷동/암호 각반/매잡이 상의/사령관 건틀릿. 9/5 재추출로 파생 DB 를 갱신하면 룬각인 이름도 넣을 수 있다. Cryptic Crown(임성빈) / Adherent Cuffs(임성빈·ds lily) / Cryptic Leggings(SC 가이드) / Falconer's Jacket(SC 가이드) / Gallant Helm(ds lily) / Golden Mail(ds lily) / Commander Gauntlets(SC 가이드) / Bastion Sabatons(ds lily) / Ancestral Mail(fubgun) / Decorated Helm(ds lily) / Champion Cuirass(ds lily) / Adorned Wraps(ds lily) / Bound Boots(ds lily).",
+   "name": "[액트 4 · 잔혹] 방어도+ES 하이브리드 방어구 — 회피·순수ES 제외",
+   "note": "드롭 46~54 의 방어도+에너지 보호막 하이브리드 17종. 그의 실캐릭 61레벨 투구 Hallowed Crown(드롭 54)이 여기다 — 액트3/4(34~45)와 마감(55+) 사이에 밴드가 없어서 통째로 빠져 있던 구간이다.",
    "base_types": [
-    "Cryptic Crown",
-    "Adherent Cuffs",
-    "Cryptic Leggings",
-    "Falconer's Jacket",
-    "Gallant Helm",
-    "Golden Mail",
-    "Commander Gauntlets",
-    "Bastion Sabatons",
-    "Ancestral Mail",
-    "Decorated Helm",
-    "Champion Cuirass",
-    "Adorned Wraps",
-    "Bound Boots"
+    "Tideseer Mantle",
+    "Gilded Vestments",
+    "Venerated Mantle",
+    "Lavish Crown",
+    "Righteous Cuffs",
+    "Gilt Leggings",
+    "Bearskin Mantle",
+    "Chain Vestments",
+    "Occultist Mantle",
+    "Forest Crown",
+    "Zealot Crown",
+    "Hallowed Crown",
+    "Heirloom Cuffs",
+    "Bound Leggings",
+    "Runeforged Tideseer Mantle",
+    "Runeforged Occultist Mantle",
+    "Runeforged Hallowed Crown"
    ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "area_level_max": 80,
+   "stages": [
+    "campaign",
+    "maps"
+   ]
+  },
+  {
+   "style": "armour_gear",
+   "name": "[마감] 방어도+ES 하이브리드 방어구 — 회피·순수ES 제외",
+   "note": "드롭 55 이상의 방어도+에너지 보호막 하이브리드 66종. 드롭 46 부터 전부 열면 130종이 넘어 화면이 죽어서 최상위만 남겼다 — 마감에서 실제로 쫓는 것이 거기다. 룬각인(Runeforged/Runemastered) 변형은 GGPK 에 실재하지만 파생 `base_items_poe2.json`(4/25 추출)에 0종이고 NeverSink 도 그 이름을 안 써서 빌더 어휘 게이트를 못 넘는다 — 넣어도 조용히 떨어지므로 뺐다. 파생 DB 재추출 뒤에 넣을 것. 아이템 레벨 65 문턱은 NeverSink 가 자기 방어구 블록에 실제로 쓰는 값이다(strict 기준 65 다섯 · 80 둘 · 82 둘). 문턱 없이 89종을 열었더니 NeverSink 가 숨기던 상태 1,225 개가 되살아났다 — 마감 화면이 죽는다.",
+   "base_types": [
+    "Revered Vestments",
+    "Corvus Mantle",
+    "Zenith Vestments",
+    "Ancient Mail",
+    "Archon Crown",
+    "Tenebrous Crown",
+    "Signet Cuffs",
+    "Pious Leggings",
+    "Ancient Leggings",
+    "Runeforged Grasping Mail",
+    "Plated Vestments",
+    "Heartcarver Mantle",
+    "Inquisitor Crown",
+    "Ornate Cuffs",
+    "Shamanistic Leggings",
+    "Wolfskin Mantle",
+    "Conjurer Mantle",
+    "Death Mantle",
+    "Seastorm Mantle",
+    "Druidic Crown",
+    "Saintly Crown",
+    "Divine Crown",
+    "Cryptic Crown",
+    "Bound Cuffs",
+    "Ancient Cuffs",
+    "Gleaming Cuffs",
+    "Adherent Cuffs",
+    "Tethering Bands",
+    "Faithful Leggings",
+    "Apostle Leggings",
+    "Warlock Leggings",
+    "Cryptic Leggings",
+    "Runeforged Sacrificial Regalia",
+    "Runeforged Plated Vestments",
+    "Runeforged Heartcarver Mantle",
+    "Runeforged Inquisitor Crown",
+    "Runeforged Ornate Cuffs",
+    "Runeforged Shamanistic Leggings",
+    "Runeforged Wolfskin Mantle",
+    "Runeforged Conjurer Mantle",
+    "Runeforged Death Mantle",
+    "Runeforged Seastorm Mantle",
+    "Runeforged Druidic Crown",
+    "Runeforged Saintly Crown",
+    "Runeforged Divine Crown",
+    "Runeforged Bound Cuffs",
+    "Runeforged Ancient Cuffs",
+    "Runeforged Gleaming Cuffs",
+    "Runeforged Faithful Leggings",
+    "Runeforged Apostle Leggings",
+    "Runeforged Warlock Leggings",
+    "Runemastered Ironclad Vestments",
+    "Runemastered Sacrificial Mantle",
+    "Runemastered Cleric Vestments",
+    "Runemastered Tideseer Mantle",
+    "Runemastered Gilded Vestments",
+    "Runemastered Revered Vestments",
+    "Runemastered Corvus Mantle",
+    "Runemastered Ornate Ringmail",
+    "Runemastered Ancient Mail",
+    "Runemastered Heavy Crown",
+    "Runemastered Spiritbone Crown",
+    "Runemastered Tenebrous Crown",
+    "Runemastered Goldcast Cuffs",
+    "Runemastered Verisium Cuffs",
+    "Runemastered Ancient Leggings"
+   ],
+   "item_level_min": 65,
    "rarity": [
     "Normal",
     "Magic",
@@ -528,15 +735,11 @@
   {
    "style": "jewellery_gear",
    "name": "[전 구간] 목걸이 · 허리띠 · 마감 반지",
-   "note": "Bloodstone Amulet(임성빈·ds lily) / Amber Amulet(ds lily·fubgun) / Absent Amulet(fubgun) / Utility Belt(fubgun) / Double Belt(ds lily) / Amethyst Ring(임성빈·ds lily) / Gold Ring(fubgun). 자수정 반지는 임성빈·ds lily 마감 공통(카오스 저항).",
+   "note": "Bloodstone Amulet(임성빈·ds lily) / Unset Ring(SC 가이드) / Amethyst Ring(임성빈·ds lily). 자수정 반지는 임성빈·ds lily 마감 공통(카오스 저항).",
    "base_types": [
     "Bloodstone Amulet",
-    "Amber Amulet",
-    "Absent Amulet",
-    "Utility Belt",
-    "Double Belt",
-    "Amethyst Ring",
-    "Gold Ring"
+    "Unset Ring",
+    "Amethyst Ring"
    ],
    "rarity": [
     "Normal",
@@ -567,7 +770,6 @@
     "Magic",
     "Rare"
    ],
-   "area_level_max": 45,
    "stages": [
     "campaign"
    ]
@@ -588,7 +790,25 @@
     "Rare"
    ],
    "item_level_min": 18,
-   "area_level_max": 45,
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "weapon_gear",
+   "name": "[액트 2~] 광택 나는 석궁 — ilvl 18 미만 (임시용)",
+   "note": "위 룰이 ilvl 18 이상만 최상위로 띄우는데, 그가 **16레벨부터 낀다**(액트2 플래너 Weapon1 `level_interval=[16,100]`). 그래서 ilvl 16~17 구간이 세 필터 어디에도 안 걸려 NeverSink 기본(폰트 32)으로 떨어졌다 — 외부 검증이 잡았다. 그 구간은 '제작할 가치는 없지만 지금 낄 것'이라 B 등급으로만 켠다. S 룰이 앞에 있으므로 18 이상은 그쪽이 먼저 이긴다.",
+   "class": [
+    "Crossbows"
+   ],
+   "base_types": [
+    "Varnished Crossbow"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
    "stages": [
     "campaign"
    ]
@@ -603,7 +823,9 @@
    "base_types": [
     "Gemcutter's Prism",
     "Greater Jeweller's Orb",
-    "Lesser Jeweller's Orb"
+    "Lesser Jeweller's Orb",
+    "Artificer's Orb",
+    "Armourer's Scrap"
    ],
    "stages": [
     "campaign",

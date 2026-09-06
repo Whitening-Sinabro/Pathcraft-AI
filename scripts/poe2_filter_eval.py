@@ -26,11 +26,18 @@ from pathlib import Path
 
 QUOTED = re.compile(r'"([^"]+)"')
 
-NUMERIC_CONDITIONS = {
-    "Sockets", "AreaLevel", "ItemLevel", "Quality", "StackSize", "DropLevel",
-    "WaystoneTier", "BaseArmour", "BaseEnergyShield", "BaseEvasion", "BaseWard",
-    "UnidentifiedItemTier", "MapTier", "GemLevel", "Width", "Height",
+# 수치 조건은 **실제로 모델링한 것만** 여기 들어온다. 집합을 손으로 따로 관리하면
+# "목록엔 있는데 값 매핑엔 없는" 조건이 생기고, 그런 조건을 쓴 블록은 조용히 영원히
+# 안 걸리면서 `unmodelled` 보고에도 안 뜬다 — 실제로 `UnidentifiedItemTier` 가 그랬고
+# 각 필터의 유일한 Hide 블록이 그 조건을 써서 스윕의 HIDDEN 이 구조적으로 0 이 됐다.
+# 그래서 매핑 하나에서 집합을 유도한다. 모델링 안 한 수치 조건은 `unmodelled` 로 가서
+# `unmodelled_conditions()` 에 잡힌다.
+NUMERIC_FIELDS = {
+    "Sockets": "sockets", "AreaLevel": "area_level", "ItemLevel": "item_level",
+    "Quality": "quality", "StackSize": "stack_size",
+    "UnidentifiedItemTier": "unidentified_item_tier",
 }
+NUMERIC_CONDITIONS = set(NUMERIC_FIELDS)
 BOOLEAN_CONDITIONS = {
     "Corrupted", "Mirrored", "Identified", "SynthesisedItem", "FracturedItem",
     "AnyEnchantment", "AlternateQuality", "Replica", "Scourged", "HasImplicitMod",
@@ -55,6 +62,12 @@ class Item:
     corrupted: bool = False
     mirrored: bool = False
     stack_size: int = 1
+    # 평범한 드롭의 미감정 티어는 0 이다. 한때 이 축을 아예 안 모델링해서
+    # `UnidentifiedItemTier` 를 쓰는 블록이 **영원히 매칭되지 않았고**, 그게
+    # `NUMERIC_CONDITIONS` 안에 있느라 `unmodelled` 보고에도 안 떴다.
+    # 그 조건을 쓰는 블록이 정확히 각 필터의 유일한 Hide 블록이라, 스윕이
+    # HIDDEN 을 구조적으로 0 으로 만들었다(적대검증이 이걸로 주장을 깼다).
+    unidentified_item_tier: int = 0
 
 
 @dataclass
@@ -169,13 +182,7 @@ def _matches_condition(item: Item, keyword: str, operator: str, values: list[str
             return not wanted  # unmodelled flags are false on a plain drop
         return actual == wanted
     if keyword in NUMERIC_CONDITIONS:
-        actual = {
-            "Sockets": item.sockets, "AreaLevel": item.area_level,
-            "ItemLevel": item.item_level, "Quality": item.quality,
-            "StackSize": item.stack_size,
-        }.get(keyword)
-        if actual is None:
-            return False  # a dimension we do not model -> cannot prove a match
+        actual = getattr(item, NUMERIC_FIELDS[keyword])
         try:
             return _compare(actual, operator, int(values[0]))
         except (IndexError, ValueError):

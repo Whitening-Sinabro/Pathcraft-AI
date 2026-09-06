@@ -27,6 +27,9 @@
   "untracked_present": [
     "data/.claude/skillmaker/logs/prompts/1e578250-69cf-49ae-9d0e-857ce8f416c6.jsonl",
     "data/.claude/skillmaker/observation/session_state.json",
+    "data/_cache/patchnotes/poe2/_index.json",
+    "data/_cache/subs/.claude/skillmaker/logs/prompts/265805e8-1307-457b-b074-1839a7dc5626.jsonl",
+    "data/_cache/subs/.claude/skillmaker/observation/session_state.json",
     "data/_cache/tree_0_5.json",
     "data/_cache/video_durations.json",
     "data/atlastree-export/.claude/skillmaker/logs/prompts/189e1d1d-1e40-4c77-a12d-18d16e40eea2.jsonl",
@@ -54,7 +57,7 @@
   "totals": {
     "files": 116,
     "fingerprinted": 2,
-    "untracked_present": 24,
+    "untracked_present": 27,
     "by_status": {
       "broken": 1,
       "current": 2,
@@ -191,8 +194,8 @@
       "status": "declared_no_generator"
     },
     "data/base_items_poe2.json": {
-      "bytes": 282718,
-      "sha256_16": "4132c3fbf06b40de",
+      "bytes": 575218,
+      "sha256_16": "edfa7bd064295efb",
       "parse_error": null,
       "provenance": {
         "generator": "scripts/build_base_items_poe2.py",

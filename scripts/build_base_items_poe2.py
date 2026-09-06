@@ -124,10 +124,19 @@ def simplify(
 
 
 def weapon_class(inherits: str) -> str | None:
-    """Metadata/Items/Weapons/OneHandWeapons/Spears → Spears"""
+    """Metadata/Items/Weapons/OneHandWeapons/Spears → Spears
+
+    캐스터 지팡이만 `Metadata/Items/Weapons/` 밖에 산다 — `Metadata/Items/Staves/AbstractStaff`
+    다. 그래서 `Weapons/` 만 훑던 이 함수가 19종을 통째로 놓쳤고, 파생 DB 에 없으니
+    오버레이 빌더의 어휘 게이트가 Spriggan Staff·Dark Staff 를 조용히 떨어뜨렸다
+    (NeverSink 도 그 두 이름은 안 쓴다). `Weapons/TwoHandWeapons/Staves` 는 전부
+    쿼터스태프라 이름이 겹치므로 별도 클래스 `CasterStaves` 로 담는다.
+    """
     parts = inherits.split("/")
     if len(parts) >= 5 and parts[2] == "Weapons":
         return parts[4]
+    if len(parts) >= 4 and parts[2] == "Staves":
+        return "CasterStaves"
     return None
 
 
@@ -140,10 +149,21 @@ def armour_class(inherits: str) -> str | None:
 
 
 def other_class(inherits: str, item_id: str) -> str | None:
-    """기타 카테고리 — Quivers/Rings/Belts/Amulets/Flasks/Jewels/Charms."""
+    """기타 카테고리 — Quivers/Rings/Belts/Amulets/LifeFlasks/ManaFlasks/Jewels/Charms.
+
+    생명력·마나 플라스크를 나눠 담는 이유: 필터가 쓰는 클래스 이름이 `Life Flasks` 와
+    `Mana Flasks` 로 **따로**다. 한 덩어리 `Flasks` 로 두면 그 어느 쪽에도 안 맞아서,
+    시뮬레이터가 플라스크의 클래스를 틀리게 잡고 엉뚱한 블록을 평가한다 —
+    외부 검증(codex gpt-6-astra)이 실측으로 잡았다: 올바른 클래스면 Hide/폰트 18 인데
+    공유 매핑으로는 Show/폰트 45/음량 300 이 나왔다.
+    """
     # Charms (FourCharm 1~4) — POE2 특수
     if "Flasks/FourCharm" in item_id:
         return "Charms"
+    if inherits.endswith("/AbstractLifeFlask"):
+        return "LifeFlasks"
+    if inherits.endswith("/AbstractManaFlask"):
+        return "ManaFlasks"
     parts = inherits.split("/")
     if len(parts) < 3:
         return None

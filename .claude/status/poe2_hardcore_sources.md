@@ -291,3 +291,24 @@ PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3> armor 9,000  # �
   갈린다. 갈리는 지점은 감추지 말고 표로 드러낸다.
 - 채널이 하코 전용인지는 제목 문자열이 아니라 **채널 정체성**으로 판단한다. 제목에
   "하드코어"를 안 써도 전부 하코인 채널이 있다.
+
+---
+
+## 워브링어 — Skadoosh "Corrupting Cry Totem" 0.5.5 HC 스타트 (2026-09-05 추가)
+
+- **트위치 채널 로그인은 `skadoosh_c`(표시명 Skadoosh_c, id 39591192)** — `skadoosh` 는 다른 계정(id 915725, 영상 0)이라 GQL/yt-dlp 가 빈 목록을 돌려준다. 방송 시각 실측(GQL `user.videos`, 2026-09-05): 0.5.5 1일차 VOD v2865212551 시작 **09-05 토 03:30 KST**, 4h42m(~08:12), 이어서 08:12 KST 에 제목 바꿔 재방송(`lastBroadcast`, 아직 아카이브 미등록). 7월 VOD 4편은 KST 01:49·03:15·03:23 시작(목·금·수) + 20:30(화, 영상 공개 방송), 길이 2.6~3.9h → **보통 KST 새벽 2~3시 반 시작, 3~4시간**(표본 5, 8월 공백 = 리그 전 휴식). 시간대 추정: 방송 화면 작업표시줄 20:48 = VOD 0:18 → UTC+2(유럽), 로그인 화면 서버 Frankfurt(EU). ※ discord_findings 의 "@everyone 01:30 KST" 는 VOD 시작과 2시간 어긋난다 — 디스코드 표시 시각 재확인 필요(트위치 createdAt 이 정본).
+사용자 목표가 "Skadoosh 것을 직접 한다"라 명부에 올린다. 정본 문서 =
+`Docs/2026-09-05_SKADOOSH_CORRUPTING_CRY_TOTEM_WARBRINGER_0_5_5_RESEARCH.md`(0장이 실행 계획).
+
+- **Skadoosh** — YouTube `UChDo6WKvR6szS46KY_dL_zg`(@SkadooshPoE), Twitch `skadoosh_c`, poe.ninja `ITheCon-2183`,
+  Discord "Skadoosh's Hideout"(#build-help). 가이드 https://mobalytics.gg/poe-2/builds/corrupting-cry-warbringer-skadoosh 는
+  **[0.4] 태그·4변형 전부 "(outdated)"** 이고 본인이 "Guide is outdated"(Discord 09-02)라고 했다. 0.5.5 계획은
+  디스코드에만 있다: 보강하는 함성 + Corrupting Cry + 근접 스킬 레벨 + AWT + 선대의 유대, 레어만, HC 트레이드.
+  실캐릭 `SkadooshShoutedHard`(HC Forbidden Rites) — 24렙 스냅샷은 충격파 토템+지진 요철 지대, 1차 전직 응답받은 부름.
+- **POEGuy** — `UCvICZHerbUEr3eM6q3kISIg`(@poeguy007), 0.5.5 워브링어 **유탄 발리스타 토템** 스타터(함성 없음).
+  poe-vault 레벨링 가이드(09-03 갱신)의 캠페인 경로가 Skadoosh 24렙 실캐릭과 같다 — 레벨링 교차 확인용.
+- **자막**: `data/_cache/subs/skadoosh_{KsK6tNjh50s,gWQNu6xddow,BLc0SguI0gk,B8yBMkd-jsE,F6ou4sj0uZE,CoskGFogxhA,Jj2eKr4Ez-A}.en.json3`
+  (0.1 엔드/우버, 0.3 개요/Day1/Corrupting Army, 0.4 플랜, 0.5 플랜). POEGuy `obkVjAMTaHk` 는 세션 scratchpad 에만.
+- **디스코드는 브라우저가 아니라 로그인된 데스크톱 앱을 computer-use 로 읽는다** — 메모리 `feedback_discord_via_computer_use.md`.
+  a11y 트리가 비어 있어 스크린샷 전사이고, 검색은 paste-text, 스크롤은 PageDown.
+- **0.5.5 HC 래더(11h)**: 워브링어 13명 중 Corrupting Cry/AWT 소켓 0명 — 이 조합을 공개적으로 굴리는 건 Skadoosh 뿐이다.

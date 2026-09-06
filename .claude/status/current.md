@@ -1,16 +1,22 @@
-**지금**: **하드코어 젬링(화염파+기름 유탄)으로 리그 시작.** 필터를 리서치 기반 Crimson 3축 문법으로 재설계 완료(종류=색조+모양 / 등급=폰트·소리 / 가치=빔) + 못 쓰는 무기 12클래스 숨김 + 아르세리나 9/4 신규 영상 반영. 플래너는 6단계 병합 진행표(임성빈 골격, 리스펙 @52 경계). 전부 설치·전송 완료, 회귀 0.
+**지금**: 임성빈 화염파 젬링 0.5.5 HC — 사용자가 직접 플레이 중(2026-09-07 기준 2막). 인게임 플래너 5개 + 필터 3단계 설치 완료, 외부 검증 3회차까지 반영 끝. 미해결 없음.
 
-**다음**: ①9/5 05:00 KST 리그 시작 후 GGPK 재추출 → 파생 DB 2종 한 묶음 갱신. ②키타바 하코 문서가 아직 16KB 차이분 문서 — 점화 편처럼 독립 가이드로 재작성. ③하코 문서 2종 구글 닥 공유 설정(현재 제작 계정만 열림).
+**다음**: ① 추적기가 잡는 변화마다 플래너·사이드카 갱신(15분 주기, scratchpad `sb_track/`) — 갱신되면 `make_hc_gemling_spec.py` → 빌드를 다시 돌려야 필터에 반영된다 ② 채굴본 293건을 사용자용 액트별 시트로 압축(브라우저 페이지 제안해 둠) ③ 커밋 안 함 — 워킹트리에 이번 작업분이 그대로 있다
 
-**알려진 빨간불 1건** (블로커 아님): `test_valid_gems_poe2_categories` — 9/4 GGPK 재추출로 파생 `valid_gems_poe2.json`(4월본)이 낡았다. 재생성은 9/5 0.5.5 재추출 직후 한 번에(`base_items_poe2.json` 의 Runeforged 535종 누락도 같이). 처리 목록 → `.claude/status/poe2_ggpk.md`
+**블로커**: 없음. 전체 테스트 실패 12 + 에러 16은 전부 POE1 쪽(`filters/Luminary_Bot_SSF_3.29_Progressive.filter` 미빌드)과 알려진 4월본 파생 DB 건이라 이 작업과 무관하다.
 
 **포인터**:
-- **필터 디자인 기준선·Crimson 3축 문법·숨김 게이트·GGG 공식 값·밟은 지뢰** → `.claude/status/poe2_filter_design.md`
-- **하코 젬링 소스 배치·구간별 추천·트리 실측·병합본 재현법** → `.claude/status/poe2_hc_gemling.md`
-- GGPK 추출 운용(커맨드·0.5 vs 0.5.5 격차·추출 실패 시 진단 순서·재추출 후 처리 목록) → `.claude/status/poe2_ggpk.md`
-- 하코 소스 명부(조사 방법·자막 49편 대응표·0.5.5 버그수정 대조표·핸들 정정표) → `.claude/status/poe2_hardcore_sources.md`
-- POE2 가이드·필터·카드 파이프라인(산출물 위치·발행 닥 ID·디스코드 메시지 ID·주입 지뢰) → `.claude/status/poe2_guides.md`
-- 자막 읽기 → `PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3> [검색어…]`
-- 산출물 디스코드 전송 → `python scripts/send_to_discord.py --spec <스펙> --planner <접두사> --channel <id>`
-- 0.5.5 패치노트 원문 → `data/_cache/patchnotes/poe2_0_5_5{,_faq,_filter_info,_press_release}.txt`
-- 가이드 기준 템플릿 스펙 → `~/.claude/projects/D--Pathcraft-AI/POE2_BUILD_GUIDE_TEMPLATE.md`
+- 젬링 전체 현황(실캐릭 좌표·필터 설계·밟은 지뢰·외부 검증 3회차) → `.claude/status/poe2_hc_gemling.md`
+- 방송 채굴본 293건 판정 → `Docs/2026-09-06_SEONGBIN_FLAMEBLAST_GEMLING_0_5_5_LIVE_MINING.md`(읽는 문서) · `..._RAW.json`(원자료)
+- Skadoosh 워브링어(버린 빌드) → `Docs/2026-09-05_SKADOOSH_...RESEARCH.md` (참고용으로만)
+- 필터 디자인 기준선·Crimson 3축 문법·숨김 게이트 → `.claude/status/poe2_filter_design.md`
+- GGPK 추출 운용·재추출 후 처리 목록 → `.claude/status/poe2_ggpk.md`
+- 하코 소스 명부 → `.claude/status/poe2_hardcore_sources.md`
+- POE2 가이드·필터·카드 파이프라인 → `.claude/status/poe2_guides.md`
+
+**파이프라인 (순서 지킬 것)**:
+1. `python scripts/track_poe2_character.py --account dtq03087-0345 --name 임성빈_화염파_젬링 --overview hc-forbidden-rites ...` — 실캐릭 폴링, 플래너 + `.tmp/seongbin/LIVE_ninja_items.json` 갱신
+2. `python scripts/make_hc_gemling_spec.py` — 스펙 생성(룰 가림 가드 포함)
+3. `python scripts/build_poe2_build_overlay.py --spec ... --stage {campaign,maps,endgame} --allow-drops` → `filters/` → 게임 폴더 복사
+4. `python scripts/poe2_filter_coverage.py` — 그가 쓰는 것이 실제로 잡히나(0건이어야 함)
+5. `python scripts/poe2_filter_sweep.py --spec ...` — 회귀 0 / 무음에 소리 추가 0
+6. `python scripts/annotate_poe2_planner_notes.py` — 플래너 주석(멱등)
