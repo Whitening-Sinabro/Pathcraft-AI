@@ -24,6 +24,35 @@ HERE = Path(__file__).resolve().parent
 DB_PATH = REPO / "data" / "hc_journey" / "pathcraft_hc.db"
 CREATORS_DIR = REPO / "data" / "hc_journey" / "creators"
 SCHEMA = HERE / "schema.sql"
+TRADE_LINKS = REPO / "data" / "hc_journey" / "trade_links.json"          # trade_links.py 산출물(커밋됨)
+TRADE_LIVE_GLOB = "trade_links_live_*.json"                               # --live 결과(검색 id·매물 수), 있으면 병합
+
+
+def load_trade_links(path: Path | None = None, live_dir: Path | None = None) -> dict[tuple, dict]:
+    """{(creator, transition_idx, slot): entry}. live 파일이 있으면 같은 키·tier·realm 의 live 결과를 얹는다.
+    파일이 없으면 빈 dict — DB 적재는 네트워크·캐시 없이도 돌아야 한다."""
+    path = path or TRADE_LINKS   # 호출 시점에 읽어야 테스트가 경로를 바꿀 수 있다
+    if not path.exists():
+        return {}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    out = {(e["creator"], e["transition_idx"], e["slot"]): e for e in doc.get("entries", [])}
+    live_dir = live_dir or path.parent
+    for lp in sorted(live_dir.glob(TRADE_LIVE_GLOB)):
+        ldoc = json.loads(lp.read_text(encoding="utf-8"))
+        checked = ldoc.get("_meta", {}).get("generated_utc")
+        for le in ldoc.get("entries", []):
+            e = out.get((le["creator"], le["transition_idx"], le["slot"]))
+            if not e:
+                continue
+            by_tier = {t["tier"]: t for t in e["tiers"]}
+            for lt in le["tiers"]:
+                t = by_tier.get(lt["tier"])
+                if t is None or "live" not in lt:
+                    continue
+                t.setdefault("live", {})
+                for realm, res in lt["live"].items():
+                    t["live"][realm] = {**res, "checked_utc": checked}
+    return out
 
 
 def _short(gid: str) -> str:
@@ -242,6 +271,30 @@ def build() -> dict:
             n += 1
         return n
 
+    trade = load_trade_links()
+
+    def add_trade(change_id, creator, idx, slot):
+        e = trade.get((creator, idx, slot))
+        if not e:
+            return 0
+        it = e["item"]
+        con.execute("INSERT INTO trade_target(change_id, base, unique_base, category, level_max, mods_json, mapped_json, unmapped_json) "
+                    "VALUES(?,?,?,?,?,?,?,?)",
+                    (change_id, it["first"], it.get("unique_base"), it.get("category"), e.get("level_max"),
+                     json.dumps(it["mods"], ensure_ascii=False), json.dumps(it["mapped"], ensure_ascii=False),
+                     json.dumps(it["unmapped"], ensure_ascii=False)))
+        n = 0
+        for t in e["tiers"]:
+            for realm, url in t["links"].items():
+                live = (t.get("live") or {}).get(realm) or {}
+                con.execute("INSERT INTO trade_link(change_id, tier, label, note, realm, url, query_json, live_id, live_total, "
+                            "live_url, live_checked_utc) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+                            (change_id, t["tier"], t["label"], t.get("note"), realm, url,
+                             json.dumps(t["query"], ensure_ascii=False, separators=(",", ":")),
+                             live.get("id"), live.get("total"), live.get("url"), live.get("checked_utc")))
+                n += 1
+        return n
+
     for cfg in CREATORS:
         cur = con.execute("INSERT INTO creator(name, channel_url, ninja_account) VALUES(?,?,?)",
                           (cfg["name"], cfg["channel"], cfg["ninja"]))
@@ -279,13 +332,14 @@ def build() -> dict:
             trans_id = cur.lastrowid
             trans_ids.append(trans_id)
             for kind, subject, detail in diff_snapshots(fa, tb):
-                con.execute("INSERT INTO transition_change(transition_id, kind, subject, detail) VALUES(?,?,?,?)",
-                            (trans_id, kind, subject, detail))
-                # 규칙 자동 매칭: 스킬 도입 / 슬롯 변화
+                cur = con.execute("INSERT INTO transition_change(transition_id, kind, subject, detail) VALUES(?,?,?,?)",
+                                  (trans_id, kind, subject, detail))
+                # 규칙 자동 매칭: 스킬 도입 / 슬롯 변화. 슬롯 변화엔 거래소 링크(있으면)도 붙는다.
                 if kind == "skill_added":
                     add_rule_note(trans_id, "skill_added", subject)
                 elif kind == "item_changed":
                     add_rule_note(trans_id, "item_slot_change", subject)
+                    add_trade(cur.lastrowid, cfg["name"], i, subject)
             for note_type, text, ev in cfg["notes"].get(i, []):
                 con.execute("INSERT INTO transition_note(transition_id, note_type, text, evidence_ref, source) "
                             "VALUES(?,?,?,?,'hand')", (trans_id, note_type, text, ev))
@@ -300,7 +354,8 @@ def build() -> dict:
     con.commit()
     stats = {t: con.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]
              for t in ("creator", "build", "snapshot", "transition", "transition_change",
-                       "transition_note", "curation_rule")}
+                       "transition_note", "curation_rule", "trade_target", "trade_link")}
+    stats["trade_live"] = con.execute("SELECT COUNT(*) FROM trade_link WHERE live_total IS NOT NULL").fetchone()[0]
     stats["notes_hand"] = con.execute("SELECT COUNT(*) FROM transition_note WHERE source='hand'").fetchone()[0]
     stats["notes_rule"] = con.execute("SELECT COUNT(*) FROM transition_note WHERE source='rule'").fetchone()[0]
     con.close()
@@ -329,6 +384,15 @@ def query_journey(build_id: int) -> str:
             out.append(f"    · {c['detail'][:88]}")
         if len(changes) > 4:
             out.append(f"    · … 외 {len(changes) - 4}건")
+        # 거래소 링크: 슬롯마다 사다리 요약(매물 수는 live 검색 시점 값). URL 은 DB trade_link.url.
+        targets = con.execute(
+            "SELECT c.subject AS slot, tt.base, tt.level_max, tt.change_id FROM trade_target tt "
+            "JOIN transition_change c ON c.id=tt.change_id WHERE c.transition_id=? ORDER BY c.id", (t["id"],)).fetchall()
+        for tg in targets:
+            tiers = con.execute("SELECT tier, live_total FROM trade_link WHERE change_id=? AND realm='int' ORDER BY tier",
+                                (tg["change_id"],)).fetchall()
+            summary = " · ".join(f"{r['tier']}" + (f"={r['live_total']}건" if r["live_total"] is not None else "") for r in tiers)
+            out.append(f"    🛒 {tg['slot']} {tg['base']} (요구≤{tg['level_max'] or '-'}) {summary}")
         for n in notes:
             tag = "손" if n["source"] == "hand" else "규칙"
             out.append(f"    ★[{tag}] ({n['note_type']}) {n['text'][:98]}  <{n['evidence_ref']}>")

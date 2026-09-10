@@ -70,6 +70,37 @@ def test_league_trade_rules_attach_once_at_first_transition():
     con.close()
 
 
+def test_trade_links_attach_to_item_changes(tmp_path, monkeypatch):
+    """trade_links.json 이 있으면 item_changed 변화마다 trade_target 1 + tier×realm 링크가 붙고, 없으면 조용히 0 — 적재는 네트워크 없이 돈다."""
+    import json
+    build_db.build()
+    con = sqlite3.connect(build_db.DB_PATH)
+    con.row_factory = sqlite3.Row
+    doc = json.loads(build_db.TRADE_LINKS.read_text(encoding="utf-8"))
+    n_targets = con.execute("SELECT COUNT(*) FROM trade_target").fetchone()[0]
+    assert n_targets == len(doc["entries"]) >= 50
+    n_links = con.execute("SELECT COUNT(*) FROM trade_link").fetchone()[0]
+    assert n_links == sum(len(t["links"]) for e in doc["entries"] for t in e["tiers"])
+    # 링크는 item_changed 변화에만 붙는다
+    bad = con.execute("SELECT COUNT(*) FROM trade_target tt JOIN transition_change c ON c.id=tt.change_id "
+                      "WHERE c.kind!='item_changed'").fetchone()[0]
+    assert bad == 0
+    # 임성빈 마지막 전환 투구: 요구 상한 93, 사다리 3단, 국제/한국 링크에 리그 경로
+    row = con.execute("SELECT tt.change_id, tt.level_max FROM trade_target tt JOIN transition_change c ON c.id=tt.change_id "
+                      "JOIN transition t ON t.id=c.transition_id JOIN build b ON b.id=t.build_id "
+                      "WHERE b.name LIKE '젬링%' AND t.order_idx=3 AND c.subject='Helm1'").fetchone()
+    assert row["level_max"] == 93
+    links = con.execute("SELECT tier, realm, url FROM trade_link WHERE change_id=? ORDER BY tier, realm", (row["change_id"],)).fetchall()
+    assert [(r["tier"], r["realm"]) for r in links] == [("T1", "int"), ("T1", "kr"), ("T2", "int"), ("T2", "kr"), ("T3", "int"), ("T3", "kr")]
+    assert all("/trade2/search/poe2/HC%20Forbidden%20Rites?q=" in r["url"] for r in links)
+    assert "🛒 Helm1 Hallowed Crown (요구≤93)" in build_db.query_journey(_bid(con, "젬링%"))
+    con.close()
+    # 파일이 없으면 테이블은 비고 나머지 적재는 그대로
+    monkeypatch.setattr(build_db, "TRADE_LINKS", tmp_path / "missing.json")
+    st = build_db.build()
+    assert st["trade_target"] == 0 and st["trade_link"] == 0 and st["transition_change"] == 144
+
+
 def test_two_layers_and_query():
     build_db.build()
     con = sqlite3.connect(build_db.DB_PATH)

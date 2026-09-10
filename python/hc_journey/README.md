@@ -93,10 +93,12 @@ python -X utf8 -m pytest python/tests/test_trade_links.py -q
 - **요구 레벨 상한** = 그 스냅샷의 `level_hint`. 즉시 구입(`status: securable`) 기본. 정렬 가격 오름차순.
 - **한국 서버**(`poe.kakaogames.com`)는 별도 시장 — `?q=` 링크는 같지만 검색 id 는 서버별로 POST 해야 한다.
 - 캐시 `data/_cache/trade2/`(gitignore, `--refresh` 로 갱신). 산출물 `trade_links.json` 은 재생성 가능.
+- **DB**: `build_db.py --build` 가 `trade_links.json`(+ `trade_links_live_*.json` 의 검색 id·매물 수)을 읽어 `trade_target`(변화당 아이템 사실)
+  + `trade_link`(단계×서버 링크)에 넣는다. 파일이 없으면 두 테이블만 비고 적재는 그대로 — 적재는 네트워크·캐시 없이 돈다.
+  `--query` 는 슬롯마다 `🛒 Helm1 Hallowed Crown (요구≤93) T1 · T2 · T3` 로 요약하고 URL 은 `trade_link.url` 에 있다.
 
 ## 다음
 
-- 거래 링크를 DB 에 넣기(`transition_change` 에 붙는 `trade_link` 테이블) — 스키마 변경이라 승인 뒤.
 - 크리에이터 다수 적재: HC 명부(`.claude/status/poe2_hardcore_sources.md`)의 밴드 PoB·ninja ID 수집.
 - 규칙 후보 승인 루프: `rule_candidates.json` 검토 → 채택분을 `CURATION_RULES` 로. 판독(사람 검증 텍스트)도 신호원으로 쓸지 결정.
 - 정본 게임데이터(Layer 1) 연결: 스킬/아이템/트리 노드 → GGPK 파생.

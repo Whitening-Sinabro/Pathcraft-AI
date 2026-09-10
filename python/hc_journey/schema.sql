@@ -116,7 +116,37 @@ CREATE TABLE IF NOT EXISTS build_keystone (
   PRIMARY KEY(build_id, keystone)
 );
 
+-- Layer 3b: 거래소 링크 ---------------------------------------------------------
+-- item_changed 전환 변화마다 "무엇을 사라"를 공식 trade2 검색으로. 생성은 trade_links.py, 적재는 trade_links.json(+live 파일).
+CREATE TABLE IF NOT EXISTS trade_target (
+  change_id     INTEGER PRIMARY KEY REFERENCES transition_change(id) ON DELETE CASCADE,
+  base          TEXT NOT NULL,        -- 첫 줄(베이스 또는 유니크 이름)
+  unique_base   TEXT,                 -- 유니크면 베이스
+  category      TEXT,                 -- 거래소 카테고리(armour.helmet ...), 없으면 NULL
+  level_max     INTEGER,              -- 요구 레벨 상한 = to 스냅샷 level_hint
+  mods_json     TEXT NOT NULL,        -- 옵션 원문 배열
+  mapped_json   TEXT NOT NULL,        -- [{text,id,value}...]
+  unmapped_json TEXT NOT NULL         -- 못 맞춘 옵션(필터에서 뺌)
+);
+
+CREATE TABLE IF NOT EXISTS trade_link (
+  id            INTEGER PRIMARY KEY,
+  change_id     INTEGER NOT NULL REFERENCES transition_change(id) ON DELETE CASCADE,
+  tier          TEXT NOT NULL,        -- T1 그대로 | T2 핵심 | T3 같은 부위
+  label         TEXT NOT NULL,
+  note          TEXT,
+  realm         TEXT NOT NULL,        -- int | kr
+  url           TEXT NOT NULL,        -- ?q= 무상태 링크
+  query_json    TEXT NOT NULL,
+  live_id       TEXT,                 -- 공식 API 검색 id(만료됨)
+  live_total    INTEGER,              -- 검색 당시 매물 수
+  live_url      TEXT,
+  live_checked_utc TEXT,
+  UNIQUE(change_id, tier, realm)
+);
+
 CREATE INDEX IF NOT EXISTS ix_snap_build   ON snapshot(build_id, order_idx);
+CREATE INDEX IF NOT EXISTS ix_trade_change ON trade_link(change_id);
 CREATE INDEX IF NOT EXISTS ix_skill_snap   ON snapshot_skill(snapshot_id);
 CREATE INDEX IF NOT EXISTS ix_item_snap    ON snapshot_item(snapshot_id);
 CREATE INDEX IF NOT EXISTS ix_trans_build  ON transition(build_id, order_idx);
