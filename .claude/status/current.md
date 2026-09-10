@@ -1,7 +1,7 @@
 **지금**: 임성빈 화염파 젬링 0.5.5 HC — 사용자가 직접 플레이 중(2026-09-07 기준 2막). 인게임 플래너 5개 + 필터 3단계 설치 완료, 외부 검증 3회차까지 반영 끝. 미해결 없음.
 HC 여정 DB(`python/hc_journey/`) #1 규칙 자동 초안 완료 + F 자막 재추출 + 판독 신호원 + 후보 68건 판정(`rule_decisions.json`) + `league` 트리거(trade|ssf, 첫 전환 1회) 설계 → 규칙 24건·규칙 노트 40건. 규칙 텍스트 적대검증 3회(오독 2건 수정). 거래소 링크 생성기(`trade_links.py`, 사다리 T1/T2/T3 + 옵션 스탯 필터 + 요구 레벨 상한 + 즉시 구입, 국제/한국) → DB `trade_target/trade_link`. 크리에이터 4명(ds lily·Fubgun 추가, 손노동 0 으로 규칙 67건 상속), 링크 86건.
 
-**다음**: ① 추적기가 잡는 변화마다 플래너·사이드카 갱신(15분 주기, scratchpad `sb_track/`) — 갱신되면 `make_hc_gemling_spec.py` → 빌드를 다시 돌려야 필터에 반영된다 ② 채굴본 293건을 사용자용 액트별 시트로 압축(브라우저 페이지 제안해 둠) ③ 커밋 안 함 — 워킹트리에 이번 작업분이 그대로 있다(HC 여정 DB 파일만 커밋됨) ④ 여정 뷰 `journey.html` 사용자 피드백 반영 ⑤ 여정 DB 보류 0건 — `support_added` 트리거(보조 젬 도입, diff 신설) 로 범위 집중·이글거리는 화염 II 규칙 채택, 나머지 기각. 다음 후보: SSF 소스 → `league/ssf`, 다른 빌드 계열 크리에이터(바라시타·키타바) 플래너 소싱, 다중 사격 II 툴팁 판독 SSF 규칙은 SSF 소스가 생기면 `league/ssf` 로. 그다음 새 크리에이터 소스(`CREATOR_SOURCES`) 추가
+**다음**: ① 추적기가 잡는 변화마다 플래너·사이드카 갱신(15분 주기, scratchpad `sb_track/`) — 갱신되면 `make_hc_gemling_spec.py` → 빌드를 다시 돌려야 필터에 반영된다 ② 채굴본 293건을 사용자용 액트별 시트로 압축(브라우저 페이지 제안해 둠) ③ 커밋 안 함 — 워킹트리에 이번 작업분이 그대로 있다(HC 여정 DB 파일만 커밋됨) ④ 여정 뷰 `journey.html` 사용자 피드백 반영 ⑤ **다음 세션 #2 = 크리에이터 소싱·적재 플랜** — 지시서 `Docs/2026-09-10_HC_JOURNEY_CREATOR_SOURCING_TASK.md`(HC·HCSSF 가리지 않음, 명부에서 시작, 매트릭스 ≥10명 + 첫 3명 + 허락 목록, Tangjeong 1밴드 적재). 여정 DB 보류 0건 SSF 규칙은 SSF 소스가 생기면 `league/ssf` 로. 그다음 새 크리에이터 소스(`CREATOR_SOURCES`) 추가
 
 **블로커**: 없음. 전체 테스트 실패 12 + 에러 16은 전부 POE1 쪽(`filters/Luminary_Bot_SSF_3.29_Progressive.filter` 미빌드)과 알려진 4월본 파생 DB 건이라 이 작업과 무관하다.
 
