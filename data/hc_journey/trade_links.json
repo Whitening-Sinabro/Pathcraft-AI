@@ -2,7 +2,7 @@
  "_meta": {
   "purpose": "전환마다 제작자가 그 시점에 낀 아이템을 거래소 검색 링크로. T1 그대로 → T2 핵심 → T3 같은 부위 순으로 완화.",
   "honesty": "옵션→스탯 id 는 공식 stats 인덱스 정확 일치만(unmapped 는 필터에서 뺌). 요구 레벨 상한 = 스냅샷 레벨. 한국 서버는 별도 시장이라 ?q= 링크만 공유하고 검색 id 는 서버별.",
-  "generated_utc": "2026-09-10T12:36:29+00:00",
+  "generated_utc": "2026-09-10T12:59:28+00:00",
   "leagues": [
    "HC Forbidden Rites"
   ],
@@ -211,7 +211,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -240,10 +240,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.crossbow 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.crossbow 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_387439868%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_387439868%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_387439868%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_387439868%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -466,7 +466,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -501,10 +501,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.helmet 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "armour.helmet 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -853,7 +853,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -888,10 +888,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.gloves 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "armour.gloves 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -1355,7 +1355,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -1402,10 +1402,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.belt 전체 + 옵션 6개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.belt 전체 + 옵션 6개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2144192055%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2144192055%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2144192055%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A22%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2144192055%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -1978,7 +1978,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -2007,10 +2007,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.crossbow 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.crossbow 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A5.1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2768835289%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1202301673%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A5.1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2768835289%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1202301673%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A5.1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2768835289%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1202301673%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A5.1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2768835289%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1202301673%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -2524,7 +2524,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -2565,10 +2565,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.amulet 전체 + 옵션 5개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.amulet 전체 + 옵션 5개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1202301673%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1177404658%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1202301673%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1177404658%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1202301673%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1177404658%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1202301673%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1177404658%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -2787,7 +2787,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -2822,10 +2822,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.ring 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.ring 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -3044,7 +3044,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -3079,10 +3079,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.ring 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.ring 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A45%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -3542,7 +3542,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -3571,10 +3571,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.crossbow 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.crossbow 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2250681686%22%2C%22value%22%3A%7B%22min%22%3A0.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3131442032%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1365232741%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2250681686%22%2C%22value%22%3A%7B%22min%22%3A0.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3131442032%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1365232741%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2250681686%22%2C%22value%22%3A%7B%22min%22%3A0.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3131442032%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1365232741%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2250681686%22%2C%22value%22%3A%7B%22min%22%3A0.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3131442032%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1365232741%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -3791,7 +3791,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -3832,10 +3832,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.staff 전체 + 옵션 5개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.staff 전체 + 옵션 5개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.staff%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2891184298%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3015669065%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.staff%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2891184298%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3015669065%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.staff%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2891184298%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3015669065%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.staff%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2891184298%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3015669065%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -4037,7 +4037,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -4072,10 +4072,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.helmet 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "armour.helmet 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A115%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A84%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A115%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A84%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A115%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A84%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A115%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A84%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -4277,7 +4277,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -4312,10 +4312,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.gloves 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "armour.gloves 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A115%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A84%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A115%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A84%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A115%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A84%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A115%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A84%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -4494,7 +4494,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -4523,10 +4523,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.ring 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.ring 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_983749596%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -4884,7 +4884,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -4937,10 +4937,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.helmet 전체 + 옵션 7개 중 3개 이상, 각 60% 하한",
+     "note": "armour.helmet 전체 + 옵션 7개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A57%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A32%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A57%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A32%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A57%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A32%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A57%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3321629045%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A32%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -5197,7 +5197,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -5244,10 +5244,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.amulet 전체 + 옵션 6개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.amulet 전체 + 옵션 6개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_803737631%22%2C%22value%22%3A%7B%22min%22%3A255%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3489782002%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_587431675%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A23%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_803737631%22%2C%22value%22%3A%7B%22min%22%3A255%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3489782002%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_587431675%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A23%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_803737631%22%2C%22value%22%3A%7B%22min%22%3A255%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3489782002%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_587431675%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A23%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_803737631%22%2C%22value%22%3A%7B%22min%22%3A255%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3489782002%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_587431675%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A23%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -5504,7 +5504,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -5551,10 +5551,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.ring 전체 + 옵션 6개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.ring 전체 + 옵션 6개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_803737631%22%2C%22value%22%3A%7B%22min%22%3A45%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_803737631%22%2C%22value%22%3A%7B%22min%22%3A45%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_803737631%22%2C%22value%22%3A%7B%22min%22%3A45%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_803737631%22%2C%22value%22%3A%7B%22min%22%3A45%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A33%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -5811,7 +5811,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -5858,10 +5858,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.ring 전체 + 옵션 6개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.ring 전체 + 옵션 6개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2231156303%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_736967255%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A52%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A8.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2231156303%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_736967255%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A52%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A8.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2231156303%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_736967255%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A52%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A8.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A93%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2231156303%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_736967255%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A52%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A8.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -6477,7 +6477,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -6506,10 +6506,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.onemace 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.onemace 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A20%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A20%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A20%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A20%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -7445,7 +7445,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -7474,10 +7474,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.onemace 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.onemace 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -7677,7 +7677,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -7706,10 +7706,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.twomace 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.twomace 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.twomace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A0.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.twomace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A0.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.twomace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A0.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.twomace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A0.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -7911,7 +7911,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -7940,10 +7940,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.shield 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "armour.shield 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2481353198%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2481353198%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2481353198%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A5.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2481353198%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -8147,7 +8147,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -8176,10 +8176,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.chest 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "armour.chest 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A30%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -8565,7 +8565,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -8594,10 +8594,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.onemace 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.onemace 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A4.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -8797,7 +8797,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -8826,10 +8826,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.twomace 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.twomace 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.twomace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.twomace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.twomace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.twomace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A3.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -9031,7 +9031,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -9060,10 +9060,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.shield 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "armour.shield 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2481353198%22%2C%22value%22%3A%7B%22min%22%3A34%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2481353198%22%2C%22value%22%3A%7B%22min%22%3A34%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2481353198%22%2C%22value%22%3A%7B%22min%22%3A34%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2481353198%22%2C%22value%22%3A%7B%22min%22%3A34%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -9286,7 +9286,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -9321,10 +9321,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.chest 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "armour.chest 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A41%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A7.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -9729,7 +9729,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -9764,10 +9764,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.onemace 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.onemace 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A63%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3336890334%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_691932474%22%2C%22value%22%3A%7B%22min%22%3A67%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2694482655%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A63%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3336890334%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_691932474%22%2C%22value%22%3A%7B%22min%22%3A67%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2694482655%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A63%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3336890334%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_691932474%22%2C%22value%22%3A%7B%22min%22%3A67%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2694482655%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A63%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3336890334%22%2C%22value%22%3A%7B%22min%22%3A1.5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_691932474%22%2C%22value%22%3A%7B%22min%22%3A67%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2694482655%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -9986,7 +9986,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -10021,10 +10021,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.shield 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "armour.shield 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A17%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3771516363%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A17%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3771516363%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A17%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3771516363%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A17%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3771516363%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A3.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -10285,7 +10285,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -10332,10 +10332,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.chest 전체 + 옵션 6개 중 3개 이상, 각 60% 하한",
+     "note": "armour.chest 전체 + 옵션 6개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A72%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A25%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A72%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A25%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A72%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A25%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A72%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A25%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A0.9%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -10554,7 +10554,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -10589,10 +10589,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.gloves 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "armour.gloves 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1573130764%22%2C%22value%22%3A%7B%22min%22%3A5.7%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2797971005%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1573130764%22%2C%22value%22%3A%7B%22min%22%3A5.7%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2797971005%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1573130764%22%2C%22value%22%3A%7B%22min%22%3A5.7%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2797971005%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1573130764%22%2C%22value%22%3A%7B%22min%22%3A5.7%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2797971005%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -10811,7 +10811,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -10846,10 +10846,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.boots 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "armour.boots 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A2.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_915769802%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A2.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_915769802%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A2.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_915769802%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A2.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_915769802%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -11108,7 +11108,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -11155,10 +11155,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.amulet 전체 + 옵션 6개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.amulet 전체 + 옵션 6개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A7.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A7.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A7.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A7.3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -11377,7 +11377,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -11412,10 +11412,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.belt 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.belt 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A35%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A9.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A35%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A9.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A35%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A9.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A35%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A9.6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -11653,7 +11653,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -11694,10 +11694,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.ring 전체 + 옵션 5개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.ring 전체 + 옵션 5개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A49%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A19%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A9.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1573130764%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A49%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A19%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A9.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1573130764%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A49%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A19%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A9.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1573130764%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A49%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A19%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A9.6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1573130764%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -11954,7 +11954,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -12001,10 +12001,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.ring 전체 + 옵션 6개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.ring 전체 + 옵션 6개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_328541901%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A2.0%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_328541901%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A2.0%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_328541901%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A2.0%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A86%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_328541901%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A2.0%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -12910,7 +12910,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -12951,10 +12951,10 @@
        "price": "asc"
       }
      },
-     "note": "weapon.staff 전체 + 옵션 5개 중 3개 이상, 각 60% 하한",
+     "note": "weapon.staff 전체 + 옵션 5개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.staff%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3015669065%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A113%7D%7D%2C%7B%22id%22%3A%22explicit.stat_591105508%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2891184298%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.staff%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3015669065%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A113%7D%7D%2C%7B%22id%22%3A%22explicit.stat_591105508%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2891184298%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.staff%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3015669065%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A113%7D%7D%2C%7B%22id%22%3A%22explicit.stat_591105508%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2891184298%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.staff%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3015669065%22%2C%22value%22%3A%7B%22min%22%3A7.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A113%7D%7D%2C%7B%22id%22%3A%22explicit.stat_591105508%22%2C%22value%22%3A%7B%22min%22%3A4.2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2891184298%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -13775,7 +13775,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -13804,10 +13804,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.boots 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "armour.boots 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -14007,7 +14007,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -14036,10 +14036,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.amulet 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.amulet 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A72%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2901986750%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A1.2%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -15993,7 +15993,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -16022,10 +16022,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.helmet 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "armour.helmet 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A85%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A105%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A85%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A105%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A85%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A105%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A85%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A105%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A8.4%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A2.4%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -16641,7 +16641,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -16670,10 +16670,10 @@
        "price": "asc"
       }
      },
-     "note": "armour.boots 전체 + 옵션 3개 중 3개 이상, 각 60% 하한",
+     "note": "armour.boots 전체 + 옵션 3개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A85%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A114%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A85%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A114%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A85%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A114%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22req_filters%22%3A%7B%22filters%22%3A%7B%22lvl%22%3A%7B%22max%22%3A85%7D%7D%7D%2C%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A114%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -16873,7 +16873,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -16908,10 +16908,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.amulet 전체 + 옵션 4개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.amulet 전체 + 옵션 4개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A28%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3655769732%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A28%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3655769732%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A28%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3655769732%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A28%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3655769732%22%2C%22value%22%3A%7B%22min%22%3A1.8%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -17128,7 +17128,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -17169,10 +17169,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.ring 전체 + 옵션 5개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.ring 전체 + 옵션 5개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4220027924%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1671376347%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]
@@ -17389,7 +17389,7 @@
         {
          "type": "count",
          "value": {
-          "min": 3
+          "min": 2
          },
          "filters": [
           {
@@ -17430,10 +17430,10 @@
        "price": "asc"
       }
      },
-     "note": "accessory.ring 전체 + 옵션 5개 중 3개 이상, 각 60% 하한",
+     "note": "accessory.ring 전체 + 옵션 5개 중 2개 이상, 각 60% 하한",
      "links": {
-      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
-      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A3%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
+      "int": "https://www.pathofexile.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D",
+      "kr": "https://poe.kakaogames.com/trade2/search/poe2/HC%20Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%2C%22rarity%22%3A%7B%22option%22%3A%22nonunique%22%7D%7D%7D%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22count%22%2C%22value%22%3A%7B%22min%22%3A2%7D%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A60%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3372524247%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D"
      }
     }
    ]

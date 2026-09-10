@@ -38,21 +38,31 @@ def load_trade_links(path: Path | None = None, live_dir: Path | None = None) -> 
     out = {(e["creator"], e["transition_idx"], e["slot"]): e for e in doc.get("entries", [])}
     live_dir = live_dir or path.parent
     for lp in sorted(live_dir.glob(TRADE_LIVE_GLOB)):
-        ldoc = json.loads(lp.read_text(encoding="utf-8"))
-        checked = ldoc.get("_meta", {}).get("generated_utc")
-        for le in ldoc.get("entries", []):
-            e = out.get((le["creator"], le["transition_idx"], le["slot"]))
-            if not e:
-                continue
-            by_tier = {t["tier"]: t for t in e["tiers"]}
-            for lt in le["tiers"]:
-                t = by_tier.get(lt["tier"])
-                if t is None or "live" not in lt:
-                    continue
-                t.setdefault("live", {})
-                for realm, res in lt["live"].items():
-                    t["live"][realm] = {**res, "checked_utc": checked}
+        merge_live(out, json.loads(lp.read_text(encoding="utf-8")))
     return out
+
+
+def merge_live(out: dict[tuple, dict], ldoc: dict) -> int:
+    """live 결과를 같은 (creator, idx, slot, tier) 이면서 **쿼리 JSON 이 같을 때만** 얹는다.
+    매물 수는 그 쿼리의 것이다 — 사다리 임계를 바꾸면 옛 숫자는 버려져야 한다. 반환: 얹은 (tier, realm) 수."""
+    checked = ldoc.get("_meta", {}).get("generated_utc")
+    n = 0
+    for le in ldoc.get("entries", []):
+        e = out.get((le["creator"], le["transition_idx"], le["slot"]))
+        if not e:
+            continue
+        by_tier = {t["tier"]: t for t in e["tiers"]}
+        for lt in le["tiers"]:
+            t = by_tier.get(lt["tier"])
+            if t is None or "live" not in lt:
+                continue
+            if json.dumps(lt.get("query"), sort_keys=True) != json.dumps(t.get("query"), sort_keys=True):
+                continue  # 쿼리가 달라졌다 — 이 매물 수는 지금 링크의 것이 아니다
+            t.setdefault("live", {})
+            for realm, res in lt["live"].items():
+                t["live"][realm] = {**res, "checked_utc": checked}
+                n += 1
+    return n
 
 
 def _short(gid: str) -> str:

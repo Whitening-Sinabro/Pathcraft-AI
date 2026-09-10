@@ -266,10 +266,10 @@ def build_ladder(item: Item, mapped: list[ModFilter], category: str | None, leve
         q3 = base_query()
         q3["filters"]["type_filters"] = {"filters": {"category": {"option": category}, "rarity": {"option": "nonunique"}}}
         if n:
-            k = min(3, n)
+            k = min(2, n)   # 2026-09-10 live: 3개 이상은 옵션 3개↑ 아이템에서 0건이 몰렸다(Cryptic Crown·Adherent Cuffs·Pearlescent Amulet)
             q3["stats"] = [{"type": "count", "value": {"min": k}, "filters": [_stat_filter(m, 0.6) for m in mapped]}]
         tiers.append({"tier": "T3", "label": "같은 부위", "query": {"query": q3, "sort": {"price": "asc"}},
-                      "note": f"{category} 전체 + 옵션 {n}개 중 {min(3, n) if n else 0}개 이상, 각 60% 하한"})
+                      "note": f"{category} 전체 + 옵션 {n}개 중 {min(2, n) if n else 0}개 이상, 각 60% 하한"})
     return tiers
 
 
@@ -307,6 +307,44 @@ def load_trade_data(kind: str, realm: str = "int", refresh: bool = False) -> dic
     return json.loads(body.decode("utf-8"))
 
 
+DEFAULT_PACE_SEC = 11.0   # 헤더를 아직 못 봤을 때. 2026-09-10 실측 정책 30:300 → 300/30×1.1
+LONG_BUCKET_SEC = 3600    # 이보다 긴 버킷(6시간 600건)은 80% 넘을 때만 속도를 낮춘다
+
+
+def parse_rate_triples(s: str | None) -> list[tuple[int, int, int]]:
+    """'5:10:60,15:60:300' → [(5,10,60),(15,60,300)]. 정책은 (요청수, 초, 벌칙초), 상태는 (현재 요청수, 초, 남은 벌칙초)."""
+    out = []
+    for part in (s or "").split(","):
+        bits = part.strip().split(":")
+        if len(bits) == 3 and all(b.isdigit() for b in bits):
+            out.append((int(bits[0]), int(bits[1]), int(bits[2])))
+    return out
+
+
+def pace_seconds(rate: dict | None, safety: float = 1.15) -> float:
+    """다음 요청까지 기다릴 초. X-Rate-Limit-Ip(정책)와 -Ip-State(현재)로 계산 — 정책은 시즌·부하마다 바뀌므로 코드에 박지 않는다.
+    버킷마다 period/limit 을 지속 간격으로 두고, 어떤 버킷이 한도-1 에 닿았으면 그 버킷의 period 만큼 쉰다(창이 비는 최악 시간)."""
+    if not rate:
+        return DEFAULT_PACE_SEC
+    rules = parse_rate_triples(rate.get("X-Rate-Limit-Ip"))
+    state = parse_rate_triples(rate.get("X-Rate-Limit-Ip-State"))
+    if not rules:
+        return DEFAULT_PACE_SEC
+    wait = 0.0
+    for i, (limit, period, _pen) in enumerate(rules):
+        hits = state[i][0] if i < len(state) else 0
+        sustained = period / limit * safety
+        if period > LONG_BUCKET_SEC:
+            if hits >= 0.8 * limit:
+                wait = max(wait, sustained)
+            continue
+        if hits >= limit - 1:
+            wait = max(wait, float(period))
+        else:
+            wait = max(wait, sustained)
+    return wait
+
+
 def post_search(realm: str, league: str, query: dict) -> dict:
     """검색 생성. 429 면 Retry-After 만큼 쉬고 한 번 재시도. 반환 {id,total} 또는 {error}."""
     url = f"https://{HOSTS[realm]}/api/trade2/search/poe2/{urllib.parse.quote(league)}"
@@ -340,10 +378,10 @@ def generate(creators: list[dict] | None = None, league: str | None = None, stat
              live: bool = False, realms: tuple[str, ...] = ("int",), index: StatIndex | None = None,
              base_paths: dict[str, str] | None = None, uniques: dict[str, str] | None = None,
              creator: str | None = None, live_tiers: tuple[str, ...] | None = None,
-             interval: float = POST_INTERVAL_SEC, leagues_doc: dict | None = None) -> dict:
+             interval: float | None = None, leagues_doc: dict | None = None) -> dict:
     """league=None 이면 빌드마다 cfg["build"]["league"] 슬러그를 trade2 리그 id 로 푼다(시즌마다 바뀌므로 박지 않는다).
-    live_tiers 로 POST 할 단계를 제한한다(예: ("T1","T3")). 거래 API 는 IP 단위 속도 제한이 엄격해(429 에 Retry-After 300~1800초)
-    전부 묻지 말고 답이 필요한 단계만, interval 은 넉넉히(7초 이상 권장)."""
+    live_tiers 로 POST 할 단계를 제한한다(예: ("T1","T3")). interval=None 이면 응답 헤더(X-Rate-Limit-*)로 다음 대기를 계산한다
+    (실측 정책 5:10 / 15:60 / 30:300 / 600:21600 → 지속 약 11초). 숫자를 주면 그 간격을 고정."""
     index = index or StatIndex.from_trade_data(load_trade_data("stats"))
     base_paths = base_paths if base_paths is not None else load_base_paths()
     uniques = uniques if uniques is not None else unique_names(load_trade_data("items"))
@@ -382,7 +420,7 @@ def generate(creators: list[dict] | None = None, league: str | None = None, stat
                             if res.get("id"):
                                 res["url"] = id_url(r, build_league, res["id"])
                             t["live"][r] = res
-                            time.sleep(interval)
+                            time.sleep(interval if interval is not None else pace_seconds(res.get("rate")))
                 if live:
                     log.info("live [%s] %s %s %s | %s", cfg["name"], f"{bands[i][0]}→{to_label}", slot, item.first,
                              " ".join(f"{t['tier']}={t['live'].get(realms[0], {}).get('total', t['live'].get(realms[0], {}).get('error'))}"
@@ -416,7 +454,8 @@ if __name__ == "__main__":
     ap.add_argument("--realm", default="int", choices=["int", "kr", "both"])
     ap.add_argument("--live", action="store_true", help="공식 API 에 POST 해 검색 id 와 매물 수를 받는다")
     ap.add_argument("--tiers", default=None, help="live 로 물을 단계만, 예: T1,T3 (기본 전부)")
-    ap.add_argument("--interval", type=float, default=7.0, help="POST 간격 초. IP 속도 제한(429 → 300~600초 벌칙) 때문에 7초 이상 권장")
+    ap.add_argument("--interval", type=float, default=None,
+                    help="POST 간격 초. 비우면 응답 헤더 X-Rate-Limit-* 로 자동(실측 약 11초). 429 는 Retry-After 준수")
     ap.add_argument("--creator", default=None)
     ap.add_argument("--refresh", action="store_true", help="trade2 data 캐시를 다시 받는다")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)

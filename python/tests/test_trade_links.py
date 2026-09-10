@@ -95,9 +95,9 @@ def test_ladder_tiers_thresholds_and_requirement_cap():
     # T2: 3개 중 2개 이상, 60% 하한(57, 18, 20)
     assert q2["stats"][0]["type"] == "count" and q2["stats"][0]["value"] == {"min": 2}
     assert [f["value"]["min"] for f in q2["stats"][0]["filters"]] == [57, 18, 20]
-    # T3: 카테고리 전체(베이스 없음), 3개 중 3개
+    # T3: 카테고리 전체(베이스 없음), 3개 중 2개 이상(live 실측 후 완화)
     assert "type" not in q3 and q3["filters"]["type_filters"]["filters"]["category"] == {"option": "armour.helmet"}
-    assert q3["stats"][0]["value"] == {"min": 3}
+    assert q3["stats"][0]["value"] == {"min": 2}
     # 레벨 미상이면 요구 상한 없음, 카테고리 미상이면 T3 없음
     tiers2 = tl.build_ladder(item, mapped, None, level_max=None)
     assert [t["tier"] for t in tiers2] == ["T1", "T2"] and "req_filters" not in tiers2[0]["query"]["query"]["filters"]
@@ -138,6 +138,20 @@ def test_league_resolved_from_build_slug_not_hardcoded():
     doc = tl.generate(index=tl.StatIndex.from_trade_data(STATS), base_paths=BASE_PATHS, uniques={}, creator="임성빈", leagues_doc=leagues)
     assert doc["_meta"]["leagues"] == ["HC Forbidden Rites"]
     assert all(e["league"] == "HC Forbidden Rites" and "HC%20Forbidden%20Rites" in e["tiers"][0]["links"]["int"] for e in doc["entries"])
+
+
+def test_pace_from_rate_limit_headers():
+    """2026-09-10 실측 헤더. 정책 5:10 / 15:60 / 30:300 / 600:21600 → 지속 간격은 가장 느린 300초 버킷(10초×1.15)."""
+    policy = "5:10:60,15:60:300,30:300:1800,600:21600:3600"
+    assert tl.parse_rate_triples(policy) == [(5, 10, 60), (15, 60, 300), (30, 300, 1800), (600, 21600, 3600)]
+    assert tl.parse_rate_triples("") == [] and tl.parse_rate_triples("garbage") == []
+    mid = {"X-Rate-Limit-Ip": policy, "X-Rate-Limit-Ip-State": "1:10:0,7:60:0,20:300:0,173:21600:0"}
+    assert tl.pace_seconds(mid) == 300 / 30 * 1.15
+    full = {"X-Rate-Limit-Ip": policy, "X-Rate-Limit-Ip-State": "2:10:0,8:60:0,29:300:0,183:21600:0"}
+    assert tl.pace_seconds(full) == 300.0                      # 300초 버킷이 한도-1 → 창이 빌 때까지
+    long = {"X-Rate-Limit-Ip": policy, "X-Rate-Limit-Ip-State": "1:10:0,1:60:0,1:300:0,500:21600:0"}
+    assert tl.pace_seconds(long) == 21600 / 600 * 1.15         # 6시간 버킷 80% 넘으면 그 속도
+    assert tl.pace_seconds(None) == tl.DEFAULT_PACE_SEC and tl.pace_seconds({}) == tl.DEFAULT_PACE_SEC
 
 
 def test_q_url_roundtrips_query_and_hosts_differ():

@@ -127,6 +127,21 @@ def test_trade_links_attach_to_item_changes(tmp_path, monkeypatch):
     assert st["transition_change"] == st_before["transition_change"] and st["transition_note"] == st_before["transition_note"]
 
 
+def test_live_counts_merge_only_when_query_is_identical():
+    """매물 수는 그 쿼리의 것 — 사다리 임계를 바꾸면 옛 live 숫자는 버려진다."""
+    q_same = {"query": {"type": "X"}, "sort": {"price": "asc"}}
+    q_new = {"query": {"type": "X", "stats": []}, "sort": {"price": "asc"}}
+    out = {("c", 0, "Helm1"): {"tiers": [{"tier": "T1", "query": q_same, "links": {}}, {"tier": "T3", "query": q_new, "links": {}}]}}
+    ldoc = {"_meta": {"generated_utc": "2026-09-10T12:00:00+00:00"}, "entries": [{"creator": "c", "transition_idx": 0, "slot": "Helm1", "tiers": [
+        {"tier": "T1", "query": q_same, "live": {"int": {"id": "a", "total": 5}}},
+        {"tier": "T3", "query": {"query": {"type": "X"}, "sort": {"price": "asc"}}, "live": {"int": {"id": "b", "total": 99}}},  # 옛 T3 쿼리
+    ]}]}
+    assert build_db.merge_live(out, ldoc) == 1
+    tiers = out[("c", 0, "Helm1")]["tiers"]
+    assert tiers[0]["live"]["int"] == {"id": "a", "total": 5, "checked_utc": "2026-09-10T12:00:00+00:00"}
+    assert "live" not in tiers[1]
+
+
 def test_two_layers_and_query():
     build_db.build()
     con = sqlite3.connect(build_db.DB_PATH)

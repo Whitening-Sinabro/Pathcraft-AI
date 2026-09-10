@@ -95,6 +95,10 @@ python -X utf8 -m pytest python/tests/test_trade_links.py -q
 - **베이스 → 카테고리** 는 GGPK `BaseItemTypes.Id` 경로(`/Armours/Helmets/` 등)에서 유도. 유니크는 trade2 items 카탈로그의 이름으로 검색.
 - **요구 레벨 상한** = 그 스냅샷의 `level_hint`. 즉시 구입(`status: securable`) 기본. 정렬 가격 오름차순.
 - **한국 서버**(`poe.kakaogames.com`)는 별도 시장 — `?q=` 링크는 같지만 검색 id 는 서버별로 POST 해야 한다.
+- **속도 제한(2026-09-10 실측 헤더)**: `X-Rate-Limit-Ip: 5:10:60,15:60:300,30:300:1800,600:21600:3600`(요청수:초:벌칙초).
+  300초에 30건이 병목이라 지속 간격 약 11초, 6시간 600건. `--live` 는 기본으로 응답 헤더를 읽어 다음 대기를 계산하고(`pace_seconds`),
+  429 는 Retry-After 를 지킨다. 정책은 시즌·부하마다 바뀌므로 코드에 숫자를 박지 않는다.
+- **live 실측(임성빈 30건, T1·T3)**: T1(베이스+옵션 전부 80%) 8/30 매물 있음, T3(같은 부위) 21/30. 0건은 22레벨 이하 장비와 옵션 3개↑ 조합에 몰림 → T3 를 "2개 이상"으로 완화.
 - 캐시 `data/_cache/trade2/`(gitignore, `--refresh` 로 갱신). 산출물 `trade_links.json` 은 재생성 가능.
 - **DB**: `build_db.py --build` 가 `trade_links.json`(+ `trade_links_live_*.json` 의 검색 id·매물 수)을 읽어 `trade_target`(변화당 아이템 사실)
   + `trade_link`(단계×서버 링크)에 넣는다. 파일이 없으면 두 테이블만 비고 적재는 그대로 — 적재는 네트워크·캐시 없이 돈다.
