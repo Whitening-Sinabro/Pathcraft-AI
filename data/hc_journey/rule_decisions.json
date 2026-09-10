@@ -2,13 +2,13 @@
  "_meta": {
   "purpose": "rule_candidates.json 후보에 대한 승인 기록. rule_autodraft.run 이 id 로 병합해 status 를 채운다.",
   "judged_by": "Claude (사용자 위임 2026-09-10 '니가 판독해')",
-  "generated_utc": "2026-09-10T11:01:49+00:00",
+  "generated_utc": "2026-09-10T12:29:18+00:00",
   "status_values": "adopted = CURATION_RULES 에 반영(rule 필드) · rejected = 사유 · deferred = 조건부(사유에 해제 조건)",
   "n": 68,
   "n_by_status": {
    "adopted": 30,
-   "rejected": 30,
-   "deferred": 8
+   "rejected": 32,
+   "deferred": 6
   },
   "adopted_rules": [
    "ascendancy/Gemling Legionnaire/condition",
@@ -271,12 +271,12 @@
    "reason": "위와 동일"
   },
   "skill_added/OilGrenade/condition/readout/C 4980": {
-   "status": "deferred",
-   "reason": "'폭발 투사체 I 은 위에서 떨어뜨리는 스킬에 적용되지 않는다' — 유탄이 그 분류인지 GGPK 로 미확인. 확인되면 pitfall 규칙"
+   "status": "rejected",
+   "reason": "GGPK ActiveSkills: '위에서 떨어뜨리는' 스킬 유형(ActiveSkillTypes 89 — Death From Above·Gas Arrow·Lightning Rod·Rain of Arrows·Toxic Rain 등 11개)이 유탄(explosive/flash/gas/oil grenade)엔 없다. 유탄 설명도 'bouncing Grenade'. 제외 조항의 대상이 아니므로 함정 규칙 아님(2026-09-10 확인)"
   },
   "skill_added/OilGrenade/why/readout/C 4980": {
-   "status": "deferred",
-   "reason": "위와 동일"
+   "status": "rejected",
+   "reason": "위와 동일 — 보조 선택 목록에 뜬 것 자체가 장착 가능 근거"
   },
   "skill_added/OilGrenade/pitfall/caption/A 14245": {
    "status": "rejected",
