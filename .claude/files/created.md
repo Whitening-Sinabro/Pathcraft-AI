@@ -331,4 +331,8 @@
 - `deliverables/seongbin_from_day1_2026-09-09/transcripts/rsKbeELo0TM.{json,txt}` + `sources/rsKbeELo0TM.ko-orig.json3` — F(9/9 검은 화염파 전환 완료 방송) 자동 자막 2781줄. 9/9 fetch 는 방송 중이라 자막 0 → 9/10 `research.metadata` 갱신 후 `continue_sources.py rsKbeELo0TM` 로 재추출. 처음 30분은 무발화. 옛 info 는 `.info.20260909.json` 으로 보존. 삭제 가능(재추출)
 - `data/hc_journey/rule_decisions.json` — 후보 68건 승인 기록(채택 30·기각 30·보류 8 — league/trade 설계 후, 사유·rule 포함). 판정 주체 Claude(사용자 위임 2026-09-10). 초안기가 재생성 때 id 로 병합. 삭제 불가(판정 원본)
 - `data/hc_journey/rule_candidates.json` — 승인 대기 후보(임성빈, 자막 15 + 판독 43). 재생성 = `python -X utf8 python/hc_journey/rule_autodraft.py`. 삭제 가능(재생성)
+- `python/hc_journey/trade_links.py` — 전환의 item_changed → 공식 trade2 검색 링크(옵션 포함). 사다리 T1/T2/T3, 스탯 id 정확 일치 + reduced 폴백, GGPK 경로→카테고리, 요구 레벨 상한, 즉시 구입, 국제/한국 호스트, `--live` 로 검색 id·매물 수. 삭제 불가
+- `python/tests/test_trade_links.py` — 9건(정규화·매핑·사다리 임계·요구 상한·플라스크/유니크·?q= 왕복·픽스처 생성·실 인덱스 매핑률). 삭제 불가
+- `data/_cache/trade2/int_{stats,items,filters,leagues}.json` — 공식 /api/trade2/data 캐시(2026-09-10). gitignore, `--refresh` 재취득. 삭제 가능
+- `data/hc_journey/trade_links.json` — 59건 링크(국제+한국 ?q=). 재생성 가능. `trade_links_live_seongbin.json` — 임성빈 34건 live 검색 id·매물 수(검색 id 는 만료됨). 삭제 가능
 - `data/hc_journey/pathcraft_hc.db` — 적재 산출물, gitignore. 삭제 가능

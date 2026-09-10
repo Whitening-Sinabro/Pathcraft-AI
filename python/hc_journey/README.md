@@ -75,8 +75,28 @@ python -X utf8 -m pytest python/tests/test_rule_autodraft.py -q
   이미 있는 (kind,key,note_type) 은 `existing_rule` 표시.
 - 소스는 크리에이터별(`CREATOR_SOURCES`). 소스 없는 크리에이터(Skadoosh)는 후보 0 — 다른 크리에이터의 영상을 빌리지 않는다.
 
+## 거래소 링크 (`trade_links.py`) — "무엇을 사라"를 즉시 구입 링크로, 옵션까지
+
+전환의 `item_changed` 마다 제작자가 그 시점에 낀 아이템(베이스 + 옵션)을 공식 trade2 검색 쿼리로 바꿔 링크를 낸다.
+
+```
+python -X utf8 python/hc_journey/trade_links.py --realm both            # ?q= 링크(무상태, 국제+한국) → data/hc_journey/trade_links.json
+python -X utf8 python/hc_journey/trade_links.py --creator 임성빈 --live  # 공식 API 에 POST 해 검색 id·매물 수(1.5초 간격)
+python -X utf8 -m pytest python/tests/test_trade_links.py -q
+```
+
+- **실측이 설계를 정했다**: 같은 베이스 + 옵션 전부 AND 는 HC 온라인 매물 0건, 투구 카테고리 + "6개 중 3개, 60% 하한"은 353건.
+  그래서 사다리 — T1 그대로(베이스 + 옵션 전부 80%) → T2 핵심(베이스 + 절반 이상 60%) → T3 같은 부위(카테고리 + 3개 이상 60%).
+- **옵션 → 스탯 id** 는 공식 `/api/trade2/data/stats` 인덱스와 정확 일치(숫자→`#`, `+#`→`#`)만. `reduced`↔`increased` 한 번 폴백(음수는 존재만).
+  못 맞춘 옵션은 `unmapped` 로 남기고 필터에서 뺀다. 픽스처 167개 중 3개 → 폴백 후 0.
+- **베이스 → 카테고리** 는 GGPK `BaseItemTypes.Id` 경로(`/Armours/Helmets/` 등)에서 유도. 유니크는 trade2 items 카탈로그의 이름으로 검색.
+- **요구 레벨 상한** = 그 스냅샷의 `level_hint`. 즉시 구입(`status: securable`) 기본. 정렬 가격 오름차순.
+- **한국 서버**(`poe.kakaogames.com`)는 별도 시장 — `?q=` 링크는 같지만 검색 id 는 서버별로 POST 해야 한다.
+- 캐시 `data/_cache/trade2/`(gitignore, `--refresh` 로 갱신). 산출물 `trade_links.json` 은 재생성 가능.
+
 ## 다음
 
+- 거래 링크를 DB 에 넣기(`transition_change` 에 붙는 `trade_link` 테이블) — 스키마 변경이라 승인 뒤.
 - 크리에이터 다수 적재: HC 명부(`.claude/status/poe2_hardcore_sources.md`)의 밴드 PoB·ninja ID 수집.
 - 규칙 후보 승인 루프: `rule_candidates.json` 검토 → 채택분을 `CURATION_RULES` 로. 판독(사람 검증 텍스트)도 신호원으로 쓸지 결정.
 - 정본 게임데이터(Layer 1) 연결: 스킬/아이템/트리 노드 → GGPK 파생.
