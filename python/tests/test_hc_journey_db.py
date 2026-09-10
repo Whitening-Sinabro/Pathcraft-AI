@@ -20,8 +20,8 @@ def test_multi_creator_and_rules():
     st = build_db.build()
     assert st["creator"] == 2 and st["build"] == 2, st
     assert st["snapshot"] == 10 and st["transition"] == 8, st
-    assert st["curation_rule"] >= 5, st
-    assert st["notes_rule"] >= 4, st        # 규칙에서 자동 부착된 노트
+    assert st["curation_rule"] >= 10, st
+    assert st["notes_rule"] >= 8, st        # 규칙에서 자동 부착된 노트(커버리지 확장)
     assert st["notes_hand"] >= 6, st        # 빌드 고유 손노동
 
 
@@ -37,7 +37,7 @@ def test_skadoosh_inherits_curation_free():
         "SELECT COUNT(*) FROM transition_note n JOIN transition t ON n.transition_id=t.id "
         "WHERE t.build_id=? AND n.source='rule'", (bid,)).fetchone()[0]
     assert hand == 0, hand      # 아직 손노동 안 함
-    assert rule >= 2, rule      # 그래도 키스톤 규칙(Blood Magic·Ancestral Bond)이 붙는다
+    assert rule >= 4, rule      # 키스톤 2 + 어센던시(Warbringer) + 토템 등 규칙이 붙는다
     con.close()
 
 

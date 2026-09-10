@@ -84,6 +84,20 @@ CURATION_RULES = [
     # 장비 슬롯 변화 — 세트 II 무기가 생기는 어떤 빌드든 자동으로 붙는다.
     ("item_slot_change", "Weapon2", "why",
      "세트 II(두 번째 무기) 도입: 세트 전용 패시브는 세트 II 에만 넣어야 주력에서 먹는다. R2 로 세트 전환.", "규칙(임성빈 C9787 실측)"),
+    # 어센던시 — 그 전직을 쓰는 모든 빌드에 자동.
+    ("ascendancy", "Gemling Legionnaire", "why",
+     "젬링 리저네어: 젬 레벨·능력치 보너스 중심 전직. 능력치 투자가 곧 딜이자 보조 젬 슬롯(보조 상한 = 능력치 ÷ 5).", "규칙(임성빈 실측)"),
+    ("ascendancy", "Warbringer", "why",
+     "워브링어: 함성·토템 중심 전사 어센던시. 함성으로 버프/발동을 굴리고 토템으로 딜을 낸다.", "규칙(Skadoosh 실측)"),
+    # 추가 키스톤/스킬 규칙 — 커버리지 확장(신규 빌드가 더 많이 상속).
+    ("keystone", "Blackflame Covenant", "survival",
+     "화염 피해가 카오스가 되므로 적의 화염 저항이 무의미해지고 카오스 저항·관통이 중요해진다. 몬스터 카오스 저항이 높으면 딜이 빠진다.", "규칙(카오스 전환 메커니즘)"),
+    ("skill_added", "CastOnElementalAilment", "why",
+     "발동형 메타 스킬: 동결·감전·점화로 에너지를 얻고 최대치에서 장착 주문을 일괄 발동. 느린 주문일수록 최대 에너지가 커진다.", "규칙(임성빈 F207 실측)"),
+    ("skill_added", "ShockwaveTotem", "condition",
+     "토템 배치 스킬 — 재설치·위치가 딜에 직결. 선대의 유대 계열이면 유일 딜원이라 토템 생존이 곧 딜이다.", "규칙(토템 운용)"),
+    ("skill_added", "Despair", "why",
+     "저주(절망). 기본은 저주 1개만 활성 — 2개를 쓰려면 관련 패시브(멸망 등)가 필요하다.", "규칙(임성빈 D19366 발언)"),
 ]
 
 
@@ -148,27 +162,26 @@ def build() -> dict:
     con = sqlite3.connect(DB_PATH)
     con.executescript(SCHEMA.read_text(encoding="utf-8"))
 
-    # 규칙 라이브러리 적재 (한 번 정의 -> 모든 빌드에 자동 적용)
-    rule_id = {}
+    # 규칙 라이브러리 적재 (한 번 정의 -> 모든 빌드에 자동 적용).
+    # 한 트리거에 note_type 이 다른 규칙이 여러 개일 수 있어 (kind,key) -> [rule_id...] 로 담는다.
+    rule_ids: dict = {}
     for kind, key, nt, text, ev in CURATION_RULES:
         cur = con.execute(
             "INSERT INTO curation_rule(trigger_kind, trigger_key, note_type, text, evidence_ref) VALUES(?,?,?,?,?)",
             (kind, key, nt, text, ev))
-        rule_id[(kind, key)] = cur.lastrowid
+        rule_ids.setdefault((kind, key), []).append(cur.lastrowid)
 
     def add_rule_note(trans_id, kind, key):
-        r = rule_id.get((kind, key))
-        if r is None:
-            return 0
-        # 같은 규칙을 같은 전환에 중복으로 붙이지 않는다.
-        dup = con.execute("SELECT 1 FROM transition_note WHERE transition_id=? AND rule_id=?",
-                          (trans_id, r)).fetchone()
-        if dup:
-            return 0
-        rr = con.execute("SELECT note_type, text, evidence_ref FROM curation_rule WHERE id=?", (r,)).fetchone()
-        con.execute("INSERT INTO transition_note(transition_id, note_type, text, evidence_ref, source, rule_id) "
-                    "VALUES(?,?,?,?,'rule',?)", (trans_id, rr[0], rr[1], rr[2], r))
-        return 1
+        n = 0
+        for r in rule_ids.get((kind, key), []):
+            if con.execute("SELECT 1 FROM transition_note WHERE transition_id=? AND rule_id=?",
+                           (trans_id, r)).fetchone():
+                continue  # 같은 규칙을 같은 전환에 중복으로 붙이지 않는다.
+            rr = con.execute("SELECT note_type, text, evidence_ref FROM curation_rule WHERE id=?", (r,)).fetchone()
+            con.execute("INSERT INTO transition_note(transition_id, note_type, text, evidence_ref, source, rule_id) "
+                        "VALUES(?,?,?,?,'rule',?)", (trans_id, rr[0], rr[1], rr[2], r))
+            n += 1
+        return n
 
     for cfg in CREATORS:
         cur = con.execute("INSERT INTO creator(name, channel_url, ninja_account) VALUES(?,?,?)",
@@ -218,8 +231,9 @@ def build() -> dict:
                 con.execute("INSERT INTO transition_note(transition_id, note_type, text, evidence_ref, source) "
                             "VALUES(?,?,?,?,'hand')", (trans_id, note_type, text, ev))
 
-        # 키스톤 규칙: 빌드 키스톤 -> 마지막(엔드게임) 전환에 자동 부착
+        # 빌드 단위 규칙: 어센던시 -> 첫 전환(기초), 키스톤 -> 마지막 전환(엔드게임)
         if trans_ids:
+            add_rule_note(trans_ids[0], "ascendancy", b["asc"])
             for ks in cfg.get("keystones", []):
                 add_rule_note(trans_ids[-1], "keystone", ks)
 
