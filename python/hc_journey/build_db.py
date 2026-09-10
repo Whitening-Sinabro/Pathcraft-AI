@@ -223,7 +223,7 @@ CURATION_RULES = [
 # keystones: ninja 실측(keystone 규칙 매칭용). notes: 그 빌드 고유의 손노동만(초반 창).
 CREATORS = [
     {
-        "name": "임성빈", "channel": "https://www.youtube.com/@임성빈", "ninja": "dtq03087-0345",
+        "name": "임성빈", "channel": "https://www.youtube.com/channel/UCvj_myZNbqdHBBFT2IjKJWw", "ninja": "dtq03087-0345",   # @임성빈POE2하드코어 (yt-dlp 2026-09-10 확정)
         "build": {"name": "젬링 화염파 -> 검은화염 카오스", "asc": "Gemling Legionnaire",
                   "league": "hc-forbidden-rites", "ssf": 0,
                   "notes": "유탄 육성 -> 52 화염파 전환 -> 검은화염 카오스"},
@@ -252,7 +252,7 @@ CREATORS = [
         },
     },
     {
-        "name": "Skadoosh", "channel": "https://www.youtube.com/@Skadoosh", "ninja": "ITheCon-2183",
+        "name": "Skadoosh", "channel": "https://www.youtube.com/channel/UChDo6WKvR6szS46KY_dL_zg", "ninja": "ITheCon-2183",   # @SkadooshPoE (명부·yt-dlp 확정; @Skadoosh 는 다른 채널)
         "build": {"name": "워브링어 타락 함성 토템", "asc": "Warbringer",
                   "league": "hc-forbidden-rites", "ssf": 0,
                   "notes": "충격파 토템 + Corrupting Cry, 혈마법. (임성빈과 다른 어센던시)"},
@@ -273,8 +273,9 @@ CREATORS = [
         "build": {"name": "기름 유탄 화염파 젬링 (ds lily)", "asc": "Gemling Legionnaire",
                   "league": "hc-forbidden-rites", "ssf": 0,
                   "notes": "Mobalytics 5탭(Lvl 25/47/51/72/93). Lvl 51 탭은 패시브만 있어(스킬·장비 없음) 밴드에서 제외 — "
-                           "화염파 전환은 47→72 구간으로 잡힌다. 릴리리그(사설 HC GSF) 운영자(명부). 키스톤은 ninja 미확보로 비움."},
-        "hardcore": 1,
+                           "화염파 전환은 47→72 구간으로 잡힌다. 릴리리그(사설 HC GSF) 운영자(명부)지만 이 빌드(설명란 '1 divine budget', WIP)의 "
+                           "HC 근거는 없어 hardcore=0 — 근거 등급 I(2026-09-10 소싱 #2). ninja HC 캐릭터가 확인되면 1. 키스톤은 ninja 미확보로 비움."},
+        "hardcore": 0,
         "keystones": [],
         "bands": [
             ("Lvl25", 25, "planner_band", "dslily/01_Lvl25.build"),
@@ -300,6 +301,24 @@ CREATORS = [
             ("lvl 53-68", 68, "planner_band", "fubgun/05_lvl53-68.build"),
             ("lvl 85", 85, "planner_band", "fubgun/06_lvl85.build"),
             ("Endgame", None, "planner_band", "fubgun/07_endgame.build"),
+        ],
+        "notes": {},
+    },
+    # --- 다른 빌드 계열(방패벽 키타바) · 밴드 1개 — 전환 0 빌드를 파이프라인이 어떻게 다루는지 보는 첫 사례(2026-09-10 소싱 #2). ---
+    {
+        "name": "탱정", "channel": "https://www.youtube.com/channel/UCSlN0zTczYpNJHCbskGuYaw", "ninja": None,
+        "build": {"name": "방패벽 키타바 2.0 (탱정)", "asc": "Smith of Kitava",
+                  "league": "runes-of-aldur", "ssf": 0,
+                  "notes": "제작자 2.0 PoB(poe.ninja pob/28010, 0.5 Runes of Aldur 97레벨) 한 세트뿐 — 밴드 1개라 전환·규칙 노트·거래 링크가 0 이다. "
+                           "레벨링 밴드는 제작자가 발행하지 않았다(액트 가이드는 타인 영상 링크). 0.5.5 실캐릭 PoB 4개(90→94)는 "
+                           "deliverables/tangjung_0_5_5_research_2026-09-07/sources/pob_*.xml 에 로컬 보유 — 별도 빌드 적재 후보. "
+                           "하드코어 근거 없음 → hardcore=0: 제작자 본인이 저자본 가이드 자막(QcSeQ0OOENI 3:01)에서 '하드코어 유저분들까지 참고하시기에 "
+                           "생존은 절대 포기할 수 없습니다', 10:43 '하드코어 모드를 즐기시는 분들이라면 … 대체품' 이라 말한다 — 소프트코어 빌드에 하코 대체안을 "
+                           "얹은 것. 0.5.5 방송 자막의 하코 언급도 미래 가정뿐(day3 4:06:29). 리그 슬러그는 0.5 체인(278f6 등) PoB 메타 기준. ninja 계정명 미확보."},
+        "hardcore": 0,
+        "keystones": [],
+        "bands": [
+            ("2.0 엔드게임", 97, "planner_band", "tangjeong/01_endgame_2_0.build"),
         ],
         "notes": {},
     },
@@ -436,7 +455,11 @@ def query_journey(build_id: int) -> str:
            f"{'HC' if b['hardcore'] else 'SC'}{' SSF' if b['ssf'] else ''} · {b['ascendancy']}]"]
     snaps = con.execute("SELECT * FROM snapshot WHERE build_id=? ORDER BY order_idx", (build_id,)).fetchall()
     out.append("스냅샷: " + " → ".join(f"{s['stage_label']}({s['source_type']},P{s['passives_n']})" for s in snaps))
-    for t in con.execute("SELECT * FROM transition WHERE build_id=? ORDER BY order_idx", (build_id,)).fetchall():
+    trans = con.execute("SELECT * FROM transition WHERE build_id=? ORDER BY order_idx", (build_id,)).fetchall()
+    if not trans:
+        # 밴드 1개는 전환이 없다. 여정(규칙 노트·거래 링크)은 전환에 붙으므로 0 이 맞는 동작 — 조용히 비지 않게 명시한다.
+        out.append("전환 없음 — 밴드 1개. 규칙 노트·거래 링크는 전환에 붙으므로 0 이 맞다(스냅샷만 적재).")
+    for t in trans:
         f = con.execute("SELECT stage_label FROM snapshot WHERE id=?", (t["from_snapshot"],)).fetchone()[0]
         to = con.execute("SELECT stage_label FROM snapshot WHERE id=?", (t["to_snapshot"],)).fetchone()[0]
         changes = con.execute("SELECT detail FROM transition_change WHERE transition_id=? ORDER BY id", (t["id"],)).fetchall()

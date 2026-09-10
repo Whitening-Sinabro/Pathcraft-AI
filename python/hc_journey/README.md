@@ -38,8 +38,12 @@ VOD/자막/연구에서 뽑은 **비용·조건·함정·왜(20%)**를 붙이는
 
 - **임성빈** — 젬링 화염파 → 검은화염 카오스 (Gemling Legionnaire). 손노트 7 + 규칙 상속.
 - **Skadoosh** — 워브링어 타락 함성 토템 (Warbringer, Ancestral Bond·Blood Magic). 손노동 0, 규칙 상속만.
-- **ds lily** — 기름 유탄 화염파 젬링(Mobalytics 5탭, Lvl 51 트리 탭은 제외). HC(릴리리그 운영자). 손노동 0.
+- **ds lily** — 기름 유탄 화염파 젬링(Mobalytics 5탭, Lvl 51 트리 탭은 제외). 채널은 HC(릴리리그 운영자)지만 이 빌드의 HC 근거가 없어
+  hardcore=0(근거 등급 I, 2026-09-10 에 1→0). 손노동 0.
 - **Fubgun** — 화염파 기름 유탄 젬링(Mobalytics 7탭). 하코 표기 미확인이라 hardcore=0. 손노동 0.
+- **탱정** — 방패벽 키타바 2.0 (Smith of Kitava). 제작자 PoB 한 세트(poe.ninja pob/28010, 0.5 소프트코어)라 **밴드 1개 = 전환 0**.
+  규칙 노트·거래 링크는 전환에 붙으므로 0 이 맞는 동작이고 스냅샷(스킬 11·장비 12칸)만 남는다 — `--query` 와 여정 뷰가 "전환 없음"을 명시한다(조용히 비지 않게).
+  하코 근거 없음 → hardcore=0. 0.5.5 실캐릭 PoB 4개(90→94, `deliverables/tangjung_0_5_5_research_2026-09-07/sources/`)는 별도 빌드 적재 후보.
 
 같은 빌드(화염파 젬링) 세 제작자가 나란히 있어 "같은 빌드도 내부가 갈린다"를 DB 가 보여 준다 — 화염파 도입이 임성빈 ACT3-4→엔드게임,
 ds lily 47→72, Fubgun 33-51→52. 크리에이터를 늘리면 **자동층(밴드 diff)은 공짜로 커지고, 큐레이션(20%)만 노동**이다 — 4명째도 손노동 0 으로 규칙 67건 상속.
@@ -118,7 +122,8 @@ python -X utf8 python/hc_journey/render_journey.py --id 1
 
 ## 다음
 
-- 크리에이터 다수 적재: HC 명부(`.claude/status/poe2_hardcore_sources.md`)의 밴드 PoB·ninja ID 수집.
+- 크리에이터 다수 적재: 소스 매트릭스 `.claude/status/hc_creator_sourcing.md`(후보·정체성·플래너·HC 근거·우선순위·허락 목록)를 따라
+  허락받은 것부터 밴드 PoB·ninja ID 를 받아 적재. 명부는 `.claude/status/poe2_hardcore_sources.md`.
 - 규칙 후보 승인 루프: `rule_candidates.json` 검토 → 채택분을 `CURATION_RULES` 로. 판독(사람 검증 텍스트)도 신호원으로 쓸지 결정.
 - 정본 게임데이터(Layer 1) 연결: 스킬/아이템/트리 노드 → GGPK 파생.
 - 그다음 UI/API.

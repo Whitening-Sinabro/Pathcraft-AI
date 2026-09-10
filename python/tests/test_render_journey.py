@@ -11,9 +11,10 @@ import render_journey as rj  # noqa: E402
 def test_render_all_builds_has_journey_notes_and_trade_links():
     build_db.build()
     page = rj.render()
-    for name in ("임성빈", "Skadoosh", "ds lily", "Fubgun"):
+    for name in ("임성빈", "Skadoosh", "ds lily", "Fubgun", "탱정"):
         assert name in page
     assert "규칙 · why" in page and "손 · cost" in page          # 두 층이 구분돼 보인다
+    assert "전환 없음 — 밴드가 1개라" in page                      # 밴드 1개(탱정)는 조용히 비지 않고 한 줄로 말한다
     assert "T1 그대로 · 국제" in page and "T3 같은 부위 · 한국" in page
     assert "/trade2/search/poe2/HC%20Forbidden%20Rites?q=" in page
     assert "linear-gradient" not in page and "#" not in rj.CSS.replace("&#", "")  # 문서 스타일: 그라데이션·hex 없음

@@ -337,3 +337,8 @@
 - `data/hc_journey/trade_links.json` — 59건 링크(국제+한국 ?q=). 재생성 가능. `trade_links_live_seongbin.json` — 임성빈 34건 live 검색 id·매물 수(검색 id 는 만료됨). 삭제 가능
 - `python/hc_journey/render_journey.py` + `python/tests/test_render_journey.py` — 여정 뷰 HTML 렌더러(전환 카드·손/규칙 노트·🛒 링크 사다리·live 24h 신선도). 산출물 `data/hc_journey/journey.html` 은 gitignore. 삭제 불가
 - `data/hc_journey/pathcraft_hc.db` — 적재 산출물, gitignore. 삭제 가능
+
+## 2026-09-10 HC 여정 DB #2 — 크리에이터 소싱·적재
+- `.claude/status/hc_creator_sourcing.md` — 소스 매트릭스(정체성 확정 18명·HC 근거 등급·플래너·ninja·자막·우선순위·첫 3명 허락 목록·탱정 1밴드 결정). 삭제 불가(허락 목록 원본)
+- `data/hc_journey/creators/tangjeong/01_endgame_2_0.build` — 탱정 방패벽 키타바 2.0 픽스처(`build_planner/Kitava Endgame 2.0 - Tangjeong.build` 복사, PoB 28010). 삭제 불가(적재 입력)
+- `python/tests/test_hc_journey_db.py::test_single_band_build_has_no_transitions_notes_or_links` — 밴드 1개=전환 0=규칙·링크 0 계약. 삭제 불가

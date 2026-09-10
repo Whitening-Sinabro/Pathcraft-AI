@@ -20,7 +20,7 @@ def test_multi_creator_and_rules():
     """크리에이터 수는 CREATORS 설정에 묶는다(숫자 리터럴이면 추가할 때마다 red, >= 면 삭제를 못 잡는다)."""
     st = build_db.build()
     names = {c["name"] for c in build_db.CREATORS}
-    assert names == {"임성빈", "Skadoosh", "ds lily", "Fubgun"}, names
+    assert names == {"임성빈", "Skadoosh", "ds lily", "Fubgun", "탱정"}, names
     assert st["creator"] == st["build"] == len(build_db.CREATORS), st
     assert st["snapshot"] == sum(len(c["bands"]) for c in build_db.CREATORS), st
     assert st["transition"] == sum(len(c["bands"]) - 1 for c in build_db.CREATORS), st
@@ -30,10 +30,11 @@ def test_multi_creator_and_rules():
 
 
 def test_new_creators_inherit_without_hand_notes():
-    """ds lily·Fubgun 은 손노동 0, 키스톤 미확보인데도 전직·스킬 도입·슬롯·리그 규칙을 상속한다 — 확장의 증명."""
+    """ds lily·Fubgun 은 손노동 0, 키스톤 미확보인데도 전직·스킬 도입·슬롯·리그 규칙을 상속한다 — 확장의 증명.
+    hardcore 는 그 빌드의 근거로만 1 — 둘 다 빌드 단위 HC 근거가 없어 0(ds lily 는 채널 정체성만 HC, 2026-09-10 내림)."""
     build_db.build()
     con = sqlite3.connect(build_db.DB_PATH)
-    for like, hc in (("%ds lily%", 1), ("%Fubgun%", 0)):
+    for like, hc in (("%ds lily%", 0), ("%Fubgun%", 0)):
         bid = _bid(con, like)
         assert con.execute("SELECT hardcore FROM build WHERE id=?", (bid,)).fetchone()[0] == hc
         hand = con.execute("SELECT COUNT(*) FROM transition_note n JOIN transition t ON n.transition_id=t.id "
@@ -87,11 +88,32 @@ def test_league_trade_rules_attach_once_at_first_transition():
             "SELECT t.order_idx, COUNT(*) FROM transition_note n JOIN transition t ON n.transition_id=t.id "
             "JOIN curation_rule r ON n.rule_id=r.id WHERE t.build_id=? AND r.trigger_kind='league' AND r.trigger_key='trade' "
             "GROUP BY t.order_idx", (bid,)).fetchall()
-        if ssf:
-            assert rows == [], rows
+        n_trans = con.execute("SELECT COUNT(*) FROM transition WHERE build_id=?", (bid,)).fetchone()[0]
+        if ssf or n_trans == 0:
+            assert rows == [], rows            # SSF 는 거래 규칙 없음 · 전환 0(밴드 1개)은 붙을 자리가 없음
         else:
             assert rows == [(0, n_trade_rules)], rows   # 첫 전환에 규칙 수만큼, 다른 전환엔 0
     con.close()
+
+
+def test_single_band_build_has_no_transitions_notes_or_links():
+    """밴드 1개(탱정 2.0 엔드게임)는 전환이 없다 → 규칙 노트·거래 링크도 0. 여정은 전환에 붙으므로 이것이 맞는 동작이고
+    적재는 스냅샷(스킬·장비)만 남긴다. 조용히 비지 않도록 --query 가 '전환 없음' 을 명시한다. 하코 근거 없음 → hardcore=0."""
+    build_db.build()
+    con = sqlite3.connect(build_db.DB_PATH)
+    bid = _bid(con, "방패벽 키타바%")
+    assert con.execute("SELECT hardcore FROM build WHERE id=?", (bid,)).fetchone()[0] == 0
+    assert con.execute("SELECT COUNT(*) FROM snapshot WHERE build_id=?", (bid,)).fetchone()[0] == 1
+    assert con.execute("SELECT COUNT(*) FROM transition WHERE build_id=?", (bid,)).fetchone()[0] == 0
+    sid = con.execute("SELECT id FROM snapshot WHERE build_id=?", (bid,)).fetchone()[0]
+    cfg = next(c for c in build_db.CREATORS if c["name"] == "탱정")
+    data = build_db.load_build(build_db.CREATORS_DIR / cfg["bands"][0][3])
+    skills = {r[0] for r in con.execute("SELECT main_gem FROM snapshot_skill WHERE snapshot_id=?", (sid,))}
+    assert "ShieldWall" in skills and skills == set(data["skills"])
+    assert con.execute("SELECT COUNT(*) FROM snapshot_item WHERE snapshot_id=?", (sid,)).fetchone()[0] == len(data["items"])
+    con.close()
+    j = build_db.query_journey(bid)
+    assert "전환 없음" in j and "★" not in j and "🛒" not in j
 
 
 def test_trade_links_attach_to_item_changes(tmp_path, monkeypatch):

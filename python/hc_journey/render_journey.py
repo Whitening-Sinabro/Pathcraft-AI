@@ -71,7 +71,11 @@ def render_build(con: sqlite3.Connection, build_id: int, now: datetime) -> str:
     out.append("<div class='timeline'>" + " → ".join(
         f"{_e(s['stage_label'])}{' (≤' + str(s['level_hint']) + ')' if s['level_hint'] else ''} · P{s['passives_n'] or '-'}" for s in snaps) + "</div>")
     seen_rules: set[int] = set()  # 같은 빌드 안에서 같은 규칙은 첫 전환에만 전문, 이후는 한 줄로 접는다(슬롯 규칙이 밴드마다 붙는다)
-    for t in con.execute("SELECT * FROM transition WHERE build_id=? ORDER BY order_idx", (build_id,)).fetchall():
+    trans = con.execute("SELECT * FROM transition WHERE build_id=? ORDER BY order_idx", (build_id,)).fetchall()
+    if not trans:
+        # 밴드 1개 = 전환 0. 여정(규칙 노트·거래 링크)은 전환에 붙으므로 빈 것이 맞다 — 조용히 비지 않게 한 줄로 말한다.
+        out.append("<div class='meta'>전환 없음 — 밴드가 1개라 여정(규칙 노트·거래 링크)이 없다. 스냅샷(스킬·장비)만 적재됨.</div>")
+    for t in trans:
         f = con.execute("SELECT stage_label FROM snapshot WHERE id=?", (t["from_snapshot"],)).fetchone()[0]
         to = con.execute("SELECT stage_label, level_hint FROM snapshot WHERE id=?", (t["to_snapshot"],)).fetchone()
         changes = con.execute("SELECT * FROM transition_change WHERE transition_id=? ORDER BY id", (t["id"],)).fetchall()

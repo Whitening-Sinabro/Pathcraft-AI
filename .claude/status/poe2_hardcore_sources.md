@@ -312,3 +312,11 @@ PYTHONIOENCODING=utf-8 python scripts/read_subs.py <file.json3> armor 9,000  # �
 - **디스코드는 브라우저가 아니라 로그인된 데스크톱 앱을 computer-use 로 읽는다** — 메모리 `feedback_discord_via_computer_use.md`.
   a11y 트리가 비어 있어 스크린샷 전사이고, 검색은 paste-text, 스크롤은 PageDown.
 - **0.5.5 HC 래더(11h)**: 워브링어 13명 중 Corrupting Cry/AWT 소켓 0명 — 이 조합을 공개적으로 굴리는 건 Skadoosh 뿐이다.
+
+## 소싱 매트릭스 포인터 (2026-09-10, 여정 DB #2)
+
+위 명부의 사람들을 `yt-dlp -j`(메타) 로 채널 ID 까지 확정하고 플래너·ninja·HC 근거 등급·우선순위·허락 목록으로 정리한 표는
+`.claude/status/hc_creator_sourcing.md`. 새로 확정된 채널 ID: LexD `UCrl_nSbmfs0FurHtq3uLDLA`(@lexdtv) · Kris Droverson `UCe_DP6cQ2FzZWofxfc3JiOA` ·
+Angormus `UCy_0NfveSBkKAx2QNAy_xMg` · Gressoul `UChufbMxF9ZiMTXb_Gy0e7Vw` · Oscrix `UCx1nSsDc8Xqp7DJMg2mTcbA` · Blazeworks `UCCgInTe6xn-n6650g2PrimA` ·
+MisoxShiru `UCQe-5sJhva7DIeWS1L_SgkQ` · Skadutch `UCtt9vhBafdJ3m2L99R-pk_Q` · ds lily `UCSDZkgmigfYbdw7hJ-6Wo6A` · 탱정 `UCSlN0zTczYpNJHCbskGuYaw`.
+Sarge2 실제 핸들 @sarge2254 · Z3mos @Z3mosAU · Big Ducks @BigDucks · Skadoosh @SkadooshPoE.
