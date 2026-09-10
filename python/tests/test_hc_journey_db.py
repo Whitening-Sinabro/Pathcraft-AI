@@ -51,6 +51,25 @@ def test_rule_reused_across_builds():
     con.close()
 
 
+def test_league_trade_rules_attach_once_at_first_transition():
+    """거래 지식은 슬롯이 아니라 리그 모드(league/trade)에 속한다. 거래 리그 빌드의 첫 전환에만 한 번 붙고, SSF 빌드엔 안 붙는다."""
+    build_db.build()
+    con = sqlite3.connect(build_db.DB_PATH)
+    n_trade_rules = con.execute(
+        "SELECT COUNT(*) FROM curation_rule WHERE trigger_kind='league' AND trigger_key='trade'").fetchone()[0]
+    assert n_trade_rules >= 3, n_trade_rules
+    for bid, ssf in con.execute("SELECT id, ssf FROM build"):
+        rows = con.execute(
+            "SELECT t.order_idx, COUNT(*) FROM transition_note n JOIN transition t ON n.transition_id=t.id "
+            "JOIN curation_rule r ON n.rule_id=r.id WHERE t.build_id=? AND r.trigger_kind='league' AND r.trigger_key='trade' "
+            "GROUP BY t.order_idx", (bid,)).fetchall()
+        if ssf:
+            assert rows == [], rows
+        else:
+            assert rows == [(0, n_trade_rules)], rows   # 첫 전환에 규칙 수만큼, 다른 전환엔 0
+    con.close()
+
+
 def test_two_layers_and_query():
     build_db.build()
     con = sqlite3.connect(build_db.DB_PATH)

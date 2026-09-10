@@ -93,10 +93,12 @@ CREATE TABLE IF NOT EXISTS transition_note (
 );
 
 -- 재사용 큐레이션 규칙: 초반 손노동을 여기로 뽑아내면 이후 모든 빌드에 자동 적용된다.
--- trigger_kind: keystone | skill_added | item_slot_change | ascendancy
+-- trigger_kind: keystone | skill_added | item_slot_change | ascendancy | league
 --   keystone         -> 빌드 키스톤 목록과 매칭
 --   skill_added      -> 어느 전환에서 그 스킬이 추가되면 발화
 --   item_slot_change -> 어느 전환에서 그 슬롯 장비가 바뀌면 발화
+--   ascendancy       -> 빌드 전직과 매칭, 첫 전환에 부착
+--   league           -> 빌드 리그 모드(trade | ssf)와 매칭, 첫 전환에 부착. 슬롯 무관 거래/SSF 지식은 여기.
 CREATE TABLE IF NOT EXISTS curation_rule (
   id            INTEGER PRIMARY KEY,
   trigger_kind  TEXT NOT NULL,

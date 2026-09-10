@@ -84,6 +84,8 @@ SEARCH_ALIASES: dict[str, tuple[str, ...]] = {
     "Weapon2": ("무기 세트II", "무기 세트 II", "세트II", "세트 II", "무기 세트 2번", "세트 2번"),
     "Weapon1": ("무기 세트I ", "무기 세트I의", "세트I "),
     "Helm1": ("투구",),
+    # 리그 모드: 거래 지식은 슬롯이 아니라 리그에 속한다. ssf 는 아직 소스가 없어 별칭 없음(앵커 없음으로 남는다).
+    "trade": ("거래소", "수수료", "매물", "판매자", "즉시 구입", "화폐 교환"),
 }
 
 # note_type 신호(자막 한 줄 단위). 지시서 §2 의 목록을 정규식으로 옮긴 것. 잡담에 흔한 낱말(그래서·맞아요·죽)은 뺐다.
@@ -232,6 +234,8 @@ def transition_triggers(creators: list[dict] | None = None) -> list[Trigger]:
             first = f"{labels[0]} → {labels[1]}"
             last = f"{labels[-2]} → {labels[-1]}"
             out.append(Trigger(cfg["name"], 0, first, "ascendancy", cfg["build"]["asc"], _level_from(bands, 0)))
+            league = "ssf" if cfg["build"].get("ssf") else "trade"
+            out.append(Trigger(cfg["name"], 0, first, "league", league, _level_from(bands, 0)))
             for ks in cfg.get("keystones", []):
                 out.append(Trigger(cfg["name"], len(snaps) - 2, last, "keystone", ks, _level_from(bands, len(snaps) - 2)))
     return out

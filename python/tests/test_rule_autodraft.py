@@ -178,6 +178,19 @@ def test_trigger_keys_come_from_diff_and_config_not_captions():
     assert bf and bf[0].transition_idx == 3 and bf[0].level_from == 45  # 엔드게임(계획) 레벨 없음 → 앞 밴드 45
 
 
+def test_league_trigger_follows_build_ssf_flag():
+    """거래 리그 빌드 → league/trade, SSF 빌드 → league/ssf. 둘 다 첫 전환. 트리거 키는 설정(ssf 플래그)에서 온다."""
+    trade = [t for t in ra.transition_triggers() if t.trigger_kind == "league"]
+    assert {(t.creator, t.trigger_key, t.transition_idx) for t in trade} == {("임성빈", "trade", 0), ("Skadoosh", "trade", 0)}
+    cfg = json.loads(json.dumps(build_db.CREATORS[0], ensure_ascii=False))  # 깊은 복사
+    cfg["name"], cfg["build"]["ssf"] = "SSF 가상", 1
+    ssf = [t for t in ra.transition_triggers([cfg]) if t.trigger_kind == "league"]
+    assert [(t.trigger_key, t.transition_idx, t.level_from) for t in ssf] == [("ssf", 0, 12)]
+    # ssf 는 아직 소스/별칭이 없어 후보 대신 '앵커 없음' 으로 정직하게 남는다
+    r = ra.draft_candidates(ssf, [], {}, window_sec=30)
+    assert r["candidates"] == [] and r["unanchored"][0]["trigger_key"] == "ssf"
+
+
 @pytest.mark.skipif(not ra.DELIVERABLE.exists(), reason="임성빈 자막/판독 deliverable 없음")
 def test_real_seongbin_transcripts_yield_five_plus(tmp_path):
     out = tmp_path / "rule_candidates.json"

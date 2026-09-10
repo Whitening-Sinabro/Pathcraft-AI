@@ -2,13 +2,13 @@
  "_meta": {
   "purpose": "rule_candidates.json 후보에 대한 승인 기록. rule_autodraft.run 이 id 로 병합해 status 를 채운다.",
   "judged_by": "Claude (사용자 위임 2026-09-10 '니가 판독해')",
-  "generated_utc": "2026-09-10T10:47:07+00:00",
+  "generated_utc": "2026-09-10T11:01:49+00:00",
   "status_values": "adopted = CURATION_RULES 에 반영(rule 필드) · rejected = 사유 · deferred = 조건부(사유에 해제 조건)",
-  "n": 58,
+  "n": 68,
   "n_by_status": {
-   "adopted": 21,
-   "rejected": 24,
-   "deferred": 13
+   "adopted": 30,
+   "rejected": 30,
+   "deferred": 8
   },
   "adopted_rules": [
    "ascendancy/Gemling Legionnaire/condition",
@@ -17,6 +17,9 @@
    "keystone/Blackflame Covenant/condition",
    "keystone/Blackflame Covenant/pitfall",
    "keystone/Blackflame Covenant/why",
+   "league/trade/condition",
+   "league/trade/cost",
+   "league/trade/pitfall",
    "skill_added/CastOnElementalAilment/condition",
    "skill_added/CastOnElementalAilment/why",
    "skill_added/Flameblast/why",
@@ -296,33 +299,118 @@
    "status": "rejected",
    "reason": "'가능하면 저항' 한마디, 근거 부족"
   },
-  "item_slot_change/Helm1/cost/readout/C 8990": {
-   "status": "deferred",
-   "reason": "거래소 = 엑잘 단위 + 골드 수수료, 요구 빨간 매물 착용 불가 — 슬롯 무관 거래 지식이라 Helm1 규칙으로 두면 임의. 별도 trade 트리거 필요. 손노트(C 9000)에 이미 있음"
-  },
-  "item_slot_change/Helm1/condition/readout/C 8990": {
-   "status": "deferred",
-   "reason": "위와 동일"
-  },
-  "item_slot_change/Helm1/cost/readout/C 9000": {
-   "status": "deferred",
-   "reason": "위와 동일"
-  },
-  "item_slot_change/Helm1/condition/readout/C 9000": {
-   "status": "deferred",
-   "reason": "위와 동일"
-  },
-  "item_slot_change/Helm1/cost/readout/C 9040": {
-   "status": "deferred",
-   "reason": "위와 동일"
-  },
-  "item_slot_change/Helm1/condition/readout/C 9040": {
-   "status": "deferred",
-   "reason": "위와 동일"
-  },
   "item_slot_change/Helm1/survival/readout/C 9180": {
    "status": "rejected",
    "reason": "경로석 부활 횟수 — 투구 무관"
+  },
+  "league/trade/cost/readout/C 8990": {
+   "status": "adopted",
+   "reason": "거래소 검색 조건 화면: 가격 단위 엑잘티드 오브. cost 규칙의 검색 문맥",
+   "rule": [
+    "league",
+    "trade",
+    "cost"
+   ]
+  },
+  "league/trade/condition/readout/C 8990": {
+   "status": "adopted",
+   "reason": "검색 필터 4줄(유형·퀄리티·희귀도·방어구/ES 하한·요구사항 상한·능력치) → 결과 0. condition(검색 요령) 규칙",
+   "rule": [
+    "league",
+    "trade",
+    "condition"
+   ]
+  },
+  "league/trade/cost/readout/C 9000": {
+   "status": "adopted",
+   "reason": "투구 1 엑잘 + 수수료 11314/10737 골드(매물별). cost 규칙 핵심 근거",
+   "rule": [
+    "league",
+    "trade",
+    "cost"
+   ]
+  },
+  "league/trade/condition/readout/C 9000": {
+   "status": "adopted",
+   "reason": "첫 매물 요구 레벨 59(빨강), 당시 57 → 착용 불가 표시. 패널 상한 45 이하인데도 표시됨 → '필터 믿지 말고 매물 요구 직접 확인' pitfall 규칙 근거",
+   "rule": [
+    "league",
+    "trade",
+    "pitfall"
+   ]
+  },
+  "league/trade/cost/readout/C 9040": {
+   "status": "adopted",
+   "reason": "같은 매물 수수료 11314 재확인 + 판매자·즉시 구입. cost 규칙",
+   "rule": [
+    "league",
+    "trade",
+    "cost"
+   ]
+  },
+  "league/trade/condition/readout/C 9040": {
+   "status": "adopted",
+   "reason": "능력치 필터 한 줄로 축소(결과 13건은 C 9000 에서 이미 확보) 뒤 정렬 '총 ES 높은 것부터' 로 후보 선별. condition(검색 요령) 규칙",
+   "rule": [
+    "league",
+    "trade",
+    "condition"
+   ]
+  },
+  "league/trade/cost/readout/B 2000": {
+   "status": "adopted",
+   "reason": "장화 1 엑잘 + 수수료 3211골드(34레벨 무렵). 수수료가 매물/시점마다 다르다는 근거",
+   "rule": [
+    "league",
+    "trade",
+    "cost"
+   ]
+  },
+  "league/trade/condition/readout/B 2000": {
+   "status": "rejected",
+   "reason": "매물의 요구 표기(33/26/26)일 뿐, 같은 판독은 cost 로 채택"
+  },
+  "league/trade/cost/readout/B 2018": {
+   "status": "adopted",
+   "reason": "판매자 상점에서 동일 가격·구입 버튼 확인. cost 규칙 근거",
+   "rule": [
+    "league",
+    "trade",
+    "cost"
+   ]
+  },
+  "league/trade/cost/readout/B 2020": {
+   "status": "adopted",
+   "reason": "구입 직후 골드 26725→23514(=3211) — 수수료가 실제 골드에서 빠진다는 증명",
+   "rule": [
+    "league",
+    "trade",
+    "cost"
+   ]
+  },
+  "league/trade/cost/readout/C 5025": {
+   "status": "rejected",
+   "reason": "상인 화면 UI(되사기·묶음), 지식 없음"
+  },
+  "league/trade/cost/readout/C 8940": {
+   "status": "rejected",
+   "reason": "상인 매물 구경(3470골드), 구매 아님 — 벤더 골드 가격은 거래소 수수료 규칙과 다른 주제"
+  },
+  "league/trade/condition/readout/C 8940": {
+   "status": "rejected",
+   "reason": "위와 동일"
+  },
+  "league/trade/cost/readout/C 9090": {
+   "status": "rejected",
+   "reason": "판매자에게 메시지 입력 프레임, 지식 없음"
+  },
+  "league/trade/condition/caption/B 1932": {
+   "status": "rejected",
+   "reason": "'40레벨 되면 끼면 될' 장비 요구 레벨 잡담, 근거 부족"
+  },
+  "league/trade/survival/caption/B 1927": {
+   "status": "deferred",
+   "reason": "'즉시 회복이 진짜 중요' — 플라스크 선택 발언(B 1920 판독: 가르강튀아 생명력 플라스크 후보). Flask1 트리거 별칭이 생기면 survival 규칙으로 재검토"
   },
   "item_slot_change/Weapon1/condition/readout/C 4755": {
    "status": "adopted",
