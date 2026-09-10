@@ -2,7 +2,7 @@
  "_meta": {
   "purpose": "curation_rule 승인 대기 후보. 판정은 rule_decisions.json 에 기록되고 여기 status 로 병합된다. 자동 반영 금지.",
   "honesty": "trigger_key 는 diff/PoB/설정에서, text 는 자막·판독 원문 그대로. 자막으로 고유명사를 확정하지 않는다.",
-  "generated_utc": "2026-09-10T12:30:31+00:00",
+  "generated_utc": "2026-09-10T13:04:06+00:00",
   "window_sec": 90.0,
   "min_hits": 2,
   "max_clusters": 3,
@@ -10,7 +10,7 @@
    "임성빈": {
     "transcripts": "deliverables/seongbin_from_day1_2026-09-09/transcripts",
     "readouts": "deliverables/seongbin_from_day1_2026-09-09/precision_findings.py",
-    "n_triggers": 56,
+    "n_triggers": 117,
     "n_anchors": 358,
     "videos": [
      "39kHWKUhwhU",
@@ -24,14 +24,13 @@
    }
   },
   "decisions": "data/hc_journey/rule_decisions.json",
-  "n_decisions": 68,
-  "n_candidates": 68,
+  "n_decisions": 69,
+  "n_candidates": 69,
   "n_by_status": {
-   "rejected": 32,
-   "adopted": 31,
-   "deferred": 5
+   "rejected": 34,
+   "adopted": 35
   },
-  "n_unanchored": 129,
+  "n_unanchored": 278,
   "n_skipped": 0
  },
  "candidates": [
@@ -1075,6 +1074,57 @@
    ]
   },
   {
+   "id": "support_added/ScattershotTwo/condition/caption/A 5361",
+   "trigger_kind": "support_added",
+   "trigger_key": "ScattershotTwo",
+   "note_type": "condition",
+   "text": "민첩이 좀 부족하다고 하네요. / 아이고 19레벨이면은 / 1레벨 무기로 어디까지 가셨길래",
+   "evidence": {
+    "kind": "caption",
+    "video": "A",
+    "video_id": "zKJQyBm4VnI",
+    "sec": 5361,
+    "ref": "A 5361초",
+    "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=5361s",
+    "lines": [
+     {
+      "sec": 5361,
+      "text": "민첩이 좀 부족하다고 하네요."
+     },
+     {
+      "sec": 5433,
+      "text": "아이고 19레벨이면은"
+     },
+     {
+      "sec": 5475,
+      "text": "1레벨 무기로 어디까지 가셨길래"
+     }
+    ],
+    "anchor": {
+     "n": 2,
+     "sec": [
+      5393,
+      5393
+     ],
+     "level": 14,
+     "readout": "가스 보조 선택 창에서 다중 사격 I가 강조된다. 피해35% 감폭·투사체2개 추가·스킬 속도20% 감폭이며 민첩 사용2/4, 가스 첫 칸만 채워져 있다. 이후5394초에는 전투로 돌아간다."
+    }
+   },
+   "signals": [
+    "19레벨",
+    "1레벨",
+    "민첩"
+   ],
+   "hits": 3,
+   "creator": "임성빈",
+   "transition_idx": 0,
+   "transition": "ACT1 → ACT2",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "'민첩이 좀 부족'은 가스 유탄 요구(힘17·민첩17, A 5373 판독) 얘기고 나머지는 채팅 답변. 판독 툴팁은 다중 사격 I(피해35% 감폭·투사체2·스킬 속도20% 감폭)인데 플래너 키는 II 라 수치를 옮기지 않음 — II 툴팁 판독이 생기면 재검토"
+  },
+  {
    "id": "item_slot_change/Weapon1/cost/readout/A 9496",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Weapon1",
@@ -1204,7 +1254,13 @@
    "transition_idx": 1,
    "transition": "ACT2 → ACT3-4",
    "existing_rule": false,
-   "also_matches": [],
+   "also_matches": [
+    {
+     "trigger": "support_added/NovaProjectiles",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    }
+   ],
    "status": "rejected",
    "decision": "GGPK ActiveSkills: '위에서 떨어뜨리는' 스킬 유형(ActiveSkillTypes 89 — Death From Above·Gas Arrow·Lightning Rod·Rain of Arrows·Toxic Rain 등 11개)이 유탄(explosive/flash/gas/oil grenade)엔 없다. 유탄 설명도 'bouncing Grenade'. 제외 조항의 대상이 아니므로 함정 규칙 아님(2026-09-10 확인)"
   },
@@ -1246,7 +1302,13 @@
    "transition_idx": 1,
    "transition": "ACT2 → ACT3-4",
    "existing_rule": false,
-   "also_matches": [],
+   "also_matches": [
+    {
+     "trigger": "support_added/NovaProjectiles",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    }
+   ],
    "status": "rejected",
    "decision": "위와 동일 — 보조 선택 목록에 뜬 것 자체가 장착 가능 근거"
   },
@@ -1820,6 +1882,36 @@
      "trigger": "skill_added/OilGrenade",
      "transition": "ACT2 → ACT3-4",
      "existing_rule": false
+    },
+    {
+     "trigger": "support_added/SearingFlameTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/BurgeonTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/ConsideredCasting",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/ConcentratedEffect",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/RageforgedTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/NovaProjectiles",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
     }
    ],
    "status": "rejected",
@@ -2058,9 +2150,40 @@
    "transition_idx": 2,
    "transition": "ACT3-4 → 엔드게임(계획)",
    "existing_rule": true,
-   "also_matches": [],
-   "status": "deferred",
-   "decision": "보조 젬(범위 집중) 선택은 빌드별 — 규칙보다 손노트/플래너 영역. 보조 선택 트리거가 생기면 재검토"
+   "also_matches": [
+    {
+     "trigger": "support_added/SearingFlameTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/BurgeonTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/ConsideredCasting",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/ConcentratedEffect",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/RageforgedTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    }
+   ],
+   "status": "adopted",
+   "decision": "범위 집중 툴팁(범위 피해 30% 증폭·효과 범위 50% 감폭, 요구 +5 지능). support_added 트리거 신설 후 ConcentratedEffect why 규칙(판독 후보 5개 ↔ 플래너 보조 5개 1:1 대응)",
+   "rule": [
+    "support_added",
+    "ConcentratedEffect",
+    "why"
+   ]
   },
   {
    "id": "skill_added/Flameblast/why/readout/C 4990",
@@ -2102,9 +2225,40 @@
    "transition_idx": 2,
    "transition": "ACT3-4 → 엔드게임(계획)",
    "existing_rule": true,
-   "also_matches": [],
-   "status": "deferred",
-   "decision": "위와 동일"
+   "also_matches": [
+    {
+     "trigger": "support_added/SearingFlameTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": true
+    },
+    {
+     "trigger": "support_added/BurgeonTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/ConsideredCasting",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/ConcentratedEffect",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": true
+    },
+    {
+     "trigger": "support_added/RageforgedTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    }
+   ],
+   "status": "adopted",
+   "decision": "위와 동일 판독",
+   "rule": [
+    "support_added",
+    "ConcentratedEffect",
+    "why"
+   ]
   },
   {
    "id": "skill_added/Flameblast/condition/readout/C 5000",
@@ -2146,9 +2300,20 @@
    "transition_idx": 2,
    "transition": "ACT3-4 → 엔드게임(계획)",
    "existing_rule": true,
-   "also_matches": [],
-   "status": "deferred",
-   "decision": "보조 젬(이글거리는 화염 II) 선택 — 빌드별"
+   "also_matches": [
+    {
+     "trigger": "support_added/SearingFlameTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    }
+   ],
+   "status": "adopted",
+   "decision": "이글거리는 화염 II 툴팁(명중 피해 30% 감폭·점화 강도 100% 증폭, 요구 +5 힘). SearingFlameTwo why 규칙",
+   "rule": [
+    "support_added",
+    "SearingFlameTwo",
+    "why"
+   ]
   },
   {
    "id": "skill_added/Flameblast/why/readout/C 5000",
@@ -2190,9 +2355,20 @@
    "transition_idx": 2,
    "transition": "ACT3-4 → 엔드게임(계획)",
    "existing_rule": true,
-   "also_matches": [],
-   "status": "deferred",
-   "decision": "위와 동일"
+   "also_matches": [
+    {
+     "trigger": "support_added/SearingFlameTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": true
+    }
+   ],
+   "status": "adopted",
+   "decision": "위와 동일 판독",
+   "rule": [
+    "support_added",
+    "SearingFlameTwo",
+    "why"
+   ]
   },
   {
    "id": "skill_added/Flameblast/condition/readout/C 5005",
@@ -2234,9 +2410,25 @@
    "transition_idx": 2,
    "transition": "ACT3-4 → 엔드게임(계획)",
    "existing_rule": true,
-   "also_matches": [],
-   "status": "deferred",
-   "decision": "보조 전체 표 — 빌드별"
+   "also_matches": [
+    {
+     "trigger": "support_added/SearingFlameTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/BurgeonTwo",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "support_added/ConsideredCasting",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    }
+   ],
+   "status": "rejected",
+   "decision": "젬 티어별 보조 가용 표 — 지식이 아니라 데이터(GGPK 에서 뽑는 것이 맞음). 규칙 아님"
   },
   {
    "id": "skill_added/Tornado/pitfall/caption/F 2341",
@@ -3371,6 +3563,76 @@
   {
    "creator": "Fubgun",
    "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "support_added",
+   "trigger_key": "Expedite",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "support_added",
+   "trigger_key": "PrimalArmamentTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "support_added",
+   "trigger_key": "ScattershotTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "support_added",
+   "trigger_key": "ScattershotTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "support_added",
+   "trigger_key": "PrimalArmamentTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "support_added",
+   "trigger_key": "ScattershotTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "support_added",
+   "trigger_key": "StripAway",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffect",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "support_added",
+   "trigger_key": "Ingenuity",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "support_added",
+   "trigger_key": "StripAway",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Weapon1",
    "reason": "자막/판독 소스 없음"
@@ -3434,6 +3696,125 @@
   {
    "creator": "Fubgun",
    "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "BurgeonTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "ConcentratedEffect",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "ConsideredCasting",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "SearingFlameTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "ExpediteTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "NovaProjectiles",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "ScattershotTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "StripAway",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "FocusedCurse",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "HeightenedCurse",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "AdvancingStorm",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "Expand",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "PersistenceTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "AdvancingStorm",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "support_added",
+   "trigger_key": "Tornado",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Weapon1",
    "reason": "자막/판독 소스 없음"
@@ -3475,9 +3856,79 @@
   },
   {
    "creator": "Fubgun",
+   "transition": "lvl 52 Swap → lvl 53-68",
+   "trigger_kind": "support_added",
+   "trigger_key": "ControlledDestruction",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 52 Swap → lvl 53-68",
+   "trigger_kind": "support_added",
+   "trigger_key": "OverabundanceTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 52 Swap → lvl 53-68",
+   "trigger_kind": "support_added",
+   "trigger_key": "SpellEcho",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 52 Swap → lvl 53-68",
+   "trigger_kind": "support_added",
+   "trigger_key": "InspirationTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 52 Swap → lvl 53-68",
+   "trigger_kind": "support_added",
+   "trigger_key": "PersistenceTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
    "transition": "lvl 53-68 → lvl 85",
    "trigger_kind": "skill_added",
    "trigger_key": "ManaRemnants",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 53-68 → lvl 85",
+   "trigger_kind": "support_added",
+   "trigger_key": "Suffuse",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 53-68 → lvl 85",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 53-68 → lvl 85",
+   "trigger_kind": "support_added",
+   "trigger_key": "ImpetusTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 53-68 → lvl 85",
+   "trigger_kind": "support_added",
+   "trigger_key": "DissipateTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 53-68 → lvl 85",
+   "trigger_kind": "support_added",
+   "trigger_key": "KhatalsRejuvenation",
    "reason": "자막/판독 소스 없음"
   },
   {
@@ -3574,6 +4025,41 @@
   {
    "creator": "Skadoosh",
    "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffect",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "support_added",
+   "trigger_key": "Overpower",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "support_added",
+   "trigger_key": "Brutality",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "support_added",
+   "trigger_key": "Overabundance",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "support_added",
+   "trigger_key": "Persistence",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Weapon1",
    "reason": "자막/판독 소스 없음"
@@ -3630,6 +4116,41 @@
   {
    "creator": "Skadoosh",
    "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "support_added",
+   "trigger_key": "Brink",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "support_added",
+   "trigger_key": "AncestralUrgency",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "support_added",
+   "trigger_key": "Domain",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "support_added",
+   "trigger_key": "JaggedGround",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "support_added",
+   "trigger_key": "Rage",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Weapon1",
    "reason": "자막/판독 소스 없음"
@@ -3674,6 +4195,41 @@
    "transition": "Lv21-30 → Lv31-41",
    "trigger_kind": "skill_added",
    "trigger_key": "ForgeHammer",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "support_added",
+   "trigger_key": "FistOfWar",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "support_added",
+   "trigger_key": "Rageforged",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "support_added",
+   "trigger_key": "MartialTempoTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "support_added",
+   "trigger_key": "Suffuse",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "support_added",
+   "trigger_key": "RagingCry",
    "reason": "자막/판독 소스 없음"
   },
   {
@@ -3751,6 +4307,118 @@
    "transition": "Lv31-41 → 실캐릭 live",
    "trigger_kind": "skill_added",
    "trigger_key": "VolcanicFissure",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "BrutalityTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "CorruptingCry",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "InspirationTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "SwiftAfflictionTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "Demolisher",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "Rage",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "Domain",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "FistOfWarTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "JaggedGround",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "DomainTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "Inspiration",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "ClarityTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "Vitality",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "AncestralUrgency",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "BrutalityTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "support_added",
+   "trigger_key": "MartialTempo",
    "reason": "자막/판독 소스 없음"
   },
   {
@@ -3868,6 +4536,27 @@
   {
    "creator": "ds lily",
    "transition": "Lvl25 → Lvl47",
+   "trigger_kind": "support_added",
+   "trigger_key": "Domain",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl25 → Lvl47",
+   "trigger_kind": "support_added",
+   "trigger_key": "StripAway",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl25 → Lvl47",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl25 → Lvl47",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Weapon1",
    "reason": "자막/판독 소스 없음"
@@ -3905,6 +4594,132 @@
    "transition": "Lvl47 → Lvl72",
    "trigger_kind": "skill_added",
    "trigger_key": "DefianceBanner",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "BurgeonTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "ConcentratedEffect",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "ConsideredCasting",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "FireInfusion",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "SearingFlameTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "NovaProjectiles",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "ScattershotTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "Suffuse",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "BlindTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "Maim",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "Bludgeon",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "FocusedCurse",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "HeightenedCurse",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "PersistenceTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "support_added",
+   "trigger_key": "RefractionTwo",
    "reason": "자막/판독 소스 없음"
   },
   {
@@ -3994,6 +4809,69 @@
   {
    "creator": "ds lily",
    "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "support_added",
+   "trigger_key": "EnvenomTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "support_added",
+   "trigger_key": "Blind",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "support_added",
+   "trigger_key": "IngenuityTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "support_added",
+   "trigger_key": "Mobility",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "support_added",
+   "trigger_key": "PersistenceTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "support_added",
+   "trigger_key": "Mobility",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "support_added",
+   "trigger_key": "RitualisticCurse",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "support_added",
+   "trigger_key": "TemporalChains",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Amulet1",
    "reason": "자막/판독 소스 없음"
@@ -4011,6 +4889,20 @@
    "trigger_kind": "league",
    "trigger_key": "trade",
    "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT1 → ACT2",
+   "trigger_kind": "support_added",
+   "trigger_key": "PrimalArmamentTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT1 → ACT2",
+   "trigger_kind": "support_added",
+   "trigger_key": "PrimalArmamentTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
   },
   {
    "creator": "임성빈",
@@ -4059,6 +4951,34 @@
    "transition": "ACT1 → ACT2",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Flask1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "support_added",
+   "trigger_key": "FireInfusion",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "support_added",
+   "trigger_key": "Deliberation",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "support_added",
+   "trigger_key": "Domain",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "support_added",
+   "trigger_key": "StripAway",
    "reason": "alias 없음(검색 힌트 미등록)"
   },
   {
@@ -4169,6 +5089,111 @@
   {
    "creator": "임성빈",
    "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "ExpediteTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "IngenuityTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "Suffuse",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "ElementalArmy",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "LastGasp",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "Loyalty",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "MeatShieldTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "ElementalFocus",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "RagingCry",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "SecondWindThree",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "RitualisticCurse",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "support_added",
+   "trigger_key": "TemporalChains",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Gloves1",
    "reason": "alias 없음(검색 힌트 미등록)"
@@ -4228,6 +5253,216 @@
    "trigger_kind": "skill_added",
    "trigger_key": "ArcticArmour",
    "reason": "판독에 언급 없음(레벨 게이트 포함)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "FireInfusion",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "LacerateThree",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "PrimalArmament",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "PersistenceTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "ChaosMastery",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "MysticismTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "DeepFreeze",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "ElementalFocus",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "Glaciation",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "PersistenceTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "SplinteringTotemTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "Brutality",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "LongFuse",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "Scattershot",
+   "reason": "판독에 언급 없음(레벨 게이트 포함)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "ArcaneTempoTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "PersistenceTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "PrimalArmament",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "EnragedWarcry",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "Acrimony",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "InspirationTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "MagnifiedEffectTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "PierceThree",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "Scattershot",
+   "reason": "판독에 언급 없음(레벨 게이트 포함)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "ControlledDestruction",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "ChaosMastery",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "FocusedCurse",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "HeightenedCurse",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "support_added",
+   "trigger_key": "PersistenceTwo",
+   "reason": "alias 없음(검색 힌트 미등록)"
   },
   {
    "creator": "임성빈",

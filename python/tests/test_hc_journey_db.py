@@ -142,6 +142,24 @@ def test_live_counts_merge_only_when_query_is_identical():
     assert "live" not in tiers[1]
 
 
+def test_support_added_rules_fire_where_the_support_is_socketed():
+    """보조 젬 도입은 diff 의 support_added 로 잡히고, 그 보조를 새로 끼우는 전환에 규칙이 붙는다(다른 제작자도 상속)."""
+    st = build_db.build()
+    con = sqlite3.connect(build_db.DB_PATH)
+    assert con.execute("SELECT COUNT(*) FROM transition_change WHERE kind='support_added'").fetchone()[0] > 20
+    # 새 스킬(화염파)과 함께 들어온 보조도 support_added 다
+    seongbin = _bid(con, "젬링%")
+    rows = con.execute("SELECT c.subject FROM transition_change c JOIN transition t ON t.id=c.transition_id "
+                       "WHERE t.build_id=? AND t.order_idx=2 AND c.kind='support_added'", (seongbin,)).fetchall()
+    assert {"ConcentratedEffect", "SearingFlameTwo"} <= {r[0] for r in rows}
+    hits = con.execute("SELECT b.name, t.order_idx FROM transition_note n JOIN transition t ON n.transition_id=t.id "
+                       "JOIN build b ON b.id=t.build_id JOIN curation_rule r ON n.rule_id=r.id "
+                       "WHERE r.trigger_kind='support_added' AND r.trigger_key='SearingFlameTwo'").fetchall()
+    assert (next(h for h in hits if h[0].startswith("젬링"))[1]) == 2
+    assert len({h[0] for h in hits}) >= 2, hits   # 같은 보조를 끼우는 다른 제작자 빌드도 상속
+    con.close()
+
+
 def test_two_layers_and_query():
     build_db.build()
     con = sqlite3.connect(build_db.DB_PATH)

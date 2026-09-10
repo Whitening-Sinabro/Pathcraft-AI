@@ -2,13 +2,13 @@
  "_meta": {
   "purpose": "rule_candidates.json 후보에 대한 승인 기록. rule_autodraft.run 이 id 로 병합해 status 를 채운다.",
   "judged_by": "Claude (사용자 위임 2026-09-10 '니가 판독해')",
-  "generated_utc": "2026-09-10T12:30:31+00:00",
+  "generated_utc": "2026-09-10T13:04:05+00:00",
   "status_values": "adopted = CURATION_RULES 에 반영(rule 필드) · rejected = 사유 · deferred = 조건부(사유에 해제 조건)",
-  "n": 68,
+  "n": 69,
   "n_by_status": {
-   "adopted": 31,
-   "rejected": 32,
-   "deferred": 5
+   "adopted": 35,
+   "rejected": 34,
+   "deferred": 0
   },
   "adopted_rules": [
    "ascendancy/Gemling Legionnaire/condition",
@@ -25,7 +25,9 @@
    "skill_added/CastOnElementalAilment/why",
    "skill_added/Flameblast/why",
    "skill_added/Tornado/pitfall",
-   "skill_added/Tornado/why"
+   "skill_added/Tornado/why",
+   "support_added/ConcentratedEffect/why",
+   "support_added/SearingFlameTwo/why"
   ]
  },
  "decisions": {
@@ -167,24 +169,44 @@
    "reason": "반지 저항 잡담"
   },
   "skill_added/Flameblast/condition/readout/C 4990": {
-   "status": "deferred",
-   "reason": "보조 젬(범위 집중) 선택은 빌드별 — 규칙보다 손노트/플래너 영역. 보조 선택 트리거가 생기면 재검토"
+   "status": "adopted",
+   "reason": "범위 집중 툴팁(범위 피해 30% 증폭·효과 범위 50% 감폭, 요구 +5 지능). support_added 트리거 신설 후 ConcentratedEffect why 규칙(판독 후보 5개 ↔ 플래너 보조 5개 1:1 대응)",
+   "rule": [
+    "support_added",
+    "ConcentratedEffect",
+    "why"
+   ]
   },
   "skill_added/Flameblast/why/readout/C 4990": {
-   "status": "deferred",
-   "reason": "위와 동일"
+   "status": "adopted",
+   "reason": "위와 동일 판독",
+   "rule": [
+    "support_added",
+    "ConcentratedEffect",
+    "why"
+   ]
   },
   "skill_added/Flameblast/condition/readout/C 5000": {
-   "status": "deferred",
-   "reason": "보조 젬(이글거리는 화염 II) 선택 — 빌드별"
+   "status": "adopted",
+   "reason": "이글거리는 화염 II 툴팁(명중 피해 30% 감폭·점화 강도 100% 증폭, 요구 +5 힘). SearingFlameTwo why 규칙",
+   "rule": [
+    "support_added",
+    "SearingFlameTwo",
+    "why"
+   ]
   },
   "skill_added/Flameblast/why/readout/C 5000": {
-   "status": "deferred",
-   "reason": "위와 동일"
+   "status": "adopted",
+   "reason": "위와 동일 판독",
+   "rule": [
+    "support_added",
+    "SearingFlameTwo",
+    "why"
+   ]
   },
   "skill_added/Flameblast/condition/readout/C 5005": {
-   "status": "deferred",
-   "reason": "보조 전체 표 — 빌드별"
+   "status": "rejected",
+   "reason": "젬 티어별 보조 가용 표 — 지식이 아니라 데이터(GGPK 에서 뽑는 것이 맞음). 규칙 아님"
   },
   "skill_added/Tornado/why/readout/E 15150": {
    "status": "adopted",
@@ -303,6 +325,10 @@
   "item_slot_change/Helm1/survival/readout/C 9180": {
    "status": "rejected",
    "reason": "경로석 부활 횟수 — 투구 무관"
+  },
+  "support_added/ScattershotTwo/condition/caption/A 5361": {
+   "status": "rejected",
+   "reason": "'민첩이 좀 부족'은 가스 유탄 요구(힘17·민첩17, A 5373 판독) 얘기고 나머지는 채팅 답변. 판독 툴팁은 다중 사격 I(피해35% 감폭·투사체2·스킬 속도20% 감폭)인데 플래너 키는 II 라 수치를 옮기지 않음 — II 툴팁 판독이 생기면 재검토"
   },
   "league/trade/cost/readout/C 8990": {
    "status": "adopted",

@@ -97,6 +97,9 @@ def diff_snapshots(a: dict, b: dict) -> list[tuple[str, str, str]]:
             gone = sorted(set(sa[k]) - set(sb[k]))
             if new or gone:
                 out.append(("support_changed", k, f"{k} 보조 +{new} -{gone}"))
+        # 보조 젬 도입(새 스킬의 보조 포함) — support_added 규칙 트리거. subject = 보조 젬 id.
+        for sup in sorted(set(sb[k]) - set(sa.get(k, []))):
+            out.append(("support_added", sup, f"{k} 보조 추가: {sup}"))
     ia, ib = a["items"], b["items"]
     for slot, v in ib.items():
         if ia.get(slot) != v and (v or ia.get(slot)):
@@ -189,6 +192,16 @@ CURATION_RULES = [
      "생명력 플라스크 교체 기준(임성빈 발언, 37레벨): 회복량보다 '즉시 회복'이 진짜 중요하다 — 가르강튀아 생명력 플라스크는 요구 40레벨이라 "
      "그 전엔 낄 게 없다. 실캐릭 lv93 플라스크도 Instant Recovery(회복량 50% 감소 감수).",
      "규칙(임성빈 B 1920초 판독 · B 1927~1942초 발언 · 05_live_lv93.build Flask1)"),
+    # --- 보조 젬 도입 트리거 (support_added/<id>) — 그 보조를 어느 스킬에든 새로 끼우는 빌드에 자동.
+    #     한글 이름 ↔ id 는 판독 C 4990 후보 5개가 플래너 화염파 보조 5개와 1:1 대응한 것 + 툴팁 효과 일치로 확정. ---
+    ("support_added", "ConcentratedEffect", "why",
+     "범위 집중(ConcentratedEffect, 툴팁): 범위 피해 30% 증폭·효과 범위 50% 감폭, 보조 요구 +5 지능(25). "
+     "장판·반경이 딜인 스킬은 커버가 절반으로 줄어드는 대가를 낸다(임성빈 화염파 보조로 채택).",
+     "규칙(임성빈 C 4990초 툴팁 판독 + 04_endgame_plan.build Flameblast 보조)"),
+    ("support_added", "SearingFlameTwo", "why",
+     "이글거리는 화염 II(SearingFlameTwo, 툴팁): 명중 피해 30% 감폭·점화 강도 100% 증폭, 보조 요구 +5 힘(30). "
+     "명중 딜을 깎고 점화를 키우므로 점화로 딜을 내는 구성에서만 이득(임성빈 화염파 보조로 채택).",
+     "규칙(임성빈 C 5000초 툴팁 판독 + 04_endgame_plan.build Flameblast 보조)"),
     # --- 리그 모드 트리거 (league/trade | league/ssf) — 슬롯 무관 거래 지식은 여기. 빌드 첫 전환에 한 번 붙는다. ---
     ("league", "trade", "cost",
      "거래소 즉시 구입 = 오브 단위 가격(엑잘티드·신성한 오브 등, 매물마다 다름) + 매물별 골드 수수료. 임성빈 사례: 장화 1 엑잘 + 3211골드(구입 직후 골드 "
@@ -387,6 +400,8 @@ def build() -> dict:
                 # 규칙 자동 매칭: 스킬 도입 / 슬롯 변화. 슬롯 변화엔 거래소 링크(있으면)도 붙는다.
                 if kind == "skill_added":
                     add_rule_note(trans_id, "skill_added", subject)
+                elif kind == "support_added":
+                    add_rule_note(trans_id, "support_added", subject)
                 elif kind == "item_changed":
                     add_rule_note(trans_id, "item_slot_change", subject)
                     add_trade(cur.lastrowid, cfg["name"], i, subject)

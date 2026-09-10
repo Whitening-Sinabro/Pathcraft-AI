@@ -86,6 +86,10 @@ SEARCH_ALIASES: dict[str, tuple[str, ...]] = {
     "Helm1": ("투구",),
     # 리그 모드: 거래 지식은 슬롯이 아니라 리그에 속한다. ssf 는 아직 소스가 없어 별칭 없음(앵커 없음으로 남는다).
     "trade": ("거래소", "수수료", "매물", "판매자", "즉시 구입", "화폐 교환"),
+    # 보조 젬(support_added). 판독 C 4990 후보 5개 ↔ 플래너 화염파 보조 5개 1:1 대응 + 툴팁 효과 일치로 확정.
+    "ConcentratedEffect": ("범위 집중",), "SearingFlameTwo": ("이글거리는 화염",), "BurgeonTwo": ("급성장",),
+    "ConsideredCasting": ("신중한 시전",), "RageforgedTwo": ("격노버림",), "NovaProjectiles": ("폭발 투사체",),
+    "Scattershot": ("다중 사격",), "ScattershotTwo": ("다중 사격",),
 }
 
 # note_type 신호(자막 한 줄 단위). 지시서 §2 의 목록을 정규식으로 옮긴 것. 잡담에 흔한 낱말(그래서·맞아요·죽)은 뺐다.
@@ -228,6 +232,8 @@ def transition_triggers(creators: list[dict] | None = None) -> list[Trigger]:
             for kind, subject, _detail in build_db.diff_snapshots(snaps[i], snaps[i + 1]):
                 if kind == "skill_added" and not NOISE_SUBJECT.match(subject):
                     out.append(Trigger(cfg["name"], i, label, "skill_added", subject, lv))
+                elif kind == "support_added":
+                    out.append(Trigger(cfg["name"], i, label, "support_added", subject, lv))
                 elif kind == "item_changed":
                     out.append(Trigger(cfg["name"], i, label, "item_slot_change", subject, lv))
         if len(snaps) >= 2:
