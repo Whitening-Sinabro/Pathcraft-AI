@@ -2,7 +2,7 @@
  "_meta": {
   "purpose": "curation_rule 승인 대기 후보. 판정은 rule_decisions.json 에 기록되고 여기 status 로 병합된다. 자동 반영 금지.",
   "honesty": "trigger_key 는 diff/PoB/설정에서, text 는 자막·판독 원문 그대로. 자막으로 고유명사를 확정하지 않는다.",
-  "generated_utc": "2026-09-10T12:29:18+00:00",
+  "generated_utc": "2026-09-10T12:30:31+00:00",
   "window_sec": 90.0,
   "min_hits": 2,
   "max_clusters": 3,
@@ -28,8 +28,8 @@
   "n_candidates": 68,
   "n_by_status": {
    "rejected": 32,
-   "adopted": 30,
-   "deferred": 6
+   "adopted": 31,
+   "deferred": 5
   },
   "n_unanchored": 129,
   "n_skipped": 0
@@ -316,8 +316,13 @@
    "transition": "ACT1 → ACT2",
    "existing_rule": false,
    "also_matches": [],
-   "status": "deferred",
-   "decision": "'즉시 회복이 진짜 중요' — 플라스크 선택 발언(B 1920 판독: 가르강튀아 생명력 플라스크 후보). Flask1 트리거 별칭이 생기면 survival 규칙으로 재검토"
+   "status": "adopted",
+   "decision": "'즉시 회복이 진짜 중요, 40레벨 되면 끼고 그 전까진 낄 게 없다'(B 1927~1942) + B 1920 판독(가르강튀아 생명력 플라스크 요구 40) + 실캐릭 lv93 플라스크 Instant Recovery. 거래 창에 잡혔지만 내용은 플라스크 → Flask1 survival 규칙으로 재귀속",
+   "rule": [
+    "item_slot_change",
+    "Flask1",
+    "survival"
+   ]
   },
   {
    "id": "league/trade/cost/readout/C 8990",
