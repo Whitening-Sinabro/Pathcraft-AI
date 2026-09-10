@@ -17,11 +17,21 @@ VOD/자막/연구에서 뽑은 **비용·조건·함정·왜(20%)**를 붙이는
 
 `game` 컬럼은 'poe2' 고정이나 이후 POE1 포팅 시 데이터만 추가한다.
 
+## 적재 현황 (다중 크리에이터)
+
+- **임성빈** — 젬링 화염파 → 검은화염 카오스 (Gemling Legionnaire). 큐레이션 11건.
+- **Skadoosh** — 워브링어 타락 함성 토템 (Warbringer, Ancestral Bond·Blood Magic). 큐레이션 2건(ninja 실측).
+
+두 어센던시가 한 DB에 공존한다. 크리에이터를 늘리면 **자동층(밴드 diff)은 공짜로 커지고, 큐레이션(20%)만 노동**이다.
+
+입력 .build 는 `data/hc_journey/creators/<slug>/` 에 커밋된 픽스처(재현 가능). 크리에이터 추가 = 픽스처 넣고 `CREATORS` 에 한 항목.
+
 ## 사용
 
 ```
-python -X utf8 python/hc_journey/build_db.py --build   # DB 생성 + 임성빈 1건 적재
-python -X utf8 python/hc_journey/build_db.py --query    # 여정 출력
+python -X utf8 python/hc_journey/build_db.py --build         # DB 생성 + 전체 적재
+python -X utf8 python/hc_journey/build_db.py --query         # 전체 빌드 여정
+python -X utf8 python/hc_journey/build_db.py --query --id 2  # 특정 빌드
 python -X utf8 -m pytest python/tests/test_hc_journey_db.py -q
 ```
 
