@@ -335,4 +335,5 @@
 - `python/tests/test_trade_links.py` — 9건(정규화·매핑·사다리 임계·요구 상한·플라스크/유니크·?q= 왕복·픽스처 생성·실 인덱스 매핑률). 삭제 불가
 - `data/_cache/trade2/int_{stats,items,filters,leagues}.json` — 공식 /api/trade2/data 캐시(2026-09-10). gitignore, `--refresh` 재취득. 삭제 가능
 - `data/hc_journey/trade_links.json` — 59건 링크(국제+한국 ?q=). 재생성 가능. `trade_links_live_seongbin.json` — 임성빈 34건 live 검색 id·매물 수(검색 id 는 만료됨). 삭제 가능
+- `python/hc_journey/render_journey.py` + `python/tests/test_render_journey.py` — 여정 뷰 HTML 렌더러(전환 카드·손/규칙 노트·🛒 링크 사다리·live 24h 신선도). 산출물 `data/hc_journey/journey.html` 은 gitignore. 삭제 불가
 - `data/hc_journey/pathcraft_hc.db` — 적재 산출물, gitignore. 삭제 가능
