@@ -2,10 +2,10 @@
  "_meta": {
   "purpose": "curation_rule 승인 대기 후보. 사람이 골라 build_db.CURATION_RULES 에 옮긴다. 자동 반영 금지.",
   "honesty": "trigger_key 는 diff/PoB/설정에서, text 는 자막 원문 그대로. 자막으로 고유명사를 확정하지 않는다.",
-  "generated_utc": "2026-09-10T10:14:07+00:00",
+  "generated_utc": "2026-09-10T10:23:24+00:00",
   "window_sec": 90.0,
   "min_hits": 2,
-  "max_clusters": 2,
+  "max_clusters": 3,
   "sources": {
    "임성빈": {
     "transcripts": "deliverables/seongbin_from_day1_2026-09-09/transcripts",
@@ -17,14 +17,15 @@
      "C_tkSubXWDk",
      "GtC5-b4QXec",
      "i6_tfxyQfeQ",
+     "rsKbeELo0TM",
      "xnREtaV3m1A",
      "zKJQyBm4VnI"
     ]
    }
   },
-  "n_candidates": 11,
+  "n_candidates": 15,
   "n_unanchored": 79,
-  "n_skipped": 5
+  "n_skipped": 0
  },
  "candidates": [
   {
@@ -338,6 +339,58 @@
   },
   {
    "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "note_type": "condition",
+   "text": "포격석궁 필요하네요. / 92지는 92가 필요하 / 음민첩에서",
+   "evidence": {
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4483,
+    "ref": "C 4483초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4483s",
+    "lines": [
+     {
+      "sec": 4483,
+      "text": "포격석궁 필요하네요."
+     },
+     {
+      "sec": 4540,
+      "text": "92지는 92가 필요하"
+     },
+     {
+      "sec": 4545,
+      "text": "음민첩에서"
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      4465
+     ],
+     "level": 52,
+     "readout": "52레벨 장착 중 무기 세트I의 대재앙 중심부 포격 석궁 최종 툴팁을 읽었다. 품질20%·물리20~81·화염27~43·냉기10~18, 공격1.92/초·재장전0.65, 요구 레벨33·힘34·민첩34. 룬 화염7~11·냉기3~5, 유탄 투사체1개 추가, 물리21%·화염20~32·냉기7~13"
+    }
+   },
+   "signals": [
+    "민첩",
+    "필요하"
+   ],
+   "hits": 3,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [
+    {
+     "trigger": "skill_added/Flameblast",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": true
+    }
+   ],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "item_slot_change",
    "trigger_key": "Weapon2",
    "note_type": "pitfall",
    "text": "왜 집으로 귀한이 안 되지? / 안 해서 안 되는 건가? 그러네요.",
@@ -380,51 +433,163 @@
   {
    "trigger_kind": "skill_added",
    "trigger_key": "Flameblast",
-   "note_type": "condition",
-   "text": "포격석궁 필요하네요. / 92지는 92가 필요하 / 음민첩에서",
+   "note_type": "survival",
+   "text": "저항 혁명력 Ja. / 저항을 하나만 대충 반지 남아도는 / 저항 아무거나 하나만 해 두고",
    "evidence": {
     "video": "C",
     "video_id": "C_tkSubXWDk",
-    "sec": 4483,
-    "ref": "C 4483초",
-    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4483s",
+    "sec": 4912,
+    "ref": "C 4912초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4912s",
     "lines": [
      {
-      "sec": 4483,
-      "text": "포격석궁 필요하네요."
+      "sec": 4912,
+      "text": "저항 혁명력 Ja."
      },
      {
-      "sec": 4540,
-      "text": "92지는 92가 필요하"
+      "sec": 5037,
+      "text": "저항을 하나만 대충 반지 남아도는"
      },
      {
-      "sec": 4545,
-      "text": "음민첩에서"
+      "sec": 5041,
+      "text": "저항 아무거나 하나만 해 두고"
      }
     ],
     "anchor": {
-     "n": 1,
+     "n": 5,
      "sec": [
-      4540
+      4930,
+      4940,
+      4990,
+      5000,
+      5005
      ],
      "level": 52,
-     "readout": "화염파Lv13 새기기 목록 툴팁에 요구 레벨52와 빨간 지능92가 보인다. 아래 활성 빌드 플래너는 ACT3/4다. 골드100175이다."
+     "readout": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다."
     }
    },
    "signals": [
-    "민첩",
-    "필요하"
+    "저항"
    ],
    "hits": 3,
    "creator": "임성빈",
    "transition_idx": 2,
    "transition": "ACT3-4 → 엔드게임(계획)",
-   "existing_rule": true,
+   "existing_rule": false,
    "also_matches": [
     {
-     "trigger": "item_slot_change/Weapon1",
+     "trigger": "skill_added/OilGrenade",
+     "transition": "ACT2 → ACT3-4",
+     "existing_rule": false
+    }
+   ],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "note_type": "pitfall",
+   "text": "잉크를 챙기시면 안 됩니다. 예를 / 스킬에 적용이 되지 않아요. / 생기시면 안 됩니다. / 필터링을 좀 바꿔야겠네요.",
+   "evidence": {
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 2341,
+    "ref": "F 2341초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=2341s",
+    "lines": [
+     {
+      "sec": 2341,
+      "text": "잉크를 챙기시면 안 됩니다. 예를"
+     },
+     {
+      "sec": 2348,
+      "text": "스킬에 적용이 되지 않아요."
+     },
+     {
+      "sec": 2383,
+      "text": "생기시면 안 됩니다."
+     },
+     {
+      "sec": 2467,
+      "text": "필터링을 좀 바꿔야겠네요."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      2400
+     ],
+     "level": 90,
+     "readout": "90레벨 스킬 창에서 **용의 돛대 - 차임벨 지팡이** 툴팁 전문을 읽었다. 지팡이, 아이템 레벨81, 요구 사항 레벨60·46 지능이고 기본 속성은 주문 피해60% 증가다. **스킬 부여: 18레벨 힘의 부적**. 접두어는 주문 피해76(69-88)% 증가 T7 · 피해의47(43-"
+    }
+   },
+   "signals": [
+    "되지 않",
+    "바꿔야",
+    "안 됩"
+   ],
+   "hits": 4,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [
+    {
+     "trigger": "item_slot_change/Weapon2",
      "transition": "ACT3-4 → 엔드게임(계획)",
      "existing_rule": false
+    }
+   ],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "note_type": "why",
+   "text": "스킬에 적용이 되지 않아요. / 대신 점화 강도는 적용이 되기 때문에 / 카오스피의 퍼센트가 안 나오기 때문에",
+   "evidence": {
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 2348,
+    "ref": "F 2348초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=2348s",
+    "lines": [
+     {
+      "sec": 2348,
+      "text": "스킬에 적용이 되지 않아요."
+     },
+     {
+      "sec": 2351,
+      "text": "대신 점화 강도는 적용이 되기 때문에"
+     },
+     {
+      "sec": 2398,
+      "text": "카오스피의 퍼센트가 안 나오기 때문에"
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      2400
+     ],
+     "level": 90,
+     "readout": "90레벨 스킬 창에서 **용의 돛대 - 차임벨 지팡이** 툴팁 전문을 읽었다. 지팡이, 아이템 레벨81, 요구 사항 레벨60·46 지능이고 기본 속성은 주문 피해60% 증가다. **스킬 부여: 18레벨 힘의 부적**. 접두어는 주문 피해76(69-88)% 증가 T7 · 피해의47(43-"
+    }
+   },
+   "signals": [
+    "때문",
+    "적용이"
+   ],
+   "hits": 3,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [
+    {
+     "trigger": "item_slot_change/Weapon2",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": true
     }
    ],
    "status": "pending"
@@ -514,7 +679,49 @@
   },
   {
    "trigger_kind": "skill_added",
-   "trigger_key": "Despair",
+   "trigger_key": "CastOnElementalAilment",
+   "note_type": "cost",
+   "text": "가격만 맞으면은 저기 타셔도 됩니다. / 그래서 싸게 갔다 올려 합니다.",
+   "evidence": {
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 5381,
+    "ref": "F 5381초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=5381s",
+    "lines": [
+     {
+      "sec": 5381,
+      "text": "가격만 맞으면은 저기 타셔도 됩니다."
+     },
+     {
+      "sec": 5456,
+      "text": "그래서 싸게 갔다 올려 합니다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      5460
+     ],
+     "level": 91,
+     "readout": "의식 헌정품 상점에서 공물 점수5808이 보이고 촉진하는 찬미의 징조 툴팁을 읽었다. 중첩 개수1/10, 이 아이템이 소지품에서 활성화돼 있을 때 엑잘티드 오브를 사용하면 기폭제 퀄리티를 모두 소모하여 해당 유형의 속성이 나올 확률을 높인다는 설명, 활성화 방법과 발동 시 소모된다는 안"
+    }
+   },
+   "signals": [
+    "가격",
+    "싸게"
+   ],
+   "hits": 2,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "skill_added",
+   "trigger_key": "FlashGrenade",
    "note_type": "pitfall",
    "text": "회오리 회오리는 빼고 / 시체 폭발이 위험하니까",
    "evidence": {
@@ -551,7 +758,13 @@
    "transition_idx": 3,
    "transition": "엔드게임(계획) → 실캐릭 lv93",
    "existing_rule": false,
-   "also_matches": [],
+   "also_matches": [
+    {
+     "trigger": "skill_added/Despair",
+     "transition": "엔드게임(계획) → 실캐릭 lv93",
+     "existing_rule": false
+    }
+   ],
    "status": "pending"
   }
  ],
@@ -1110,54 +1323,5 @@
    "reason": "alias 없음(검색 힌트 미등록)"
   }
  ],
- "skipped": [
-  {
-   "trigger_key": "Tornado",
-   "video": "F",
-   "sec": [
-    160,
-    180,
-    190,
-    210,
-    214,
-    218,
-    220
-   ],
-   "reason": "자막 없음"
-  },
-  {
-   "trigger_key": "ShockwaveTotem",
-   "video": "F",
-   "sec": [
-    218
-   ],
-   "reason": "자막 없음"
-  },
-  {
-   "trigger_key": "CastOnElementalAilment",
-   "video": "F",
-   "sec": [
-    207,
-    217,
-    218
-   ],
-   "reason": "자막 없음"
-  },
-  {
-   "trigger_key": "CastOnElementalAilment",
-   "video": "F",
-   "sec": [
-    5460
-   ],
-   "reason": "자막 없음"
-  },
-  {
-   "trigger_key": "Blackflame Covenant",
-   "video": "F",
-   "sec": [
-    75
-   ],
-   "reason": "자막 없음"
-  }
- ]
+ "skipped": []
 }

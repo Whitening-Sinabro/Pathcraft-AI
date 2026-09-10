@@ -62,7 +62,7 @@ python -X utf8 -m pytest python/tests/test_rule_autodraft.py -q
 
 - **전환점** = `build_db` 와 같은 diff(`skill_added`·`item_changed`) + 설정(어센던시·키스톤). trigger_key 는 여기서만 온다.
 - **시각 앵커** = 사람 판독(`deliverables/.../precision_findings.py` ROWS 의 (영상, 초, 관측)). 판독의 "N레벨"을 forward-fill 해
-  전환 시작 레벨 이전 판독은 버리고, 시간순 앞쪽 클러스터(기본 2개)만 본다.
+  전환 시작 레벨 이전 판독은 버리고, 시간순 앞쪽 클러스터(기본 3개)만 본다.
 - **신호** = 앵커 전후 90초 자막에서 cost/condition/pitfall/why/survival 정규식. 후보 text 는 자막 **원문 그대로**.
 - **정직성**: 자동 자막은 고유명사가 깨지므로 이름을 자막에서 확정하지 않는다(별칭은 판독 검색 힌트일 뿐).
   같은 자막 창이 여러 트리거에 걸리면(스킬 창 판독은 스킬을 전부 나열) 하나에만 귀속하고 나머지는 `also_matches`.

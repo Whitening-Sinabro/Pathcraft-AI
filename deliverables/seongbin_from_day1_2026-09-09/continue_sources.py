@@ -1,7 +1,8 @@
 from pathlib import Path
-import json,requests,datetime,hashlib
+import json,requests,datetime,hashlib,sys
 O=Path(__file__).resolve().parent
-for vid in ['39kHWKUhwhU','xnREtaV3m1A']:
+# 인자로 영상 id 를 주면 그것만. 기본은 원래의 두 편. (F=rsKbeELo0TM 은 방송 직후 fetch 라 자막이 없었고, research.metadata 로 info 갱신 후 이걸로 받는다)
+for vid in (sys.argv[1:] or ['39kHWKUhwhU','xnREtaV3m1A']):
     d=json.loads((O/'sources'/f'{vid}.info.json').read_text(encoding='utf8'))
     status={'video_id':vid,'retrieved_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
     try:

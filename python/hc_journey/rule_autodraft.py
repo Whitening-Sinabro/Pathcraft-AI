@@ -11,7 +11,7 @@
   * 판독·자막은 크리에이터별로 묶는다. 다른 크리에이터의 영상을 앵커로 빌리지 않는다.
 
 앵커 선택: 판독의 "N레벨" 을 영상별로 forward-fill 해 전환 시작 레벨보다 앞선 판독은 버리고,
-영상 시간순으로 앞쪽 클러스터(기본 2개)만 본다 — 전환 '순간' 이 그 근처다.
+영상 시간순으로 앞쪽 클러스터(기본 3개)만 본다 — 전환 '순간' 이 그 근처다.
 
 사용:
     python -X utf8 python/hc_journey/rule_autodraft.py            # data/hc_journey/rule_candidates.json 생성
@@ -49,7 +49,8 @@ CREATOR_SOURCES: dict[str, dict] = {
     },
 }
 
-# 영상 문자 ↔ id. 손노트 evidence("C 4550초")와 같은 표기. 순서 = 방송 시간순. F 는 자막이 없다.
+# 영상 문자 ↔ id. 손노트 evidence("C 4550초")와 같은 표기. 순서 = 방송 시간순.
+# F 는 방송 직후 fetch 라 자막이 없었고 2026-09-10 에 continue_sources.py rsKbeELo0TM 으로 재추출했다.
 VIDEO_LETTERS = {
     "A": "zKJQyBm4VnI", "B": "GtC5-b4QXec", "C": "C_tkSubXWDk",
     "D": "39kHWKUhwhU", "E": "xnREtaV3m1A", "F": "rsKbeELo0TM",
@@ -87,8 +88,8 @@ SEARCH_ALIASES: dict[str, tuple[str, ...]] = {
 NOTE_SIGNALS: dict[str, re.Pattern[str]] = {
     "cost": re.compile(r"골드|엑잘|액잘|신성한|수수료|가격|비싸|싸게|싼데|구매|매물|팔아|팔고|\d{1,3}(?:,\d{3})+|\d{4,}|\d+만"),
     "condition": re.compile(r"요구|필요하|필요한|찍어 ?줘야|찍어야|맞춰야|지능|민첩|\d+ ?레벨|레벨 ?\d+"),
-    "pitfall": re.compile(r"죽었|죽음|죽어|죽을|죽지|안 먹|안 돼|안 되|안됨|바꿔야|잘못|실수|조심|위험|주의|빼고|못 쓰|사용 불가|충족되지|버그|포기해야"),
-    "why": re.compile(r"때문|이유|효과|전환|변환|증폭|감폭|키스톤|메커니즘|원리"),
+    "pitfall": re.compile(r"죽었|죽음|죽어|죽을|죽지|안 먹|안 ?[돼되됩]|안됨|되지 않|바꿔야|잘못|실수|조심|위험|주의|빼고|못 쓰|사용 불가|충족되지|버그|포기해야"),
+    "why": re.compile(r"때문|이유|효과|전환|변환|증폭|감폭|키스톤|메커니즘|원리|적용[이되]"),
     "survival": re.compile(r"저항|부활|플라스크|생명력|보호막|보막|피통|맞아가지고|맞아서|맞으면|맞았|생존|탱|회복|한 방"),
 }
 NOISE_SUBJECT = re.compile(r"^PlayerDefault")  # 기본 공격 스킬 — 전환점이 아니다.
@@ -289,7 +290,7 @@ def _owner(group: list[Trigger], level: int | None, default: Trigger) -> Trigger
 
 
 def draft_candidates(triggers: list[Trigger], anchors: list[Anchor], transcripts: dict[str, list[Segment]],
-                     window_sec: float = 90.0, min_hits: int = 2, max_lines: int = 8, max_clusters: int = 2,
+                     window_sec: float = 90.0, min_hits: int = 2, max_lines: int = 8, max_clusters: int = 3,
                      ignore: tuple[str, ...] = ()) -> dict:
     existing = {(k, key, nt) for (k, key, nt, _t, _e) in build_db.CURATION_RULES}
     groups: dict[tuple, list[Trigger]] = {}
@@ -391,7 +392,7 @@ def _rel(p: Path) -> str:
     return (p.relative_to(REPO) if p.is_relative_to(REPO) else p).as_posix()
 
 
-def run(out: Path | None = DEFAULT_OUT, window_sec: float = 90.0, min_hits: int = 2, max_clusters: int = 2,
+def run(out: Path | None = DEFAULT_OUT, window_sec: float = 90.0, min_hits: int = 2, max_clusters: int = 3,
         creator: str | None = None, sources: dict[str, dict] | None = None) -> dict:
     sources = CREATOR_SOURCES if sources is None else sources
     all_triggers = [t for t in transition_triggers() if creator is None or t.creator == creator]
@@ -426,7 +427,7 @@ if __name__ == "__main__":
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
     ap.add_argument("--window", type=float, default=90.0, help="앵커 전후 자막 창(초)")
     ap.add_argument("--min-hits", type=int, default=2, help="후보로 올리는 최소 신호 줄 수")
-    ap.add_argument("--max-clusters", type=int, default=2, help="트리거당 보는 앵커 클러스터 수(시간순 앞에서부터)")
+    ap.add_argument("--max-clusters", type=int, default=3, help="트리거당 보는 앵커 클러스터 수(시간순 앞에서부터)")
     ap.add_argument("--creator", default=None)
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()

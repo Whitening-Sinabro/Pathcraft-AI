@@ -328,5 +328,6 @@
 - `python/tests/test_hc_journey_db.py` — 다중 크리에이터·규칙 상속·2층 분리 4건. 삭제 불가
 - `python/hc_journey/rule_autodraft.py` — 규칙 자동 초안(#1). 전환 diff 트리거 + 판독 앵커(레벨 게이트·시간순 2클러스터) + 자막 창 신호 → `rule_candidates.json`. `CURATION_RULES` 읽기 전용(승인 게이트). 삭제 불가
 - `python/tests/test_rule_autodraft.py` — 초안기 14건: 신호 분류, 캐릭터 레벨 파싱(구간·임계·타인·젬 제외), 레벨 running max, 캐릭터 이름 제외, 원문 그대로+evidence(영상,초), 근거 중복 귀속 1회(also_matches), 같은 키 다중 전환은 앵커 레벨로 주인 결정, 소스 없는 크리에이터 0건, 규칙 무변경. 삭제 불가
-- `data/hc_journey/rule_candidates.json` — 승인 대기 후보(임성빈 11건). 재생성 = `python -X utf8 python/hc_journey/rule_autodraft.py`. 삭제 가능(재생성)
+- `deliverables/seongbin_from_day1_2026-09-09/transcripts/rsKbeELo0TM.{json,txt}` + `sources/rsKbeELo0TM.ko-orig.json3` — F(9/9 검은 화염파 전환 완료 방송) 자동 자막 2781줄. 9/9 fetch 는 방송 중이라 자막 0 → 9/10 `research.metadata` 갱신 후 `continue_sources.py rsKbeELo0TM` 로 재추출. 처음 30분은 무발화. 옛 info 는 `.info.20260909.json` 으로 보존. 삭제 가능(재추출)
+- `data/hc_journey/rule_candidates.json` — 승인 대기 후보(임성빈). 재생성 = `python -X utf8 python/hc_journey/rule_autodraft.py`. 삭제 가능(재생성)
 - `data/hc_journey/pathcraft_hc.db` — 적재 산출물, gitignore. 삭제 가능
