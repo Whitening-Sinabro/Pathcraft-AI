@@ -20,7 +20,7 @@ def test_multi_creator_and_rules():
     """크리에이터 수는 CREATORS 설정에 묶는다(숫자 리터럴이면 추가할 때마다 red, >= 면 삭제를 못 잡는다)."""
     st = build_db.build()
     names = {c["name"] for c in build_db.CREATORS}
-    assert names == {"임성빈", "Skadoosh", "ds lily", "Fubgun", "탱정"}, names
+    assert names == {"임성빈", "Skadoosh", "ds lily", "Fubgun", "탱정", "Blazeworks", "MisoxShiru", "디넬"}, names
     assert st["creator"] == st["build"] == len(build_db.CREATORS), st
     assert st["snapshot"] == sum(len(c["bands"]) for c in build_db.CREATORS), st
     assert st["transition"] == sum(len(c["bands"]) - 1 for c in build_db.CREATORS), st
@@ -47,6 +47,19 @@ def test_new_creators_inherit_without_hand_notes():
         fb = con.execute("SELECT COUNT(*) FROM transition_note n JOIN transition t ON n.transition_id=t.id "
                          "JOIN curation_rule r ON n.rule_id=r.id WHERE t.build_id=? AND r.trigger_key='Flameblast'", (bid,)).fetchone()[0]
         assert fb >= 1, like
+    # 일반화: 손노트 없는(notes == {}) 밴드 ≥2 크리에이터는 전부 손 0 + 규칙 노트 ≥1 (바라시타 2명 포함). 밴드 1개는 전환이 없어 규칙도 0 이 맞다.
+    for cfg in build_db.CREATORS:
+        if cfg["notes"]:
+            continue
+        bid = con.execute("SELECT b.id FROM build b JOIN creator c ON c.id=b.creator_id WHERE c.name=?", (cfg["name"],)).fetchone()[0]
+        hand, rule = con.execute(
+            "SELECT SUM(n.source='hand'), SUM(n.source='rule') FROM transition_note n JOIN transition t ON n.transition_id=t.id "
+            "WHERE t.build_id=?", (bid,)).fetchone()
+        assert (hand or 0) == 0, cfg["name"]
+        if len(cfg["bands"]) >= 2:
+            assert (rule or 0) >= 1, cfg["name"]
+        else:
+            assert (rule or 0) == 0, cfg["name"]
     con.close()
 
 

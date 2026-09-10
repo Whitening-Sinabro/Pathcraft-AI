@@ -342,3 +342,9 @@
 - `.claude/status/hc_creator_sourcing.md` — 소스 매트릭스(정체성 확정 18명·HC 근거 등급·플래너·ninja·자막·우선순위·첫 3명 허락 목록·탱정 1밴드 결정). 삭제 불가(허락 목록 원본)
 - `data/hc_journey/creators/tangjeong/01_endgame_2_0.build` — 탱정 방패벽 키타바 2.0 픽스처(`build_planner/Kitava Endgame 2.0 - Tangjeong.build` 복사, PoB 28010). 삭제 불가(적재 입력)
 - `python/tests/test_hc_journey_db.py::test_single_band_build_has_no_transitions_notes_or_links` — 밴드 1개=전환 0=규칙·링크 0 계약. 삭제 불가
+- `data/hc_journey/creators/blazeworks/01~06_*.build` + `_source/{mobalytics_export_2026-09-10.zip, ninja_Blaze_MinionToWin_2026-09-10.json}` — Blazeworks 바라시타 5탭(유탄 라인) + ninja 96렙 HC 실캐릭. 원본 zip 에 대안 탭 2개·빈 Min-Maxed 탭 포함. 삭제 불가(적재 입력·출처)
+- `data/hc_journey/creators/misoxshiru/01~07_*.build` + `_source/mobalytics_export_2026-09-10.zip` — MisoxShiru 바라시타 7탭. 삭제 불가
+- `data/hc_journey/creators/dinel/01_live_lv98.build` + `_source/ninja_디넬바라시타_2026-09-10.json` — 디넬 HC 실캐릭 1밴드(ninja 래더 API 로 캐릭터명 확정). 삭제 불가
+- `data/_cache/subs/{blaze_RE9_SlCF4lk.en, miso_Jrj2YtLSJSk.en, dinel_YR0BtaTug_k.ko, dinel_DSdSbtKU76E.ko}.json3` — 허락 A-3/B-2/C-3 자막(gitignore). 삭제 가능(재수집)
+- `data/hc_journey/sourcing/ninja_ladder_2026-09-10/` — ninja HC·HCSSF 래더 2269계정(protobuf 디코더 `protodec.py`·`fetch_ninja.py`) + 트위치/치지직 실조회 결과(`streamers.md/json`, `chzzk_results.json`) + 재실행 스크립트. 삭제 가능하나 재조회 비쌈(래더는 시점 스냅샷)
+- `data/hc_journey/sourcing/podcast_handles_2026-09-10/` — Blazeworks·MisoxShiru 팟캐스트 @핸들 56개 채널 스윕(`sweep.json`). 삭제 가능(재수집)

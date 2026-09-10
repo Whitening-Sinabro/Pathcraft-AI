@@ -37,6 +37,8 @@
 | 15 | **Peuget2** | `UCFzGidn_t6Mtw_hV3Ve9o2Q` · @Peuget2 | en | 화염파 기름 유탄 젬링 (0.5.5) + 레벨링 가이드 6XZgDnpPDPc | 0/40 제목 HC → 0 | **M** `mobalytics.gg/poe-2/builds/hellfire-gemling-flameblast-oil-grenade` | 미확보 | 2 | 15 (젬링 5번째) | — |
 | 16 | **POEGuy** | `UCvICZHerbUEr3eM6q3kISIg` · @poeguy007 | en | 워브링어 유탄 발리스타 토템 스타터 (0.5.5) | 근거 없음 → 0 | 설명란 3편 모두 **poe-vault** `poe-vault.com/poe2/warrior/warbringer/totems-build-guide`(+`totems-leveling-build`) — 인게임 플래너 아님, 밴드 없음 | 미확보 | 0(scratchpad 만) | 16 | — |
 | 17 | **탱정** *(적재됨, 1밴드)* | `UCSlN0zTczYpNJHCbskGuYaw` · @탱정-탱커의정석 | ko | 방패벽 키타바 2.0 (0.5, PoB 97렙) · **0.5.5 실캐릭 90→94 (낭만 워리어)** | 본인 저자본 가이드 자막(QcSeQ0OOENI 3:01 "하드코어 유저분들까지 참고하시기에 생존은 절대 포기할 수 없습니다", 10:43 하코용 대체품) = 소프트코어 빌드 + 하코 대체안. 0.5.5 방송 자막의 하코 언급은 미래 가정뿐(day3 4:06:29, h:mm:ss) → 0 | **J** `pob/28010`(적재) · **L** 0.5.5 `deliverables/tangjung_0_5_5_research_2026-09-07/sources/pob_{28509,285e2,28604,28695}.xml` | 계정명 미확보(ninja 닉 `ROA_WarriorTanker_Build`) | 1+2(0.5.5 방송 전사) | 적재됨 | L 4개는 허락 불필요 |
+| 19 | **MajorAimless** *(팟캐스트 축 신규)* | `UCSU3AtPCUdOroXcHO5T9qcA` · @MajorAimless · 트위치 `majoraimless` | en | 차율라 Last Lament (0.5) · Whirling Assault 무술가 (0.5) · Twister SpiritWalker 스타터 (0.5) — 전부 HCSSF | **S** 14편 중 13편 제목 HCSSF, 설명란 트위치 링크 | **M** 3개 `mobalytics.gg/poe-2/profile/majoraimless-zcp87o/builds/…` | 미확보 | 0 | **6.5** (0.5 이지만 HCSSF 전용·새 계열 3종) | E: M 탭 export ×3 |
+| 20 | **lolmalice** *(래더 축 신규)* | 트위치 `lolmalice`(유튜브 없음) · ninja `lolmalice-3623` | en | 0.5.5 HC 트레이드 리그 스타트 몽크("sw monkey") — HC 래더 4위 98렙 | **N** HC 래더 캐릭터 `lolmalicem` + VOD 제목 "poe2 0.5 league start (hc trade)" | 없음 — ninja 폴링만 | `lolmalice-3623` (HC FR) | 0 (VOD 전사 필요) | **3.5** (현역 HC 최상위, 영상 30시간+) | F: ninja 폴링 + VOD 오디오 구간 전사 |
 | 18 | **eltriki** | `UC1543074v44JJ959q6ckzyQ` (명부 ID, yt-dlp 미확인) | es | 하드코어 액트 완주 #1~#29 연재 | **S** 연재 제목(명부) | 없음 | 미확보 | 0 | 보류 | — (캠페인 문서용) |
 
 이미 적재된 임성빈(`UCvj_myZNbqdHBBFT2IjKJWw` @임성빈POE2하드코어, 채널명 자체가 "POE2 하드코어"; HC 근거는 설명란이 아니라 **ninja API 응답** `overview=hc-forbidden-rites`·league "HC Forbidden Rites"(`.claude/status/poe2_hc_gemling.md`) = N 급), Skadoosh(`UChDo6WKvR6szS46KY_dL_zg` @SkadooshPoE; `SkadooshShoutedHard` ninja API 응답 league "HC Forbidden Rites"(`deliverables/skadoosh_early_survival_2026-09-08/stage_05_06_audit/ninja_latest.json`) = N 급 — 설명란 링크는 0.5 SC 캐릭터라 설명란 기준으론 N 아님), Fubgun(HC 0)은 위 표에서 뺐다. ds lily 는 9행에서 1→0 으로 갱신.
@@ -69,8 +71,69 @@ Woolie · skr1mps · DarthMicrotransaction · barricadettv · 호진 · 혜미 H
 | **C-2** 디넬 ninja 폴링 | `track_poe2_character.py --account DNEL-7382 --name <C-1 결과> --overview hc-forbidden-rites --interval 180 --hours 8` | 변화 시점마다 캐릭터 JSON(전환 레벨 보존본 = 밴드) | 50~100KB/회, 8시간에 수십 회 | 밴드(폴링) — 플래너가 없는 사람의 유일한 경로 |
 | **C-3** 디넬 자막 | `YR0BtaTug_k`(켈라리&나비라 바라시타) · `DSdSbtKU76E`(리치 0.5.5) | 자동 자막 ko json3 | ~150KB × 2 | 한국어 규칙 후보 |
 | **D**(선택) 임성빈 Mobalytics 프로필 열람 | `https://mobalytics.gg/poe-2/profile/seongbin-poe2-hardcore-zaxjdu` | 바라시타 빌드 탭 존재 여부만 | — | 2번째 빌드 후보 판단 |
+| **E**(신규, 팟캐스트 축에서 발견) MajorAimless Mobalytics export ×3 | `mobalytics.gg/poe-2/profile/majoraimless-zcp87o/builds/fcad0476-808e-40df-83a5-c380c2c80bc4`(차율라 Last Lament) · `…/7d5b9ebe-83b4-4c27-ac57-f298a2ac7fd9`(무술가) · `…/2c88a8d0-081c-4fec-8991-870db4427b73`(스피릿워커 스타터) | 탭마다 `.build` zip(A-1 과 같은 방식) | 탭당 3~15KB | HCSSF(S) 0.5 빌드 3개 — 새 계열 3종. **아직 안 받음(허락 대기)** |
+| **F**(신규, 래더 축에서 발견) lolmalice | ninja `lolmalice-3623` / `lolmalicem` / `hc-forbidden-rites` 폴링(`track_poe2_character.py`) · 트위치 VOD `v2865278209`(33h)·`v2866780837`(26h)·`v2867898432`(20h)·`v2868807599`(12h) 구간 오디오 → Whisper 전사(`reference_twitch_vod_reading`) | 캐릭터 JSON(50~100KB/회) + VOD 오디오 구간(구간당 수십 MB, 재인코딩 없음) | 크다 — 구간만 | HC 4위 현역 스트리머의 리그 스타트 여정. 밴드는 폴링(98렙이라 장비 변화만), 규칙은 VOD. **아직 안 받음(허락 대기)** |
+| **G**(신규, 래더 축) roxTITAN | ninja `roxTITAN-1798` / `richBEACH_N_ROX` / `hc-forbidden-rites` 폴링 · 트위치 VOD `v2868406263`(7h)·`v2869303646`(6h) "top1 Warrior on HC!" 구간 전사 | 캐릭터 JSON + VOD 오디오 구간 | 크다 — 구간만 | HC 9위 현역 워리어 스트리머. 워브링어(Skadoosh)와 다른 워리어 축이면 대조 계열. **아직 안 받음(허락 대기)** |
+| 나머지 미결 | 래더 미조회 로그인 54건은 에이전트 최종 실행에서 전부 완료(0 pending). 러시아어 `Graf_Irdis`(HC 92렙, VOD 5)만 POE2 여부 미확인 | — | — | 필요하면 VOD 제목 1회 조회 |
 
 주의: Mobalytics 는 Fubgun 때 403 을 낸 적이 있다(브라우저 세션 필요). ninja 는 개별 캐릭터 조회만(집계 없음), 폴링은 `track_poe2_character.py` 의 3분 간격.
+
+### 허락 결과 (2026-09-10 저녁, 사용자 "해보자" 승인 후)
+
+| 항목 | 결과 |
+|---|---|
+| A-1 Blazeworks | Playwright(`browser_run_code_unsafe` + `page.waitForEvent('download')` → `download.saveAs`)로 "Download Build File" zip 수신 — 8탭. **Lv1-21 은 대안 3개**(유탄·ED/C+소환수·ED/C+원소), "Min-Maxed Endgame" 탭은 **빈 파일**(패시브·스킬 0). 유탄 라인 + 22-36 + 36-65 + 65-85 + 90+ = 5밴드. 페이지의 "Live Seasonal Characters: Level 96 Disciple of Varashta · HC Forbidden Rites" 로 N 재확인 |
+| A-2 Blazeworks ninja | `Blaze_MinionToWin` 96렙, API 응답 league "HC Forbidden Rites", 키스톤 Chaos Inoculation → 6번째 밴드(ninja_live). 원본 JSON = `creators/blazeworks/_source/` |
+| A-3 자막 | `blaze_RE9_SlCF4lk.en` 수신 |
+| B-1 MisoxShiru | zip 7탭 전부 밴드(막 경계 레벨 힌트). Live Seasonal Characters 없음 → HC 근거 없음 → `hardcore=0`, 리그 `forbidden-rites` |
+| B-2 자막 | `miso_Jrj2YtLSJSk.en` 수신 |
+| C-1 디넬 계정 조회 | **프로필 페이지 불필요** — ninja 래더 search API(`/poe2/api/builds/latest/search?overview=hc-forbidden-rites&name=디넬`, protobuf)가 계정 `DNEL-7382` · 캐릭터 `디넬바라시타`(98렙, EHP 59k) 를 돌려줬다 |
+| C-2 디넬 폴링 | 1회 조회 → PoB → 밴드 1개(`dinel/01_live_lv98.build`, league "HC Forbidden Rites" = N). 6시간 폴링 가동(scratchpad `dinel_track/`) — 98렙이라 전환은 장비·젬 변화에서만 나온다 |
+| C-3 자막 | `dinel_YR0BtaTug_k.ko` · `dinel_DSdSbtKU76E.ko` 수신 |
+| D 임성빈 Mobalytics | 프로필에 빌드 **1개뿐**(젬링 리그 스타터, 9/6 갱신). 바라시타 탭 없음 → 2번째 빌드는 플래너 경로 없음(ninja 폴링만) |
+
+적재 결과: creator 8 · snapshot 36 · transition 28 · 규칙 노트 82→101 · 거래 링크 466→770. 바라시타 3명(Blazeworks·MisoxShiru·디넬)이 두 번째 대조 계열.
+
+### 넓히기 — 검색어가 아니라 정체성 축 두 개 (2026-09-10, 언어 무관)
+
+1. **ninja HC 래더 → 스트리머**: search API 는 protobuf(`application/x-protobuf`)이고 요청당 상위 100명(계정·캐릭터명·클래스·레벨·EHP·DPS)을 준다. `class=` 필터로 계열별 100명씩 넓힐 수 있다.
+   twitch 컬럼은 없다 — 캐릭터명의 `ttv`·`twitch`·`live` 같은 자기표기 + 계정명을 트위치/치지직 로그인으로 **실제 조회**해 "스트리머인가·영상이 있는가"를 확인한다(사용자 기준). 결과 = `scratchpad/ninja_streamers/streamers.md` → 아래 표로 옮긴다.
+2. **팟캐스트 @핸들**: Blazeworks·MisoxShiru 채널 전체 열거에서 @핸들 56개(TalkativeTri·Lolcohol·YungYdoc·XTheFarmerX·Raxxanterax·DEADR4BB1T·Palsteron·GhazzyTV·CaptainLance9·barricadettv·Timmy_P_onTwitch·JorgenPOE·KadachiPOE2 …). 각 채널 40편 열거 + POE2 가이드 설명란의 HC 링크 검사(`scratchpad/handles/sweep.json`, 50 채널 성공 / 6 핸들 404).
+
+#### 래더 축 결과 (2026-09-10) — HC 1320 + HCSSF 949 계정(상위 100 × 어센던시 필터 21종), 스트리머 실조회 164 로그인 전부 완료(영상 있음 10 · 채널만 52 · 없음 102)
+
+사용자 기준 "스트리머/유튜버인가 → 영상이 있는가"로 판정. 트위치는 `yt-dlp --flat-playlist twitch.tv/<login>/videos`(채널 존재·VOD 수), 한국어 이름은 치지직 채널 API. 원자료 `data/hc_journey/sourcing/ninja_ladder_2026-09-10/`.
+
+| 계정 · 캐릭터 | 래더 | 플랫폼 · 영상 | 판정 |
+|---|---|---|---|
+| **lolmalice-3623 · lolmalicem** | HC **4위** 98렙 | 트위치 `lolmalice`, VOD 8+ — 제목 "poe2 0.5 league start (hc trade) starting build sw monkey", 리그 스타트 VOD 4편 각 12~33시간 | **신규 후보 20번** — 영어 트위치 전용(유튜브 없음). 밴드 = ninja 폴링, 규칙 = VOD 전사(`reference_twitch_vod_reading`). HC 근거 **N**(HC 래더 캐릭터) |
+| **roxTITAN-1798 · richBEACH_N_ROX** | HC **9위** 98렙 | 트위치 `roxTITAN`, VOD 8 — 제목 "top1 Warrior on HC! richBEACH_N_ROX"·"HC warrior"·"Mageblood!", 1~7시간 | **신규 후보 21번** — 현역 HC 워리어 스트리머(트위치 전용). HC 근거 **N**(HC 래더) + VOD 제목. 허락 목록 **G** |
+| Oskarmln-1292 · essenceshard | HCSSF **1위** 98렙 | 트위치 `Oskarmln`, VOD 7 — 전부 POE1 SSFHC 클립(Ruthless·Archnemesis·Synthesis 100렙) | POE2 영상 없음 → 보류(HCSSF 1위라 ninja 폴링 가치는 있음) |
+| Richaimyte-6785 · Richainadess | HC 91렙 | 트위치 VOD 2 — 2019년대 POE1 Blight 하이라이트 | 현역 아님 → 제외 |
+| Zeref-TR-9091 · Zereffffff | HC **1위** 100렙 | 트위치 `ZerefTR` 채널 존재, VOD 0 | 영상 없음 → 보류 |
+| GDDLive-0150 · GDVarashta | HCSSF | 트위치 `GDDLive` 존재, VOD 0 | 보류(이름이 Live 표기) |
+| PinkApple-1905 · PinkAppleHCttv | HCSSF | 트위치 `PinkApple` 존재, VOD 0 | 보류 |
+| Szymon-2472 · Szymon_x | HC 98렙 | 트위치 존재, VOD 0 | 보류 |
+| Graf_Irdis-3816 · TTV_Graf_Irdis_FR_I | HC 92렙 | 트위치 VOD 5, 러시아어 제목("Учусь играть") | 러시아어 후보 — POE2 여부 미확인, 보류 |
+| GrappLr · Yeti · garrickdr · Saasinho · Jimmythevu | — | VOD 있으나 Valheim·WoW·Gungeon·스웨덴어 | 짧은 아이디 충돌(다른 사람) → 제외 |
+| 채널 존재·VOD 0 (Nartwoo·Blaise·acolyte·yuto·Palanteer·… 33건) | — | 대부분 흔한 아이디 | 동일인 근거 없음 → 제외 |
+
+**한국어 이름 61계정 → 치지직**(`chzzk_results.json`, 에이전트의 chzzk 조회가 오타로 빠져 직접 재실행): 채널 API 정확 일치 3건(신기하당·디스코·토템)뿐이고 전부 영상 0·POE 언급 0 → 흔한 이름 충돌, 스트리머 없음. 즉 HC 래더의 한국인 상위권(하데스일주년·차율라사용·헤롱헤롱쿨쿨방울·이호기 계열 …)은 치지직 채널을 그 이름으로 운영하지 않는다. 한국어 HC 소스는 여전히 유튜브(임성빈·디넬·탱정) 경로다.
+
+알려진 제작자 교차: 임성빈·디넬·Blazeworks·Skadoosh·Kris Droverson·CololadoBurger 는 래더에 있음. Oscrix·Gressoul·LexD·Arserina 는 없음(SC 또는 0.5).
+한계: 스트리머 판정은 채널 존재+영상 유무이지 "그 캐릭터의 주인"이라는 증명이 아니다(짧은 아이디는 충돌). 이름에 `ttv/twitch/live` 표기가 있거나 VOD 제목이 POE2 인 경우만 채택. 164 로그인 전부 조회 완료.
+
+#### 팟캐스트 축 결과 (2026-09-10) — 대부분 소프트코어, 신규 HC 는 1명
+
+| 채널 | ID · 핸들 | 근거 | 플래너 | 판정 |
+|---|---|---|---|---|
+| **MajorAimless** | `UCSU3AtPCUdOroXcHO5T9qcA` · @MajorAimless (465 구독, 트위치 `majoraimless`) | **S** — 14편 중 13편 제목이 HCSSF: 0.5 Acolyte of Chayula "Last Lament"(7Roc4jDxdqA) · Whirling Assault 무술가(kKQODvdp4kE) · Twister SpiritWalker 스타터(cvOiJ5-DI4U) | **M** 3개 `mobalytics.gg/poe-2/profile/majoraimless-zcp87o/builds/{fcad0476…, 7d5b9ebe…, 2c88a8d0…}` | **신규 후보 19번** — 0.5 이지만 HCSSF 전용 + 플래너 3개 + 새 계열(차율라·무술가·스피릿워커). 허락 목록 **E** |
+| CrimsonCasts | `UC0T7CsWXQv7ORzCvhJV9e-A` | "Tierlist Update: Notes for Hardcore Players in 0.5.5" 1편 | 없음 | 빌드 제작자 아님 — 티어리스트 참고용 |
+| Schwingy | `UC2ju0j2-6NZd8i8qqOIWZWA` | "Can A Random Build Survive in Hardcore?" 1편(영화형) | 없음 | 보류 |
+| DarthMicrotransaction · Woolie | — | HC 제목은 **POE1**(Keepers of the Flame) · **테라리아 Calamity** | — | POE2 하코 아님 |
+| 나머지 44채널(Zizaran·Raxxanterax·Palsteron·GhazzyTV·Jorgen·TalkativeTri·Lolcohol·Dr3adful·Dreamcore·KallTorak·KingKongor·Scorpius …) | — | HC 제목 0·설명란 HC 링크 0 | — | 소프트코어 |
+
+핸들 404: @DEADRABB1T(실제 @DEADR4BB1T)·@Lexd(@lexdtv)·@Pohx·@Timmy_P_onTwitch·@XTheFarmerX(@XTheFarmerX_POE2)·@ZiggyD(@ZiggyDGaming). Timmy 는 트위치 전용이라 유튜브 핸들이 없다 — 래더/트위치 축에서 본다.
 
 ## 허락 없이 한 것 — 탱정 1밴드 적재 (완료)
 

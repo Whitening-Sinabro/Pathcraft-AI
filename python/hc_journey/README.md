@@ -44,6 +44,13 @@ VOD/자막/연구에서 뽑은 **비용·조건·함정·왜(20%)**를 붙이는
 - **탱정** — 방패벽 키타바 2.0 (Smith of Kitava). 제작자 PoB 한 세트(poe.ninja pob/28010, 0.5 소프트코어)라 **밴드 1개 = 전환 0**.
   규칙 노트·거래 링크는 전환에 붙으므로 0 이 맞는 동작이고 스냅샷(스킬 11·장비 12칸)만 남는다 — `--query` 와 여정 뷰가 "전환 없음"을 명시한다(조용히 비지 않게).
   하코 근거 없음 → hardcore=0. 0.5.5 실캐릭 PoB 4개(90→94, `deliverables/tangjung_0_5_5_research_2026-09-07/sources/`)는 별도 빌드 적재 후보.
+- **Blazeworks** — SSF 모래·화염 진 바라시타 (Disciple of Varashta). Mobalytics 8탭 중 5탭(Lv1-21 대안 3개 중 유탄만, 빈 Min-Maxed 탭 제외) +
+  ninja 실캐릭 `Blaze_MinionToWin` 96렙(league 'HC Forbidden Rites' → hardcore=1, 근거 N). 키스톤 Chaos Inoculation. 손노동 0. 원본 zip·ninja JSON = `blazeworks/_source/`.
+- **MisoxShiru** — 나비라의 균열 바라시타 리그 스타터. Mobalytics 7탭 전부(막 경계 레벨 힌트). 이 빌드의 HC 근거 없음 → hardcore=0, 리그 `forbidden-rites`. 손노동 0.
+- **디넬** — 바라시타 실캐릭(ninja `DNEL-7382` / `디넬바라시타` 98렙, league 'HC Forbidden Rites' → hardcore=1). 플래너 없음 → 밴드 1개(전환 0),
+  폴링(`track_poe2_character.py`)이 변화를 잡으면 앞 밴드로. 캐릭터명은 ninja 래더 search API(protobuf, `name=` 필터)로 찾았다.
+
+바라시타 세 제작자(Blazeworks·MisoxShiru·디넬)가 나란히 있어 두 번째 "같은 빌드 대조" 계열이 됐다 — 바라시타 전환이 Blazeworks Lv22-36 / MisoxShiru 2막.
 
 같은 빌드(화염파 젬링) 세 제작자가 나란히 있어 "같은 빌드도 내부가 갈린다"를 DB 가 보여 준다 — 화염파 도입이 임성빈 ACT3-4→엔드게임,
 ds lily 47→72, Fubgun 33-51→52. 크리에이터를 늘리면 **자동층(밴드 diff)은 공짜로 커지고, 큐레이션(20%)만 노동**이다 — 4명째도 손노동 0 으로 규칙 67건 상속.

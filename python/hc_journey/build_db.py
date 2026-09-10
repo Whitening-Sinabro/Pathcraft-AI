@@ -322,6 +322,64 @@ CREATORS = [
         ],
         "notes": {},
     },
+    # --- 바라시타 계열 2명(2026-09-10 소싱 #2, 허락 A·B) — "같은 빌드도 내부가 갈린다" 두 번째 계열. 손노동 0, 규칙 상속만. ---
+    {
+        "name": "Blazeworks", "channel": "https://www.youtube.com/channel/UCCgInTe6xn-n6650g2PrimA", "ninja": "BlazeW-3944",   # @BlazeworksTV
+        "build": {"name": "SSF 모래·화염 진 바라시타 (Blazeworks)", "asc": "Disciple of Varashta",
+                  "league": "hc-forbidden-rites", "ssf": 0,
+                  "notes": "Mobalytics 캠페인+엔드게임 가이드 8탭 중 5탭을 밴드로: Lv1-21 은 대안 3개(유탄·ED/C+소환수·ED/C+원소) 중 유탄만 — "
+                           "캠페인 영상 자막(d2QbaO-sJ3o 1:46~2:06 '유탄이 가장 강했다… 다른 두 변형은 소환수·원소 주문, 이 영상은 유탄')이 근거. "
+                           "'Min-Maxed Endgame' 탭은 비어 있어(패시브·스킬 0) 제외. 6번째 밴드 = ninja 실캐릭 Blaze_MinionToWin 96렙 "
+                           "(league 'HC Forbidden Rites' — 근거 등급 N). 가이드 제목은 SSF 지만 실캐릭 리그는 HC(SSF 아님) → ssf=0. "
+                           "키스톤은 ninja keystones(Chaos Inoculation). 원본 zip = blazeworks/_source/."},
+        "hardcore": 1,
+        "keystones": ["Chaos Inoculation"],
+        "bands": [
+            ("Lv1-21 유탄", 21, "planner_band", "blazeworks/01_Lv1-21_grenades.build"),
+            ("Lv22-36 바라시타 전환", 36, "planner_band", "blazeworks/02_Lv22-36_swap.build"),
+            ("Lv36-65 맵", 65, "planner_band", "blazeworks/03_Lv36-65_maps.build"),
+            ("초기 엔드게임 65-85", 85, "planner_band", "blazeworks/04_early_endgame_65-85.build"),
+            ("후기 엔드게임 90+", None, "planner_band", "blazeworks/05_late_endgame_90.build"),
+            ("실캐릭 lv96 HC", 96, "ninja_live", "blazeworks/06_live_lv96.build"),
+        ],
+        "notes": {},
+    },
+    {
+        "name": "MisoxShiru", "channel": "https://www.youtube.com/channel/UCQe-5sJhva7DIeWS1L_SgkQ", "ninja": None,   # @MisoxShiru
+        "build": {"name": "나비라의 균열 바라시타 리그 스타터 (MisoxShiru)", "asc": "Disciple of Varashta",
+                  "league": "forbidden-rites", "ssf": 0,
+                  "notes": "Mobalytics 7탭 전부 밴드. 막 경계 레벨 힌트는 GGPK WorldAreas 기준(2막 ≤31·3막 ≤45·4막 ≤53), 전직 전 탭은 2막 전직 전이라 22. "
+                           "채널엔 HCSSF Adventures 연재(크로노맨서)가 있지만 이 빌드의 HC 근거(설명란·Live Seasonal Characters·ninja)는 없음 → "
+                           "hardcore=0, 리그는 소프트코어 슬러그(근거 등급 I). ninja HC 캐릭터가 확인되면 올린다. 키스톤은 ninja 미확보로 비움. 원본 zip = misoxshiru/_source/."},
+        "hardcore": 0,
+        "keystones": [],
+        "bands": [
+            ("1~2막(전직 전)", 22, "planner_band", "misoxshiru/01_act1-2_preascend.build"),
+            ("2막", 31, "planner_band", "misoxshiru/02_act2.build"),
+            ("3막", 45, "planner_band", "misoxshiru/03_act3.build"),
+            ("4막~엔드게임", 53, "planner_band", "misoxshiru/04_act4_to_endgame.build"),
+            ("초기 엔드게임", None, "planner_band", "misoxshiru/05_early_endgame.build"),
+            ("중기 엔드게임", None, "planner_band", "misoxshiru/06_mid_endgame.build"),
+            ("후기 엔드게임", None, "planner_band", "misoxshiru/07_late_endgame.build"),
+        ],
+        "notes": {},
+    },
+    # --- 디넬(허락 C): 플래너가 없는 한국어 HC 랭커 — ninja 실캐릭 1밴드로 시작, 폴링(track_poe2_character.py)이 전환을 잡으면 밴드를 앞에 붙인다. ---
+    {
+        "name": "디넬", "channel": "https://www.youtube.com/channel/UC2Rbd4Wz9MC8yt8xQQtJe_g", "ninja": "DNEL-7382",   # @DI_NEL
+        "build": {"name": "바라시타 (디넬, 실캐릭)", "asc": "Disciple of Varashta",
+                  "league": "hc-forbidden-rites", "ssf": 0,
+                  "notes": "발행 플래너 없음(설명란 5편 링크 0). ninja 래더 API(hc-forbidden-rites, name 검색)에서 캐릭터 디넬바라시타(98렙)를 찾아 "
+                           "1회 조회 → PoB → 밴드 1개. league 'HC Forbidden Rites'(API 응답) = 근거 등급 N. 밴드 1개라 전환 0 — "
+                           "폴링이 레벨·장비 변화를 잡으면 보존본을 앞 밴드로 넣는다. 가이드 영상(ktg8phbLQw8 1~100렙, YR0BtaTug_k) 자막은 규칙 후보용. "
+                           "원본 = dinel/_source/."},
+        "hardcore": 1,
+        "keystones": ["Chaos Inoculation"],
+        "bands": [
+            ("실캐릭 lv98 HC", 98, "ninja_live", "dinel/01_live_lv98.build"),
+        ],
+        "notes": {},
+    },
 ]
 
 
