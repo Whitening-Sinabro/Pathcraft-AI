@@ -1,5 +1,5 @@
-**지금**: 임성빈 화염파 젬링 0.5.5 HC — 사용자가 직접 플레이 중(2026-09-07 기준 2막). 인게임 플래너 5개 + 필터 3단계 설치 완료, 외부 검증 3회차까지 반영 끝. 미해결 없음.
-HC 여정 DB(`python/hc_journey/`) #1 규칙 자동 초안 완료 + F 자막 재추출 + 판독 신호원 + 후보 68건 판정(`rule_decisions.json`) + `league` 트리거(trade|ssf, 첫 전환 1회) 설계 → 규칙 24건·규칙 노트 40건. 규칙 텍스트 적대검증 3회(오독 2건 수정). 거래소 링크 생성기(`trade_links.py`, 사다리 T1/T2/T3 + 옵션 스탯 필터 + 요구 레벨 상한 + 즉시 구입, 국제/한국) → DB `trade_target/trade_link`. 크리에이터 4명(ds lily·Fubgun 추가, 손노동 0 으로 규칙 67건 상속), 링크 86건.
+**지금**: HC 여정 DB #2 소싱 완료(2026-09-10, 커밋 ffb132a·84721b8). 크리에이터 8(임성빈·Skadoosh·ds lily·Fubgun·탱정·Blazeworks·MisoxShiru·디넬), 규칙 노트 101·거래 링크 770, 손노동 0 상속. 소스 매트릭스 `.claude/status/hc_creator_sourcing.md`(21명, HC 근거 등급 N/S/I, 허락 목록 A~G).
+임성빈 화염파 젬링 0.5.5 HC 는 사용자가 직접 플레이 중(플래너 5·필터 3단계 설치, 외부 검증 3회차 반영). 디넬 ninja 폴링은 세션과 함께 끝난다(스냅샷 0).
 
 **다음**: ① **소싱 #2 신규 허락 대기** — `.claude/status/hc_creator_sourcing.md` 허락 목록 **E**(MajorAimless Mobalytics ×3, HCSSF 0.5) · **F**(lolmalice ninja 폴링 + 트위치 VOD 구간 전사, HC 래더 4위). A~D 는 완료(Blazeworks 6밴드·MisoxShiru 7밴드·디넬 1밴드 적재, 크리에이터 8) ② 디넬 폴링(scratchpad `dinel_track/`, 6h, 98렙이라 장비 변화만)이 스냅샷을 남기면 `dinel/` 앞 밴드로 ③ 탱정 0.5.5 실캐릭 4밴드(로컬 xml)는 "같은 사람 두 번째 빌드" 항목 병합 결정 뒤 ④ 신규 허락 **G**(roxTITAN, HC 9위 워리어 스트리머 폴링+VOD)·Graf_Irdis(러시아어) POE2 여부 1회 확인 ⑤ 추적기 변화마다 플래너·사이드카 갱신(`sb_track/`) → `make_hc_gemling_spec.py` → 빌드 재실행 ⑥ 채굴본 293건 액트별 시트 압축 ⑦ 여정 뷰 사용자 피드백. SSF 규칙은 SSF 소스가 생기면 `league/ssf` 로, 새 크리에이터 소스(`CREATOR_SOURCES`) 추가
 
@@ -12,6 +12,7 @@ HC 여정 DB(`python/hc_journey/`) #1 규칙 자동 초안 완료 + F 자막 재
 - 필터 디자인 기준선·Crimson 3축 문법·숨김 게이트 → `.claude/status/poe2_filter_design.md`
 - GGPK 추출 운용·재추출 후 처리 목록 → `.claude/status/poe2_ggpk.md`
 - 하코 소스 명부 → `.claude/status/poe2_hardcore_sources.md`
+- HC 여정 DB 소싱 매트릭스(21명·HC 근거 등급·허락 목록 A~G·래더/팟캐스트 축 결과) → `.claude/status/hc_creator_sourcing.md` · 원자료 `data/hc_journey/sourcing/`
 - POE2 가이드·필터·카드 파이프라인 → `.claude/status/poe2_guides.md`
 
 **파이프라인 (순서 지킬 것)**:
