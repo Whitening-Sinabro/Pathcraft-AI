@@ -79,13 +79,39 @@ CREATE TABLE IF NOT EXISTS transition_change (
   detail        TEXT                  -- 사람이 읽는 요약
 );
 
--- 사람 큐레이션(20%): VOD/자막/연구에서 뽑은 비용·조건·함정·왜. HC/SSF 핵심.
+-- 사람 큐레이션(20%): 비용·조건·함정·왜.
+--   source='hand' = 그 빌드에만 해당하는 고유 손노동(초반 창에서만 가능).
+--   source='rule' = curation_rule 에서 자동 적용된 재사용 지식(DB 커져도 공짜로 붙음).
 CREATE TABLE IF NOT EXISTS transition_note (
   id            INTEGER PRIMARY KEY,
   transition_id INTEGER NOT NULL REFERENCES transition(id) ON DELETE CASCADE,
   note_type     TEXT NOT NULL,        -- cost|condition|pitfall|why|offstream|survival
   text          TEXT NOT NULL,
-  evidence_ref  TEXT                  -- 예: (영상,초) 또는 문서 경로
+  evidence_ref  TEXT,                 -- 예: (영상,초) 또는 문서 경로
+  source        TEXT NOT NULL DEFAULT 'hand',  -- hand | rule
+  rule_id       INTEGER REFERENCES curation_rule(id)
+);
+
+-- 재사용 큐레이션 규칙: 초반 손노동을 여기로 뽑아내면 이후 모든 빌드에 자동 적용된다.
+-- trigger_kind: keystone | skill_added | item_slot_change | ascendancy
+--   keystone         -> 빌드 키스톤 목록과 매칭
+--   skill_added      -> 어느 전환에서 그 스킬이 추가되면 발화
+--   item_slot_change -> 어느 전환에서 그 슬롯 장비가 바뀌면 발화
+CREATE TABLE IF NOT EXISTS curation_rule (
+  id            INTEGER PRIMARY KEY,
+  trigger_kind  TEXT NOT NULL,
+  trigger_key   TEXT NOT NULL,
+  note_type     TEXT NOT NULL,
+  text          TEXT NOT NULL,
+  evidence_ref  TEXT,
+  UNIQUE(trigger_kind, trigger_key, note_type)
+);
+
+-- 빌드가 실제로 든 키스톤(ninja 실측). keystone 규칙 매칭용.
+CREATE TABLE IF NOT EXISTS build_keystone (
+  build_id      INTEGER NOT NULL REFERENCES build(id) ON DELETE CASCADE,
+  keystone      TEXT NOT NULL,
+  PRIMARY KEY(build_id, keystone)
 );
 
 CREATE INDEX IF NOT EXISTS ix_snap_build   ON snapshot(build_id, order_idx);

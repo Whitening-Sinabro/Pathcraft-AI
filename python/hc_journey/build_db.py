@@ -68,14 +68,34 @@ def diff_snapshots(a: dict, b: dict) -> list[tuple[str, str, str]]:
     return out
 
 
+# --- 재사용 큐레이션 규칙 (초반 손노동을 여기로 뽑아내면 이후 빌드에 자동 적용) ---
+# (trigger_kind, trigger_key, note_type, text, evidence)
+CURATION_RULES = [
+    # 키스톤 — 한 번 쓰면 그 키스톤을 든 모든 빌드에 자동으로 붙는다.
+    ("keystone", "Blackflame Covenant", "why",
+     "검은화염 계약: 화염 주문 화염 피해 100%를 카오스로 전환. 화염 저항 계산·화염 증폭 장비 값이 통째로 바뀐다.", "규칙(임성빈 F75 실측)"),
+    ("keystone", "Blood Magic", "why",
+     "혈마법: 마나 대신 생명력으로 스킬 비용 지불. 마나 예약·회복 설계가 통째로 바뀐다. HC에서 생명력 관리가 곧 자원 관리.", "규칙(Skadoosh ninja 실측)"),
+    ("keystone", "Ancestral Bond", "why",
+     "선대의 유대: 토템만 피해를 준다(본인 직접 타격 불가). 토템 중심 빌드의 전제 — 딜 스킬을 직접 쓰지 않는다.", "규칙(Skadoosh ninja 실측)"),
+    # 스킬 도입 — 그 스킬을 쓰는 어떤 빌드든 자동으로 붙는다.
+    ("skill_added", "Flameblast", "condition",
+     "화염파는 집중 유지형 주문 — 마나가 초당 빠지고 재사용 대기시간이 길다. 요구 지능이 높아 능력치 세팅을 먼저 맞춰야 한다.", "규칙(임성빈 C4767 실측)"),
+    # 장비 슬롯 변화 — 세트 II 무기가 생기는 어떤 빌드든 자동으로 붙는다.
+    ("item_slot_change", "Weapon2", "why",
+     "세트 II(두 번째 무기) 도입: 세트 전용 패시브는 세트 II 에만 넣어야 주력에서 먹는다. R2 로 세트 전환.", "규칙(임성빈 C9787 실측)"),
+]
+
+
 # --- 크리에이터 설정 (다중 적재) ----------------------------------------------
-# notes: transition order_idx -> [(note_type, text, evidence)]  ← 검증된 20%만.
+# keystones: ninja 실측(keystone 규칙 매칭용). notes: 그 빌드 고유의 손노동만(초반 창).
 CREATORS = [
     {
         "name": "임성빈", "channel": "https://www.youtube.com/@임성빈", "ninja": "dtq03087-0345",
         "build": {"name": "젬링 화염파 -> 검은화염 카오스", "asc": "Gemling Legionnaire",
                   "league": "hc-forbidden-rites", "ssf": 0,
                   "notes": "유탄 육성 -> 52 화염파 전환 -> 검은화염 카오스"},
+        "keystones": ["Blackflame Covenant"],
         "bands": [
             ("ACT1", 12, "planner_band", "seongbin/01_ACT1.build"),
             ("ACT2", 22, "planner_band", "seongbin/02_ACT2.build"),
@@ -83,22 +103,19 @@ CREATORS = [
             ("엔드게임(계획)", None, "planner_band", "seongbin/04_endgame_plan.build"),
             ("실캐릭 lv93", 93, "ninja_live", "seongbin/05_live_lv93.build"),
         ],
+        # 손노트 = 그 빌드에만 해당하는 고유 수치·함정·오프스트림. (일반 지식은 규칙으로 이동됨)
         "notes": {
             0: [
-                ("why", "이 구간 전직 스킬 '고결한 방어막'이 버프 줄 빨강·초록·파랑 티끌을 쌓는다. "
-                        "힘=최대 생명력+2%/개, 민첩=방어/ES+5%/개, 지능=재생+5%/개. 전투 중 최대치 변동의 원인.",
+                ("why", "이 빌드에서 고결한 방어막(전직)이 버프 줄 티끌을 쌓는다. 힘=생명력+2%/개, 민첩=방어/ES+5%/개, 지능=재생+5%/개.",
                  "D 19306초"),
-                ("condition", "전직은 ACT2 진입만으로 안 되고 혼돈의 시련 완료 후. 실제로는 오후로 미룸.", "B 6419초"),
             ],
             2: [
                 ("cost", "화염파 전환 리스펙 준비 골드 순감소 약 50396. 재분배 뒤에도 일반 20포인트 남음.", "C 4550·4725초"),
                 ("condition", "화염파 요구 지능 92를 맞춰야 함(47->92), 요구 레벨 52.", "C 4540·4767초"),
                 ("pitfall", "무기를 지팡이로 바꾸면 급습이 '잘못된 무기 유형'으로 죽음 -> 제거, 임시 합금 석궁 대체.", "C 4760·4755초"),
-                ("why", "세트 전용 패시브(물리->화염)는 세트 II 지팡이에만 넣어야 화염파 쪽에서 먹는다.", "C 9787초"),
                 ("cost", "투구 실지불가 = 1 엑잘티드 + 골드 수수료(약 10737~11314). 요구 빨간 매물 착용 불가.", "C 9000초"),
             ],
             3: [
-                ("why", "검은화염 계약 키스톤 = 화염 주문 화염 피해 100% 카오스 전환. 저항·증폭 장비 값이 통째로 바뀜.", "F 75초"),
                 ("cost", "90레벨 재분배로 시작, 골드 211147->145094(약 66053 감소). 무기 세트 포인트도 반환.", "F 30·90초"),
                 ("survival", "카오스 저항 챙김(lv93 카오스 65). 후반은 생명력이 아니라 에너지 보호막 중심.", "실캐릭 defensiveStats"),
                 ("offstream", "세트 II 용의 돛대(동결 축적78%) 획득 순간이 방송에 없음 -> 오프스트림 구매 추정.", "F 2400초 장착"),
@@ -109,7 +126,8 @@ CREATORS = [
         "name": "Skadoosh", "channel": "https://www.youtube.com/@Skadoosh", "ninja": "ITheCon-2183",
         "build": {"name": "워브링어 타락 함성 토템", "asc": "Warbringer",
                   "league": "hc-forbidden-rites", "ssf": 0,
-                  "notes": "충격파 토템 + Corrupting Cry, 혈마법. (임성빈과 다른 어센던시로 다중 적재 증명)"},
+                  "notes": "충격파 토템 + Corrupting Cry, 혈마법. (임성빈과 다른 어센던시)"},
+        "keystones": ["Ancestral Bond", "Blood Magic"],
         "bands": [
             ("Lv01-10", 10, "planner_band", "skadoosh/01_Lv01-10.build"),
             ("Lv11-20", 20, "planner_band", "skadoosh/02_Lv11-20.build"),
@@ -117,15 +135,8 @@ CREATORS = [
             ("Lv31-41", 41, "planner_band", "skadoosh/04_Lv31-41.build"),
             ("실캐릭 live", 86, "ninja_live", "skadoosh/05_live.build"),
         ],
-        # 검증(ninja lv86 실측 키스톤)만 큐레이션. 나머지 20%(비용·함정)는 후속 VOD 채굴 대상.
-        "notes": {
-            3: [
-                ("why", "Ancestral Bond 키스톤: 토템만 피해를 준다(본인 직접 타격 불가). 토템 중심 빌드의 전제.",
-                 "ninja 키스톤 실측(lv86)"),
-                ("why", "Blood Magic 키스톤: 마나 대신 생명력으로 스킬 비용 지불. 마나 예약·회복 설계가 통째로 바뀜.",
-                 "ninja 키스톤 실측(lv86)"),
-            ],
-        },
+        # 손노동 아직 0. 큐레이션은 전부 규칙(키스톤 등)에서 자동 상속 — 이게 확장의 핵심.
+        "notes": {},
     },
 ]
 
@@ -137,6 +148,28 @@ def build() -> dict:
     con = sqlite3.connect(DB_PATH)
     con.executescript(SCHEMA.read_text(encoding="utf-8"))
 
+    # 규칙 라이브러리 적재 (한 번 정의 -> 모든 빌드에 자동 적용)
+    rule_id = {}
+    for kind, key, nt, text, ev in CURATION_RULES:
+        cur = con.execute(
+            "INSERT INTO curation_rule(trigger_kind, trigger_key, note_type, text, evidence_ref) VALUES(?,?,?,?,?)",
+            (kind, key, nt, text, ev))
+        rule_id[(kind, key)] = cur.lastrowid
+
+    def add_rule_note(trans_id, kind, key):
+        r = rule_id.get((kind, key))
+        if r is None:
+            return 0
+        # 같은 규칙을 같은 전환에 중복으로 붙이지 않는다.
+        dup = con.execute("SELECT 1 FROM transition_note WHERE transition_id=? AND rule_id=?",
+                          (trans_id, r)).fetchone()
+        if dup:
+            return 0
+        rr = con.execute("SELECT note_type, text, evidence_ref FROM curation_rule WHERE id=?", (r,)).fetchone()
+        con.execute("INSERT INTO transition_note(transition_id, note_type, text, evidence_ref, source, rule_id) "
+                    "VALUES(?,?,?,?,'rule',?)", (trans_id, rr[0], rr[1], rr[2], r))
+        return 1
+
     for cfg in CREATORS:
         cur = con.execute("INSERT INTO creator(name, channel_url, ninja_account) VALUES(?,?,?)",
                           (cfg["name"], cfg["channel"], cfg["ninja"]))
@@ -147,6 +180,8 @@ def build() -> dict:
             "VALUES(?,?,?,?,?,?,?,?)",
             (creator_id, "poe2", b["league"], 1, b["ssf"], b["name"], b["asc"], b["notes"]))
         build_id = cur.lastrowid
+        for ks in cfg.get("keystones", []):
+            con.execute("INSERT INTO build_keystone(build_id, keystone) VALUES(?,?)", (build_id, ks))
 
         snaps = []
         for order_idx, (label, lvl, stype, rel) in enumerate(cfg["bands"]):
@@ -163,22 +198,37 @@ def build() -> dict:
                 con.execute("INSERT INTO snapshot_item(snapshot_id, slot, item_name) VALUES(?,?,?)", (sid, slot, nm))
             snaps.append((sid, data))
 
+        trans_ids = []
         for i in range(len(snaps) - 1):
             (fid, fa), (tid, tb) = snaps[i], snaps[i + 1]
             cur = con.execute(
                 "INSERT INTO transition(build_id, order_idx, from_snapshot, to_snapshot) VALUES(?,?,?,?)",
                 (build_id, i, fid, tid))
             trans_id = cur.lastrowid
+            trans_ids.append(trans_id)
             for kind, subject, detail in diff_snapshots(fa, tb):
                 con.execute("INSERT INTO transition_change(transition_id, kind, subject, detail) VALUES(?,?,?,?)",
                             (trans_id, kind, subject, detail))
+                # 규칙 자동 매칭: 스킬 도입 / 슬롯 변화
+                if kind == "skill_added":
+                    add_rule_note(trans_id, "skill_added", subject)
+                elif kind == "item_changed":
+                    add_rule_note(trans_id, "item_slot_change", subject)
             for note_type, text, ev in cfg["notes"].get(i, []):
-                con.execute("INSERT INTO transition_note(transition_id, note_type, text, evidence_ref) VALUES(?,?,?,?)",
-                            (trans_id, note_type, text, ev))
+                con.execute("INSERT INTO transition_note(transition_id, note_type, text, evidence_ref, source) "
+                            "VALUES(?,?,?,?,'hand')", (trans_id, note_type, text, ev))
+
+        # 키스톤 규칙: 빌드 키스톤 -> 마지막(엔드게임) 전환에 자동 부착
+        if trans_ids:
+            for ks in cfg.get("keystones", []):
+                add_rule_note(trans_ids[-1], "keystone", ks)
 
     con.commit()
     stats = {t: con.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]
-             for t in ("creator", "build", "snapshot", "transition", "transition_change", "transition_note")}
+             for t in ("creator", "build", "snapshot", "transition", "transition_change",
+                       "transition_note", "curation_rule")}
+    stats["notes_hand"] = con.execute("SELECT COUNT(*) FROM transition_note WHERE source='hand'").fetchone()[0]
+    stats["notes_rule"] = con.execute("SELECT COUNT(*) FROM transition_note WHERE source='rule'").fetchone()[0]
     con.close()
     return stats
 
@@ -196,14 +246,18 @@ def query_journey(build_id: int) -> str:
         f = con.execute("SELECT stage_label FROM snapshot WHERE id=?", (t["from_snapshot"],)).fetchone()[0]
         to = con.execute("SELECT stage_label FROM snapshot WHERE id=?", (t["to_snapshot"],)).fetchone()[0]
         changes = con.execute("SELECT detail FROM transition_change WHERE transition_id=? ORDER BY id", (t["id"],)).fetchall()
-        notes = con.execute("SELECT note_type, text, evidence_ref FROM transition_note WHERE transition_id=? ORDER BY id", (t["id"],)).fetchall()
-        out.append(f"\n▶ {f} → {to}   [자동 {len(changes)} · 큐레이션 {len(notes)}]")
+        notes = con.execute("SELECT note_type, text, evidence_ref, source FROM transition_note "
+                            "WHERE transition_id=? ORDER BY source DESC, id", (t["id"],)).fetchall()
+        nh = sum(1 for n in notes if n["source"] == "hand")
+        nr = len(notes) - nh
+        out.append(f"\n▶ {f} → {to}   [자동 {len(changes)} · 손 {nh} · 규칙 {nr}]")
         for c in changes[:4]:
             out.append(f"    · {c['detail'][:88]}")
         if len(changes) > 4:
             out.append(f"    · … 외 {len(changes) - 4}건")
         for n in notes:
-            out.append(f"    ★ ({n['note_type']}) {n['text'][:104]}  <{n['evidence_ref']}>")
+            tag = "손" if n["source"] == "hand" else "규칙"
+            out.append(f"    ★[{tag}] ({n['note_type']}) {n['text'][:98]}  <{n['evidence_ref']}>")
     con.close()
     return "\n".join(out)
 
