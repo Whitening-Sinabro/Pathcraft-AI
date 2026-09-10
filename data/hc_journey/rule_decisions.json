@@ -1,0 +1,366 @@
+{
+ "_meta": {
+  "purpose": "rule_candidates.json 후보에 대한 승인 기록. rule_autodraft.run 이 id 로 병합해 status 를 채운다.",
+  "judged_by": "Claude (사용자 위임 2026-09-10 '니가 판독해')",
+  "generated_utc": "2026-09-10T10:47:07+00:00",
+  "status_values": "adopted = CURATION_RULES 에 반영(rule 필드) · rejected = 사유 · deferred = 조건부(사유에 해제 조건)",
+  "n": 58,
+  "n_by_status": {
+   "adopted": 21,
+   "rejected": 24,
+   "deferred": 13
+  },
+  "adopted_rules": [
+   "ascendancy/Gemling Legionnaire/condition",
+   "item_slot_change/Helm1/condition",
+   "item_slot_change/Weapon1/pitfall",
+   "keystone/Blackflame Covenant/condition",
+   "keystone/Blackflame Covenant/pitfall",
+   "keystone/Blackflame Covenant/why",
+   "skill_added/CastOnElementalAilment/condition",
+   "skill_added/CastOnElementalAilment/why",
+   "skill_added/Flameblast/why",
+   "skill_added/Tornado/pitfall",
+   "skill_added/Tornado/why"
+  ]
+ },
+ "decisions": {
+  "skill_added/Tornado/pitfall/caption/F 2341": {
+   "status": "adopted",
+   "reason": "F 2319~2401초 발언은 용의 돛대 판독 근처지만 내용은 키스톤: 화염 % 증가 무효, '피해의 X%를 추가 화염 피해로 획득'(gain) 접사는 괜찮음. keystone 으로 재귀속",
+   "rule": [
+    "keystone",
+    "Blackflame Covenant",
+    "pitfall"
+   ]
+  },
+  "skill_added/Tornado/why/caption/F 2348": {
+   "status": "adopted",
+   "reason": "같은 발언의 후반(점화 강도는 적용, 화염 스킬 레벨도 되지만 카오스 % 가 안 나와 주문 스킬 레벨이 낫다). keystone pitfall 규칙에 합침",
+   "rule": [
+    "keystone",
+    "Blackflame Covenant",
+    "pitfall"
+   ]
+  },
+  "keystone/Blackflame Covenant/pitfall/caption/E 8822": {
+   "status": "adopted",
+   "reason": "'검은 화염이 버그였다'는 0.5.1 핫픽스 5 패치노트(키스톤 점화 판정 수정)와 일치. 성립 조건으로 채택. 반지 vs 키스톤 경로 발언(E 8881~8889) 포함",
+   "rule": [
+    "keystone",
+    "Blackflame Covenant",
+    "condition"
+   ]
+  },
+  "keystone/Blackflame Covenant/why/readout/E 8876": {
+   "status": "adopted",
+   "reason": "키스톤 툴팁 3줄 원문. 기존 why 규칙 텍스트를 툴팁 기준으로 갱신",
+   "rule": [
+    "keystone",
+    "Blackflame Covenant",
+    "why"
+   ]
+  },
+  "keystone/Blackflame Covenant/why/readout/F 75": {
+   "status": "adopted",
+   "reason": "같은 툴팁 재판독(F). 기존 why 규칙 근거에 추가",
+   "rule": [
+    "keystone",
+    "Blackflame Covenant",
+    "why"
+   ]
+  },
+  "keystone/Blackflame Covenant/cost/caption/E 8898": {
+   "status": "rejected",
+   "reason": "엑잘 정리 잡담, 키스톤 비용 정보 아님"
+  },
+  "ascendancy/Gemling Legionnaire/condition/readout/B 6418": {
+   "status": "adopted",
+   "reason": "전직 작은 노드 = 능력치 요구 4% 감소(툴팁). 첫 2포인트 순서 규칙",
+   "rule": [
+    "ascendancy",
+    "Gemling Legionnaire",
+    "condition"
+   ]
+  },
+  "ascendancy/Gemling Legionnaire/why/readout/B 6418": {
+   "status": "adopted",
+   "reason": "같은 판독(why 로도 잡힘). condition 규칙에 합침",
+   "rule": [
+    "ascendancy",
+    "Gemling Legionnaire",
+    "condition"
+   ]
+  },
+  "skill_added/AscendancyVirtuousBarrier/condition/readout/B 6419": {
+   "status": "adopted",
+   "reason": "미덕의 정수 = 고결한 방어막 부여(툴팁). 전직 condition 규칙 + 고결한 방어막 why 규칙(손노트 D 19306 승격)",
+   "rule": [
+    "ascendancy",
+    "Gemling Legionnaire",
+    "condition"
+   ]
+  },
+  "ascendancy/Gemling Legionnaire/why/readout/B 6420": {
+   "status": "rejected",
+   "reason": "포인트 변경 적용 안내 UI, 지식 없음"
+  },
+  "ascendancy/Gemling Legionnaire/survival/caption/C 5037": {
+   "status": "rejected",
+   "reason": "반지 저항 잡담, 전직과 무관"
+  },
+  "skill_added/Flameblast/why/readout/C 4767": {
+   "status": "adopted",
+   "reason": "화염파 젬 툴팁 원문(집중 유지·단계당 75% 증폭·10단계·0.6m·초당 마나). why 규칙 신설",
+   "rule": [
+    "skill_added",
+    "Flameblast",
+    "why"
+   ]
+  },
+  "skill_added/Flameblast/condition/readout/C 4767": {
+   "status": "adopted",
+   "reason": "요구 52레벨·지능 92(Lv13) — why 규칙의 요구 수치 근거",
+   "rule": [
+    "skill_added",
+    "Flameblast",
+    "why"
+   ]
+  },
+  "skill_added/Flameblast/condition/readout/C 4540": {
+   "status": "adopted",
+   "reason": "새기기 목록에서 빨간 지능 92 — 같은 근거",
+   "rule": [
+    "skill_added",
+    "Flameblast",
+    "why"
+   ]
+  },
+  "skill_added/Tornado/condition/readout/F 160": {
+   "status": "adopted",
+   "reason": "스킬 창 나열 오귀속(실제는 화염파 Lv19 툴팁: 요구 84레벨·지능 147, 초당 마나 52.1). Flameblast why 규칙의 고레벨 수치로 재귀속",
+   "rule": [
+    "skill_added",
+    "Flameblast",
+    "why"
+   ]
+  },
+  "skill_added/Tornado/why/readout/F 160": {
+   "status": "adopted",
+   "reason": "위와 동일 판독",
+   "rule": [
+    "skill_added",
+    "Flameblast",
+    "why"
+   ]
+  },
+  "skill_added/Flameblast/condition/readout/C 4930": {
+   "status": "rejected",
+   "reason": "스킬 창 보조 홈 개수 나열, 규칙 지식 없음"
+  },
+  "skill_added/Flameblast/survival/caption/C 4912": {
+   "status": "rejected",
+   "reason": "반지 저항 잡담"
+  },
+  "skill_added/Flameblast/condition/readout/C 4990": {
+   "status": "deferred",
+   "reason": "보조 젬(범위 집중) 선택은 빌드별 — 규칙보다 손노트/플래너 영역. 보조 선택 트리거가 생기면 재검토"
+  },
+  "skill_added/Flameblast/why/readout/C 4990": {
+   "status": "deferred",
+   "reason": "위와 동일"
+  },
+  "skill_added/Flameblast/condition/readout/C 5000": {
+   "status": "deferred",
+   "reason": "보조 젬(이글거리는 화염 II) 선택 — 빌드별"
+  },
+  "skill_added/Flameblast/why/readout/C 5000": {
+   "status": "deferred",
+   "reason": "위와 동일"
+  },
+  "skill_added/Flameblast/condition/readout/C 5005": {
+   "status": "deferred",
+   "reason": "보조 전체 표 — 빌드별"
+  },
+  "skill_added/Tornado/why/readout/E 15150": {
+   "status": "adopted",
+   "reason": "회오리 툴팁 원문(흡수 메커니즘·요구 58/57/57). why 규칙 신설",
+   "rule": [
+    "skill_added",
+    "Tornado",
+    "why"
+   ]
+  },
+  "skill_added/Tornado/condition/readout/E 15150": {
+   "status": "adopted",
+   "reason": "같은 툴팁의 요구 수치 — why 규칙에 합침",
+   "rule": [
+    "skill_added",
+    "Tornado",
+    "why"
+   ]
+  },
+  "skill_added/FlashGrenade/pitfall/caption/E 13044": {
+   "status": "adopted",
+   "reason": "'제일 불편했던 회오리는 빼고'(E 13039~13044) — 한때 제거, 같은 방송 E 15135 에서 다시 넣어 Lv90 빌드에 잔존. 스킬 창 나열 오귀속을 Tornado 로 재귀속. 흡수 양날 pitfall 규칙의 임성빈 발언 근거",
+   "rule": [
+    "skill_added",
+    "Tornado",
+    "pitfall"
+   ]
+  },
+  "skill_added/Tornado/condition/readout/F 218": {
+   "status": "rejected",
+   "reason": "에너지 유지 보조 툴팁 — 회오리 무관, CoEA 보조 선택(빌드별)"
+  },
+  "skill_added/Tornado/why/readout/F 218": {
+   "status": "rejected",
+   "reason": "위와 동일"
+  },
+  "skill_added/Tornado/pitfall/readout/F 220": {
+   "status": "rejected",
+   "reason": "'장착할 수 없습니다' UI 경고 문구, 지식 없음"
+  },
+  "skill_added/Tornado/condition/readout/F 2400": {
+   "status": "rejected",
+   "reason": "용의 돛대 유니크 툴팁 — 아이템 개별, 손노트(offstream)가 이미 있음"
+  },
+  "skill_added/CastOnElementalAilment/condition/readout/F 207": {
+   "status": "adopted",
+   "reason": "정신력 100 점유·요구 72레벨·지능 126(툴팁). condition 규칙 신설",
+   "rule": [
+    "skill_added",
+    "CastOnElementalAilment",
+    "condition"
+   ]
+  },
+  "skill_added/CastOnElementalAilment/why/readout/F 207": {
+   "status": "adopted",
+   "reason": "에너지 획득 수치·발동 조건 툴팁 원문. 기존 why 규칙 텍스트 갱신",
+   "rule": [
+    "skill_added",
+    "CastOnElementalAilment",
+    "why"
+   ]
+  },
+  "skill_added/CastOnElementalAilment/condition/readout/F 217": {
+   "status": "rejected",
+   "reason": "에너지 유지 보조 선택 — 빌드별"
+  },
+  "skill_added/CastOnElementalAilment/why/readout/F 217": {
+   "status": "rejected",
+   "reason": "위와 동일"
+  },
+  "skill_added/CastOnElementalAilment/cost/caption/F 5381": {
+   "status": "rejected",
+   "reason": "대리 딜 가격 잡담"
+  },
+  "skill_added/CastOnElementalAilment/cost/readout/F 5460": {
+   "status": "rejected",
+   "reason": "의식 상점 징조 툴팁 — 스킬 무관"
+  },
+  "skill_added/Despair/condition/readout/E 13600": {
+   "status": "rejected",
+   "reason": "원소 융합 툴팁 — 절망 무관(스킬 창 나열 오귀속)"
+  },
+  "skill_added/Despair/why/readout/E 13600": {
+   "status": "rejected",
+   "reason": "위와 동일"
+  },
+  "skill_added/OilGrenade/condition/readout/C 4980": {
+   "status": "deferred",
+   "reason": "'폭발 투사체 I 은 위에서 떨어뜨리는 스킬에 적용되지 않는다' — 유탄이 그 분류인지 GGPK 로 미확인. 확인되면 pitfall 규칙"
+  },
+  "skill_added/OilGrenade/why/readout/C 4980": {
+   "status": "deferred",
+   "reason": "위와 동일"
+  },
+  "skill_added/OilGrenade/pitfall/caption/A 14245": {
+   "status": "rejected",
+   "reason": "타인 ESC 회피·보스 패턴 잡담, 기름 유탄과 무관"
+  },
+  "item_slot_change/Helm1/condition/caption/B 9378": {
+   "status": "adopted",
+   "reason": "'지능이 모자라서 못 꼈구나' + 판독 B 9398(지능 37 맞춘 뒤 착용). 요구 능력치 미충족 착용 불가 condition 규칙",
+   "rule": [
+    "item_slot_change",
+    "Helm1",
+    "condition"
+   ]
+  },
+  "item_slot_change/Helm1/pitfall/caption/B 9396": {
+   "status": "rejected",
+   "reason": "'귀환이 안 되지' 잡담"
+  },
+  "item_slot_change/Helm1/survival/caption/B 9370": {
+   "status": "rejected",
+   "reason": "'가능하면 저항' 한마디, 근거 부족"
+  },
+  "item_slot_change/Helm1/cost/readout/C 8990": {
+   "status": "deferred",
+   "reason": "거래소 = 엑잘 단위 + 골드 수수료, 요구 빨간 매물 착용 불가 — 슬롯 무관 거래 지식이라 Helm1 규칙으로 두면 임의. 별도 trade 트리거 필요. 손노트(C 9000)에 이미 있음"
+  },
+  "item_slot_change/Helm1/condition/readout/C 8990": {
+   "status": "deferred",
+   "reason": "위와 동일"
+  },
+  "item_slot_change/Helm1/cost/readout/C 9000": {
+   "status": "deferred",
+   "reason": "위와 동일"
+  },
+  "item_slot_change/Helm1/condition/readout/C 9000": {
+   "status": "deferred",
+   "reason": "위와 동일"
+  },
+  "item_slot_change/Helm1/cost/readout/C 9040": {
+   "status": "deferred",
+   "reason": "위와 동일"
+  },
+  "item_slot_change/Helm1/condition/readout/C 9040": {
+   "status": "deferred",
+   "reason": "위와 동일"
+  },
+  "item_slot_change/Helm1/survival/readout/C 9180": {
+   "status": "rejected",
+   "reason": "경로석 부활 횟수 — 투구 무관"
+  },
+  "item_slot_change/Weapon1/condition/readout/C 4755": {
+   "status": "adopted",
+   "reason": "합금 석궁 교체 판독 + C 4760 '잘못된 무기 유형' 경고. 무기 유형 바뀌면 스킬 죽음 pitfall 규칙(손노트의 일반화)",
+   "rule": [
+    "item_slot_change",
+    "Weapon1",
+    "pitfall"
+   ]
+  },
+  "item_slot_change/Weapon1/condition/readout/C 4465": {
+   "status": "adopted",
+   "reason": "포격 석궁 요구 33레벨·힘34·민첩34 — 같은 규칙의 요구 확인 근거",
+   "rule": [
+    "item_slot_change",
+    "Weapon1",
+    "pitfall"
+   ]
+  },
+  "item_slot_change/Weapon1/condition/caption/C 4693": {
+   "status": "rejected",
+   "reason": "리스펙 능력치 잡담, 손노트(요구 지능 92) 중복"
+  },
+  "item_slot_change/Weapon1/condition/caption/C 4483": {
+   "status": "rejected",
+   "reason": "손노트(C 4540 요구 지능 92) 중복"
+  },
+  "item_slot_change/Weapon1/cost/readout/A 9496": {
+   "status": "rejected",
+   "reason": "패시브 반환 골드 — 슬롯 무관, 손노트 영역"
+  },
+  "item_slot_change/Weapon2/pitfall/caption/B 9407": {
+   "status": "rejected",
+   "reason": "'귀환이 안 되지' 잡담"
+  },
+  "item_slot_change/Weapon2/condition/readout/B 9492": {
+   "status": "rejected",
+   "reason": "부적 툴팁 — 아이템 개별, 규칙 아님"
+  }
+ }
+}

@@ -38,6 +38,8 @@ log = logging.getLogger("hc_journey.rule_autodraft")
 
 DELIVERABLE = REPO / "deliverables" / "seongbin_from_day1_2026-09-09"
 DEFAULT_OUT = REPO / "data" / "hc_journey" / "rule_candidates.json"
+# 승인 기록. 후보 id -> {status: adopted|rejected|deferred, reason, rule}. 재생성해도 판정이 남는다(승인 게이트의 실체).
+DEFAULT_DECISIONS = REPO / "data" / "hc_journey" / "rule_decisions.json"
 
 # 크리에이터별 자막·판독 소스. 여기 없는 크리에이터는 트리거가 전부 '소스 없음' 으로 남는다.
 # ignore_in_readout: 판독 안의 캐릭터 이름 등 — 별칭이 이 문자열 안에서만 나오면 앵커가 아니다.
@@ -91,6 +93,15 @@ NOTE_SIGNALS: dict[str, re.Pattern[str]] = {
     "pitfall": re.compile(r"죽었|죽음|죽어|죽을|죽지|안 먹|안 ?[돼되됩]|안됨|되지 않|바꿔야|잘못|실수|조심|위험|주의|빼고|못 쓰|사용 불가|충족되지|버그|포기해야"),
     "why": re.compile(r"때문|이유|효과|전환|변환|증폭|감폭|키스톤|메커니즘|원리|적용[이되]"),
     "survival": re.compile(r"저항|부활|플라스크|생명력|보호막|보막|피통|맞아가지고|맞아서|맞으면|맞았|생존|탱|회복|한 방"),
+}
+# 판독(사람이 화면 보고 적은 글) 전용 신호. 판독은 HUD 수치(생명력·골드·저항)를 매 줄 적으므로 자막용 정규식을 그대로
+# 쓰면 전부 발화한다 → 사건성 낱말만: 지불·거래·요구 미충족·툴팁 메커니즘·부활/페널티.
+READOUT_SIGNALS: dict[str, re.Pattern[str]] = {
+    "cost": re.compile(r"엑잘|신성한 오브|수수료|거래소|가격|판매|구매|매물|실지불|반환\d*골드|골드[가는]? ?\d[\d,]*(?:에서|->|→)"),
+    "condition": re.compile(r"요구 ?(?:사항|레벨|지능|민첩|힘)|빨간 (?:지능|민첩|힘|요구)|충족"),
+    "pitfall": re.compile(r"충족되지|잘못된|사용 불가|경고|사망|버그|실패|제거|끊기"),
+    "why": re.compile(r"툴팁(?=.*(?:전환|변환|증폭|감폭|대신|반영|적용|효과))|키스톤|전직 트리|어센던시"),
+    "survival": re.compile(r"부활|저항 페널티|플라스크 후보|생명력 플라스크|카오스 ?저항[^\d]{0,4}\d"),
 }
 NOISE_SUBJECT = re.compile(r"^PlayerDefault")  # 기본 공격 스킬 — 전환점이 아니다.
 # 판독의 "N레벨" 중 캐릭터 레벨만. 구간 끝("54~59레벨")·임계("65레벨 이상")는 정규식으로, 타인·젬·지역 맥락은 낱말로 뺀다.
@@ -262,11 +273,11 @@ def window(segments: list[Segment], lo: float, hi: float) -> list[Segment]:
     return [s for s in segments if lo <= s.start <= hi and s.text]
 
 
-def classify(text: str) -> dict[str, list[str]]:
-    """한 자막 줄이 어느 note_type 신호를 담는지. {note_type: [매칭 문자열...]}"""
+def classify(text: str, signals: dict[str, re.Pattern[str]] | None = None) -> dict[str, list[str]]:
+    """한 줄이 어느 note_type 신호를 담는지. {note_type: [매칭 문자열...]}. 기본은 자막용, 판독은 READOUT_SIGNALS."""
     hits: dict[str, list[str]] = {}
-    for nt, pat in NOTE_SIGNALS.items():
-        found = pat.findall(text)
+    for nt, pat in (signals or NOTE_SIGNALS).items():
+        found = [m.group(0) for m in pat.finditer(text)]
         if found:
             hits[nt] = found
     return hits
@@ -316,6 +327,25 @@ def draft_candidates(triggers: list[Trigger], anchors: list[Anchor], transcripts
                 skipped.append({"trigger_key": tr.trigger_key, "video": letter, "sec": [int(a.sec) for a in cl],
                                 "reason": "자막 없음"})
                 continue
+            owner = _owner(groups[(tr.creator, tr.trigger_kind, tr.trigger_key)], cl[0].level, tr)
+            anchor_meta = {"n": len(cl), "sec": [int(a.sec) for a in cl], "level": cl[0].level,
+                           "readout": cl[0].readout[:160]}
+
+            def emit(nt: str, kind: str, text: str, sec: float, lines: list[dict], signals: list[str], hits: int):
+                candidates.append({
+                    "id": f"{tr.trigger_kind}/{tr.trigger_key}/{nt}/{kind}/{letter} {int(sec)}",
+                    "trigger_kind": tr.trigger_kind, "trigger_key": tr.trigger_key, "note_type": nt,
+                    "text": text,
+                    "evidence": {"kind": kind, "video": letter, "video_id": vid, "sec": int(sec),
+                                 "ref": f"{letter} {int(sec)}초", "url": _yt(vid, sec), "lines": lines,
+                                 "anchor": anchor_meta},
+                    "signals": sorted(set(signals)), "hits": hits,
+                    "creator": owner.creator, "transition_idx": owner.transition_idx, "transition": owner.transition_label,
+                    "existing_rule": (tr.trigger_kind, tr.trigger_key, nt) in existing,
+                    "also_matches": [], "status": "pending",
+                })
+
+            # (1) 자막 창: 신호 줄이 min_hits 이상 모이면 후보. text 는 자막 원문.
             per_type: dict[str, list[tuple[Segment, list[str]]]] = {}
             for s in window(segs, lo, hi):
                 for nt, found in classify(s.text).items():
@@ -323,35 +353,22 @@ def draft_candidates(triggers: list[Trigger], anchors: list[Anchor], transcripts
             for nt, rows in per_type.items():
                 if len(rows) < min_hits:
                     continue
-                dedupe_key = (tr.trigger_kind, tr.trigger_key, nt, vid, int(lo))
+                dedupe_key = ("caption", tr.trigger_kind, tr.trigger_key, nt, vid, int(lo))
                 if dedupe_key in seen:
                     continue
                 seen.add(dedupe_key)
                 shown = rows[:max_lines]
-                first = shown[0][0]
-                owner = _owner(groups[(tr.creator, tr.trigger_kind, tr.trigger_key)], cl[0].level, tr)
-                candidates.append({
-                    "trigger_kind": tr.trigger_kind,
-                    "trigger_key": tr.trigger_key,
-                    "note_type": nt,
-                    "text": " / ".join(s.text for s, _f in shown),
-                    "evidence": {
-                        "video": letter, "video_id": vid, "sec": int(first.start),
-                        "ref": f"{letter} {int(first.start)}초",
-                        "url": _yt(vid, first.start),
-                        "lines": [{"sec": int(s.start), "text": s.text} for s, _f in shown],
-                        "anchor": {"n": len(cl), "sec": [int(a.sec) for a in cl], "level": cl[0].level,
-                                   "readout": cl[0].readout[:160]},
-                    },
-                    "signals": sorted({f for _s, found in shown for f in found}),
-                    "hits": len(rows),
-                    "creator": owner.creator,
-                    "transition_idx": owner.transition_idx,
-                    "transition": owner.transition_label,
-                    "existing_rule": (tr.trigger_kind, tr.trigger_key, nt) in existing,
-                    "also_matches": [],
-                    "status": "pending",
-                })
+                emit(nt, "caption", " / ".join(s.text for s, _f in shown), shown[0][0].start,
+                     [{"sec": int(s.start), "text": s.text} for s, _f in shown],
+                     [f for _s, found in shown for f in found], len(rows))
+            # (2) 판독 줄: 사람이 화면을 보고 적은 글이라 한 줄로도 후보(화면 수치는 자막에 없다). text 는 판독 원문.
+            for a in cl:
+                for nt, found in classify(a.readout, READOUT_SIGNALS).items():
+                    dedupe_key = ("readout", tr.trigger_kind, tr.trigger_key, nt, vid, int(a.sec))
+                    if dedupe_key in seen:
+                        continue
+                    seen.add(dedupe_key)
+                    emit(nt, "readout", a.readout, a.sec, [{"sec": int(a.sec), "text": a.readout}], found, 1)
     candidates = _dedupe_by_evidence(candidates)
     candidates.sort(key=lambda c: (c["creator"], c["transition_idx"], c["trigger_kind"], c["trigger_key"], -c["hits"]))
     return {"candidates": candidates, "unanchored": unanchored, "skipped": skipped}
@@ -362,7 +379,8 @@ def _dedupe_by_evidence(candidates: list[dict]) -> list[dict]:
     앵커가 가장 많은 트리거 하나에만 주고 나머지 트리거는 also_matches 로 남긴다. 귀속은 사람이 확정한다."""
     groups: dict[tuple, list[dict]] = {}
     for c in candidates:
-        groups.setdefault((c["creator"], c["note_type"], c["evidence"]["video_id"], c["evidence"]["sec"]), []).append(c)
+        groups.setdefault((c["creator"], c["evidence"]["kind"], c["note_type"], c["evidence"]["video_id"],
+                           c["evidence"]["sec"]), []).append(c)
     out: list[dict] = []
     for rows in groups.values():
         rows.sort(key=lambda c: -c["evidence"]["anchor"]["n"])
@@ -373,13 +391,37 @@ def _dedupe_by_evidence(candidates: list[dict]) -> list[dict]:
     return out
 
 
+def load_decisions(path: Path) -> dict[str, dict]:
+    if not path.exists():
+        return {}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    return doc.get("decisions", {}) if isinstance(doc, dict) else {}
+
+
+def apply_decisions(candidates: list[dict], decisions: dict[str, dict]) -> list[dict]:
+    """승인 기록을 후보에 얹는다. 기록이 없으면 pending 그대로. 기록은 후보를 만들지 않고 status 만 바꾼다."""
+    for c in candidates:
+        d = decisions.get(c["id"])
+        if not d:
+            continue
+        c["status"] = d.get("status", "pending")
+        c["decision"] = d.get("reason", "")
+        if d.get("rule"):
+            c["rule"] = d["rule"]
+    return candidates
+
+
 def write_candidates(path: Path, result: dict, meta: dict) -> Path:
+    status_counts: dict[str, int] = {}
+    for c in result["candidates"]:
+        status_counts[c["status"]] = status_counts.get(c["status"], 0) + 1
     doc = {"_meta": {
-        "purpose": "curation_rule 승인 대기 후보. 사람이 골라 build_db.CURATION_RULES 에 옮긴다. 자동 반영 금지.",
-        "honesty": "trigger_key 는 diff/PoB/설정에서, text 는 자막 원문 그대로. 자막으로 고유명사를 확정하지 않는다.",
+        "purpose": "curation_rule 승인 대기 후보. 판정은 rule_decisions.json 에 기록되고 여기 status 로 병합된다. 자동 반영 금지.",
+        "honesty": "trigger_key 는 diff/PoB/설정에서, text 는 자막·판독 원문 그대로. 자막으로 고유명사를 확정하지 않는다.",
         "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         **meta,
         "n_candidates": len(result["candidates"]),
+        "n_by_status": status_counts,
         "n_unanchored": len(result["unanchored"]),
         "n_skipped": len(result["skipped"]),
     }, **result}
@@ -393,7 +435,8 @@ def _rel(p: Path) -> str:
 
 
 def run(out: Path | None = DEFAULT_OUT, window_sec: float = 90.0, min_hits: int = 2, max_clusters: int = 3,
-        creator: str | None = None, sources: dict[str, dict] | None = None) -> dict:
+        creator: str | None = None, sources: dict[str, dict] | None = None,
+        decisions_path: Path | None = DEFAULT_DECISIONS) -> dict:
     sources = CREATOR_SOURCES if sources is None else sources
     all_triggers = [t for t in transition_triggers() if creator is None or t.creator == creator]
     result: dict = {"candidates": [], "unanchored": [], "skipped": []}
@@ -413,9 +456,12 @@ def run(out: Path | None = DEFAULT_OUT, window_sec: float = 90.0, min_hits: int 
             result[k] += part[k]
         used[name] = {"transcripts": _rel(Path(src["transcripts"])), "readouts": _rel(Path(src["readouts"])),
                       "n_triggers": len(triggers), "n_anchors": len(anchors), "videos": sorted(transcripts)}
+    decisions = load_decisions(decisions_path) if decisions_path else {}
+    apply_decisions(result["candidates"], decisions)
     if out is not None:
         write_candidates(out, result, {"window_sec": window_sec, "min_hits": min_hits, "max_clusters": max_clusters,
-                                       "sources": used})
+                                       "sources": used, "decisions": _rel(decisions_path) if decisions_path else None,
+                                       "n_decisions": len(decisions)})
         log.info("후보 %d · 앵커 없음 %d · 자막 없음 %d → %s",
                  len(result["candidates"]), len(result["unanchored"]), len(result["skipped"]), _rel(out))
     return result

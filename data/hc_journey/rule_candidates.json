@@ -1,8 +1,8 @@
 {
  "_meta": {
-  "purpose": "curation_rule 승인 대기 후보. 사람이 골라 build_db.CURATION_RULES 에 옮긴다. 자동 반영 금지.",
-  "honesty": "trigger_key 는 diff/PoB/설정에서, text 는 자막 원문 그대로. 자막으로 고유명사를 확정하지 않는다.",
-  "generated_utc": "2026-09-10T10:23:24+00:00",
+  "purpose": "curation_rule 승인 대기 후보. 판정은 rule_decisions.json 에 기록되고 여기 status 로 병합된다. 자동 반영 금지.",
+  "honesty": "trigger_key 는 diff/PoB/설정에서, text 는 자막·판독 원문 그대로. 자막으로 고유명사를 확정하지 않는다.",
+  "generated_utc": "2026-09-10T10:47:07+00:00",
   "window_sec": 90.0,
   "min_hits": 2,
   "max_clusters": 3,
@@ -23,17 +23,26 @@
     ]
    }
   },
-  "n_candidates": 15,
+  "decisions": "data/hc_journey/rule_decisions.json",
+  "n_decisions": 58,
+  "n_candidates": 58,
+  "n_by_status": {
+   "rejected": 24,
+   "adopted": 21,
+   "deferred": 13
+  },
   "n_unanchored": 79,
   "n_skipped": 0
  },
  "candidates": [
   {
+   "id": "ascendancy/Gemling Legionnaire/survival/caption/C 5037",
    "trigger_kind": "ascendancy",
    "trigger_key": "Gemling Legionnaire",
    "note_type": "survival",
    "text": "저항을 하나만 대충 반지 남아도는 / 저항 아무거나 하나만 해 두고",
    "evidence": {
+    "kind": "caption",
     "video": "C",
     "video_id": "C_tkSubXWDk",
     "sec": 5037,
@@ -67,14 +76,242 @@
    "transition": "ACT1 → ACT2",
    "existing_rule": false,
    "also_matches": [],
-   "status": "pending"
+   "status": "rejected",
+   "decision": "반지 저항 잡담, 전직과 무관"
   },
   {
+   "id": "ascendancy/Gemling Legionnaire/condition/readout/B 6418",
+   "trigger_kind": "ascendancy",
+   "trigger_key": "Gemling Legionnaire",
+   "note_type": "condition",
+   "text": "젬링 전직 트리의 작은 노드 능력치 요구사항 감소 툴팁을 읽었다. 장비 및 스킬 젬의 능력치 요구사항4% 감소이며 남은 전직 포인트는2다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "B",
+    "video_id": "GtC5-b4QXec",
+    "sec": 6418,
+    "ref": "B 6418초",
+    "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6418s",
+    "lines": [
+     {
+      "sec": 6418,
+      "text": "젬링 전직 트리의 작은 노드 능력치 요구사항 감소 툴팁을 읽었다. 장비 및 스킬 젬의 능력치 요구사항4% 감소이며 남은 전직 포인트는2다."
+     }
+    ],
+    "anchor": {
+     "n": 3,
+     "sec": [
+      6390,
+      6418,
+      6420
+     ],
+     "level": 37,
+     "readout": "전직 클래스 선택 화면에 택티션·위치헌터·젬링 리저네어가 보이며 젬링 쪽이 확대돼 있다. ACT3/4 빌드 플래너 선택 목록도 열렸다."
+    }
+   },
+   "signals": [
+    "요구사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 0,
+   "transition": "ACT1 → ACT2",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "전직 작은 노드 = 능력치 요구 4% 감소(툴팁). 첫 2포인트 순서 규칙",
+   "rule": [
+    "ascendancy",
+    "Gemling Legionnaire",
+    "condition"
+   ]
+  },
+  {
+   "id": "ascendancy/Gemling Legionnaire/why/readout/B 6418",
+   "trigger_kind": "ascendancy",
+   "trigger_key": "Gemling Legionnaire",
+   "note_type": "why",
+   "text": "젬링 전직 트리의 작은 노드 능력치 요구사항 감소 툴팁을 읽었다. 장비 및 스킬 젬의 능력치 요구사항4% 감소이며 남은 전직 포인트는2다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "B",
+    "video_id": "GtC5-b4QXec",
+    "sec": 6418,
+    "ref": "B 6418초",
+    "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6418s",
+    "lines": [
+     {
+      "sec": 6418,
+      "text": "젬링 전직 트리의 작은 노드 능력치 요구사항 감소 툴팁을 읽었다. 장비 및 스킬 젬의 능력치 요구사항4% 감소이며 남은 전직 포인트는2다."
+     }
+    ],
+    "anchor": {
+     "n": 3,
+     "sec": [
+      6390,
+      6418,
+      6420
+     ],
+     "level": 37,
+     "readout": "전직 클래스 선택 화면에 택티션·위치헌터·젬링 리저네어가 보이며 젬링 쪽이 확대돼 있다. ACT3/4 빌드 플래너 선택 목록도 열렸다."
+    }
+   },
+   "signals": [
+    "전직 트리"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 0,
+   "transition": "ACT1 → ACT2",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "같은 판독(why 로도 잡힘). condition 규칙에 합침",
+   "rule": [
+    "ascendancy",
+    "Gemling Legionnaire",
+    "condition"
+   ]
+  },
+  {
+   "id": "ascendancy/Gemling Legionnaire/why/readout/B 6420",
+   "trigger_kind": "ascendancy",
+   "trigger_key": "Gemling Legionnaire",
+   "note_type": "why",
+   "text": "젬링 전직 트리에서 전직 포인트0과 패시브 스킬 포인트2포인트 변경 중·변경 사항 적용 안내가 보인다. 커서의 고급 마석학은 미할당으로 표시된다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "B",
+    "video_id": "GtC5-b4QXec",
+    "sec": 6420,
+    "ref": "B 6420초",
+    "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6420s",
+    "lines": [
+     {
+      "sec": 6420,
+      "text": "젬링 전직 트리에서 전직 포인트0과 패시브 스킬 포인트2포인트 변경 중·변경 사항 적용 안내가 보인다. 커서의 고급 마석학은 미할당으로 표시된다."
+     }
+    ],
+    "anchor": {
+     "n": 3,
+     "sec": [
+      6390,
+      6418,
+      6420
+     ],
+     "level": 37,
+     "readout": "전직 클래스 선택 화면에 택티션·위치헌터·젬링 리저네어가 보이며 젬링 쪽이 확대돼 있다. ACT3/4 빌드 플래너 선택 목록도 열렸다."
+    }
+   },
+   "signals": [
+    "전직 트리"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 0,
+   "transition": "ACT1 → ACT2",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "포인트 변경 적용 안내 UI, 지식 없음"
+  },
+  {
+   "id": "skill_added/AscendancyVirtuousBarrier/condition/readout/B 6419",
+   "trigger_kind": "skill_added",
+   "trigger_key": "AscendancyVirtuousBarrier",
+   "note_type": "condition",
+   "text": "능력치 요구사항4% 감소 작은 노드를 배정한 뒤 전직 포인트1이 남았고, 다음 미덕의 정수 노드를 선택하려 한다. 미덕의 정수 툴팁에는 스킬 부여: 고결한 방어막이 표시된다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "B",
+    "video_id": "GtC5-b4QXec",
+    "sec": 6419,
+    "ref": "B 6419초",
+    "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6419s",
+    "lines": [
+     {
+      "sec": 6419,
+      "text": "능력치 요구사항4% 감소 작은 노드를 배정한 뒤 전직 포인트1이 남았고, 다음 미덕의 정수 노드를 선택하려 한다. 미덕의 정수 툴팁에는 스킬 부여: 고결한 방어막이 표시된다."
+     }
+    ],
+    "anchor": {
+     "n": 2,
+     "sec": [
+      6419,
+      6422
+     ],
+     "level": 43,
+     "readout": "능력치 요구사항4% 감소 작은 노드를 배정한 뒤 전직 포인트1이 남았고, 다음 미덕의 정수 노드를 선택하려 한다. 미덕의 정수 툴팁에는 스킬 부여: 고결한 방어막이 표시된다."
+    }
+   },
+   "signals": [
+    "요구사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 0,
+   "transition": "ACT1 → ACT2",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "미덕의 정수 = 고결한 방어막 부여(툴팁). 전직 condition 규칙 + 고결한 방어막 why 규칙(손노트 D 19306 승격)",
+   "rule": [
+    "ascendancy",
+    "Gemling Legionnaire",
+    "condition"
+   ]
+  },
+  {
+   "id": "item_slot_change/Weapon1/cost/readout/A 9496",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "note_type": "cost",
+   "text": "세트I 경로의 네 노드 배정 뒤 변경 대기 안내가 사라졌고 일반1·무기I 0(4)·II 4(4)·골드11944다. 경로 끝 작은 노드 유탄 재사용 대기시간 회복 속도15% 증가에 반환326골드가 표시된다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "A",
+    "video_id": "zKJQyBm4VnI",
+    "sec": 9496,
+    "ref": "A 9496초",
+    "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=9496s",
+    "lines": [
+     {
+      "sec": 9496,
+      "text": "세트I 경로의 네 노드 배정 뒤 변경 대기 안내가 사라졌고 일반1·무기I 0(4)·II 4(4)·골드11944다. 경로 끝 작은 노드 유탄 재사용 대기시간 회복 속도15% 증가에 반환326골드가 표시된다."
+     }
+    ],
+    "anchor": {
+     "n": 4,
+     "sec": [
+      9489,
+      9489,
+      9490,
+      9496
+     ],
+     "level": 23,
+     "readout": "세트I 경로 첫 작은 노드 유탄 피해의 툴팁은 유탄 피해12% 증가다. 일반4·I3(4)·II4(4), 변경 중1포인트·골드11944이며 첫 노드가 붉은 세트I로 배정돼 있다."
+    }
+   },
+   "signals": [
+    "반환326골드"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 1,
+   "transition": "ACT2 → ACT3-4",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "패시브 반환 골드 — 슬롯 무관, 손노트 영역"
+  },
+  {
+   "id": "skill_added/OilGrenade/pitfall/caption/A 14245",
    "trigger_kind": "skill_added",
    "trigger_key": "OilGrenade",
    "note_type": "pitfall",
    "text": "죽지만 않으면 됩니다. / 한 번에 죽지만 않으면 돼서 그거 좀 / 조심해야 되죠. 이제 내려 찍는 거랑",
    "evidence": {
+    "kind": "caption",
     "video": "A",
     "video_id": "zKJQyBm4VnI",
     "sec": 14245,
@@ -113,14 +350,101 @@
    "transition": "ACT2 → ACT3-4",
    "existing_rule": false,
    "also_matches": [],
-   "status": "pending"
+   "status": "rejected",
+   "decision": "타인 ESC 회피·보스 패턴 잡담, 기름 유탄과 무관"
   },
   {
+   "id": "skill_added/OilGrenade/condition/readout/C 4980",
+   "trigger_kind": "skill_added",
+   "trigger_key": "OilGrenade",
+   "note_type": "condition",
+   "text": "기름 유탄의 보조 젬 선택 화면에서 후보가 폭발 투사체 I, 잠식하는 지대, 범위 확대 II, 밝은 퓨즈 II, 재사용 대기시간 회복 II로 표시된다. 폭발 투사체 I 툴팁은 보조 요구사항 +5 민첩 (20)이고 투사체를 원형으로 발사하게 하며 위에서 떨어뜨리는 스킬에는 적용되지 않는다는 설명이다. 보관함은39/500이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4980,
+    "ref": "C 4980초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4980s",
+    "lines": [
+     {
+      "sec": 4980,
+      "text": "기름 유탄의 보조 젬 선택 화면에서 후보가 폭발 투사체 I, 잠식하는 지대, 범위 확대 II, 밝은 퓨즈 II, 재사용 대기시간 회복 II로 표시된다. 폭발 투사체 I 툴팁은 보조 요구사항 +5 민첩 (20)이고 투사체를 원형으로 발사하게 하며 위에서 떨어뜨리는 스킬에는 적용되지 않는다는 설명이다. 보관함은39/500이다."
+     }
+    ],
+    "anchor": {
+     "n": 3,
+     "sec": [
+      4930,
+      4940,
+      4980
+     ],
+     "level": 52,
+     "readout": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다."
+    }
+   },
+   "signals": [
+    "요구사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 1,
+   "transition": "ACT2 → ACT3-4",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "'폭발 투사체 I 은 위에서 떨어뜨리는 스킬에 적용되지 않는다' — 유탄이 그 분류인지 GGPK 로 미확인. 확인되면 pitfall 규칙"
+  },
+  {
+   "id": "skill_added/OilGrenade/why/readout/C 4980",
+   "trigger_kind": "skill_added",
+   "trigger_key": "OilGrenade",
+   "note_type": "why",
+   "text": "기름 유탄의 보조 젬 선택 화면에서 후보가 폭발 투사체 I, 잠식하는 지대, 범위 확대 II, 밝은 퓨즈 II, 재사용 대기시간 회복 II로 표시된다. 폭발 투사체 I 툴팁은 보조 요구사항 +5 민첩 (20)이고 투사체를 원형으로 발사하게 하며 위에서 떨어뜨리는 스킬에는 적용되지 않는다는 설명이다. 보관함은39/500이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4980,
+    "ref": "C 4980초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4980s",
+    "lines": [
+     {
+      "sec": 4980,
+      "text": "기름 유탄의 보조 젬 선택 화면에서 후보가 폭발 투사체 I, 잠식하는 지대, 범위 확대 II, 밝은 퓨즈 II, 재사용 대기시간 회복 II로 표시된다. 폭발 투사체 I 툴팁은 보조 요구사항 +5 민첩 (20)이고 투사체를 원형으로 발사하게 하며 위에서 떨어뜨리는 스킬에는 적용되지 않는다는 설명이다. 보관함은39/500이다."
+     }
+    ],
+    "anchor": {
+     "n": 3,
+     "sec": [
+      4930,
+      4940,
+      4980
+     ],
+     "level": 52,
+     "readout": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다."
+    }
+   },
+   "signals": [
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 1,
+   "transition": "ACT2 → ACT3-4",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "item_slot_change/Helm1/condition/caption/B 9378",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Helm1",
    "note_type": "condition",
    "text": "뭐야? 지능이 모자라서 못 꼈구나. / 지능이 모잘라서 못 꼈으니까. / 난 지능 대충 올려 놓겠습니다.",
    "evidence": {
+    "kind": "caption",
     "video": "B",
     "video_id": "GtC5-b4QXec",
     "sec": 9378,
@@ -157,16 +481,24 @@
    "creator": "임성빈",
    "transition_idx": 2,
    "transition": "ACT3-4 → 엔드게임(계획)",
-   "existing_rule": false,
+   "existing_rule": true,
    "also_matches": [],
-   "status": "pending"
+   "status": "adopted",
+   "decision": "'지능이 모자라서 못 꼈구나' + 판독 B 9398(지능 37 맞춘 뒤 착용). 요구 능력치 미충족 착용 불가 condition 규칙",
+   "rule": [
+    "item_slot_change",
+    "Helm1",
+    "condition"
+   ]
   },
   {
+   "id": "item_slot_change/Helm1/pitfall/caption/B 9396",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Helm1",
    "note_type": "pitfall",
    "text": "하나로 안 되는구나. / 왜 집으로 귀한이 안 되지? / 안 해서 안 되는 건가? 그러네요.",
    "evidence": {
+    "kind": "caption",
     "video": "B",
     "video_id": "GtC5-b4QXec",
     "sec": 9396,
@@ -205,14 +537,17 @@
    "transition": "ACT3-4 → 엔드게임(계획)",
    "existing_rule": false,
    "also_matches": [],
-   "status": "pending"
+   "status": "rejected",
+   "decision": "'귀환이 안 되지' 잡담"
   },
   {
+   "id": "item_slot_change/Helm1/survival/caption/B 9370",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Helm1",
    "note_type": "survival",
    "text": "요거는 가능하면 저항 / 저기 뭐 저항은",
    "evidence": {
+    "kind": "caption",
     "video": "B",
     "video_id": "GtC5-b4QXec",
     "sec": 9370,
@@ -247,14 +582,333 @@
    "transition": "ACT3-4 → 엔드게임(계획)",
    "existing_rule": false,
    "also_matches": [],
-   "status": "pending"
+   "status": "rejected",
+   "decision": "'가능하면 저항' 한마디, 근거 부족"
   },
   {
+   "id": "item_slot_change/Helm1/cost/readout/C 8990",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "note_type": "cost",
+   "text": "거래소 투구 검색 화면에서 유형 필터 아이템 유형 투구·아이템 퀄리티8 이상·아이템 희귀도 희귀, 장비 필터 방어구198 이상·에너지 보호막57 이상, 요구사항 레벨45 이하·힘36 이하·지능36 이하, 능력치 필터1(And)에 방어도 및 에너지 보호막 #% 증가23~35·화염 저항 #%9~15·에너지 보호막 재충전 속도 #% 증가12~20·시야 반경 #% 증가12~18 네 줄이 걸려 있다. 판매자 유형 즉시 구입, 가격은 엑잘티드 오브 상당 아이템, 정렬 기준은 가격 낮은 것부터이고 결과 목록은 비어 있다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 8990,
+    "ref": "C 8990초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=8990s",
+    "lines": [
+     {
+      "sec": 8990,
+      "text": "거래소 투구 검색 화면에서 유형 필터 아이템 유형 투구·아이템 퀄리티8 이상·아이템 희귀도 희귀, 장비 필터 방어구198 이상·에너지 보호막57 이상, 요구사항 레벨45 이하·힘36 이하·지능36 이하, 능력치 필터1(And)에 방어도 및 에너지 보호막 #% 증가23~35·화염 저항 #%9~15·에너지 보호막 재충전 속도 #% 증가12~20·시야 반경 #% 증가12~18 네 줄이 걸려 있다. 판매자 유형 즉시 구입, 가격은 엑잘티드 오브 상당 아이템, 정렬 기준은 가격 낮은 것부터이고 결과 목록은 비어 있다."
+     }
+    ],
+    "anchor": {
+     "n": 4,
+     "sec": [
+      8950,
+      8990,
+      9000,
+      9040
+     ],
+     "level": 57,
+     "readout": "화폐 보관함 탭을 연 화면이다. 골드**76660**이고 우측 소지품 격자 아래에 새 투구·지팡이·수갑·장화로 보이는 아이템이 들어 있다. 장비 창에는 아직 이전 장비 구성이 보인다."
+    }
+   },
+   "signals": [
+    "가격",
+    "거래소",
+    "엑잘",
+    "판매"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "거래소 = 엑잘 단위 + 골드 수수료, 요구 빨간 매물 착용 불가 — 슬롯 무관 거래 지식이라 Helm1 규칙으로 두면 임의. 별도 trade 트리거 필요. 손노트(C 9000)에 이미 있음"
+  },
+  {
+   "id": "item_slot_change/Helm1/condition/readout/C 8990",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "note_type": "condition",
+   "text": "거래소 투구 검색 화면에서 유형 필터 아이템 유형 투구·아이템 퀄리티8 이상·아이템 희귀도 희귀, 장비 필터 방어구198 이상·에너지 보호막57 이상, 요구사항 레벨45 이하·힘36 이하·지능36 이하, 능력치 필터1(And)에 방어도 및 에너지 보호막 #% 증가23~35·화염 저항 #%9~15·에너지 보호막 재충전 속도 #% 증가12~20·시야 반경 #% 증가12~18 네 줄이 걸려 있다. 판매자 유형 즉시 구입, 가격은 엑잘티드 오브 상당 아이템, 정렬 기준은 가격 낮은 것부터이고 결과 목록은 비어 있다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 8990,
+    "ref": "C 8990초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=8990s",
+    "lines": [
+     {
+      "sec": 8990,
+      "text": "거래소 투구 검색 화면에서 유형 필터 아이템 유형 투구·아이템 퀄리티8 이상·아이템 희귀도 희귀, 장비 필터 방어구198 이상·에너지 보호막57 이상, 요구사항 레벨45 이하·힘36 이하·지능36 이하, 능력치 필터1(And)에 방어도 및 에너지 보호막 #% 증가23~35·화염 저항 #%9~15·에너지 보호막 재충전 속도 #% 증가12~20·시야 반경 #% 증가12~18 네 줄이 걸려 있다. 판매자 유형 즉시 구입, 가격은 엑잘티드 오브 상당 아이템, 정렬 기준은 가격 낮은 것부터이고 결과 목록은 비어 있다."
+     }
+    ],
+    "anchor": {
+     "n": 4,
+     "sec": [
+      8950,
+      8990,
+      9000,
+      9040
+     ],
+     "level": 57,
+     "readout": "화폐 보관함 탭을 연 화면이다. 골드**76660**이고 우측 소지품 격자 아래에 새 투구·지팡이·수갑·장화로 보이는 아이템이 들어 있다. 장비 창에는 아직 이전 장비 구성이 보인다."
+    }
+   },
+   "signals": [
+    "요구사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "item_slot_change/Helm1/cost/readout/C 9000",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "note_type": "cost",
+   "text": "투구 거래소 검색 결과 화면이다. 검색 조건은 아이템 검색 \"혼백뼈 왕관\", 유형 투구, 퀄리티8 이상, 희귀, 방어구198 이상, 에너지 보호막57 이상, 요구 레벨45 이하·힘36 이하·지능36 이하, 능력치 필터 방어도 및 에너지 보호막23~35% 증가, 판매자 유형 즉시 구입, **즉시 구입 가격 = 엑잘티드 오브 상당 아이템(임의의 수량)**이고 결과13건이다. 첫 매물은 천공인 별 - 이단심문관 왕관(투구, 방어도314·ES89, 요구 레벨**59(빨강)**·46힘·46지능, 방어도+90·ES 최대치+26·방어도및ES24% 증가·마나 최대치+139·1초마다 생명력14.1 재생)으로 **요구 가격1x 엑잘티드 오브·수수료11314 골드**다. 둘째는 키메라의 고깔 - 거룩한 왕관(방어도195·ES55, 요구 레벨54·42힘·42지능, 방어도및ES29% 증가·생명력 최대치+27·지능+29·화염 저항+23%·냉기 저항+30%)으로 **요구 가격1x 엑잘티드 오브·수수료10737 골드**다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 9000,
+    "ref": "C 9000초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=9000s",
+    "lines": [
+     {
+      "sec": 9000,
+      "text": "투구 거래소 검색 결과 화면이다. 검색 조건은 아이템 검색 \"혼백뼈 왕관\", 유형 투구, 퀄리티8 이상, 희귀, 방어구198 이상, 에너지 보호막57 이상, 요구 레벨45 이하·힘36 이하·지능36 이하, 능력치 필터 방어도 및 에너지 보호막23~35% 증가, 판매자 유형 즉시 구입, **즉시 구입 가격 = 엑잘티드 오브 상당 아이템(임의의 수량)**이고 결과13건이다. 첫 매물은 천공인 별 - 이단심문관 왕관(투구, 방어도314·ES89, 요구 레벨**59(빨강)**·46힘·46지능, 방어도+90·ES 최대치+26·방어도및ES24% 증가·마나 최대치+139·1초마다 생명력14.1 재생)으로 **요구 가격1x 엑잘티드 오브·수수료11314 골드**다. 둘째는 키메라의 고깔 - 거룩한 왕관(방어도195·ES55, 요구 레벨54·42힘·42지능, 방어도및ES29% 증가·생명력 최대치+27·지능+29·화염 저항+23%·냉기 저항+30%)으로 **요구 가격1x 엑잘티드 오브·수수료10737 골드**다."
+     }
+    ],
+    "anchor": {
+     "n": 4,
+     "sec": [
+      8950,
+      8990,
+      9000,
+      9040
+     ],
+     "level": 57,
+     "readout": "화폐 보관함 탭을 연 화면이다. 골드**76660**이고 우측 소지품 격자 아래에 새 투구·지팡이·수갑·장화로 보이는 아이템이 들어 있다. 장비 창에는 아직 이전 장비 구성이 보인다."
+    }
+   },
+   "signals": [
+    "가격",
+    "거래소",
+    "매물",
+    "수수료",
+    "엑잘",
+    "판매"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "item_slot_change/Helm1/condition/readout/C 9000",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "note_type": "condition",
+   "text": "투구 거래소 검색 결과 화면이다. 검색 조건은 아이템 검색 \"혼백뼈 왕관\", 유형 투구, 퀄리티8 이상, 희귀, 방어구198 이상, 에너지 보호막57 이상, 요구 레벨45 이하·힘36 이하·지능36 이하, 능력치 필터 방어도 및 에너지 보호막23~35% 증가, 판매자 유형 즉시 구입, **즉시 구입 가격 = 엑잘티드 오브 상당 아이템(임의의 수량)**이고 결과13건이다. 첫 매물은 천공인 별 - 이단심문관 왕관(투구, 방어도314·ES89, 요구 레벨**59(빨강)**·46힘·46지능, 방어도+90·ES 최대치+26·방어도및ES24% 증가·마나 최대치+139·1초마다 생명력14.1 재생)으로 **요구 가격1x 엑잘티드 오브·수수료11314 골드**다. 둘째는 키메라의 고깔 - 거룩한 왕관(방어도195·ES55, 요구 레벨54·42힘·42지능, 방어도및ES29% 증가·생명력 최대치+27·지능+29·화염 저항+23%·냉기 저항+30%)으로 **요구 가격1x 엑잘티드 오브·수수료10737 골드**다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 9000,
+    "ref": "C 9000초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=9000s",
+    "lines": [
+     {
+      "sec": 9000,
+      "text": "투구 거래소 검색 결과 화면이다. 검색 조건은 아이템 검색 \"혼백뼈 왕관\", 유형 투구, 퀄리티8 이상, 희귀, 방어구198 이상, 에너지 보호막57 이상, 요구 레벨45 이하·힘36 이하·지능36 이하, 능력치 필터 방어도 및 에너지 보호막23~35% 증가, 판매자 유형 즉시 구입, **즉시 구입 가격 = 엑잘티드 오브 상당 아이템(임의의 수량)**이고 결과13건이다. 첫 매물은 천공인 별 - 이단심문관 왕관(투구, 방어도314·ES89, 요구 레벨**59(빨강)**·46힘·46지능, 방어도+90·ES 최대치+26·방어도및ES24% 증가·마나 최대치+139·1초마다 생명력14.1 재생)으로 **요구 가격1x 엑잘티드 오브·수수료11314 골드**다. 둘째는 키메라의 고깔 - 거룩한 왕관(방어도195·ES55, 요구 레벨54·42힘·42지능, 방어도및ES29% 증가·생명력 최대치+27·지능+29·화염 저항+23%·냉기 저항+30%)으로 **요구 가격1x 엑잘티드 오브·수수료10737 골드**다."
+     }
+    ],
+    "anchor": {
+     "n": 4,
+     "sec": [
+      8950,
+      8990,
+      9000,
+      9040
+     ],
+     "level": 57,
+     "readout": "화폐 보관함 탭을 연 화면이다. 골드**76660**이고 우측 소지품 격자 아래에 새 투구·지팡이·수갑·장화로 보이는 아이템이 들어 있다. 장비 창에는 아직 이전 장비 구성이 보인다."
+    }
+   },
+   "signals": [
+    "요구 레벨"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "item_slot_change/Helm1/cost/readout/C 9040",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "note_type": "cost",
+   "text": "같은 거래소 검색에서 능력치 필터가 방어도 및 에너지 보호막 #% 증가23~35 한 줄만 남고 정렬 기준이 총 에너지 보호막 높은 것부터로 바뀌자 결과가 나왔다. 천공인 별 이단심문관 왕관은 투구 방어도314·ES89, 요구 사항 레벨59(빨강)·46 힘·46 지능, 방어도+90·ES 최대치+26·방어도 및 ES 24% 증가·마나 최대치+139·1초마다 생명력14.1 재생, 요구 가격1x 엑잘티드 오브, 총 방어도376·총 ES107, 판매자 wonderfll#1779, 즉시 구입,1시간 전 등록, 수수료11314 골드다. 아래 침울한 이마 난해한 왕관은 방어도268·ES74, 요구 레벨80(빨강)·63 힘·63 지능, 방어도 및 ES 30% 증가·생명력 최대치+140·마나 최대치+136·지능+22다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 9040,
+    "ref": "C 9040초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=9040s",
+    "lines": [
+     {
+      "sec": 9040,
+      "text": "같은 거래소 검색에서 능력치 필터가 방어도 및 에너지 보호막 #% 증가23~35 한 줄만 남고 정렬 기준이 총 에너지 보호막 높은 것부터로 바뀌자 결과가 나왔다. 천공인 별 이단심문관 왕관은 투구 방어도314·ES89, 요구 사항 레벨59(빨강)·46 힘·46 지능, 방어도+90·ES 최대치+26·방어도 및 ES 24% 증가·마나 최대치+139·1초마다 생명력14.1 재생, 요구 가격1x 엑잘티드 오브, 총 방어도376·총 ES107, 판매자 wonderfll#1779, 즉시 구입,1시간 전 등록, 수수료11314 골드다. 아래 침울한 이마 난해한 왕관은 방어도268·ES74, 요구 레벨80(빨강)·63 힘·63 지능, 방어도 및 ES 30% 증가·생명력 최대치+140·마나 최대치+136·지능+22다."
+     }
+    ],
+    "anchor": {
+     "n": 4,
+     "sec": [
+      8950,
+      8990,
+      9000,
+      9040
+     ],
+     "level": 57,
+     "readout": "화폐 보관함 탭을 연 화면이다. 골드**76660**이고 우측 소지품 격자 아래에 새 투구·지팡이·수갑·장화로 보이는 아이템이 들어 있다. 장비 창에는 아직 이전 장비 구성이 보인다."
+    }
+   },
+   "signals": [
+    "가격",
+    "거래소",
+    "수수료",
+    "엑잘",
+    "판매"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "item_slot_change/Helm1/condition/readout/C 9040",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "note_type": "condition",
+   "text": "같은 거래소 검색에서 능력치 필터가 방어도 및 에너지 보호막 #% 증가23~35 한 줄만 남고 정렬 기준이 총 에너지 보호막 높은 것부터로 바뀌자 결과가 나왔다. 천공인 별 이단심문관 왕관은 투구 방어도314·ES89, 요구 사항 레벨59(빨강)·46 힘·46 지능, 방어도+90·ES 최대치+26·방어도 및 ES 24% 증가·마나 최대치+139·1초마다 생명력14.1 재생, 요구 가격1x 엑잘티드 오브, 총 방어도376·총 ES107, 판매자 wonderfll#1779, 즉시 구입,1시간 전 등록, 수수료11314 골드다. 아래 침울한 이마 난해한 왕관은 방어도268·ES74, 요구 레벨80(빨강)·63 힘·63 지능, 방어도 및 ES 30% 증가·생명력 최대치+140·마나 최대치+136·지능+22다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 9040,
+    "ref": "C 9040초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=9040s",
+    "lines": [
+     {
+      "sec": 9040,
+      "text": "같은 거래소 검색에서 능력치 필터가 방어도 및 에너지 보호막 #% 증가23~35 한 줄만 남고 정렬 기준이 총 에너지 보호막 높은 것부터로 바뀌자 결과가 나왔다. 천공인 별 이단심문관 왕관은 투구 방어도314·ES89, 요구 사항 레벨59(빨강)·46 힘·46 지능, 방어도+90·ES 최대치+26·방어도 및 ES 24% 증가·마나 최대치+139·1초마다 생명력14.1 재생, 요구 가격1x 엑잘티드 오브, 총 방어도376·총 ES107, 판매자 wonderfll#1779, 즉시 구입,1시간 전 등록, 수수료11314 골드다. 아래 침울한 이마 난해한 왕관은 방어도268·ES74, 요구 레벨80(빨강)·63 힘·63 지능, 방어도 및 ES 30% 증가·생명력 최대치+140·마나 최대치+136·지능+22다."
+     }
+    ],
+    "anchor": {
+     "n": 4,
+     "sec": [
+      8950,
+      8990,
+      9000,
+      9040
+     ],
+     "level": 57,
+     "readout": "화폐 보관함 탭을 연 화면이다. 골드**76660**이고 우측 소지품 격자 아래에 새 투구·지팡이·수갑·장화로 보이는 아이템이 들어 있다. 장비 창에는 아직 이전 장비 구성이 보인다."
+    }
+   },
+   "signals": [
+    "요구 레벨",
+    "요구 사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "item_slot_change/Helm1/survival/readout/C 9180",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "note_type": "survival",
+   "text": "상인 화면에서 경로석(1등급) 툴팁을 읽었다. 부활 횟수5, 지도 장치에서 사용하면 지도 안으로 이동할 수 있고 한 번만 사용할 수 있다는 설명,137골드다. 장비 칸에는 새 투구가 보이고 골드는65499다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 9180,
+    "ref": "C 9180초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=9180s",
+    "lines": [
+     {
+      "sec": 9180,
+      "text": "상인 화면에서 경로석(1등급) 툴팁을 읽었다. 부활 횟수5, 지도 장치에서 사용하면 지도 안으로 이동할 수 있고 한 번만 사용할 수 있다는 설명,137골드다. 장비 칸에는 새 투구가 보이고 골드는65499다."
+     }
+    ],
+    "anchor": {
+     "n": 6,
+     "sec": [
+      9146,
+      9150,
+      9176,
+      9178,
+      9180,
+      9190
+     ],
+     "level": 57,
+     "readout": "화폐 보관함 기본 탭에서 **숙련공의 파편** 툴팁을 읽었다(중첩1/10, 파편10개를 모으면 숙련공의 오브가 됨). 우측 장비 창에 새 투구가 들어가 있고 소지품 아래에 수갑·지팡이·장화로 보이는 아이템이 있다. 골드65499다."
+    }
+   },
+   "signals": [
+    "부활"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "경로석 부활 횟수 — 투구 무관"
+  },
+  {
+   "id": "item_slot_change/Weapon1/condition/caption/C 4693",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Weapon1",
    "note_type": "condition",
    "text": "지능은 다 찍었고 / 민첩이 조금 필요하네요. / 또 필요한게",
    "evidence": {
+    "kind": "caption",
     "video": "C",
     "video_id": "C_tkSubXWDk",
     "sec": 4693,
@@ -335,14 +989,17 @@
      "existing_rule": true
     }
    ],
-   "status": "pending"
+   "status": "rejected",
+   "decision": "리스펙 능력치 잡담, 손노트(요구 지능 92) 중복"
   },
   {
+   "id": "item_slot_change/Weapon1/condition/caption/C 4483",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Weapon1",
    "note_type": "condition",
    "text": "포격석궁 필요하네요. / 92지는 92가 필요하 / 음민첩에서",
    "evidence": {
+    "kind": "caption",
     "video": "C",
     "video_id": "C_tkSubXWDk",
     "sec": 4483,
@@ -387,14 +1044,111 @@
      "existing_rule": true
     }
    ],
-   "status": "pending"
+   "status": "rejected",
+   "decision": "손노트(C 4540 요구 지능 92) 중복"
   },
   {
+   "id": "item_slot_change/Weapon1/condition/readout/C 4465",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "note_type": "condition",
+   "text": "52레벨 장착 중 무기 세트I의 대재앙 중심부 포격 석궁 최종 툴팁을 읽었다. 품질20%·물리20~81·화염27~43·냉기10~18, 공격1.92/초·재장전0.65, 요구 레벨33·힘34·민첩34. 룬 화염7~11·냉기3~5, 유탄 투사체1개 추가, 물리21%·화염20~32·냉기7~13·정확도30·공속16%·명중 생명력2·힘+6이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4465,
+    "ref": "C 4465초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4465s",
+    "lines": [
+     {
+      "sec": 4465,
+      "text": "52레벨 장착 중 무기 세트I의 대재앙 중심부 포격 석궁 최종 툴팁을 읽었다. 품질20%·물리20~81·화염27~43·냉기10~18, 공격1.92/초·재장전0.65, 요구 레벨33·힘34·민첩34. 룬 화염7~11·냉기3~5, 유탄 투사체1개 추가, 물리21%·화염20~32·냉기7~13·정확도30·공속16%·명중 생명력2·힘+6이다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      4465
+     ],
+     "level": 52,
+     "readout": "52레벨 장착 중 무기 세트I의 대재앙 중심부 포격 석궁 최종 툴팁을 읽었다. 품질20%·물리20~81·화염27~43·냉기10~18, 공격1.92/초·재장전0.65, 요구 레벨33·힘34·민첩34. 룬 화염7~11·냉기3~5, 유탄 투사체1개 추가, 물리21%·화염20~32·냉기7~13"
+    }
+   },
+   "signals": [
+    "요구 레벨"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "포격 석궁 요구 33레벨·힘34·민첩34 — 같은 규칙의 요구 확인 근거",
+   "rule": [
+    "item_slot_change",
+    "Weapon1",
+    "pitfall"
+   ]
+  },
+  {
+   "id": "item_slot_change/Weapon1/condition/readout/C 4755",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "note_type": "condition",
+   "text": "52레벨 장비 비교에서 상형 문자의 중심부 합금 석궁이 무기 세트I 장착 중이다. 물리21~88·냉기3~6·번개1~20, 물리75% 증가·모든 투사체 스킬+2·힘16·명중 생명력2, 화염 피해 줄은 없다. 요구 레벨26·힘28·민첩28·공격1.70/초·재장전0.70. 다른 툴팁의 소용돌이의 주문 잿빛 지팡이는 화염 피해91%·시전 속도25%·지능12·처치 생명력6·피해의40% 추가 화염 피해다. 골드49779다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4755,
+    "ref": "C 4755초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4755s",
+    "lines": [
+     {
+      "sec": 4755,
+      "text": "52레벨 장비 비교에서 상형 문자의 중심부 합금 석궁이 무기 세트I 장착 중이다. 물리21~88·냉기3~6·번개1~20, 물리75% 증가·모든 투사체 스킬+2·힘16·명중 생명력2, 화염 피해 줄은 없다. 요구 레벨26·힘28·민첩28·공격1.70/초·재장전0.70. 다른 툴팁의 소용돌이의 주문 잿빛 지팡이는 화염 피해91%·시전 속도25%·지능12·처치 생명력6·피해의40% 추가 화염 피해다. 골드49779다."
+     }
+    ],
+    "anchor": {
+     "n": 5,
+     "sec": [
+      4755,
+      4771,
+      4790,
+      4830,
+      4860
+     ],
+     "level": 52,
+     "readout": "52레벨 장비 비교에서 상형 문자의 중심부 합금 석궁이 무기 세트I 장착 중이다. 물리21~88·냉기3~6·번개1~20, 물리75% 증가·모든 투사체 스킬+2·힘16·명중 생명력2, 화염 피해 줄은 없다. 요구 레벨26·힘28·민첩28·공격1.70/초·재장전0.70. 다른 툴팁의 소용돌"
+    }
+   },
+   "signals": [
+    "요구 레벨"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "합금 석궁 교체 판독 + C 4760 '잘못된 무기 유형' 경고. 무기 유형 바뀌면 스킬 죽음 pitfall 규칙(손노트의 일반화)",
+   "rule": [
+    "item_slot_change",
+    "Weapon1",
+    "pitfall"
+   ]
+  },
+  {
+   "id": "item_slot_change/Weapon2/pitfall/caption/B 9407",
    "trigger_kind": "item_slot_change",
    "trigger_key": "Weapon2",
    "note_type": "pitfall",
    "text": "왜 집으로 귀한이 안 되지? / 안 해서 안 되는 건가? 그러네요.",
    "evidence": {
+    "kind": "caption",
     "video": "B",
     "video_id": "GtC5-b4QXec",
     "sec": 9407,
@@ -428,14 +1182,57 @@
    "transition": "ACT3-4 → 엔드게임(계획)",
    "existing_rule": false,
    "also_matches": [],
-   "status": "pending"
+   "status": "rejected",
+   "decision": "'귀환이 안 되지' 잡담"
   },
   {
+   "id": "item_slot_change/Weapon2/condition/readout/B 9492",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon2",
+   "note_type": "condition",
+   "text": "무기 세트II에 장착 중인 혐오스러운 발톱 쐐기끝 부적을 살펴본다. 곰 형상, 요구 레벨6·힘9·지능8, 물리29~46·냉기5~10, 치명타11%, 공격1.34/초. 물리52% 증가·물리7~10 추가·냉기5~10 추가·공속7%가 보인다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "B",
+    "video_id": "GtC5-b4QXec",
+    "sec": 9492,
+    "ref": "B 9492초",
+    "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=9492s",
+    "lines": [
+     {
+      "sec": 9492,
+      "text": "무기 세트II에 장착 중인 혐오스러운 발톱 쐐기끝 부적을 살펴본다. 곰 형상, 요구 레벨6·힘9·지능8, 물리29~46·냉기5~10, 치명타11%, 공격1.34/초. 물리52% 증가·물리7~10 추가·냉기5~10 추가·공속7%가 보인다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      9492
+     ],
+     "level": 45,
+     "readout": "무기 세트II에 장착 중인 혐오스러운 발톱 쐐기끝 부적을 살펴본다. 곰 형상, 요구 레벨6·힘9·지능8, 물리29~46·냉기5~10, 치명타11%, 공격1.34/초. 물리52% 증가·물리7~10 추가·냉기5~10 추가·공속7%가 보인다."
+    }
+   },
+   "signals": [
+    "요구 레벨"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "부적 툴팁 — 아이템 개별, 규칙 아님"
+  },
+  {
+   "id": "skill_added/Flameblast/survival/caption/C 4912",
    "trigger_kind": "skill_added",
    "trigger_key": "Flameblast",
    "note_type": "survival",
    "text": "저항 혁명력 Ja. / 저항을 하나만 대충 반지 남아도는 / 저항 아무거나 하나만 해 두고",
    "evidence": {
+    "kind": "caption",
     "video": "C",
     "video_id": "C_tkSubXWDk",
     "sec": 4912,
@@ -483,14 +1280,430 @@
      "existing_rule": false
     }
    ],
-   "status": "pending"
+   "status": "rejected",
+   "decision": "반지 저항 잡담"
   },
   {
+   "id": "skill_added/Flameblast/condition/readout/C 4930",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "note_type": "condition",
+   "text": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다. 섬광 유탄 툴팁은 레벨14(젬12 +2 레벨 일반 속성 부여), 퀄리티+0%(+4% 일반 속성 부여), 마나32, 재사용 대기시간5.00초, 공격 속도 기본의75%, 공격 피해266%, 요구 사항 레벨46·46 힘·46 민첩, 요구 사항 석궁이다. 보조 젬 사용량은 힘(4/18)·민첩(3/12)·지능(1/18)이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4930,
+    "ref": "C 4930초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4930s",
+    "lines": [
+     {
+      "sec": 4930,
+      "text": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다. 섬광 유탄 툴팁은 레벨14(젬12 +2 레벨 일반 속성 부여), 퀄리티+0%(+4% 일반 속성 부여), 마나32, 재사용 대기시간5.00초, 공격 속도 기본의75%, 공격 피해266%, 요구 사항 레벨46·46 힘·46 민첩, 요구 사항 석궁이다. 보조 젬 사용량은 힘(4/18)·민첩(3/12)·지능(1/18)이다."
+     }
+    ],
+    "anchor": {
+     "n": 5,
+     "sec": [
+      4930,
+      4940,
+      4990,
+      5000,
+      5005
+     ],
+     "level": 52,
+     "readout": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다."
+    }
+   },
+   "signals": [
+    "요구 사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [
+    {
+     "trigger": "skill_added/OilGrenade",
+     "transition": "ACT2 → ACT3-4",
+     "existing_rule": false
+    },
+    {
+     "trigger": "skill_added/FlashGrenade",
+     "transition": "엔드게임(계획) → 실캐릭 lv93",
+     "existing_rule": false
+    }
+   ],
+   "status": "rejected",
+   "decision": "스킬 창 보조 홈 개수 나열, 규칙 지식 없음"
+  },
+  {
+   "id": "skill_added/Flameblast/condition/readout/C 4540",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "note_type": "condition",
+   "text": "화염파Lv13 새기기 목록 툴팁에 요구 레벨52와 빨간 지능92가 보인다. 아래 활성 빌드 플래너는 ACT3/4다. 골드100175이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4540,
+    "ref": "C 4540초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4540s",
+    "lines": [
+     {
+      "sec": 4540,
+      "text": "화염파Lv13 새기기 목록 툴팁에 요구 레벨52와 빨간 지능92가 보인다. 아래 활성 빌드 플래너는 ACT3/4다. 골드100175이다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      4540
+     ],
+     "level": 52,
+     "readout": "화염파Lv13 새기기 목록 툴팁에 요구 레벨52와 빨간 지능92가 보인다. 아래 활성 빌드 플래너는 ACT3/4다. 골드100175이다."
+    }
+   },
+   "signals": [
+    "빨간 지능",
+    "요구 레벨"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "새기기 목록에서 빨간 지능 92 — 같은 근거",
+   "rule": [
+    "skill_added",
+    "Flameblast",
+    "why"
+   ]
+  },
+  {
+   "id": "skill_added/Flameblast/condition/readout/C 4767",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "note_type": "condition",
+   "text": "소지품의 화염파 젬 툴팁을 읽었다. 주문·효과 범위·화염·집중 유지·폭발·단계, 레벨13, 소모 1초당 마나27.8, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, 요구 사항 레벨52·92 지능,90~134 화염 피해, 단계 하나당 주문 피해75% 증폭,10의 최대 단계, 폭발 반경 단계 하나당0.6미터이며 아래에 홈에 젬 삽입 안내가 있다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4767,
+    "ref": "C 4767초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4767s",
+    "lines": [
+     {
+      "sec": 4767,
+      "text": "소지품의 화염파 젬 툴팁을 읽었다. 주문·효과 범위·화염·집중 유지·폭발·단계, 레벨13, 소모 1초당 마나27.8, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, 요구 사항 레벨52·92 지능,90~134 화염 피해, 단계 하나당 주문 피해75% 증폭,10의 최대 단계, 폭발 반경 단계 하나당0.6미터이며 아래에 홈에 젬 삽입 안내가 있다."
+     }
+    ],
+    "anchor": {
+     "n": 2,
+     "sec": [
+      4767,
+      4771
+     ],
+     "level": 52,
+     "readout": "소지품의 화염파 젬 툴팁을 읽었다. 주문·효과 범위·화염·집중 유지·폭발·단계, 레벨13, 소모 1초당 마나27.8, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, 요구 사항 레벨52·92 지능,90~134 화염 피해, 단계 하나당 주문 피해75% 증폭,"
+    }
+   },
+   "signals": [
+    "요구 사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "요구 52레벨·지능 92(Lv13) — why 규칙의 요구 수치 근거",
+   "rule": [
+    "skill_added",
+    "Flameblast",
+    "why"
+   ]
+  },
+  {
+   "id": "skill_added/Flameblast/why/readout/C 4767",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "note_type": "why",
+   "text": "소지품의 화염파 젬 툴팁을 읽었다. 주문·효과 범위·화염·집중 유지·폭발·단계, 레벨13, 소모 1초당 마나27.8, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, 요구 사항 레벨52·92 지능,90~134 화염 피해, 단계 하나당 주문 피해75% 증폭,10의 최대 단계, 폭발 반경 단계 하나당0.6미터이며 아래에 홈에 젬 삽입 안내가 있다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4767,
+    "ref": "C 4767초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4767s",
+    "lines": [
+     {
+      "sec": 4767,
+      "text": "소지품의 화염파 젬 툴팁을 읽었다. 주문·효과 범위·화염·집중 유지·폭발·단계, 레벨13, 소모 1초당 마나27.8, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, 요구 사항 레벨52·92 지능,90~134 화염 피해, 단계 하나당 주문 피해75% 증폭,10의 최대 단계, 폭발 반경 단계 하나당0.6미터이며 아래에 홈에 젬 삽입 안내가 있다."
+     }
+    ],
+    "anchor": {
+     "n": 2,
+     "sec": [
+      4767,
+      4771
+     ],
+     "level": 52,
+     "readout": "소지품의 화염파 젬 툴팁을 읽었다. 주문·효과 범위·화염·집중 유지·폭발·단계, 레벨13, 소모 1초당 마나27.8, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, 요구 사항 레벨52·92 지능,90~134 화염 피해, 단계 하나당 주문 피해75% 증폭,"
+    }
+   },
+   "signals": [
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "화염파 젬 툴팁 원문(집중 유지·단계당 75% 증폭·10단계·0.6m·초당 마나). why 규칙 신설",
+   "rule": [
+    "skill_added",
+    "Flameblast",
+    "why"
+   ]
+  },
+  {
+   "id": "skill_added/Flameblast/condition/readout/C 4990",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "note_type": "condition",
+   "text": "화염파의 보조 젬 선택 화면에서 후보가 범위 집중, 신중한 시전, 이글거리는 화염 II, 급성장 II, 격노버림 II로 표시된다. 범위 집중 툴팁은 보조 요구사항 +5 지능 (25), 범위 피해30% 증폭·효과 범위50% 감폭이다. 상단 화염파 홈은 보조2개가 찬 상태이고 보관함은37/500이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4990,
+    "ref": "C 4990초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4990s",
+    "lines": [
+     {
+      "sec": 4990,
+      "text": "화염파의 보조 젬 선택 화면에서 후보가 범위 집중, 신중한 시전, 이글거리는 화염 II, 급성장 II, 격노버림 II로 표시된다. 범위 집중 툴팁은 보조 요구사항 +5 지능 (25), 범위 피해30% 증폭·효과 범위50% 감폭이다. 상단 화염파 홈은 보조2개가 찬 상태이고 보관함은37/500이다."
+     }
+    ],
+    "anchor": {
+     "n": 5,
+     "sec": [
+      4930,
+      4940,
+      4990,
+      5000,
+      5005
+     ],
+     "level": 52,
+     "readout": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다."
+    }
+   },
+   "signals": [
+    "요구사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "보조 젬(범위 집중) 선택은 빌드별 — 규칙보다 손노트/플래너 영역. 보조 선택 트리거가 생기면 재검토"
+  },
+  {
+   "id": "skill_added/Flameblast/why/readout/C 4990",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "note_type": "why",
+   "text": "화염파의 보조 젬 선택 화면에서 후보가 범위 집중, 신중한 시전, 이글거리는 화염 II, 급성장 II, 격노버림 II로 표시된다. 범위 집중 툴팁은 보조 요구사항 +5 지능 (25), 범위 피해30% 증폭·효과 범위50% 감폭이다. 상단 화염파 홈은 보조2개가 찬 상태이고 보관함은37/500이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4990,
+    "ref": "C 4990초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4990s",
+    "lines": [
+     {
+      "sec": 4990,
+      "text": "화염파의 보조 젬 선택 화면에서 후보가 범위 집중, 신중한 시전, 이글거리는 화염 II, 급성장 II, 격노버림 II로 표시된다. 범위 집중 툴팁은 보조 요구사항 +5 지능 (25), 범위 피해30% 증폭·효과 범위50% 감폭이다. 상단 화염파 홈은 보조2개가 찬 상태이고 보관함은37/500이다."
+     }
+    ],
+    "anchor": {
+     "n": 5,
+     "sec": [
+      4930,
+      4940,
+      4990,
+      5000,
+      5005
+     ],
+     "level": 52,
+     "readout": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다."
+    }
+   },
+   "signals": [
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "skill_added/Flameblast/condition/readout/C 5000",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "note_type": "condition",
+   "text": "같은 화염파 보조 선택에서 이글거리는 화염 II 툴팁을 읽었다. 보조 요구사항 +5 힘 (30), 명중 피해30% 감폭·점화 강도100% 증폭이다. 상단 홈은 보조3개가 찬 상태다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 5000,
+    "ref": "C 5000초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5000s",
+    "lines": [
+     {
+      "sec": 5000,
+      "text": "같은 화염파 보조 선택에서 이글거리는 화염 II 툴팁을 읽었다. 보조 요구사항 +5 힘 (30), 명중 피해30% 감폭·점화 강도100% 증폭이다. 상단 홈은 보조3개가 찬 상태다."
+     }
+    ],
+    "anchor": {
+     "n": 5,
+     "sec": [
+      4930,
+      4940,
+      4990,
+      5000,
+      5005
+     ],
+     "level": 52,
+     "readout": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다."
+    }
+   },
+   "signals": [
+    "요구사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "보조 젬(이글거리는 화염 II) 선택 — 빌드별"
+  },
+  {
+   "id": "skill_added/Flameblast/why/readout/C 5000",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "note_type": "why",
+   "text": "같은 화염파 보조 선택에서 이글거리는 화염 II 툴팁을 읽었다. 보조 요구사항 +5 힘 (30), 명중 피해30% 감폭·점화 강도100% 증폭이다. 상단 홈은 보조3개가 찬 상태다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 5000,
+    "ref": "C 5000초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5000s",
+    "lines": [
+     {
+      "sec": 5000,
+      "text": "같은 화염파 보조 선택에서 이글거리는 화염 II 툴팁을 읽었다. 보조 요구사항 +5 힘 (30), 명중 피해30% 감폭·점화 강도100% 증폭이다. 상단 홈은 보조3개가 찬 상태다."
+     }
+    ],
+    "anchor": {
+     "n": 5,
+     "sec": [
+      4930,
+      4940,
+      4990,
+      5000,
+      5005
+     ],
+     "level": 52,
+     "readout": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다."
+    }
+   },
+   "signals": [
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "skill_added/Flameblast/condition/readout/C 5005",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "note_type": "condition",
+   "text": "살펴보기 모드로 화염파의 전체 보조 표를 읽었다. I 점화 I·영원한 화염 I·급성장 I, II 화염 관통 I·새로운 활력 I·신중한 시전, III 점화 II·영원한 화염 II·재사용 대기시간 회복 I, IV 새로운 활력 II·이글거리는 화염 II·재사용 대기시간 회복 II, V 빠른 시전 III·새로운 활력 III·화염 숙련이다. 빠른 시전 III 툴팁은 보조 요구사항 +5 지능 (30), 최근8초 내 시전한 각기 다른 주문 하나당 시전 속도10% 증가다. 보관함은36/500이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 5005,
+    "ref": "C 5005초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5005s",
+    "lines": [
+     {
+      "sec": 5005,
+      "text": "살펴보기 모드로 화염파의 전체 보조 표를 읽었다. I 점화 I·영원한 화염 I·급성장 I, II 화염 관통 I·새로운 활력 I·신중한 시전, III 점화 II·영원한 화염 II·재사용 대기시간 회복 I, IV 새로운 활력 II·이글거리는 화염 II·재사용 대기시간 회복 II, V 빠른 시전 III·새로운 활력 III·화염 숙련이다. 빠른 시전 III 툴팁은 보조 요구사항 +5 지능 (30), 최근8초 내 시전한 각기 다른 주문 하나당 시전 속도10% 증가다. 보관함은36/500이다."
+     }
+    ],
+    "anchor": {
+     "n": 5,
+     "sec": [
+      4930,
+      4940,
+      4990,
+      5000,
+      5005
+     ],
+     "level": 52,
+     "readout": "스킬 창 상단 정신력13. 화염파Lv13 DPS235.5는 보조 홈4개가 모두 비었고 폭발 유탄Lv14 DPS435는 보조3개가 모두 찼다. 기름 유탄Lv14 DPS110.7은 보조2개가 비었고 가스 유탄Lv14 DPS30.2·섬광 유탄Lv14 DPS59.3은 각각 3개 중2개가 찼다."
+    }
+   },
+   "signals": [
+    "요구사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "deferred",
+   "decision": "보조 전체 표 — 빌드별"
+  },
+  {
+   "id": "skill_added/Tornado/pitfall/caption/F 2341",
    "trigger_kind": "skill_added",
    "trigger_key": "Tornado",
    "note_type": "pitfall",
    "text": "잉크를 챙기시면 안 됩니다. 예를 / 스킬에 적용이 되지 않아요. / 생기시면 안 됩니다. / 필터링을 좀 바꿔야겠네요.",
    "evidence": {
+    "kind": "caption",
     "video": "F",
     "video_id": "rsKbeELo0TM",
     "sec": 2341,
@@ -532,7 +1745,7 @@
    "creator": "임성빈",
    "transition_idx": 2,
    "transition": "ACT3-4 → 엔드게임(계획)",
-   "existing_rule": false,
+   "existing_rule": true,
    "also_matches": [
     {
      "trigger": "item_slot_change/Weapon2",
@@ -540,14 +1753,22 @@
      "existing_rule": false
     }
    ],
-   "status": "pending"
+   "status": "adopted",
+   "decision": "F 2319~2401초 발언은 용의 돛대 판독 근처지만 내용은 키스톤: 화염 % 증가 무효, '피해의 X%를 추가 화염 피해로 획득'(gain) 접사는 괜찮음. keystone 으로 재귀속",
+   "rule": [
+    "keystone",
+    "Blackflame Covenant",
+    "pitfall"
+   ]
   },
   {
+   "id": "skill_added/Tornado/why/caption/F 2348",
    "trigger_kind": "skill_added",
    "trigger_key": "Tornado",
    "note_type": "why",
    "text": "스킬에 적용이 되지 않아요. / 대신 점화 강도는 적용이 되기 때문에 / 카오스피의 퍼센트가 안 나오기 때문에",
    "evidence": {
+    "kind": "caption",
     "video": "F",
     "video_id": "rsKbeELo0TM",
     "sec": 2348,
@@ -584,7 +1805,7 @@
    "creator": "임성빈",
    "transition_idx": 2,
    "transition": "ACT3-4 → 엔드게임(계획)",
-   "existing_rule": false,
+   "existing_rule": true,
    "also_matches": [
     {
      "trigger": "item_slot_change/Weapon2",
@@ -592,14 +1813,432 @@
      "existing_rule": true
     }
    ],
-   "status": "pending"
+   "status": "adopted",
+   "decision": "같은 발언의 후반(점화 강도는 적용, 화염 스킬 레벨도 되지만 카오스 % 가 안 나와 주문 스킬 레벨이 낫다). keystone pitfall 규칙에 합침",
+   "rule": [
+    "keystone",
+    "Blackflame Covenant",
+    "pitfall"
+   ]
   },
   {
+   "id": "skill_added/Tornado/condition/readout/E 15150",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "note_type": "condition",
+   "text": "9월8일 **89레벨 스킬 창**에서 **회오리** 툴팁 전문을 읽었다(레벨14, 효과 벌칙·물리·지속시간·바람·투sph, 소모 마나59, 시전 속도0.75초, 요구 레벨58·57힘·57지능). 설명은 적들을 빨아들이고 지속 물리 피해를 주는 폭풍을 생성하며, 원소 지대 효과와 겹치는 회오리는 그 지대의 디버프를 흡수해 회오리 안 적들에게 해당 원소의 추가 피해를 준다는 것이다. 1초마다59.2 물리 피해, 흡수한 각 원소 피해 유형을 1초마다118.3, 회오리 지속시간8.4초, 회오리1개로 제한이다. 같은 스킬 목록은 기름 유탄Lv15·절망Lv19·**회피 구르기 시 시전Lv14**·**회오리Lv14**·원소 융합Lv17·섬광 유탄Lv12·가스 유탄Lv12이고 보조 젬 사용량은 힘(6/23)·민첩(4/13)·지능(13/30), 골드54036이다. 우측 소지품에 지팡이 한 자루가 보인다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "E",
+    "video_id": "xnREtaV3m1A",
+    "sec": 15150,
+    "ref": "E 15150초",
+    "url": "https://www.youtube.com/watch?v=xnREtaV3m1A&t=15150s",
+    "lines": [
+     {
+      "sec": 15150,
+      "text": "9월8일 **89레벨 스킬 창**에서 **회오리** 툴팁 전문을 읽었다(레벨14, 효과 벌칙·물리·지속시간·바람·투sph, 소모 마나59, 시전 속도0.75초, 요구 레벨58·57힘·57지능). 설명은 적들을 빨아들이고 지속 물리 피해를 주는 폭풍을 생성하며, 원소 지대 효과와 겹치는 회오리는 그 지대의 디버프를 흡수해 회오리 안 적들에게 해당 원소의 추가 피해를 준다는 것이다. 1초마다59.2 물리 피해, 흡수한 각 원소 피해 유형을 1초마다118.3, 회오리 지속시간8.4초, 회오리1개로 제한이다. 같은 스킬 목록은 기름 유탄Lv15·절망Lv19·**회피 구르기 시 시전Lv14**·**회오리Lv14**·원소 융합Lv17·섬광 유탄Lv12·가스 유탄Lv12이고 보조 젬 사용량은 힘(6/23)·민첩(4/13)·지능(13/30), 골드54036이다. 우측 소지품에 지팡이 한 자루가 보인다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      15150
+     ],
+     "level": 89,
+     "readout": "9월8일 **89레벨 스킬 창**에서 **회오리** 툴팁 전문을 읽었다(레벨14, 효과 벌칙·물리·지속시간·바람·투sph, 소모 마나59, 시전 속도0.75초, 요구 레벨58·57힘·57지능). 설명은 적들을 빨아들이고 지속 물리 피해를 주는 폭풍을 생성하며, 원소 지대 효과와 겹치는 "
+    }
+   },
+   "signals": [
+    "요구 레벨"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [
+    {
+     "trigger": "skill_added/Despair",
+     "transition": "엔드게임(계획) → 실캐릭 lv93",
+     "existing_rule": false
+    }
+   ],
+   "status": "adopted",
+   "decision": "같은 툴팁의 요구 수치 — why 규칙에 합침",
+   "rule": [
+    "skill_added",
+    "Tornado",
+    "why"
+   ]
+  },
+  {
+   "id": "skill_added/Tornado/why/readout/E 15150",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "note_type": "why",
+   "text": "9월8일 **89레벨 스킬 창**에서 **회오리** 툴팁 전문을 읽었다(레벨14, 효과 벌칙·물리·지속시간·바람·투sph, 소모 마나59, 시전 속도0.75초, 요구 레벨58·57힘·57지능). 설명은 적들을 빨아들이고 지속 물리 피해를 주는 폭풍을 생성하며, 원소 지대 효과와 겹치는 회오리는 그 지대의 디버프를 흡수해 회오리 안 적들에게 해당 원소의 추가 피해를 준다는 것이다. 1초마다59.2 물리 피해, 흡수한 각 원소 피해 유형을 1초마다118.3, 회오리 지속시간8.4초, 회오리1개로 제한이다. 같은 스킬 목록은 기름 유탄Lv15·절망Lv19·**회피 구르기 시 시전Lv14**·**회오리Lv14**·원소 융합Lv17·섬광 유탄Lv12·가스 유탄Lv12이고 보조 젬 사용량은 힘(6/23)·민첩(4/13)·지능(13/30), 골드54036이다. 우측 소지품에 지팡이 한 자루가 보인다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "E",
+    "video_id": "xnREtaV3m1A",
+    "sec": 15150,
+    "ref": "E 15150초",
+    "url": "https://www.youtube.com/watch?v=xnREtaV3m1A&t=15150s",
+    "lines": [
+     {
+      "sec": 15150,
+      "text": "9월8일 **89레벨 스킬 창**에서 **회오리** 툴팁 전문을 읽었다(레벨14, 효과 벌칙·물리·지속시간·바람·투sph, 소모 마나59, 시전 속도0.75초, 요구 레벨58·57힘·57지능). 설명은 적들을 빨아들이고 지속 물리 피해를 주는 폭풍을 생성하며, 원소 지대 효과와 겹치는 회오리는 그 지대의 디버프를 흡수해 회오리 안 적들에게 해당 원소의 추가 피해를 준다는 것이다. 1초마다59.2 물리 피해, 흡수한 각 원소 피해 유형을 1초마다118.3, 회오리 지속시간8.4초, 회오리1개로 제한이다. 같은 스킬 목록은 기름 유탄Lv15·절망Lv19·**회피 구르기 시 시전Lv14**·**회오리Lv14**·원소 융합Lv17·섬광 유탄Lv12·가스 유탄Lv12이고 보조 젬 사용량은 힘(6/23)·민첩(4/13)·지능(13/30), 골드54036이다. 우측 소지품에 지팡이 한 자루가 보인다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      15150
+     ],
+     "level": 89,
+     "readout": "9월8일 **89레벨 스킬 창**에서 **회오리** 툴팁 전문을 읽었다(레벨14, 효과 벌칙·물리·지속시간·바람·투sph, 소모 마나59, 시전 속도0.75초, 요구 레벨58·57힘·57지능). 설명은 적들을 빨아들이고 지속 물리 피해를 주는 폭풍을 생성하며, 원소 지대 효과와 겹치는 "
+    }
+   },
+   "signals": [
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [
+    {
+     "trigger": "skill_added/Despair",
+     "transition": "엔드게임(계획) → 실캐릭 lv93",
+     "existing_rule": true
+    }
+   ],
+   "status": "adopted",
+   "decision": "회오리 툴팁 원문(흡수 메커니즘·요구 58/57/57). why 규칙 신설",
+   "rule": [
+    "skill_added",
+    "Tornado",
+    "why"
+   ]
+  },
+  {
+   "id": "skill_added/Tornado/condition/readout/F 160",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "note_type": "condition",
+   "text": "90레벨 스킬 창에서 **화염파Lv19** 툴팁 전문을 읽었다. 퀄리티+20%에 +4% 퀄리티(일반 속성 부여), 소모 1초당 마나52.1, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, **요구 사항 레벨84·147 지능**, 213~319 화염 피해, 시전 속도24% 증폭, 단계 하나당 주문 피해75% 증폭, 시전 속도 속성이 이 스킬 비용에도 영향, 최대 단계10, 폭발 반경 단계 하나당0.6미터다. 같은 목록은 힘의 부적Lv18·고결한 방어막Lv20·쇠뇌 사격Lv20 DPS1603.8·화염파Lv19 DPS922.6·기름 유탄Lv15 DPS149.9·절망Lv19·회오리Lv14다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 160,
+    "ref": "F 160초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=160s",
+    "lines": [
+     {
+      "sec": 160,
+      "text": "90레벨 스킬 창에서 **화염파Lv19** 툴팁 전문을 읽었다. 퀄리티+20%에 +4% 퀄리티(일반 속성 부여), 소모 1초당 마나52.1, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, **요구 사항 레벨84·147 지능**, 213~319 화염 피해, 시전 속도24% 증폭, 단계 하나당 주문 피해75% 증폭, 시전 속도 속성이 이 스킬 비용에도 영향, 최대 단계10, 폭발 반경 단계 하나당0.6미터다. 같은 목록은 힘의 부적Lv18·고결한 방어막Lv20·쇠뇌 사격Lv20 DPS1603.8·화염파Lv19 DPS922.6·기름 유탄Lv15 DPS149.9·절망Lv19·회오리Lv14다."
+     }
+    ],
+    "anchor": {
+     "n": 7,
+     "sec": [
+      160,
+      180,
+      190,
+      210,
+      214,
+      218,
+      220
+     ],
+     "level": 90,
+     "readout": "90레벨 스킬 창에서 **화염파Lv19** 툴팁 전문을 읽었다. 퀄리티+20%에 +4% 퀄리티(일반 속성 부여), 소모 1초당 마나52.1, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, **요구 사항 레벨84·147 지능**, 213~319 화염 피해,"
+    }
+   },
+   "signals": [
+    "요구 사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "스킬 창 나열 오귀속(실제는 화염파 Lv19 툴팁: 요구 84레벨·지능 147, 초당 마나 52.1). Flameblast why 규칙의 고레벨 수치로 재귀속",
+   "rule": [
+    "skill_added",
+    "Flameblast",
+    "why"
+   ]
+  },
+  {
+   "id": "skill_added/Tornado/why/readout/F 160",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "note_type": "why",
+   "text": "90레벨 스킬 창에서 **화염파Lv19** 툴팁 전문을 읽었다. 퀄리티+20%에 +4% 퀄리티(일반 속성 부여), 소모 1초당 마나52.1, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, **요구 사항 레벨84·147 지능**, 213~319 화염 피해, 시전 속도24% 증폭, 단계 하나당 주문 피해75% 증폭, 시전 속도 속성이 이 스킬 비용에도 영향, 최대 단계10, 폭발 반경 단계 하나당0.6미터다. 같은 목록은 힘의 부적Lv18·고결한 방어막Lv20·쇠뇌 사격Lv20 DPS1603.8·화염파Lv19 DPS922.6·기름 유탄Lv15 DPS149.9·절망Lv19·회오리Lv14다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 160,
+    "ref": "F 160초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=160s",
+    "lines": [
+     {
+      "sec": 160,
+      "text": "90레벨 스킬 창에서 **화염파Lv19** 툴팁 전문을 읽었다. 퀄리티+20%에 +4% 퀄리티(일반 속성 부여), 소모 1초당 마나52.1, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, **요구 사항 레벨84·147 지능**, 213~319 화염 피해, 시전 속도24% 증폭, 단계 하나당 주문 피해75% 증폭, 시전 속도 속성이 이 스킬 비용에도 영향, 최대 단계10, 폭발 반경 단계 하나당0.6미터다. 같은 목록은 힘의 부적Lv18·고결한 방어막Lv20·쇠뇌 사격Lv20 DPS1603.8·화염파Lv19 DPS922.6·기름 유탄Lv15 DPS149.9·절망Lv19·회오리Lv14다."
+     }
+    ],
+    "anchor": {
+     "n": 7,
+     "sec": [
+      160,
+      180,
+      190,
+      210,
+      214,
+      218,
+      220
+     ],
+     "level": 90,
+     "readout": "90레벨 스킬 창에서 **화염파Lv19** 툴팁 전문을 읽었다. 퀄리티+20%에 +4% 퀄리티(일반 속성 부여), 소모 1초당 마나52.1, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, **요구 사항 레벨84·147 지능**, 213~319 화염 피해,"
+    }
+   },
+   "signals": [
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "위와 동일 판독",
+   "rule": [
+    "skill_added",
+    "Flameblast",
+    "why"
+   ]
+  },
+  {
+   "id": "skill_added/Tornado/condition/readout/F 218",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "note_type": "condition",
+   "text": "커서에 든 에너지 유지 보조 젬 툴팁을 읽었다. 보조·발동, 유형 에너지 유지, 소모 배율110%, 보조 요구사항 +5 지능 (75)이며 설명은 메타 스킬에 적용되어 보조 대상 스킬이 다른 스킬을 발동시키거나 기원할 때 소모한 에너지의 일부를 돌려준다는 내용이다. 효과는 **보조 대상 메타 스킬로 발동하는 스킬이 35%의 확률로 소모한 에너지의 절반을 반환**이다. 보조 가능 스킬 목록에서 초록으로 장착 가능한 것은 원소 상태 이상 시 시전 하나뿐이고 화염파·충격파 토템·절망·섬광 유탄·기름 유탄·힘의 부적·파편 탄환 장전·충격파 강타·원소 융합·발화·가스 유탄·회오리·파편 탄환·지옥불 함성·쇠뇌 사격·기본 볼트는 붉게 표시된다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 218,
+    "ref": "F 218초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=218s",
+    "lines": [
+     {
+      "sec": 218,
+      "text": "커서에 든 에너지 유지 보조 젬 툴팁을 읽었다. 보조·발동, 유형 에너지 유지, 소모 배율110%, 보조 요구사항 +5 지능 (75)이며 설명은 메타 스킬에 적용되어 보조 대상 스킬이 다른 스킬을 발동시키거나 기원할 때 소모한 에너지의 일부를 돌려준다는 내용이다. 효과는 **보조 대상 메타 스킬로 발동하는 스킬이 35%의 확률로 소모한 에너지의 절반을 반환**이다. 보조 가능 스킬 목록에서 초록으로 장착 가능한 것은 원소 상태 이상 시 시전 하나뿐이고 화염파·충격파 토템·절망·섬광 유탄·기름 유탄·힘의 부적·파편 탄환 장전·충격파 강타·원소 융합·발화·가스 유탄·회오리·파편 탄환·지옥불 함성·쇠뇌 사격·기본 볼트는 붉게 표시된다."
+     }
+    ],
+    "anchor": {
+     "n": 7,
+     "sec": [
+      160,
+      180,
+      190,
+      210,
+      214,
+      218,
+      220
+     ],
+     "level": 90,
+     "readout": "90레벨 스킬 창에서 **화염파Lv19** 툴팁 전문을 읽었다. 퀄리티+20%에 +4% 퀄리티(일반 속성 부여), 소모 1초당 마나52.1, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, **요구 사항 레벨84·147 지능**, 213~319 화염 피해,"
+    }
+   },
+   "signals": [
+    "요구사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [
+    {
+     "trigger": "skill_added/CastOnElementalAilment",
+     "transition": "엔드게임(계획) → 실캐릭 lv93",
+     "existing_rule": true
+    },
+    {
+     "trigger": "skill_added/ShockwaveTotem",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": true
+    }
+   ],
+   "status": "rejected",
+   "decision": "에너지 유지 보조 툴팁 — 회오리 무관, CoEA 보조 선택(빌드별)"
+  },
+  {
+   "id": "skill_added/Tornado/why/readout/F 218",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "note_type": "why",
+   "text": "커서에 든 에너지 유지 보조 젬 툴팁을 읽었다. 보조·발동, 유형 에너지 유지, 소모 배율110%, 보조 요구사항 +5 지능 (75)이며 설명은 메타 스킬에 적용되어 보조 대상 스킬이 다른 스킬을 발동시키거나 기원할 때 소모한 에너지의 일부를 돌려준다는 내용이다. 효과는 **보조 대상 메타 스킬로 발동하는 스킬이 35%의 확률로 소모한 에너지의 절반을 반환**이다. 보조 가능 스킬 목록에서 초록으로 장착 가능한 것은 원소 상태 이상 시 시전 하나뿐이고 화염파·충격파 토템·절망·섬광 유탄·기름 유탄·힘의 부적·파편 탄환 장전·충격파 강타·원소 융합·발화·가스 유탄·회오리·파편 탄환·지옥불 함성·쇠뇌 사격·기본 볼트는 붉게 표시된다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 218,
+    "ref": "F 218초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=218s",
+    "lines": [
+     {
+      "sec": 218,
+      "text": "커서에 든 에너지 유지 보조 젬 툴팁을 읽었다. 보조·발동, 유형 에너지 유지, 소모 배율110%, 보조 요구사항 +5 지능 (75)이며 설명은 메타 스킬에 적용되어 보조 대상 스킬이 다른 스킬을 발동시키거나 기원할 때 소모한 에너지의 일부를 돌려준다는 내용이다. 효과는 **보조 대상 메타 스킬로 발동하는 스킬이 35%의 확률로 소모한 에너지의 절반을 반환**이다. 보조 가능 스킬 목록에서 초록으로 장착 가능한 것은 원소 상태 이상 시 시전 하나뿐이고 화염파·충격파 토템·절망·섬광 유탄·기름 유탄·힘의 부적·파편 탄환 장전·충격파 강타·원소 융합·발화·가스 유탄·회오리·파편 탄환·지옥불 함성·쇠뇌 사격·기본 볼트는 붉게 표시된다."
+     }
+    ],
+    "anchor": {
+     "n": 7,
+     "sec": [
+      160,
+      180,
+      190,
+      210,
+      214,
+      218,
+      220
+     ],
+     "level": 90,
+     "readout": "90레벨 스킬 창에서 **화염파Lv19** 툴팁 전문을 읽었다. 퀄리티+20%에 +4% 퀄리티(일반 속성 부여), 소모 1초당 마나52.1, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, **요구 사항 레벨84·147 지능**, 213~319 화염 피해,"
+    }
+   },
+   "signals": [
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [
+    {
+     "trigger": "skill_added/CastOnElementalAilment",
+     "transition": "엔드게임(계획) → 실캐릭 lv93",
+     "existing_rule": true
+    },
+    {
+     "trigger": "skill_added/ShockwaveTotem",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    }
+   ],
+   "status": "rejected",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "skill_added/Tornado/pitfall/readout/F 220",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "note_type": "pitfall",
+   "text": "90레벨 스킬 창의 **전체 목록**을 읽었다. 위에서부터 화염파Lv19 DPS922.6, 기름 유탄Lv15 DPS149.9, 절망Lv19, 회오리Lv14, 원소 상태 이상 시 시전Lv17(보조5칸 중 하나가 빈 상태), 원소 융합Lv17, 가스 유탄Lv12 DPS111.3이다. 커서에 보조 젬을 들고 있어 장착 불가인 스킬마다 이 보조 젬은 이 스킬에 장착할 수 없습니다 경고가 붙었다. 상단 정신력7, 보조 젬 사용량은 힘(7/20)·민첩(5/13)·지능(15/30)이며 툴팁은 모든 색상의 보조 젬을 삽입할 수 있는 보조 젬 슬롯 설명이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 220,
+    "ref": "F 220초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=220s",
+    "lines": [
+     {
+      "sec": 220,
+      "text": "90레벨 스킬 창의 **전체 목록**을 읽었다. 위에서부터 화염파Lv19 DPS922.6, 기름 유탄Lv15 DPS149.9, 절망Lv19, 회오리Lv14, 원소 상태 이상 시 시전Lv17(보조5칸 중 하나가 빈 상태), 원소 융합Lv17, 가스 유탄Lv12 DPS111.3이다. 커서에 보조 젬을 들고 있어 장착 불가인 스킬마다 이 보조 젬은 이 스킬에 장착할 수 없습니다 경고가 붙었다. 상단 정신력7, 보조 젬 사용량은 힘(7/20)·민첩(5/13)·지능(15/30)이며 툴팁은 모든 색상의 보조 젬을 삽입할 수 있는 보조 젬 슬롯 설명이다."
+     }
+    ],
+    "anchor": {
+     "n": 7,
+     "sec": [
+      160,
+      180,
+      190,
+      210,
+      214,
+      218,
+      220
+     ],
+     "level": 90,
+     "readout": "90레벨 스킬 창에서 **화염파Lv19** 툴팁 전문을 읽었다. 퀄리티+20%에 +4% 퀄리티(일반 속성 부여), 소모 1초당 마나52.1, 재사용 대기시간10.00초, 시전 속도0.25초, 치명타 명중 확률8.00%, **요구 사항 레벨84·147 지능**, 213~319 화염 피해,"
+    }
+   },
+   "signals": [
+    "경고"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "'장착할 수 없습니다' UI 경고 문구, 지식 없음"
+  },
+  {
+   "id": "skill_added/Tornado/condition/readout/F 2400",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "note_type": "condition",
+   "text": "90레벨 스킬 창에서 **용의 돛대 - 차임벨 지팡이** 툴팁 전문을 읽었다. 지팡이, 아이템 레벨81, 요구 사항 레벨60·46 지능이고 기본 속성은 주문 피해60% 증가다. **스킬 부여: 18레벨 힘의 부적**. 접두어는 주문 피해76(69-88)% 증가 T7 · 피해의47(43-48)%를 추가 화염 피해로 획득 T3 · 플레이어가 유발하는 피해를 주는 상태 이상의 강도56(40-64)% 증가 **T1**. 접미어는 **동결 축적78(71-80)% 증가 T1** · 시전 속도15(14-19)% 증가 T7 · **모든 주문 스킬 레벨 +5**(C 표기)다. 하단에 **장착 중: 무기 세트 II**와 장착 해제 버튼이 있다. 같은 화면 스킬 목록은 레벨18 힘의 부적, 레벨20 고결한 방어막, 레벨20 쇠뇌 사격 DPS1732.4, 레벨19 화염파 DPS922.6, 레벨15 기름 유탄 DPS149.9, 레벨19 절망, 레벨14 회오리이고 보조 젬 사용량은 힘(8/20)·민첩(5/13)·지능(15/30), 골드161894다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 2400,
+    "ref": "F 2400초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=2400s",
+    "lines": [
+     {
+      "sec": 2400,
+      "text": "90레벨 스킬 창에서 **용의 돛대 - 차임벨 지팡이** 툴팁 전문을 읽었다. 지팡이, 아이템 레벨81, 요구 사항 레벨60·46 지능이고 기본 속성은 주문 피해60% 증가다. **스킬 부여: 18레벨 힘의 부적**. 접두어는 주문 피해76(69-88)% 증가 T7 · 피해의47(43-48)%를 추가 화염 피해로 획득 T3 · 플레이어가 유발하는 피해를 주는 상태 이상의 강도56(40-64)% 증가 **T1**. 접미어는 **동결 축적78(71-80)% 증가 T1** · 시전 속도15(14-19)% 증가 T7 · **모든 주문 스킬 레벨 +5**(C 표기)다. 하단에 **장착 중: 무기 세트 II**와 장착 해제 버튼이 있다. 같은 화면 스킬 목록은 레벨18 힘의 부적, 레벨20 고결한 방어막, 레벨20 쇠뇌 사격 DPS1732.4, 레벨19 화염파 DPS922.6, 레벨15 기름 유탄 DPS149.9, 레벨19 절망, 레벨14 회오리이고 보조 젬 사용량은 힘(8/20)·민첩(5/13)·지능(15/30), 골드161894다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      2400
+     ],
+     "level": 90,
+     "readout": "90레벨 스킬 창에서 **용의 돛대 - 차임벨 지팡이** 툴팁 전문을 읽었다. 지팡이, 아이템 레벨81, 요구 사항 레벨60·46 지능이고 기본 속성은 주문 피해60% 증가다. **스킬 부여: 18레벨 힘의 부적**. 접두어는 주문 피해76(69-88)% 증가 T7 · 피해의47(43-"
+    }
+   },
+   "signals": [
+    "요구 사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [
+    {
+     "trigger": "item_slot_change/Weapon2",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    }
+   ],
+   "status": "rejected",
+   "decision": "용의 돛대 유니크 툴팁 — 아이템 개별, 손노트(offstream)가 이미 있음"
+  },
+  {
+   "id": "keystone/Blackflame Covenant/pitfall/caption/E 8822",
    "trigger_kind": "keystone",
    "trigger_key": "Blackflame Covenant",
    "note_type": "pitfall",
    "text": "검은 화염이 버그였다 / 포기해야 되는데",
    "evidence": {
+    "kind": "caption",
     "video": "E",
     "video_id": "xnREtaV3m1A",
     "sec": 8822,
@@ -632,16 +2271,24 @@
    "creator": "임성빈",
    "transition_idx": 3,
    "transition": "엔드게임(계획) → 실캐릭 lv93",
-   "existing_rule": false,
+   "existing_rule": true,
    "also_matches": [],
-   "status": "pending"
+   "status": "adopted",
+   "decision": "'검은 화염이 버그였다'는 0.5.1 핫픽스 5 패치노트(키스톤 점화 판정 수정)와 일치. 성립 조건으로 채택. 반지 vs 키스톤 경로 발언(E 8881~8889) 포함",
+   "rule": [
+    "keystone",
+    "Blackflame Covenant",
+    "condition"
+   ]
   },
   {
+   "id": "keystone/Blackflame Covenant/cost/caption/E 8898",
    "trigger_kind": "keystone",
    "trigger_key": "Blackflame Covenant",
    "note_type": "cost",
    "text": "액잘티드도 이렇게 많을 필요가 / 액잘티드 정리할 겸바인네.",
    "evidence": {
+    "kind": "caption",
     "video": "E",
     "video_id": "xnREtaV3m1A",
     "sec": 8898,
@@ -675,14 +2322,109 @@
    "transition": "엔드게임(계획) → 실캐릭 lv93",
    "existing_rule": false,
    "also_matches": [],
-   "status": "pending"
+   "status": "rejected",
+   "decision": "엑잘 정리 잡담, 키스톤 비용 정보 아님"
   },
   {
+   "id": "keystone/Blackflame Covenant/why/readout/E 8876",
+   "trigger_kind": "keystone",
+   "trigger_key": "Blackflame Covenant",
+   "note_type": "why",
+   "text": "같은 트리에서 **검은화염 계약** 키스톤 툴팁을 읽었다. 효과는 세 줄이다. ①화염 주문이 화염 피해의 **100%를 카오스 피해로 전환** ②화염 주문의 카오스 피해가 **인화성 및 점화 강도에 반영** ③화염 주문으로 유발된 점화가 화염 피해 대신 **카오스 피해를 줌**. 상태는 **미할당**이고 인용문은 \"어둠이 너를 집어삼키리라. 죽음의 장막 너머에서 검은 불길이 타오른다.\"다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "E",
+    "video_id": "xnREtaV3m1A",
+    "sec": 8876,
+    "ref": "E 8876초",
+    "url": "https://www.youtube.com/watch?v=xnREtaV3m1A&t=8876s",
+    "lines": [
+     {
+      "sec": 8876,
+      "text": "같은 트리에서 **검은화염 계약** 키스톤 툴팁을 읽었다. 효과는 세 줄이다. ①화염 주문이 화염 피해의 **100%를 카오스 피해로 전환** ②화염 주문의 카오스 피해가 **인화성 및 점화 강도에 반영** ③화염 주문으로 유발된 점화가 화염 피해 대신 **카오스 피해를 줌**. 상태는 **미할당**이고 인용문은 \"어둠이 너를 집어삼키리라. 죽음의 장막 너머에서 검은 불길이 타오른다.\"다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      8876
+     ],
+     "level": 88,
+     "readout": "같은 트리에서 **검은화염 계약** 키스톤 툴팁을 읽었다. 효과는 세 줄이다. ①화염 주문이 화염 피해의 **100%를 카오스 피해로 전환** ②화염 주문의 카오스 피해가 **인화성 및 점화 강도에 반영** ③화염 주문으로 유발된 점화가 화염 피해 대신 **카오스 피해를 줌**. 상태는"
+    }
+   },
+   "signals": [
+    "키스톤",
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "키스톤 툴팁 3줄 원문. 기존 why 규칙 텍스트를 툴팁 기준으로 갱신",
+   "rule": [
+    "keystone",
+    "Blackflame Covenant",
+    "why"
+   ]
+  },
+  {
+   "id": "keystone/Blackflame Covenant/why/readout/F 75",
+   "trigger_kind": "keystone",
+   "trigger_key": "Blackflame Covenant",
+   "note_type": "why",
+   "text": "같은 재분배 트리에서 **검은화염 계약** 키스톤 노드의 툴팁을 열고 **선택** 버튼과 무기 세트 I·II 체크박스가 함께 떠 있다. 툴팁은 ①화염 주문이 화염 피해의 100%를 카오스 피해로 전환 ②화염 주문의 카오스 피해가 인화성 및 점화 강도에 반영 ③화염 주문으로 유발된 점화가 화염 피해 대신 카오스 피해를 줌이고 인용문은 \"어둠이 너를 집어삼키리라. 죽음의 장막 너머에서 검은 불길이 타오른다.\"다. 골드155256, 스킬 포인트4, 능력치 민첩66·지능152·힘103이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 75,
+    "ref": "F 75초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=75s",
+    "lines": [
+     {
+      "sec": 75,
+      "text": "같은 재분배 트리에서 **검은화염 계약** 키스톤 노드의 툴팁을 열고 **선택** 버튼과 무기 세트 I·II 체크박스가 함께 떠 있다. 툴팁은 ①화염 주문이 화염 피해의 100%를 카오스 피해로 전환 ②화염 주문의 카오스 피해가 인화성 및 점화 강도에 반영 ③화염 주문으로 유발된 점화가 화염 피해 대신 카오스 피해를 줌이고 인용문은 \"어둠이 너를 집어삼키리라. 죽음의 장막 너머에서 검은 불길이 타오른다.\"다. 골드155256, 스킬 포인트4, 능력치 민첩66·지능152·힘103이다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      75
+     ],
+     "level": 90,
+     "readout": "같은 재분배 트리에서 **검은화염 계약** 키스톤 노드의 툴팁을 열고 **선택** 버튼과 무기 세트 I·II 체크박스가 함께 떠 있다. 툴팁은 ①화염 주문이 화염 피해의 100%를 카오스 피해로 전환 ②화염 주문의 카오스 피해가 인화성 및 점화 강도에 반영 ③화염 주문으로 유발된 점화가"
+    }
+   },
+   "signals": [
+    "키스톤",
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "같은 툴팁 재판독(F). 기존 why 규칙 근거에 추가",
+   "rule": [
+    "keystone",
+    "Blackflame Covenant",
+    "why"
+   ]
+  },
+  {
+   "id": "skill_added/CastOnElementalAilment/cost/caption/F 5381",
    "trigger_kind": "skill_added",
    "trigger_key": "CastOnElementalAilment",
    "note_type": "cost",
    "text": "가격만 맞으면은 저기 타셔도 됩니다. / 그래서 싸게 갔다 올려 합니다.",
    "evidence": {
+    "kind": "caption",
     "video": "F",
     "video_id": "rsKbeELo0TM",
     "sec": 5381,
@@ -717,14 +2459,316 @@
    "transition": "엔드게임(계획) → 실캐릭 lv93",
    "existing_rule": false,
    "also_matches": [],
-   "status": "pending"
+   "status": "rejected",
+   "decision": "대리 딜 가격 잡담"
   },
   {
+   "id": "skill_added/CastOnElementalAilment/condition/readout/F 207",
+   "trigger_kind": "skill_added",
+   "trigger_key": "CastOnElementalAilment",
+   "note_type": "condition",
+   "text": "**원소 상태 이상 시 시전** 젬 툴팁 전문을 읽었다. 태그는 유지형·발동·번개·냉기·화염·메타, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여) 표시, **점유100 정신력**, 요구 사항 레벨72·126 지능이다. 설명은 활성화된 동안 적을 동결·감전·점화시키면 에너지를 얻고 에너지가 최대에 도달하면 장착된 주문을 발동한다는 것이다. 세부는 ①스킬 명중으로 동결시킨 적들의 위세 하나당 에너지10 획득 ②점화시킨 적들의 위세 하나당 에너지1 획득(점화로 준 상태 이상 한계치 비율로 조정) ③감전시킨 적들의 위세 하나당 에너지1 획득 ④에너지 획득량51% 증가 ⑤**최대 에너지 도달 시 장착된 모든 주문을 발동하고 모든 에너지를 잃음** ⑥장착된 주문의 기본 시전 시간0.1초당 최대 에너지10 보유다. 화면 아래에 적용·적용(반복) 버튼이 있고 보조 젬 사용량은 힘(7/20)·민첩(5/13)·지능(13/30)이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 207,
+    "ref": "F 207초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=207s",
+    "lines": [
+     {
+      "sec": 207,
+      "text": "**원소 상태 이상 시 시전** 젬 툴팁 전문을 읽었다. 태그는 유지형·발동·번개·냉기·화염·메타, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여) 표시, **점유100 정신력**, 요구 사항 레벨72·126 지능이다. 설명은 활성화된 동안 적을 동결·감전·점화시키면 에너지를 얻고 에너지가 최대에 도달하면 장착된 주문을 발동한다는 것이다. 세부는 ①스킬 명중으로 동결시킨 적들의 위세 하나당 에너지10 획득 ②점화시킨 적들의 위세 하나당 에너지1 획득(점화로 준 상태 이상 한계치 비율로 조정) ③감전시킨 적들의 위세 하나당 에너지1 획득 ④에너지 획득량51% 증가 ⑤**최대 에너지 도달 시 장착된 모든 주문을 발동하고 모든 에너지를 잃음** ⑥장착된 주문의 기본 시전 시간0.1초당 최대 에너지10 보유다. 화면 아래에 적용·적용(반복) 버튼이 있고 보조 젬 사용량은 힘(7/20)·민첩(5/13)·지능(13/30)이다."
+     }
+    ],
+    "anchor": {
+     "n": 3,
+     "sec": [
+      207,
+      217,
+      218
+     ],
+     "level": 90,
+     "readout": "**원소 상태 이상 시 시전** 젬 툴팁 전문을 읽었다. 태그는 유지형·발동·번개·냉기·화염·메타, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여) 표시, **점유100 정신력**, 요구 사항 레벨72·126 지능이다. 설명은 활성화된 동안 적을 동결·감전·점화시키면 에너지를 "
+    }
+   },
+   "signals": [
+    "요구 사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "정신력 100 점유·요구 72레벨·지능 126(툴팁). condition 규칙 신설",
+   "rule": [
+    "skill_added",
+    "CastOnElementalAilment",
+    "condition"
+   ]
+  },
+  {
+   "id": "skill_added/CastOnElementalAilment/why/readout/F 207",
+   "trigger_kind": "skill_added",
+   "trigger_key": "CastOnElementalAilment",
+   "note_type": "why",
+   "text": "**원소 상태 이상 시 시전** 젬 툴팁 전문을 읽었다. 태그는 유지형·발동·번개·냉기·화염·메타, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여) 표시, **점유100 정신력**, 요구 사항 레벨72·126 지능이다. 설명은 활성화된 동안 적을 동결·감전·점화시키면 에너지를 얻고 에너지가 최대에 도달하면 장착된 주문을 발동한다는 것이다. 세부는 ①스킬 명중으로 동결시킨 적들의 위세 하나당 에너지10 획득 ②점화시킨 적들의 위세 하나당 에너지1 획득(점화로 준 상태 이상 한계치 비율로 조정) ③감전시킨 적들의 위세 하나당 에너지1 획득 ④에너지 획득량51% 증가 ⑤**최대 에너지 도달 시 장착된 모든 주문을 발동하고 모든 에너지를 잃음** ⑥장착된 주문의 기본 시전 시간0.1초당 최대 에너지10 보유다. 화면 아래에 적용·적용(반복) 버튼이 있고 보조 젬 사용량은 힘(7/20)·민첩(5/13)·지능(13/30)이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 207,
+    "ref": "F 207초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=207s",
+    "lines": [
+     {
+      "sec": 207,
+      "text": "**원소 상태 이상 시 시전** 젬 툴팁 전문을 읽었다. 태그는 유지형·발동·번개·냉기·화염·메타, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여) 표시, **점유100 정신력**, 요구 사항 레벨72·126 지능이다. 설명은 활성화된 동안 적을 동결·감전·점화시키면 에너지를 얻고 에너지가 최대에 도달하면 장착된 주문을 발동한다는 것이다. 세부는 ①스킬 명중으로 동결시킨 적들의 위세 하나당 에너지10 획득 ②점화시킨 적들의 위세 하나당 에너지1 획득(점화로 준 상태 이상 한계치 비율로 조정) ③감전시킨 적들의 위세 하나당 에너지1 획득 ④에너지 획득량51% 증가 ⑤**최대 에너지 도달 시 장착된 모든 주문을 발동하고 모든 에너지를 잃음** ⑥장착된 주문의 기본 시전 시간0.1초당 최대 에너지10 보유다. 화면 아래에 적용·적용(반복) 버튼이 있고 보조 젬 사용량은 힘(7/20)·민첩(5/13)·지능(13/30)이다."
+     }
+    ],
+    "anchor": {
+     "n": 3,
+     "sec": [
+      207,
+      217,
+      218
+     ],
+     "level": 90,
+     "readout": "**원소 상태 이상 시 시전** 젬 툴팁 전문을 읽었다. 태그는 유지형·발동·번개·냉기·화염·메타, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여) 표시, **점유100 정신력**, 요구 사항 레벨72·126 지능이다. 설명은 활성화된 동안 적을 동결·감전·점화시키면 에너지를 "
+    }
+   },
+   "signals": [
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "adopted",
+   "decision": "에너지 획득 수치·발동 조건 툴팁 원문. 기존 why 규칙 텍스트 갱신",
+   "rule": [
+    "skill_added",
+    "CastOnElementalAilment",
+    "why"
+   ]
+  },
+  {
+   "id": "skill_added/CastOnElementalAilment/condition/readout/F 217",
+   "trigger_kind": "skill_added",
+   "trigger_key": "CastOnElementalAilment",
+   "note_type": "condition",
+   "text": "같은 스킬의 보조 **에너지 유지** 툴팁이다. 보조·발동, 유형 에너지 유지, 소모 배율110%, 보조 요구사항 +5 지능(75)이고 효과는 **보조 대상 메타 스킬로 발동하는 스킬이35%의 확률로 소모한 에너지의 절반을 반환**이다. 화면 아래 버튼이 **장착 해제**이므로 이미 장착된 상태다. 원소 상태 이상 시 시전 행은 보조5칸 중4칸이 찼고 보조 젬 사용량은 지능15/30이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 217,
+    "ref": "F 217초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=217s",
+    "lines": [
+     {
+      "sec": 217,
+      "text": "같은 스킬의 보조 **에너지 유지** 툴팁이다. 보조·발동, 유형 에너지 유지, 소모 배율110%, 보조 요구사항 +5 지능(75)이고 효과는 **보조 대상 메타 스킬로 발동하는 스킬이35%의 확률로 소모한 에너지의 절반을 반환**이다. 화면 아래 버튼이 **장착 해제**이므로 이미 장착된 상태다. 원소 상태 이상 시 시전 행은 보조5칸 중4칸이 찼고 보조 젬 사용량은 지능15/30이다."
+     }
+    ],
+    "anchor": {
+     "n": 3,
+     "sec": [
+      207,
+      217,
+      218
+     ],
+     "level": 90,
+     "readout": "**원소 상태 이상 시 시전** 젬 툴팁 전문을 읽었다. 태그는 유지형·발동·번개·냉기·화염·메타, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여) 표시, **점유100 정신력**, 요구 사항 레벨72·126 지능이다. 설명은 활성화된 동안 적을 동결·감전·점화시키면 에너지를 "
+    }
+   },
+   "signals": [
+    "요구사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "에너지 유지 보조 선택 — 빌드별"
+  },
+  {
+   "id": "skill_added/CastOnElementalAilment/why/readout/F 217",
+   "trigger_kind": "skill_added",
+   "trigger_key": "CastOnElementalAilment",
+   "note_type": "why",
+   "text": "같은 스킬의 보조 **에너지 유지** 툴팁이다. 보조·발동, 유형 에너지 유지, 소모 배율110%, 보조 요구사항 +5 지능(75)이고 효과는 **보조 대상 메타 스킬로 발동하는 스킬이35%의 확률로 소모한 에너지의 절반을 반환**이다. 화면 아래 버튼이 **장착 해제**이므로 이미 장착된 상태다. 원소 상태 이상 시 시전 행은 보조5칸 중4칸이 찼고 보조 젬 사용량은 지능15/30이다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 217,
+    "ref": "F 217초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=217s",
+    "lines": [
+     {
+      "sec": 217,
+      "text": "같은 스킬의 보조 **에너지 유지** 툴팁이다. 보조·발동, 유형 에너지 유지, 소모 배율110%, 보조 요구사항 +5 지능(75)이고 효과는 **보조 대상 메타 스킬로 발동하는 스킬이35%의 확률로 소모한 에너지의 절반을 반환**이다. 화면 아래 버튼이 **장착 해제**이므로 이미 장착된 상태다. 원소 상태 이상 시 시전 행은 보조5칸 중4칸이 찼고 보조 젬 사용량은 지능15/30이다."
+     }
+    ],
+    "anchor": {
+     "n": 3,
+     "sec": [
+      207,
+      217,
+      218
+     ],
+     "level": 90,
+     "readout": "**원소 상태 이상 시 시전** 젬 툴팁 전문을 읽었다. 태그는 유지형·발동·번개·냉기·화염·메타, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여) 표시, **점유100 정신력**, 요구 사항 레벨72·126 지능이다. 설명은 활성화된 동안 적을 동결·감전·점화시키면 에너지를 "
+    }
+   },
+   "signals": [
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "skill_added/CastOnElementalAilment/cost/readout/F 5460",
+   "trigger_kind": "skill_added",
+   "trigger_key": "CastOnElementalAilment",
+   "note_type": "cost",
+   "text": "의식 헌정품 상점에서 공물 점수5808이 보이고 촉진하는 찬미의 징조 툴팁을 읽었다. 중첩 개수1/10, 이 아이템이 소지품에서 활성화돼 있을 때 엑잘티드 오브를 사용하면 기폭제 퀄리티를 모두 소모하여 해당 유형의 속성이 나올 확률을 높인다는 설명, 활성화 방법과 발동 시 소모된다는 안내, 비용 공물 점수 x1353, 다시 보류하지 않으면 다음 의식에서 가격이 오른다는 문구가 있다. 골드453574다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "F",
+    "video_id": "rsKbeELo0TM",
+    "sec": 5460,
+    "ref": "F 5460초",
+    "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=5460s",
+    "lines": [
+     {
+      "sec": 5460,
+      "text": "의식 헌정품 상점에서 공물 점수5808이 보이고 촉진하는 찬미의 징조 툴팁을 읽었다. 중첩 개수1/10, 이 아이템이 소지품에서 활성화돼 있을 때 엑잘티드 오브를 사용하면 기폭제 퀄리티를 모두 소모하여 해당 유형의 속성이 나올 확률을 높인다는 설명, 활성화 방법과 발동 시 소모된다는 안내, 비용 공물 점수 x1353, 다시 보류하지 않으면 다음 의식에서 가격이 오른다는 문구가 있다. 골드453574다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      5460
+     ],
+     "level": 91,
+     "readout": "의식 헌정품 상점에서 공물 점수5808이 보이고 촉진하는 찬미의 징조 툴팁을 읽었다. 중첩 개수1/10, 이 아이템이 소지품에서 활성화돼 있을 때 엑잘티드 오브를 사용하면 기폭제 퀄리티를 모두 소모하여 해당 유형의 속성이 나올 확률을 높인다는 설명, 활성화 방법과 발동 시 소모된다는 안"
+    }
+   },
+   "signals": [
+    "가격",
+    "엑잘"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "의식 상점 징조 툴팁 — 스킬 무관"
+  },
+  {
+   "id": "skill_added/Despair/condition/readout/E 13600",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Despair",
+   "note_type": "condition",
+   "text": "구원의 등대 은신처에서 임성빈_화염파_젬링 89레벨 스킬 창을 읽었다. 목록은 레벨1(정신력8·DPS33.2·보조6칸), 지옥불 함성Lv9(보조3), 절망Lv19(보조5중1빈칸), 회피 구르기 시 시전Lv14(보조5), 원소 융합, 섬광 유탄Lv12 DPS31.6(보조3), 가스 유탄Lv12 DPS26.2(보조4중2빈칸)이다. 원소 융합 툴팁은 버프·유지형·번개·냉기·화염·지속시간, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여), **점유 60 정신력**, 요구 사항 레벨72·126 지능, 무작위로 선택된 원소로 증폭된 피해를 주며 원소 무작위 변경 사이의 시간8초, 버프가 영향을 받는 원소의 피해58% 증폭이다. 보조 젬 사용량은 힘(7/23)·민첩(5/13)·지능(13/30)이고 골드18892다. 화면 아래에 R2 무기 세트 전환 안내가 있다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "E",
+    "video_id": "xnREtaV3m1A",
+    "sec": 13600,
+    "ref": "E 13600초",
+    "url": "https://www.youtube.com/watch?v=xnREtaV3m1A&t=13600s",
+    "lines": [
+     {
+      "sec": 13600,
+      "text": "구원의 등대 은신처에서 임성빈_화염파_젬링 89레벨 스킬 창을 읽었다. 목록은 레벨1(정신력8·DPS33.2·보조6칸), 지옥불 함성Lv9(보조3), 절망Lv19(보조5중1빈칸), 회피 구르기 시 시전Lv14(보조5), 원소 융합, 섬광 유탄Lv12 DPS31.6(보조3), 가스 유탄Lv12 DPS26.2(보조4중2빈칸)이다. 원소 융합 툴팁은 버프·유지형·번개·냉기·화염·지속시간, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여), **점유 60 정신력**, 요구 사항 레벨72·126 지능, 무작위로 선택된 원소로 증폭된 피해를 주며 원소 무작위 변경 사이의 시간8초, 버프가 영향을 받는 원소의 피해58% 증폭이다. 보조 젬 사용량은 힘(7/23)·민첩(5/13)·지능(13/30)이고 골드18892다. 화면 아래에 R2 무기 세트 전환 안내가 있다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      13600
+     ],
+     "level": 89,
+     "readout": "구원의 등대 은신처에서 임성빈_화염파_젬링 89레벨 스킬 창을 읽었다. 목록은 레벨1(정신력8·DPS33.2·보조6칸), 지옥불 함성Lv9(보조3), 절망Lv19(보조5중1빈칸), 회피 구르기 시 시전Lv14(보조5), 원소 융합, 섬광 유탄Lv12 DPS31.6(보조3), 가스 유탄L"
+    }
+   },
+   "signals": [
+    "요구 사항"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "원소 융합 툴팁 — 절망 무관(스킬 창 나열 오귀속)"
+  },
+  {
+   "id": "skill_added/Despair/why/readout/E 13600",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Despair",
+   "note_type": "why",
+   "text": "구원의 등대 은신처에서 임성빈_화염파_젬링 89레벨 스킬 창을 읽었다. 목록은 레벨1(정신력8·DPS33.2·보조6칸), 지옥불 함성Lv9(보조3), 절망Lv19(보조5중1빈칸), 회피 구르기 시 시전Lv14(보조5), 원소 융합, 섬광 유탄Lv12 DPS31.6(보조3), 가스 유탄Lv12 DPS26.2(보조4중2빈칸)이다. 원소 융합 툴팁은 버프·유지형·번개·냉기·화염·지속시간, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여), **점유 60 정신력**, 요구 사항 레벨72·126 지능, 무작위로 선택된 원소로 증폭된 피해를 주며 원소 무작위 변경 사이의 시간8초, 버프가 영향을 받는 원소의 피해58% 증폭이다. 보조 젬 사용량은 힘(7/23)·민첩(5/13)·지능(13/30)이고 골드18892다. 화면 아래에 R2 무기 세트 전환 안내가 있다.",
+   "evidence": {
+    "kind": "readout",
+    "video": "E",
+    "video_id": "xnREtaV3m1A",
+    "sec": 13600,
+    "ref": "E 13600초",
+    "url": "https://www.youtube.com/watch?v=xnREtaV3m1A&t=13600s",
+    "lines": [
+     {
+      "sec": 13600,
+      "text": "구원의 등대 은신처에서 임성빈_화염파_젬링 89레벨 스킬 창을 읽었다. 목록은 레벨1(정신력8·DPS33.2·보조6칸), 지옥불 함성Lv9(보조3), 절망Lv19(보조5중1빈칸), 회피 구르기 시 시전Lv14(보조5), 원소 융합, 섬광 유탄Lv12 DPS31.6(보조3), 가스 유탄Lv12 DPS26.2(보조4중2빈칸)이다. 원소 융합 툴팁은 버프·유지형·번개·냉기·화염·지속시간, 레벨17, 퀄리티+0%에 +4% 퀄리티(일반 속성 부여), **점유 60 정신력**, 요구 사항 레벨72·126 지능, 무작위로 선택된 원소로 증폭된 피해를 주며 원소 무작위 변경 사이의 시간8초, 버프가 영향을 받는 원소의 피해58% 증폭이다. 보조 젬 사용량은 힘(7/23)·민첩(5/13)·지능(13/30)이고 골드18892다. 화면 아래에 R2 무기 세트 전환 안내가 있다."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      13600
+     ],
+     "level": 89,
+     "readout": "구원의 등대 은신처에서 임성빈_화염파_젬링 89레벨 스킬 창을 읽었다. 목록은 레벨1(정신력8·DPS33.2·보조6칸), 지옥불 함성Lv9(보조3), 절망Lv19(보조5중1빈칸), 회피 구르기 시 시전Lv14(보조5), 원소 융합, 섬광 유탄Lv12 DPS31.6(보조3), 가스 유탄L"
+    }
+   },
+   "signals": [
+    "툴팁"
+   ],
+   "hits": 1,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": true,
+   "also_matches": [],
+   "status": "rejected",
+   "decision": "위와 동일"
+  },
+  {
+   "id": "skill_added/FlashGrenade/pitfall/caption/E 13044",
    "trigger_kind": "skill_added",
    "trigger_key": "FlashGrenade",
    "note_type": "pitfall",
    "text": "회오리 회오리는 빼고 / 시체 폭발이 위험하니까",
    "evidence": {
+    "kind": "caption",
     "video": "E",
     "video_id": "xnREtaV3m1A",
     "sec": 13044,
@@ -765,7 +2809,13 @@
      "existing_rule": false
     }
    ],
-   "status": "pending"
+   "status": "adopted",
+   "decision": "'제일 불편했던 회오리는 빼고'(E 13039~13044) — 한때 제거, 같은 방송 E 15135 에서 다시 넣어 Lv90 빌드에 잔존. 스킬 창 나열 오귀속을 Tornado 로 재귀속. 흡수 양날 pitfall 규칙의 임성빈 발언 근거",
+   "rule": [
+    "skill_added",
+    "Tornado",
+    "pitfall"
+   ]
   }
  ],
  "unanchored": [

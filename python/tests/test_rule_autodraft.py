@@ -87,16 +87,37 @@ def test_draft_schema_verbatim_text_and_existing_flag():
     transcripts = {VID: _segs((80, "92지는 92가 필요하"), (95, "지능은 다 찍었고"), (300, "골드 골드 골드"))}
     r = ra.draft_candidates([_trigger("Flameblast")], anchors, transcripts, window_sec=30)
     assert r["unanchored"] == [] and r["skipped"] == []
-    assert len(r["candidates"]) == 1
-    c = r["candidates"][0]
-    assert {"trigger_kind", "trigger_key", "note_type", "text", "evidence"} <= set(c)
+    by_kind = {c["evidence"]["kind"]: c for c in r["candidates"]}
+    assert set(by_kind) == {"caption", "readout"} and len(r["candidates"]) == 2
+    c = by_kind["caption"]
+    assert {"id", "trigger_kind", "trigger_key", "note_type", "text", "evidence"} <= set(c)
     assert (c["trigger_kind"], c["trigger_key"], c["note_type"]) == ("skill_added", "Flameblast", "condition")
     assert c["text"] == "92지는 92가 필요하 / 지능은 다 찍었고"  # 자막 원문 그대로
     ev = c["evidence"]
     assert (ev["video"], ev["sec"], ev["ref"]) == ("C", 80, "C 80초")
     assert ev["url"].endswith("&t=80s") and ev["anchor"]["sec"] == [100]
     assert c["existing_rule"] is True  # (skill_added, Flameblast, condition) 은 이미 규칙에 있다 → 사람이 본다
-    assert c["status"] == "pending"
+    assert c["status"] == "pending" and c["id"] == "skill_added/Flameblast/condition/caption/C 80"
+    # 판독 줄은 한 줄로도 후보(화면 수치는 자막에 없다). text 는 판독 원문.
+    rd = by_kind["readout"]
+    assert rd["text"] == "화염파Lv13 새기기 요구 레벨52" and rd["note_type"] == "condition"
+    assert rd["evidence"]["sec"] == 100 and rd["signals"] == ["요구 레벨"]
+
+
+def test_decisions_merge_only_changes_status(tmp_path):
+    anchors = [ra.Anchor(VID, 100, "화염파Lv13 새기기 요구 레벨52", 52)]
+    transcripts = {VID: _segs((80, "92지는 92가 필요하"), (95, "지능은 다 찍었고"))}
+    r = ra.draft_candidates([_trigger("Flameblast")], anchors, transcripts, window_sec=30)
+    dec = {"skill_added/Flameblast/condition/caption/C 80": {"status": "rejected", "reason": "손노트와 중복"},
+           "no/such/id": {"status": "adopted"}}
+    ra.apply_decisions(r["candidates"], dec)
+    st = {c["id"]: c["status"] for c in r["candidates"]}
+    assert st["skill_added/Flameblast/condition/caption/C 80"] == "rejected"
+    assert st["skill_added/Flameblast/condition/readout/C 100"] == "pending"
+    assert len(r["candidates"]) == 2  # 기록이 후보를 만들거나 지우지 않는다
+    p = tmp_path / "d.json"
+    p.write_text(json.dumps({"decisions": dec}, ensure_ascii=False), encoding="utf-8")
+    assert ra.load_decisions(p) == dec and ra.load_decisions(tmp_path / "missing.json") == {}
 
 
 def test_min_hits_drops_single_line_windows():
@@ -114,8 +135,9 @@ def test_same_evidence_attributed_once_with_also_matches():
                ra.Anchor(VID, 120, "화염파Lv13 툴팁 요구 지능92", 52)]
     transcripts = {VID: _segs((90, "92지는 92가 필요하"), (95, "지능은 다 찍었고"))}
     r = ra.draft_candidates([_trigger("Flameblast"), _trigger("FlashGrenade")], anchors, transcripts, window_sec=30)
-    assert len(r["candidates"]) == 1
-    c = r["candidates"][0]
+    caps = [c for c in r["candidates"] if c["evidence"]["kind"] == "caption"]
+    assert len(caps) == 1
+    c = caps[0]
     assert c["trigger_key"] == "Flameblast" and c["existing_rule"] is True
     assert c["also_matches"] == [{"trigger": "skill_added/FlashGrenade", "transition": T, "existing_rule": False}]
 
@@ -166,12 +188,31 @@ def test_real_seongbin_transcripts_yield_five_plus(tmp_path):
     for c in cands:
         assert c["creator"] == "임성빈" and c["trigger_key"] in keys
         assert c["evidence"]["video"] in ra.VIDEO_LETTERS and isinstance(c["evidence"]["sec"], int)
-        assert c["note_type"] in ra.NOTE_SIGNALS and c["text"] and c["status"] == "pending"
+        assert c["note_type"] in ra.NOTE_SIGNALS and c["text"]
+        assert c["status"] in {"pending", "adopted", "rejected", "deferred"}  # 승인 기록이 있으면 병합된다
     # 서로 다른 note_type 이 실제로 나온다 (조건 하나만 잔뜩이 아님)
     assert {c["note_type"] for c in cands} >= {"condition", "pitfall", "cost"}
     doc = json.loads(out.read_text(encoding="utf-8"))
     assert doc["_meta"]["n_candidates"] == len(cands) and "임성빈" in doc["_meta"]["sources"]
     assert "자동 반영 금지" in doc["_meta"]["purpose"]
+
+
+@pytest.mark.skipif(not ra.DEFAULT_DECISIONS.exists(), reason="승인 기록 없음")
+def test_decisions_are_consistent_with_rules_and_candidates():
+    """채택 판정은 CURATION_RULES 에 실제 규칙이 있어야 하고, 판정은 존재하는 후보만 가리킨다(오래된 판정 금지)."""
+    dec = ra.load_decisions(ra.DEFAULT_DECISIONS)
+    rules = {(k, key, nt) for (k, key, nt, _t, _e) in build_db.CURATION_RULES}
+    for cid, d in dec.items():
+        assert d["status"] in {"adopted", "rejected", "deferred"}, cid
+        assert d.get("reason"), cid
+        if d["status"] == "adopted":
+            assert tuple(d["rule"]) in rules, (cid, d["rule"])
+    ids = {c["id"] for c in ra.run(out=None, decisions_path=None)["candidates"]}
+    stale = set(dec) - ids
+    assert not stale, stale
+    # 채택 규칙의 근거는 (영상 초) 또는 패치노트/GGPK 로 추적 가능해야 한다
+    for (_k, _key, _nt, _text, ev) in build_db.CURATION_RULES:
+        assert "규칙(" in ev, ev
 
 
 def test_creator_without_sources_gets_nothing_borrowed():

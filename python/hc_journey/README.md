@@ -66,7 +66,10 @@ python -X utf8 -m pytest python/tests/test_rule_autodraft.py -q
 - **신호** = 앵커 전후 90초 자막에서 cost/condition/pitfall/why/survival 정규식. 후보 text 는 자막 **원문 그대로**.
 - **정직성**: 자동 자막은 고유명사가 깨지므로 이름을 자막에서 확정하지 않는다(별칭은 판독 검색 힌트일 뿐).
   같은 자막 창이 여러 트리거에 걸리면(스킬 창 판독은 스킬을 전부 나열) 하나에만 귀속하고 나머지는 `also_matches`.
-- **승인 게이트**: `CURATION_RULES` 를 읽기만 한다. 사람이 후보 파일에서 골라 규칙에 옮긴다. 이미 있는 (kind,key,note_type) 은 `existing_rule` 표시.
+- **신호원 둘**: 자막 창(`evidence.kind=caption`, 신호 줄 ≥2)과 판독 줄(`readout`, 사람이 화면 보고 적은 글이라 한 줄로도 후보 — 1 엑잘·요구 지능 92 같은 화면 수치는 자막에 없다). 판독은 HUD 수치가 매 줄이라 전용 정규식(`READOUT_SIGNALS`, 사건성 낱말만).
+- **승인 게이트**: `CURATION_RULES` 를 읽기만 한다. 판정은 `data/hc_journey/rule_decisions.json`(후보 id → adopted/rejected/deferred + 사유 + rule)에 기록하고,
+  초안기가 재생성할 때 id 로 병합해 `status` 를 채운다. 채택분만 사람이(또는 위임받은 쪽이) `CURATION_RULES` 에 옮긴다. 테스트가 채택 판정 ↔ 규칙 존재를 대조한다.
+  이미 있는 (kind,key,note_type) 은 `existing_rule` 표시.
 - 소스는 크리에이터별(`CREATOR_SOURCES`). 소스 없는 크리에이터(Skadoosh)는 후보 0 — 다른 크리에이터의 영상을 빌리지 않는다.
 
 ## 다음
