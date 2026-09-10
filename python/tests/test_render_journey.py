@@ -31,6 +31,10 @@ def test_render_split_writes_per_build_files_and_index(tmp_path):
     assert names == sorted(["journey.html"] + [f"journey_{i}.html" for i in range(1, len(build_db.CREATORS) + 1)])
     index = (tmp_path / "journey.html").read_text(encoding="utf-8")
     assert "journey_1.html" in index and "임성빈" in index and "?q=" not in index   # 목차엔 무거운 링크가 없다
+    # 같은 전직(젬링 3명) 대조표: 화염파 도입 시점이 제작자마다 다르게 보인다
+    assert "같은 전직 대조 — Gemling Legionnaire" in index
+    assert "Flameblast" in index and "lvl 52 Swap" in index and "Lvl72" in index and "엔드게임(계획)" in index
+    assert "같은 전직 대조 — Warbringer" not in index   # 워브링어는 1명뿐이라 대조표 없음
     one = (tmp_path / "journey_1.html").read_text(encoding="utf-8")
     assert "임성빈" in one and "Skadoosh" not in one and "T1 그대로 · 국제" in one
 

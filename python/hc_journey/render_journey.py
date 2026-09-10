@@ -152,6 +152,34 @@ def render(build_ids: list[int] | None = None, now: datetime | None = None) -> s
             f"{body}</main></body></html>")
 
 
+COMPARE_KEYS = ("Flameblast", "OilGrenade", "Tornado", "ElementalWeakness", "Despair", "Blasphemy", "ArcticArmour",
+                "CastOnElementalAilment", "HeraldOfAsh", "ShockwaveTotem", "VolcanicFissure", "ForgeHammer")
+
+
+def render_comparison(con: sqlite3.Connection) -> str:
+    """같은 전직 빌드가 2개 이상이면 핵심 스킬 도입 시점(전환·요구 레벨)을 제작자별로 나란히. '같은 빌드도 내부가 갈린다' 를 보여 주는 표."""
+    groups: dict[str, list] = {}
+    for b in con.execute("SELECT b.id, b.ascendancy, c.name AS creator FROM build b JOIN creator c ON c.id=b.creator_id ORDER BY b.id"):
+        groups.setdefault(b["ascendancy"], []).append(b)
+    out = []
+    for asc, builds in groups.items():
+        if len(builds) < 2:
+            continue
+        cells: dict[str, dict[int, str]] = {}
+        for b in builds:
+            for r in con.execute(
+                "SELECT c.subject, s.stage_label, s.level_hint FROM transition_change c JOIN transition t ON t.id=c.transition_id "
+                "JOIN snapshot s ON s.id=t.to_snapshot WHERE t.build_id=? AND c.kind='skill_added' ORDER BY t.order_idx", (b["id"],)):
+                cells.setdefault(r["subject"], {}).setdefault(b["id"], f"{r['stage_label']}" + (f" (≤{r['level_hint']})" if r["level_hint"] else ""))
+        keys = [k for k in COMPARE_KEYS if k in cells] + sorted(k for k in cells if k not in COMPARE_KEYS and len(cells[k]) >= 2)
+        out.append(f"<h2>같은 전직 대조 — {_e(asc)}</h2><div class='meta'>스킬을 어느 전환에서 넣는지. 빈칸 = 그 제작자 밴드에는 없음.</div>")
+        out.append("<table><thead><tr><th>스킬</th>" + "".join(f"<th>{_e(b['creator'])}</th>" for b in builds) + "</tr></thead><tbody>")
+        for k in keys:
+            out.append(f"<tr><td>{_e(k)}</td>" + "".join(f"<td>{_e(cells[k].get(b['id'], ''))}</td>" for b in builds) + "</tr>")
+        out.append("</tbody></table>")
+    return "\n".join(out)
+
+
 def render_split(out_dir: Path, now: datetime | None = None) -> list[Path]:
     """빌드마다 journey_<id>.html + 목차 journey.html. ?q= 링크가 길어 한 장에 다 넣으면 0.5MB 를 넘는다."""
     now = now or datetime.now(timezone.utc)
@@ -159,6 +187,7 @@ def render_split(out_dir: Path, now: datetime | None = None) -> list[Path]:
     con.row_factory = sqlite3.Row
     builds = con.execute("SELECT b.id, b.name, b.hardcore, b.ssf, b.ascendancy, c.name AS creator FROM build b "
                          "JOIN creator c ON c.id=b.creator_id ORDER BY b.id").fetchall()
+    comparison = render_comparison(con)
     con.close()
     out_dir.mkdir(parents=True, exist_ok=True)
     written = []
@@ -172,7 +201,8 @@ def render_split(out_dir: Path, now: datetime | None = None) -> list[Path]:
     index = out_dir / "journey.html"
     index.write_text(f"<!doctype html><html lang='ko'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
                      f"<title>PathcraftAI HC 여정</title><style>{CSS}</style></head><body><main><h1>PathcraftAI — POE2 하드코어 여정 DB</h1>"
-                     f"<div class='meta'>빌드 {len(builds)} · 렌더 {now.isoformat(timespec='minutes')}</div><ul>{''.join(items)}</ul></main></body></html>",
+                     f"<div class='meta'>빌드 {len(builds)} · 렌더 {now.isoformat(timespec='minutes')}</div><ul>{''.join(items)}</ul>"
+                     f"{comparison}</main></body></html>",
                      encoding="utf-8")
     written.append(index)
     return written
