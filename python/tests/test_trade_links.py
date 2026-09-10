@@ -41,6 +41,9 @@ def test_normalize_and_lookup_exact_only():
     assert idx.lookup("+95 to Armour") == ["explicit.stat_809229260"]   # implicit 그룹은 안 섞인다
     assert idx.lookup("9% increased Rarity of Items found") == []        # 인덱스에 없으면 빈 값(지어내지 않음)
     assert tl.mod_value("Adds 5 to 10 Fire Damage") == 7.5 and tl.mod_value("Instant Recovery") is None
+    # Mobalytics export 의 범위 표기는 중간값 하나로 접힌다
+    assert tl.normalize_mod("Gain (9–15)% of Damage as Extra Fire Damage") == "Gain #% of Damage as Extra Fire Damage"
+    assert tl.mod_value("Gain (9–15)% of Damage as Extra Fire Damage") == 12
 
 
 def test_parse_item_and_map_mods_keep_unmapped():

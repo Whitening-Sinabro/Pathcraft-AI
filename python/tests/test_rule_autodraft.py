@@ -181,7 +181,8 @@ def test_trigger_keys_come_from_diff_and_config_not_captions():
 def test_league_trigger_follows_build_ssf_flag():
     """거래 리그 빌드 → league/trade, SSF 빌드 → league/ssf. 둘 다 첫 전환. 트리거 키는 설정(ssf 플래그)에서 온다."""
     trade = [t for t in ra.transition_triggers() if t.trigger_kind == "league"]
-    assert {(t.creator, t.trigger_key, t.transition_idx) for t in trade} == {("임성빈", "trade", 0), ("Skadoosh", "trade", 0)}
+    expected = {(c["name"], "ssf" if c["build"]["ssf"] else "trade", 0) for c in build_db.CREATORS}
+    assert {(t.creator, t.trigger_key, t.transition_idx) for t in trade} == expected
     cfg = json.loads(json.dumps(build_db.CREATORS[0], ensure_ascii=False))  # 깊은 복사
     cfg["name"], cfg["build"]["ssf"] = "SSF 가상", 1
     ssf = [t for t in ra.transition_triggers([cfg]) if t.trigger_kind == "league"]

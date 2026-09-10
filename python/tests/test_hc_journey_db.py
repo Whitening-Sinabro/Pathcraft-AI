@@ -17,12 +17,36 @@ def _bid(con, like):
 
 
 def test_multi_creator_and_rules():
+    """크리에이터 수는 CREATORS 설정에 묶는다(숫자 리터럴이면 추가할 때마다 red, >= 면 삭제를 못 잡는다)."""
     st = build_db.build()
-    assert st["creator"] == 2 and st["build"] == 2, st
-    assert st["snapshot"] == 10 and st["transition"] == 8, st
+    names = {c["name"] for c in build_db.CREATORS}
+    assert names == {"임성빈", "Skadoosh", "ds lily", "Fubgun"}, names
+    assert st["creator"] == st["build"] == len(build_db.CREATORS), st
+    assert st["snapshot"] == sum(len(c["bands"]) for c in build_db.CREATORS), st
+    assert st["transition"] == sum(len(c["bands"]) - 1 for c in build_db.CREATORS), st
     assert st["curation_rule"] >= 10, st
     assert st["notes_rule"] >= 8, st        # 규칙에서 자동 부착된 노트(커버리지 확장)
     assert st["notes_hand"] >= 6, st        # 빌드 고유 손노동
+
+
+def test_new_creators_inherit_without_hand_notes():
+    """ds lily·Fubgun 은 손노동 0, 키스톤 미확보인데도 전직·스킬 도입·슬롯·리그 규칙을 상속한다 — 확장의 증명."""
+    build_db.build()
+    con = sqlite3.connect(build_db.DB_PATH)
+    for like, hc in (("%ds lily%", 1), ("%Fubgun%", 0)):
+        bid = _bid(con, like)
+        assert con.execute("SELECT hardcore FROM build WHERE id=?", (bid,)).fetchone()[0] == hc
+        hand = con.execute("SELECT COUNT(*) FROM transition_note n JOIN transition t ON n.transition_id=t.id "
+                           "WHERE t.build_id=? AND n.source='hand'", (bid,)).fetchone()[0]
+        kinds = {r[0] for r in con.execute(
+            "SELECT DISTINCT r.trigger_kind FROM transition_note n JOIN transition t ON n.transition_id=t.id "
+            "JOIN curation_rule r ON n.rule_id=r.id WHERE t.build_id=?", (bid,))}
+        assert hand == 0 and {"ascendancy", "skill_added", "item_slot_change", "league"} <= kinds, (like, kinds)
+        # 화염파 도입 규칙이 어느 전환엔가 붙는다(같은 빌드의 다른 제작자도 같은 지식을 상속)
+        fb = con.execute("SELECT COUNT(*) FROM transition_note n JOIN transition t ON n.transition_id=t.id "
+                         "JOIN curation_rule r ON n.rule_id=r.id WHERE t.build_id=? AND r.trigger_key='Flameblast'", (bid,)).fetchone()[0]
+        assert fb >= 1, like
+    con.close()
 
 
 def test_skadoosh_inherits_curation_free():
@@ -96,9 +120,11 @@ def test_trade_links_attach_to_item_changes(tmp_path, monkeypatch):
     assert "🛒 Helm1 Hallowed Crown (요구≤93)" in build_db.query_journey(_bid(con, "젬링%"))
     con.close()
     # 파일이 없으면 테이블은 비고 나머지 적재는 그대로
+    st_before = build_db.build()
     monkeypatch.setattr(build_db, "TRADE_LINKS", tmp_path / "missing.json")
     st = build_db.build()
-    assert st["trade_target"] == 0 and st["trade_link"] == 0 and st["transition_change"] == 144
+    assert st["trade_target"] == 0 and st["trade_link"] == 0
+    assert st["transition_change"] == st_before["transition_change"] and st["transition_note"] == st_before["transition_note"]
 
 
 def test_two_layers_and_query():

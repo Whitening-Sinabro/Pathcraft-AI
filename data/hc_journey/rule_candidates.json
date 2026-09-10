@@ -2,7 +2,7 @@
  "_meta": {
   "purpose": "curation_rule 승인 대기 후보. 판정은 rule_decisions.json 에 기록되고 여기 status 로 병합된다. 자동 반영 금지.",
   "honesty": "trigger_key 는 diff/PoB/설정에서, text 는 자막·판독 원문 그대로. 자막으로 고유명사를 확정하지 않는다.",
-  "generated_utc": "2026-09-10T11:01:49+00:00",
+  "generated_utc": "2026-09-10T12:22:45+00:00",
   "window_sec": 90.0,
   "min_hits": 2,
   "max_clusters": 3,
@@ -31,7 +31,7 @@
    "adopted": 30,
    "deferred": 8
   },
-  "n_unanchored": 80,
+  "n_unanchored": 129,
   "n_skipped": 0
  },
  "candidates": [
@@ -3357,6 +3357,195 @@
  ],
  "unanchored": [
   {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "skill_added",
+   "trigger_key": "OilGrenade",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 15-32 → lvl 33-51",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 15-32 → lvl 33-51",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 15-32 → lvl 33-51",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring2",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "skill_added",
+   "trigger_key": "FrostBomb",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "skill_added",
+   "trigger_key": "ElementalWeakness",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "skill_added",
+   "trigger_key": "CastOnDodge",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon2",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "BodyArmour1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Amulet1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Flask1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 33-51 → lvl 52 Swap",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Charm1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 53-68 → lvl 85",
+   "trigger_kind": "skill_added",
+   "trigger_key": "ManaRemnants",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 53-68 → lvl 85",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 53-68 → lvl 85",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "BodyArmour1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 53-68 → lvl 85",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Gloves1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 53-68 → lvl 85",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Boots1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 85 → Endgame",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Amulet1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 85 → Endgame",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 85 → Endgame",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring2",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 85 → Endgame",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Charm1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "ascendancy",
+   "trigger_key": "Gemling Legionnaire",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Fubgun",
+   "transition": "lvl 1-14 → lvl 15-32",
+   "trigger_kind": "league",
+   "trigger_key": "trade",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
    "creator": "Skadoosh",
    "transition": "Lv01-10 → Lv11-20",
    "trigger_kind": "skill_added",
@@ -3662,6 +3851,160 @@
    "transition": "Lv31-41 → 실캐릭 live",
    "trigger_kind": "keystone",
    "trigger_key": "Blood Magic",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl25 → Lvl47",
+   "trigger_kind": "skill_added",
+   "trigger_key": "OilGrenade",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl25 → Lvl47",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "skill_added",
+   "trigger_key": "ArcticArmour",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "skill_added",
+   "trigger_key": "ElementalWeakness",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Tornado",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "skill_added",
+   "trigger_key": "DefianceBanner",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon2",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "BodyArmour1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Gloves1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Boots1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Amulet1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Belt1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl47 → Lvl72",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring2",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Refutation",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Blasphemy",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl72 → Lvl93",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Amulet1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl25 → Lvl47",
+   "trigger_kind": "ascendancy",
+   "trigger_key": "Gemling Legionnaire",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "ds lily",
+   "transition": "Lvl25 → Lvl47",
+   "trigger_kind": "league",
+   "trigger_key": "trade",
    "reason": "자막/판독 소스 없음"
   },
   {

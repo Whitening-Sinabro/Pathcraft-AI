@@ -35,10 +35,13 @@ VOD/자막/연구에서 뽑은 **비용·조건·함정·왜(20%)**를 붙이는
 
 ## 적재 현황 (다중 크리에이터)
 
-- **임성빈** — 젬링 화염파 → 검은화염 카오스 (Gemling Legionnaire). 큐레이션 11건.
-- **Skadoosh** — 워브링어 타락 함성 토템 (Warbringer, Ancestral Bond·Blood Magic). 큐레이션 2건(ninja 실측).
+- **임성빈** — 젬링 화염파 → 검은화염 카오스 (Gemling Legionnaire). 손노트 7 + 규칙 상속.
+- **Skadoosh** — 워브링어 타락 함성 토템 (Warbringer, Ancestral Bond·Blood Magic). 손노동 0, 규칙 상속만.
+- **ds lily** — 기름 유탄 화염파 젬링(Mobalytics 5탭, Lvl 51 트리 탭은 제외). HC(릴리리그 운영자). 손노동 0.
+- **Fubgun** — 화염파 기름 유탄 젬링(Mobalytics 7탭). 하코 표기 미확인이라 hardcore=0. 손노동 0.
 
-두 어센던시가 한 DB에 공존한다. 크리에이터를 늘리면 **자동층(밴드 diff)은 공짜로 커지고, 큐레이션(20%)만 노동**이다.
+같은 빌드(화염파 젬링) 세 제작자가 나란히 있어 "같은 빌드도 내부가 갈린다"를 DB 가 보여 준다 — 화염파 도입이 임성빈 ACT3-4→엔드게임,
+ds lily 47→72, Fubgun 33-51→52. 크리에이터를 늘리면 **자동층(밴드 diff)은 공짜로 커지고, 큐레이션(20%)만 노동**이다 — 4명째도 손노동 0 으로 규칙 67건 상속.
 
 입력 .build 는 `data/hc_journey/creators/<slug>/` 에 커밋된 픽스처(재현 가능). 크리에이터 추가 = 픽스처 넣고 `CREATORS` 에 한 항목.
 

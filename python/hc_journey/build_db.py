@@ -240,6 +240,42 @@ CREATORS = [
         # 손노동 아직 0. 큐레이션은 전부 규칙(키스톤 등)에서 자동 상속 — 이게 확장의 핵심.
         "notes": {},
     },
+    # --- 같은 빌드(화염파 젬링)의 다른 제작자 2명 — "같은 빌드도 내부가 갈린다" 대조용. 손노동 0, 규칙 상속만. ---
+    {
+        "name": "ds lily", "channel": "https://mobalytics.gg/poe-2/profile/ds_lily/builds/oil-flameblast-gemling", "ninja": None,
+        "build": {"name": "기름 유탄 화염파 젬링 (ds lily)", "asc": "Gemling Legionnaire",
+                  "league": "hc-forbidden-rites", "ssf": 0,
+                  "notes": "Mobalytics 5탭(Lvl 25/47/51/72/93). Lvl 51 탭은 패시브만 있어(스킬·장비 없음) 밴드에서 제외 — "
+                           "화염파 전환은 47→72 구간으로 잡힌다. 릴리리그(사설 HC GSF) 운영자(명부). 키스톤은 ninja 미확보로 비움."},
+        "hardcore": 1,
+        "keystones": [],
+        "bands": [
+            ("Lvl25", 25, "planner_band", "dslily/01_Lvl25.build"),
+            ("Lvl47", 47, "planner_band", "dslily/02_Lvl47.build"),
+            ("Lvl72", 72, "planner_band", "dslily/04_Lvl72.build"),
+            ("Lvl93", 93, "planner_band", "dslily/05_Lvl93.build"),
+        ],
+        "notes": {},
+    },
+    {
+        "name": "Fubgun", "channel": "https://mobalytics.gg/poe-2/builds/fubgun-flameblast-oil-grenade", "ninja": None,
+        "build": {"name": "화염파 기름 유탄 젬링 (Fubgun)", "asc": "Gemling Legionnaire",
+                  "league": "hc-forbidden-rites", "ssf": 0,
+                  "notes": "Mobalytics 7탭. 하코 명부에 없는 일반 가이드(리그 표기 미확인, 페이지 403) — hardcore=0. "
+                           "임성빈 HC 필터의 보조 소스로 쓰였던 가이드. 키스톤은 ninja 미확보로 비움."},
+        "hardcore": 0,
+        "keystones": [],
+        "bands": [
+            ("lvl 1-14", 14, "planner_band", "fubgun/01_lvl1-14.build"),
+            ("lvl 15-32", 32, "planner_band", "fubgun/02_lvl15-32.build"),
+            ("lvl 33-51", 51, "planner_band", "fubgun/03_lvl33-51.build"),
+            ("lvl 52 Swap", 52, "planner_band", "fubgun/04_lvl52_swap.build"),
+            ("lvl 53-68", 68, "planner_band", "fubgun/05_lvl53-68.build"),
+            ("lvl 85", 85, "planner_band", "fubgun/06_lvl85.build"),
+            ("Endgame", None, "planner_band", "fubgun/07_endgame.build"),
+        ],
+        "notes": {},
+    },
 ]
 
 
@@ -303,7 +339,7 @@ def build() -> dict:
         cur = con.execute(
             "INSERT INTO build(creator_id, game, league, hardcore, ssf, name, ascendancy, notes) "
             "VALUES(?,?,?,?,?,?,?,?)",
-            (creator_id, "poe2", b["league"], 1, b["ssf"], b["name"], b["asc"], b["notes"]))
+            (creator_id, "poe2", b["league"], cfg.get("hardcore", 1), b["ssf"], b["name"], b["asc"], b["notes"]))
         build_id = cur.lastrowid
         for ks in cfg.get("keystones", []):
             con.execute("INSERT INTO build_keystone(build_id, keystone) VALUES(?,?)", (build_id, ks))

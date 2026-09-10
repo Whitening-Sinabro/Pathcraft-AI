@@ -65,6 +65,7 @@ _PATH_CATEGORY = [
     ("/Weapons/TwoHandWeapons/Crossbows/", "weapon.crossbow"), ("/Weapons/OneHandWeapons/Talismans/", "weapon.talisman"),
 ]
 _NUM = re.compile(r"\+?(-?\d+(?:\.\d+)?)")
+_RANGE = re.compile(r"\((-?\d+(?:\.\d+)?)\s*[–\-~]\s*(-?\d+(?:\.\d+)?)\)")  # Mobalytics export 의 "(9–15)%" 범위 표기
 
 
 @dataclass(frozen=True)
@@ -124,14 +125,20 @@ def prefer_local_for(mod: str, category: str | None) -> bool:
 
 # --- 텍스트 처리 ---------------------------------------------------------------
 
+def _collapse_ranges(text: str) -> str:
+    """'(9–15)%' 같은 범위 표기를 중간값 하나로. 정규화·값 추출 양쪽이 같은 텍스트를 본다."""
+    return _RANGE.sub(lambda m: str((float(m.group(1)) + float(m.group(2))) / 2).rstrip("0").rstrip("."), text)
+
+
 def normalize_mod(text: str) -> str:
-    """숫자(부호 포함)를 # 로, '+#' 도 # 로, 공백 정리. 아이템 옵션과 trade2 stats text 양쪽에 같은 규칙."""
-    s = _NUM.sub("#", text)
+    """숫자(부호 포함)를 # 로, '+#' 도 # 로, 범위 '(a–b)' 는 값 하나로, 공백 정리. 아이템 옵션과 trade2 stats text 양쪽에 같은 규칙."""
+    s = _NUM.sub("#", _collapse_ranges(text))
     s = s.replace("+#", "#")
     return re.sub(r"\s+", " ", s).strip()
 
 
 def mod_value(text: str) -> float | None:
+    text = _collapse_ranges(text)
     nums = [float(x) for x in _NUM.findall(text)]
     if not nums:
         return None
@@ -296,13 +303,14 @@ def post_search(realm: str, league: str, query: dict) -> dict:
             log.warning("429 — %.0f초 대기", wait)
             time.sleep(wait)
             continue
+        rate = {k: v for k, v in headers.items() if k.lower().startswith("x-rate-limit")}  # 한도 정책·현재 상태
         try:
             d = json.loads(raw.decode("utf-8"))
         except ValueError:
-            return {"error": f"http {status}"}
+            return {"error": f"http {status}", "rate": rate}
         if status != 200:
-            return {"error": d.get("error") or f"http {status}"}
-        return {"id": d.get("id"), "total": d.get("total")}
+            return {"error": d.get("error") or f"http {status}", "rate": rate}
+        return {"id": d.get("id"), "total": d.get("total"), "rate": rate}
     return {"error": "429 twice"}
 
 
@@ -316,7 +324,10 @@ def _load_item_texts(path: Path) -> dict[str, str]:
 def generate(creators: list[dict] | None = None, league: str = DEFAULT_LEAGUE, status: str = DEFAULT_STATUS,
              live: bool = False, realms: tuple[str, ...] = ("int",), index: StatIndex | None = None,
              base_paths: dict[str, str] | None = None, uniques: dict[str, str] | None = None,
-             creator: str | None = None) -> dict:
+             creator: str | None = None, live_tiers: tuple[str, ...] | None = None,
+             interval: float = POST_INTERVAL_SEC) -> dict:
+    """live_tiers 로 POST 할 단계를 제한한다(예: ("T1","T3")). 거래 API 는 IP 단위 속도 제한이 엄격해(429 에 Retry-After 300~600초)
+    전부 묻지 말고 답이 필요한 단계만, interval 은 넉넉히(7초 이상 권장)."""
     index = index or StatIndex.from_trade_data(load_trade_data("stats"))
     base_paths = base_paths if base_paths is not None else load_base_paths()
     uniques = uniques if uniques is not None else unique_names(load_trade_data("items"))
@@ -343,18 +354,20 @@ def generate(creators: list[dict] | None = None, league: str = DEFAULT_LEAGUE, s
                 tiers = build_ladder(item, mapped, category, to_level, status, unique_base)
                 for t in tiers:
                     t["links"] = {r: q_url(r, league, t["query"]) for r in realms}
-                    if live:
+                    if live and (live_tiers is None or t["tier"] in live_tiers):
                         t["live"] = {}
                         for r in realms:
                             res = post_search(r, league, t["query"])
                             if res.get("id"):
                                 res["url"] = id_url(r, league, res["id"])
                             t["live"][r] = res
-                            time.sleep(POST_INTERVAL_SEC)
+                            time.sleep(interval)
                 if live:
                     log.info("live [%s] %s %s %s | %s", cfg["name"], f"{bands[i][0]}→{to_label}", slot, item.first,
                              " ".join(f"{t['tier']}={t['live'].get(realms[0], {}).get('total', t['live'].get(realms[0], {}).get('error'))}"
-                                      for t in tiers))
+                                      for t in tiers if "live" in t))
+                    for h in logging.getLogger().handlers:
+                        h.flush()  # 파이프로 볼 때 항목마다 바로 보이게
                 entries.append({
                     "creator": cfg["name"], "transition_idx": i, "transition": f"{bands[i][0]} → {to_label}",
                     "slot": slot, "level_max": to_level,
@@ -380,7 +393,9 @@ if __name__ == "__main__":
     ap.add_argument("--league", default=DEFAULT_LEAGUE)
     ap.add_argument("--status", default=DEFAULT_STATUS, choices=["securable", "available", "online", "onlineleague", "any"])
     ap.add_argument("--realm", default="int", choices=["int", "kr", "both"])
-    ap.add_argument("--live", action="store_true", help="공식 API 에 POST 해 검색 id 와 매물 수를 받는다(1.5초 간격)")
+    ap.add_argument("--live", action="store_true", help="공식 API 에 POST 해 검색 id 와 매물 수를 받는다")
+    ap.add_argument("--tiers", default=None, help="live 로 물을 단계만, 예: T1,T3 (기본 전부)")
+    ap.add_argument("--interval", type=float, default=7.0, help="POST 간격 초. IP 속도 제한(429 → 300~600초 벌칙) 때문에 7초 이상 권장")
     ap.add_argument("--creator", default=None)
     ap.add_argument("--refresh", action="store_true", help="trade2 data 캐시를 다시 받는다")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
@@ -389,12 +404,13 @@ if __name__ == "__main__":
         for k in ("stats", "items", "filters", "leagues"):
             load_trade_data(k, refresh=True)
     realms = ("int", "kr") if a.realm == "both" else (a.realm,)
-    doc = generate(league=a.league, status=a.status, live=a.live, realms=realms, creator=a.creator)
+    doc = generate(league=a.league, status=a.status, live=a.live, realms=realms, creator=a.creator,
+                   live_tiers=tuple(a.tiers.split(",")) if a.tiers else None, interval=a.interval)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
     m = doc["_meta"]
     log.info("링크 %d건(unmapped 옵션 %d) → %s", m["n_entries"], m["n_unmapped_mods"], a.out)
     if a.live:
         for e in doc["entries"]:
-            tot = [f"{t['tier']}={t['live'].get(realms[0], {}).get('total')}" for t in e["tiers"]]
+            tot = [f"{t['tier']}={t['live'].get(realms[0], {}).get('total')}" for t in e["tiers"] if "live" in t]
             log.info("[%s] %s %s %s | %s", e["creator"], e["transition"], e["slot"], e["item"]["first"], " ".join(tot))

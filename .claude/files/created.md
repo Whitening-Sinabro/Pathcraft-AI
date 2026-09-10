@@ -324,7 +324,7 @@
 
 ## 2026-09-10 HC 여정 DB (`python/hc_journey/`, 커밋 e3f4a59→5bb406a + 이번 #1)
 - `python/hc_journey/schema.sql` · `build_db.py` · `README.md` — POE2 하코 여정 DB 3층 스키마, 다중 크리에이터 적재, `CURATION_RULES` 규칙 엔진(키스톤·스킬·슬롯·전직 트리거 자동 상속). 삭제 불가
-- `data/hc_journey/creators/<slug>/*.build` — 임성빈 5 · Skadoosh 5 밴드 PoB 픽스처(재현 가능 적재 입력). 삭제 불가
+- `data/hc_journey/creators/<slug>/*.build` — 임성빈 5 · Skadoosh 5 · ds lily 5(Lvl51 트리 탭은 밴드 제외) · Fubgun 7 밴드 PoB 픽스처(재현 가능 적재 입력, 원본은 build_planner/). 삭제 불가
 - `python/tests/test_hc_journey_db.py` — 다중 크리에이터·규칙 상속·2층 분리 4건. 삭제 불가
 - `python/hc_journey/rule_autodraft.py` — 규칙 자동 초안(#1). 전환 diff 트리거 + 판독 앵커(레벨 게이트·시간순 2클러스터) + 자막 창 신호 → `rule_candidates.json`. `CURATION_RULES` 읽기 전용(승인 게이트). 삭제 불가
 - `python/tests/test_rule_autodraft.py` — 초안기 14건: 신호 분류, 캐릭터 레벨 파싱(구간·임계·타인·젬 제외), 레벨 running max, 캐릭터 이름 제외, 원문 그대로+evidence(영상,초), 근거 중복 귀속 1회(also_matches), 같은 키 다중 전환은 앵커 레벨로 주인 결정, 소스 없는 크리에이터 0건, 규칙 무변경. 삭제 불가
