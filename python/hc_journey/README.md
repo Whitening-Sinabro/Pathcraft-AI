@@ -50,9 +50,28 @@ python -X utf8 -m pytest python/tests/test_hc_journey_db.py -q
 
 DB 파일 `data/hc_journey/pathcraft_hc.db`는 적재로 재생성되는 산출물이라 git 제외.
 
+## 규칙 자동 초안 (`rule_autodraft.py`) — 규칙 쓰기 자체를 반자동화
+
+규칙을 손으로 쓰는 것이 마지막 병목이라, 전환점 근처 자막에서 규칙 **후보**를 뽑아 승인 대기 파일로 낸다.
+
+```
+python -X utf8 python/hc_journey/rule_autodraft.py            # data/hc_journey/rule_candidates.json
+python -X utf8 python/hc_journey/rule_autodraft.py --dry-run  # 요약만
+python -X utf8 -m pytest python/tests/test_rule_autodraft.py -q
+```
+
+- **전환점** = `build_db` 와 같은 diff(`skill_added`·`item_changed`) + 설정(어센던시·키스톤). trigger_key 는 여기서만 온다.
+- **시각 앵커** = 사람 판독(`deliverables/.../precision_findings.py` ROWS 의 (영상, 초, 관측)). 판독의 "N레벨"을 forward-fill 해
+  전환 시작 레벨 이전 판독은 버리고, 시간순 앞쪽 클러스터(기본 2개)만 본다.
+- **신호** = 앵커 전후 90초 자막에서 cost/condition/pitfall/why/survival 정규식. 후보 text 는 자막 **원문 그대로**.
+- **정직성**: 자동 자막은 고유명사가 깨지므로 이름을 자막에서 확정하지 않는다(별칭은 판독 검색 힌트일 뿐).
+  같은 자막 창이 여러 트리거에 걸리면(스킬 창 판독은 스킬을 전부 나열) 하나에만 귀속하고 나머지는 `also_matches`.
+- **승인 게이트**: `CURATION_RULES` 를 읽기만 한다. 사람이 후보 파일에서 골라 규칙에 옮긴다. 이미 있는 (kind,key,note_type) 은 `existing_rule` 표시.
+- 소스는 크리에이터별(`CREATOR_SOURCES`). 소스 없는 크리에이터(Skadoosh)는 후보 0 — 다른 크리에이터의 영상을 빌리지 않는다.
+
 ## 다음
 
 - 크리에이터 다수 적재: HC 명부(`.claude/status/poe2_hardcore_sources.md`)의 밴드 PoB·ninja ID 수집.
-- 큐레이션 노트 파이프라인: 전환점 자막/VOD 채굴(반자동)로 `transition_note` 채우기.
+- 규칙 후보 승인 루프: `rule_candidates.json` 검토 → 채택분을 `CURATION_RULES` 로. 판독(사람 검증 텍스트)도 신호원으로 쓸지 결정.
 - 정본 게임데이터(Layer 1) 연결: 스킬/아이템/트리 노드 → GGPK 파생.
 - 그다음 UI/API.

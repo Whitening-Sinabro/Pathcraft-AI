@@ -1,0 +1,1163 @@
+{
+ "_meta": {
+  "purpose": "curation_rule 승인 대기 후보. 사람이 골라 build_db.CURATION_RULES 에 옮긴다. 자동 반영 금지.",
+  "honesty": "trigger_key 는 diff/PoB/설정에서, text 는 자막 원문 그대로. 자막으로 고유명사를 확정하지 않는다.",
+  "generated_utc": "2026-09-10T10:14:07+00:00",
+  "window_sec": 90.0,
+  "min_hits": 2,
+  "max_clusters": 2,
+  "sources": {
+   "임성빈": {
+    "transcripts": "deliverables/seongbin_from_day1_2026-09-09/transcripts",
+    "readouts": "deliverables/seongbin_from_day1_2026-09-09/precision_findings.py",
+    "n_triggers": 55,
+    "n_anchors": 358,
+    "videos": [
+     "39kHWKUhwhU",
+     "C_tkSubXWDk",
+     "GtC5-b4QXec",
+     "i6_tfxyQfeQ",
+     "xnREtaV3m1A",
+     "zKJQyBm4VnI"
+    ]
+   }
+  },
+  "n_candidates": 11,
+  "n_unanchored": 79,
+  "n_skipped": 5
+ },
+ "candidates": [
+  {
+   "trigger_kind": "ascendancy",
+   "trigger_key": "Gemling Legionnaire",
+   "note_type": "survival",
+   "text": "저항을 하나만 대충 반지 남아도는 / 저항 아무거나 하나만 해 두고",
+   "evidence": {
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 5037,
+    "ref": "C 5037초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5037s",
+    "lines": [
+     {
+      "sec": 5037,
+      "text": "저항을 하나만 대충 반지 남아도는"
+     },
+     {
+      "sec": 5041,
+      "text": "저항 아무거나 하나만 해 두고"
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      5035
+     ],
+     "level": 52,
+     "readout": "캐릭터 창(젬링 리저네어)에서 생명력1104·에너지 보호막504·마나443·정신력73, 방어도64%·회피1%·막기0%, 저항 화염49%·냉기41%·번개45%·카오스0%, 민첩64·지능92·힘92를 읽었다. 세부에 초당 생명력 회복30.5, 초당 ES 재충전109.6, ES 재충전 지연4"
+    }
+   },
+   "signals": [
+    "저항"
+   ],
+   "hits": 2,
+   "creator": "임성빈",
+   "transition_idx": 0,
+   "transition": "ACT1 → ACT2",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "skill_added",
+   "trigger_key": "OilGrenade",
+   "note_type": "pitfall",
+   "text": "죽지만 않으면 됩니다. / 한 번에 죽지만 않으면 돼서 그거 좀 / 조심해야 되죠. 이제 내려 찍는 거랑",
+   "evidence": {
+    "video": "A",
+    "video_id": "zKJQyBm4VnI",
+    "sec": 14245,
+    "ref": "A 14245초",
+    "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=14245s",
+    "lines": [
+     {
+      "sec": 14245,
+      "text": "죽지만 않으면 됩니다."
+     },
+     {
+      "sec": 14283,
+      "text": "한 번에 죽지만 않으면 돼서 그거 좀"
+     },
+     {
+      "sec": 14286,
+      "text": "조심해야 되죠. 이제 내려 찍는 거랑"
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      14200
+     ],
+     "level": 31,
+     "readout": "31레벨 G창: 폭발 유탄Lv10/DPS1257.9 보조3개, 가스Lv9/DPS172.7 보조2개+빈칸1개, 섬광Lv10/DPS344.8 보조2개, 급습Lv3/DPS173.2, 기름 유탄Lv11/DPS706.6 보조2칸 비어 있음. 기름 유탄 단축키 지정 중이다."
+    }
+   },
+   "signals": [
+    "조심",
+    "죽지"
+   ],
+   "hits": 3,
+   "creator": "임성빈",
+   "transition_idx": 1,
+   "transition": "ACT2 → ACT3-4",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "note_type": "condition",
+   "text": "뭐야? 지능이 모자라서 못 꼈구나. / 지능이 모잘라서 못 꼈으니까. / 난 지능 대충 올려 놓겠습니다.",
+   "evidence": {
+    "video": "B",
+    "video_id": "GtC5-b4QXec",
+    "sec": 9378,
+    "ref": "B 9378초",
+    "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=9378s",
+    "lines": [
+     {
+      "sec": 9378,
+      "text": "뭐야? 지능이 모자라서 못 꼈구나."
+     },
+     {
+      "sec": 9387,
+      "text": "지능이 모잘라서 못 꼈으니까."
+     },
+     {
+      "sec": 9391,
+      "text": "난 지능 대충 올려 놓겠습니다."
+     }
+    ],
+    "anchor": {
+     "n": 2,
+     "sec": [
+      9398,
+      9480
+     ],
+     "level": 45,
+     "readout": "지능37을 만든 뒤 투구는 캐릭터 외형에 표시되고 슬롯의 빨간 배경도 없어졌다. 갑옷은 여전히 빨간 배경이며 외형에 입혀지지 않았다."
+    }
+   },
+   "signals": [
+    "지능"
+   ],
+   "hits": 3,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "note_type": "pitfall",
+   "text": "하나로 안 되는구나. / 왜 집으로 귀한이 안 되지? / 안 해서 안 되는 건가? 그러네요.",
+   "evidence": {
+    "video": "B",
+    "video_id": "GtC5-b4QXec",
+    "sec": 9396,
+    "ref": "B 9396초",
+    "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=9396s",
+    "lines": [
+     {
+      "sec": 9396,
+      "text": "하나로 안 되는구나."
+     },
+     {
+      "sec": 9407,
+      "text": "왜 집으로 귀한이 안 되지?"
+     },
+     {
+      "sec": 9413,
+      "text": "안 해서 안 되는 건가? 그러네요."
+     }
+    ],
+    "anchor": {
+     "n": 2,
+     "sec": [
+      9398,
+      9480
+     ],
+     "level": 45,
+     "readout": "지능37을 만든 뒤 투구는 캐릭터 외형에 표시되고 슬롯의 빨간 배경도 없어졌다. 갑옷은 여전히 빨간 배경이며 외형에 입혀지지 않았다."
+    }
+   },
+   "signals": [
+    "안 되"
+   ],
+   "hits": 3,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Helm1",
+   "note_type": "survival",
+   "text": "요거는 가능하면 저항 / 저기 뭐 저항은",
+   "evidence": {
+    "video": "B",
+    "video_id": "GtC5-b4QXec",
+    "sec": 9370,
+    "ref": "B 9370초",
+    "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=9370s",
+    "lines": [
+     {
+      "sec": 9370,
+      "text": "요거는 가능하면 저항"
+     },
+     {
+      "sec": 9374,
+      "text": "저기 뭐 저항은"
+     }
+    ],
+    "anchor": {
+     "n": 2,
+     "sec": [
+      9398,
+      9480
+     ],
+     "level": 45,
+     "readout": "지능37을 만든 뒤 투구는 캐릭터 외형에 표시되고 슬롯의 빨간 배경도 없어졌다. 갑옷은 여전히 빨간 배경이며 외형에 입혀지지 않았다."
+    }
+   },
+   "signals": [
+    "저항"
+   ],
+   "hits": 2,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "note_type": "condition",
+   "text": "지능은 다 찍었고 / 민첩이 조금 필요하네요. / 또 필요한게",
+   "evidence": {
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4693,
+    "ref": "C 4693초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4693s",
+    "lines": [
+     {
+      "sec": 4693,
+      "text": "지능은 다 찍었고"
+     },
+     {
+      "sec": 4784,
+      "text": "민첩이 조금 필요하네요."
+     },
+     {
+      "sec": 4851,
+      "text": "또 필요한게"
+     }
+    ],
+    "anchor": {
+     "n": 5,
+     "sec": [
+      4755,
+      4771,
+      4790,
+      4830,
+      4860
+     ],
+     "level": 52,
+     "readout": "52레벨 장비 비교에서 상형 문자의 중심부 합금 석궁이 무기 세트I 장착 중이다. 물리21~88·냉기3~6·번개1~20, 물리75% 증가·모든 투사체 스킬+2·힘16·명중 생명력2, 화염 피해 줄은 없다. 요구 레벨26·힘28·민첩28·공격1.70/초·재장전0.70. 다른 툴팁의 소용돌"
+    }
+   },
+   "signals": [
+    "민첩",
+    "지능",
+    "필요하",
+    "필요한"
+   ],
+   "hits": 3,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [
+    {
+     "trigger": "skill_added/AscendancyVirtuousBarrier",
+     "transition": "ACT1 → ACT2",
+     "existing_rule": false
+    },
+    {
+     "trigger": "item_slot_change/Weapon2",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    },
+    {
+     "trigger": "skill_added/Attrition",
+     "transition": "ACT2 → ACT3-4",
+     "existing_rule": false
+    },
+    {
+     "trigger": "skill_added/Flameblast",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": true
+    },
+    {
+     "trigger": "skill_added/FlashGrenade",
+     "transition": "엔드게임(계획) → 실캐릭 lv93",
+     "existing_rule": false
+    },
+    {
+     "trigger": "skill_added/OilGrenade",
+     "transition": "ACT2 → ACT3-4",
+     "existing_rule": false
+    },
+    {
+     "trigger": "skill_added/ShockwaveTotem",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": true
+    }
+   ],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon2",
+   "note_type": "pitfall",
+   "text": "왜 집으로 귀한이 안 되지? / 안 해서 안 되는 건가? 그러네요.",
+   "evidence": {
+    "video": "B",
+    "video_id": "GtC5-b4QXec",
+    "sec": 9407,
+    "ref": "B 9407초",
+    "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=9407s",
+    "lines": [
+     {
+      "sec": 9407,
+      "text": "왜 집으로 귀한이 안 되지?"
+     },
+     {
+      "sec": 9413,
+      "text": "안 해서 안 되는 건가? 그러네요."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      9492
+     ],
+     "level": 45,
+     "readout": "무기 세트II에 장착 중인 혐오스러운 발톱 쐐기끝 부적을 살펴본다. 곰 형상, 요구 레벨6·힘9·지능8, 물리29~46·냉기5~10, 치명타11%, 공격1.34/초. 물리52% 증가·물리7~10 추가·냉기5~10 추가·공속7%가 보인다."
+    }
+   },
+   "signals": [
+    "안 되"
+   ],
+   "hits": 2,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "skill_added",
+   "trigger_key": "Flameblast",
+   "note_type": "condition",
+   "text": "포격석궁 필요하네요. / 92지는 92가 필요하 / 음민첩에서",
+   "evidence": {
+    "video": "C",
+    "video_id": "C_tkSubXWDk",
+    "sec": 4483,
+    "ref": "C 4483초",
+    "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4483s",
+    "lines": [
+     {
+      "sec": 4483,
+      "text": "포격석궁 필요하네요."
+     },
+     {
+      "sec": 4540,
+      "text": "92지는 92가 필요하"
+     },
+     {
+      "sec": 4545,
+      "text": "음민첩에서"
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      4540
+     ],
+     "level": 52,
+     "readout": "화염파Lv13 새기기 목록 툴팁에 요구 레벨52와 빨간 지능92가 보인다. 아래 활성 빌드 플래너는 ACT3/4다. 골드100175이다."
+    }
+   },
+   "signals": [
+    "민첩",
+    "필요하"
+   ],
+   "hits": 3,
+   "creator": "임성빈",
+   "transition_idx": 2,
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "existing_rule": true,
+   "also_matches": [
+    {
+     "trigger": "item_slot_change/Weapon1",
+     "transition": "ACT3-4 → 엔드게임(계획)",
+     "existing_rule": false
+    }
+   ],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "keystone",
+   "trigger_key": "Blackflame Covenant",
+   "note_type": "pitfall",
+   "text": "검은 화염이 버그였다 / 포기해야 되는데",
+   "evidence": {
+    "video": "E",
+    "video_id": "xnREtaV3m1A",
+    "sec": 8822,
+    "ref": "E 8822초",
+    "url": "https://www.youtube.com/watch?v=xnREtaV3m1A&t=8822s",
+    "lines": [
+     {
+      "sec": 8822,
+      "text": "검은 화염이 버그였다"
+     },
+     {
+      "sec": 8883,
+      "text": "포기해야 되는데"
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      8876
+     ],
+     "level": 88,
+     "readout": "같은 트리에서 **검은화염 계약** 키스톤 툴팁을 읽었다. 효과는 세 줄이다. ①화염 주문이 화염 피해의 **100%를 카오스 피해로 전환** ②화염 주문의 카오스 피해가 **인화성 및 점화 강도에 반영** ③화염 주문으로 유발된 점화가 화염 피해 대신 **카오스 피해를 줌**. 상태는"
+    }
+   },
+   "signals": [
+    "버그",
+    "포기해야"
+   ],
+   "hits": 2,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "keystone",
+   "trigger_key": "Blackflame Covenant",
+   "note_type": "cost",
+   "text": "액잘티드도 이렇게 많을 필요가 / 액잘티드 정리할 겸바인네.",
+   "evidence": {
+    "video": "E",
+    "video_id": "xnREtaV3m1A",
+    "sec": 8898,
+    "ref": "E 8898초",
+    "url": "https://www.youtube.com/watch?v=xnREtaV3m1A&t=8898s",
+    "lines": [
+     {
+      "sec": 8898,
+      "text": "액잘티드도 이렇게 많을 필요가"
+     },
+     {
+      "sec": 8905,
+      "text": "액잘티드 정리할 겸바인네."
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      8876
+     ],
+     "level": 88,
+     "readout": "같은 트리에서 **검은화염 계약** 키스톤 툴팁을 읽었다. 효과는 세 줄이다. ①화염 주문이 화염 피해의 **100%를 카오스 피해로 전환** ②화염 주문의 카오스 피해가 **인화성 및 점화 강도에 반영** ③화염 주문으로 유발된 점화가 화염 피해 대신 **카오스 피해를 줌**. 상태는"
+    }
+   },
+   "signals": [
+    "액잘"
+   ],
+   "hits": 2,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "pending"
+  },
+  {
+   "trigger_kind": "skill_added",
+   "trigger_key": "Despair",
+   "note_type": "pitfall",
+   "text": "회오리 회오리는 빼고 / 시체 폭발이 위험하니까",
+   "evidence": {
+    "video": "E",
+    "video_id": "xnREtaV3m1A",
+    "sec": 13044,
+    "ref": "E 13044초",
+    "url": "https://www.youtube.com/watch?v=xnREtaV3m1A&t=13044s",
+    "lines": [
+     {
+      "sec": 13044,
+      "text": "회오리 회오리는 빼고"
+     },
+     {
+      "sec": 13093,
+      "text": "시체 폭발이 위험하니까"
+     }
+    ],
+    "anchor": {
+     "n": 1,
+     "sec": [
+      13044
+     ],
+     "level": 89,
+     "readout": "89레벨 스킬 창이다. 위에서부터 레벨:1(정신력8) DPS756.1 보조6칸 전부 충전, 레벨:15 기름 유탄 DPS33.2 보조6칸, 레벨:9 지옥불 함성 보조3칸, 레벨:19 절망 보조5칸 중4칸, **레벨:14 회피 구르기 시 시전**(선택 강조, 보조5칸 중4칸에 커서), 레벨"
+    }
+   },
+   "signals": [
+    "빼고",
+    "위험"
+   ],
+   "hits": 2,
+   "creator": "임성빈",
+   "transition_idx": 3,
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "existing_rule": false,
+   "also_matches": [],
+   "status": "pending"
+  }
+ ],
+ "unanchored": [
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "skill_added",
+   "trigger_key": "ShockwaveTotem",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Earthquake",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "skill_added",
+   "trigger_key": "MagmaBarrier",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon2",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Offhand1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "BodyArmour1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Flask1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Charm1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "skill_added",
+   "trigger_key": "VolcanicFissure",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "skill_added",
+   "trigger_key": "HeraldOfAsh",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon2",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Offhand1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "BodyArmour1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Flask1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv11-20 → Lv21-30",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Charm1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "skill_added",
+   "trigger_key": "ForgeHammer",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon2",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Offhand1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "BodyArmour1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Flask1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv21-30 → Lv31-41",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Charm1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "skill_added",
+   "trigger_key": "AscendancyAncestralSpirits",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "skill_added",
+   "trigger_key": "ShieldBlock",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "skill_added",
+   "trigger_key": "FortifyingCry",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "skill_added",
+   "trigger_key": "ResonatingShield",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "skill_added",
+   "trigger_key": "VolcanicFissure",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Weapon2",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Offhand1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "BodyArmour1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Gloves1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Boots1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Amulet1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Belt1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring2",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Flask1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Charm1",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv01-10 → Lv11-20",
+   "trigger_kind": "ascendancy",
+   "trigger_key": "Warbringer",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "keystone",
+   "trigger_key": "Ancestral Bond",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "Skadoosh",
+   "transition": "Lv31-41 → 실캐릭 live",
+   "trigger_kind": "keystone",
+   "trigger_key": "Blood Magic",
+   "reason": "자막/판독 소스 없음"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT1 → ACT2",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "BodyArmour1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT1 → ACT2",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Gloves1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT1 → ACT2",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Boots1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT1 → ACT2",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Belt1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT1 → ACT2",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT1 → ACT2",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring2",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT1 → ACT2",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Flask1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "BodyArmour1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Gloves1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Boots1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Amulet1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring2",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Flask1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT2 → ACT3-4",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Charm1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "skill_added",
+   "trigger_key": "TameBeast",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "skill_added",
+   "trigger_key": "InfernalCry",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "skill_added",
+   "trigger_key": "SeismicCry",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "skill_added",
+   "trigger_key": "Blasphemy",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "skill_added",
+   "trigger_key": "ScavengedPlating",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "skill_added",
+   "trigger_key": "PermafrostBolts",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "skill_added",
+   "trigger_key": "FragmentationRounds",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Gloves1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Boots1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring2",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Flask1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "ACT3-4 → 엔드게임(계획)",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Charm1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "skill_added",
+   "trigger_key": "SigilOfPower",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "skill_added",
+   "trigger_key": "WitheringPresence",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "skill_added",
+   "trigger_key": "ArcticArmour",
+   "reason": "판독에 언급 없음(레벨 게이트 포함)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Amulet1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Ring2",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Flask1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  },
+  {
+   "creator": "임성빈",
+   "transition": "엔드게임(계획) → 실캐릭 lv93",
+   "trigger_kind": "item_slot_change",
+   "trigger_key": "Charm1",
+   "reason": "alias 없음(검색 힌트 미등록)"
+  }
+ ],
+ "skipped": [
+  {
+   "trigger_key": "Tornado",
+   "video": "F",
+   "sec": [
+    160,
+    180,
+    190,
+    210,
+    214,
+    218,
+    220
+   ],
+   "reason": "자막 없음"
+  },
+  {
+   "trigger_key": "ShockwaveTotem",
+   "video": "F",
+   "sec": [
+    218
+   ],
+   "reason": "자막 없음"
+  },
+  {
+   "trigger_key": "CastOnElementalAilment",
+   "video": "F",
+   "sec": [
+    207,
+    217,
+    218
+   ],
+   "reason": "자막 없음"
+  },
+  {
+   "trigger_key": "CastOnElementalAilment",
+   "video": "F",
+   "sec": [
+    5460
+   ],
+   "reason": "자막 없음"
+  },
+  {
+   "trigger_key": "Blackflame Covenant",
+   "video": "F",
+   "sec": [
+    75
+   ],
+   "reason": "자막 없음"
+  }
+ ]
+}
