@@ -70,6 +70,7 @@ def render_build(con: sqlite3.Connection, build_id: int, now: datetime) -> str:
     snaps = con.execute("SELECT * FROM snapshot WHERE build_id=? ORDER BY order_idx", (build_id,)).fetchall()
     out.append("<div class='timeline'>" + " → ".join(
         f"{_e(s['stage_label'])}{' (≤' + str(s['level_hint']) + ')' if s['level_hint'] else ''} · P{s['passives_n'] or '-'}" for s in snaps) + "</div>")
+    seen_rules: set[int] = set()  # 같은 빌드 안에서 같은 규칙은 첫 전환에만 전문, 이후는 한 줄로 접는다(슬롯 규칙이 밴드마다 붙는다)
     for t in con.execute("SELECT * FROM transition WHERE build_id=? ORDER BY order_idx", (build_id,)).fetchall():
         f = con.execute("SELECT stage_label FROM snapshot WHERE id=?", (t["from_snapshot"],)).fetchone()[0]
         to = con.execute("SELECT stage_label, level_hint FROM snapshot WHERE id=?", (t["to_snapshot"],)).fetchone()
@@ -86,11 +87,22 @@ def render_build(con: sqlite3.Connection, build_id: int, now: datetime) -> str:
         for c in changes:
             out.append(f"<li>{_e(c['detail'])}</li>")
         out.append("</ul></details>")
+        repeated = []
         for n in notes:
+            if n["source"] == "rule" and n["rule_id"] in seen_rules:
+                repeated.append(n)
+                continue
+            if n["source"] == "rule":
+                seen_rules.add(n["rule_id"])
             cls = "note rule" if n["source"] == "rule" else "note"
             tag = "규칙" if n["source"] == "rule" else "손"
             out.append(f"<div class='{cls}'><span class='tag {'rule' if n['source'] == 'rule' else ''}'>{tag} · {_e(n['note_type'])}</span>"
                        f"{_e(n['text'])} <span class='ev'>&lt;{_e(n['evidence_ref'])}&gt;</span></div>")
+        if repeated:
+            out.append("<details class='repeat'><summary>앞서 본 규칙 " + str(len(repeated)) + "건 (같은 지식이 이 전환에도 적용)</summary>")
+            for n in repeated:
+                out.append(f"<div class='note rule'><span class='tag rule'>규칙 · {_e(n['note_type'])}</span>{_e(n['text'][:70])}…</div>")
+            out.append("</details>")
         targets = con.execute(
             "SELECT tt.*, c.subject AS slot FROM trade_target tt JOIN transition_change c ON c.id=tt.change_id "
             "WHERE c.transition_id=? ORDER BY c.id", (t["id"],)).fetchall()
@@ -140,16 +152,48 @@ def render(build_ids: list[int] | None = None, now: datetime | None = None) -> s
             f"{body}</main></body></html>")
 
 
+def render_split(out_dir: Path, now: datetime | None = None) -> list[Path]:
+    """빌드마다 journey_<id>.html + 목차 journey.html. ?q= 링크가 길어 한 장에 다 넣으면 0.5MB 를 넘는다."""
+    now = now or datetime.now(timezone.utc)
+    con = sqlite3.connect(build_db.DB_PATH)
+    con.row_factory = sqlite3.Row
+    builds = con.execute("SELECT b.id, b.name, b.hardcore, b.ssf, b.ascendancy, c.name AS creator FROM build b "
+                         "JOIN creator c ON c.id=b.creator_id ORDER BY b.id").fetchall()
+    con.close()
+    out_dir.mkdir(parents=True, exist_ok=True)
+    written = []
+    items = []
+    for b in builds:
+        p = out_dir / f"journey_{b['id']}.html"
+        p.write_text(render([b["id"]], now), encoding="utf-8")
+        written.append(p)
+        mode = ("HC" if b["hardcore"] else "SC") + (" SSF" if b["ssf"] else "")
+        items.append(f"<li><a href='{p.name}'>{_e(b['creator'])} — {_e(b['name'])}</a> <span class='meta'>{mode} · {_e(b['ascendancy'])}</span></li>")
+    index = out_dir / "journey.html"
+    index.write_text(f"<!doctype html><html lang='ko'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
+                     f"<title>PathcraftAI HC 여정</title><style>{CSS}</style></head><body><main><h1>PathcraftAI — POE2 하드코어 여정 DB</h1>"
+                     f"<div class='meta'>빌드 {len(builds)} · 렌더 {now.isoformat(timespec='minutes')}</div><ul>{''.join(items)}</ul></main></body></html>",
+                     encoding="utf-8")
+    written.append(index)
+    return written
+
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--id", type=int, action="append", help="빌드 id(반복 가능). 비우면 전체")
-    ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    ap.add_argument("--id", type=int, action="append", help="빌드 id(반복 가능). 비우면 빌드별 파일 + 목차")
+    ap.add_argument("--out", type=Path, default=DEFAULT_OUT, help="--id 를 줬을 때의 출력 파일. 비우면 같은 폴더에 journey_<id>.html + journey.html")
     ap.add_argument("--open", action="store_true", help="렌더 후 기본 브라우저로 연다")
     a = ap.parse_args()
-    page = render(a.id)
-    a.out.parent.mkdir(parents=True, exist_ok=True)
-    a.out.write_text(page, encoding="utf-8")
-    log.info("여정 뷰 → %s (%d bytes)", a.out, len(page.encode("utf-8")))
+    if a.id:
+        page = render(a.id)
+        a.out.parent.mkdir(parents=True, exist_ok=True)
+        a.out.write_text(page, encoding="utf-8")
+        target = a.out
+        log.info("여정 뷰 → %s (%d bytes)", a.out, len(page.encode("utf-8")))
+    else:
+        files = render_split(a.out.parent)
+        target = files[-1]
+        log.info("여정 뷰 → %s (%d 파일)", target, len(files))
     if a.open:
-        subprocess.run(["powershell", "-NoProfile", "-Command", f"Start-Process '{a.out}'"], check=False)
+        subprocess.run(["powershell", "-NoProfile", "-Command", f"Start-Process '{target}'"], check=False)

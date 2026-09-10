@@ -18,6 +18,21 @@ def test_render_all_builds_has_journey_notes_and_trade_links():
     assert "/trade2/search/poe2/HC%20Forbidden%20Rites?q=" in page
     assert "linear-gradient" not in page and "#" not in rj.CSS.replace("&#", "")  # 문서 스타일: 그라데이션·hex 없음
     assert "요구 ≤ 93" in page
+    # 슬롯 규칙(무기 유형 함정)은 첫 전환에만 전문, 이후 전환에선 접힌 한 줄 — 같은 빌드 안에서 전문은 한 번
+    one = rj.render([1])
+    full = "무기 교체 시 무기 유형에 묶인 스킬은 '충족되지 않은 스킬 요구사항: 잘못된 무기 유형'으로 죽는다(임성빈: 석궁→지팡이 전환 때 급습 제거). 요구 레벨"
+    assert one.count(full) == 1 and "앞서 본 규칙" in one
+
+
+def test_render_split_writes_per_build_files_and_index(tmp_path):
+    build_db.build()
+    files = rj.render_split(tmp_path)
+    names = sorted(p.name for p in files)
+    assert names == sorted(["journey.html"] + [f"journey_{i}.html" for i in range(1, len(build_db.CREATORS) + 1)])
+    index = (tmp_path / "journey.html").read_text(encoding="utf-8")
+    assert "journey_1.html" in index and "임성빈" in index and "?q=" not in index   # 목차엔 무거운 링크가 없다
+    one = (tmp_path / "journey_1.html").read_text(encoding="utf-8")
+    assert "임성빈" in one and "Skadoosh" not in one and "T1 그대로 · 국제" in one
 
 
 def test_render_single_build_and_live_freshness():
