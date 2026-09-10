@@ -1,0 +1,109 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>사건별 교차검증과 정정</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f3eb;color:#24332e;font-family:"Malgun Gothic",system-ui,sans-serif;line-height:1.85}header{background:#173f35;color:#fff;padding:30px max(20px,calc((100vw - 1160px)/2));border-bottom:5px solid #c9a458}header .eyebrow{letter-spacing:.13em;font-size:12px;color:#d7c9a7}header p{margin:8px 0 0;font-size:23px;font-weight:700}nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}nav a{color:#fff;text-decoration:none;padding:5px 12px;border:1px solid #668379;border-radius:8px;font-size:13px}nav a[aria-current]{background:#f6f3eb;color:#173f35}main{max-width:1200px;margin:30px auto;padding:0 20px 60px}article{background:#fffdf8;padding:35px 42px;border:1px solid #ddd8c9;border-radius:12px;min-width:0}h1{font-size:32px;line-height:1.4;margin:0 0 24px;letter-spacing:-.035em}h2{font-size:23px;margin:38px 0 14px;border-top:1px solid #ddd8c9;padding-top:24px}h3{font-size:18px;margin-top:27px}p,li{overflow-wrap:anywhere}a{color:#236755;text-underline-offset:3px}strong{color:#183f35}img{max-width:100%;height:auto;display:block;border:1px solid #ddd8c9;border-radius:8px}code{font-size:.9em;overflow-wrap:anywhere;background:#eeeade;padding:2px 4px}pre{overflow:auto}.table-scroll{overflow:auto;border:1px solid #ddd8c9;border-radius:8px;margin:20px 0}table{border-collapse:collapse;width:100%;font-size:13px;min-width:600px}th{background:#e8eee7;text-align:left}th,td{padding:12px;border-bottom:1px solid #deded2;vertical-align:top}tbody tr:nth-child(even){background:#f7f7ef}td:first-child{min-width:170px}footer{font-size:12px;color:#68736a;margin-top:25px}.search{width:100%;max-width:420px;padding:10px;border:1px solid #aaa;border-radius:6px;font:inherit}.toc{background:#f0f2e9;padding:14px 20px;border-radius:8px;font-size:14px}.toc ul{margin:5px 0;padding-left:20px}@media(max-width:650px){header{padding:22px 16px}header p{font-size:19px}main{padding:0 10px;margin:15px auto}article{padding:23px 17px}h1{font-size:26px}h2{font-size:21px}nav{gap:5px}nav a{font-size:12px;padding:4px 9px}table{min-width:650px}}@media print{header nav,.search,.toc{display:none}body{background:white}main,article{margin:0;padding:0;border:0}table{font-size:10px}a{color:inherit}}</style></head><body><header><div class="eyebrow">POE2 · 0.5.5 · SEONGBIN</div><p>화염파 젬링, 첫날부터 따라 읽기</p><nav aria-label="보고서 탐색"><a href="index.html">시작</a><a href="핵심차이_실전보완.html">핵심 차이</a><a href="첫날_상세분석.html">첫날</a><a href="원본_정밀확인.html">원본 판독</a><a href="보관함_정리방식.html">보관함</a><a href="단계별_따라하기.html">따라하기</a><a href="다음방송_전환분석.html">화염파 전환</a><a href="후속방송_추가조사.html">후속 변경</a><a href="플래너_대조.html">플래너</a><a href="방송목록.html">방송목록</a><a href="미확인_항목.html">남은 확인</a></nav></header><main><article><p><label for="filter">표에서 내용 찾기</label><br><input id="filter" class="search" type="search" placeholder="예: 전직, 파편탄, 정신력"></p><h1 id="_1">사건별 교차검증과 정정</h1>
+<h2 id="_2">겹치는 구간과 정정 이력</h2>
+<p>동일 영상 ID·정확한 시각은 한 화면 기록으로 유지한다. 같은 화면의 재판독은 새 판독 건수에 더하지 않는다. 다른 시각의 전후 화면은 별도 근거로 등록하되, 같은 구매·제작·장착 사건 아래 연결한다. 화면 수는 서로 다른 사건 수나 연속 시청 시간이 아니다.</p>
+<p>{'id':'MAXPOOL-ORB-STACKS','title':'표시 최대 생명력·보호막이 흔들리는 원인 = 버프 줄 구슬 충전(구간 한정)',
+  'frames':[(C,8620),(C,9090),(C,9190),(C,9450),(C,9451),(C,9451.5),(C,9452),(C,9455),(C,9465),(C,9480),(C,9352),(C,9360),(F,120),(F,170),(F,222),(F,4800),(F,5380),(F,5402),(F,5406),(F,5410),(F,5414),(F,5430),(F,5690),(F,6000),(F,6900)],
+  'result':'HUD의 표시 최대 생명력·보호막은 <strong>버프 줄의 빨강·초록·파랑 구슬 충전 개수</strong>와 함께 움직인다. 한 방향으로 변하는 단일 변수 근거가 있다. C9451초→9451.5초는 초록8·파랑6이 그대로인 채 빨강만14→15로 오르고 최대 생명력이1490→1512로 딱 그만큼 오른다(빨강 하나당 약22.4). C9190초는 구슬이 하나도 없는 프레임이고 그때 값이1176/670으로, 이것이 그 구간의 기준값이다. 9452초 58레벨 달성 순간에는 구슬이 전부 사라져 기준값1189/670이 그대로 드러난다(레벨업으로 기준 생명력만+13). 초록 충전 하나당 최대 보호막 증가폭은 C에서 약20.25, F에서 약27.9다. <strong>다만 기준값은 상수가 아니다.</strong> 같은 C 방송에서 빨강15·초록8·파랑6이라는 똑같은 조합이 8620초에는1554/722,9090초에는 보호막806,9450초에는1512/832로 나온다. 세 값 모두 초록8개분(162)을 빼면 기준 보호막이560·644·670으로 갈리며, 그 사이에 투구 거래와 장비 교체가 있었다. F도 마찬가지로4800·5430초의 빨강12·초록7은 보호막3131인데,6900초 세케마의 시련에서는 같은 조합에 축복 아이콘 세 개가 더 붙어3607이다. <strong>그러므로 규칙은 장비·레벨·지역 효과가 같은 한 구간 안에서만 성립한다.</strong> 증가폭이 C와 F에서 다른 이유도 여기 있다. F5690초 트리의 주얼 미리보기(에너지 보호막 최대치11% 증가가2936을2997로 만든다)로 역산하면 증가율이 붙지 않은 기준 보호막은 약555이고, 그 5%가 약27.8로 F의 관측 증가폭과 맞는다. 즉 충전은 <strong>증가율이 붙지 않은 기준값에 비례하는 양</strong>을 더하므로 구간마다 표시 증가폭이 달라진다.',
+  'remaining':'구슬 세 개의 실제 이름과 효과 문구는 커서를 올린 화면이 없어 미확인이다. 아이콘 형태만 보면 전통적인 지구력(빨강)·격노(초록)·마력(파랑) 충전 구슬과 같지만 이름으로 확정하지 않는다. 이전 판독이 붙인 "플라스크 충전 표시"라는 라벨도 확인된 것이 아니다. F6900초의 추가 보호막476이 시련 축복인지 다른 효과인지도 화면만으로는 확정하지 못했다. 최대 생명력 쪽은 F에서 빨강만으로 설명되지 않는 구간이 남는다.'},
+](교차검증_이력.json)에 남긴다. 인계된93건의 원본 이미지와 초기 기록 백업은 보존한다. 선택 목록을 장착 완료로, 아이콘을 이름 툴팁으로, 방송 발언을 검증된 게임 메커닉으로 승격하지 않는다.</p>
+<h2 id="_3">같은 사건에 연결한 전후 화면</h2>
+<h3 id="14">14레벨 가스 최초 두 보조</h3>
+<p>민첩 배정과 가스 등록 → 원소 병기 I → 다중 사격 I 장착. 기존 폭발·섬광 보조는 남아 있음.</p>
+<p><a href="mcp_session/A_05373.png">FRAME-A-05373</a> → <a href="mcp_session/A_05374.png">FRAME-A-05374</a> → <a href="mcp_session/A_05387.png">FRAME-A-05387</a> → <a href="mcp_session/A_05388.png">FRAME-A-05388</a> → <a href="mcp_session/A_05393.png">FRAME-A-05393</a> → <a href="mcp_session/A_5393.5.png">FRAME-A-5393.5</a></p>
+<p>남은 확인: 더 앞선 폭발·섬광의 보조 연결 전후는 후속 원본으로 보완했다. 모든 미가공 보조 획득 순간의 전수 추적은 최신 범위에서 제외했다.</p>
+<h3 id="_4">포격 석궁 복합 접두 제작</h3>
+<p>일반 엑잘티드 오브1개로 물리21%·정확도30 복합 접두 추가. 훼손 뒤 힘+6 선택은 C4465초 동일 이름의 실제 세트I 장착 툴팁에서 확정됐다. C에서는 품질20%이며 투사체+2 옵션은 없다.</p>
+<p><a href="mcp_session/A_12984.png">FRAME-A-12984</a> → <a href="mcp_session/A_12996.5.png">FRAME-A-12996.5</a> → <a href="mcp_session/A_12999.png">FRAME-A-12999</a> → <a href="mcp_session/A_13000.png">FRAME-A-13000</a> → <a href="mcp_session/A_13008.png">FRAME-A-13008</a> → <a href="mcp_session/A_13024.png">FRAME-A-13024</a> → <a href="mcp_session/B_00750.png">FRAME-B-00750</a> → <a href="mcp_session/B_00761.png">FRAME-B-00761</a> → <a href="mcp_session/B_00806.png">FRAME-B-00806</a> → <a href="mcp_session/C_04465.png">FRAME-C-04465</a></p>
+<p>남은 확인: 첫날 기존 무기와 같은 조건의 순수DPS 비교는 미확인. 모든 소켓·품질 재료 클릭 추적은 부가 항목이다.</p>
+<h3 id="i">카발라 보상 뒤 환불과 세트 I 배정</h3>
+<p>일반+2·무기 세트+2 알림 → 일반 노드2개 환불652골드 → 세트 I에 유탄 피해12% 한 개와 재사용 대기시간 회복 속도15% 세 개를 순서대로 적용. 일반1·I0(4)·II4(4)가 남음. 척탄병은 미배정.</p>
+<p><a href="mcp_session/A_09474.png">FRAME-A-09474</a> → <a href="mcp_session/A_09483.png">FRAME-A-09483</a> → <a href="mcp_session/A_09486.png">FRAME-A-09486</a> → <a href="mcp_session/A_9489.15.png">FRAME-A-9489.15</a> → <a href="mcp_session/A_9489.6.png">FRAME-A-9489.6</a> → <a href="mcp_session/A_09490.png">FRAME-A-09490</a> → <a href="mcp_session/A_09492.png">FRAME-A-09492</a> → <a href="mcp_session/A_09496.png">FRAME-A-09496</a></p>
+<p>남은 확인: 전체 양쪽 트리, 이 구간의 노드와 플래너 내부 ID의 정확한 대응, 이후 척탄병 취득, 별도 케스 무기 퀘스트 완료.</p>
+<h3 id="_5">첫날 두 번의 전직 포인트 사용</h3>
+<p>혼돈 후 미덕의 정수·고결한 방어막 → 세케마 후 퀄리티+2% 작은 노드·고급 마석학 적용.</p>
+<p><a href="mcp_session/B_06418.png">FRAME-B-06418</a> → <a href="mcp_session/B_06419.png">FRAME-B-06419</a> → <a href="mcp_session/B_06422.png">FRAME-B-06422</a> → <a href="mcp_session/B_06995.png">FRAME-B-06995</a> → <a href="mcp_session/B_6995.75.png">FRAME-B-6995.75</a> → <a href="mcp_session/B_06997.png">FRAME-B-06997</a></p>
+<p>남은 확인: 고급 마석학에 따른 각 젬의 추가 퀄리티 효과와 세트별 방어 상세 수치는 아직 미확인.</p>
+<h3 id="52">52레벨 요구 지능·재분배 비용·임시 석궁</h3>
+<p>화염 추가 포격 석궁·반지 제거, 지능47→92로 요구치 충족. 준비 패시브 구간 골드100175→49779 순감소50396, 일반20포인트 남음. 참고 플래너를 후기 단계로 바꿔도 실제 전체 적용 완료는 아니다. 보관했던 합금 석궁으로 대체해 포격 베이스 투사체+1을 포기.</p>
+<p><a href="mcp_session/C_04465.png">FRAME-C-04465</a> → <a href="mcp_session/C_04468.png">FRAME-C-04468</a> → <a href="mcp_session/C_04540.png">FRAME-C-04540</a> → <a href="mcp_session/C_04550.png">FRAME-C-04550</a> → <a href="mcp_session/C_04595.png">FRAME-C-04595</a> → <a href="mcp_session/C_04670.png">FRAME-C-04670</a> → <a href="mcp_session/C_04725.png">FRAME-C-04725</a> → <a href="mcp_session/C_04750.png">FRAME-C-04750</a> → <a href="mcp_session/C_04755.png">FRAME-C-04755</a></p>
+<p>남은 확인: 모든 노드 클릭/내부ID 전수 대응은 범위 제외. 최종 대체 반지 손익·세트II 지팡이 활성·초기 보조 및 남은20포인트 배정의 주요 차이, 이후 추가 비용은 별도 확인한다.</p>
+<h3 id="_6">첫 보스 뒤 화염파 퀄리티 누락 보완</h3>
+<p>보스 뒤 프리즘 드롭·소지→화염파Lv13 본체 퀄리티0→20%, 추가4% 유지. 최종 시전 속도24% 증폭·단계당 피해 상태 이상 강도48% 증폭, 요구 레벨52·지능92. 소지품 프리즘1개가 사라지고 표시DPS289.1은 그대로다.</p>
+<p><a href="mcp_session/C_05435.png">FRAME-C-05435</a> → <a href="mcp_session/C_05451.png">FRAME-C-05451</a> → <a href="mcp_session/C_5455.25.png">FRAME-C-5455.25</a> → <a href="mcp_session/C_5456.25.png">FRAME-C-5456.25</a> → <a href="mcp_session/C_05460.png">FRAME-C-05460</a></p>
+<p>남은 확인: 보관함까지 포함한 총 프리즘 차감량은 미확정. 첫날 네 개 준비 발언과 소지품1개 소모를 구분하며, 일반적인 화폐 효과를 독립 검증한 것은 아니다.</p>
+<h3 id="52_1">52레벨 화염파·함성 스킬별 무기 세트 수정</h3>
+<p>화염파 I·II 허용→II만, 지옥불 함성 I·II 허용→I만으로 실제 체크 해제. 기름I만 허용. 정신력 관리 I13·II43, 재의 전령I만·소모양쪽·고결한 방어막 항상 활성화. 수정 후 전투 HUD13/73·43/73 두 상태 확인.</p>
+<p><a href="mcp_session/C_05794.png">FRAME-C-05794</a> → <a href="mcp_session/C_5795.5.png">FRAME-C-5795.5</a> → <a href="mcp_session/C_05797.png">FRAME-C-05797</a> → <a href="mcp_session/C_05800.png">FRAME-C-05800</a> → <a href="mcp_session/C_5801.25.png">FRAME-C-5801.25</a> → <a href="mcp_session/C_5804.25.png">FRAME-C-5804.25</a> → <a href="mcp_session/C_05808.png">FRAME-C-05808</a> → <a href="mcp_session/C_05814.png">FRAME-C-05814</a></p>
+<p>남은 확인: 요구 지능92 충족·준비 골드 순감소50396·퀄리티0→20%는 별도 사건에서 해결했다. 초기 보조의 실제 제약·세트별 전체 방어·생명력/마나 소비와 복귀 행동은 미확인. 정지 화면을 연속 전투 검증으로 취급하지 않음.</p>
+<h3 id="47">47레벨 변이하는 별 확보·준비·교체 손익</h3>
+<p>의식 헌정품 후보→소지→품질6%·증강물 방어도/ES18% 준비→고유 장착→희귀 보관. 같은 마을 비교에서 생명력-67·ES+39, 생명력 재생2.7→30.5·ES 재충전64.2→104.8, 화염 표시75→59%·카오스12→0%. 기존 번개저항7% 옵션을 잃어도 상한 표시75%는 유지.</p>
+<p><a href="mcp_session/C_01455.png">FRAME-C-01455</a> → <a href="mcp_session/C_01490.png">FRAME-C-01490</a> → <a href="mcp_session/C_01515.png">FRAME-C-01515</a> → <a href="mcp_session/C_01531.png">FRAME-C-01531</a> → <a href="mcp_session/C_01535.png">FRAME-C-01535</a> → <a href="mcp_session/C_01537.png">FRAME-C-01537</a> → <a href="mcp_session/C_01560.png">FRAME-C-01560</a></p>
+<p>남은 확인: 가격 표시가 없으므로 실제 지불은 미확정. 품질·소켓·증강물 재료의 개수와 이름, 두 세트 전투 방어 상태는 별도 질문이다.</p>
+<h2 id="_7">정정 내역</h2>
+<table>
+<thead>
+<tr>
+<th>기존 화면</th>
+<th>정정 이유</th>
+<th>현재 설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FRAME-A-01473</td>
+<td>폭발 원소 병기 I 제작·장착 완료 미확인 해소.</td>
+<td>원소 병기 I 새기기 확인 창이 열린다. 툴팁에는 공격 스킬 원소 피해 20% 증폭, 소모 배율 120%가 표시된다.<br>1473.25초 G창에 원소 병기 새기기 아이콘이 폭발 둘째 보조로 들어갔고 미가공 보조 젬은 사라졌다. 제작 확인 창과 장착 완료 결과를 전후로 대조했다.</td>
+</tr>
+<tr>
+<td>FRAME-A-02736</td>
+<td>섬광 둘째 보조를 포악함 I 제작·장착으로 확정.</td>
+<td>8레벨 G창의 섬광 유탄 Lv3에 보조 두 개가 채워져 있고 DPS40.6이다. 폭발 유탄 Lv2에도 두 개가 채워져 있으며 DPS90.2, 파편 탄환 장전 Lv1은 남아 있다. 정신력0, 보조 사용량 힘2/4·민첩2/3·지능0/1.<br>2734.75초 포악함 I 새기기 확인 창의 붉은 아이콘과 둘째 소켓이 일치한다. 고정 I는 탐색 대안이며 채택하지 않았다. 첫 다중 사격의 최초 장착은35분대 별도 확인으로 연결한다.</td>
+</tr>
+<tr>
+<td>FRAME-A-05393</td>
+<td>선택 후보에서 실제 장착 확인으로 사건의 근거 범위를 보강.</td>
+<td>가스 보조 선택 창에서 다중 사격 I가 강조된다. 피해35% 감폭·투사체2개 추가·스킬 속도20% 감폭이며 민첩 사용2/4, 가스 첫 칸만 채워져 있다. 이후5394초에는 전투로 돌아간다.<br>5393.5초 G창에서 둘째 보조가 채워지고 민첩 사용2→3·DPS70.3→45.7로 바뀌는 결과를 확인했다. 이 프레임 자체는 선택 목록이고, 장착 완료 근거는 다음 프레임이다.</td>
+</tr>
+<tr>
+<td>FRAME-A-12984</td>
+<td>이전 미확인 문구의 두 번 적용 전제를 정정.</td>
+<td>대재앙 중심부 포격 석궁은 강화 전 물리14~56, 화염20~32·냉기7~13, 공격 속도16% 증가·명중 적 하나당 생명력2 획득의 네 옵션으로 보인다.<br>13000초까지 엑잘티드 오브1개로 물리21%·정확도30 복합 접두 하나가 더해졌다. 두 별도 속성이나 두 번의 오브 사용이 아니다.12996.5초 재료 툴팁과12999초 결과를 대조했다.</td>
+</tr>
+<tr>
+<td>FRAME-A-12999</td>
+<td>재료 이름·등급·수량 미확인 해소.</td>
+<td>대재앙 중심부 포격 석궁의 고급 툴팁에서 아이템 레벨33, 접두 화염20~32(T7)·냉기7~13(T9)·물리21%와 정확도30 복합(T7), 접미 명중당 생명력2(T4)·공속16%(T2)를 읽었다. 직전12998초에는 물리/정확도 속성이 없었다.<br>12996.5초 엑잘티드 오브6/20→이 화면 화폐 칸5를 대조해 일반 엑잘티드1개 소모로 확인했다. 물리21%·정확도30은 한 복합 접두다. 이후 룬·훼손 공개와는 별도 제작 단계다.</td>
+</tr>
+<tr>
+<td>FRAME-A-13000</td>
+<td>같은 원본 화면의 접두·접미 구획 재검토. 숫자 두 줄과 속성 두 개를 혼동한 오류 정정.</td>
+<td>대재앙 중심부 포격 석궁 후보: 아이템 레벨33, 요구 레벨33·힘34·민첩34, 유탄 투사체1개 추가, 물리17~68·화염20~32·냉기7~13, 공격1.92/초·재장전0.65。접두는 화염 추가·냉기 추가·물리21%와 정확도30의 복합 속성으로3개, 접미는 명중당 생명력2·공격속도16%로2개다。<br>요구 조건 미충족의 소지 후보다. 정확도30을 독립 접미로 세던 이전 판독을 고급 툴팁의 구획으로 정정했다. 엑잘티드 오브6→5,1개로 복합 접두 하나가 추가됐다.</td>
+</tr>
+<tr>
+<td>FRAME-B-00750</td>
+<td>기존 여섯 옵션 표현을 고급 툴팁에 맞춰5개 속성으로 정정.</td>
+<td>영혼의 우물의 대재앙 중심부 포격 석궁: 품질17%, 물리20~79·화염27~43·냉기10~18, 공격1.92/초·재장전0.65。두 룬 소켓이 채워졌고 화염7~11·냉기3~5 추가 줄이 보인다. 요구 레벨33·힘34·민첩34, 기존5개 속성(복합 접두 포함)과 장막이 유지된다.<br>오전 제작 후보와 같은 이름·기존 옵션이다. 이 프레임은 우물 공개 대상 상태다. 최종 힘+6·세트I 장착은 후속 C4465초로 해결했고 첫날 기존 무기와 같은 조건의 순수DPS 비교는 남았다.</td>
+</tr>
+<tr>
+<td>FRAME-B-06997</td>
+<td>큰 노드 이름 미확인 해소.</td>
+<td>세케마 이후 전직 트리의 작은 노드와 그 위 큰 노드에 두 포인트를 적용했다. 직전6996초 변경 적용 대기 문구가 있었고6997초 사라지며 해당 경로가 빛난다. 전직 잔여0, 레벨43·민첩43·지능48·힘57이다.<br>6995.75초 고급 마석학 툴팁과 이 화면의 같은 경로를 대조했다. 작은 노드 모든 스킬 퀄리티+2%→큰 노드 고급 마석학의 두 포인트 적용이다. 첫 전직 미덕의 정수와 시점을 구분한다.</td>
+</tr>
+<tr>
+<td>FRAME-C-08620</td>
+<td>적대검증이 잡은 반례를 확인해 같은 스택·다른 최대치의 근거로 편입했다. 구슬 스택 규칙을 방송 전체에 하나의 식으로 적용하면 안 된다는 직접 증거다.</td>
+<td>의식 보상 화면에서 862 공물 점수·의식 0회 남음이 보이고 헌정품에 토템의 대곤봉, 상위 진화의 오브, 신비한 의복, 극한의 마나 플라스크가 있다. 상위 진화의 오브 툴팁은 중첩 개수1/40, 최소 속성 레벨44, 일반 아이템을 속성1개가 포함된 마법 아이템으로 업그레이드한다는 설명이다. 생명력1554/1554, 보호막722/722, 정신력43/73이다.<br>같은 화면의 HUD는 생명력1554/1554, 보호막722/722다. 버프 줄 구슬은 빨강15·초록8·파랑6으로9450초와 같은 조합인데 최대치는1512/832로 다르다. <strong>투구 거래 전이라 기준값이 달랐다.</strong></td>
+</tr>
+<tr>
+<td>FRAME-C-09350</td>
+<td>9352초 세트 I 프레임과 대조해 세트 II 활성 판정 근거를 보강하고 구슬 스택 대응을 덧붙였다.</td>
+<td>크리아 마을 탐험 중 전투에서 생명력1490/1490, 보호막778/832, 마나490/652, 정신력73/73, 격노4/30이다.<br>버프 줄 구슬은 빨강14·초록8·파랑7에 금색9다. 최대 생명력1490은 기준값1176에 빨강14개분, 최대 보호막832는 기준값670에 초록8개분과 맞는다. 2초 뒤9352초는 마나505/521·정신력43/73으로 세트 I이므로, <strong>최대 마나652와 정신력73/73이 세트 II의 표식</strong>이다.</td>
+</tr>
+<tr>
+<td>FRAME-F-05400</td>
+<td>붉은 강조를 착용 불가로 읽었던 첫 문구를 5600초 능력치와 대조해 보류로 정정.</td>
+<td>91레벨 소지품창에서 타살리오의 각반 - 레비아탄 툴팁을 읽었다. 장화, 방어도280, 요구 사항 레벨80·108 힘(빨간 글씨), 냉기 저항+18%, 힘+30이다. 골드452923이다.<br>요구 사항 줄의 108 힘이 붉게 강조돼 있었지만,5600초 패시브 화면의 실제 힘이108이므로 이 한 장으로 착용 불가라고 단정하지 않는다. 강조 표시의 의미와 당시 실제 힘 수치를 각각 따로 확인해야 한다.</td>
+</tr>
+</tbody>
+</table>
+<p>이전 문구 전문과 정정 근거는 <a href="교차검증_이력.json">기계 판독 이력</a>에 보존했다.</p></article><footer>자막·미리보기·실행 검증을 구분한 조사 기록 · <a href="CHECKPOINT.html">확인 범위</a> · <a href="교차검증_정정.md">Markdown 원문</a></footer></main><script>document.querySelectorAll('table').forEach(t=>{const d=document.createElement('div');d.className='table-scroll';d.tabIndex=0;t.before(d);d.append(t)});const input=document.getElementById('filter');if(input)input.addEventListener('input',()=>{const q=input.value.trim().toLocaleLowerCase();document.querySelectorAll('tbody tr').forEach(r=>r.hidden=!!q&&!r.textContent.toLocaleLowerCase().includes(q))});</script></body></html>

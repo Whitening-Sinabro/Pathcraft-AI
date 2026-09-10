@@ -313,3 +313,11 @@
 - `.tmp/removed_planners/` — 임성빈 것이 아닌 플래너 3(HC 4/HC 5/HC 6b). 삭제 가능
 - `scripts/annotate_poe2_planner_notes.py` — 설치 플래너 장비 슬롯에 제작자 방송 발언 주석. 멱등(`— 방송 —` 블록 교체). 삭제 불가(주석 원문이 여기에만 있음)
 - `data/_cache/subs/arserina_0906.{ko,ko-orig}.json3` — 아르세리나 2026-09-06 "약한 점화" 영상 자막. 삭제 가능하나 재수집 필요
+
+## 2026-09-10 임성빈 조사 5세션 (Session5) — 판독 + 엔드게임 플래너
+- `deliverables/seongbin_from_day1_2026-09-09/planner/임성빈 엔드게임 Lv93 검은화염 카오스.build` — 실캐릭 poe.ninja export를 repo 표준 .build로 변환(패시브151·스킬14·장비15). 검은화염 카오스 완성형. 재생성 가능(원본 스냅샷+PoB로). 삭제 가능하나 재fetch 필요
+- `deliverables/seongbin_from_day1_2026-09-09/planner/임성빈_엔드게임_실캐릭.pob.xml` — Path of Building 바로 import 가능한 원본 PoB export(base64url+zlib 디코드). 삭제 가능하나 재fetch 필요
+- `deliverables/seongbin_from_day1_2026-09-09/planner/endgame_source/ninja_lv93_20260910T083126Z.json` — poe.ninja character API 원본 응답. 삭제 가능
+- `deliverables/seongbin_from_day1_2026-09-09/planner/임성빈_엔드게임_플래너_README.md` — 엔드게임 플래너 설명·출처·정지화면 연구와 교차검증. 삭제 불가(설명 원문)
+- `deliverables/seongbin_from_day1_2026-09-09/planner/임성빈_빌드플래너_업데이트.{md,html}` — 첫날~전환 육성 가이드(검증 근거만). 삭제 가능하나 재작성 비쌈
+- `Docs/2026-09-10_SEONGBIN_SESSION5_LOG.md` — 5세션 실행 로그. 삭제 가능(git log 대체)

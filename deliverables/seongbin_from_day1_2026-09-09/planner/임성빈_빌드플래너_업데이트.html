@@ -1,0 +1,310 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>임성빈 화염파 젬링 빌드플래너 업데이트</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:rgb(18,20,24);color:rgb(222,226,232);font-family:Pretendard,Inter,"Malgun Gothic",system-ui,sans-serif;line-height:1.8;font-size:15px}
+header{background:rgb(24,28,34);border-bottom:2px solid rgb(58,120,102);padding:26px max(18px,calc((100vw - 1080px)/2))}
+header .eyebrow{letter-spacing:.14em;font-size:12px;color:rgb(120,190,168)}
+header h1{margin:8px 0 6px;font-size:26px;line-height:1.35;color:rgb(238,241,245)}
+header .meta{font-size:13px;color:rgb(150,158,168)}
+nav{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+nav a{color:rgb(198,222,214);text-decoration:none;padding:5px 11px;border:1px solid rgb(64,72,82);border-radius:7px;font-size:13px}
+main{max-width:1080px;margin:26px auto;padding:0 18px 70px}
+section{background:rgb(24,27,32);border:1px solid rgb(46,52,60);border-radius:10px;padding:22px 26px;margin-bottom:20px}
+h2{font-size:21px;margin:0 0 14px;color:rgb(238,241,245);border-bottom:1px solid rgb(46,52,60);padding-bottom:10px}
+h3{font-size:16px;margin:22px 0 8px;color:rgb(150,205,185)}
+p,li{overflow-wrap:anywhere}
+strong{color:rgb(240,214,140)}
+a{color:rgb(120,190,168);text-underline-offset:3px}
+code{font-family:"Cascadia Code",monospace;font-size:.88em;background:rgb(32,37,44);color:rgb(200,210,220);padding:2px 5px;border-radius:4px}
+blockquote{margin:14px 0;padding:10px 16px;border-left:3px solid rgb(58,120,102);background:rgb(28,33,39);color:rgb(198,206,214);border-radius:0 6px 6px 0}
+.note{background:rgb(38,30,26);border:1px solid rgb(120,80,56);border-radius:8px;padding:14px 18px;margin:14px 0}
+.table-scroll{overflow-x:auto;border:1px solid rgb(46,52,60);border-radius:8px;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:560px}
+th{background:rgb(32,42,40);text-align:left;color:rgb(210,222,216)}
+th,td{padding:10px 12px;border-bottom:1px solid rgb(42,48,56);vertical-align:top}
+tbody tr:nth-child(even){background:rgb(27,31,37)}
+td:first-child{min-width:140px}
+ol,ul{padding-left:22px}
+footer{font-size:12px;color:rgb(130,138,148);margin-top:10px;padding:0 4px}
+@media(max-width:640px){header{padding:20px 15px}header h1{font-size:21px}main{padding:0 10px;margin:16px auto}section{padding:18px 15px}h2{font-size:19px}table{min-width:560px}}
+</style></head>
+<body>
+<header>
+<div class="eyebrow">POE2 · 0.5.5 · HC FORBIDDEN RITES · 젬링 리저네어</div>
+<h1>임성빈 화염파 젬링 하드코어 빌드플래너 — 원본 판독 반영본</h1>
+<div class="meta">캐릭터 <code>임성빈_화염파_젬링</code> · 유탄 육성 → 52레벨 화염파 전환 → 후반 검은 화염파(카오스) 전환</div>
+<nav aria-label="목차">
+<a href="#s0">이 빌드의 성격</a><a href="#s1">1. 유탄 육성</a><a href="#s2">2. 화염파 전환</a><a href="#s3">3. 세트 II 지팡이</a><a href="#s4">4. 검은 화염파</a><a href="#s5">5. 능력치</a><a href="#s6">6. 하드코어 위험</a><a href="#s7">7. 거래·제작</a><a href="#s8">8. 생명력·보호막</a><a href="#s9">9. 미해결</a>
+</nav>
+</header>
+<main>
+
+<section id="honest">
+<h2>정직성 고지 (먼저 읽을 것)</h2>
+<ul>
+<li>이 갱신은 <strong>원본 영상의 정지 화면 판독</strong>에 기반한다. 전체 라이브를 재생해서 본 것이 아니고 <strong>직접 청취 0초</strong>다. 프레임 사이의 클릭·발화·전투 로테이션은 판독 대상이 아니다.</li>
+<li>화면 근거는 <code>(영상, 초)</code> 형식으로 인용한다. 이 좌표는 <code>precision_findings.py</code>에 실제로 있는 판독 항목이다(총 130개 인용, 자동 검증 통과).</li>
+<li>영상 매핑 — <strong>A</strong>=zKJQyBm4VnI(첫날 오전) · <strong>B</strong>=GtC5-b4QXec(첫날 오후) · <strong>C</strong>=C_tkSubXWDk(52전환) · <strong>D</strong>=39kHWKUhwhU(9/7) · <strong>E</strong>=xnREtaV3m1A(9/8) · <strong>F</strong>=rsKbeELo0TM(9/9).</li>
+<li>근거 없이 지어낸 수치는 없다. 화면에서 못 읽은 것은 <a href="#s9">미해결 항목</a>에 정직하게 남겼다.</li>
+<li>플래너의 스킬·트리·장비 골격은 유지한다. 강조하는 것은 <strong>플래너와 실제 선택이 크게 다른 지점</strong>과 <strong>플래너가 담지 않는 실행 정보</strong>다.</li>
+</ul>
+</section>
+
+<section id="s0">
+<h2>0. 이 빌드의 성격 (따라 하기 전 판단)</h2>
+<ul>
+<li>초반은 <strong>석궁 유탄</strong> 딜러, 후반은 <strong>화염파(집중 유지형 주문)</strong> + 발동형 메타 스킬 조합이다. 무기를 두 세트로 나눠 든다: <strong>세트 I = 석궁</strong>, <strong>세트 II = 주문 지팡이</strong>. R2로 세트 전환한다 (E, 13600초).</li>
+<li>후반 임성빈은 생명력이 아니라 <strong>에너지 보호막 중심</strong>이다. 후반 마을 기준 보호막(2936~3131)이 생명력(1566~1910)보다 크다 (F, 300·4800·6000초). 초반 유탄 단계의 생존 감각을 그대로 후반에 옮기면 안 된다.</li>
+<li>하드코어이므로 <strong>부활 횟수·플라스크 충전·착용 요구 능력치·룬 회수 불가</strong>가 진행을 막는다(6·7절).</li>
+</ul>
+</section>
+
+<section id="s1">
+<h2>1. 첫날 — 유탄 육성 (전직·화염파 전환은 다음 방송)</h2>
+<p>첫날 종료 상태는 <strong>유탄 육성</strong>이다. 전직 완료만으로 화염파로 즉시 전환한 게 아니다.</p>
+
+<h3>1-1. 스킬·보조 연결 (실제 순서)</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>스킬</th><th>실제 확인된 연결</th><th>화면 근거</th></tr></thead>
+<tbody>
+<tr><td>폭발 유탄</td><td>다중 사격 I → 다중 사격 I + 원소 병기 I</td><td>(A, 1218.5초), (A, 1473.25초)</td></tr>
+<tr><td>섬광 유탄</td><td>6레벨 등록 후 다중 사격 I, 8레벨에 포악함 I</td><td>(A, 2086·2145·2147·2734.75·2736초)</td></tr>
+<tr><td>가스 유탄</td><td>14레벨 등록(요구 14·힘17·민첩17). 원소 병기 I + 다중 사격 I</td><td>(A, 5373·5375·5388·5393.5초)</td></tr>
+<tr><td>급습·재의 전령·파편 탄환</td><td>병행. 파편 탄환은 보스전 재사용 공백 메우기용 유지</td><td>(A, 14200초)</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>보조는 새 미가공 보조 젬으로 새겼다.</strong> 다른 스킬에서 빼서 옮긴 흔적은 없다. 초반 보조 자원이 부족해 폭발 → 섬광 → 가스 순으로 채웠다.</li>
+<li>가스의 <strong>신중(Deliberation) 보조는 III 등급 요구</strong>라 초반에 못 넣는다. 오전 후반까지 가스 세 번째 칸은 비어 있었다 (A, 13080·14200초).</li>
+</ul>
+
+<h3>1-2. 첫날 무기 — 포격 석궁 제작</h3>
+<ul>
+<li>포격 석궁(유탄 투사체 +1)에 일반 엑잘티드 <strong>1개</strong>로 "물리 21% + 정확도 30" <strong>복합 접두 하나</strong>. 오브 두 개/속성 두 개로 계산하지 말 것 (A, 12996.5·12999·13000초).</li>
+<li>장막 공개 선택지: 요구사항 15% 감소 / <strong>힘 +6</strong> / 치명타 피해 +12%. 원했던 "투사체 스킬 레벨"은 없어 <strong>힘 +6</strong> 선택 (B, 760·761초). 최종 장착 툴팁 확인 (C, 4465초).</li>
+</ul>
+
+<h3>1-3. 장비 — 장화·장갑</h3>
+<ul>
+<li><strong>장화</strong>: 1 엑잘티드 + 3211골드. 이때 <strong>이동속도 15%를 포기</strong>하고 방어·저항을 얻는 교체다. 잃는 것: 이속 15% + 적용 냉각 지속시간 39% 감소 (B, 2000·2020·2022초). 이후 상위 육신 룬 생명력 +60 (B, 2120·2130초), 엑잘티드 1개로 요구사항 15% 감소 (B, 2129초), 훼손 공개로 방어도/ES 23% (B, 2166초). 최종 상태 (C, 9170초).</li>
+<li><strong>능력치 부족 함정</strong>: 지능 32에서 투구·갑옷이 슬롯에 있어도 <strong>비활성</strong>. 임시 지능 37로 투구만 해결 (B, 9380·9394·9398초), 총 2700골드 재분배로 지능 42 (B, 9426·9431·9432초). <strong>슬롯에 넣었다고 효과가 적용되는 게 아니다.</strong></li>
+</ul>
+
+<h3>1-4. 전직 (오전이 아니라 오후, 두 단계)</h3>
+<ol>
+<li><strong>혼돈의 시련 완료 후 → 미덕의 정수</strong> (스킬 부여: 고결한 방어막, 항상 활성화라 정신력 미소모) (B, 6350·6419초).</li>
+<li><strong>세케마의 시련 완료 후 → 고급 마석학</strong> (젬 퀄리티가 장착 스킬에 추가 효과 1개 부여) (B, 6995.75초).</li>
+</ol>
+
+<h3>1-5. 세트 패시브 준비 & 첫날 보상</h3>
+<ul>
+<li>23레벨에 두 노드 환불(652골드 = 326×2) 후 유탄 경로 네 개를 <strong>세트 I</strong>에 배정 (A, 9483·9486·9492·9496초). 세트 II 4포인트는 남고 척탄병은 미배정. 플래너 최종 트리에는 이 환불 비용·시점이 없다.</li>
+<li>생명력 최대치 영구 <strong>+20</strong> 보상과 장갑 룬 <strong>+30</strong>은 별개 (A, 5600초). 돌의 독액 영약에서 기절 한계치 25% 선택 (A, 14180초).</li>
+</ul>
+</section>
+
+<section id="s2">
+<h2>2. 52레벨 — 화염파 전환 (방송 C)</h2>
+
+<h3>2-1. 패시브 재분배 (숫자로)</h3>
+<ul>
+<li><strong>지능 47 → 92</strong>(화염파 요구 지능) (C, 4540·4550·4725초).</li>
+<li>준비 패시브 구간 골드 <strong>순감소 약 50396</strong> (100175 → 49779) (C, 4550·4725초).</li>
+<li>재분배 직후에도 <strong>일반 20포인트가 남았다</strong> (C, 4790초). 3만~5만 권고를 확정 비용으로 안내하지 말 것. 남은 20포인트는 <strong>능력치 노드 + 방어도 노드</strong>로 갔다 (C, 4810·4890초).</li>
+</ul>
+
+<h3>2-2. 화염파 본체 젬 (원문, C, 4767초)</h3>
+<ul>
+<li>태그: 주문·효과 범위·<strong>화염·집중 유지</strong>·폭발·단계, 레벨 13</li>
+<li>소모 <strong>1초당 마나 27.8</strong> · <strong>재사용 대기시간 10.00초</strong> · 시전 0.25초 · 최대 10단계 · 단계당 주문 피해 75% 증폭 · 폭발 반경 단계당 0.6m</li>
+<li>요구 레벨 52 · <strong>지능 92</strong></li>
+</ul>
+<blockquote>집중 유지형 주문이라 마나가 초당 빠지고 재사용 대기시간이 10초다. 유탄처럼 연발하는 흐름으로 생각하면 실제 전투가 달라진다.</blockquote>
+
+<h3>2-3. 실행 오류/누락 수정 (플래너만으로 놓치는 지점)</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>항목</th><th>실제로 벌어진 일</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>퀄리티 보완</td><td>본체 <strong>0% → 20%</strong>(별도 +4%는 원래 있음). 시전 속도 4→24%, 단계당 상태 이상 강도 48% 증폭. <strong>표시 DPS(289.1)는 그대로</strong>라 숫자만 보면 놓친다</td><td>(C, 5455.25·5456.25·5460초)</td></tr>
+<tr><td>화염파 무기 세트</td><td>I·II 모두 → <strong>II만</strong> 허용</td><td>(C, 5794 → 5795.5초)</td></tr>
+<tr><td>지옥불 함성</td><td>I·II 모두 → <strong>I만</strong></td><td>(C, 5800 → 5801.25초)</td></tr>
+<tr><td>기름 유탄</td><td><strong>I만</strong> 허용</td><td>(C, 5804·5804.25초)</td></tr>
+<tr><td>급습 사용 불가</td><td>"잘못된 무기 유형입니다" → 곧바로 제거</td><td>(C, 4760 → 4763초)</td></tr>
+<tr><td>임시 석궁</td><td>화염 피해 없는 <strong>합금 석궁</strong>으로 교체(유탄 투사체 +1 포기)</td><td>(C, 4755·4757초)</td></tr>
+</tbody>
+</table></div>
+<div class="note">세트별 지정은 <strong>스킬별로</strong> 해야 한다. 플래너에 스킬이 있다고 자동 전환 설정까지 맞는 게 아니다.</div>
+
+<h3>2-4. 보조 젬 상한 규칙 (능력치 투자의 진짜 이유)</h3>
+<ul>
+<li><strong>보조 젬 장착 상한 = 능력치 ÷ 5</strong> (몫). 두 지점 일치:
+<ul><li>민첩 44·지능 92·힘 62 → 힘 12·민첩 8·지능 18 (C, 4760·4790초)</li>
+<li>민첩 64·지능 92·힘 92 → 힘 18·민첩 12·지능 18 (C, 4930·5035초)</li></ul></li>
+<li>능력치를 올리는 이유는 장비 착용만이 아니라 <strong>보조 젬을 더 끼우기 위해서</strong>다.</li>
+<li>보조별 요구 능력치가 다르다: <strong>폭발 투사체 I = +5 민첩</strong> (C, 4980초), <strong>범위 집중 / 빠른 시전 III = +5 지능</strong> (C, 4990·5005초), <strong>이글거리는 화염 II = +5 힘</strong> (C, 5000초).</li>
+<li><strong>보조 홈 확장</strong>: 상위 쥬얼러 오브는 보조 홈을 4개로 만들고, 홈 4개 미만 젬에만 쓸 수 있다. 전환 시점 보유 <strong>1개</strong> (C, 4920초). 화염파는 홈 4칸이 전부 비어 있었고, 오브로 홈을 만든 뒤 하나씩 채웠다 (C, 4930초).</li>
+</ul>
+
+<h3>2-5. 정신력 예산</h3>
+<ul>
+<li>총 정신력 <strong>73</strong>. 지속 스킬 <strong>하나당 30</strong> 예약. 재의 전령만: 세트 I 43 / II 73. 소모 양쪽 켜면: 세트 I 13 / II 43(HUD 13/73 일치) (C, 4830·5797·4950초).</li>
+<li>고결한 방어막은 <strong>항상 활성화</strong>라 정신력 미소모. 세트별로 무엇을 켤지가 곧 그 세트의 정신력 예산이다. 후반엔 100+로 늘어난다 (D, 2300초 53/113).</li>
+</ul>
+
+<h3>2-6. 전환 완료 & 갑옷</h3>
+<ul>
+<li>전환 완료(C, 5035초): 생명력 1104 · ES 504 · 마나 443 · 정신력 73. 저항 <strong>화염 49 · 냉기 41 · 번개 45 · 카오스 0</strong>(하드코어 기준 낮은 구간, 정비 필요). 실전 화염파 큰 장판 확인 (C, 5120초).</li>
+<li><strong>변이하는 별 갑옷</strong>: 첫날 희귀, 다음 날 47레벨 의식 헌정품에서 고유 확보 후 장착(52전환 전) (C, 1455·1490·1531초). 교체 손익: 생명력 1021→954 · ES 443→482 · 재생 2.7→30.5 · 화염 표시 75→59% · 카오스 12→0% (C, 1535·1537초). 우연한 고유 획득을 고정 조건으로 만들지 말 것.</li>
+</ul>
+</section>
+
+<section id="s3">
+<h2>3. 세트 II 지팡이 = 용의 돛대 차임벨 지팡이</h2>
+<p>후반 세트 II 지팡이의 최종 정본. 툴팁 전문 (F, 2400초):</p>
+<ul>
+<li>지팡이, 아이템 레벨 81, 요구 레벨 60 · 지능 46, 기본 주문 피해 60% 증가</li>
+<li><strong>스킬 부여: 18레벨 힘의 부적</strong></li>
+<li>접두: 주문 피해 76% (T7) · 피해의 47% 추가 화염 피해 (T3) · <strong>피해 상태 이상 강도 56% 증가 (T1)</strong></li>
+<li>접미: <strong>동결 축적 78% 증가 (T1)</strong> · 시전 속도 15% (T7) · <strong>모든 주문 스킬 레벨 +5</strong></li>
+<li>하단: 장착 중 <strong>무기 세트 II</strong></li>
+</ul>
+<blockquote>이 지팡이는 딜 무기가 아니라 <strong>메타 스킬의 연료 공급기</strong>다. 동결 축적 78%가 "원소 상태 이상 시 시전"의 동결 적 위세당 에너지 10과 맞물리고, 상태 이상 강도 56%는 검은화염 계약으로 카오스가 된 점화 강도를 올린다.</blockquote>
+<ul>
+<li><strong>세트 패시브(물리→화염 전환 계열)는 세트 II에만</strong> 넣어야 헛돌지 않는다. 유탄 세트에 넣으면 화염파 쪽에서 안 먹는다.</li>
+<li>세트 전환은 정신력 예약과 최대 마나를 함께 바꾼다: 2초 차이로 최대 마나 <strong>652 ↔ 521</strong>, 정신력 <strong>73/73 ↔ 43/73</strong> (C, 9350·9352초). 652 쪽에서 화염파 큰 장판이 터진다.</li>
+<li>9/7의 <strong>키메라의 몰이 막대</strong> 지팡이(태양의 보주 부여·화염 133%·화염 주문 레벨 +4)와는 <strong>다른 물건</strong> (D, 2600초). 그 사이 한 번 더 갈아탔다. 교체 시점·지불가는 미확인.</li>
+</ul>
+</section>
+
+<section id="s4">
+<h2>4. 후반 — 검은 화염파(카오스) 전환</h2>
+
+<h3>4-1. 90레벨 재분배로 시작</h3>
+<ul>
+<li>9/9 시작 직후 트리 반환. 골드 <strong>211147 → 170499 → 145094</strong>(관찰 구간 66053 감소) (F, 30·60·90초). 본격 전환 전 골드 20만+ 보유.</li>
+<li><strong>무기 세트 I의 2포인트도 반환</strong>돼 I·II 모두 0(24) (F, 30 → 95초). <strong>전환 이후에는 세트별 패시브를 쓰지 않는다.</strong> 세트 전환 전제 트리 설계를 그대로 따르지 말 것.</li>
+</ul>
+
+<h3>4-2. "검은 화염" = 키스톤 검은화염 계약 (반지 아님)</h3>
+<p>키스톤 툴팁 원문 (E, 8876초, 당시 미할당):</p>
+<ol>
+<li>화염 주문이 화염 피해의 <strong>100%를 카오스 피해로 전환</strong></li>
+<li>화염 주문의 카오스 피해가 인화성·점화 강도에 반영</li>
+<li>화염 주문으로 유발된 점화가 화염 대신 <strong>카오스 피해</strong></li>
+</ol>
+<ul>
+<li>본인은 "패시브 노드로 갈 생각"이라 밝혔다. <strong>검은화염(Blackflame) 반지를 준비물로 적으면 틀린다.</strong></li>
+<li>적용 시 화염파 장판이 <strong>보라색</strong>이 된다. 실제 화면 확인 (F, 3000초).</li>
+<li>화염 피해 100% 카오스 전환이므로 <strong>화염 저항 기반 계산·화염 피해 증폭 장비의 값어치가 통째로 바뀐다.</strong></li>
+</ul>
+
+<h3>4-3. 후반 구성의 심장 = 원소 상태 이상 시 시전 (메타/발동)</h3>
+<p>젬 툴팁 원문 (F, 207초):</p>
+<ul>
+<li>태그: 유지형·발동·번개·냉기·화염·<strong>메타</strong>, 레벨 17, <strong>점유 100 정신력</strong>, 요구 레벨 72 · 지능 126</li>
+<li>활성 중 적을 <strong>동결·감전·점화</strong>시키면 에너지 획득 → 최대 도달 시 <strong>장착된 주문 전부 발동하고 에너지 소진</strong></li>
+<li>동결 위세당 10 · 점화/감전 위세당 1 · 에너지 획득량 51% 증가 · <strong>최대 에너지 = 장착 주문 기본 시전 시간 0.1초당 10</strong></li>
+</ul>
+<blockquote>화염파가 점화를 거는 것 자체가 자원 생산이다. 카오스로 전환된 점화도 점화이므로 에너지가 찬다. 느린 주문을 장착하면 발동 주기가 길어진다 — 무엇을 장착하느냐가 곧 발동 속도다.</blockquote>
+<ul>
+<li>보조는 에너지 경제 계열: <strong>에너지 유지</strong>(35% 확률 소모 에너지 절반 반환, 소모 110%) — 장착 확정 (F, 217초); <strong>무한한 에너지 II</strong>(에너지 획득 45%, 소모 115%) (F, 216·219초). 둘 다 +5 지능.</li>
+</ul>
+
+<h3>4-4. 90레벨 주력 구성 (F, 220·214·210초)</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>스킬</th><th>레벨 / 표시</th><th>보조 홈</th></tr></thead>
+<tbody>
+<tr><td>화염파</td><td>Lv19 · DPS 922.6</td><td>5칸 전부 충전</td></tr>
+<tr><td>기름 유탄</td><td>Lv15 · DPS 149.9</td><td>5칸 충전</td></tr>
+<tr><td>절망(저주)</td><td>Lv19</td><td>4칸</td></tr>
+<tr><td>회오리</td><td>Lv14</td><td>3칸 중 2</td></tr>
+<tr><td>원소 상태 이상 시 시전</td><td>Lv17</td><td>4칸 중 3</td></tr>
+<tr><td>원소 융합</td><td>Lv17</td><td>2칸</td></tr>
+<tr><td>가스 유탄</td><td>Lv12</td><td>4칸 중 2</td></tr>
+<tr><td>섬광 유탄</td><td>Lv12</td><td>—</td></tr>
+<tr><td>지옥불 함성</td><td>Lv9</td><td>—</td></tr>
+<tr><td>쇠뇌 사격 (세트 I)</td><td>Lv20 · DPS 1603.8</td><td>—</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>화염파는 제거되지 않고 그대로 남았다.</strong> 바뀐 것은 주변이다.</li>
+<li><strong>원소 융합</strong>: 점유 60 정신력, 요구 72·지능 126, 8초마다 원소 변경·해당 원소 피해 58% 증폭 (E, 13600초). 후반 정신력 여유가 7~11/100인 이유.</li>
+<li>표시 DPS로 공격 스킬(쇠뇌 1603.8)과 주문(화염파 922.6)을 같은 잣대로 비교하지 말 것.</li>
+</ul>
+
+<h3>4-5. 89 → 90 사이 교체</h3>
+<ul>
+<li>9/8에는 <strong>회피 구르기 시 시전</strong> (E, 13044초), 9/9에는 <strong>원소 상태 이상 시 시전</strong> (F, 220초). 회오리는 9/9에 들어왔다.</li>
+<li>후반 전직 포인트는 계속 들어온다 (9/9 +2, 정신력 7→11/100) (F, 7050·7350초).</li>
+<li>장착 주얼: 부패하는 지복 사파이어(ES 최대치 +20%) (F, 5660초), 혼백 숨결 사파이어(카오스 13%·ES 14%) (F, 5670초). 후반이 보호막 중심인 이유의 하나.</li>
+</ul>
+</section>
+
+<section id="s5">
+<h2>5. 후반 능력치 스냅샷</h2>
+<ul>
+<li>91레벨: 민첩 66 · 지능 152 · 힘 108 (F, 5600초). 지능 152 → 보조 지능 상한 30. 능력치 ÷ 5 규칙이 후반에도 유지된다.</li>
+<li>프레임마다 능력치가 오간다(같은 F에서 힘 103↔108). <strong>한 프레임의 능력치를 고정값으로 쓰지 말 것</strong> (F, 5590·5600초).</li>
+</ul>
+</section>
+
+<section id="s6">
+<h2>6. 하드코어 위험 (진행을 막는 것들)</h2>
+<div class="table-scroll"><table>
+<thead><tr><th>위험</th><th>실제 확인</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>경로석 부활 횟수</td><td>15등급 신비한 유물 = 부활 0회. 14등급 변함없는 자 = 부활 5회</td><td>(F, 7260 / 240초)</td></tr>
+<tr><td>15등급 경로석 대가</td><td>부활 0 + 몬스터 치명타 명중 222%·중독 28%·원소 상태 이상 101%·감전 지대·시간의 사슬 저주</td><td>(F, 7260초)</td></tr>
+<tr><td>플라스크 충전 감소 접두</td><td>14등급 가뭄: "플라스크 충전량 34% 감소" — 회복 자체가 막힌다</td><td>(F, 230초)</td></tr>
+<tr><td>못 쓰는 고유</td><td>타살리오의 각반(요구 힘 108) — 91레벨에도 착용 불가</td><td>(F, 5400초)</td></tr>
+<tr><td>상위 철 룬 회수 불가</td><td>장착 후 뺄 수 없고 교체만 가능. 재고 5/10</td><td>(C, 9160초)</td></tr>
+<tr><td>제작 실패 조건</td><td>제왕의 오브: "속성 부여 추가 공간이 없습니다"</td><td>(F, 8400초)</td></tr>
+<tr><td>보호막 전소 구간</td><td>초록 스택 0 → 최대 보호막 기준값 2936, 현재 0/2936</td><td>(F, 600초)</td></tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="s7">
+<h2>7. 거래·제작 실전</h2>
+<ul>
+<li><strong>거래소 검색은 "핵심 한 줄 + 정렬"</strong>: 투구를 4줄로 걸면 결과 0. 방어도/ES 23~35 한 줄 + "총 ES 높은 것부터" 정렬로 매물 확보 (C, 8990 → 9040초). 요구 레벨 빨간 글씨 = 착용 불가.</li>
+<li><strong>거래 수수료(골드)</strong>: 투구 매물 수수료 11314골드, 구간 골드 76660 → 65499 (C, 9040·8940·9180초).</li>
+<li><strong>화폐 교환에도 수수료</strong>: 숙련공 2 ⇌ 엑잘티드 4에 2000골드 (D, 2650초). 다른 교환은 1000골드 (E, 14710초). <strong>수수료는 거래마다 다르다.</strong> 비율 좋은 쪽은 재고가 얕다.</li>
+<li><strong>지팡이 장막 해제</strong>: 산 직후 옵션이 전부 보이는 게 아니다. 가려진 줄은 "피해의 26% 추가 냉기 피해" (D, 2625초).</li>
+<li><strong>의식으로 제작 재료 조달</strong>: 카오스 오브가 헌정품 상점에 공물 점수 658 (C, 9240초). 공물 점수는 골드와 다른 화폐다.</li>
+<li><strong>징조로 제작 확률 조정</strong>: 촉진하는 찬미의 징조 — 활성화 후 엑잘티드를 쓰면 기폭제 퀄리티를 소모해 해당 유형 속성 확률 상승. 비용 공물 점수 1353 (F, 5460초).</li>
+</ul>
+</section>
+
+<section id="s8">
+<h2>8. 표시 생명력·보호막 읽는 법 (구간 한정 규칙 — 반드시 주의)</h2>
+<div class="note"><strong>어떤 전투 표시치도 그 구간의 기준값으로 쓰지 말 것.</strong> 표시 최대 생명력·보호막은 버프 줄의 <strong>구슬 충전 개수</strong>에 따라 움직인다.</div>
+<ul>
+<li>단일 변수 근거: 초록·파랑 고정인 채 빨강만 14→15로 오르자 최대 생명력이 1490→1512로 그만큼 올랐다 (C, 9451·9451.5초). 초록 하나당 최대 보호막 약 27.9 (F, 100초).</li>
+<li><strong>기준값</strong>(구슬 0)은 구슬 없는 프레임에서 읽는다: 생명력 1176 · 보호막 670 (C, 9178·9190초), 후반 보호막 2936 (F, 600초).</li>
+<li><strong>기준값도 상수가 아니다</strong>: 세케마의 시련 같은 지역 효과로 갈린다(보호막 평소 3131, 시련 3607). 방송 전체에 하나의 식을 적용하면 틀린다.</li>
+<li><strong>구슬 세 개의 정체 = 고결한 방어막(미덕의 정수 전직 스킬)이 쌓는 티끌</strong> (D, 19306초). 힘 티끌(빨강)=최대 생명력 +2%/개, 민첩(초록)=방어도·회피·에너지 보호막 +5%/개, 지능(파랑)=생명력·마나 재생 +5%/개. 1.55초마다 무작위 획득·피격 시 하나 상실, 최대치 = 3 + 해당 능력치 요구 스킬 수(단일 능력치 스킬 2배)라 12~15까지 쌓인다. 증가가 %(곱셈)라 기준값이 커지면 개당 증가폭도 커진다. <strong>서포트 젬이 아니다.</strong></li>
+</ul>
+</section>
+
+<section id="s9">
+<h2>9. 미해결 항목 (정직하게 남긴다)</h2>
+<p>전체 라이브를 다 본 것이 아니다. 아래는 원본 정지 화면으로 아직 확정하지 못한 것들이다.</p>
+<ol>
+<li><strong>[해결] 버프 줄 구슬 세 개</strong> = 고결한 방어막(미덕의 정수 전직)이 쌓는 티끌. 섹션 8 참조 (D, 19306초).</li>
+<li><strong>[해결] F 방송 최대 생명력의 잔여 변인.</strong> 단일 숨은 스탯이 아니라 기준값 자체가 F 안에서 이동한다(재분배 중 힘 103↔113, 노드 재배치·레벨업; 티끌 증가가 %라 기준값 변동이 개당 증가폭에 반영).</li>
+<li><strong>[해결] 검은화염 계약 키스톤을 찍는 트리 화면.</strong> 9/9 시작 직후 90레벨 재분배(F, 75초)에서 선택 버튼·무기 세트 체크박스가 뜬 화면 확인.</li>
+<li><strong>용의 돛대 차임벨 지팡이의 획득 시점·지불가.</strong> 첫 지팡이 구매 D 00:39:31(키메라의 몰이 막대), 세트II 용의 돛대는 그 뒤 교체. 실제 획득 순간은 방송에 안 잡혀 <strong>9/8~9/9 사이 오프스트림 구매로 추정</strong>. 옵션·역할은 확정(F, 2400초).</li>
+<li><strong>[해결] 투구 거래 실지불가.</strong> 즉시 구입 매물은 아이템당 1 엑잘티드 오브 + 골드 수수료(약 10737~11314)(C, 9000초). 9/8 업그레이드는 25 엑잘티드 또는 1 신성한 오브(E, 9000초).</li>
+<li><strong>상위 철 룬 대상.</strong> 첫날 기본 철 룬(요구15·방어구 방어도/회피/ES 16%)을 방어구에 박는 행동 확인(B, 9576초). C의 상위 철 룬(요구30)도 같은 방어구 계열이나 최종 대상 칸은 C에 직접 안 잡힘.</li>
+<li><strong>변이하는 별 고유 갑옷의 지불가·제작 재료 수량.</strong> 57레벨 장착 옵션은 확인(C, 9172초), 가격·재료는 화면에 없음.</li>
+<li><strong>원소 상태 이상 시 시전의 나머지 보조 두 개 이름.</strong> 회오리 도입은 9/8 방송 중(E, 13044~15150초) 확인, 에너지 유지·무한한 에너지 II 장착 확정, 나머지 보조 이름 미확인.</li>
+<li><strong>[해결] 점유 정신력 불일치.</strong> 정신력 할당 대화상자(F, 190초)에서 원소 상태 이상 시 시전 91 소모·93 할당, 원소 융합 100 소모·미할당(택일)이라 HUD 7/100이 설명된다.</li>
+</ol>
+</section>
+
+<footer>
+근거 <code>(영상, 초)</code> = <code>precision_findings.py</code> 원본 정지 화면 판독(총 130개 인용, 자동 검증 통과). 발화·자막 근거는 본문에서 "본인 발언"으로 구분, 화면 좌표로 인용하지 않음. 직접 청취 0초 · 정지 화면 판독 기반. 참고: 핵심차이_실전보완.md · 미확인_항목.md · 플래너_대조.md.
+</footer>
+</main></body></html>

@@ -1,0 +1,56 @@
+{
+  "checked_utc": "2026-09-10T08:22:16.520823+00:00",
+  "metadata_refresh": {
+    "videos": [
+      "zKJQyBm4VnI",
+      "GtC5-b4QXec"
+    ],
+    "status": "success"
+  },
+  "web_open": "YouTube watch pages: Online fetch throttled",
+  "direct_ffmpeg": {
+    "video_id": "zKJQyBm4VnI",
+    "seconds": [
+      1445,
+      2090
+    ],
+    "status": "failed"
+  },
+  "range_download": {
+    "video_id": "zKJQyBm4VnI",
+    "format": "299",
+    "requested_start_seconds": 1435,
+    "requested_duration": 35,
+    "initial_1MiB": "HTTP 206; ftyp/moov/sidx parsed",
+    "segment_byte_range": [
+      657787140,
+      661643821
+    ],
+    "segment_response": 403,
+    "fresh_metadata_retry": 403,
+    "64KiB_retry": 403,
+    "usable_video_created": false
+  },
+  "browser": {
+    "tool": "Python Playwright, isolated headless Edge",
+    "video_id": "GtC5-b4QXec",
+    "requested_seconds": 6370,
+    "ready_state": 0,
+    "current_time": 0,
+    "duration": null,
+    "result": "timeout and player error visible",
+    "screenshot": "frames/GtC5-b4QXec/browser_006370.00.png"
+  },
+  "actual_playwright_mcp": {
+    "server": "@playwright/mcp 0.0.80",
+    "status": "original video playback and timestamped screenshot success",
+    "resolution": [
+      1280,
+      720
+    ],
+    "logged_in_account_verified": false,
+    "receipts_directory": "mcp_session",
+    "reviewed_frame_count": 358
+  },
+  "claim": "기존 직접 다운로드와 headless 재생 실패를 보존한다. 이후 실제 Playwright MCP 원본 재생·캡처 성공으로 접근 상태를 갱신했다."
+}

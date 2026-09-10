@@ -1,0 +1,621 @@
+{
+  "generated_utc": "2026-09-10T08:22:16.520823+00:00",
+  "identity_key": [
+    "video_id",
+    "start_seconds"
+  ],
+  "count_policy": "unique directly read frames; repeated reading is not a new frame; events have separate stable IDs",
+  "inherited_93_backup": "session_backups/resume_20260909T164134Z/원본_화면대장.json",
+  "revisions": [
+    {
+      "frame_id": "FRAME-A-01473",
+      "original_observation": "원소 병기 I 새기기 확인 창이 열린다. 툴팁에는 공격 스킬 원소 피해 20% 증폭, 소모 배율 120%가 표시된다.",
+      "original_limitation": "확인 버튼을 누른 최종 프레임과 이름이 보이는 장착 소켓은 추가 확인이 필요하다. 점화 I·출혈 I·생명력 고갈을 앞서 탐색했어도 채택으로 세지 않는다.",
+      "current_observation": "원소 병기 I 새기기 확인 창이 열린다. 툴팁에는 공격 스킬 원소 피해 20% 증폭, 소모 배율 120%가 표시된다.",
+      "current_limitation": "1473.25초 G창에 원소 병기 새기기 아이콘이 폭발 둘째 보조로 들어갔고 미가공 보조 젬은 사라졌다. 제작 확인 창과 장착 완료 결과를 전후로 대조했다.",
+      "reason": "폭발 원소 병기 I 제작·장착 완료 미확인 해소.",
+      "evidence": [
+        {
+          "video_id": "zKJQyBm4VnI",
+          "seconds": 1473.25,
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=1473s"
+        }
+      ]
+    },
+    {
+      "frame_id": "FRAME-A-02736",
+      "original_observation": "8레벨 G창의 섬광 유탄 Lv3에 보조 두 개가 채워져 있고 DPS40.6이다. 폭발 유탄 Lv2에도 두 개가 채워져 있으며 DPS90.2, 파편 탄환 장전 Lv1은 남아 있다. 정신력0, 보조 사용량 힘2/4·민첩2/3·지능0/1.",
+      "original_limitation": "포악함·고정 목록과 비교 가능한 아이콘이지만 소켓 직접 이름 툴팁·제작 클릭은 추가 확인한다.",
+      "current_observation": "8레벨 G창의 섬광 유탄 Lv3에 보조 두 개가 채워져 있고 DPS40.6이다. 폭발 유탄 Lv2에도 두 개가 채워져 있으며 DPS90.2, 파편 탄환 장전 Lv1은 남아 있다. 정신력0, 보조 사용량 힘2/4·민첩2/3·지능0/1.",
+      "current_limitation": "2734.75초 포악함 I 새기기 확인 창의 붉은 아이콘과 둘째 소켓이 일치한다. 고정 I는 탐색 대안이며 채택하지 않았다. 첫 다중 사격의 최초 장착은35분대 별도 확인으로 연결한다.",
+      "reason": "섬광 둘째 보조를 포악함 I 제작·장착으로 확정.",
+      "evidence": [
+        {
+          "video_id": "zKJQyBm4VnI",
+          "seconds": 2734.75,
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=2734s"
+        }
+      ]
+    },
+    {
+      "frame_id": "FRAME-A-05393",
+      "original_observation": "가스 보조 선택 창에서 다중 사격 I가 강조된다. 피해35% 감폭·투사체2개 추가·스킬 속도20% 감폭이며 민첩 사용2/4, 가스 첫 칸만 채워져 있다. 이후5394초에는 전투로 돌아간다.",
+      "original_limitation": "이 한 장으로 두 번째 소켓 장착 완료를 확정하지 않는다. 완료 후 G창 대조가 남는다.",
+      "current_observation": "가스 보조 선택 창에서 다중 사격 I가 강조된다. 피해35% 감폭·투사체2개 추가·스킬 속도20% 감폭이며 민첩 사용2/4, 가스 첫 칸만 채워져 있다. 이후5394초에는 전투로 돌아간다.",
+      "current_limitation": "5393.5초 G창에서 둘째 보조가 채워지고 민첩 사용2→3·DPS70.3→45.7로 바뀌는 결과를 확인했다. 이 프레임 자체는 선택 목록이고, 장착 완료 근거는 다음 프레임이다.",
+      "reason": "선택 후보에서 실제 장착 확인으로 사건의 근거 범위를 보강.",
+      "evidence": [
+        {
+          "video_id": "zKJQyBm4VnI",
+          "seconds": 5393.5,
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=5393s"
+        }
+      ]
+    },
+    {
+      "frame_id": "FRAME-A-12984",
+      "original_observation": "대재앙 중심부 포격 석궁은 강화 전 물리14~56, 화염20~32·냉기7~13, 공격 속도16% 증가·명중 적 하나당 생명력2 획득의 네 옵션으로 보인다.",
+      "original_limitation": "13000초에는 물리 피해21% 증가와 정확도+30이 더해진다. 화폐 이름·두 번의 적용 정확한 프레임은 미확인이다.",
+      "current_observation": "대재앙 중심부 포격 석궁은 강화 전 물리14~56, 화염20~32·냉기7~13, 공격 속도16% 증가·명중 적 하나당 생명력2 획득의 네 옵션으로 보인다.",
+      "current_limitation": "13000초까지 엑잘티드 오브1개로 물리21%·정확도30 복합 접두 하나가 더해졌다. 두 별도 속성이나 두 번의 오브 사용이 아니다.12996.5초 재료 툴팁과12999초 결과를 대조했다.",
+      "reason": "이전 미확인 문구의 두 번 적용 전제를 정정.",
+      "evidence": [
+        {
+          "video_id": "zKJQyBm4VnI",
+          "seconds": 12996.5,
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=12996s"
+        },
+        {
+          "video_id": "zKJQyBm4VnI",
+          "seconds": 12999,
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=12999s"
+        }
+      ]
+    },
+    {
+      "frame_id": "FRAME-A-12999",
+      "original_observation": "대재앙 중심부 포격 석궁의 고급 툴팁에서 아이템 레벨33, 접두 화염20~32(T7)·냉기7~13(T9)·물리21%와 정확도30 복합(T7), 접미 명중당 생명력2(T4)·공속16%(T2)를 읽었다. 직전12998초에는 물리/정확도 속성이 없었다.",
+      "original_limitation": "물리21%와 정확도30은 두 번 붙인 속성이 아니라 한 복합 접두다. 사용 화폐 이름·등급은 직전 화폐 칸 툴팁으로 추가 확인한다.",
+      "current_observation": "대재앙 중심부 포격 석궁의 고급 툴팁에서 아이템 레벨33, 접두 화염20~32(T7)·냉기7~13(T9)·물리21%와 정확도30 복합(T7), 접미 명중당 생명력2(T4)·공속16%(T2)를 읽었다. 직전12998초에는 물리/정확도 속성이 없었다.",
+      "current_limitation": "12996.5초 엑잘티드 오브6/20→이 화면 화폐 칸5를 대조해 일반 엑잘티드1개 소모로 확인했다. 물리21%·정확도30은 한 복합 접두다. 이후 룬·훼손 공개와는 별도 제작 단계다.",
+      "reason": "재료 이름·등급·수량 미확인 해소.",
+      "evidence": [
+        {
+          "video_id": "zKJQyBm4VnI",
+          "seconds": 12996.5,
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=12996s"
+        }
+      ]
+    },
+    {
+      "frame_id": "FRAME-A-13000",
+      "original_observation": "대재앙 중심부 포격 석궁 후보 툴팁: 아이템 레벨33, 요구 레벨33·힘34·민첩34, 유탄 스킬 투사체1개 추가, 물리17~68, 화염20~32·냉기7~13, 초당 공격1.92, 재장전0.65. 접두 화염 추가·냉기 추가·물리 피해21% 증가, 접미 정확도+30·명중 적 하나당 생명력2 획득·공격 속도16% 증가를 읽었다.",
+      "original_limitation": "인벤토리의 요구 조건 미충족 후보이며 실제 장착품이 아니다. 제작 전후 모든 화폐 클릭은 아직 추적 중이다. 방송 자막의 폭격 석궁 표기는 실제 포격 석궁으로 정정한다.",
+      "current_observation": "대재앙 중심부 포격 석궁 후보: 아이템 레벨33, 요구 레벨33·힘34·민첩34, 유탄 투사체1개 추가, 물리17~68·화염20~32·냉기7~13, 공격1.92/초·재장전0.65。접두는 화염 추가·냉기 추가·물리21%와 정확도30의 복합 속성으로3개, 접미는 명중당 생명력2·공격속도16%로2개다。",
+      "current_limitation": "요구 조건 미충족의 소지 후보다. 정확도30을 독립 접미로 세던 이전 판독을 고급 툴팁의 구획으로 정정했다. 엑잘티드 오브6→5,1개로 복합 접두 하나가 추가됐다.",
+      "reason": "같은 원본 화면의 접두·접미 구획 재검토. 숫자 두 줄과 속성 두 개를 혼동한 오류 정정.",
+      "evidence": [
+        {
+          "video_id": "zKJQyBm4VnI",
+          "seconds": 12996.5,
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=12996s"
+        },
+        {
+          "video_id": "zKJQyBm4VnI",
+          "seconds": 12999,
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=12999s"
+        }
+      ]
+    },
+    {
+      "frame_id": "FRAME-B-00750",
+      "original_observation": "영혼의 우물에 놓인 대재앙 중심부 포격 석궁은 품질17%, 물리20~79·화염27~43·냉기10~18, 공격1.92/초·재장전0.65다. 룬 소켓 두 개가 채워졌고 화염7~11·냉기3~5 추가 줄이 보인다. 요구 레벨33·힘34·민첩34, 기존 여섯 옵션과 장막이 유지된다.",
+      "original_limitation": "이 순간은 공개 대상이 우물에 놓인 상태다. 기존 무기와의 최종 장착·DPS 비교는 따로 확인한다.",
+      "current_observation": "영혼의 우물의 대재앙 중심부 포격 석궁: 품질17%, 물리20~79·화염27~43·냉기10~18, 공격1.92/초·재장전0.65。두 룬 소켓이 채워졌고 화염7~11·냉기3~5 추가 줄이 보인다. 요구 레벨33·힘34·민첩34, 기존5개 속성(복합 접두 포함)과 장막이 유지된다.",
+      "current_limitation": "오전 제작 후보와 같은 이름·기존 옵션이다. 이 프레임은 우물 공개 대상 상태다. 최종 힘+6·세트I 장착은 후속 C4465초로 해결했고 첫날 기존 무기와 같은 조건의 순수DPS 비교는 남았다.",
+      "reason": "기존 여섯 옵션 표현을 고급 툴팁에 맞춰5개 속성으로 정정.",
+      "evidence": [
+        {
+          "video_id": "zKJQyBm4VnI",
+          "seconds": 12999,
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=12999s"
+        }
+      ]
+    },
+    {
+      "frame_id": "FRAME-B-06997",
+      "original_observation": "세케마 이후 전직 트리의 작은 노드와 그 위 큰 노드에 두 포인트를 적용했다. 직전6996초 변경 적용 대기 문구가 있었고6997초 사라지며 해당 경로가 빛난다. 전직 잔여0, 레벨43·민첩43·지능48·힘57이다.",
+      "original_limitation": "6995초 작은 노드의 모든 스킬 퀄리티+2%는 읽었다. 이 큰 노드의 이름 툴팁은 해당 프레임에 없으므로 이름까지 확정하지 않는다.",
+      "current_observation": "세케마 이후 전직 트리의 작은 노드와 그 위 큰 노드에 두 포인트를 적용했다. 직전6996초 변경 적용 대기 문구가 있었고6997초 사라지며 해당 경로가 빛난다. 전직 잔여0, 레벨43·민첩43·지능48·힘57이다.",
+      "current_limitation": "6995.75초 고급 마석학 툴팁과 이 화면의 같은 경로를 대조했다. 작은 노드 모든 스킬 퀄리티+2%→큰 노드 고급 마석학의 두 포인트 적용이다. 첫 전직 미덕의 정수와 시점을 구분한다.",
+      "reason": "큰 노드 이름 미확인 해소.",
+      "evidence": [
+        {
+          "video_id": "GtC5-b4QXec",
+          "seconds": 6995.75,
+          "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6995s"
+        }
+      ]
+    },
+    {
+      "frame_id": "FRAME-C-08620",
+      "original_observation": "의식 보상 화면에서 862 공물 점수·의식 0회 남음이 보이고 헌정품에 토템의 대곤봉, 상위 진화의 오브, 신비한 의복, 극한의 마나 플라스크가 있다. 상위 진화의 오브 툴팁은 중첩 개수1/40, 최소 속성 레벨44, 일반 아이템을 속성1개가 포함된 마법 아이템으로 업그레이드한다는 설명이다. 생명력1554/1554, 보호막722/722, 정신력43/73이다.",
+      "original_limitation": "헌정품 목록은 후보이며 실제 교환 결과는 이 프레임이 아니다. 자동 자막의 평가를 채택 근거로 쓰지 않는다.",
+      "current_observation": "의식 보상 화면에서 862 공물 점수·의식 0회 남음이 보이고 헌정품에 토템의 대곤봉, 상위 진화의 오브, 신비한 의복, 극한의 마나 플라스크가 있다. 상위 진화의 오브 툴팁은 중첩 개수1/40, 최소 속성 레벨44, 일반 아이템을 속성1개가 포함된 마법 아이템으로 업그레이드한다는 설명이다. 생명력1554/1554, 보호막722/722, 정신력43/73이다.",
+      "current_limitation": "같은 화면의 HUD는 생명력1554/1554, 보호막722/722다. 버프 줄 구슬은 빨강15·초록8·파랑6으로9450초와 같은 조합인데 최대치는1512/832로 다르다. **투구 거래 전이라 기준값이 달랐다.**",
+      "reason": "적대검증이 잡은 반례를 확인해 같은 스택·다른 최대치의 근거로 편입했다. 구슬 스택 규칙을 방송 전체에 하나의 식으로 적용하면 안 된다는 직접 증거다.",
+      "evidence": [
+        {
+          "video_id": "C_tkSubXWDk",
+          "seconds": 9450,
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=9450s"
+        },
+        {
+          "video_id": "C_tkSubXWDk",
+          "seconds": 9090,
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=9090s"
+        },
+        {
+          "video_id": "C_tkSubXWDk",
+          "seconds": 9190,
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=9190s"
+        }
+      ]
+    },
+    {
+      "frame_id": "FRAME-C-09350",
+      "original_observation": "크리아 마을 탐험 중 전투에서 생명력1490/1490, 보호막778/832, 마나490/652, 정신력73/73, 격노4/30이다.",
+      "original_limitation": "정신력73/73은 이 시점 활성 구성에서 지속 스킬 예약이 없다는 뜻이다. 최대 마나652는 다른 구간의521과 다르다. 무기 세트 전환이 유력한 설명이지만 이 프레임만으로 확정하지 않는다.",
+      "current_observation": "크리아 마을 탐험 중 전투에서 생명력1490/1490, 보호막778/832, 마나490/652, 정신력73/73, 격노4/30이다.",
+      "current_limitation": "버프 줄 구슬은 빨강14·초록8·파랑7에 금색9다. 최대 생명력1490은 기준값1176에 빨강14개분, 최대 보호막832는 기준값670에 초록8개분과 맞는다. 2초 뒤9352초는 마나505/521·정신력43/73으로 세트 I이므로, **최대 마나652와 정신력73/73이 세트 II의 표식**이다.",
+      "reason": "9352초 세트 I 프레임과 대조해 세트 II 활성 판정 근거를 보강하고 구슬 스택 대응을 덧붙였다.",
+      "evidence": [
+        {
+          "video_id": "C_tkSubXWDk",
+          "seconds": 9352,
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=9352s"
+        },
+        {
+          "video_id": "C_tkSubXWDk",
+          "seconds": 9190,
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=9190s"
+        }
+      ]
+    },
+    {
+      "frame_id": "FRAME-F-05400",
+      "original_observation": "91레벨 소지품창에서 타살리오의 각반 - 레비아탄 툴팁을 읽었다. 장화, 방어도280, 요구 사항 레벨80·108 힘(빨간 글씨), 냉기 저항+18%, 힘+30이다. 골드452923이다.",
+      "original_limitation": "요구 힘108이 빨간 글씨이므로 이 시점에 착용할 수 없다. 획득과 착용을 구분한다.",
+      "current_observation": "91레벨 소지품창에서 타살리오의 각반 - 레비아탄 툴팁을 읽었다. 장화, 방어도280, 요구 사항 레벨80·108 힘(빨간 글씨), 냉기 저항+18%, 힘+30이다. 골드452923이다.",
+      "current_limitation": "요구 사항 줄의 108 힘이 붉게 강조돼 있었지만,5600초 패시브 화면의 실제 힘이108이므로 이 한 장으로 착용 불가라고 단정하지 않는다. 강조 표시의 의미와 당시 실제 힘 수치를 각각 따로 확인해야 한다.",
+      "reason": "붉은 강조를 착용 불가로 읽었던 첫 문구를 5600초 능력치와 대조해 보류로 정정.",
+      "evidence": [
+        {
+          "video_id": "rsKbeELo0TM",
+          "seconds": 5600,
+          "url": "https://www.youtube.com/watch?v=rsKbeELo0TM&t=5600s"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "DAY1-GAS-SUPPORTS",
+      "title": "14레벨 가스 최초 두 보조",
+      "frames": [
+        {
+          "id": "FRAME-A-05373",
+          "file": "mcp_session/A_05373.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=5373s",
+          "seconds": 5373
+        },
+        {
+          "id": "FRAME-A-05374",
+          "file": "mcp_session/A_05374.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=5374s",
+          "seconds": 5374
+        },
+        {
+          "id": "FRAME-A-05387",
+          "file": "mcp_session/A_05387.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=5387s",
+          "seconds": 5387
+        },
+        {
+          "id": "FRAME-A-05388",
+          "file": "mcp_session/A_05388.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=5388s",
+          "seconds": 5388
+        },
+        {
+          "id": "FRAME-A-05393",
+          "file": "mcp_session/A_05393.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=5393s",
+          "seconds": 5393
+        },
+        {
+          "id": "FRAME-A-5393.5",
+          "file": "mcp_session/A_5393.5.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=5393s",
+          "seconds": 5393.5
+        }
+      ],
+      "result": "민첩 배정과 가스 등록 → 원소 병기 I → 다중 사격 I 장착. 기존 폭발·섬광 보조는 남아 있음.",
+      "remaining": "더 앞선 폭발·섬광의 보조 연결 전후는 후속 원본으로 보완했다. 모든 미가공 보조 획득 순간의 전수 추적은 최신 범위에서 제외했다."
+    },
+    {
+      "id": "DAY1-CROSSBOW-EXALT",
+      "title": "포격 석궁 복합 접두 제작",
+      "frames": [
+        {
+          "id": "FRAME-A-12984",
+          "file": "mcp_session/A_12984.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=12984s",
+          "seconds": 12984
+        },
+        {
+          "id": "FRAME-A-12996.5",
+          "file": "mcp_session/A_12996.5.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=12996s",
+          "seconds": 12996.5
+        },
+        {
+          "id": "FRAME-A-12999",
+          "file": "mcp_session/A_12999.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=12999s",
+          "seconds": 12999
+        },
+        {
+          "id": "FRAME-A-13000",
+          "file": "mcp_session/A_13000.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=13000s",
+          "seconds": 13000
+        },
+        {
+          "id": "FRAME-A-13008",
+          "file": "mcp_session/A_13008.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=13008s",
+          "seconds": 13008
+        },
+        {
+          "id": "FRAME-A-13024",
+          "file": "mcp_session/A_13024.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=13024s",
+          "seconds": 13024
+        },
+        {
+          "id": "FRAME-B-00750",
+          "file": "mcp_session/B_00750.png",
+          "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=750s",
+          "seconds": 750
+        },
+        {
+          "id": "FRAME-B-00761",
+          "file": "mcp_session/B_00761.png",
+          "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=761s",
+          "seconds": 761
+        },
+        {
+          "id": "FRAME-B-00806",
+          "file": "mcp_session/B_00806.png",
+          "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=806s",
+          "seconds": 806
+        },
+        {
+          "id": "FRAME-C-04465",
+          "file": "mcp_session/C_04465.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4465s",
+          "seconds": 4465
+        }
+      ],
+      "result": "일반 엑잘티드 오브1개로 물리21%·정확도30 복합 접두 추가. 훼손 뒤 힘+6 선택은 C4465초 동일 이름의 실제 세트I 장착 툴팁에서 확정됐다. C에서는 품질20%이며 투사체+2 옵션은 없다.",
+      "remaining": "첫날 기존 무기와 같은 조건의 순수DPS 비교는 미확인. 모든 소켓·품질 재료 클릭 추적은 부가 항목이다."
+    },
+    {
+      "id": "DAY1-PASSIVE-SET-I",
+      "title": "카발라 보상 뒤 환불과 세트 I 배정",
+      "frames": [
+        {
+          "id": "FRAME-A-09474",
+          "file": "mcp_session/A_09474.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=9474s",
+          "seconds": 9474
+        },
+        {
+          "id": "FRAME-A-09483",
+          "file": "mcp_session/A_09483.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=9483s",
+          "seconds": 9483
+        },
+        {
+          "id": "FRAME-A-09486",
+          "file": "mcp_session/A_09486.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=9486s",
+          "seconds": 9486
+        },
+        {
+          "id": "FRAME-A-9489.15",
+          "file": "mcp_session/A_9489.15.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=9489s",
+          "seconds": 9489.15
+        },
+        {
+          "id": "FRAME-A-9489.6",
+          "file": "mcp_session/A_9489.6.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=9489s",
+          "seconds": 9489.6
+        },
+        {
+          "id": "FRAME-A-09490",
+          "file": "mcp_session/A_09490.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=9490s",
+          "seconds": 9490
+        },
+        {
+          "id": "FRAME-A-09492",
+          "file": "mcp_session/A_09492.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=9492s",
+          "seconds": 9492
+        },
+        {
+          "id": "FRAME-A-09496",
+          "file": "mcp_session/A_09496.png",
+          "url": "https://www.youtube.com/watch?v=zKJQyBm4VnI&t=9496s",
+          "seconds": 9496
+        }
+      ],
+      "result": "일반+2·무기 세트+2 알림 → 일반 노드2개 환불652골드 → 세트 I에 유탄 피해12% 한 개와 재사용 대기시간 회복 속도15% 세 개를 순서대로 적용. 일반1·I0(4)·II4(4)가 남음. 척탄병은 미배정.",
+      "remaining": "전체 양쪽 트리, 이 구간의 노드와 플래너 내부 ID의 정확한 대응, 이후 척탄병 취득, 별도 케스 무기 퀘스트 완료."
+    },
+    {
+      "id": "DAY1-ASCENDANCY",
+      "title": "첫날 두 번의 전직 포인트 사용",
+      "frames": [
+        {
+          "id": "FRAME-B-06418",
+          "file": "mcp_session/B_06418.png",
+          "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6418s",
+          "seconds": 6418
+        },
+        {
+          "id": "FRAME-B-06419",
+          "file": "mcp_session/B_06419.png",
+          "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6419s",
+          "seconds": 6419
+        },
+        {
+          "id": "FRAME-B-06422",
+          "file": "mcp_session/B_06422.png",
+          "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6422s",
+          "seconds": 6422
+        },
+        {
+          "id": "FRAME-B-06995",
+          "file": "mcp_session/B_06995.png",
+          "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6995s",
+          "seconds": 6995
+        },
+        {
+          "id": "FRAME-B-6995.75",
+          "file": "mcp_session/B_6995.75.png",
+          "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6995s",
+          "seconds": 6995.75
+        },
+        {
+          "id": "FRAME-B-06997",
+          "file": "mcp_session/B_06997.png",
+          "url": "https://www.youtube.com/watch?v=GtC5-b4QXec&t=6997s",
+          "seconds": 6997
+        }
+      ],
+      "result": "혼돈 후 미덕의 정수·고결한 방어막 → 세케마 후 퀄리티+2% 작은 노드·고급 마석학 적용.",
+      "remaining": "고급 마석학에 따른 각 젬의 추가 퀄리티 효과와 세트별 방어 상세 수치는 아직 미확인."
+    },
+    {
+      "id": "C-TRANSITION-PREP",
+      "title": "52레벨 요구 지능·재분배 비용·임시 석궁",
+      "frames": [
+        {
+          "id": "FRAME-C-04465",
+          "file": "mcp_session/C_04465.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4465s",
+          "seconds": 4465
+        },
+        {
+          "id": "FRAME-C-04468",
+          "file": "mcp_session/C_04468.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4468s",
+          "seconds": 4468
+        },
+        {
+          "id": "FRAME-C-04540",
+          "file": "mcp_session/C_04540.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4540s",
+          "seconds": 4540
+        },
+        {
+          "id": "FRAME-C-04550",
+          "file": "mcp_session/C_04550.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4550s",
+          "seconds": 4550
+        },
+        {
+          "id": "FRAME-C-04595",
+          "file": "mcp_session/C_04595.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4595s",
+          "seconds": 4595
+        },
+        {
+          "id": "FRAME-C-04670",
+          "file": "mcp_session/C_04670.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4670s",
+          "seconds": 4670
+        },
+        {
+          "id": "FRAME-C-04725",
+          "file": "mcp_session/C_04725.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4725s",
+          "seconds": 4725
+        },
+        {
+          "id": "FRAME-C-04750",
+          "file": "mcp_session/C_04750.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4750s",
+          "seconds": 4750
+        },
+        {
+          "id": "FRAME-C-04755",
+          "file": "mcp_session/C_04755.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=4755s",
+          "seconds": 4755
+        }
+      ],
+      "result": "화염 추가 포격 석궁·반지 제거, 지능47→92로 요구치 충족. 준비 패시브 구간 골드100175→49779 순감소50396, 일반20포인트 남음. 참고 플래너를 후기 단계로 바꿔도 실제 전체 적용 완료는 아니다. 보관했던 합금 석궁으로 대체해 포격 베이스 투사체+1을 포기.",
+      "remaining": "모든 노드 클릭/내부ID 전수 대응은 범위 제외. 최종 대체 반지 손익·세트II 지팡이 활성·초기 보조 및 남은20포인트 배정의 주요 차이, 이후 추가 비용은 별도 확인한다."
+    },
+    {
+      "id": "C-FLAMEBLAST-QUALITY",
+      "title": "첫 보스 뒤 화염파 퀄리티 누락 보완",
+      "frames": [
+        {
+          "id": "FRAME-C-05435",
+          "file": "mcp_session/C_05435.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5435s",
+          "seconds": 5435
+        },
+        {
+          "id": "FRAME-C-05451",
+          "file": "mcp_session/C_05451.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5451s",
+          "seconds": 5451
+        },
+        {
+          "id": "FRAME-C-5455.25",
+          "file": "mcp_session/C_5455.25.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5455s",
+          "seconds": 5455.25
+        },
+        {
+          "id": "FRAME-C-5456.25",
+          "file": "mcp_session/C_5456.25.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5456s",
+          "seconds": 5456.25
+        },
+        {
+          "id": "FRAME-C-05460",
+          "file": "mcp_session/C_05460.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5460s",
+          "seconds": 5460
+        }
+      ],
+      "result": "보스 뒤 프리즘 드롭·소지→화염파Lv13 본체 퀄리티0→20%, 추가4% 유지. 최종 시전 속도24% 증폭·단계당 피해 상태 이상 강도48% 증폭, 요구 레벨52·지능92. 소지품 프리즘1개가 사라지고 표시DPS289.1은 그대로다.",
+      "remaining": "보관함까지 포함한 총 프리즘 차감량은 미확정. 첫날 네 개 준비 발언과 소지품1개 소모를 구분하며, 일반적인 화폐 효과를 독립 검증한 것은 아니다."
+    },
+    {
+      "id": "C-SKILL-WEAPON-ASSIGNMENT",
+      "title": "52레벨 화염파·함성 스킬별 무기 세트 수정",
+      "frames": [
+        {
+          "id": "FRAME-C-05794",
+          "file": "mcp_session/C_05794.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5794s",
+          "seconds": 5794
+        },
+        {
+          "id": "FRAME-C-5795.5",
+          "file": "mcp_session/C_5795.5.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5795s",
+          "seconds": 5795.5
+        },
+        {
+          "id": "FRAME-C-05797",
+          "file": "mcp_session/C_05797.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5797s",
+          "seconds": 5797
+        },
+        {
+          "id": "FRAME-C-05800",
+          "file": "mcp_session/C_05800.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5800s",
+          "seconds": 5800
+        },
+        {
+          "id": "FRAME-C-5801.25",
+          "file": "mcp_session/C_5801.25.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5801s",
+          "seconds": 5801.25
+        },
+        {
+          "id": "FRAME-C-5804.25",
+          "file": "mcp_session/C_5804.25.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5804s",
+          "seconds": 5804.25
+        },
+        {
+          "id": "FRAME-C-05808",
+          "file": "mcp_session/C_05808.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5808s",
+          "seconds": 5808
+        },
+        {
+          "id": "FRAME-C-05814",
+          "file": "mcp_session/C_05814.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=5814s",
+          "seconds": 5814
+        }
+      ],
+      "result": "화염파 I·II 허용→II만, 지옥불 함성 I·II 허용→I만으로 실제 체크 해제. 기름I만 허용. 정신력 관리 I13·II43, 재의 전령I만·소모양쪽·고결한 방어막 항상 활성화. 수정 후 전투 HUD13/73·43/73 두 상태 확인.",
+      "remaining": "요구 지능92 충족·준비 골드 순감소50396·퀄리티0→20%는 별도 사건에서 해결했다. 초기 보조의 실제 제약·세트별 전체 방어·생명력/마나 소비와 복귀 행동은 미확인. 정지 화면을 연속 전투 검증으로 취급하지 않음."
+    },
+    {
+      "id": "C-MUTABLE-STAR",
+      "title": "47레벨 변이하는 별 확보·준비·교체 손익",
+      "frames": [
+        {
+          "id": "FRAME-C-01455",
+          "file": "mcp_session/C_01455.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=1455s",
+          "seconds": 1455
+        },
+        {
+          "id": "FRAME-C-01490",
+          "file": "mcp_session/C_01490.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=1490s",
+          "seconds": 1490
+        },
+        {
+          "id": "FRAME-C-01515",
+          "file": "mcp_session/C_01515.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=1515s",
+          "seconds": 1515
+        },
+        {
+          "id": "FRAME-C-01531",
+          "file": "mcp_session/C_01531.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=1531s",
+          "seconds": 1531
+        },
+        {
+          "id": "FRAME-C-01535",
+          "file": "mcp_session/C_01535.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=1535s",
+          "seconds": 1535
+        },
+        {
+          "id": "FRAME-C-01537",
+          "file": "mcp_session/C_01537.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=1537s",
+          "seconds": 1537
+        },
+        {
+          "id": "FRAME-C-01560",
+          "file": "mcp_session/C_01560.png",
+          "url": "https://www.youtube.com/watch?v=C_tkSubXWDk&t=1560s",
+          "seconds": 1560
+        }
+      ],
+      "result": "의식 헌정품 후보→소지→품질6%·증강물 방어도/ES18% 준비→고유 장착→희귀 보관. 같은 마을 비교에서 생명력-67·ES+39, 생명력 재생2.7→30.5·ES 재충전64.2→104.8, 화염 표시75→59%·카오스12→0%. 기존 번개저항7% 옵션을 잃어도 상한 표시75%는 유지.",
+      "remaining": "가격 표시가 없으므로 실제 지불은 미확정. 품질·소켓·증강물 재료의 개수와 이름, 두 세트 전투 방어 상태는 별도 질문이다."
+    }
+  ]
+}

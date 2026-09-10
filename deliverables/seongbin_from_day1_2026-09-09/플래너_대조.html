@@ -1,0 +1,431 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>플래너와 실황 대조</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f3eb;color:#24332e;font-family:"Malgun Gothic",system-ui,sans-serif;line-height:1.85}header{background:#173f35;color:#fff;padding:30px max(20px,calc((100vw - 1160px)/2));border-bottom:5px solid #c9a458}header .eyebrow{letter-spacing:.13em;font-size:12px;color:#d7c9a7}header p{margin:8px 0 0;font-size:23px;font-weight:700}nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}nav a{color:#fff;text-decoration:none;padding:5px 12px;border:1px solid #668379;border-radius:8px;font-size:13px}nav a[aria-current]{background:#f6f3eb;color:#173f35}main{max-width:1200px;margin:30px auto;padding:0 20px 60px}article{background:#fffdf8;padding:35px 42px;border:1px solid #ddd8c9;border-radius:12px;min-width:0}h1{font-size:32px;line-height:1.4;margin:0 0 24px;letter-spacing:-.035em}h2{font-size:23px;margin:38px 0 14px;border-top:1px solid #ddd8c9;padding-top:24px}h3{font-size:18px;margin-top:27px}p,li{overflow-wrap:anywhere}a{color:#236755;text-underline-offset:3px}strong{color:#183f35}img{max-width:100%;height:auto;display:block;border:1px solid #ddd8c9;border-radius:8px}code{font-size:.9em;overflow-wrap:anywhere;background:#eeeade;padding:2px 4px}pre{overflow:auto}.table-scroll{overflow:auto;border:1px solid #ddd8c9;border-radius:8px;margin:20px 0}table{border-collapse:collapse;width:100%;font-size:13px;min-width:600px}th{background:#e8eee7;text-align:left}th,td{padding:12px;border-bottom:1px solid #deded2;vertical-align:top}tbody tr:nth-child(even){background:#f7f7ef}td:first-child{min-width:170px}footer{font-size:12px;color:#68736a;margin-top:25px}.search{width:100%;max-width:420px;padding:10px;border:1px solid #aaa;border-radius:6px;font:inherit}.toc{background:#f0f2e9;padding:14px 20px;border-radius:8px;font-size:14px}.toc ul{margin:5px 0;padding-left:20px}@media(max-width:650px){header{padding:22px 16px}header p{font-size:19px}main{padding:0 10px;margin:15px auto}article{padding:23px 17px}h1{font-size:26px}h2{font-size:21px}nav{gap:5px}nav a{font-size:12px;padding:4px 9px}table{min-width:650px}}@media print{header nav,.search,.toc{display:none}body{background:white}main,article{margin:0;padding:0;border:0}table{font-size:10px}a{color:inherit}}</style></head><body><header><div class="eyebrow">POE2 · 0.5.5 · SEONGBIN</div><p>화염파 젬링, 첫날부터 따라 읽기</p><nav aria-label="보고서 탐색"><a href="index.html">시작</a><a href="핵심차이_실전보완.html">핵심 차이</a><a href="첫날_상세분석.html">첫날</a><a href="원본_정밀확인.html">원본 판독</a><a href="보관함_정리방식.html">보관함</a><a href="단계별_따라하기.html">따라하기</a><a href="다음방송_전환분석.html">화염파 전환</a><a href="후속방송_추가조사.html">후속 변경</a><a href="플래너_대조.html" aria-current="page">플래너</a><a href="방송목록.html">방송목록</a><a href="미확인_항목.html">남은 확인</a></nav></header><main><article><p><label for="filter">표에서 내용 찾기</label><br><input id="filter" class="search" type="search" placeholder="예: 전직, 파편탄, 정신력"></p><h1 id="_1">플래너와 실황 대조</h1>
+<p>이 표는 저장된 원본 파일 5개를 다시 JSON 파싱해 대조한 것이다. 가이드의 목표 연결, 과거 Lv61 스냅샷, 이번 방송에서 실제 실행한 연결은 다르다. <code>level_interval</code>을 젬 등급으로 읽지 않는다. <code>Two</code>·<code>Three</code>가 포함된 ID는 그대로 보존했다. 원본 파일명/표시명의 일부 깨진 글자도 기존 자료에 있던 상태다.</p>
+<p>ACT2 가이드에는 전직 스킬이 있지만 첫날 오전 실황은 전직을 미뤘다. 후기 가이드에는 화염파 5보조가 있지만 Lv61 스냅샷은 4보조이며 격노 벼림이 없다. 이 차이를 실제 소켓 해제 시각이나 획득 순서로 소급하지 않는다.</p>
+<h2 id="act-1">ACT 1</h2>
+<p>패시브 레코드 22개, 세트 필드별 레코드 {'공통/미지정': 22}. 중복 레코드가 있으므로 이 수를 사용 포인트로 해석하지 않는다.</p>
+<table>
+<thead>
+<tr>
+<th>스킬 ID</th>
+<th>플래너 표시 레벨 구간</th>
+<th>연결 보조 ID</th>
+<th>스킬 세트 필드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ExplosiveGrenade</td>
+<td>[1, 100]</td>
+<td>Scattershot + PrimalArmament</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>FlashGrenade</td>
+<td>[6, 100]</td>
+<td>Scattershot + Brutality</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>GasGrenade</td>
+<td>[14, 100]</td>
+<td>Scattershot + PrimalArmament</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>HeraldOfAsh</td>
+<td>[10, 100]</td>
+<td>MagnifiedEffect + SwiftAffliction</td>
+<td>없음</td>
+</tr>
+</tbody>
+</table>
+<h2 id="act-2">ACT 2</h2>
+<p>패시브 레코드 48개, 세트 필드별 레코드 {'공통/미지정': 48}. 중복 레코드가 있으므로 이 수를 사용 포인트로 해석하지 않는다.</p>
+<table>
+<thead>
+<tr>
+<th>스킬 ID</th>
+<th>플래너 표시 레벨 구간</th>
+<th>연결 보조 ID</th>
+<th>스킬 세트 필드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ExplosiveGrenade</td>
+<td>[1, 100]</td>
+<td>ScattershotTwo + PrimalArmamentTwo</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>FlashGrenade</td>
+<td>[6, 100]</td>
+<td>ScattershotTwo + Brutality</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>GasGrenade</td>
+<td>[14, 100]</td>
+<td>ScattershotTwo + PrimalArmamentTwo</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>HeraldOfAsh</td>
+<td>[10, 100]</td>
+<td>MagnifiedEffect + SwiftAffliction</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>AscendancyVirtuousBarrier</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+</tbody>
+</table>
+<h2 id="act-34">ACT 3/4</h2>
+<p>패시브 레코드 87개, 세트 필드별 레코드 {'공통/미지정': 87}. 중복 레코드가 있으므로 이 수를 사용 포인트로 해석하지 않는다.</p>
+<table>
+<thead>
+<tr>
+<th>스킬 ID</th>
+<th>플래너 표시 레벨 구간</th>
+<th>연결 보조 ID</th>
+<th>스킬 세트 필드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ExplosiveGrenade</td>
+<td>[1, 100]</td>
+<td>ScattershotTwo + PrimalArmamentTwo + FireInfusion</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>FlashGrenade</td>
+<td>[6, 100]</td>
+<td>ScattershotTwo + Brutality</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>GasGrenade</td>
+<td>[14, 100]</td>
+<td>ScattershotTwo + PrimalArmamentTwo + Deliberation</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>OilGrenade</td>
+<td>[31, 100]</td>
+<td>StripAway + Domain</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>AscendancyVirtuousBarrier</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>Attrition</td>
+<td>[10, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>HeraldOfAsh</td>
+<td>[10, 100]</td>
+<td>MagnifiedEffect + SwiftAffliction</td>
+<td>없음</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">막간·엔드게임 가이드</h2>
+<p>패시브 레코드 203개, 세트 필드별 레코드 {'공통/미지정': 155, 1: 24, 2: 24}. 중복 레코드가 있으므로 이 수를 사용 포인트로 해석하지 않는다.</p>
+<table>
+<thead>
+<tr>
+<th>스킬 ID</th>
+<th>플래너 표시 레벨 구간</th>
+<th>연결 보조 ID</th>
+<th>스킬 세트 필드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flameblast</td>
+<td>[52, 100]</td>
+<td>BurgeonTwo + ConsideredCasting + ConcentratedEffect + SearingFlameTwo + RageforgedTwo</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>OilGrenade</td>
+<td>[31, 100]</td>
+<td>Suffuse + MagnifiedEffectTwo + IngenuityTwo + ExpediteTwo + NovaProjectiles</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>Tornado</td>
+<td>[41, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>AscendancyVirtuousBarrier</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>TameBeast</td>
+<td>[22, 100]</td>
+<td>LastGasp + Loyalty + MeatShieldTwo + ElementalArmy</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>InfernalCry</td>
+<td>[6, 100]</td>
+<td>RagingCry + MagnifiedEffectTwo + SecondWindThree + ElementalFocus</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>SeismicCry</td>
+<td>[41, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>Blasphemy</td>
+<td>[26, 100]</td>
+<td>SkillGemTemporalChains + MagnifiedEffectTwo + RitualisticCurse</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>ScavengedPlating</td>
+<td>[10, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>ShockwaveTotem</td>
+<td>[6, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>PermafrostBolts</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>FragmentationRounds</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lv61">과거 Lv61 공개 스냅샷</h2>
+<p>패시브 레코드 107개, 세트 필드별 레코드 {2: 20, 1: 22, '공통/미지정': 65}. 중복 레코드가 있으므로 이 수를 사용 포인트로 해석하지 않는다.</p>
+<table>
+<thead>
+<tr>
+<th>스킬 ID</th>
+<th>플래너 표시 레벨 구간</th>
+<th>연결 보조 ID</th>
+<th>스킬 세트 필드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AscendancyVirtuousBarrier</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>Firebolt</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>WolfPack</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>ShockwaveTotem</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>FlashGrenade</td>
+<td>[1, 100]</td>
+<td>Scattershot + Brutality</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>InfernalCry</td>
+<td>[1, 100]</td>
+<td>RagingCry</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>Tornado</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>GasGrenade</td>
+<td>[1, 100]</td>
+<td>PrimalArmament + Scattershot</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>FragmentationRounds</td>
+<td>[1, 100]</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>OilGrenade</td>
+<td>[1, 100]</td>
+<td>NovaProjectiles + Suffuse + ExpediteTwo</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>ExplosiveGrenade</td>
+<td>[1, 100]</td>
+<td>Scattershot + PrimalArmament + FireInfusion</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>Flameblast</td>
+<td>[1, 100]</td>
+<td>ConcentratedEffect + ConsideredCasting + BurgeonTwo + SearingFlameTwo</td>
+<td>없음</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">적용 판단</h2>
+<p>스킬별 세트 필드가 없다는 이유로 모두 공통 사용 또는 자동 전환이라고 해석하지 않는다. 실황의 G 설정·세트별 패시브 화면을 따로 검증해야 한다. 완전한 초기 트리·젬 이동표 재구성은 보류했다. 아래 연구용 사본은 대조가 끝난 주석만 교정하고 스킬·트리·장비 구조를 유지한다.</p>
+<p>9월 9일 별도 공개 캐릭터 조회에는 레벨 90이 기록돼 있다. 데이터 갱신은 11:58:34 UTC, 수집은 12:39:11 UTC이며 실시간 생존 증거가 아니다. Lv61 비교표와 섞지 않는다. <a href="sources/character_retrieval.json">조회 기록</a>.</p>
+<p><a href="planner_source_validation.json">원본 파싱·해시 확인</a> · <a href="sources/planner_parsed.json">기존 파싱 내용</a></p>
+<h2 id="build_planner">실제 build_planner 및 게임 폴더 대조</h2>
+<p>저장소의 HC 이름 사본5개, 그에 대응하는 보존 원본5개, 게임 BuildPlanner에 있는 제작자 원본4개를 파일 내용으로 대조했다. 게임 UI를 열어 확인한 것은 아니다. 게임 폴더의4개는 보존 원본과 바이트 단위로 동일했다. HC 이름 주석 사본5개는 현재 게임 폴더에 없다.</p>
+<table>
+<thead>
+<tr>
+<th>저장소 사본</th>
+<th>보존 원본 대비</th>
+<th>현재 게임 폴더</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HC 1 Act1 - Seongbin.build</td>
+<td>스킬·트리 동일. 차이: author, inventory_slots, name</td>
+<td>제작자 원본 동일</td>
+</tr>
+<tr>
+<td>HC 2 Act2 - Seongbin.build</td>
+<td>스킬·트리 동일. 차이: author, inventory_slots, name</td>
+<td>제작자 원본 동일</td>
+</tr>
+<tr>
+<td>HC 3 Act3-4 - Seongbin.build</td>
+<td>스킬·트리 동일. 차이: author, inventory_slots, name</td>
+<td>제작자 원본 동일</td>
+</tr>
+<tr>
+<td>HC 4b 실캐릭 막간 - 임성빈.build</td>
+<td>스킬·트리 동일. 차이: author, inventory_slots, name</td>
+<td>해당 원본 없음</td>
+</tr>
+<tr>
+<td>HC 6 Endgame - Seongbin.build</td>
+<td>스킬·트리 동일. 차이: inventory_slots, name</td>
+<td>제작자 원본 동일</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">플래너 목표와 첫날 실황의 차이</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>플래너/기존 주석</th>
+<th>원본 대조 결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACT1 가스</td>
+<td>다중 사격+원소 병기</td>
+<td>A 5393.5초에서 I+I 연결 확인. 원소 병기 다음 다중 사격 순서. 앞서 폭발·섬광에서 보조를 뺀 흔적은 없음. <a href="mcp_session/A_5393.5.png">완료 직후</a></td>
+</tr>
+<tr>
+<td>ACT2 보조</td>
+<td>다중 사격 II·원소 병기 II</td>
+<td>첫 도입은 I+I. II 실제 승급 시각 미확인. level_interval은 캐릭터 단계 표시이며 젬 등급이 아님</td>
+</tr>
+<tr>
+<td>ACT2 전직</td>
+<td>고결한 방어막, 주석의 바이퍼 직전2차</td>
+<td>실제 혼돈 후 미덕의 정수→세케마 후 고급 마석학. 계획·목표와 실행 순서를 분리. <a href="mcp_session/B_6995.75.png">큰 노드</a></td>
+</tr>
+<tr>
+<td>ACT2 세트 경로</td>
+<td>단계별 최종 트리</td>
+<td>A9474~9496에서23레벨의 두 노드 환불652골드·세트I 네 노드 적용을 확인. 척탄병은 미배정, II 네 포인트는 미사용. 전체 트리 순서는 여전히 확인 중. <a href="mcp_session/A_09496.png">적용</a></td>
+</tr>
+<tr>
+<td>ACT3/4 신중</td>
+<td>가스3보조 목표</td>
+<td>A 13080초 III 요구 확인, A 14200초 가스 세 번째 칸 비어 있음. 신중을 확보 전부터 요구하지 않음</td>
+</tr>
+<tr>
+<td>ACT3/4 석궁</td>
+<td>+2 투사체 스킬 목표</td>
+<td>실제 포격은 힘+6 타협, C4465초 최종 장착 툴팁 확인. 전환 때 화염 추가 없는 합금 석궁으로 임시 대체해 포격 베이스의 투사체+1을 포기</td>
+</tr>
+<tr>
+<td>ACT3/4 장화</td>
+<td>이동속도가 없으면 안 된다는 이전 주석</td>
+<td>실황은 이속15%를 포기한 방어·저항 교체. <a href="첫날_상세분석.html">교체 손익</a></td>
+</tr>
+<tr>
+<td>ACT3/4 갑옷</td>
+<td>변이하는 별 목표</td>
+<td>첫날 희귀→다음 날47레벨 의식 헌정품 획득·장착. 생명력67·저항 옵션 손실과 방어/ES·재생 이득을 확인.52레벨 전환 전에 확보한 시점 차이</td>
+</tr>
+<tr>
+<td>실캐릭 Lv61·엔드게임</td>
+<td>화염파4보조·5보조와 후기 장비</td>
+<td>서로 다른 스냅샷/목표. 첫날과52레벨 최초 연결을 자동으로 채우는 근거가 아님</td>
+</tr>
+<tr>
+<td>52레벨 전환 실행</td>
+<td>Interludes / End Game 참고</td>
+<td>실제 지능47→92·준비 패시브 골드 순감소50396, 일반20포인트 미사용. 퀄리티0→20% 및 스킬별 세트 지정 오류를 따로 수정. <a href="다음방송_전환분석.html">전후</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">연구용 주석 교정 사본</h2>
+<p>첫날3단계의 연구용 사본을 별도 출력했다. 예전 자동 자막 해석 주석 블록을 제거하고 위에서 대조한 시점·차이·한계를 장비 칸에 적었다. 제작자 스킬·트리·장비 구조는 유지했으므로 실제 육성 순서를 모두 재현하는 완성 플래너는 아니다. 원본과 게임 설치본은 보존한다.</p>
+<ul>
+<li>
+<p><a href="planner/DAY1_1_Seongbin_reviewed_notes.build">HC 1 Act1 - Seongbin - 연구대조</a></p>
+</li>
+<li>
+<p><a href="planner/DAY1_2_Seongbin_reviewed_notes.build">HC 2 Act2 - Seongbin - 연구대조</a></p>
+</li>
+<li>
+<p><a href="planner/DAY1_3_Seongbin_reviewed_notes.build">HC 3 Act3-4 - Seongbin - 연구대조</a></p>
+</li>
+</ul>
+<p>JSON 재파싱과 이름·additional_text 이외 필드 불변 검사를 통과했다. 게임에서 열기·적용 검증은 하지 않았다. <a href="planner_crosscheck.json">파일별 해시·필드 비교·기존 주석 원문</a>.</p></article><footer>자막·미리보기·실행 검증을 구분한 조사 기록 · <a href="CHECKPOINT.html">확인 범위</a> · <a href="플래너_대조.md">Markdown 원문</a></footer></main><script>document.querySelectorAll('table').forEach(t=>{const d=document.createElement('div');d.className='table-scroll';d.tabIndex=0;t.before(d);d.append(t)});const input=document.getElementById('filter');if(input)input.addEventListener('input',()=>{const q=input.value.trim().toLocaleLowerCase();document.querySelectorAll('tbody tr').forEach(r=>r.hidden=!!q&&!r.textContent.toLocaleLowerCase().includes(q))});</script></body></html>

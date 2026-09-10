@@ -1,0 +1,32 @@
+{
+  "codex_entry": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@playwright/mcp@latest",
+      "--browser",
+      "chrome"
+    ]
+  },
+  "claude_entry": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@playwright/mcp@latest",
+      "--browser",
+      "chrome"
+    ]
+  },
+  "matching": true,
+  "global_rules": [
+    "C:\\Users\\User\\.codex\\AGENTS.md",
+    "C:\\Users\\User\\.claude\\CLAUDE.md"
+  ],
+  "shared_rules": "C:/Users/User/.agents/MCP_BROWSER_CONNECTION_RULES.md",
+  "runtime_receipts": [
+    "mcp_session/response_001.json",
+    "mcp_session/response_002.json",
+    "mcp_session/response_003.json",
+    "mcp_session/response_004.json"
+  ]
+}
