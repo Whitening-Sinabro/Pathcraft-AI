@@ -129,6 +129,17 @@ def test_unique_is_searched_by_name():
     assert q["filters"]["type_filters"] == {"filters": {"rarity": {"option": "unique"}}}
 
 
+def test_league_resolved_from_build_slug_not_hardcoded():
+    leagues = {"result": [{"id": "Forbidden Rites"}, {"id": "HC Forbidden Rites"}, {"id": "Standard"}, {"id": "Hardcore"}]}
+    assert tl.resolve_league("hc-forbidden-rites", leagues) == "HC Forbidden Rites"
+    assert tl.resolve_league("forbidden-rites", leagues) == "Forbidden Rites"
+    with pytest.raises(ValueError):
+        tl.resolve_league("hc-next-season", leagues)   # 다음 시즌 슬러그는 목록에 없으면 실패해야 한다(조용히 지난 리그로 가지 않음)
+    doc = tl.generate(index=tl.StatIndex.from_trade_data(STATS), base_paths=BASE_PATHS, uniques={}, creator="임성빈", leagues_doc=leagues)
+    assert doc["_meta"]["leagues"] == ["HC Forbidden Rites"]
+    assert all(e["league"] == "HC Forbidden Rites" and "HC%20Forbidden%20Rites" in e["tiers"][0]["links"]["int"] for e in doc["entries"])
+
+
 def test_q_url_roundtrips_query_and_hosts_differ():
     query = {"query": {"status": {"option": "securable"}, "type": "Hallowed Crown"}, "sort": {"price": "asc"}}
     u_int, u_kr = tl.q_url("int", "HC Forbidden Rites", query), tl.q_url("kr", "HC Forbidden Rites", query)

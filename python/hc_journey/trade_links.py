@@ -169,6 +169,21 @@ def category_of(base: str, base_paths: dict[str, str]) -> str | None:
     return None
 
 
+def _league_key(s: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", s.lower())
+
+
+def resolve_league(slug: str, leagues_doc: dict) -> str:
+    """빌드의 리그 슬러그(ninja 식 'hc-forbidden-rites')를 공식 trade2 리그 id('HC Forbidden Rites')로.
+    리그 이름은 시즌마다 바뀌므로 코드에 박지 않고 /api/trade2/data/leagues 캐시와 대조한다. 못 찾으면 후보 목록과 함께 실패."""
+    ids = [x.get("id") for x in leagues_doc.get("result", []) if x.get("id")]
+    want = _league_key(slug)
+    for lid in ids:
+        if _league_key(lid) == want:
+            return lid
+    raise ValueError(f"리그 슬러그 '{slug}' 에 맞는 trade2 리그 없음. 후보: {ids}")
+
+
 def unique_names(items_doc: dict) -> dict[str, str]:
     """trade2 items 카탈로그의 유니크 {이름: 베이스}."""
     out = {}
@@ -321,21 +336,27 @@ def _load_item_texts(path: Path) -> dict[str, str]:
     return {sl.get("inventory_id"): (sl.get("additional_text") or "") for sl in d.get("inventory_slots", [])}
 
 
-def generate(creators: list[dict] | None = None, league: str = DEFAULT_LEAGUE, status: str = DEFAULT_STATUS,
+def generate(creators: list[dict] | None = None, league: str | None = None, status: str = DEFAULT_STATUS,
              live: bool = False, realms: tuple[str, ...] = ("int",), index: StatIndex | None = None,
              base_paths: dict[str, str] | None = None, uniques: dict[str, str] | None = None,
              creator: str | None = None, live_tiers: tuple[str, ...] | None = None,
-             interval: float = POST_INTERVAL_SEC) -> dict:
-    """live_tiers 로 POST 할 단계를 제한한다(예: ("T1","T3")). 거래 API 는 IP 단위 속도 제한이 엄격해(429 에 Retry-After 300~600초)
+             interval: float = POST_INTERVAL_SEC, leagues_doc: dict | None = None) -> dict:
+    """league=None 이면 빌드마다 cfg["build"]["league"] 슬러그를 trade2 리그 id 로 푼다(시즌마다 바뀌므로 박지 않는다).
+    live_tiers 로 POST 할 단계를 제한한다(예: ("T1","T3")). 거래 API 는 IP 단위 속도 제한이 엄격해(429 에 Retry-After 300~1800초)
     전부 묻지 말고 답이 필요한 단계만, interval 은 넉넉히(7초 이상 권장)."""
     index = index or StatIndex.from_trade_data(load_trade_data("stats"))
     base_paths = base_paths if base_paths is not None else load_base_paths()
     uniques = uniques if uniques is not None else unique_names(load_trade_data("items"))
+    if league is None and leagues_doc is None:
+        leagues_doc = load_trade_data("leagues")
     entries: list[dict] = []
     n_unmapped = 0
+    leagues_used: set[str] = set()
     for cfg in (creators if creators is not None else build_db.CREATORS):
         if creator and cfg["name"] != creator:
             continue
+        build_league = league or resolve_league(cfg["build"]["league"], leagues_doc or {})
+        leagues_used.add(build_league)
         bands = cfg["bands"]
         snaps = [build_db.load_build(build_db.CREATORS_DIR / rel) for (_l, _lv, _st, rel) in bands]
         texts = [_load_item_texts(build_db.CREATORS_DIR / rel) for (_l, _lv, _st, rel) in bands]
@@ -353,13 +374,13 @@ def generate(creators: list[dict] | None = None, league: str = DEFAULT_LEAGUE, s
                 n_unmapped += len(unmapped)
                 tiers = build_ladder(item, mapped, category, to_level, status, unique_base)
                 for t in tiers:
-                    t["links"] = {r: q_url(r, league, t["query"]) for r in realms}
+                    t["links"] = {r: q_url(r, build_league, t["query"]) for r in realms}
                     if live and (live_tiers is None or t["tier"] in live_tiers):
                         t["live"] = {}
                         for r in realms:
-                            res = post_search(r, league, t["query"])
+                            res = post_search(r, build_league, t["query"])
                             if res.get("id"):
-                                res["url"] = id_url(r, league, res["id"])
+                                res["url"] = id_url(r, build_league, res["id"])
                             t["live"][r] = res
                             time.sleep(interval)
                 if live:
@@ -370,7 +391,7 @@ def generate(creators: list[dict] | None = None, league: str = DEFAULT_LEAGUE, s
                         h.flush()  # 파이프로 볼 때 항목마다 바로 보이게
                 entries.append({
                     "creator": cfg["name"], "transition_idx": i, "transition": f"{bands[i][0]} → {to_label}",
-                    "slot": slot, "level_max": to_level,
+                    "slot": slot, "level_max": to_level, "league": build_league,
                     "item": {"first": item.first, "unique_base": unique_base, "category": category,
                              "mods": list(item.mods),
                              "mapped": [{"text": m.text, "id": m.ids[0], "alt_ids": m.ids[1:], "value": m.value} for m in mapped],
@@ -382,7 +403,7 @@ def generate(creators: list[dict] | None = None, league: str = DEFAULT_LEAGUE, s
         "honesty": "옵션→스탯 id 는 공식 stats 인덱스 정확 일치만(unmapped 는 필터에서 뺌). 요구 레벨 상한 = 스냅샷 레벨. "
                    "한국 서버는 별도 시장이라 ?q= 링크만 공유하고 검색 id 는 서버별.",
         "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "league": league, "status": status, "realms": list(realms), "live": live,
+        "leagues": sorted(leagues_used), "status": status, "realms": list(realms), "live": live,
         "n_entries": len(entries), "n_unmapped_mods": n_unmapped,
     }, "entries": entries}
 
@@ -390,7 +411,7 @@ def generate(creators: list[dict] | None = None, league: str = DEFAULT_LEAGUE, s
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--league", default=DEFAULT_LEAGUE)
+    ap.add_argument("--league", default=None, help="비우면 빌드마다 리그 슬러그를 trade2 리그 목록에서 푼다(시즌마다 바뀌므로 기본값 없음)")
     ap.add_argument("--status", default=DEFAULT_STATUS, choices=["securable", "available", "online", "onlineleague", "any"])
     ap.add_argument("--realm", default="int", choices=["int", "kr", "both"])
     ap.add_argument("--live", action="store_true", help="공식 API 에 POST 해 검색 id 와 매물 수를 받는다")
