@@ -180,3 +180,11 @@ deliverables/**/__pycache__/
 data/hc_journey/*.db
 data/hc_journey/journey.html
 data/hc_journey/journey_*.html
+
+# VOD 전사 중간 산출물 — 재다운로드 가능, 수백 MB
+deliverables/**/audio.wav
+deliverables/**/audio.mp4
+deliverables/**/audio.ts
+deliverables/**/audio_fragments/
+deliverables/**/video_fragments/
+deliverables/**/video360_fragments/

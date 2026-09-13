@@ -348,3 +348,8 @@
 - `data/_cache/subs/{blaze_RE9_SlCF4lk.en, miso_Jrj2YtLSJSk.en, dinel_YR0BtaTug_k.ko, dinel_DSdSbtKU76E.ko}.json3` — 허락 A-3/B-2/C-3 자막(gitignore). 삭제 가능(재수집)
 - `data/hc_journey/sourcing/ninja_ladder_2026-09-10/` — ninja HC·HCSSF 래더 2269계정(protobuf 디코더 `protodec.py`·`fetch_ninja.py`) + 트위치/치지직 실조회 결과(`streamers.md/json`, `chzzk_results.json`) + 재실행 스크립트. 삭제 가능하나 재조회 비쌈(래더는 시점 스냅샷)
 - `data/hc_journey/sourcing/podcast_handles_2026-09-10/` — Blazeworks·MisoxShiru 팟캐스트 @핸들 56개 채널 스윕(`sweep.json`). 삭제 가능(재수집)
+- `deliverables/skadoosh_vod_2869701205_2026-09-11/` — Skadoosh 어제 방송(VOD 2869701205, 한국 2026-09-10 02:55, 3:24:54) 전사 일습. `transcribe.py`/`fetch_chat.py`/`verify_windows.py` + `transcript.txt`(136구간, 전체 오디오 커버) + `chat.txt`(106건) + `verified_asr/`(핵심 5구간 재전사). `audio.wav` 393MB 는 삭제 가능(재다운로드 1시간 52분). 스크립트·전사·채팅은 삭제 불가
+- `deliverables/skadoosh_vod_2871483565_2026-09-12/` — Skadoosh 9/12 방송(VOD 2871483565, 한국 04:23, 3:37:37) 전사 일습 + 방송 직후 88레벨 `creator_latest.json`. `audio.wav` 418MB 는 삭제 가능. 스크립트·전사·채팅·캐릭터 스냅샷은 삭제 불가
+- `deliverables/seongbin_check_2026-09-12/creator_latest.json` — 임성빈 96레벨 공개 캐릭터 스냅샷(9/12 08:01 접속). 93레벨 대조본은 `seongbin_from_day1_2026-09-09/planner/endgame_source/`. 삭제 불가(시점 스냅샷)
+- `build_planner/임성빈 엔드게임 Lv96 검은화염 카오스.build` — 임성빈 96레벨 실캐릭 플래너(9/12 08:01 접속 스냅샷의 PoB 내보내기에서 생성). 게임 BuildPlanner 에도 같은 파일 설치. Lv93 판은 이전 시점 기록으로 남겨 둠. 삭제 가능(재생성 가능하나 시점 스냅샷)
+- `scripts/update_warbringer_stage07.py`, `scripts/fix_warbringer_purity_wording.py` — 워브링어 단계 플래너 07 젬 갱신 · 05~07 순수함 표기 상황의존화. 멱등, 트리/젬 변경 시 중단. 삭제 불가(재적용 근거)
