@@ -354,3 +354,5 @@
 - `build_planner/임성빈 엔드게임 Lv96 검은화염 카오스.build` — 임성빈 96레벨 실캐릭 플래너(9/12 08:01 접속 스냅샷의 PoB 내보내기에서 생성). 게임 BuildPlanner 에도 같은 파일 설치. Lv93 판은 이전 시점 기록으로 남겨 둠. 삭제 가능(재생성 가능하나 시점 스냅샷)
 - `scripts/update_warbringer_stage07.py`, `scripts/fix_warbringer_purity_wording.py` — 워브링어 단계 플래너 07 젬 갱신 · 05~07 순수함 표기 상황의존화. 멱등, 트리/젬 변경 시 중단. 삭제 불가(재적용 근거)
 - `deliverables/skadoosh_vod_2872077282_2026-09-13/` — Skadoosh 9/12 방송 전사 일습(3:16:31). 채팅 143건 + 전체 전사 + `verified_asr/`(제작·중첩·방어도파괴 4구간 재전사). `audio.wav` 는 gitignore. 스크립트·전사는 삭제 불가
+- `deliverables/seongbin_streams_2026-09-13/` — 임성빈 다시보기 3편(9/9 전환·9/10·9/11) 한국어 자막 원본 + 텍스트 + `to_text.py`. 오디오 없이 자막만으로 처리. 삭제 가능(재수집)
+- `build_planner/임성빈 엔드게임 Lv96 검은화염 0913.build` — 오늘(9/13 14:46) 스냅샷 기준 실캐릭. 9/12 판과 패시브는 같고 스킬만 14→16(색 문턱용 그릇 추가). 게임에도 설치
