@@ -356,3 +356,9 @@
 - `deliverables/skadoosh_vod_2872077282_2026-09-13/` — Skadoosh 9/12 방송 전사 일습(3:16:31). 채팅 143건 + 전체 전사 + `verified_asr/`(제작·중첩·방어도파괴 4구간 재전사). `audio.wav` 는 gitignore. 스크립트·전사는 삭제 불가
 - `deliverables/seongbin_streams_2026-09-13/` — 임성빈 다시보기 3편(9/9 전환·9/10·9/11) 한국어 자막 원본 + 텍스트 + `to_text.py`. 오디오 없이 자막만으로 처리. 삭제 가능(재수집)
 - `build_planner/임성빈 엔드게임 Lv96 검은화염 0913.build` — 오늘(9/13 14:46) 스냅샷 기준 실캐릭. 9/12 판과 패시브는 같고 스킬만 14→16(색 문턱용 그릇 추가). 게임에도 설치
+
+## 2026-09-15 Skadoosh 가이드 문서를 9/13 기준선에 맞춤
+- `Docs/2026-09-05_SKADOOSH_CORRUPTING_CRY_TOTEM_WARBRINGER_0_5_5_GUIDE_DOC.html` — 사용자가 읽는 브라우저 가이드. md 가 원본이고 이 파일이 배포본이다. 추적 시작. 삭제 불가
+- `Docs/2026-09-08_SKADOOSH_SESSION_CHECKPOINT.{md,html}` · `Docs/archive/..._RESEARCH_before_2026-09-07_v3.md` — 가이드 본문이 링크하는 문서들. 링크가 끊기지 않게 함께 추적. 삭제 불가
+- `deliverables/skadoosh_early_survival_2026-09-08/Skadoosh-현재플래너.zip` — 배포용 플래너 묶음(7 .build + README). 재생성 가능하나 문서가 설치 경로로 지목한다. 레포본·게임 설치본과 해시 일치 상태로 유지할 것
+
