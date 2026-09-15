@@ -45,16 +45,21 @@
 
 ### 전사에서 나온 것
 
-**갑옷을 왜 바꿨나(00:43:31).** "There we go, Ornate. This thing is good. It's more spirit, less HP, bit more."
-이어서 "I got 2% regen as well", "Way too much cold res... I need to turn something into lightning".
+**갑옷을 왜 바꿨나.** 발화 시각이 다르니 붙여 읽지 않는다 — 00:43:31 `There we go or Nate`("Ornate"의
+ASR 오인식, 고르는 순간) · 00:43:40 `This thing is good.` · **00:43:51 `It's more spirit, less HP, bit more.`**
+· 00:44:34 `I got 2% regen as well.` · 00:44:59 `Way too much cold res, which is a good thing.` ·
+00:45:02 `I need to turn something into lightning.`
 → 본인 말은 "정신력 더, 생명력 덜". **실물과 갈린다**: 아이템 기여 생명력은 직전 갑옷이 룬 60 + 제작 113 +
 Bonded 20 = 193, 새 갑옷이 접두 196 으로 사실상 같다. 실제로 오른 것은 방어도 612 → 997, 정신력 42 → 47,
 재생 16.2 → 23.9(+ 암시 1.85%/s), 원소 적용 27% → 38% 다. 빠진 것은 Bonded 생명력·마나 룬이고 새로
-들어온 것은 피격 치명타 피해 50% 감소 룬이다. "생명력 덜"은 같이 보던 다른 매물과의 비교로 읽는다.
+들어온 것은 피격 치명타 피해 50% 감소 룬이다. "생명력 덜"이 무엇과 비교한 말인지는 확정하지 못했다 — 교체 직전에 무엇을 입고 있었는지 관측한
+스냅샷이 없다. 대조본(88레벨)은 `updatedUtc 2026-09-11T23:03Z` 로 사흘 전이고, 그 사이 투구도 바뀌었다.
 
-**방어도 파괴를 누가 하나(01:12:08).** "I stun with Seismic Cry, which means I also break armor with
-Scavenger's Plating. It's not my totems that break armor. It's me that break armor. That means I always
-get Scavenged Plating stacks — that's from this anoint here, Shattering Blow."
+**방어도 파괴를 누가 하나(01:12:08).** ASR 원문 그대로: `I stun with Seismic Cry, which means I also break
+armor` / `with Scavenger's Plating. It's not my totems that break armor. It's me that break armor.` /
+`means i always get scavenged bugging stacks that's from uh this anoint here` / `lettering blow`.
+뒤 두 줄의 `scavenged bugging`·`lettering blow` 는 오인식이다 — 90레벨 목걸이의 `enchantMods` 가
+`Allocates Shattering Blow` 이고, 9/12 방송에서도 같은 성유를 원문으로 읽는다. 교정 전 원문을 남긴다.
 → 9/12 기록과 같은 말을 이틀 뒤 다시 했다. 기절원이 지진 함성이라는 것까지 명시했다.
 
 **무기 세트 구조(01:12:41).** "I'm using two scepters. So I weapon swap, put down my totem, which is a
@@ -65,8 +70,9 @@ totems, but I gain the benefit by having a shield as well."
 **회복 축(01:11:51).** "I recover tons of life with Urgent Call and my helmet, so I have 5% max life when I
 use the Warcry." → 07 투구 목표 2순위(함성 사용 시 생명력 4~5% 회복)가 실제 회복의 축이라는 확인이다.
 
-**시장 관찰(01:13:20).** "You don't see people playing life builds at all in hardcore. The gear I have is
-really good and it's just so cheap because nobody plays this shit." 핀나클 보스는 아직 피한다(01:11:26).
+**시장 관찰(01:13:20).** ASR 원문: `life builds are you don't see people playing life builds at all the
+hardcore like gear i have is` / `like i i would consider really good and it's just so cheap because nobody
+plays this shit`. ("내가 보기엔 꽤 좋은 축"이라는 유보가 원문에 있다.) 핀나클 보스는 아직 피한다(01:11:26).
 
 ## 안 한 것
 
