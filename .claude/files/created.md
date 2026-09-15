@@ -366,4 +366,5 @@
 - `deliverables/skadoosh_mobalytics_2026-09-12/` — 제작자 배포 Mobalytics 캡처 원본(본 가이드 zip + 별도 레벨링 1-33 zip + result.json 2개 + 탭 목록 README). 받은 자리가 `.tmp/`(gitignore) 라 휘발성이어서 옮겼다. 9/13 기준선 이동의 근거다. 삭제 불가
 - `deliverables/skadoosh_vod_2874116335_2026-09-15/` — 9/14 방송 뒤 90레벨 공개 스냅샷 + PoB XML + `diff_character.py`(이 응답 구조 전용) + README. 장비 모드가 `explicitMods` 가 아니라 `desecratedMods` 에 있다는 함정을 README 에 적었다. 삭제 불가(시점 스냅샷)
 - `build_planner/WB 실캐릭 현재 - Skadoosh.build` — 실캐릭 플래너를 Lv89 → **Lv90** 으로 갱신. 게임에도 `스카두시 실캐릭 Lv90 함성토템.build` 로 설치. Lv89 설치본은 남겨 뒀다
+- `data/hc_journey/creators/skadoosh/06~09_live_lv{84,86,88,90}.build` — 보유 ninja 스냅샷 4개의 PoB 를 풀어 만든 실캐릭 밴드. 기존 `05_live.build` 는 9/6 관측본이라 `05_live_2026-09-06.build` 로 개명(레벨 미기록이라 level_hint 없음). 밴드 5 → 9, 전환 4 → 8. 삭제 불가(여정 diff 입력)
 
