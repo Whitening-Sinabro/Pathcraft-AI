@@ -32,7 +32,43 @@
 `diff_character.py` 는 두 가지를 모두 처리한다 — 이전 폴더의 같은 이름 스크립트는 구버전
 응답 구조(`itemData.socketedItems` + `explicitMods`)를 가정해서 이 스냅샷에서는 빈 결과를 낸다.
 
+## 방송 전사 (기존 파이프라인 그대로)
+
+- `fetch_chat.py` → `chat.json` / `chat.txt` — 150건, 42요청(300초 재시드). 시청자 중 Palsteron·CeinorZero
+  가 방어도·정신력을 놓고 대화한다. Nightbot 이 올린 빌드 목록의 워브링어 주소가
+  `mobalytics.gg/poe-2/builds/corrupting-cry-warbringer-skadoosh` 로, 우리가 캡처한 배포 가이드 주소와 같다.
+- `transcribe.py` → `chunks/` + `transcript.txt` + `asr_coverage.json` — 12415.7초 전 구간(1200초 창 11개,
+  겹침 5초), 세그먼트 134. 앞 30분은 대부분 WoW 클래식 베타 잡담이고 빌드 이야기는 01:10 이후에 몰려 있다.
+- `verify_windows.py` → `verified_asr/` — VAD 끄고 3구간 재전사.
+  `body_armour_ornate`(00:42:40~00:46:00) · `boots_shopping`(00:50:40~00:55:40) ·
+  `armour_break_weapon_swap`(01:11:10~01:14:20).
+
+### 전사에서 나온 것
+
+**갑옷을 왜 바꿨나(00:43:31).** "There we go, Ornate. This thing is good. It's more spirit, less HP, bit more."
+이어서 "I got 2% regen as well", "Way too much cold res... I need to turn something into lightning".
+→ 본인 말은 "정신력 더, 생명력 덜". **실물과 갈린다**: 아이템 기여 생명력은 직전 갑옷이 룬 60 + 제작 113 +
+Bonded 20 = 193, 새 갑옷이 접두 196 으로 사실상 같다. 실제로 오른 것은 방어도 612 → 997, 정신력 42 → 47,
+재생 16.2 → 23.9(+ 암시 1.85%/s), 원소 적용 27% → 38% 다. 빠진 것은 Bonded 생명력·마나 룬이고 새로
+들어온 것은 피격 치명타 피해 50% 감소 룬이다. "생명력 덜"은 같이 보던 다른 매물과의 비교로 읽는다.
+
+**방어도 파괴를 누가 하나(01:12:08).** "I stun with Seismic Cry, which means I also break armor with
+Scavenger's Plating. It's not my totems that break armor. It's me that break armor. That means I always
+get Scavenged Plating stacks — that's from this anoint here, Shattering Blow."
+→ 9/12 기록과 같은 말을 이틀 뒤 다시 했다. 기절원이 지진 함성이라는 것까지 명시했다.
+
+**무기 세트 구조(01:12:41).** "I'm using two scepters. So I weapon swap, put down my totem, which is a
+scepter and a mace, and then I war cry with a shield and a scepter. I always have the spirit I need for my
+totems, but I gain the benefit by having a shield as well."
+→ 이 문서의 05~07 세트 I(셉터+방패, 함성) / 세트 II(철퇴+셉터, 토템) 구성과 같다.
+
+**회복 축(01:11:51).** "I recover tons of life with Urgent Call and my helmet, so I have 5% max life when I
+use the Warcry." → 07 투구 목표 2순위(함성 사용 시 생명력 4~5% 회복)가 실제 회복의 축이라는 확인이다.
+
+**시장 관찰(01:13:20).** "You don't see people playing life builds at all in hardcore. The gear I have is
+really good and it's just so cheap because nobody plays this shit." 핀나클 보스는 아직 피한다(01:11:26).
+
 ## 안 한 것
 
-오디오 전사는 하지 않았다. 공개 스냅샷만으로 "무엇이 바뀌었나"가 전부 나왔고, 남은 질문은
-"왜 갑옷을 바꿨나" 하나다. 그 이유가 필요해지면 방송 구간 전사로 확인한다.
+프레임 추출은 하지 않았다. 이번 회차의 질문(장비 교체 사유·방어도 파괴 주체)은 전사와 공개 스냅샷으로
+답이 나왔고, 화면으로만 읽히는 수치를 물은 항목이 없었다.
