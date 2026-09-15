@@ -362,3 +362,8 @@
 - `Docs/2026-09-08_SKADOOSH_SESSION_CHECKPOINT.{md,html}` · `Docs/archive/..._RESEARCH_before_2026-09-07_v3.md` — 가이드 본문이 링크하는 문서들. 링크가 끊기지 않게 함께 추적. 삭제 불가
 - `deliverables/skadoosh_early_survival_2026-09-08/Skadoosh-현재플래너.zip` — 배포용 플래너 묶음(7 .build + README). 재생성 가능하나 문서가 설치 경로로 지목한다. 레포본·게임 설치본과 해시 일치 상태로 유지할 것
 
+## 2026-09-15 배포 가이드 탭 전수 매핑 + 9/14 방송 반영
+- `deliverables/skadoosh_mobalytics_2026-09-12/` — 제작자 배포 Mobalytics 캡처 원본(본 가이드 zip + 별도 레벨링 1-33 zip + result.json 2개 + 탭 목록 README). 받은 자리가 `.tmp/`(gitignore) 라 휘발성이어서 옮겼다. 9/13 기준선 이동의 근거다. 삭제 불가
+- `deliverables/skadoosh_vod_2874116335_2026-09-15/` — 9/14 방송 뒤 90레벨 공개 스냅샷 + PoB XML + `diff_character.py`(이 응답 구조 전용) + README. 장비 모드가 `explicitMods` 가 아니라 `desecratedMods` 에 있다는 함정을 README 에 적었다. 삭제 불가(시점 스냅샷)
+- `build_planner/WB 실캐릭 현재 - Skadoosh.build` — 실캐릭 플래너를 Lv89 → **Lv90** 으로 갱신. 게임에도 `스카두시 실캐릭 Lv90 함성토템.build` 로 설치. Lv89 설치본은 남겨 뒀다
+
