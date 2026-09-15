@@ -11,6 +11,20 @@
 - `pob_replica.xml` — 설명란에 **새로 추가된 다섯 번째 PoB** `pobb.in/ayV-9wM2AxAx` (Replica) 를
   base64url + zlib 로 푼 것. Part 1 설명란엔 PoB 4개뿐이었다.
 
+## 이건 "또" 가 맞다 — 리그마다 내는 SSF 스태커 시리즈
+
+채널 전체 148편을 열거해 확인했다. `From Zero to Hero` SSF 스태커 시리즈는 리그마다 나온다.
+
+| 리그 | 시리즈 | 편수 |
+|---|---|---|
+| 3.25 | SSF **Juggernaut Armour** Stacker | Part 1~3 |
+| 3.26 | SSF **Champion Armour** Stacker | Part 1~3 |
+| 3.28 | SSF **Life** Stacker Gladiator | Part 1~2 |
+| 3.29 | SSF **Strength** Stacker (주가노트) | Part 1~2 |
+
+3.27(Phrecia)만 스태커가 없고 Architect of Chaos 계열로 갔다. 3.25 도 주가노트였으니 이번 3.29 는
+같은 어센던시로 돌아온 것이다. **다음 리그에도 SSF 스태커가 나온다고 보고 소싱 케이던스를 잡을 수 있다.**
+
 ## 예고로 남겼던 항목의 결말
 
 | 8/28 가이드가 남긴 것 | Part 2 결과 |
