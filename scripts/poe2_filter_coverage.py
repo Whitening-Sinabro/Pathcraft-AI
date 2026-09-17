@@ -43,6 +43,38 @@ PROBE_LEVELS = (1, 5, 10, 12, 15, 16, 20, 22, 26, 28, 31, 33, 36, 40, 45, 48, 52
 # 우연히 맞지만 우연에 기대지 않는다.
 STAGE_ORDER = ("ACT 1", "ACT 2", "ACT 34", "Interludes")
 
+# **탭이 곧 구간이다.** 막 경계는 손으로 적지 않는다 — GGPK WorldAreas 에서 유도한
+# `data/campaign_structure_poe2.json` 이 정본이다(하드코딩하면 다음 패치에서 조용히 어긋난다).
+# 탭 -> 그 탭이 담당하는 마지막 구간의 key.
+STAGE_PHASE = {"ACT 1": "act_1", "ACT 2": "act_2", "ACT 34": "interlude_acts"}
+CAMPAIGN = REPO / "data" / "campaign_structure_poe2.json"
+
+
+def stage_ends() -> dict[str, int]:
+    """탭별 구간 끝. 값은 campaign_structure_poe2.json 의 `level_range[1]` 이다.
+
+    `ACT 34` 를 4막 끝(53)이 아니라 **막간 끝**으로 둔다: 적대검증이 반례를 댔다 —
+    그의 Lv61 스냅샷이 3/4막급 베이스(Pelt Leggings 33 · Hallowed Crown 54 ·
+    거대 생명력 플라스크 40)를 그대로 끼고 있다. 53 에서 닫으면 그 구간이 검사에서 빠진다.
+    """
+    if not CAMPAIGN.exists():
+        sys.exit(f"{CAMPAIGN} 이 없다 — 막 경계를 손으로 적지 않는다")
+    phases = {p["key"]: p for p in json.loads(CAMPAIGN.read_text(encoding="utf-8"))["phases"]}
+    out = {}
+    for tab, key in STAGE_PHASE.items():
+        if key not in phases:
+            sys.exit(f"campaign_structure_poe2.json 에 {key} 구간이 없다 — 탭 {tab} 의 경계를 못 정한다")
+        out[tab] = int(phases[key]["level_range"][1])
+    return out
+
+
+def stage_end(fname: str) -> int:
+    """그 베이스가 실린 탭이 담당하는 구간의 끝. 마감 탭·모르는 파일명은 상한 없음이다."""
+    for key, last in stage_ends().items():
+        if fname.startswith(key):
+            return last
+    return 10 ** 6
+
 
 def creator_gear(src_dir: pathlib.Path) -> list[tuple[str, int, int, str]]:
     """(베이스, 시작 레벨, 끝 레벨, 출처) — **슬롯별 교체 시점까지**가 그 베이스의 수명이다.
@@ -99,13 +131,21 @@ def creator_gear(src_dir: pathlib.Path) -> list[tuple[str, int, int, str]]:
     if not live_level:
         sys.exit(f"{side}: _meta.level 이 없다 — 실캐릭 시점을 모르면 창을 못 끊는다")
     live_names_all = [n for n in payload.get("bases") or [] if n]
-    # 슬롯 귀속은 `.build` 쪽에만 있으므로 그대로 쓰되, 이름 대조는 사이드카로 한다.
-    live_slot: dict[str, str] = {}
+    # 지난 실캐릭 스냅샷은 "그때까지는 쓰고 있었다"는 **증거**다. 창을 늘리는 데만 쓴다 —
+    # `.build` 는 유니크 슬롯의 베이스를 안 담으므로 이 목록은 착용분의 하한이고,
+    # 하한으로 창을 줄이면 안 쓰는 것을 쓴다고 우기는 꼴이 된다.
+    # (한때 여기서 `live_slot` 을 만들어 놓고 한 번도 안 썼다 — 적대검증이 짚었다.)
+    worn_until: dict[str, int] = {}
     for p in live:
+        seen = re.search(r"Lv(\d+)", p.name)
+        if not seen:
+            log.warning("%s: 파일명에 레벨이 없어 착용 증거로 못 쓴다", p.name)
+            continue
+        level = int(seen.group(1))
         for slot in json.loads(p.read_text(encoding="utf-8")).get("inventory_slots", []):
             name = (slot.get("additional_text") or "").split("\n")[0].strip()
             if name:
-                live_slot[slot.get("inventory_id") or "?"] = name
+                worn_until[name] = max(worn_until.get(name, 0), level)
 
     # 슬롯 대조로는 부족하다 — 유니크 슬롯의 첫 줄이 비어 있어(베이스 타입 자리가 없다)
     # `live_slot` 에 BodyArmour1 이 안 들어온다. 그러면 Shaman Mantle 이 교체된 줄 모른다.
@@ -116,7 +156,14 @@ def creator_gear(src_dir: pathlib.Path) -> list[tuple[str, int, int, str]]:
         # 실캐릭 시점 **이후에 시작**하는 장비는 실캐릭이 말해 줄 게 없다.
         # 이 조건이 없으면 드롭 80 짜리(Cryptic Crown)를 61 로 잘라 창이 통째로 사라진다.
         if start <= live_level and end > live_level and name not in live_names:
-            end = live_level
+            # 그 자리에 다른 것을 끼고 있다 = 이미 교체했다. **언제** 교체했는지는 최신
+            # 스냅샷이 말해 주지 않으므로 두 가지로 닫는다:
+            #   ① 지난 스냅샷에 착용 증거가 있으면 그 레벨까지는 연다(실측이 추정을 이긴다).
+            #   ② 없으면 출처 탭이 담당하는 구간의 끝까지.
+            # 어느 쪽이든 실캐릭 레벨을 넘기지 않는다 — live_level 만 쓰면 그가 레벨을 올릴수록
+            # 창이 같이 늘어나, 2막 몸통(Shaman Mantle)이 마감 지역까지 "쓸모 있는 것"으로
+            # 남아 마감 필터가 안 띄운다며 실패한다(Lv61 에선 창 밖이라 안 보이던 오판이다).
+            end = max(start, min(live_level, max(stage_end(fname), worn_until.get(name, 0))))
         corrected.append((name, start, end, fname))
 
     known = {n for n, *_ in corrected}
@@ -127,16 +174,25 @@ def creator_gear(src_dir: pathlib.Path) -> list[tuple[str, int, int, str]]:
     return corrected
 
 
+def max_area_level() -> int:
+    """존재하는 **지역** 레벨의 최대치(GGPK 유도, 마감 아틀라스 상한).
+
+    창의 끝은 캐릭터 레벨인데 프로브는 지역 레벨로 던진다. 둘을 안 가르면 '지역 97' 같은
+    없는 지역을 검사해서 존재하지 않는 결함이 나온다(적대검증이 짚었다)."""
+    phases = {p["key"]: p for p in json.loads(CAMPAIGN.read_text(encoding="utf-8"))["phases"]}
+    return int(phases["endgame_maps"]["level_range"][1])
+
+
 def probe_levels(start: int, end: int) -> list[int]:
     """고정 격자 + **그 창 자신의 경계**. 격자만 쓰면 짧은 창이 통째로 안 밟힌다 —
     Iron Ring [1,7] · Stone Charm [8,11] 처럼 8종이 평가 0회로 조용히 통과했다."""
-    hi = min(end, 10 ** 5)
+    hi = min(end, max_area_level())
     pts = {a for a in PROBE_LEVELS if start <= a <= hi}
     # `start + 1` 도 반드시 찍는다. 게이트(ilvl/소켓)가 시작 직후 한두 레벨만 막는 경우가
     # 격자에 안 걸린다 — 광택 나는 석궁이 ilvl 18 게이트 때문에 16~17 에서만 빠졌는데
     # 격자에 17 이 없어 내 검사기는 16 하나만 보고했다(외부 검증이 17 도 짚었다).
-    pts.update({start, start + 1, hi if hi < 10 ** 5 else max(PROBE_LEVELS),
-                (start + min(hi, 90)) // 2})
+    # 창 경계(start·hi)와 중간 한 점. hi 는 이미 존재하는 지역 레벨로 잘려 있다.
+    pts.update({start, start + 1, hi, (start + hi) // 2})
     return sorted(a for a in pts if start <= a <= hi)
 
 

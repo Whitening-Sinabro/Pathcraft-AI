@@ -346,15 +346,17 @@
   },
   {
    "style": "charm_endgame",
-   "name": "[생존] 호신부 5종 — 임성빈 축 + ds lily·fubgun 보강",
-   "note": "하코에서 사람을 죽이는 것은 평균 피해가 아니라 상태 이상 한 방이다. Sapphire Charm(임성빈) / Stone Charm(임성빈) / Thawing Charm(임성빈·fubgun). 임성빈은 액트1 사파이어 -> 액트3/4 돌·해동으로 가고, fubgun 은 해동·소화·은을 상시 낀다.",
+   "name": "[생존] 호신부 5종 — 임성빈 축 + 지혈·해독 상시",
+   "note": "하코에서 사람을 죽이는 것은 평균 피해가 아니라 상태 이상 한 방이다. Sapphire Charm(임성빈) / Stone Charm(임성빈) / Thawing Charm(임성빈·fubgun) / Staunching Charm(SC 가이드) / Antidote Charm(SC 가이드). 임성빈은 액트1 사파이어 -> 액트3/4 돌·해동으로 가고, fubgun 은 해동·소화·은을 상시 낀다. Staunching Charm, Antidote Charm 는 그가 Lv97 에서 벗었어도 남긴다 — 출혈·중독 대응은 제작자 졸업 여부와 무관하게 사용자에게 필요하다(2026-09-18 결정).",
    "class": [
     "Charms"
    ],
    "base_types": [
     "Sapphire Charm",
     "Stone Charm",
-    "Thawing Charm"
+    "Thawing Charm",
+    "Staunching Charm",
+    "Antidote Charm"
    ],
    "rarity": [
     "Normal",
@@ -423,22 +425,22 @@
   {
    "style": "armour_gear",
    "name": "[전 구간] 실캐릭이 지금 끼고 있는 베이스 — poe.ninja",
-   "note": "사용자가 정한 1순위 출처(poe.ninja 실캐릭)를 밴드와 무관하게 항상 켠다. 현재 스냅샷 15종: Kalguuran Cuffs, Prismatic Ring, Plate Belt, Bombard Crossbow, Cleric Vestments, Solar Amulet, Amethyst Ring, Ashen Staff, Hallowed Crown, Pelt Leggings, Gargantuan Life Flask, Staunching Charm, Grand Mana Flask, Antidote Charm, Sapphire. 왜 따로 두나 — 드롭 레벨 밴드만으로는 마감에서 그를 못 따라간다. Hallowed Crown(54) · Kalguuran Cuffs(45) · Pelt Leggings(33) · Solar Amulet(30) · Plate Belt(25) 는 마감 밴드(드롭 55+)에 안 들어가서 endgame 필터에서 통째로 빠져 있었다. 그가 61레벨에 실제로 끼고 있는데도. 적대검증이 이 구멍을 짚었다. 이 룰은 스냅샷이 갱신되면 같이 바뀐다 — 추적기가 플래너를 덮어쓰면 재실행하라.",
+   "note": "사용자가 정한 1순위 출처(poe.ninja 실캐릭)를 밴드와 무관하게 항상 켠다. 현재 스냅샷 15종: Cleric Vestments, Adherent Cuffs, Gold Amulet, Chiming Staff, Trarthan Cannon, Cryptic Leggings, Plate Belt, Prismatic Ring, Imperial Greathelm, Ultimate Life Flask, Golden Charm, Gargantuan Mana Flask, Thawing Charm, Dousing Charm, Sapphire. 왜 따로 두나 — 드롭 레벨 밴드만으로는 마감에서 그를 못 따라간다. Hallowed Crown(54) · Kalguuran Cuffs(45) · Pelt Leggings(33) · Solar Amulet(30) · Plate Belt(25) 는 마감 밴드(드롭 55+)에 안 들어가서 endgame 필터에서 통째로 빠져 있었다. 그가 61레벨에 실제로 끼고 있는데도. 적대검증이 이 구멍을 짚었다. 이 룰은 스냅샷이 갱신되면 같이 바뀐다 — 추적기가 플래너를 덮어쓰면 재실행하라.",
    "base_types": [
-    "Kalguuran Cuffs",
-    "Prismatic Ring",
-    "Plate Belt",
-    "Bombard Crossbow",
     "Cleric Vestments",
-    "Solar Amulet",
-    "Amethyst Ring",
-    "Ashen Staff",
-    "Hallowed Crown",
-    "Pelt Leggings",
-    "Gargantuan Life Flask",
-    "Staunching Charm",
-    "Grand Mana Flask",
-    "Antidote Charm",
+    "Adherent Cuffs",
+    "Gold Amulet",
+    "Chiming Staff",
+    "Trarthan Cannon",
+    "Cryptic Leggings",
+    "Plate Belt",
+    "Prismatic Ring",
+    "Imperial Greathelm",
+    "Ultimate Life Flask",
+    "Golden Charm",
+    "Gargantuan Mana Flask",
+    "Thawing Charm",
+    "Dousing Charm",
     "Sapphire"
    ],
    "rarity": [
@@ -449,6 +451,23 @@
    "stages": [
     "campaign",
     "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "jewellery_gear",
+   "name": "[마감] 그의 마감 계획에만 남은 2종 — 실캐릭과 갈린 슬롯",
+   "note": "모발리틱스 마감 탭은 진주 호부와 거대 생명력 플라스크를 적어 두는데, 실캐릭은 Lv97 에서 그 자리에 황금 호부·궁극의 생명력 플라스크를 낀다. 계획이 낡은 것이다. 어느 한쪽을 버리지 않고 **둘 다 정본으로 들고 가기로 했다**(2026-09-18 결정: 플래너도 계획본·실캐릭본 두 벌). 그래서 마감 단계에서만 이 2종을 켠다 — 액트 밴드 룰은 area_level_max 45·70 에서 끊겨 마감 지역을 안 덮고, NeverSink STRICT 는 둘 다 숨긴다. 그가 상위 등급으로 졸업했으니 실제로 주울 일은 드물고, 소음은 2종이다.",
+   "base_types": [
+    "Pearlescent Amulet",
+    "Gargantuan Life Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "stages": [
     "endgame"
    ]
   },

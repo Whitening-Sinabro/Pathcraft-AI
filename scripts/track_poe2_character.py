@@ -217,6 +217,54 @@ def build_planner(pob_xml: Path, tmp: Path, name: str, author: str, link: str, i
     return True
 
 
+def persist(cur: dict, prev: dict | None, *, out: Path, snaps: Path, tmp: Path,
+            timeline: Path, sidecar: Path, args, seen_milestones: set[int]) -> None:
+    """관측 1건을 디스크에 남긴다 — 스냅샷·이력·PoB·플래너·착용 사이드카.
+
+    폴링 루프와 `--once` 가 **같은** 경로를 쓰게 분리했다. 둘로 갈라두면
+    오프라인 갱신본만 사이드카를 안 남기는 식으로 조용히 어긋나고,
+    그 어긋남은 필터가 착용분을 못 잡을 때까지 안 보인다.
+    """
+    stamp = datetime.now(KST)
+    lvl = cur.get("level")
+    (snaps / f"lv{lvl}_{stamp:%m%d_%H%M}.json").write_text(
+        json.dumps(cur, ensure_ascii=False), encoding="utf-8")
+
+    lines = diff_lines(prev, cur) if prev is not None else [f"1회 갱신 — {summary(cur)}"]
+    with timeline.open("a", encoding="utf-8") as fh:
+        fh.write(f"### {stamp:%m-%d %H:%M KST} — {summary(cur)}\n\n")
+        for line in lines:
+            fh.write(f"- {line}\n")
+        fh.write("\n")
+
+    pob = cur.get("pathOfBuildingExport")
+    if not pob:
+        log.warning("응답에 PoB 익스포트가 없다 — 플래너·사이드카는 건드리지 않는다")
+        return
+    xml = out / "live_pob.xml"
+    try:
+        xml.write_text(decode_pob(pob), encoding="utf-8")
+    except Exception as exc:
+        log.error("PoB 디코드 실패: %r", exc)
+        return
+
+    build_planner(xml, tmp, args.live_name, args.author, args.link, not args.no_install)
+    # 필터 스펙이 읽는 착용 목록. 플래너와 함께 갱신해야 둘이 안 갈린다.
+    write_ninja_items(cur, sidecar)
+
+    crossed = [e for e, _ in ACT_ENTRY if e not in seen_milestones and e <= (lvl or 0)]
+    if not (crossed and args.milestone_prefix):
+        return
+    seen_milestones.update(crossed)
+    entry = max(crossed)
+    label = act_of(entry)
+    keep = f"{args.milestone_prefix} {label} - {args.planner_suffix}"
+    build_planner(xml, tmp, keep, args.author, args.link, not args.no_install)
+    log.info("%s 진입(Lv%d) 보존본: %s", label, entry, keep)
+    with timeline.open("a", encoding="utf-8") as fh:
+        fh.write(f"- **{label} 진입(Lv{entry}) — 플래너 보존본 `{keep}` 생성**\n\n")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--account", required=True)
@@ -230,6 +278,14 @@ def main() -> int:
     ap.add_argument("--interval", type=int, default=180)
     ap.add_argument("--hours", type=float, default=8.0)
     ap.add_argument("--no-install", action="store_true")
+    ap.add_argument("--once", action="store_true",
+                    help="폴링하지 않고 지금 스냅샷으로 1회 갱신한다(제작자가 오프라인일 때)")
+    ap.add_argument("--sidecar", default="",
+                    help="착용 베이스 사이드카 경로. 비우면 .tmp/seongbin/LIVE_ninja_items.json "
+                         "(젬링 필터 스펙이 읽는 자리). 다른 캐릭을 추적할 때는 반드시 지정한다 — "
+                         "안 하면 젬링 사이드카를 그 캐릭 착용분으로 덮어쓴다")
+    ap.add_argument("--planner-suffix", default="Skadoosh",
+                    help="전환 레벨 보존본 파일명 꼬리(`<접두사> <막> - <꼬리>`)")
     args = ap.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s",
@@ -241,6 +297,16 @@ def main() -> int:
     timeline = out / "timeline.md"
     if not timeline.exists():
         timeline.write_text(f"# {args.name} 진행 이력 (poe.ninja `latest` 폴링)\n\n", encoding="utf-8")
+    sidecar = Path(args.sidecar) if args.sidecar else REPO / ".tmp" / "seongbin" / "LIVE_ninja_items.json"
+
+    # 제작자가 오프라인이면 폴링은 같은 응답만 반복해서 받는다 — 변화가 없으니 아무것도 안 남는다.
+    # 그때는 지금 스냅샷을 그대로 산출물로 굳힌다.
+    if args.once:
+        cur = fetch_patiently(args.account, args.name, args.overview)
+        log.info("1회 갱신 %s", summary(cur))
+        persist(cur, None, out=out, snaps=snaps, tmp=tmp, timeline=timeline,
+                sidecar=sidecar, args=args, seen_milestones=set())
+        return 0
 
     # 기준선은 지연 확보한다. 시작 조회가 429 로 막혔다고 죽으면 밤샘 추적이 통째로 사라지므로,
     # 첫 성공 응답이 기준선이 되고 그 전까지는 백오프만 한다.
@@ -279,42 +345,9 @@ def main() -> int:
         if fp == prev_fp:
             continue
 
-        stamp = datetime.now(KST)
-        lvl = cur.get("level")
         log.info("변화 감지 -> %s", summary(cur))
-        (snaps / f"lv{lvl}_{stamp:%m%d_%H%M}.json").write_text(
-            json.dumps(cur, ensure_ascii=False), encoding="utf-8")
-
-        lines = diff_lines(prev, cur)
-        with timeline.open("a", encoding="utf-8") as fh:
-            fh.write(f"### {stamp:%m-%d %H:%M KST} — {summary(cur)}\n\n")
-            for line in lines:
-                fh.write(f"- {line}\n")
-            fh.write("\n")
-
-        pob = cur.get("pathOfBuildingExport")
-        if pob:
-            xml = out / "live_pob.xml"
-            try:
-                xml.write_text(decode_pob(pob), encoding="utf-8")
-            except Exception as exc:
-                log.error("PoB 디코드 실패: %r", exc)
-                xml = None
-            if xml:
-                build_planner(xml, tmp, args.live_name, args.author, args.link, not args.no_install)
-                # 필터 스펙이 읽는 착용 목록. 플래너와 함께 갱신해야 둘이 안 갈린다.
-                write_ninja_items(cur, REPO / ".tmp" / "seongbin" / "LIVE_ninja_items.json")
-                crossed = [e for e, _ in ACT_ENTRY if e not in seen_milestones and e <= (lvl or 0)]
-                if crossed and args.milestone_prefix:
-                    seen_milestones.update(crossed)
-                    entry = max(crossed)
-                    label = act_of(entry)
-                    keep = f"{args.milestone_prefix} {label} - Skadoosh"
-                    build_planner(xml, tmp, keep, args.author, args.link, not args.no_install)
-                    log.info("%s 진입(Lv%d) 보존본: %s", label, entry, keep)
-                    with timeline.open("a", encoding="utf-8") as fh:
-                        fh.write(f"- **{label} 진입(Lv{entry}) — 플래너 보존본 `{keep}` 생성**\n\n")
-
+        persist(cur, prev, out=out, snaps=snaps, tmp=tmp, timeline=timeline,
+                sidecar=sidecar, args=args, seen_milestones=seen_milestones)
         prev, prev_fp = cur, fp
 
     if prev is None:

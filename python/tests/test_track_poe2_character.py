@@ -325,3 +325,102 @@ def test_ninja_sidecar_refuses_to_blank_an_existing_list(tmp_path):
     dest.write_text('{"bases": ["Cleric Vestments"]}', encoding="utf-8")
     write_ninja_items({"items": [], "flasks": [], "jewels": []}, dest)
     assert json.loads(dest.read_text(encoding="utf-8"))["bases"] == ["Cleric Vestments"]
+
+
+# --- 1회 갱신(--once) ------------------------------------------------------- #
+
+def _once_args(tmp_path, **over):
+    """persist 가 읽는 필드만 담은 최소 네임스페이스."""
+    from argparse import Namespace
+    base = dict(live_name="LIVE", author="a", link="", no_install=True,
+                milestone_prefix="", planner_suffix="Skadoosh")
+    base.update(over)
+    return Namespace(**base)
+
+
+def test_persist_writes_snapshot_timeline_and_sidecar(tmp_path, monkeypatch):
+    """1회 갱신도 폴링과 같은 산출물을 남겨야 한다. 사이드카가 빠지면
+    플래너는 새 레벨인데 필터는 옛 착용분을 보는 상태로 조용히 갈린다."""
+    import track_poe2_character as T
+
+    seen = []
+    monkeypatch.setattr(T, "build_planner", lambda *a, **k: seen.append(a[2]) or True)
+    payload = char(level=97)
+    payload["pathOfBuildingExport"] = base64.urlsafe_b64encode(
+        zlib.compress(b"<PathOfBuilding/>")).decode().rstrip("=")
+    payload["flasks"] = [{"itemData": {"baseType": "Golden Charm"}}]
+    payload["jewels"] = [{"itemData": {"baseType": "Sapphire"}}]
+    snaps, tmp = tmp_path / "snapshots", tmp_path / "_tmp"
+    snaps.mkdir(); tmp.mkdir()
+    timeline, sidecar = tmp_path / "timeline.md", tmp_path / "side.json"
+    timeline.write_text("# t\n\n", encoding="utf-8")
+
+    T.persist(payload, None, out=tmp_path, snaps=snaps, tmp=tmp, timeline=timeline,
+              sidecar=sidecar, args=_once_args(tmp_path), seen_milestones=set())
+
+    assert [p.name for p in snaps.glob("lv97_*.json")]
+    assert "1회 갱신" in timeline.read_text(encoding="utf-8")
+    assert (tmp_path / "live_pob.xml").exists()
+    assert seen == ["LIVE"]
+    bases = json.loads(sidecar.read_text(encoding="utf-8"))["bases"]
+    assert bases == ["Horned Crown", "Bronze Greaves", "Golden Charm", "Sapphire"]
+
+
+def test_persist_without_pob_leaves_planner_and_sidecar_alone(tmp_path, monkeypatch):
+    """PoB 가 없는 응답으로 플래너를 다시 만들면 빈 플래너가 설치된다."""
+    import track_poe2_character as T
+
+    monkeypatch.setattr(T, "build_planner", lambda *a, **k: (_ for _ in ()).throw(
+        AssertionError("PoB 없이 플래너를 만들면 안 된다")))
+    snaps, tmp = tmp_path / "snapshots", tmp_path / "_tmp"
+    snaps.mkdir(); tmp.mkdir()
+    timeline, sidecar = tmp_path / "timeline.md", tmp_path / "side.json"
+    timeline.write_text("# t\n\n", encoding="utf-8")
+
+    T.persist(char(level=97), None, out=tmp_path, snaps=snaps, tmp=tmp, timeline=timeline,
+              sidecar=sidecar, args=_once_args(tmp_path), seen_milestones=set())
+
+    assert not sidecar.exists()
+    assert [p.name for p in snaps.glob("lv97_*.json")]
+
+
+def test_once_fetches_one_time_and_does_not_poll(tmp_path, monkeypatch):
+    """제작자가 오프라인이면 폴링은 같은 응답만 받는다 — 1회 갱신은 즉시 끝나야 한다."""
+    import track_poe2_character as T
+
+    calls = {"fetch": 0, "sleep": 0}
+
+    def fake_fetch(account, name, overview):
+        calls["fetch"] += 1
+        return char(level=97)
+
+    monkeypatch.setattr(T, "fetch", fake_fetch)
+    monkeypatch.setattr(T.time, "sleep", lambda s: calls.__setitem__("sleep", calls["sleep"] + 1))
+    written = {}
+    monkeypatch.setattr(T, "persist", lambda cur, prev, **k: written.update(
+        level=cur["level"], prev=prev, sidecar=k["sidecar"]))
+    monkeypatch.setattr(sys, "argv", [
+        "track", "--account", "a", "--name", "n", "--overview", "hc-forbidden-rites",
+        "--out", str(tmp_path), "--live-name", "LIVE", "--once", "--no-install",
+        "--sidecar", str(tmp_path / "side.json")])
+
+    assert T.main() == 0
+    assert calls["fetch"] == 1 and calls["sleep"] == 0
+    assert written["level"] == 97 and written["prev"] is None
+    assert written["sidecar"] == tmp_path / "side.json"
+
+
+def test_sidecar_defaults_to_the_gemling_path(tmp_path, monkeypatch):
+    """기본값은 젬링 필터 스펙이 읽는 자리다. 다른 캐릭을 이 기본값으로 추적하면
+    젬링 사이드카가 그 캐릭 착용분으로 덮인다 — 그래서 경로를 인자로 뺐다."""
+    import track_poe2_character as T
+
+    monkeypatch.setattr(T, "fetch", lambda *a: char(level=91))
+    got = {}
+    monkeypatch.setattr(T, "persist", lambda cur, prev, **k: got.update(sidecar=k["sidecar"]))
+    monkeypatch.setattr(sys, "argv", [
+        "track", "--account", "a", "--name", "n", "--overview", "hc-forbidden-rites",
+        "--out", str(tmp_path), "--live-name", "LIVE", "--once", "--no-install"])
+
+    assert T.main() == 0
+    assert got["sidecar"] == T.REPO / ".tmp" / "seongbin" / "LIVE_ninja_items.json"

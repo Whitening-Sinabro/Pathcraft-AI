@@ -239,8 +239,16 @@ VARNISHED = ["Varnished Crossbow"]
 # "갑옷은 퀄리티도 올리면서 최고품질로"(장인의 고철, 드롭 5. 희귀몹 한 마리당 하나꼴로 나온다).
 PREP_52 = ["Gemcutter's Prism", "Greater Jeweller's Orb", "Lesser Jeweller's Orb",
            "Artificer's Orb", "Armourer's Scrap"]
+# 지혈·해독은 **그가 벗어도 남긴다**(사용자 결정, 2026-09-18). 나머지 호신부와 달리
+# 이 둘은 '그가 지금 끼는 것' 규칙에서 빼면 필터에서 통째로 사라진다 — 실제로 실캐릭이
+# Lv61 -> Lv97 로 가며 둘 다 빠졌고, 다른 룰이 안 담아서 0건이 됐다. 하코에서 출혈·중독은
+# 평균 피해가 아니라 사람을 죽이는 한 방이라, 제작자가 졸업했다고 사용자까지 안 주울 이유가 없다.
+ALWAYS_CHARMS = ["Staunching Charm", "Antidote Charm"]
+# 그의 마감 탭에만 있고 실캐릭이 이미 상위 등급으로 갈아탄 슬롯. 계획본과 실캐릭본을
+# 둘 다 들고 가기로 해서(2026-09-18) 마감 단계에서만 켠다. 상세는 아래 룰 주석.
+ENDGAME_PLAN_ONLY = ["Pearlescent Amulet", "Gargantuan Life Flask"]
 CHARMS = seongbin_only(["Sapphire Charm", "Stone Charm", "Thawing Charm", "Dousing Charm", "Silver Charm"],
-                       "charms", allow_guide=True)
+                       "charms", allow_guide=True) + ALWAYS_CHARMS
 LIFE_FLASKS = seongbin_only(["Greater Life Flask", "Giant Life Flask", "Gargantuan Life Flask",
                              "Transcendent Life Flask"], "life-flasks", allow_guide=True)
 # Grand Mana Flask(드롭 16)는 그의 실캐릭 61레벨이 실제로 끼고 있다. 플래너 4개에는 없어서
@@ -411,10 +419,12 @@ rules = [
          **{"class": ["Crossbows"]}, base_types=check(CROSSBOW_LATE, "crossbow-late"),
          rarity=["Normal", "Magic", "Rare"], stages=ALL_STAGES),
 
-    dict(style="charm_endgame", name="[생존] 호신부 5종 — 임성빈 축 + ds lily·fubgun 보강",
+    dict(style="charm_endgame", name=f"[생존] 호신부 {len(CHARMS)}종 — 임성빈 축 + 지혈·해독 상시",
          note=("하코에서 사람을 죽이는 것은 평균 피해가 아니라 상태 이상 한 방이다. "
                f"{src(CHARMS)}. 임성빈은 액트1 사파이어 -> 액트3/4 돌·해동으로 가고, "
-               "fubgun 은 해동·소화·은을 상시 낀다."),
+               "fubgun 은 해동·소화·은을 상시 낀다. "
+               f"{', '.join(ALWAYS_CHARMS)} 는 그가 Lv97 에서 벗었어도 남긴다 — "
+               "출혈·중독 대응은 제작자 졸업 여부와 무관하게 사용자에게 필요하다(2026-09-18 결정)."),
          **{"class": ["Charms"]}, base_types=check(CHARMS, "charms"),
          rarity=["Normal", "Magic"], stages=ALL_STAGES),
 
@@ -447,6 +457,17 @@ rules = [
                "빠져 있었다. 그가 61레벨에 실제로 끼고 있는데도. 적대검증이 이 구멍을 짚었다. "
                "이 룰은 스냅샷이 갱신되면 같이 바뀐다 — 추적기가 플래너를 덮어쓰면 재실행하라."),
          base_types=check(LIVE, "live"), rarity=["Normal", "Magic", "Rare"], stages=ALL_STAGES),
+
+    dict(style="jewellery_gear", name="[마감] 그의 마감 계획에만 남은 2종 — 실캐릭과 갈린 슬롯",
+         note=("모발리틱스 마감 탭은 진주 호부와 거대 생명력 플라스크를 적어 두는데, 실캐릭은 "
+               "Lv97 에서 그 자리에 황금 호부·궁극의 생명력 플라스크를 낀다. 계획이 낡은 것이다. "
+               "어느 한쪽을 버리지 않고 **둘 다 정본으로 들고 가기로 했다**(2026-09-18 결정: "
+               "플래너도 계획본·실캐릭본 두 벌). 그래서 마감 단계에서만 이 2종을 켠다 — "
+               "액트 밴드 룰은 area_level_max 45·70 에서 끊겨 마감 지역을 안 덮고, "
+               "NeverSink STRICT 는 둘 다 숨긴다. 그가 상위 등급으로 졸업했으니 실제로 주울 일은 "
+               "드물고, 소음은 2종이다."),
+         base_types=check(ENDGAME_PLAN_ONLY, "endgame-plan-only"),
+         rarity=["Normal", "Magic", "Rare"], stages=["endgame"]),
 
          # 순서 주의: 이 룰은 **전용 룰(지팡이·석궁·호신부·플라스크·영혼핵) 뒤**에 와야 한다.
          # 앞에 두면 Ashen Staff·Bombard Crossbow 가 여기 먼저 걸려 S 경보를 잃는다.
