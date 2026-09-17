@@ -304,6 +304,10 @@
 | data/filter_build_targets/poe2_warbringer_skadoosh_0_5_5_hc.json | 위 스펙(룰 19 · 베이스 193). 3단계 출력 `filters/PathcraftAI_HC-Warbringer_{1-Campaign…SOFT,2-EarlyMaps…REGULAR,3-Endgame…STRICT}.filter`(gitignore) → 게임 루트 설치. 스윕 3단계 REAL 0 / HIDDEN 0 | 재생성 가능(생성기) |
 | build_planner/Warbringer Lv01-10 · Lv11-20 · Lv21-30 ref · Lv31-41 ref · **live** - Skadoosh.build | 인게임 플래너 정본 5개 — Mobalytics "Warrior Leveling 1-33" 원본 4밴드(이름·저자·링크만 정리) + poe.ninja SkadooshShoutedHard 24렙 export(정규화). 게임 폴더 `BuildPlanner/` 설치본과 동일. 21+ 는 live 파일이 정본, 그가 오르면 재export | 아니오 |
 | scripts/track_poe2_character.py | poe.ninja 실캐릭을 몇 시간씩 폴링하며 변화마다 스냅샷·PoB·인게임 플래너를 자동 갱신. `latest` 별칭으로 브라우저 없이 동작하고 `pathOfBuildingExport`(base64url+zlib)를 풀어 생성기에 넘긴다. 전환 레벨(33/41/45/53/…) 도달 시 보존본을 따로 만든다. 제작자 방송 중에만 관측 가능한 전환점을 사람 없이 남기는 것이 목적 | 아니오 |
+| deliverables/skadoosh_vod_2875018329_2026-09-16/ | 9/16 방송 처리본 — 채팅 74건·전 구간 전사(8635.4초)·검증 3구간·프레임 3장. 장화 `Eagle Hoof/Vaal Greaves` 툴팁과 `Omen of Dextral Crystallisation` 소모가 프레임에 있다(장비 귀속 근거) | 아니오 |
+| deliverables/skadoosh_vod_2875917065_2026-09-17/ | 9/17 방송 처리본 — 채팅 11건·전 구간 전사(5409.2초)·검증 3구간·프레임 6장. 도약 강타 보조 4개가 들어가는 젬 세공/스킬 창 프레임(젬 귀속 근거) + Lv91 스냅샷·PoB | 아니오 |
+| deliverables/skadoosh_vod_*/fetch_audio.py · frames.py | VOD 오디오(16kHz 모노 고정)·단일 프레임 추출. 지난 폴더엔 이 두 단계가 없어 재현이 안 됐다 | 아니오 |
+| data/hc_journey/creators/skadoosh/10_live_lv91.build | 여정 DB 밴드 10 — 실캐릭 Lv91 스냅샷 | 아니오 |
 | python/tests/test_poe2_filter_coverage.py | 커버리지 게이트의 '쓸모 창'·프로브 레벨 테스트 11건 — 교체된 장비의 창이 실캐릭 레벨이 아니라 **출처 탭이 담당하는 막의 끝**에서 닫히는지(2막 31 · 3/4막 53), 아직 끼는 것은 창을 안 자르는지, 창이 뒤집히지 않는지. 실캐릭 Lv61→97 에서 없는 결함 35건을 만들어 낸 회귀를 고정한다. 적대검증이 살려 보낸 변이 4종(M2·M9·M11·M4b)까지 죽는 것을 확인했다 | 아니오 |
 | python/tests/test_track_poe2_character.py | 위 스크립트 테스트 17건 — base64url 디코드·패딩 누락, 지문이 방어도 흔들림은 무시하고 레벨/패시브/전직/키스톤/생명력/젬/장비 변화는 잡는지, diff 출력, 얇은 응답 내성 | 아니오 |
 
