@@ -255,9 +255,9 @@ CREATORS = [
         "name": "Skadoosh", "channel": "https://www.youtube.com/channel/UChDo6WKvR6szS46KY_dL_zg", "ninja": "ITheCon-2183",   # @SkadooshPoE (명부·yt-dlp 확정; @Skadoosh 는 다른 채널)
         "build": {"name": "워브링어 타락 함성 토템", "asc": "Warbringer",
                   "league": "hc-forbidden-rites", "ssf": 0,
-                  "notes": "충격파 토템 + Corrupting Cry, 혈마법. (임성빈과 다른 어센던시) 밴드 01~04 는 제작자가 배포한 레벨링 가이드 4탭이고, 05~09 는 ninja 실캐릭 스냅샷이다."},
+                  "notes": "충격파 토템 + Corrupting Cry, 혈마법. (임성빈과 다른 어센던시) 밴드 01~04 는 제작자가 배포한 레벨링 가이드 4탭이고, 05~10 은 ninja 실캐릭 스냅샷이다."},
         "keystones": ["Ancestral Bond", "Blood Magic"],
-        # 01~04 = 제작자 배포 레벨링 가이드 4탭(Mobalytics), 05~09 = ninja 실캐릭 스냅샷.
+        # 01~04 = 제작자 배포 레벨링 가이드 4탭(Mobalytics), 05~10 = ninja 실캐릭 스냅샷.
         # 09-06 관측본은 레벨이 기록돼 있지 않아 level_hint 를 비운다(패시브 89로 41탭과 84 사이).
         "bands": [
             ("Lv01-10", 10, "planner_band", "skadoosh/01_Lv01-10.build"),
@@ -269,6 +269,7 @@ CREATORS = [
             ("실캐릭 lv86", 86, "ninja_live", "skadoosh/07_live_lv86.build"),
             ("실캐릭 lv88", 88, "ninja_live", "skadoosh/08_live_lv88.build"),
             ("실캐릭 lv90", 90, "ninja_live", "skadoosh/09_live_lv90.build"),
+            ("실캐릭 lv91", 91, "ninja_live", "skadoosh/10_live_lv91.build"),
         ],
         # 손노동 아직 0. 큐레이션은 전부 규칙(키스톤 등)에서 자동 상속 — 이게 확장의 핵심.
         "notes": {},
