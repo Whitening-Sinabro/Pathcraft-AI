@@ -61,6 +61,17 @@ TIERS = [
 ]
 AXES = [("전환 전 (주문 피해)", "spell"), ("전환 후 (카오스 피해)", "chaos")]
 
+# 최상옵이 0건일 때 "그럼 지금 살 수 있는 천장은 어디냐"를 찾는 훑기. 등급표와 달리
+# 이건 시장 지도이지 기준이 아니다 — 매물 수는 시각을 붙여서만 인용한다.
+TOP_SWEEP = [
+    ("천장 A — 카오스 13 (그의 최고치)", [("AXIS", 13)]),
+    ("천장 B — ES 20 (그의 최고치)", [("es", 20)]),
+    ("천장 C — ES 20 + 카오스 12", [("es", 20), ("AXIS", 12)]),
+    ("천장 D — ES 18 + 카오스 13", [("es", 18), ("AXIS", 13)]),
+    ("천장 E — ES 18 + 카오스 12 + 인화성 10", [("es", 18), ("AXIS", 12), ("flam", 10)]),
+    ("천장 F — 카오스 12 + 인화성 15", [("AXIS", 12), ("flam", 15)]),
+]
+
 log = logging.getLogger("jewels")
 
 
@@ -136,14 +147,18 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--live", action="store_true", help="매물 수·최저 호가까지 조회(2초 간격)")
     ap.add_argument("--gap", type=float, default=2.0)
+    ap.add_argument("--top-sweep", action="store_true",
+                    help="카오스 축에서 지금 실제로 살 수 있는 천장을 훑는다")
     ap.add_argument("--out", default="deliverables/trade_probe")
     args = ap.parse_args()
     verify_stat_ids()
 
     stamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
     rows = []
-    for axis_label, axis_key in AXES:
-        for tier_label, mins in TIERS:
+    plan = ([("전환 후 (카오스 피해)", "chaos", TOP_SWEEP)] if args.top_sweep
+            else [(label, key, TIERS) for label, key in AXES])
+    for axis_label, axis_key, tier_list in plan:
+        for tier_label, mins in tier_list:
             payload = query_for(axis_key, mins)
             row = {
                 "axis": axis_label, "tier": tier_label,
