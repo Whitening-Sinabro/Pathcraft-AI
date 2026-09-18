@@ -13,6 +13,7 @@ Skadoosh 도 따라잡았다 — 밴드 9→10(실캐릭 Lv91), VOD 2편 처리 
 - GGPK 추출 운용·재추출 후 처리 목록 → `.claude/status/poe2_ggpk.md`
 - 하코 소스 명부 → `.claude/status/poe2_hardcore_sources.md`
 - HC 여정 DB 소싱 매트릭스(21명·HC 근거 등급·허락 목록 A~G·래더/팟캐스트 축 결과) → `.claude/status/hc_creator_sourcing.md` · 원자료 `data/hc_journey/sourcing/`
+- POE2 패치노트 흡수 기록·영향 판정 → `.claude/status/poe2_patchnotes.md`(2026-09-18 0.5.5c 까지, 다음 조회 `--since 4006357`)
 - POE2 가이드·필터·카드 파이프라인 → `.claude/status/poe2_guides.md`
 
 **파이프라인 (순서 지킬 것)**:
