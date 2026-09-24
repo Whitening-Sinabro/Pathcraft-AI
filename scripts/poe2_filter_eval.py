@@ -34,11 +34,13 @@ QUOTED = re.compile(r'"([^"]+)"')
 # `unmodelled_conditions()` 에 잡힌다.
 NUMERIC_FIELDS = {
     "Sockets": "sockets", "AreaLevel": "area_level", "ItemLevel": "item_level",
+    "DropLevel": "drop_level",
     "Quality": "quality", "StackSize": "stack_size",
     "UnidentifiedItemTier": "unidentified_item_tier",
 }
 NUMERIC_CONDITIONS = set(NUMERIC_FIELDS)
 BOOLEAN_CONDITIONS = {
+    "AlwaysShow",
     "Corrupted", "Mirrored", "Identified", "SynthesisedItem", "FracturedItem",
     "AnyEnchantment", "AlternateQuality", "Replica", "Scourged", "HasImplicitMod",
 }
@@ -68,6 +70,9 @@ class Item:
     # 그 조건을 쓰는 블록이 정확히 각 필터의 유일한 Hide 블록이라, 스윕이
     # HIDDEN 을 구조적으로 0 으로 만들었다(적대검증이 이걸로 주장을 깼다).
     unidentified_item_tier: int = 0
+    # Base unlock level differs from the level of the particular dropped item.
+    drop_level: int = 1
+    always_show: bool = False
 
 
 @dataclass
@@ -141,6 +146,11 @@ def parse(text: str) -> list[Block]:
                 elif keyword == "PlayAlertSound":
                     current.sound_id = int(parts[1])
                     current.volume = int(parts[2]) if len(parts) > 2 else 100
+                elif keyword in ("CustomAlertSound", "CustomAlertSoundOptional"):
+                    # `CustomAlertSound "파일.mp3" 300` — 음량은 따옴표 뒤 마지막 토큰, 없으면 100.
+                    # 이걸 안 읽으면 커스텀 소리 블록이 전부 '무음'으로 보여 스윕이 거짓 회귀를 낸다.
+                    tail = line.rsplit('"', 1)[-1].split()
+                    current.volume = int(tail[0]) if tail else 100
                 elif keyword == "MinimapIcon":
                     current.icon_size = int(parts[1])
             except (IndexError, ValueError):
@@ -177,7 +187,8 @@ def _matches_condition(item: Item, keyword: str, operator: str, values: list[str
         return item.rarity in values
     if keyword in BOOLEAN_CONDITIONS:
         wanted = values and values[0].lower() == "true"
-        actual = {"Corrupted": item.corrupted, "Mirrored": item.mirrored}.get(keyword)
+        actual = {"Corrupted": item.corrupted, "Mirrored": item.mirrored,
+                  "AlwaysShow": item.always_show}.get(keyword)
         if actual is None:
             return not wanted  # unmodelled flags are false on a plain drop
         return actual == wanted
