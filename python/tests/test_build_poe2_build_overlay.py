@@ -360,6 +360,47 @@ class TestBuildCriticalItems:
                 assert rule.get("rarity") == ["Unique"], rule["name"]
 
 
+class TestHideBlockGuards:
+    """숨김 블록은 NeverSink 가 값을 매기는 상태를 절대 먹지 않아야 한다."""
+
+    def test_hide_never_touches_corrupted_items(self, mod):
+        # NeverSink 는 두 번 타락한 흰색·파란색에 음량 300 을 준다(soft [[0200]] twicecorruptedmagic).
+        # 스윕 격자에는 타락 상태가 없어 게이트가 못 본다 — 그래서 블록 모양으로 고정한다(2026-09-22 적대검증).
+        rule = {"kind": "hide", "name": "t", "class": ["Bows"], "rarity": ["Normal"]}
+        block = mod.render_hide_block(rule, {"rules": [rule]}, {"Bows"})
+        assert "\tCorrupted False" in block.splitlines()
+
+    def test_hide_can_spare_identified_items(self, mod):
+        # NeverSink 의 exoticmods 경보는 `Identified True` + HasExplicitMod 로 감정된 매직
+        # 무기를 띄운다. 감정된 물건의 UnidentifiedItemTier 가 어떻게 매겨지는지는 공식 문서에
+        # 없어서, 매직 숨김은 미감정으로 못 박는다(2026-09-23 적대검증).
+        rule = {"kind": "hide", "name": "t", "class": ["Bows"], "rarity": ["Magic"], "identified": False}
+        block = mod.render_hide_block(rule, {"rules": [rule]}, {"Bows"})
+        assert "\tIdentified False" in block.splitlines()
+
+    def test_hide_leaves_identified_alone_when_the_rule_is_silent(self, mod):
+        rule = {"kind": "hide", "name": "t", "class": ["Bows"], "rarity": ["Normal"]}
+        block = mod.render_hide_block(rule, {"rules": [rule]}, {"Bows"})
+        assert not any(line.strip().startswith("Identified") for line in block.splitlines())
+
+
+class TestShowBlockCopiesSourceGuards:
+    """원본 블록을 베껴 온 보호 룰은 원본의 타락·복제 조건까지 가져와야 한다(2026-09-23 적대검증)."""
+
+    STYLE = {"text": [1, 2, 3], "border": [1, 2, 3], "background": [1, 2, 3], "sound": None, "beam": None, "icon": None}
+
+    def test_corrupted_and_mirrored_are_emitted_when_asked(self, mod):
+        rule = {"name": "t", "rarity": ["Normal"], "corrupted": False, "mirrored": False}
+        block = mod.render_block(rule, self.STYLE, ["Gold Ring"], 40, 0, 0)
+        assert "\tCorrupted False" in block.splitlines()
+        assert "\tMirrored False" in block.splitlines()
+
+    def test_nothing_is_emitted_when_the_rule_is_silent(self, mod):
+        rule = {"name": "t", "rarity": ["Normal"]}
+        block = mod.render_block(rule, self.STYLE, ["Gold Ring"], 40, 0, 0)
+        assert not any(line.strip().startswith(("Corrupted", "Mirrored")) for line in block.splitlines())
+
+
 @needs_outputs
 class TestShowOnly:
     def test_no_hide_block_in_any_overlay(self):

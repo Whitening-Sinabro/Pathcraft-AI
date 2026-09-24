@@ -1,0 +1,825 @@
+{
+ "_meta": {
+  "build": "Ky 1버튼 아크 주문 토템 젬링 리전네어 (SC 거래) — 액트는 유탄 머시너리, 65~70 에 아크 토템 전환",
+  "game": "poe2",
+  "patch": "0.5 / 0.5.5 Forbidden Rites (SC 거래)",
+  "base_filter": "NeverSink's filter 2 -- SOFT / REGULAR / STRICT, 단계마다 하나",
+  "generated_by": "scripts/build_poe2_build_overlay.py via scripts/build_all_filters.py (스펙 생성기 = 세션 scratchpad arctotem/make_spec_arc.py)",
+  "sources": "https://mobalytics.gg/poe-2/builds/arc-gemling-path-of-ky (2026-09-17 갱신) · 영상 t6HXjq8Wnsg(2026-09-03) · 공식 내보내기 .build 17개의 슬롯별 바탕 · 최상위 변형 PoB 의 유니크·혈통 젬",
+  "notes": [
+   "전환 조건은 저자가 AND 로 못 박았다: \"약 3.5k 마나 AND 최소 70레벨 — 둘 다 필요하지 하나만으로는 안 된다\".",
+   "아크 토템으로는 레벨링이 불가능하다(선대의 결속까지 포인트가 멀다). 그래서 액트는 유탄 석궁 필터가 켜진다.",
+   "이중 인격(Ruby)은 \"템플러 시작점에서 패시브를 찍을 수 있음\" — 저예산 이상 변형의 트리가 이 주얼을 전제한다.",
+   "생명력 바탕/옵션은 일부러 안 띄운다. 저자: \"life does not matter at all, 마나가 피해이자 총량이다\"."
+  ],
+  "outputs": [
+   {
+    "stage": "campaign",
+    "file": "PathcraftAI_ArcTotem_1-Campaign_on_NeverSink-SOFT.filter",
+    "base": "neversink_poe2_soft.filter",
+    "why": "액트 1~4. 유탄 석궁과 호신부를 띄운다. 전환 장비는 아직 안 뜬다."
+   },
+   {
+    "stage": "maps",
+    "file": "PathcraftAI_ArcTotem_2-Maps_on_NeverSink-REGULAR.filter",
+    "base": "neversink_poe2_regular.filter",
+    "why": "막간~전환(65~70). 마법봉·성소 셉터·ES 방어구가 켜진다 — 3.5k 마나 세트를 모으는 구간."
+   },
+   {
+    "stage": "endgame",
+    "file": "PathcraftAI_ArcTotem_3-Endgame_on_NeverSink-STRICT.filter",
+    "base": "neversink_poe2_strict.filter",
+    "why": "전환 이후. 유니크·혈통 젬·소켓 재화 중심."
+   }
+  ],
+  "bases": [
+   {
+    "file": "neversink_poe2_soft.filter",
+    "upstream": "NeverSink's filter 2 - 0-SOFT.filter",
+    "used_for": "campaign",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%200-SOFT.filter",
+    "sha256": "4982d9531e17313c0d26e58ce39e636e4a870035d4e91702a051fd5263cc961d",
+    "bytes": 252540
+   },
+   {
+    "file": "neversink_poe2_regular.filter",
+    "upstream": "NeverSink's filter 2 - 1-REGULAR.filter",
+    "used_for": "maps",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%201-REGULAR.filter",
+    "sha256": "16a0333e07d0bce8a4886dc2ab0d34d6190e652a58a9d784ff06616853606572",
+    "bytes": 252572
+   },
+   {
+    "file": "neversink_poe2_strict.filter",
+    "upstream": "NeverSink's filter 2 - 3-STRICT.filter",
+    "used_for": "endgame",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%203-STRICT.filter",
+    "sha256": "efd5631032846353a15d8cfe0165296ab124bd6057c15f7d66b8f4bdfa1e9fd8",
+    "bytes": 252655
+   }
+  ]
+ },
+ "styles": {
+  "arc_core": {
+   "comment": "전환 핵심 무기 — 마법봉(주문·번개 피해) + 성소 셉터(정신력 증가·마나). 이 둘이 있어야 65~70 전환이 성립한다. 진홍 배경 + 흰 글자",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    255,
+    255
+   ],
+   "background": [
+    151,
+    7,
+    7
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Kite"
+   ],
+   "custom_sound": null
+  },
+  "lv_weapon": {
+   "comment": "액트 유탄 석궁. 저자: '+# to # added X damage 를 석궁과 반지 양쪽에 최우선으로 유지하라 — 모든 스킬 피해의 기준값이다'. 글자 42 — NeverSink 레벨링 분해 바탕(글자 40)보다 작으면 회귀",
+   "text": [
+    225,
+    160,
+    140
+   ],
+   "border": [
+    175,
+    80,
+    65
+   ],
+   "background": [
+    42,
+    3,
+    5
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    2,
+    "Red",
+    "Kite"
+   ]
+  },
+  "lv_weapon_loud": {
+   "comment": "액트 석궁(레어) — 유탄 딜의 단일 최대 지렛대라 소리를 준다. 다만 미러급 연출은 쓰지 않는다: T0 자리(글자 45 · 빔 · 최대 아이콘)는 비워 두는 게 이 프로젝트 원칙이라 글자 42 · 소리 3 · 빔 없음 · 아이콘 한 단계 작게로 낮췄다(2026-09-23 사용자: \"석궁 꼭 t0 소리 나야돼?\"). 지역 33 측정에서 레어 석궁이 무음으로 작게만 떴다(전체 2,008 상태 중 레어 무음 1,725). 소리 나는 블록은 석궁 + 레어 장신구로만 한정한다 — NeverSink 의 장비 소리 비율(22~23%)을 넘기지 않기 위해",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    255,
+    255
+   ],
+   "background": [
+    151,
+    7,
+    7
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": null,
+   "icon": [
+    1,
+    "Red",
+    "Kite"
+   ],
+   "custom_sound": null
+  },
+  "lv_jewel_loud": {
+   "comment": "액트 레어 반지·목걸이 — 추가 피해가 붙는 자리. 흰색·파란색은 조용히 두고 레어만 소리",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    120,
+    110
+   ],
+   "background": [
+    110,
+    6,
+    8
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Red Temp",
+   "icon": [
+    1,
+    "Red",
+    "Circle"
+   ]
+  },
+  "arc_gear": {
+   "comment": "ES·정신력·마나 장비 바탕. 저자: 생명력은 중요하지 않고 마나가 피해이자 방어다. 소리·빔 없음",
+   "text": [
+    225,
+    160,
+    140
+   ],
+   "border": [
+    175,
+    80,
+    65
+   ],
+   "background": [
+    42,
+    3,
+    5
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    2,
+    "Red",
+    "Kite"
+   ]
+  },
+  "arc_unique": {
+   "comment": "빌드 유니크. 이중 인격(Ruby)은 템플러 시작점 트리를 여는 필수품이라 이 빌드의 1순위. 내장 소리 1(NeverSink 가 22곳에서 쓰는 id)",
+   "text": [
+    255,
+    200,
+    140
+   ],
+   "border": [
+    255,
+    200,
+    140
+   ],
+   "background": [
+    90,
+    30,
+    5
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Orange",
+   "icon": [
+    0,
+    "Orange",
+    "Star"
+   ],
+   "custom_sound": null
+  },
+  "arc_craft": {
+   "comment": "소켓·퀄리티 재화. 완벽한 쥬얼러(6소켓) · 세공사의 프리즘(퀄리티 = 아크 피해 + 대마법사 점유 감소) · 세공사 오브(투구 소켓) · 쿠르갈의 시선",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    120,
+    110
+   ],
+   "background": [
+    110,
+    6,
+    8
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Red Temp",
+   "icon": [
+    1,
+    "Red",
+    "Circle"
+   ]
+  },
+  "arc_survival_endgame": {
+   "comment": "엔드게임 호신부(퀄리티 18+ · 아이템 레벨 82+). NeverSink 가 폰트 42 · 음량 300 을 주는데 그 블록은 AreaLevel 이 붙어 빌더가 비교하지 못한다 — 같은 크기의 룰을 직접 깐다",
+   "text": [
+    245,
+    175,
+    180
+   ],
+   "border": [
+    215,
+    110,
+    120
+   ],
+   "background": [
+    72,
+    24,
+    30
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Blue",
+   "icon": [
+    1,
+    "Orange",
+    "Raindrop"
+   ]
+  },
+  "arc_survival": {
+   "comment": "호신부 · 마나 플라스크. 마나가 곧 체력이라 마나 플라스크는 생명력 플라스크급 취급",
+   "text": [
+    245,
+    175,
+    180
+   ],
+   "border": [
+    215,
+    110,
+    120
+   ],
+   "background": [
+    72,
+    24,
+    30
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    1,
+    "Orange",
+    "Raindrop"
+   ]
+  },
+  "lineage_core": {
+   "comment": "이 빌드가 실제로 끼는 혈통 젬 6종(최상위 변형 PoB 기준)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    0,
+    255,
+    200
+   ],
+   "background": [
+    0,
+    70,
+    60
+   ],
+   "font": 45,
+   "sound": [
+    6,
+    300
+   ],
+   "beam": "Cyan",
+   "icon": [
+    0,
+    "Cyan",
+    "Star"
+   ],
+   "custom_sound": null
+  },
+  "lineage_all": {
+   "comment": "나머지 혈통 젬 — SC 거래 리그에서는 안 쓰는 것도 돈이다",
+   "text": [
+    0,
+    0,
+    0
+   ],
+   "border": [
+    0,
+    120,
+    100
+   ],
+   "background": [
+    150,
+    255,
+    230
+   ],
+   "font": 45,
+   "sound": [
+    2,
+    300
+   ],
+   "beam": "Cyan",
+   "icon": [
+    0,
+    "Cyan",
+    "Star"
+   ],
+   "custom_sound": null
+  }
+ },
+ "rules": [
+  {
+   "style": "lineage_core",
+   "name": "[혈통 · 이 빌드] 아크 토템이 쓰는 혈통 젬 6종",
+   "note": "최상위 변형 PoB 의 스킬 구성에서 읽었다: 앗지리의 매혹(저주 한도 우회) · 앗지리의 성찬식(대마법사) · 도미누스의 손아귀(주문 토템) · 그녀의 선언(대마법사) · 고위 천사의 심장(정화) · 우트레드의 의식(마나 폭풍).",
+   "class": [
+    "Skill Gems",
+    "Support Gems"
+   ],
+   "base_types": [
+    "Atziri's Allure",
+    "Atziri's Communion",
+    "Dominus' Grasp",
+    "Her Declaration",
+    "Seraph's Heart",
+    "Uhtred's Rite"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "lineage_all",
+   "name": "[혈통] 나머지 혈통 젬 전부",
+   "note": "이 빌드가 안 쓰는 혈통 젬도 거래 리그에서는 최고가 드롭이다(울-네톨의 포옹 612딥 · 앗지리의 성찬 542딥, 2026-09-23 ninja 시세). 화염파 스펙과 같은 목록에서 위 6종을 뺀 것.",
+   "class": [
+    "Skill Gems",
+    "Support Gems"
+   ],
+   "base_types": [
+    "Ahn's Citadel",
+    "Ailith's Chimes",
+    "Amanamu's Tithe",
+    "Arakaali's Lust",
+    "Arbiter's Ignition",
+    "Arbiter's Reach",
+    "Arjun's Medal",
+    "Atalui's Bloodletting",
+    "Atziri's Call",
+    "Atziri's Impatience",
+    "Bhatair's Vengeance",
+    "Breachlord's Amalgam",
+    "Breachlord's Rift",
+    "Brutus' Brain",
+    "Catha's Brilliance",
+    "Cirel's Cultivation",
+    "Daresso's Passion",
+    "Dialla's Desire",
+    "Doedre's Undoing",
+    "Dreamer's Knell",
+    "Einhar's Beastrite",
+    "Eonyr's Thunder",
+    "Esh's Prowess",
+    "Esh's Radiance",
+    "Garukhan's Resolve",
+    "Guatelitzi's Ablation",
+    "Hayoxi's Fulmination",
+    "Helbrym's Hide",
+    "Ixchel's Torment",
+    "Kalisa's Crescendo",
+    "Kaom's Madness",
+    "Khatal's Rejuvenation",
+    "Kulemak's Dominion",
+    "Kurgal's Leash",
+    "Medved's Felling",
+    "Morgana's Tempest",
+    "Mórrigan's Insight",
+    "Oisín's Oath",
+    "Olroth's Conviction",
+    "Olroth's Hubris",
+    "Paquate's Pact",
+    "Prototype Seventeen",
+    "Rakiata's Flow",
+    "Ratha's Assault",
+    "Rigwald's Ferocity",
+    "Romira's Requital",
+    "Sione's Temper",
+    "Styrn's Ferocity",
+    "Styrn's Mountain",
+    "Tacati's Ire",
+    "Tangmazu's Thurible",
+    "Tasalio's Rhythm",
+    "Tawhoa's Tending",
+    "Tecrod's Revenge",
+    "Trickster's Shard",
+    "Tul's Avalanche",
+    "Tul's Stillness",
+    "Uhtred's Augury",
+    "Uhtred's Constellation",
+    "Uhtred's Exodus",
+    "Uhtred's Omen",
+    "Uruk's Smelting",
+    "Uul-Netol's Embrace",
+    "Varashta's Blessing",
+    "Vilenta's Propulsion",
+    "Vorana's Siege",
+    "Vruun's Aftermath",
+    "Vruun's Inevitability",
+    "Xibaqua's Rending",
+    "Xoph's Pyre",
+    "Zarokh's Refrain",
+    "Zerphi's Infamy"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "lv_weapon_loud",
+   "unid_tier_max": 2,
+   "rarity": [
+    "Rare"
+   ],
+   "name": "[액트] 유탄 석궁 — 레어 (소리)",
+   "note": "레어 석궁이 실제 업그레이드라 여기만 소리를 준다. 흰색·파란색은 아래 룰에서 조용히 띄운다 — 석궁은 자주 떨어져서 전부 소리를 주면 액트 내내 울린다.",
+   "base_types": [
+    "Alloy Crossbow",
+    "Blackfire Crossbow",
+    "Bleak Crossbow",
+    "Bombard Crossbow",
+    "Cannonade Crossbow",
+    "Construct Crossbow",
+    "Cumbrous Crossbow",
+    "Dedalian Crossbow",
+    "Dyad Crossbow",
+    "Esoteric Crossbow",
+    "Makeshift Crossbow",
+    "Painted Crossbow",
+    "Piercing Crossbow",
+    "Robust Crossbow",
+    "Runeforged Bombard Crossbow",
+    "Runeforged Dyad Crossbow",
+    "Runeforged Makeshift Crossbow",
+    "Runeforged Sturdy Crossbow",
+    "Runeforged Tense Crossbow",
+    "Runemastered Dyad Crossbow",
+    "Runemastered Tense Crossbow",
+    "Sturdy Crossbow",
+    "Taut Crossbow",
+    "Tense Crossbow",
+    "Trarthan Cannon",
+    "Twin Crossbow",
+    "Varnished Crossbow"
+   ],
+   "stages": [
+    "campaign",
+    "maps"
+   ]
+  },
+  {
+   "style": "lv_weapon",
+   "unid_tier_max": 2,
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "name": "[액트] 유탄 석궁 — 흰색·파란색 (무음)",
+   "note": "GGPK 석궁 표에서 drop_level 65 이하 전부(손으로 적지 않는다 — 처음엔 20레벨 Dyad Crossbow 가 빠져 있었다). 폭발성/섬광/가스/기름/집속 유탄으로 65~70 전환까지 이 무기로 간다.",
+   "base_types": [
+    "Alloy Crossbow",
+    "Blackfire Crossbow",
+    "Bleak Crossbow",
+    "Bombard Crossbow",
+    "Cannonade Crossbow",
+    "Construct Crossbow",
+    "Cumbrous Crossbow",
+    "Dedalian Crossbow",
+    "Dyad Crossbow",
+    "Esoteric Crossbow",
+    "Makeshift Crossbow",
+    "Painted Crossbow",
+    "Piercing Crossbow",
+    "Robust Crossbow",
+    "Runeforged Bombard Crossbow",
+    "Runeforged Dyad Crossbow",
+    "Runeforged Makeshift Crossbow",
+    "Runeforged Sturdy Crossbow",
+    "Runeforged Tense Crossbow",
+    "Runemastered Dyad Crossbow",
+    "Runemastered Tense Crossbow",
+    "Sturdy Crossbow",
+    "Taut Crossbow",
+    "Tense Crossbow",
+    "Trarthan Cannon",
+    "Twin Crossbow",
+    "Varnished Crossbow"
+   ],
+   "stages": [
+    "campaign",
+    "maps"
+   ]
+  },
+  {
+   "style": "arc_core",
+   "name": "[전환 핵심] 마법봉 + 성소 셉터",
+   "note": "저자: 마법봉은 주문·번개 피해 증가에 시전 속도/주문 치확, 셉터는 '정신력 증가 + 마나'를 성소 셉터 바탕에. 정신력이 토템 수를 정한다(토템 1개당 75, 4토템 = 300).",
+   "base_types": [
+    "Attuned Wand",
+    "Dueling Wand",
+    "Siphoning Wand",
+    "Shrine Sceptre"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "lv_jewel_loud",
+   "unid_tier_max": 2,
+   "rarity": [
+    "Rare"
+   ],
+   "name": "[전환~엔드] ES·정신력 방어구 — 레어",
+   "note": "전환의 실질 업그레이드는 레어 ES 방어구다. 저자 장비(공식 내보내기 17개 변형)의 실제 바탕.",
+   "base_types": [
+    "Ancestral Tiara",
+    "Bound Sandals",
+    "Flowing Raiment",
+    "Kamasan Tiara",
+    "Luxurious Slippers",
+    "Opulent Gloves",
+    "Sandsworn Tiara",
+    "Sekhema Sandals",
+    "Sirenscale Gloves",
+    "Vile Robe"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "arc_gear",
+   "unid_tier_max": 2,
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "name": "[전환~엔드] ES·정신력 방어구 바탕",
+   "note": "저자 장비(공식 내보내기 17개 변형)의 실제 바탕. 흉갑·투구·장갑·신발 모두 마나 · ES · 저항 · 정신력을 본다.",
+   "base_types": [
+    "Ancestral Tiara",
+    "Bound Sandals",
+    "Flowing Raiment",
+    "Kamasan Tiara",
+    "Luxurious Slippers",
+    "Opulent Gloves",
+    "Sandsworn Tiara",
+    "Sekhema Sandals",
+    "Sirenscale Gloves",
+    "Vile Robe"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "lv_jewel_loud",
+   "unid_tier_max": 2,
+   "rarity": [
+    "Rare"
+   ],
+   "name": "[전환~엔드] 반지 · 목걸이 — 레어",
+   "note": "마나 · 마나 재생 · 저항이 붙는 자리. 레어만 소리를 준다.",
+   "base_types": [
+    "Lapis Amulet",
+    "Mnemonic Ring",
+    "Pearl Ring",
+    "Prismatic Ring",
+    "Ruby Ring",
+    "Sapphire Ring",
+    "Solar Amulet",
+    "Stellar Amulet"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "arc_gear",
+   "unid_tier_max": 2,
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "name": "[전환~엔드] 반지 · 목걸이 바탕",
+   "note": "저자: 반지는 마나 · 마나 재생 · 저항. 마나 재생은 전환 조건에 직접 들어간다(3.5k 마나 + 70레벨).",
+   "base_types": [
+    "Lapis Amulet",
+    "Mnemonic Ring",
+    "Pearl Ring",
+    "Prismatic Ring",
+    "Ruby Ring",
+    "Sapphire Ring",
+    "Solar Amulet",
+    "Stellar Amulet"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "lv_jewel_loud",
+   "unid_tier_max": 2,
+   "rarity": [
+    "Rare"
+   ],
+   "area_level_max": 68,
+   "name": "[액트] 레어 반지 · 목걸이 — 추가 피해 자리",
+   "note": "레어만 소리를 준다. 액트에서 실제 업그레이드는 레어고, 흰색·파란색까지 소리를 주면 반지 낙하 빈도상 화면이 못 쓰게 된다. 지역 68 이하로 가둔 이유는 아래 흰/파랑 룰과 같다.",
+   "base_types": [
+    "Iron Ring",
+    "Jade Amulet",
+    "Lapis Amulet",
+    "Mnemonic Ring",
+    "Pearl Ring",
+    "Prismatic Ring",
+    "Ruby Ring",
+    "Sapphire Ring",
+    "Solar Amulet",
+    "Stellar Amulet"
+   ],
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "arc_gear",
+   "unid_tier_max": 2,
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 68,
+   "name": "[액트] 반지 · 목걸이 — 흰색·파란색",
+   "note": "액트 유탄 딜의 기준값은 석궁과 반지의 추가 피해다. 레벨링 템플릿 바탕(철제 반지·비취 목걸이)과 전환 이후까지 쓰는 바탕을 합쳐서 전부 띄운다. 지역 68 이하로 가둔 이유: 그 위에서는 NeverSink 가 고티어 레어 장신구에 음량 300 을 주는데 이 무음 룰이 덮었다(스윕 128건).",
+   "base_types": [
+    "Iron Ring",
+    "Jade Amulet",
+    "Lapis Amulet",
+    "Mnemonic Ring",
+    "Pearl Ring",
+    "Prismatic Ring",
+    "Ruby Ring",
+    "Sapphire Ring",
+    "Solar Amulet",
+    "Stellar Amulet"
+   ],
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "arc_survival_endgame",
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "quality_min": 18,
+   "item_level_min": 82,
+   "name": "[엔드게임] 호신부 — 퀄리티 18+ · 아이템 레벨 82+",
+   "note": "NeverSink [[1000]] Endgame Charms 와 같은 조건·같은 크기. 무음 호신부 룰이 이 구간을 조용하게 만들던 것을 막는다. 액트 필터에서도 지운 적이 있는데(2026-09-23), 스윕은 액트 필터도 지역 82~86 을 검사하므로 무음 호신부 룰이 그 구간을 덮어 회귀 34건이 났다. 실제 플레이에서 안 뜨는 것과 파리티는 별개다.",
+   "base_types": [
+    "Golden Charm",
+    "Silver Charm",
+    "Stone Charm",
+    "Thawing Charm"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "arc_survival",
+   "unid_tier_max": 2,
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "name": "[전 구간] 호신부 · 마나 플라스크",
+   "note": "마나가 곧 방어(대마법사 + 정신 지배)라 마나 플라스크 등급을 생명력과 같이 본다.",
+   "base_types": [
+    "Golden Charm",
+    "Silver Charm",
+    "Stone Charm",
+    "Thawing Charm",
+    "Gargantuan Mana Flask",
+    "Transcendent Mana Flask",
+    "Ultimate Mana Flask"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "arc_unique",
+   "name": "[유니크] 이중 인격 · 목소리 · 마법사의 피 등 빌드 유니크",
+   "note": "최상위 변형 PoB 의 유니크: 이중 인격(Ruby — 템플러 시작점 해금, 저예산 변형부터 필수) · 목소리(Sapphire) · 무에서(Diamond) · 우물의 심장(Diamond) · 신념의 프리즘(Diamond) · 마법사의 피(Utility Belt) · 칼란드라의 손길(Ring) · 통과의례(Golden Charm) · 도끼의 추락(Silver Charm) · 라비앙가의 영혼(Gargantuan Mana Flask) · 룬 탐색자의 부름(Runic Fork). 바탕 기준이라 같은 바탕의 다른 유니크도 함께 뜬다.",
+   "rarity": [
+    "Unique"
+   ],
+   "base_types": [
+    "Ruby",
+    "Sapphire",
+    "Diamond",
+    "Utility Belt",
+    "Ring",
+    "Golden Charm",
+    "Silver Charm",
+    "Gargantuan Mana Flask",
+    "Runic Fork"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "arc_craft",
+   "name": "[재화] 쥬얼러 오브 · 세공사의 프리즘 · 세공사 오브 · 쿠르갈의 시선",
+   "note": "쥬얼러 = 주문 토템 소켓, 프리즘 = 퀄리티(아크는 퀄리티가 사슬당 피해, 대마법사는 점유 감소), 세공사 오브 = 투구 소켓(댓글: '2소켓 예외적 바탕을 사서 각인하라, 타락되면 각인 불가'), 쿠르갈의 시선 = 저자가 말한 단단해지는 조건(5k 마나 + 쿠르갈의 시선).",
+   "base_types": [
+    "Perfect Jeweller's Orb",
+    "Greater Jeweller's Orb",
+    "Gemcutter's Prism",
+    "Artificer's Orb",
+    "Kurgal's Gaze"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  }
+ ]
+}

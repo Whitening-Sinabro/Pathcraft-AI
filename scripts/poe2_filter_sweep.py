@@ -43,7 +43,13 @@ REPO = Path(__file__).resolve().parents[1]
 NEVERSINK_HEADER = "NeverSink's Indepth Loot Filter"
 
 RARITIES = ("Normal", "Magic", "Rare", "Unique")
-AREA_LEVELS = (10, 35, 60, 70, 80)
+# 82 · 86 은 NeverSink 의 `ItemLevel >= 82` 제작 베이스 티어(normalcraft group1t1/t2)를
+# 밟는다. 80 에서 끊기던 시절에는 그 구간 회귀 45건이 표준 스윕에서 0 으로 보였다(2026-09-22).
+AREA_LEVELS = (10, 35, 60, 70, 80, 82, 86)
+# 매직·레어: NeverSink 는 지역 65+ 에서 미감정 티어 3·4·5 이상 매직·레어에 음량 300 을
+# 준다([[0800]] High Unidentified Mod Tier 와 매직 티어 블록). 0 만 넣으면 조용한 룰이 그
+# 경보를 지워도 아무도 모른다 — 처음엔 레어만 넣어서 매직 회귀를 놓쳤다(적대검증 2026-09-22).
+UNID_TIERS = (0, 2, 3, 4, 5)
 SOCKETS = (0, 2)
 # NeverSink 의 chancing/over-quality 티어는 Quality >= 24 에서 켜진다. 20 까지만
 # 훑으면 그 구간 회귀가 그리드에 아예 안 잡힌다 — 실제로 점화 필터에서 이 차원
@@ -102,10 +108,13 @@ def class_index(ev, base_blocks) -> dict[str, str]:
                     for e in entries:
                         if isinstance(e, dict) and e.get("name"):
                             index.setdefault(e["name"], filter_class)
+    # 파생 DB 에 없는 마법봉·셉터는 빌더와 같은 GGPK 경로 표로 채운다(사본을 두지 않는다).
+    for name, filter_class in sys.modules["overlay_builder"].ggpk_path_classes().items():
+        index.setdefault(name, filter_class)
     return index
 
 
-def sweep(base_path: Path, overlay_path: Path, verbose: bool) -> int:
+def sweep(base_path: Path, overlay_path: Path, verbose: bool, allow_alert_hides: bool = False) -> int:
     ev = load_eval()
     base_blocks = ev.load(base_path)
     over_blocks = ev.load(overlay_path)
@@ -129,56 +138,73 @@ def sweep(base_path: Path, overlay_path: Path, verbose: bool) -> int:
     by_line = {b.line: b for b in base_blocks}
 
     counts = {"louder": 0, "same": 0, "real": 0, "catchall": 0, "silent": 0,
-              "hidden": 0, "declared_hidden": 0, "unhidden": 0, "total": 0}
+              "hidden": 0, "declared_hidden": 0, "declared_alert": 0, "unhidden": 0, "total": 0}
     our_lines = {b.line for b in ours}
     regressions: list[str] = []
 
-    for name in names:
-        for rarity in RARITIES:
-            for area in AREA_LEVELS:
-                for sockets in SOCKETS:
-                    for quality in QUALITIES:
-                        item = ev.Item(
-                            base_type=name, item_class=classes.get(name, ""),
-                            rarity=rarity, sockets=sockets, area_level=area,
-                            item_level=area, quality=quality,
-                        )
-                        b = ev.evaluate(base_blocks, item)
-                        o = ev.evaluate(over_blocks, item)
-                        counts["total"] += 1
-                        if b.visible and not o.visible:
-                            # 스펙이 **선언한** 숨김(못 쓰는 무기·보조장비)과 사고를 가른다.
-                            # 둘을 합쳐 세면 "HIDDEN 0" 이 의도된 숨김을 지우거나,
-                            # 반대로 의도된 숨김이 실수를 덮는다.
-                            declared = (o.block_line in our_lines
-                                        and classes.get(name, "") in hidden_classes)
-                            if declared:
-                                counts["declared_hidden"] += 1
-                            else:
-                                counts["hidden"] += 1
-                                regressions.append(f"HIDDEN {name} {rarity} alvl{area}")
-                            continue
-                        if not b.visible:
-                            counts["unhidden"] += o.visible
-                            continue
-                        if (o.font, o.volume) > (b.font, b.volume):
-                            counts["louder"] += 1
-                        elif (o.font, o.volume) == (b.font, b.volume):
-                            counts["same"] += 1
-                        else:
-                            blk = by_line.get(b.block_line)
-                            named = blk and any(k in ("BaseType", "Class") for k, _o, _v in blk.conditions)
-                            if not named:
-                                counts["catchall"] += 1
-                            elif b.volume == 0 and o.volume > 0:
-                                counts["silent"] += 1
-                            else:
-                                counts["real"] += 1
-                                regressions.append(
-                                    f"{name} {rarity} alvl{area} sock{sockets} q{quality}: "
-                                    f"base f{b.font}/v{b.volume}(L{b.block_line}) -> "
-                                    f"overlay f{o.font}/v{o.volume}(L{o.block_line})"
-                                )
+    states = [
+        (name, rarity, area, sockets, quality, unid)
+        for name in names
+        for rarity in RARITIES
+        for area in AREA_LEVELS
+        for sockets in SOCKETS
+        for quality in QUALITIES
+        for unid in (UNID_TIERS if rarity in ("Magic", "Rare") else (0,))
+    ]
+    for name, rarity, area, sockets, quality, unid in states:
+        item = ev.Item(
+            base_type=name, item_class=classes.get(name, ""),
+            rarity=rarity, sockets=sockets, area_level=area,
+            item_level=area, quality=quality, unidentified_item_tier=unid,
+        )
+        b = ev.evaluate(base_blocks, item)
+        o = ev.evaluate(over_blocks, item)
+        counts["total"] += 1
+        if b.visible and not o.visible:
+            # 스펙이 **선언한** 숨김(못 쓰는 무기·보조장비)과 사고를 가른다.
+            # 둘을 합쳐 세면 "HIDDEN 0" 이 의도된 숨김을 지우거나,
+            # 반대로 의도된 숨김이 실수를 덮는다.
+            declared = (o.block_line in our_lines
+                        and classes.get(name, "") in hidden_classes)
+            if declared:
+                counts["declared_hidden"] += 1
+                # 선언된 숨김이라도 NeverSink 가 소리를 내던 것(희귀 바탕 · 지역 65+ 미감정 티어 3
+                # 매직)을 지우면 따로 센다. 한때 이 경우가 전부 '선언된 숨김'에 묻혀 244건이
+                # 안 보였다(대재난 필터 적대검증, 2026-09-22). 의도라면 스펙에서 명시적으로 받아야 한다.
+                if b.volume > 0:
+                    counts["declared_alert"] += 1
+                    regressions.append(f"ALERT-HIDDEN {name} {rarity} alvl{area} ut{unid} "
+                                       f"(base L{b.block_line} v{b.volume})")
+            else:
+                counts["hidden"] += 1
+                regressions.append(f"HIDDEN {name} {rarity} alvl{area}")
+            continue
+        if not b.visible:
+            counts["unhidden"] += o.visible
+            continue
+        # 글자와 음량을 **따로** 본다. 튜플 비교는 글자가 크면 음량을 안 봐서
+        # (폰트 42 · 무음) 이 (폰트 40 · 음량 300) 보다 "louder" 로 셌다(2026-09-22).
+        if o.font >= b.font and o.volume >= b.volume:
+            counts["louder" if (o.font, o.volume) != (b.font, b.volume) else "same"] += 1
+            continue
+        blk = by_line.get(b.block_line)
+        # 바탕·클래스 이름이 없어도 수치 하한이 붙은 블록(`Quality >= 21` 등)은 폴백이 아니다.
+        named = blk and any(
+            k in ("BaseType", "Class")
+            or (k in ("Quality", "Sockets", "ItemLevel", "UnidentifiedItemTier") and op in (">=", ">"))
+            for k, op, _v in blk.conditions
+        )
+        if not named:
+            counts["catchall"] += 1
+        elif b.volume == 0 and o.volume > 0:
+            counts["silent"] += 1
+        else:
+            counts["real"] += 1
+            regressions.append(
+                f"{name} {rarity} alvl{area} sock{sockets} q{quality} ut{unid}: "
+                f"base f{b.font}/v{b.volume}(L{b.block_line}) -> "
+                f"overlay f{o.font}/v{o.volume}(L{o.block_line})"
+            )
 
     print(f"\n  {overlay_path.name}")
     print(f"    베이스 {len(names)}종 · 상태 {counts['total']:,}")
@@ -186,7 +212,7 @@ def sweep(base_path: Path, overlay_path: Path, verbose: bool) -> int:
           f"un-hidden {counts['unhidden']}")
     print(f"    REAL 회귀 {counts['real']} · HIDDEN {counts['hidden']} "
           f"| 폴백 대체 {counts['catchall']} · 무음에 소리 추가 {counts['silent']} "
-          f"· 선언된 숨김 {counts['declared_hidden']}")
+          f"· 선언된 숨김 {counts['declared_hidden']} (그중 NeverSink 경보 {counts['declared_alert']})")
     if verbose:
         seen = set()
         for r in regressions:
@@ -195,7 +221,8 @@ def sweep(base_path: Path, overlay_path: Path, verbose: bool) -> int:
                 continue
             seen.add(head)
             print(f"      ✗ {r}")
-    return counts["real"] + counts["hidden"]
+    # 스펙이 _meta.allow_alert_hides 로 받지 않았으면 경보 숨김도 실패다.
+    return counts["real"] + counts["hidden"] + (0 if allow_alert_hides else counts["declared_alert"])
 
 
 def main() -> int:
@@ -207,8 +234,10 @@ def main() -> int:
     args = ap.parse_args()
 
     pairs: list[tuple[Path, Path]] = []
+    allow_alert_hides = False
     if args.spec:
         spec = json.loads(Path(args.spec).read_text(encoding="utf-8"))
+        allow_alert_hides = bool(spec["_meta"].get("allow_alert_hides"))
         for out in spec["_meta"]["outputs"]:
             pairs.append((REPO / "data" / "filter_sources" / out["base"],
                           REPO / "filters" / out["file"]))
@@ -222,7 +251,7 @@ def main() -> int:
         if not base.exists() or not overlay.exists():
             print(f"  건너뜀: {overlay.name} (파일 없음)")
             continue
-        bad += sweep(base, overlay, args.verbose)
+        bad += sweep(base, overlay, args.verbose, allow_alert_hides)
     print(f"\n  회귀 총 {bad}건")
     return 1 if bad else 0
 

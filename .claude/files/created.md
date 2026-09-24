@@ -374,3 +374,18 @@
 - `build_planner/WB 실캐릭 현재 - Skadoosh.build` — 실캐릭 플래너를 Lv89 → **Lv90** 으로 갱신. 게임에도 `스카두시 실캐릭 Lv90 함성토템.build` 로 설치. Lv89 설치본은 남겨 뒀다
 - `data/hc_journey/creators/skadoosh/06~09_live_lv{84,86,88,90}.build` — 보유 ninja 스냅샷 4개의 PoB 를 풀어 만든 실캐릭 밴드. 기존 `05_live.build` 는 9/6 관측본이라 `05_live_2026-09-06.build` 로 개명(레벨 미기록이라 level_hint 없음). 밴드 5 → 9, 전환 4 → 8. 삭제 불가(여정 diff 입력)
 
+- `Docs/2026-09-21_ATLAS_VIEWER_REFERENCE_FOR_CODEX.md` — 코덱스(상용화 검토)에 아틀라스 순서 뷰어를 앱 기능 레퍼런스로 전달. UX 패턴(사용자가 거절한 2안 포함)·계산 로직·데이터 출처 위험표. 삭제 불가
+- `deliverables/atlas_viewer_reference_2026-09-21/` — 뷰어 HTML 2개 + 트리/순서 데이터 JSON + 생성 스크립트 + README. 위 문서의 납품물. 삭제 불가
+- `D:/contracts/atlas-viewer-to-pathcraft-app.md` — 세션→코덱스 계약(보내는 쪽 S1~S5 · 받는 쪽 R1~R3 검증 조건). 삭제 불가
+- `scripts/make_hc_taengjung_spec.py` — 탱정 키타바 방패벽 HC 필터 스펙 생성기(플래너 계약 + 탱정 저장본 5개 + GGPK에서 유도, 2026-09-22). 삭제 불가
+- `data/filter_build_targets/poe2_hc_taengjung_kitava_shieldwall_0_5_5.json` — 위 생성기 산출 스펙(룰 51 · 베이스 174). 필터 3단계의 입력. 삭제 불가
+- `filters/PathcraftAI_HC-Taengjung_{1-Campaign,2-EarlyMaps,3-Endgame}_on_NeverSink-*.filter` — 빌드 산출물(게임 폴더 설치본과 해시 일치). 재생성 가능
+- `deliverables/poe2_build_corpus_2026-09-21/taengjung_progression/native/03무자본_흰갑옷성장_구매없이.build` — 탱정 경로 무자본(zero2hero) 버전 03+ 게임 파일(generate.py make_zero_stage 산출, 2026-09-22). 재생성 가능, 게임 폴더 설치본과 해시 일치
+- `data/filter_build_targets/poe2_ssf_chaos_flameblast_0_5_5.json` — SSF 카오스 화염파(1번 캐릭터) + 2번째 빌드 커스마스터 장비 · 혈통 젬 러시 필터 정본 스펙(2026-09-22, 손으로 작성 — 근거는 ninja SSF 래더 실장비 + 탱정 커스마스터 가이드). 숨김 5(회피 방어구 부위별 4 · 안 쓰는 무기). 삭제 불가
+- `filters/PathcraftAI_SSF-ChaosFB_{1-Campaign…SOFT,2-Maps…REGULAR,3-Endgame…STRICT}.filter` — 위 스펙 산출물(게임 폴더 설치본과 바이트 일치). 스윕(지역 10~86 · 미감정 티어 · 수정된 비교) REAL 0 / HIDDEN 0. 재생성 가능
+- `build_planner/SSF 0{1..8} *.build` — SSF 카오스 화염파 인게임 빌드 플래너 8단계(2026-09-22). 01~04 = Fubgun 플래너(1막·2막·3~4막·화염파전환)에 이름만 한국어 막 단위로, 05~08 = 만능어센던시 ninja 타임머신 1일차(63)·2일차(90)·4일차(94, 검은화염 전환)·최종(96) PoB 를 scripts/build_poe2_planner_files.py 로 변환. 게임 BuildPlanner 설치본과 바이트 일치. 재생성 가능(PoB 는 세션 scratchpad ssf_planner/)
+- `data/filter_build_targets/poe2_titan_calamity_pudl_0_5_5.json` — 푸들멈머 타이탄 대재난 Ver.4 (SC) 필터 정본 스펙(2026-09-22, 생성기 = 세션 scratchpad calamity/make_spec.py; 근거 = 푸들멈머 시트 2종 + 95레벨 PoB + 공식 trade2 유니크 바탕). 룰 11 · 숨김 1(못 쓰는 무기·방패 흰/파랑). 삭제 불가
+- `data/filter_build_targets/poe2_arc_totem_ky_0_5_5.json` — Ky 아크 주문 토템 젬링(SC 거래) 필터 정본 스펙(2026-09-23, 생성기 = 세션 scratchpad arctotem/make_spec_arc.py). 근거 = Mobalytics 공식 내보내기 .build 17개의 슬롯별 바탕 + 최상위 변형 PoB 의 유니크·혈통 젬 + 영상 t6HXjq8Wnsg. 룰 10 · 숨김 0. 액트는 유탄 석궁, 65~70 에 아크 토템 전환. 삭제 불가
+- `filters/PathcraftAI_ArcTotem_{1-Campaign…SOFT,2-Maps…REGULAR,3-Endgame…STRICT}.filter` — 위 스펙 산출물(게임 폴더 설치본과 바이트 일치). 스윕 REAL 0 / HIDDEN 0 / 무음에 소리 추가 0 / 경보 숨김 0. 재생성 가능
+- `filters/PathcraftAI_Calamity_{1-Campaign…SOFT,2-Maps…REGULAR,3-Endgame…STRICT}.filter` — 위 스펙 산출물(게임 폴더 설치본과 바이트 일치). 스윕 REAL 0 / HIDDEN 0. 재생성 가능
+- `build_planner/대재난 0{1..8}·05a·05b * - 푸들멈머.build` — 대재난 인게임 플래너 10개(2026-09-22). 01~07 패시브 = 푸들멈머 시트 트리 스크린샷 기계 판독(scratchpad calamity/tree_read.py), 05a/05b = 본인 워리어푸들 ninja 1일차(76)·2일차(91) PoB(재화 없을 때 선회 파밍 구간), 08 = 본인 95 PoB. 게임 BuildPlanner 설치본과 바이트 일치. 재생성 가능(scratchpad calamity/gen_planners.py)

@@ -1,0 +1,2802 @@
+{
+ "_meta": {
+  "build": "SSF Chaos Flameblast Gemling Legionnaire — 1번 캐릭터 + 2번째 빌드 커스마스터(탱정 크로노맨서) 장비 · 혈통 젬 러시",
+  "game": "poe2",
+  "patch": "0.5 / 0.5.5 Forbidden Rites (SSF 소프트코어)",
+  "base_filter": "NeverSink's filter 2 (0.10.3) -- SOFT / REGULAR / STRICT, one per stage",
+  "generated_by": "scripts/build_poe2_build_overlay.py via scripts/build_all_filters.py",
+  "sources": "poe.ninja ssf-forbidden-rites 래더 2026-09-22 조회: 화염파+검은화염 계약 85레벨 이상 32명의 실장비(무기·방어구·장신구·룬·유니크) / 커스마스터 장비는 Docs/2026-09-01_TANGJEONG_CURSEMASTER_CHRONOMANCER_0_5_5_GUIDE_DOC.html 4·7장 + data/filter_build_targets/poe2_cursemaster_tangjeong_0_5_5.json | 혈통 젬 목록은 GGPK SkillGems(보조 · 세공 레벨 0 · 요구 레벨 65) ∪ poe2db Lineage 페이지, 드롭처도 poe2db | 제작 재료 효과·드롭 레벨은 poe2db.tw 영문 원문 | 가이드 페이지 https://claude.ai/artifact/RRzh4Z9fGmLhKxVy9b8gcU",
+  "palette": "1번 캐릭터 = 진홍 계열, 빌드 유니크 = 주황, 2번째 빌드 커스마스터 = 청록, 혈통 젬 = 밝은 청록 배경 + 검은 글자(커스마스터 핵심 4개는 청록 배경 + 흰 글자 + 소리 6). 흰 배경+빨강 글자(T0)와 보라(유니크 채널)는 쓰지 않는다.",
+  "notes": [
+   "숨김 룰 10개(흰색 5 + 매직·미감정 5): 회피 기반 방어구(맵부터)와 두 빌드가 못 쓰는 무기·방패(지역 12부터). 레어·유니크는 숨기지 않는다. 지팡이·석궁·마법봉·집중구는 두 빌드가 쓰므로 숨기지 않는다. 매직은 미감정만 숨긴다 — 감정된 매직 무기는 NeverSink exoticmods 경보(Identified True + HasExplicitMod) 대상이고, 감정된 물건의 UnidentifiedItemTier 값은 공식 문서에 없다(2026-09-23 적대검증). 흰색은 옵션이 없어 그 경보에 안 걸리므로 조건을 걸지 않는다. 그 외에는 NeverSink 규칙대로 흐른다.",
+   "무음 장비 룰(흉갑·장신구·석궁·집중구·커스마스터 바탕)은 흰색·파란색만 잡는다. 레어는 NeverSink 의 미감정 티어 경보가 더 정확하다 — 이 룰들이 레어를 잡으면 티어 3·4 경보가 사라진다.",
+   "무음 장비 룰은 `UnidentifiedItemTier <= 2` 로 제한한다 — NeverSink 는 지역 65+ 에서 미감정 티어 3 이상 매직·레어에 음량 300 을 준다. 이 룰이 그 경보를 덮는 것을 2차 적대검증이 잡았다(2026-09-22).",
+   "SSF 캐릭터끼리는 창고를 같이 쓴다는 전제로, 1번 캐릭터를 하는 동안 2번째 빌드 재료가 쌓이게 하는 것이 이 필터의 목적이다(사용자 요청 2026-09-22: '필터를 첫 캐릭터에 맞춰야 2번째 빌드도 할 수 있을 거').",
+   "2번째 빌드 = 커스마스터(사용자 결정 2026-09-22: '커스마스터로 해보자, 모으는 재미라도, 혈통젬 러시 해보고 싶음'). SSF 에서는 혈통 젬 두 개(도이드리의 파멸 · 앗지리의 매혹)가 떨어져야 시작할 수 있다 — 그래서 1번 캐릭터 필터가 혈통 젬 전체를 가장 크게 띄운다. 마법봉 SSF 직작 사다리(가이드 7장)의 재료도 켠다.",
+   "시전 속도 에센스는 '기민성의 에센스'(Essence of Alacrity)다. Essence of Haste 는 공격 속도다 — poe2db 원문으로 확인(2026-09-22).",
+   "'+카오스 주문 스킬 레벨'이 화염파에 적용되는지는 확인하지 못했다. 그래서 마법봉은 3안(B 등급)으로만 켠다.",
+   "NeverSink 베이스 필터는 vendoring 하지 않는다(.gitignore). `_meta.bases` 의 URL+SHA-256 핀으로 `python scripts/fetch_neversink_poe2_bases.py` 가 복원·검증한다.",
+   "커스텀 소리(2026-09-22 사용자: '우리 커스텀 소리 많잖아'): 게임 폴더의 mp3 를 CustomAlertSound 로 쓴다 — 혈통 핵심 illbeyouridol · 혈통 러시 donedonedone · 지팡이 바탕 POE2 Whetstones · 유니크 3uniques · 쥬얼러 POE2 Greater Jewellers. 영문 파일명·2초 이하만 골랐다. 빌더가 파일 존재를 검사한다. 원래 무음이던 장비에는 소리를 붙이지 않는다.",
+   "allow_alert_hides 해제(2026-09-23, SC 거래 전환): SSF 때는 숨김이 지우는 NeverSink 경보(희귀 바탕 super exotic · 고가 제작 바탕 · 미감정 티어 3 매직 — 스윕 220/414/414)가 거래 가치 경보라 무시했지만, 거래 리그에서는 바닥에 돈을 두는 것이다. 보호 룰 15개(단계별로 그 단계의 베이스 필터에서 조건·모양·타락/복제 조건까지 읽어 생성)를 숨김 앞에 두고 숨김에 unid_tier_max=2 를 걸어 경보 숨김을 0 으로 만들었다. 이 플래그는 다시 쓰지 말 것."
+  ],
+  "outputs": [
+   {
+    "stage": "campaign",
+    "file": "PathcraftAI_SSF-ChaosFB_1-Campaign_on_NeverSink-SOFT.filter",
+    "base": "neversink_poe2_soft.filter",
+    "why": "액트. 석궁 유탄으로 올라가며 지팡이 바탕과 마나 플라스크를 챙긴다. SSF 라 SOFT 가 가장 적게 숨긴다."
+   },
+   {
+    "stage": "maps",
+    "file": "PathcraftAI_SSF-ChaosFB_2-Maps_on_NeverSink-REGULAR.filter",
+    "base": "neversink_poe2_regular.filter",
+    "why": "맵 진입~레드맵. 에센스·뼈·징조를 모으고 2번째 빌드 재료가 켜진다."
+   },
+   {
+    "stage": "endgame",
+    "file": "PathcraftAI_SSF-ChaosFB_3-Endgame_on_NeverSink-STRICT.filter",
+    "base": "neversink_poe2_strict.filter",
+    "why": "레드맵 이후. 지팡이 바탕은 아이템 레벨 75 이상만 크게 띄운다."
+   }
+  ],
+  "bases": [
+   {
+    "file": "neversink_poe2_soft.filter",
+    "upstream": "NeverSink's filter 2 - 0-SOFT.filter",
+    "used_for": "campaign",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%200-SOFT.filter",
+    "sha256": "4982d9531e17313c0d26e58ce39e636e4a870035d4e91702a051fd5263cc961d",
+    "bytes": 252540
+   },
+   {
+    "file": "neversink_poe2_regular.filter",
+    "upstream": "NeverSink's filter 2 - 1-REGULAR.filter",
+    "used_for": "maps",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%201-REGULAR.filter",
+    "sha256": "16a0333e07d0bce8a4886dc2ab0d34d6190e652a58a9d784ff06616853606572",
+    "bytes": 252572
+   },
+   {
+    "file": "neversink_poe2_strict.filter",
+    "upstream": "NeverSink's filter 2 - 3-STRICT.filter",
+    "used_for": "endgame",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%203-STRICT.filter",
+    "sha256": "efd5631032846353a15d8cfe0165296ab124bd6057c15f7d66b8f4bdfa1e9fd8",
+    "bytes": 252655
+   }
+  ],
+  "_protected_bases_removed": {
+   "[정리] 회피 기반 방어구 — Body Armours · 흰색·파란색만": [
+    "Grasping Mail",
+    "Primal Markings",
+    "Sacrificial Regalia",
+    "Sleek Jacket",
+    "Slipstrike Vest"
+   ],
+   "[정리] 회피 기반 방어구 — Helmets · 흰색·파란색만": [
+    "Ancient Visor"
+   ],
+   "[정리] 회피 기반 방어구 — Gloves · 흰색·파란색만": [
+    "Ancient Gauntlets",
+    "Elegant Wraps",
+    "Vaal Wraps"
+   ],
+   "[정리] 회피 기반 방어구 — Boots · 흰색·파란색만": [
+    "Daggerfoot Shoes",
+    "Drakeskin Boots",
+    "Quickslip Shoes"
+   ]
+  },
+  "sc_trade_note": "2026-09-23 SC 거래로 전환: SSF 때 넘어갔던 경보 숨김(414건 — 희귀 바탕 216 · 미감정 티어 3+ 매직 148 · 고가 제작 바탕 26 · 칼란드라 계열 24)을 보호 룰과 unid_tier_max 2 로 없앴다. allow_alert_hides 예외 해제."
+ },
+ "styles": {
+  "fb_weapon_core": {
+   "comment": "S 1번 캐릭터 지팡이 바탕. 진홍 배경 + 흰 글자, 영구 빔 · 커스텀 소리 POE2 Whetstones.mp3(무기 바탕 음성 — 아르세리나 액트 필터와 같은 관례)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    255,
+    255
+   ],
+   "background": [
+    151,
+    7,
+    7
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Kite"
+   ],
+   "custom_sound": [
+    "POE2 Whetstones.mp3",
+    300
+   ]
+  },
+  "fb_craft_core": {
+   "comment": "S 지팡이 사다리 재료(마술 에센스·군왕·결정화 징조·특수 룬·쥬얼러). 흑적 배경, 드롭 순간 빔",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    120,
+    110
+   ],
+   "background": [
+    110,
+    6,
+    8
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Red Temp",
+   "icon": [
+    1,
+    "Red",
+    "Circle"
+   ]
+  },
+  "fb_unique": {
+   "comment": "빌드 유니크(래더 32명이 끼는 것). 주황 — NeverSink 유니크 경보보다 조용해지면 빌더가 올린다 · 커스텀 소리 3uniques.mp3(빌드 유니크)",
+   "text": [
+    255,
+    200,
+    140
+   ],
+   "border": [
+    255,
+    200,
+    140
+   ],
+   "background": [
+    90,
+    30,
+    5
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Orange",
+   "icon": [
+    0,
+    "Orange",
+    "Star"
+   ],
+   "custom_sound": [
+    "3uniques.mp3",
+    300
+   ]
+  },
+  "fb_survival": {
+   "comment": "호신부·플라스크. 더스티 로즈, 물방울 아이콘",
+   "text": [
+    245,
+    175,
+    180
+   ],
+   "border": [
+    215,
+    110,
+    120
+   ],
+   "background": [
+    72,
+    24,
+    30
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    1,
+    "Orange",
+    "Raindrop"
+   ]
+  },
+  "fb_gear": {
+   "comment": "B 장비 그릇(흉갑·장신구·석궁·마법봉). 소리·빔 없음 — 베이스가 요구할 때만 켜진다",
+   "text": [
+    225,
+    160,
+    140
+   ],
+   "border": [
+    175,
+    80,
+    65
+   ],
+   "background": [
+    42,
+    3,
+    5
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    2,
+    "Red",
+    "Kite"
+   ]
+  },
+  "fb_craft": {
+   "comment": "C 제작 재료(뼈·저항 에센스·룬). 가장 어둡고 조용하다",
+   "text": [
+    170,
+    110,
+    100
+   ],
+   "border": [
+    120,
+    45,
+    40
+   ],
+   "background": [
+    18,
+    10,
+    11
+   ],
+   "font": 38,
+   "sound": null,
+   "beam": null,
+   "icon": null
+  },
+  "second_core": {
+   "comment": "S 2번째 빌드(커스마스터) 유니크. 청록 배경 + 흰 글자 · 커스텀 소리 3uniques.mp3(커스마스터 유니크)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    0,
+    240,
+    190
+   ],
+   "background": [
+    0,
+    70,
+    60
+   ],
+   "font": 45,
+   "sound": [
+    2,
+    300
+   ],
+   "beam": "Cyan",
+   "icon": [
+    0,
+    "Cyan",
+    "Diamond"
+   ],
+   "custom_sound": [
+    "3uniques.mp3",
+    300
+   ]
+  },
+  "second_gear": {
+   "comment": "B 2번째 빌드(커스마스터) 바탕·재료. 소리·빔 없음. 폰트 42 = NeverSink 특출난(Exceptional) 블록과 같은 크기 — 40 이면 아이템 레벨 82+ 변이가 소켓 2+ 변이를 가려 글자가 작아진다(확장 스윕 2026-09-22)",
+   "text": [
+    170,
+    240,
+    220
+   ],
+   "border": [
+    0,
+    160,
+    130
+   ],
+   "background": [
+    0,
+    34,
+    30
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    2,
+    "Cyan",
+    "Diamond"
+   ]
+  },
+  "fb_survival_endgame": {
+   "comment": "엔드게임 호신부(퀄리티 18+ · 아이템 레벨 82+). NeverSink [[1000]] Endgame Charms 가 폰트 42 · 음량 300 을 준다 — 그 조건은 AreaLevel 이 붙어 있어 빌더가 비교하지 못하므로 같은 크기의 룰을 직접 깐다",
+   "text": [
+    245,
+    175,
+    180
+   ],
+   "border": [
+    215,
+    110,
+    120
+   ],
+   "background": [
+    72,
+    24,
+    30
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Blue",
+   "icon": [
+    1,
+    "Orange",
+    "Raindrop"
+   ]
+  },
+  "lineage_core": {
+   "comment": "커스마스터 핵심 혈통 젬 4개. 청록 배경 + 흰 글자 + 소리 6 · 커스텀 소리 illbeyouridol.mp3(커스마스터 핵심 혈통 4종 = 잭팟)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    0,
+    255,
+    200
+   ],
+   "background": [
+    0,
+    70,
+    60
+   ],
+   "font": 45,
+   "sound": [
+    6,
+    300
+   ],
+   "beam": "Cyan",
+   "icon": [
+    0,
+    "Cyan",
+    "Star"
+   ],
+   "custom_sound": [
+    "illbeyouridol.mp3",
+    300
+   ]
+  },
+  "lineage_all": {
+   "comment": "나머지 혈통 젬 전부(러시). 밝은 청록 배경 + 검은 글자 — NeverSink 는 비싼 티어만 45/300 이고 나머지는 작다 · 커스텀 소리 donedonedone.mp3(혈통 젬 러시)",
+   "text": [
+    0,
+    0,
+    0
+   ],
+   "border": [
+    0,
+    120,
+    100
+   ],
+   "background": [
+    150,
+    255,
+    230
+   ],
+   "font": 45,
+   "sound": [
+    2,
+    300
+   ],
+   "beam": "Cyan",
+   "icon": [
+    0,
+    "Cyan",
+    "Star"
+   ],
+   "custom_sound": [
+    "donedonedone.mp3",
+    300
+   ]
+  },
+  "fb_jewellers": {
+   "comment": "쥬얼러 오브(보조 젬 칸). 제작 핵심과 같은 색 · 커스텀 소리 POE2 Greater Jewellers.mp3(아르세리나 필터와 같은 음성)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    120,
+    110
+   ],
+   "background": [
+    110,
+    6,
+    8
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Red Temp",
+   "icon": [
+    1,
+    "Red",
+    "Circle"
+   ],
+   "custom_sound": [
+    "POE2 Greater Jewellers.mp3",
+    300
+   ]
+  },
+  "keep_superexoticbases_campaign": {
+   "comment": "NeverSink neversink_poe2_soft.filter superexoticbases 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    0,
+    240,
+    190
+   ],
+   "border": [
+    0,
+    240,
+    190
+   ],
+   "background": [
+    0,
+    75,
+    30
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Blue",
+   "icon": [
+    0,
+    "Blue",
+    "Diamond"
+   ]
+  },
+  "keep_pseudocrafts1_campaign": {
+   "comment": "NeverSink neversink_poe2_soft.filter pseudocrafts1 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    0,
+    240,
+    190
+   ],
+   "border": [
+    0,
+    240,
+    190
+   ],
+   "background": [
+    0,
+    75,
+    30
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Blue",
+   "icon": [
+    0,
+    "Blue",
+    "Diamond"
+   ]
+  },
+  "keep_group1t1_campaign": {
+   "comment": "NeverSink neversink_poe2_soft.filter group1t1 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    65,
+    0,
+    0
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Diamond"
+   ]
+  },
+  "keep_group1t2_campaign": {
+   "comment": "NeverSink neversink_poe2_soft.filter group1t2 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    200,
+    200,
+    200
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    20,
+    20,
+    0
+   ],
+   "font": 40,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Yellow",
+   "icon": [
+    1,
+    "Yellow",
+    "Diamond"
+   ]
+  },
+  "keep_group2t1_campaign": {
+   "comment": "NeverSink neversink_poe2_soft.filter group2t1 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    65,
+    0,
+    0
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Diamond"
+   ]
+  },
+  "keep_superexoticbases_maps": {
+   "comment": "NeverSink neversink_poe2_regular.filter superexoticbases 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    0,
+    240,
+    190
+   ],
+   "border": [
+    0,
+    240,
+    190
+   ],
+   "background": [
+    0,
+    75,
+    30
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Blue",
+   "icon": [
+    0,
+    "Blue",
+    "Diamond"
+   ]
+  },
+  "keep_pseudocrafts1_maps": {
+   "comment": "NeverSink neversink_poe2_regular.filter pseudocrafts1 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    0,
+    240,
+    190
+   ],
+   "border": [
+    0,
+    240,
+    190
+   ],
+   "background": [
+    0,
+    75,
+    30
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Blue",
+   "icon": [
+    0,
+    "Blue",
+    "Diamond"
+   ]
+  },
+  "keep_group1t1_maps": {
+   "comment": "NeverSink neversink_poe2_regular.filter group1t1 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    65,
+    0,
+    0
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Diamond"
+   ]
+  },
+  "keep_group1t2_maps": {
+   "comment": "NeverSink neversink_poe2_regular.filter group1t2 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    200,
+    200,
+    200
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    20,
+    20,
+    0
+   ],
+   "font": 40,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Yellow",
+   "icon": [
+    1,
+    "Yellow",
+    "Diamond"
+   ]
+  },
+  "keep_group2t1_maps": {
+   "comment": "NeverSink neversink_poe2_regular.filter group2t1 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    65,
+    0,
+    0
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Diamond"
+   ]
+  },
+  "keep_superexoticbases_endgame": {
+   "comment": "NeverSink neversink_poe2_strict.filter superexoticbases 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    0,
+    240,
+    190
+   ],
+   "border": [
+    0,
+    240,
+    190
+   ],
+   "background": [
+    0,
+    75,
+    30
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Blue",
+   "icon": [
+    0,
+    "Blue",
+    "Diamond"
+   ]
+  },
+  "keep_pseudocrafts1_endgame": {
+   "comment": "NeverSink neversink_poe2_strict.filter pseudocrafts1 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    0,
+    240,
+    190
+   ],
+   "border": [
+    0,
+    240,
+    190
+   ],
+   "background": [
+    0,
+    75,
+    30
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Blue",
+   "icon": [
+    0,
+    "Blue",
+    "Diamond"
+   ]
+  },
+  "keep_group1t1_endgame": {
+   "comment": "NeverSink neversink_poe2_strict.filter group1t1 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    65,
+    0,
+    0
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Diamond"
+   ]
+  },
+  "keep_group1t2_endgame": {
+   "comment": "NeverSink neversink_poe2_strict.filter group1t2 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    200,
+    200,
+    200
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    20,
+    20,
+    0
+   ],
+   "font": 40,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Yellow",
+   "icon": [
+    1,
+    "Yellow",
+    "Diamond"
+   ]
+  },
+  "keep_group2t1_endgame": {
+   "comment": "NeverSink neversink_poe2_strict.filter group2t1 블록과 같은 모양·소리 (SC: 숨김보다 먼저 띄운다)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    65,
+    0,
+    0
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Diamond"
+   ]
+  }
+ },
+ "rules": [
+  {
+   "style": "lineage_core",
+   "name": "[혈통 젬 러시 · 커스마스터 핵심] 도이드리의 파멸 · 앗지리의 매혹 · 우트레드 2종",
+   "note": "탱정 커스마스터 코어: 도이드리의 파멸(저주 종료 폭발) · 앗지리의 매혹(쇠약화 반사 엔진) · 우트레드의 별자리(시간 동결 추가 사용) · 우트레드의 의식(동결 플라스크 회복). 드롭처(poe2db): 파멸 = 어디서나(드롭 레벨 52) / 매혹 = 봉인된 금고(에스타준티의 금고) 보스 마즈틀리·이트자라 / 우트레드 2종 = 탐험 섬 '외딴 사원'의 우트레드(보라나 → 우트레드의 일지, 대탐험 퀘스트 후에는 우트레드의 서사를 들고 탐험 일지 사용). 혈통 젬은 세공이 안 되고 캐릭터 레벨 65부터 쓴다.",
+   "class": [
+    "Skill Gems",
+    "Support Gems"
+   ],
+   "base_types": [
+    "Doedre's Undoing",
+    "Atziri's Allure",
+    "Uhtred's Constellation",
+    "Uhtred's Rite"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "lineage_all",
+   "name": "[혈통 젬 러시] 나머지 혈통 젬 전부",
+   "note": "수집용 — 전부 크게 띄운다(74종). 목록 = GGPK SkillGems(보조 젬 · 세공 레벨 0 · 요구 레벨 65, [DNT] 제외) ∪ poe2db Lineage 페이지. NeverSink 는 비싼 티어만 폰트 45 · 음량 300 이다. 드롭처는 poe2db 기준 '어디서나'가 절반쯤이고 나머지는 특정 보스(심연의 큰 보물함 · 크세시트 · 신성의 중재자 · 앗지리 등).",
+   "class": [
+    "Skill Gems",
+    "Support Gems"
+   ],
+   "base_types": [
+    "Ahn's Citadel",
+    "Ailith's Chimes",
+    "Amanamu's Tithe",
+    "Arakaali's Lust",
+    "Arbiter's Ignition",
+    "Arbiter's Reach",
+    "Arjun's Medal",
+    "Atalui's Bloodletting",
+    "Atziri's Call",
+    "Atziri's Communion",
+    "Atziri's Impatience",
+    "Bhatair's Vengeance",
+    "Breachlord's Amalgam",
+    "Breachlord's Rift",
+    "Brutus' Brain",
+    "Catha's Brilliance",
+    "Cirel's Cultivation",
+    "Daresso's Passion",
+    "Dialla's Desire",
+    "Dominus' Grasp",
+    "Dreamer's Knell",
+    "Einhar's Beastrite",
+    "Eonyr's Thunder",
+    "Esh's Prowess",
+    "Esh's Radiance",
+    "Garukhan's Resolve",
+    "Guatelitzi's Ablation",
+    "Hayoxi's Fulmination",
+    "Helbrym's Hide",
+    "Her Declaration",
+    "Ixchel's Torment",
+    "Kalisa's Crescendo",
+    "Kaom's Madness",
+    "Khatal's Rejuvenation",
+    "Kulemak's Dominion",
+    "Kurgal's Leash",
+    "Medved's Felling",
+    "Morgana's Tempest",
+    "Mórrigan's Insight",
+    "Oisín's Oath",
+    "Olroth's Conviction",
+    "Olroth's Hubris",
+    "Paquate's Pact",
+    "Prototype Seventeen",
+    "Rakiata's Flow",
+    "Ratha's Assault",
+    "Rigwald's Ferocity",
+    "Romira's Requital",
+    "Seraph's Heart",
+    "Sione's Temper",
+    "Styrn's Ferocity",
+    "Styrn's Mountain",
+    "Tacati's Ire",
+    "Tangmazu's Thurible",
+    "Tasalio's Rhythm",
+    "Tawhoa's Tending",
+    "Tecrod's Revenge",
+    "Trickster's Shard",
+    "Tul's Avalanche",
+    "Tul's Stillness",
+    "Uhtred's Augury",
+    "Uhtred's Exodus",
+    "Uhtred's Omen",
+    "Uruk's Smelting",
+    "Uul-Netol's Embrace",
+    "Varashta's Blessing",
+    "Vilenta's Propulsion",
+    "Vorana's Siege",
+    "Vruun's Aftermath",
+    "Vruun's Inevitability",
+    "Xibaqua's Rending",
+    "Xoph's Pyre",
+    "Zarokh's Refrain",
+    "Zerphi's Infamy"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "fb_jewellers",
+   "name": "[보조 젬 칸] 완벽한 · 상위 쥬얼러 오브",
+   "note": "완벽한 쥬얼러 오브 = 화염파 보조 5칸(래더 23명) · 상위 = 4칸. 커스마스터 절망도 같은 오브를 쓴다.",
+   "base_types": [
+    "Perfect Jeweller's Orb",
+    "Greater Jeweller's Orb"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "fb_craft_core",
+   "name": "[지팡이 사다리] 마술의 에센스 · 방향 고정 징조 · 특수 룬 · 쥬얼러 오브",
+   "note": "가이드 '지팡이 만들기' 순서 그대로: 상위 마술의 에센스(지팡이 주문 피해 149~188%, 드롭 60) → 좌측·우측 찬미의 징조(접두·접미만) → 군왕의 징조(무기 모독 = 아마나무 확정) + 심연의 메아리의 징조(선택지 1회 재굴림) → 완벽한 마술의 에센스(지팡이 +5 주문 레벨, 드롭 72) + 우측 결정화의 징조(접미만 지움) → 산울마녀 아산드라의 지혜의 룬(+1 주문 레벨) · 알두르의 배신.",
+   "base_types": [
+    "Greater Essence of Sorcery",
+    "Perfect Essence of Sorcery",
+    "Omen of Sinistral Exaltation",
+    "Omen of Dextral Exaltation",
+    "Omen of the Liege",
+    "Omen of Abyssal Echoes",
+    "Omen of Dextral Crystallisation",
+    "Hedgewitch Assandra's Rune of Wisdom",
+    "Betrayal of Aldur"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "fb_unique",
+   "name": "[빌드 유니크] 래더 32명이 끼는 것 — 바탕 기준",
+   "note": "라비앙가의 혼백(Gargantuan Mana Flask, 14명) · 벤토의 도박(Gold Ring, 6명) · 태동하는 희망(Thawing Charm, 7명) · 도끼의 추락(Silver Charm, 6명) · 유토피아를 위해(Stone Charm, 5명) · 상귀스 헤로움(Staunching Charm, 5명) · 통과의례(Golden Charm, 5명 — 아즈메리 혼백만 떨어뜨린다) · 아라칼리의 선물(Antidote Charm, 3명) · 비행의 법령(Ancient Leggings, 7명 — 신성의 중재자만) · 우물의 심장(Diamond, 6명 — 심연만; 같은 바탕인 커스마스터 믿음의 분광기도 켜진다). 필터는 유니크 이름을 모르고 바탕만 안다 — 같은 바탕의 다른 유니크도 같이 켜진다.",
+   "rarity": [
+    "Unique"
+   ],
+   "base_types": [
+    "Gargantuan Mana Flask",
+    "Gold Ring",
+    "Thawing Charm",
+    "Silver Charm",
+    "Stone Charm",
+    "Staunching Charm",
+    "Golden Charm",
+    "Antidote Charm",
+    "Ancient Leggings",
+    "Diamond"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "second_core",
+   "name": "[2번째 · 커스마스터] 유니크 — 바탕 기준",
+   "note": "가이드 4장: 최정점(Tribal Mask — 모든 저주 스킬 +5, 투구 최종 목표) · 마법사의 피(Utility Belt — 장신구 0순위) · 우트레드의 성배(Transcendent Mana Flask — 필수, 룬 수호 1 이상 필요) · 칼란드라의 손길(Ring — 반지 한 칸) · Feathered Sandals(커스마스터 스펙의 고유 바탕). 믿음의 분광기(Diamond)는 1번 캐릭터 유니크 룰(우물의 심장과 같은 바탕)이 이미 켠다. 필터는 유니크 이름을 모르고 바탕만 안다.",
+   "rarity": [
+    "Unique"
+   ],
+   "base_types": [
+    "Tribal Mask",
+    "Utility Belt",
+    "Transcendent Mana Flask",
+    "Ring",
+    "Feathered Sandals"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "fb_weapon_core",
+   "name": "[액트~맵] 지팡이 바탕 — 래더 32명이 쓰는 5종",
+   "note": "차임벨 지팡이 · 불저항 지팡이(Pyrophyte) · 포효하는 지팡이 · 잿빛 지팡이(Ashen) · 마비시키는 지팡이(Paralysing). 상위 마술의 에센스는 **파란(마법)** 지팡이에 쓴다 — 흰색도 켜 둔다. 레벨 53 화염파 전환 전에 미리 모아 둔다. 커스마스터도 '아무 지팡이나 가능, 차임벨이면 가산점'(가이드 4.1).",
+   "class": [
+    "Staves"
+   ],
+   "base_types": [
+    "Chiming Staff",
+    "Pyrophyte Staff",
+    "Roaring Staff",
+    "Ashen Staff",
+    "Paralysing Staff"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "stages": [
+    "campaign",
+    "maps"
+   ]
+  },
+  {
+   "style": "fb_weapon_core",
+   "name": "[레드맵~] 지팡이 바탕 — 아이템 레벨 75 이상",
+   "note": "래더 지팡이의 아이템 레벨은 78~82 다. 마감 필터에서는 75 미만 지팡이를 NeverSink 에 맡긴다(화면 소음).",
+   "class": [
+    "Staves"
+   ],
+   "base_types": [
+    "Chiming Staff",
+    "Pyrophyte Staff",
+    "Roaring Staff",
+    "Ashen Staff",
+    "Paralysing Staff"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "item_level_min": 75,
+   "stages": [
+    "endgame"
+   ]
+  },
+  {
+   "style": "second_gear",
+   "name": "[2번째 · 커스마스터] 마법봉 · 집중구 · 반지 · 목걸이 · 허리띠 바탕",
+   "note": "가이드 4장: 말라버린 마법봉(위축용 2번 무기 — 전원 필수, 카오스 화염파 3안도 이 마법봉) · 성별된 집중구(Hallowed Focus) · 룬숙련 쇠스랑(Runic Fork — 룬 전용 5홈, 변칙 하이엔드) · 균열 반지(Breach Ring — 반지 한 칸) · 금 목걸이(Gold Amulet — 실물 목걸이 바탕, 모든 주문 스킬 +4 필수) · 특수 허리띠(Utility Belt — 레어 바탕 권장, 마나 관리 코어). SSF 직작은 특출난(2소켓) 마법봉이 출발점이다 — NeverSink 특출난 블록이 이미 크게 띄운다. 레어는 NeverSink 에 맡긴다 — [[0800]] 미감정 티어 3·4 이상 레어 경보(음량 300)를 이 무음 룰이 덮어쓰던 것을 적대검증이 잡았다(2026-09-22).",
+   "base_types": [
+    "Withered Wand",
+    "Hallowed Focus",
+    "Runic Fork",
+    "Breach Ring",
+    "Gold Amulet",
+    "Utility Belt"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "style": "second_gear",
+   "name": "[2번째 · 커스마스터] ES 방어구 — 아이템 레벨 65 이상",
+   "note": "가이드 4장 PoB 실물: 장갑 Grim Gloves(2소켓 필수 — 카틀라의 순흑 + 페누무스의 고갈의 룬) · 장화 모래맹세 샌들(룬벼림 포함, 이속 35% 필수). 흉갑 끔찍한 로브(Vile Robe)는 1번 캐릭터 흉갑 룰에 이미 있다. 전부 순수 ES 바탕이라 회피 숨김과 겹치지 않는다. 레어는 NeverSink 에 맡긴다 — [[0800]] 미감정 티어 3·4 이상 레어 경보(음량 300)를 이 무음 룰이 덮어쓰던 것을 적대검증이 잡았다(2026-09-22).",
+   "base_types": [
+    "Grim Gloves",
+    "Sandsworn Sandals",
+    "Runeforged Sandsworn Sandals"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "item_level_min": 65,
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "style": "second_gear",
+   "name": "[2번째 · 커스마스터] SSF 마법봉 직작 사다리 재료 · 저주 룬",
+   "note": "가이드 7장 '하이엔드·SSF 직작': 보존된 턱뼈로 훼손 1줄(공개하지 말 것) → 분열의 오브(스킬 레벨 분열 1/3) → 상위 찬미의 징조 + 좌측 찬미의 징조 + 완벽한 엑잘티드 오브 → 심연의 메아리의 징조 + 고대 턱뼈 + 좌측 강령술의 징조 → 초월의 합금(시전 속도 마감). 룬: 크라칸의 수호의 룬(흉갑, 저주 효과 50% 감소) · 페누무스의 고갈의 룬 · 카틀라의 순흑(장갑) · 타카티 영혼핵(투구). 턱뼈·메아리·좌측 찬미·빛의 징조는 1번 캐릭터 룰에 이미 있다.",
+   "base_types": [
+    "Fracturing Orb",
+    "Omen of Greater Exaltation",
+    "Perfect Exalted Orb",
+    "Omen of Sinistral Necromancy",
+    "Omen of Dextral Necromancy",
+    "Transcendent Alloy",
+    "Craiceann's Rune of Warding",
+    "Fenumus' Rune of Draining",
+    "Katla's Gloom",
+    "Soul Core of Tacati"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "fb_gear",
+   "name": "[3안] 성스러운 집중구",
+   "note": "카오스 화염파 3안(마법봉+집중구, 래더 8명): 성스러운 집중구 4. 말라버린 마법봉(6)은 커스마스터 룰이 켠다. 레어는 NeverSink 에 맡긴다 — [[0800]] 미감정 티어 3·4 이상 레어 경보(음량 300)를 이 무음 룰이 덮어쓰던 것을 적대검증이 잡았다(2026-09-22).",
+   "base_types": [
+    "Sacred Focus"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "style": "fb_gear",
+   "name": "[맵~] 흉갑 — 1안 생명력+방어도 · 2안 생명력+ES · 3안 카오스 면역",
+   "note": "래더 32명의 흉갑: 병사 흉갑 4 · 전쟁군주 흉갑 2(목표 캐릭터, 내재 '방어도 원소 적용 20%') · 성찬의 로브 · 요술사 외투(2안) · 끔찍한 로브(3안 CI 5명 중 4명). 정신력 접두를 굴릴 그릇이다. 아이템 레벨 65 문턱은 NeverSink 방어구 블록이 쓰는 값. 레어는 NeverSink 에 맡긴다 — [[0800]] 미감정 티어 3·4 이상 레어 경보(음량 300)를 이 무음 룰이 덮어쓰던 것을 적대검증이 잡았다(2026-09-22).",
+   "base_types": [
+    "Soldier Cuirass",
+    "Warlord Cuirass",
+    "Sacramental Robe",
+    "Conjurer Mantle",
+    "Vile Robe"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "item_level_min": 65,
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "style": "fb_gear",
+   "name": "[전 구간] 목걸이 · 반지 — +주문 레벨 · 정신력 · 저항",
+   "note": "목걸이: 태양의 목걸이 9 · 청금석 목걸이 6(목표 캐릭터: +3 주문 레벨 · +37 정신력). 반지: 자수정 반지 16(카오스 저항) · 분광 반지(Prismatic) 8. 레어는 NeverSink 에 맡긴다 — [[0800]] 미감정 티어 3·4 이상 레어 경보(음량 300)를 이 무음 룰이 덮어쓰던 것을 적대검증이 잡았다(2026-09-22).",
+   "base_types": [
+    "Solar Amulet",
+    "Lapis Amulet",
+    "Amethyst Ring",
+    "Prismatic Ring"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "style": "fb_gear",
+   "name": "[맵~] 2번 무기 석궁 — 기름 유탄",
+   "note": "래더 19명이 2번 무기로 석궁을 든다: 연속 포격 석궁 6 · 트라투스 대포 5 · 공성 석궁 4. 레어는 NeverSink 에 맡긴다 — [[0800]] 미감정 티어 3·4 이상 레어 경보(음량 300)를 이 무음 룰이 덮어쓰던 것을 적대검증이 잡았다(2026-09-22).",
+   "class": [
+    "Crossbows"
+   ],
+   "base_types": [
+    "Cannonade Crossbow",
+    "Trarthan Cannon",
+    "Siege Crossbow"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "style": "fb_gear",
+   "name": "[액트] 레벨링 석궁 — 갈아타며 쓰는 것",
+   "note": "액트는 석궁 유탄으로 간다. 목록은 하코 젬링 스펙(아르세리나 영상 근거)과 같다: 임시·팽팽한·튼튼한·합금·광택 나는·포격 석궁. 레어는 NeverSink 에 맡긴다 — [[0800]] 미감정 티어 3·4 이상 레어 경보(음량 300)를 이 무음 룰이 덮어쓰던 것을 적대검증이 잡았다(2026-09-22).",
+   "class": [
+    "Crossbows"
+   ],
+   "base_types": [
+    "Makeshift Crossbow",
+    "Tense Crossbow",
+    "Sturdy Crossbow",
+    "Alloy Crossbow",
+    "Varnished Crossbow",
+    "Bombard Crossbow"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "campaign"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "style": "fb_survival_endgame",
+   "name": "[엔드게임] 호신부 — 퀄리티 18+ · 아이템 레벨 82+",
+   "note": "NeverSink REGULAR/STRICT 의 '[[1000]] Endgame Charms' 블록(Quality >= 18 · ItemLevel >= 82 · AreaLevel >= 65)은 폰트 42 · 음량 300 이다. 그 블록에는 AreaLevel 조건이 있어 빌더의 음량 게이트가 비교하지 못했고, 아래 무음 호신부 룰이 이 구간을 조용하게 만들었다(아이템 레벨 82~86 확장 스윕에서 45건). 아이템 레벨 82 이상이면 지역 레벨 65 이상은 자동으로 만족한다.",
+   "base_types": [
+    "Thawing Charm",
+    "Stone Charm",
+    "Golden Charm",
+    "Staunching Charm",
+    "Antidote Charm"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "quality_min": 18,
+   "item_level_min": 82,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "fb_survival",
+   "name": "[전 구간] 호신부 · 극한 플라스크",
+   "note": "래더 마법 등급: 해동 호신부 18 · 돌 호신부 13 · 황금 호신부 7 · 극한의 생명력 플라스크 26 · 극한의 마나 플라스크 12. 지혈·해독 호신부는 출혈·중독 대응.",
+   "base_types": [
+    "Thawing Charm",
+    "Stone Charm",
+    "Golden Charm",
+    "Staunching Charm",
+    "Antidote Charm",
+    "Ultimate Life Flask",
+    "Ultimate Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "style": "fb_survival",
+   "name": "[액트] 마나 플라스크 등급",
+   "note": "화염파는 마나 소모가 크다. 하코 젬링 스펙과 같은 진행.",
+   "base_types": [
+    "Greater Mana Flask",
+    "Grand Mana Flask",
+    "Gargantuan Mana Flask"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "area_level_max": 70,
+   "stages": [
+    "campaign",
+    "maps"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "style": "fb_craft",
+   "name": "[맵~] 모독 뼈 — 무기 · 방어구 · 장신구",
+   "note": "보존된 턱뼈·갈비뼈·빗장뼈(드롭 61) · 고대 턱뼈·갈비뼈·빗장뼈(드롭 75, 옵션 레벨 40 이상). 지팡이 추가 카오스(턱뼈) · 흉갑 정신력(갈비뼈) · 목걸이 스킬 퀄리티(빗장뼈).",
+   "base_types": [
+    "Preserved Jawbone",
+    "Preserved Rib",
+    "Preserved Collarbone",
+    "Ancient Jawbone",
+    "Ancient Rib",
+    "Ancient Collarbone"
+   ],
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "fb_craft",
+   "name": "[전 구간] 저항·생명력·시전 속도 에센스",
+   "note": "상위 절연(화염)·해동(냉기)·접지(번개) = 저항 31~35% · 상위 폐허 = 카오스 저항 16~19% · 상위 육신 = 생명력 100~119(흉갑) · 상위 기민성 = 지팡이 시전 속도 38~43%. SSF 에서 가장 어려운 건 저항이다(Lazy Bird).",
+   "base_types": [
+    "Greater Essence of Insulation",
+    "Greater Essence of Thawing",
+    "Greater Essence of Grounding",
+    "Greater Essence of Ruin",
+    "Greater Essence of the Body",
+    "Greater Essence of Alacrity"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "fb_craft",
+   "name": "[전 구간] 룬 — 지팡이·흉갑 철 룬 + 저항 룬",
+   "note": "상위 철 룬: 지팡이 주문 피해 30% · 방어구 방어/회피/ES 18%(래더 흉갑 26개). 상위 빙하·폭풍·사막 룬 = 방어구 저항(블러드 메이지 치명타 시 시전도 같은 룬을 쓴다: 철 23 · 폭풍 13 · 빙하 12). 빛의 징조 = 모독 옵션만 지우는 소멸. 세공사의 프리즘 = 화염파 퀄리티.",
+   "base_types": [
+    "Greater Iron Rune",
+    "Greater Glacial Rune",
+    "Greater Storm Rune",
+    "Greater Desert Rune",
+    "Omen of Light",
+    "Gemcutter's Prism"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "keep_superexoticbases_campaign",
+   "name": "[숨김 보호] NeverSink 경보 바탕 superexoticbases (campaign)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "base_types": [
+    "Aberrant Sledge",
+    "Ancient Gauntlets",
+    "Ancient Visor",
+    "Glacial Fortress",
+    "Heartwood Shortbow",
+    "Primal Markings",
+    "Sacrificial Regalia",
+    "Venerable Defender",
+    "Warding Quarterstaff"
+   ],
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "keep_pseudocrafts1_campaign",
+   "name": "[숨김 보호] NeverSink 경보 바탕 pseudocrafts1 (campaign)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "base_types": [
+    "Grasping Mail"
+   ],
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "keep_group1t1_campaign",
+   "name": "[숨김 보호] NeverSink 경보 바탕 group1t1 (campaign)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal"
+   ],
+   "base_types": [
+    "Daggerfoot Shoes",
+    "Obliterator Bow",
+    "Sinister Quarterstaff",
+    "Slipstrike Vest",
+    "Warmonger Bow"
+   ],
+   "stages": [
+    "campaign"
+   ],
+   "corrupted": false,
+   "mirrored": false,
+   "item_level_min": 82
+  },
+  {
+   "style": "keep_group1t2_campaign",
+   "name": "[숨김 보호] NeverSink 경보 바탕 group1t2 (campaign)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal"
+   ],
+   "base_types": [
+    "Drakeskin Boots",
+    "Elegant Wraps",
+    "Quickslip Shoes",
+    "Razor Quarterstaff",
+    "Sleek Jacket",
+    "Striking Quarterstaff",
+    "Tawhoan Tower Shield",
+    "Vaal Wraps"
+   ],
+   "stages": [
+    "campaign"
+   ],
+   "corrupted": false,
+   "mirrored": false,
+   "item_level_min": 82
+  },
+  {
+   "style": "keep_group2t1_campaign",
+   "name": "[숨김 보호] NeverSink 경보 바탕 group2t1 (campaign)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal"
+   ],
+   "base_types": [
+    "Sinister Quarterstaff"
+   ],
+   "stages": [
+    "campaign"
+   ],
+   "corrupted": false,
+   "mirrored": false,
+   "item_level_min": 81
+  },
+  {
+   "style": "keep_superexoticbases_maps",
+   "name": "[숨김 보호] NeverSink 경보 바탕 superexoticbases (maps)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "base_types": [
+    "Aberrant Sledge",
+    "Ancient Gauntlets",
+    "Ancient Visor",
+    "Glacial Fortress",
+    "Heartwood Shortbow",
+    "Primal Markings",
+    "Sacrificial Regalia",
+    "Venerable Defender",
+    "Warding Quarterstaff"
+   ],
+   "stages": [
+    "maps"
+   ]
+  },
+  {
+   "style": "keep_pseudocrafts1_maps",
+   "name": "[숨김 보호] NeverSink 경보 바탕 pseudocrafts1 (maps)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "base_types": [
+    "Grasping Mail"
+   ],
+   "stages": [
+    "maps"
+   ]
+  },
+  {
+   "style": "keep_group1t1_maps",
+   "name": "[숨김 보호] NeverSink 경보 바탕 group1t1 (maps)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal"
+   ],
+   "base_types": [
+    "Daggerfoot Shoes",
+    "Obliterator Bow",
+    "Sinister Quarterstaff",
+    "Slipstrike Vest",
+    "Warmonger Bow"
+   ],
+   "stages": [
+    "maps"
+   ],
+   "corrupted": false,
+   "mirrored": false,
+   "item_level_min": 82
+  },
+  {
+   "style": "keep_group1t2_maps",
+   "name": "[숨김 보호] NeverSink 경보 바탕 group1t2 (maps)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal"
+   ],
+   "base_types": [
+    "Drakeskin Boots",
+    "Elegant Wraps",
+    "Quickslip Shoes",
+    "Razor Quarterstaff",
+    "Sleek Jacket",
+    "Striking Quarterstaff",
+    "Tawhoan Tower Shield",
+    "Vaal Wraps"
+   ],
+   "stages": [
+    "maps"
+   ],
+   "corrupted": false,
+   "mirrored": false,
+   "item_level_min": 82
+  },
+  {
+   "style": "keep_group2t1_maps",
+   "name": "[숨김 보호] NeverSink 경보 바탕 group2t1 (maps)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal"
+   ],
+   "base_types": [
+    "Sinister Quarterstaff"
+   ],
+   "stages": [
+    "maps"
+   ],
+   "corrupted": false,
+   "mirrored": false,
+   "item_level_min": 81
+  },
+  {
+   "style": "keep_superexoticbases_endgame",
+   "name": "[숨김 보호] NeverSink 경보 바탕 superexoticbases (endgame)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "base_types": [
+    "Aberrant Sledge",
+    "Ancient Gauntlets",
+    "Ancient Visor",
+    "Glacial Fortress",
+    "Heartwood Shortbow",
+    "Primal Markings",
+    "Sacrificial Regalia",
+    "Venerable Defender",
+    "Warding Quarterstaff"
+   ],
+   "stages": [
+    "endgame"
+   ]
+  },
+  {
+   "style": "keep_pseudocrafts1_endgame",
+   "name": "[숨김 보호] NeverSink 경보 바탕 pseudocrafts1 (endgame)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "base_types": [
+    "Grasping Mail"
+   ],
+   "stages": [
+    "endgame"
+   ]
+  },
+  {
+   "style": "keep_group1t1_endgame",
+   "name": "[숨김 보호] NeverSink 경보 바탕 group1t1 (endgame)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal"
+   ],
+   "base_types": [
+    "Daggerfoot Shoes",
+    "Obliterator Bow",
+    "Sinister Quarterstaff",
+    "Slipstrike Vest",
+    "Warmonger Bow"
+   ],
+   "stages": [
+    "endgame"
+   ],
+   "corrupted": false,
+   "mirrored": false,
+   "item_level_min": 82
+  },
+  {
+   "style": "keep_group1t2_endgame",
+   "name": "[숨김 보호] NeverSink 경보 바탕 group1t2 (endgame)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal"
+   ],
+   "base_types": [
+    "Drakeskin Boots",
+    "Elegant Wraps",
+    "Quickslip Shoes",
+    "Razor Quarterstaff",
+    "Sleek Jacket",
+    "Striking Quarterstaff",
+    "Tawhoan Tower Shield",
+    "Vaal Wraps"
+   ],
+   "stages": [
+    "endgame"
+   ],
+   "corrupted": false,
+   "mirrored": false,
+   "item_level_min": 82
+  },
+  {
+   "style": "keep_group2t1_endgame",
+   "name": "[숨김 보호] NeverSink 경보 바탕 group2t1 (endgame)",
+   "note": "SC 거래 전환(2026-09-23): 이 바탕들은 숨김 목록에 들지만 NeverSink 가 소리를 내던 것이다. 스윕이 경보 숨김 414건으로 잡았고, 목록·조건·모양은 원본 블록에서 읽었다.",
+   "rarity": [
+    "Normal"
+   ],
+   "base_types": [
+    "Sinister Quarterstaff"
+   ],
+   "stages": [
+    "endgame"
+   ],
+   "corrupted": false,
+   "mirrored": false,
+   "item_level_min": 81
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 회피 기반 방어구 — Body Armours · 흰색·파란색만",
+   "note": "사용자 요청(2026-09-22): '회피기반 장비 이런건 안보이게'. GGPK ArmourTypes 에서 회피가 1이라도 붙은 흉갑·투구·장갑·신발(순수 회피 · 방어도+회피 · 회피+ES · 3종 혼합). 두 빌드(카오스 화염파 1~3안 · 블러드 메이지)는 회피를 안 쓴다. 래더에서 회피 방어구를 입은 경우는 전부 레어·유니크였다(철의 반사신경 방어도+회피 흉갑 6) — 그래서 레어·유니크는 숨기지 않는다. SSF 에서 저항 붙은 레어는 바탕과 상관없이 쓴다. 룬 슬롯·퀄리티·상위 미감정 안전장치는 NeverSink 그대로. 지역 레벨 12부터. 필터가 띄우는 바탕(커스마스터 최정점 = Tribal Mask)은 목록에서 뺐다. 같은 이름에 회피 없는 GGPK 변형이 있는 바탕은 이름만으로 가릴 수 없어 뺐다: Runeforged Grasping Mail, Runeforged Sacrificial Regalia. 액트 필터에서는 끈다(2026-09-22 사용자 '너무 잘죽음 · 아무것도 없어서'): 액트의 젬링은 힘·민첩 캐릭터라 방어도+회피 매직 방어구의 생명력·저항이 생존 장비다. 맵부터 숨긴다.",
+   "class": [
+    "Body Armours"
+   ],
+   "base_types": [
+    "Ancestral Mail",
+    "Anchorite Garb",
+    "Armoured Vest",
+    "Ascetic Garb",
+    "Assassin Garb",
+    "Austere Garb",
+    "Chain Mail",
+    "Clandestine Jacket",
+    "Cloaked Mail",
+    "Corsair Coat",
+    "Corsair Vest",
+    "Dastard Armour",
+    "Death Mail",
+    "Devout Garb",
+    "Evangelist Garb",
+    "Explorer Armour",
+    "Exquisite Vest",
+    "Falconer's Jacket",
+    "Gladiator Armour",
+    "Golden Mail",
+    "Golden Mantle",
+    "Grand Regalia",
+    "Hardleather Coat",
+    "Hatungo Garb",
+    "Hawker's Jacket",
+    "Hermit Garb",
+    "Heroic Armour",
+    "Hunting Coat",
+    "Itinerant Jacket",
+    "Knight Armour",
+    "Lamellar Mail",
+    "Layered Vest",
+    "Leather Vest",
+    "Lizardscale Coat",
+    "Mail Coat",
+    "Mantled Mail",
+    "Marabout Garb",
+    "Monastic Garb",
+    "Oiled Jacket",
+    "Patchwork Vest",
+    "Pathfinder Coat",
+    "Quilted Vest",
+    "Rambler Jacket",
+    "Rhoahide Coat",
+    "Riding Coat",
+    "Ring Mail",
+    "Rogue Armour",
+    "Runeforged Ancestral Mail",
+    "Runeforged Anchorite Garb",
+    "Runeforged Ascetic Garb",
+    "Runeforged Austere Garb",
+    "Runeforged Chain Mail",
+    "Runeforged Cloaked Mail",
+    "Runeforged Corsair Coat",
+    "Runeforged Corsair Vest",
+    "Runeforged Dastard Armour",
+    "Runeforged Death Mail",
+    "Runeforged Explorer Armour",
+    "Runeforged Falconer's Jacket",
+    "Runeforged Golden Mail",
+    "Runeforged Grand Regalia",
+    "Runeforged Hatungo Garb",
+    "Runeforged Hawker's Jacket",
+    "Runeforged Hermit Garb",
+    "Runeforged Itinerant Jacket",
+    "Runeforged Knight Armour",
+    "Runeforged Layered Vest",
+    "Runeforged Leather Vest",
+    "Runeforged Lizardscale Coat",
+    "Runeforged Mantled Mail",
+    "Runeforged Marabout Garb",
+    "Runeforged Pathfinder Coat",
+    "Runeforged Primal Markings",
+    "Runeforged Quilted Vest",
+    "Runeforged Rambler Jacket",
+    "Runeforged Rhoahide Coat",
+    "Runeforged Rogue Armour",
+    "Runeforged Runner Vest",
+    "Runeforged Scale Mail",
+    "Runeforged Scalper's Jacket",
+    "Runeforged Scoundrel Jacket",
+    "Runeforged Scout's Vest",
+    "Runeforged Serpentscale Coat",
+    "Runeforged Shrouded Mail",
+    "Runeforged Shrouded Vest",
+    "Runeforged Slayer Armour",
+    "Runeforged Sleek Jacket",
+    "Runeforged Slipstrike Vest",
+    "Runeforged Smuggler Coat",
+    "Runeforged Studded Vest",
+    "Runeforged Swiftstalker Coat",
+    "Runeforged Thane Mail",
+    "Runeforged Trailblazer Armour",
+    "Runeforged Vagabond Armour",
+    "Runeforged Waxed Jacket",
+    "Runeforged Wayfarer Jacket",
+    "Runeforged Wyrmscale Coat",
+    "Runemastered Ancestral Mail",
+    "Runemastered Anchorite Garb",
+    "Runemastered Armoured Vest",
+    "Runemastered Assassin Garb",
+    "Runemastered Chain Mail",
+    "Runemastered Cloaked Mail",
+    "Runemastered Explorer Armour",
+    "Runemastered Exquisite Vest",
+    "Runemastered Grand Regalia",
+    "Runemastered Hermit Garb",
+    "Runemastered Heroic Armour",
+    "Runemastered Knight Armour",
+    "Runemastered Leather Vest",
+    "Runemastered Marabout Garb",
+    "Runemastered Pathfinder Coat",
+    "Runemastered Primal Markings",
+    "Runemastered Quilted Vest",
+    "Runemastered Rhoahide Coat",
+    "Runemastered Rogue Armour",
+    "Runemastered Sacrificial Regalia",
+    "Runemastered Scale Mail",
+    "Runemastered Scalper's Jacket",
+    "Runemastered Scout's Vest",
+    "Runemastered Serpentscale Coat",
+    "Runemastered Shrouded Vest",
+    "Runemastered Smuggler Coat",
+    "Runemastered Strider Vest",
+    "Runemastered Studded Vest",
+    "Runemastered Vagabond Armour",
+    "Runemastered Waxed Jacket",
+    "Runemastered Wayfarer Jacket",
+    "Runner Vest",
+    "Scale Mail",
+    "Scalper's Jacket",
+    "Scoundrel Armour",
+    "Scoundrel Jacket",
+    "Scout's Vest",
+    "Serpentscale Coat",
+    "Shrouded Mail",
+    "Shrouded Vest",
+    "Slayer Armour",
+    "Smuggler Coat",
+    "Strider Vest",
+    "Studded Vest",
+    "Swiftstalker Coat",
+    "Thane Mail",
+    "Torment Jacket",
+    "Tournament Mail",
+    "Trailblazer Armour",
+    "Vagabond Armour",
+    "Wanderer Armour",
+    "Waxed Jacket",
+    "Wayfarer Jacket",
+    "Wyrmscale Coat"
+   ],
+   "rarity": [
+    "Normal"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 회피 기반 방어구 — Body Armours · 흰색·파란색만 — 매직 · 미감정만",
+   "note": "사용자 요청(2026-09-22): '회피기반 장비 이런건 안보이게'. GGPK ArmourTypes 에서 회피가 1이라도 붙은 흉갑·투구·장갑·신발(순수 회피 · 방어도+회피 · 회피+ES · 3종 혼합). 두 빌드(카오스 화염파 1~3안 · 블러드 메이지)는 회피를 안 쓴다. 래더에서 회피 방어구를 입은 경우는 전부 레어·유니크였다(철의 반사신경 방어도+회피 흉갑 6) — 그래서 레어·유니크는 숨기지 않는다. SSF 에서 저항 붙은 레어는 바탕과 상관없이 쓴다. 룬 슬롯·퀄리티·상위 미감정 안전장치는 NeverSink 그대로. 지역 레벨 12부터. 필터가 띄우는 바탕(커스마스터 최정점 = Tribal Mask)은 목록에서 뺐다. 같은 이름에 회피 없는 GGPK 변형이 있는 바탕은 이름만으로 가릴 수 없어 뺐다: Runeforged Grasping Mail, Runeforged Sacrificial Regalia. 액트 필터에서는 끈다(2026-09-22 사용자 '너무 잘죽음 · 아무것도 없어서'): 액트의 젬링은 힘·민첩 캐릭터라 방어도+회피 매직 방어구의 생명력·저항이 생존 장비다. 맵부터 숨긴다. / 매직은 미감정만 숨긴다 — 감정하면 NeverSink 의 exoticmods 경보 대상이 될 수 있고, 감정된 물건의 미감정 티어 값은 공식 문서에 없다(2026-09-23 적대검증).",
+   "class": [
+    "Body Armours"
+   ],
+   "base_types": [
+    "Ancestral Mail",
+    "Anchorite Garb",
+    "Armoured Vest",
+    "Ascetic Garb",
+    "Assassin Garb",
+    "Austere Garb",
+    "Chain Mail",
+    "Clandestine Jacket",
+    "Cloaked Mail",
+    "Corsair Coat",
+    "Corsair Vest",
+    "Dastard Armour",
+    "Death Mail",
+    "Devout Garb",
+    "Evangelist Garb",
+    "Explorer Armour",
+    "Exquisite Vest",
+    "Falconer's Jacket",
+    "Gladiator Armour",
+    "Golden Mail",
+    "Golden Mantle",
+    "Grand Regalia",
+    "Hardleather Coat",
+    "Hatungo Garb",
+    "Hawker's Jacket",
+    "Hermit Garb",
+    "Heroic Armour",
+    "Hunting Coat",
+    "Itinerant Jacket",
+    "Knight Armour",
+    "Lamellar Mail",
+    "Layered Vest",
+    "Leather Vest",
+    "Lizardscale Coat",
+    "Mail Coat",
+    "Mantled Mail",
+    "Marabout Garb",
+    "Monastic Garb",
+    "Oiled Jacket",
+    "Patchwork Vest",
+    "Pathfinder Coat",
+    "Quilted Vest",
+    "Rambler Jacket",
+    "Rhoahide Coat",
+    "Riding Coat",
+    "Ring Mail",
+    "Rogue Armour",
+    "Runeforged Ancestral Mail",
+    "Runeforged Anchorite Garb",
+    "Runeforged Ascetic Garb",
+    "Runeforged Austere Garb",
+    "Runeforged Chain Mail",
+    "Runeforged Cloaked Mail",
+    "Runeforged Corsair Coat",
+    "Runeforged Corsair Vest",
+    "Runeforged Dastard Armour",
+    "Runeforged Death Mail",
+    "Runeforged Explorer Armour",
+    "Runeforged Falconer's Jacket",
+    "Runeforged Golden Mail",
+    "Runeforged Grand Regalia",
+    "Runeforged Hatungo Garb",
+    "Runeforged Hawker's Jacket",
+    "Runeforged Hermit Garb",
+    "Runeforged Itinerant Jacket",
+    "Runeforged Knight Armour",
+    "Runeforged Layered Vest",
+    "Runeforged Leather Vest",
+    "Runeforged Lizardscale Coat",
+    "Runeforged Mantled Mail",
+    "Runeforged Marabout Garb",
+    "Runeforged Pathfinder Coat",
+    "Runeforged Primal Markings",
+    "Runeforged Quilted Vest",
+    "Runeforged Rambler Jacket",
+    "Runeforged Rhoahide Coat",
+    "Runeforged Rogue Armour",
+    "Runeforged Runner Vest",
+    "Runeforged Scale Mail",
+    "Runeforged Scalper's Jacket",
+    "Runeforged Scoundrel Jacket",
+    "Runeforged Scout's Vest",
+    "Runeforged Serpentscale Coat",
+    "Runeforged Shrouded Mail",
+    "Runeforged Shrouded Vest",
+    "Runeforged Slayer Armour",
+    "Runeforged Sleek Jacket",
+    "Runeforged Slipstrike Vest",
+    "Runeforged Smuggler Coat",
+    "Runeforged Studded Vest",
+    "Runeforged Swiftstalker Coat",
+    "Runeforged Thane Mail",
+    "Runeforged Trailblazer Armour",
+    "Runeforged Vagabond Armour",
+    "Runeforged Waxed Jacket",
+    "Runeforged Wayfarer Jacket",
+    "Runeforged Wyrmscale Coat",
+    "Runemastered Ancestral Mail",
+    "Runemastered Anchorite Garb",
+    "Runemastered Armoured Vest",
+    "Runemastered Assassin Garb",
+    "Runemastered Chain Mail",
+    "Runemastered Cloaked Mail",
+    "Runemastered Explorer Armour",
+    "Runemastered Exquisite Vest",
+    "Runemastered Grand Regalia",
+    "Runemastered Hermit Garb",
+    "Runemastered Heroic Armour",
+    "Runemastered Knight Armour",
+    "Runemastered Leather Vest",
+    "Runemastered Marabout Garb",
+    "Runemastered Pathfinder Coat",
+    "Runemastered Primal Markings",
+    "Runemastered Quilted Vest",
+    "Runemastered Rhoahide Coat",
+    "Runemastered Rogue Armour",
+    "Runemastered Sacrificial Regalia",
+    "Runemastered Scale Mail",
+    "Runemastered Scalper's Jacket",
+    "Runemastered Scout's Vest",
+    "Runemastered Serpentscale Coat",
+    "Runemastered Shrouded Vest",
+    "Runemastered Smuggler Coat",
+    "Runemastered Strider Vest",
+    "Runemastered Studded Vest",
+    "Runemastered Vagabond Armour",
+    "Runemastered Waxed Jacket",
+    "Runemastered Wayfarer Jacket",
+    "Runner Vest",
+    "Scale Mail",
+    "Scalper's Jacket",
+    "Scoundrel Armour",
+    "Scoundrel Jacket",
+    "Scout's Vest",
+    "Serpentscale Coat",
+    "Shrouded Mail",
+    "Shrouded Vest",
+    "Slayer Armour",
+    "Smuggler Coat",
+    "Strider Vest",
+    "Studded Vest",
+    "Swiftstalker Coat",
+    "Thane Mail",
+    "Torment Jacket",
+    "Tournament Mail",
+    "Trailblazer Armour",
+    "Vagabond Armour",
+    "Wanderer Armour",
+    "Waxed Jacket",
+    "Wayfarer Jacket",
+    "Wyrmscale Coat"
+   ],
+   "rarity": [
+    "Magic"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2,
+   "identified": false
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 회피 기반 방어구 — Helmets · 흰색·파란색만",
+   "note": "위 흉갑 숨김과 같은 기준. 한 줄이 1만 자를 넘지 않게 부위별로 나눴다(NeverSink 최장 줄 3,290자 — 게임의 줄 길이 한도는 확인 못 함).",
+   "class": [
+    "Helmets"
+   ],
+   "base_types": [
+    "Armoured Cap",
+    "Avian Mask",
+    "Bandit Mask",
+    "Brigand Mask",
+    "Brimmed Helm",
+    "Cabalist Helm",
+    "Cassis Helm",
+    "Champion Helm",
+    "Closed Helm",
+    "Corsair Cap",
+    "Covert Hood",
+    "Cowled Helm",
+    "Cryptic Helm",
+    "Death Mask",
+    "Decorated Helm",
+    "Deerstalker Hood",
+    "Desert Cap",
+    "Domed Helm",
+    "Engraved Helm",
+    "Face Mask",
+    "Faridun Mask",
+    "Felt Cap",
+    "Freebooter Cap",
+    "Gallant Helm",
+    "Gladiatorial Helm",
+    "Grand Visage",
+    "Grinning Mask",
+    "Guarded Helm",
+    "Hewn Mask",
+    "Hooded Mask",
+    "Hunter Hood",
+    "Lace Hood",
+    "Leatherbound Hood",
+    "Narrow Hood",
+    "Oak Mask",
+    "Pariah Mask",
+    "Rotted Hood",
+    "Runeforged Avian Mask",
+    "Runeforged Brigand Mask",
+    "Runeforged Brimmed Helm",
+    "Runeforged Cabalist Helm",
+    "Runeforged Champion Helm",
+    "Runeforged Closed Helm",
+    "Runeforged Corsair Cap",
+    "Runeforged Cowled Helm",
+    "Runeforged Cryptic Helm",
+    "Runeforged Deerstalker Hood",
+    "Runeforged Desert Cap",
+    "Runeforged Face Mask",
+    "Runeforged Faridun Mask",
+    "Runeforged Felt Cap",
+    "Runeforged Freebooter Cap",
+    "Runeforged Gladiatorial Helm",
+    "Runeforged Grand Visage",
+    "Runeforged Grinning Mask",
+    "Runeforged Guarded Helm",
+    "Runeforged Hewn Mask",
+    "Runeforged Hooded Mask",
+    "Runeforged Hunter Hood",
+    "Runeforged Lace Hood",
+    "Runeforged Leatherbound Hood",
+    "Runeforged Pariah Mask",
+    "Runeforged Shabby Hood",
+    "Runeforged Shielded Helm",
+    "Runeforged Soaring Mask",
+    "Runeforged Solid Mask",
+    "Runeforged Swathed Cap",
+    "Runeforged Trapper Hood",
+    "Runeforged Tribal Mask",
+    "Runeforged Veiled Mask",
+    "Runeforged Viper Cap",
+    "Runeforged Visored Helm",
+    "Runeforged Warded Helm",
+    "Runeforged Woven Cap",
+    "Runeforged Wrapped Cap",
+    "Runemastered Ancient Visor",
+    "Runemastered Armoured Cap",
+    "Runemastered Brimmed Helm",
+    "Runemastered Corsair Cap",
+    "Runemastered Covert Hood",
+    "Runemastered Cowled Helm",
+    "Runemastered Death Mask",
+    "Runemastered Decorated Helm",
+    "Runemastered Face Mask",
+    "Runemastered Felt Cap",
+    "Runemastered Grand Visage",
+    "Runemastered Guarded Helm",
+    "Runemastered Hewn Mask",
+    "Runemastered Hooded Mask",
+    "Runemastered Hunter Hood",
+    "Runemastered Leatherbound Hood",
+    "Runemastered Shielded Helm",
+    "Runemastered Solid Mask",
+    "Runemastered Tribal Mask",
+    "Runemastered Veiled Mask",
+    "Runemastered Velvet Cap",
+    "Runemastered Viper Cap",
+    "Runemastered Visored Helm",
+    "Shabby Hood",
+    "Shaded Mask",
+    "Shielded Helm",
+    "Skulking Mask",
+    "Soaring Mask",
+    "Soldier Helm",
+    "Solid Mask",
+    "Swathed Cap",
+    "Trapper Hood",
+    "Veiled Mask",
+    "Velvet Cap",
+    "Viper Cap",
+    "Visored Helm",
+    "Warded Helm",
+    "Wool Cap",
+    "Woven Cap",
+    "Wrapped Cap"
+   ],
+   "rarity": [
+    "Normal"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 회피 기반 방어구 — Helmets · 흰색·파란색만 — 매직 · 미감정만",
+   "note": "위 흉갑 숨김과 같은 기준. 한 줄이 1만 자를 넘지 않게 부위별로 나눴다(NeverSink 최장 줄 3,290자 — 게임의 줄 길이 한도는 확인 못 함). / 매직은 미감정만 숨긴다 — 감정하면 NeverSink 의 exoticmods 경보 대상이 될 수 있고, 감정된 물건의 미감정 티어 값은 공식 문서에 없다(2026-09-23 적대검증).",
+   "class": [
+    "Helmets"
+   ],
+   "base_types": [
+    "Armoured Cap",
+    "Avian Mask",
+    "Bandit Mask",
+    "Brigand Mask",
+    "Brimmed Helm",
+    "Cabalist Helm",
+    "Cassis Helm",
+    "Champion Helm",
+    "Closed Helm",
+    "Corsair Cap",
+    "Covert Hood",
+    "Cowled Helm",
+    "Cryptic Helm",
+    "Death Mask",
+    "Decorated Helm",
+    "Deerstalker Hood",
+    "Desert Cap",
+    "Domed Helm",
+    "Engraved Helm",
+    "Face Mask",
+    "Faridun Mask",
+    "Felt Cap",
+    "Freebooter Cap",
+    "Gallant Helm",
+    "Gladiatorial Helm",
+    "Grand Visage",
+    "Grinning Mask",
+    "Guarded Helm",
+    "Hewn Mask",
+    "Hooded Mask",
+    "Hunter Hood",
+    "Lace Hood",
+    "Leatherbound Hood",
+    "Narrow Hood",
+    "Oak Mask",
+    "Pariah Mask",
+    "Rotted Hood",
+    "Runeforged Avian Mask",
+    "Runeforged Brigand Mask",
+    "Runeforged Brimmed Helm",
+    "Runeforged Cabalist Helm",
+    "Runeforged Champion Helm",
+    "Runeforged Closed Helm",
+    "Runeforged Corsair Cap",
+    "Runeforged Cowled Helm",
+    "Runeforged Cryptic Helm",
+    "Runeforged Deerstalker Hood",
+    "Runeforged Desert Cap",
+    "Runeforged Face Mask",
+    "Runeforged Faridun Mask",
+    "Runeforged Felt Cap",
+    "Runeforged Freebooter Cap",
+    "Runeforged Gladiatorial Helm",
+    "Runeforged Grand Visage",
+    "Runeforged Grinning Mask",
+    "Runeforged Guarded Helm",
+    "Runeforged Hewn Mask",
+    "Runeforged Hooded Mask",
+    "Runeforged Hunter Hood",
+    "Runeforged Lace Hood",
+    "Runeforged Leatherbound Hood",
+    "Runeforged Pariah Mask",
+    "Runeforged Shabby Hood",
+    "Runeforged Shielded Helm",
+    "Runeforged Soaring Mask",
+    "Runeforged Solid Mask",
+    "Runeforged Swathed Cap",
+    "Runeforged Trapper Hood",
+    "Runeforged Tribal Mask",
+    "Runeforged Veiled Mask",
+    "Runeforged Viper Cap",
+    "Runeforged Visored Helm",
+    "Runeforged Warded Helm",
+    "Runeforged Woven Cap",
+    "Runeforged Wrapped Cap",
+    "Runemastered Ancient Visor",
+    "Runemastered Armoured Cap",
+    "Runemastered Brimmed Helm",
+    "Runemastered Corsair Cap",
+    "Runemastered Covert Hood",
+    "Runemastered Cowled Helm",
+    "Runemastered Death Mask",
+    "Runemastered Decorated Helm",
+    "Runemastered Face Mask",
+    "Runemastered Felt Cap",
+    "Runemastered Grand Visage",
+    "Runemastered Guarded Helm",
+    "Runemastered Hewn Mask",
+    "Runemastered Hooded Mask",
+    "Runemastered Hunter Hood",
+    "Runemastered Leatherbound Hood",
+    "Runemastered Shielded Helm",
+    "Runemastered Solid Mask",
+    "Runemastered Tribal Mask",
+    "Runemastered Veiled Mask",
+    "Runemastered Velvet Cap",
+    "Runemastered Viper Cap",
+    "Runemastered Visored Helm",
+    "Shabby Hood",
+    "Shaded Mask",
+    "Shielded Helm",
+    "Skulking Mask",
+    "Soaring Mask",
+    "Soldier Helm",
+    "Solid Mask",
+    "Swathed Cap",
+    "Trapper Hood",
+    "Veiled Mask",
+    "Velvet Cap",
+    "Viper Cap",
+    "Visored Helm",
+    "Warded Helm",
+    "Wool Cap",
+    "Woven Cap",
+    "Wrapped Cap"
+   ],
+   "rarity": [
+    "Magic"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2,
+   "identified": false
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 회피 기반 방어구 — Gloves · 흰색·파란색만",
+   "note": "위 흉갑 숨김과 같은 기준. 한 줄이 1만 자를 넘지 않게 부위별로 나눴다(NeverSink 최장 줄 3,290자 — 게임의 줄 길이 한도는 확인 못 함).",
+   "class": [
+    "Gloves"
+   ],
+   "base_types": [
+    "Adorned Wraps",
+    "Bandage Wraps",
+    "Barbed Bracers",
+    "Blacksteel Gauntlets",
+    "Bound Bracers",
+    "Buckled Wraps",
+    "Burnished Gauntlets",
+    "Cambric Wraps",
+    "Captain Gauntlets",
+    "Commander Gauntlets",
+    "Cultist Gauntlets",
+    "Doubled Gauntlets",
+    "Engraved Bracers",
+    "Fine Bracers",
+    "Firm Bracers",
+    "Furtive Wraps",
+    "Gauze Wraps",
+    "Grand Bracers",
+    "Grand Manchettes",
+    "Hardened Bracers",
+    "Hunting Bracers",
+    "Ironmail Gauntlets",
+    "Layered Gauntlets",
+    "Linen Wraps",
+    "Ornate Gauntlets",
+    "Plate Gauntlets",
+    "Polished Bracers",
+    "Refined Bracers",
+    "Ringmail Gauntlets",
+    "Runeforged Adorned Wraps",
+    "Runeforged Barbed Bracers",
+    "Runeforged Blacksteel Gauntlets",
+    "Runeforged Bound Bracers",
+    "Runeforged Buckled Wraps",
+    "Runeforged Commander Gauntlets",
+    "Runeforged Cultist Gauntlets",
+    "Runeforged Doubled Gauntlets",
+    "Runeforged Elegant Wraps",
+    "Runeforged Engraved Bracers",
+    "Runeforged Fine Bracers",
+    "Runeforged Firm Bracers",
+    "Runeforged Gauze Wraps",
+    "Runeforged Grand Bracers",
+    "Runeforged Grand Manchettes",
+    "Runeforged Layered Gauntlets",
+    "Runeforged Linen Wraps",
+    "Runeforged Plate Gauntlets",
+    "Runeforged Polished Bracers",
+    "Runeforged Refined Bracers",
+    "Runeforged Ringmail Gauntlets",
+    "Runeforged Sectioned Bracers",
+    "Runeforged Secured Wraps",
+    "Runeforged Spiked Bracers",
+    "Runeforged Spined Bracers",
+    "Runeforged Spiral Wraps",
+    "Runeforged Stalking Bracers",
+    "Runeforged Steelmail Gauntlets",
+    "Runeforged Suede Bracers",
+    "Runeforged Vaal Wraps",
+    "Runeforged War Wraps",
+    "Runeforged Zealot Gauntlets",
+    "Runemastered Burnished Gauntlets",
+    "Runemastered Doubled Gauntlets",
+    "Runemastered Fine Bracers",
+    "Runemastered Firm Bracers",
+    "Runemastered Furtive Wraps",
+    "Runemastered Grand Manchettes",
+    "Runemastered Layered Gauntlets",
+    "Runemastered Linen Wraps",
+    "Runemastered Plate Gauntlets",
+    "Runemastered Ringmail Gauntlets",
+    "Runemastered Sectioned Bracers",
+    "Runemastered Spined Bracers",
+    "Runemastered Spiral Wraps",
+    "Runemastered Suede Bracers",
+    "Runemastered Utility Wraps",
+    "Sectioned Bracers",
+    "Secured Wraps",
+    "Spiked Bracers",
+    "Spined Bracers",
+    "Spiral Wraps",
+    "Stalking Bracers",
+    "Steelmail Gauntlets",
+    "Suede Bracers",
+    "Swift Bracers",
+    "Utility Wraps",
+    "War Wraps",
+    "Zealot Gauntlets"
+   ],
+   "rarity": [
+    "Normal"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 회피 기반 방어구 — Gloves · 흰색·파란색만 — 매직 · 미감정만",
+   "note": "위 흉갑 숨김과 같은 기준. 한 줄이 1만 자를 넘지 않게 부위별로 나눴다(NeverSink 최장 줄 3,290자 — 게임의 줄 길이 한도는 확인 못 함). / 매직은 미감정만 숨긴다 — 감정하면 NeverSink 의 exoticmods 경보 대상이 될 수 있고, 감정된 물건의 미감정 티어 값은 공식 문서에 없다(2026-09-23 적대검증).",
+   "class": [
+    "Gloves"
+   ],
+   "base_types": [
+    "Adorned Wraps",
+    "Bandage Wraps",
+    "Barbed Bracers",
+    "Blacksteel Gauntlets",
+    "Bound Bracers",
+    "Buckled Wraps",
+    "Burnished Gauntlets",
+    "Cambric Wraps",
+    "Captain Gauntlets",
+    "Commander Gauntlets",
+    "Cultist Gauntlets",
+    "Doubled Gauntlets",
+    "Engraved Bracers",
+    "Fine Bracers",
+    "Firm Bracers",
+    "Furtive Wraps",
+    "Gauze Wraps",
+    "Grand Bracers",
+    "Grand Manchettes",
+    "Hardened Bracers",
+    "Hunting Bracers",
+    "Ironmail Gauntlets",
+    "Layered Gauntlets",
+    "Linen Wraps",
+    "Ornate Gauntlets",
+    "Plate Gauntlets",
+    "Polished Bracers",
+    "Refined Bracers",
+    "Ringmail Gauntlets",
+    "Runeforged Adorned Wraps",
+    "Runeforged Barbed Bracers",
+    "Runeforged Blacksteel Gauntlets",
+    "Runeforged Bound Bracers",
+    "Runeforged Buckled Wraps",
+    "Runeforged Commander Gauntlets",
+    "Runeforged Cultist Gauntlets",
+    "Runeforged Doubled Gauntlets",
+    "Runeforged Elegant Wraps",
+    "Runeforged Engraved Bracers",
+    "Runeforged Fine Bracers",
+    "Runeforged Firm Bracers",
+    "Runeforged Gauze Wraps",
+    "Runeforged Grand Bracers",
+    "Runeforged Grand Manchettes",
+    "Runeforged Layered Gauntlets",
+    "Runeforged Linen Wraps",
+    "Runeforged Plate Gauntlets",
+    "Runeforged Polished Bracers",
+    "Runeforged Refined Bracers",
+    "Runeforged Ringmail Gauntlets",
+    "Runeforged Sectioned Bracers",
+    "Runeforged Secured Wraps",
+    "Runeforged Spiked Bracers",
+    "Runeforged Spined Bracers",
+    "Runeforged Spiral Wraps",
+    "Runeforged Stalking Bracers",
+    "Runeforged Steelmail Gauntlets",
+    "Runeforged Suede Bracers",
+    "Runeforged Vaal Wraps",
+    "Runeforged War Wraps",
+    "Runeforged Zealot Gauntlets",
+    "Runemastered Burnished Gauntlets",
+    "Runemastered Doubled Gauntlets",
+    "Runemastered Fine Bracers",
+    "Runemastered Firm Bracers",
+    "Runemastered Furtive Wraps",
+    "Runemastered Grand Manchettes",
+    "Runemastered Layered Gauntlets",
+    "Runemastered Linen Wraps",
+    "Runemastered Plate Gauntlets",
+    "Runemastered Ringmail Gauntlets",
+    "Runemastered Sectioned Bracers",
+    "Runemastered Spined Bracers",
+    "Runemastered Spiral Wraps",
+    "Runemastered Suede Bracers",
+    "Runemastered Utility Wraps",
+    "Sectioned Bracers",
+    "Secured Wraps",
+    "Spiked Bracers",
+    "Spined Bracers",
+    "Spiral Wraps",
+    "Stalking Bracers",
+    "Steelmail Gauntlets",
+    "Suede Bracers",
+    "Swift Bracers",
+    "Utility Wraps",
+    "War Wraps",
+    "Zealot Gauntlets"
+   ],
+   "rarity": [
+    "Magic"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2,
+   "identified": false
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 회피 기반 방어구 — Boots · 흰색·파란색만",
+   "note": "위 흉갑 숨김과 같은 기준. 한 줄이 1만 자를 넘지 않게 부위별로 나눴다(NeverSink 최장 줄 3,290자 — 게임의 줄 길이 한도는 확인 못 함).",
+   "class": [
+    "Boots"
+   ],
+   "base_types": [
+    "Bastion Sabatons",
+    "Blacksteel Sabatons",
+    "Bladed Shoes",
+    "Bold Sabatons",
+    "Bound Boots",
+    "Braced Sabatons",
+    "Cavalry Boots",
+    "Charmed Shoes",
+    "Cinched Boots",
+    "Covered Sabatons",
+    "Dragonscale Boots",
+    "Embossed Boots",
+    "Embroidered Boots",
+    "Flared Boots",
+    "Flexile Sabatons",
+    "Fortress Sabatons",
+    "Frayed Shoes",
+    "Goldwork Sabatons",
+    "Grand Cuisses",
+    "Hunting Shoes",
+    "Laced Boots",
+    "Leatherplate Boots",
+    "Lizardscale Boots",
+    "Mail Sabatons",
+    "Noble Sabatons",
+    "Rawhide Boots",
+    "Runeforged Bastion Sabatons",
+    "Runeforged Blacksteel Sabatons",
+    "Runeforged Braced Sabatons",
+    "Runeforged Cavalry Boots",
+    "Runeforged Charmed Shoes",
+    "Runeforged Cinched Boots",
+    "Runeforged Covered Sabatons",
+    "Runeforged Daggerfoot Shoes",
+    "Runeforged Dragonscale Boots",
+    "Runeforged Drakeskin Boots",
+    "Runeforged Embossed Boots",
+    "Runeforged Flared Boots",
+    "Runeforged Fortress Sabatons",
+    "Runeforged Frayed Shoes",
+    "Runeforged Grand Cuisses",
+    "Runeforged Hunting Shoes",
+    "Runeforged Laced Boots",
+    "Runeforged Lizardscale Boots",
+    "Runeforged Mail Sabatons",
+    "Runeforged Noble Sabatons",
+    "Runeforged Quickslip Shoes",
+    "Runeforged Rawhide Boots",
+    "Runeforged Serpentscale Boots",
+    "Runeforged Stacked Sabatons",
+    "Runeforged Steelpoint Shoes",
+    "Runeforged Steeltoe Boots",
+    "Runeforged Studded Boots",
+    "Runeforged Threaded Shoes",
+    "Runeforged Treerunner Shoes",
+    "Runeforged Veteran Sabatons",
+    "Runeforged Wanderer Shoes",
+    "Runemastered Braced Sabatons",
+    "Runemastered Cinched Boots",
+    "Runemastered Covered Sabatons",
+    "Runemastered Embossed Boots",
+    "Runemastered Grand Cuisses",
+    "Runemastered Hunting Shoes",
+    "Runemastered Laced Boots",
+    "Runemastered Lizardscale Boots",
+    "Runemastered Mail Sabatons",
+    "Runemastered Stacked Sabatons",
+    "Runemastered Steeltoe Boots",
+    "Runemastered Threaded Shoes",
+    "Runemastered Velour Shoes",
+    "Serpentscale Boots",
+    "Silverbuckled Shoes",
+    "Sleek Boots",
+    "Soldiering Sabatons",
+    "Stacked Sabatons",
+    "Steelpoint Shoes",
+    "Steeltoe Boots",
+    "Studded Boots",
+    "Threaded Shoes",
+    "Treerunner Shoes",
+    "Velour Shoes",
+    "Veteran Sabatons",
+    "Wanderer Shoes",
+    "Wayfarer Shoes"
+   ],
+   "rarity": [
+    "Normal"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 회피 기반 방어구 — Boots · 흰색·파란색만 — 매직 · 미감정만",
+   "note": "위 흉갑 숨김과 같은 기준. 한 줄이 1만 자를 넘지 않게 부위별로 나눴다(NeverSink 최장 줄 3,290자 — 게임의 줄 길이 한도는 확인 못 함). / 매직은 미감정만 숨긴다 — 감정하면 NeverSink 의 exoticmods 경보 대상이 될 수 있고, 감정된 물건의 미감정 티어 값은 공식 문서에 없다(2026-09-23 적대검증).",
+   "class": [
+    "Boots"
+   ],
+   "base_types": [
+    "Bastion Sabatons",
+    "Blacksteel Sabatons",
+    "Bladed Shoes",
+    "Bold Sabatons",
+    "Bound Boots",
+    "Braced Sabatons",
+    "Cavalry Boots",
+    "Charmed Shoes",
+    "Cinched Boots",
+    "Covered Sabatons",
+    "Dragonscale Boots",
+    "Embossed Boots",
+    "Embroidered Boots",
+    "Flared Boots",
+    "Flexile Sabatons",
+    "Fortress Sabatons",
+    "Frayed Shoes",
+    "Goldwork Sabatons",
+    "Grand Cuisses",
+    "Hunting Shoes",
+    "Laced Boots",
+    "Leatherplate Boots",
+    "Lizardscale Boots",
+    "Mail Sabatons",
+    "Noble Sabatons",
+    "Rawhide Boots",
+    "Runeforged Bastion Sabatons",
+    "Runeforged Blacksteel Sabatons",
+    "Runeforged Braced Sabatons",
+    "Runeforged Cavalry Boots",
+    "Runeforged Charmed Shoes",
+    "Runeforged Cinched Boots",
+    "Runeforged Covered Sabatons",
+    "Runeforged Daggerfoot Shoes",
+    "Runeforged Dragonscale Boots",
+    "Runeforged Drakeskin Boots",
+    "Runeforged Embossed Boots",
+    "Runeforged Flared Boots",
+    "Runeforged Fortress Sabatons",
+    "Runeforged Frayed Shoes",
+    "Runeforged Grand Cuisses",
+    "Runeforged Hunting Shoes",
+    "Runeforged Laced Boots",
+    "Runeforged Lizardscale Boots",
+    "Runeforged Mail Sabatons",
+    "Runeforged Noble Sabatons",
+    "Runeforged Quickslip Shoes",
+    "Runeforged Rawhide Boots",
+    "Runeforged Serpentscale Boots",
+    "Runeforged Stacked Sabatons",
+    "Runeforged Steelpoint Shoes",
+    "Runeforged Steeltoe Boots",
+    "Runeforged Studded Boots",
+    "Runeforged Threaded Shoes",
+    "Runeforged Treerunner Shoes",
+    "Runeforged Veteran Sabatons",
+    "Runeforged Wanderer Shoes",
+    "Runemastered Braced Sabatons",
+    "Runemastered Cinched Boots",
+    "Runemastered Covered Sabatons",
+    "Runemastered Embossed Boots",
+    "Runemastered Grand Cuisses",
+    "Runemastered Hunting Shoes",
+    "Runemastered Laced Boots",
+    "Runemastered Lizardscale Boots",
+    "Runemastered Mail Sabatons",
+    "Runemastered Stacked Sabatons",
+    "Runemastered Steeltoe Boots",
+    "Runemastered Threaded Shoes",
+    "Runemastered Velour Shoes",
+    "Serpentscale Boots",
+    "Silverbuckled Shoes",
+    "Sleek Boots",
+    "Soldiering Sabatons",
+    "Stacked Sabatons",
+    "Steelpoint Shoes",
+    "Steeltoe Boots",
+    "Studded Boots",
+    "Threaded Shoes",
+    "Treerunner Shoes",
+    "Velour Shoes",
+    "Veteran Sabatons",
+    "Wanderer Shoes",
+    "Wayfarer Shoes"
+   ],
+   "rarity": [
+    "Magic"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2,
+   "identified": false
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 두 빌드가 못 쓰는 무기 · 방패",
+   "note": "1번 캐릭터는 지팡이·석궁(3안 마법봉+집중구), 2번째 빌드 커스마스터는 지팡이·마법봉·집중구를 쓴다. 나머지 무기와 방패는 흰색·파란색만 숨긴다 — 하코 젬링 필터와 같은 목록에서 마법봉·집중구만 뺐다. 룬숙련 쇠스랑(Runic Fork)은 GGPK 상 마법봉이라 숨기지 않는다. 지역 레벨 12부터.",
+   "class": [
+    "Bows",
+    "One Hand Maces",
+    "Quarterstaves",
+    "Quivers",
+    "Sceptres",
+    "Spears",
+    "Talismans",
+    "Two Hand Maces",
+    "Bucklers",
+    "Shields"
+   ],
+   "rarity": [
+    "Normal"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 두 빌드가 못 쓰는 무기 · 방패 — 매직 · 미감정만",
+   "note": "1번 캐릭터는 지팡이·석궁(3안 마법봉+집중구), 2번째 빌드 커스마스터는 지팡이·마법봉·집중구를 쓴다. 나머지 무기와 방패는 흰색·파란색만 숨긴다 — 하코 젬링 필터와 같은 목록에서 마법봉·집중구만 뺐다. 룬숙련 쇠스랑(Runic Fork)은 GGPK 상 마법봉이라 숨기지 않는다. 지역 레벨 12부터. / 매직은 미감정만 숨긴다 — 감정하면 NeverSink 의 exoticmods 경보 대상이 될 수 있고, 감정된 물건의 미감정 티어 값은 공식 문서에 없다(2026-09-23 적대검증).",
+   "class": [
+    "Bows",
+    "One Hand Maces",
+    "Quarterstaves",
+    "Quivers",
+    "Sceptres",
+    "Spears",
+    "Talismans",
+    "Two Hand Maces",
+    "Bucklers",
+    "Shields"
+   ],
+   "rarity": [
+    "Magic"
+   ],
+   "area_level_min": 12,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ],
+   "unid_tier_max": 2,
+   "identified": false
+  }
+ ]
+}

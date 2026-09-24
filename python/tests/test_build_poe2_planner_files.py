@@ -165,6 +165,19 @@ class TestSkillShape:
             ids = [s["id"] for s in skills]
             assert len(ids) == len(set(ids)), ids
 
+    def test_meta_gem_keeps_its_socketed_skills_as_supports(self):
+        # 메타 젬(치명타 시 시전 등)은 한 <Skill> 안에 액티브 젬이 여러 개다. 첫 액티브만
+        # 남기면 끼운 스킬(연쇄 번개·동력 공급)이 조용히 사라진다(대재난 95 PoB 에서 발견).
+        # 정본(Fubgun Mobalytics) 파일은 Cast on Dodge 의 Tornado 를 support_skills 에 적는다.
+        xml = ('<Skill><Gem gemId="Metadata/Items/Gems/SkillGemCastOnCritical"/>'
+               '<Gem gemId="Metadata/Items/Gems/SkillGemPoweredByVerisium"/>'
+               '<Gem gemId="Metadata/Items/Gems/SkillGemArc"/>'
+               '<Gem gemId="Metadata/Items/Gem/SupportGemInspirationTwo"/></Skill>')
+        [skills] = gen.parse_skill_sets(xml, {}, [])
+        assert [s["id"].rsplit("/", 1)[1] for s in skills] == ["SkillGemCastOnCritical"]
+        assert [x["id"].rsplit("/", 1)[1] for x in skills[0]["support_skills"]] == [
+            "SkillGemPoweredByVerisium", "SkillGemArc", "SupportGemInspirationTwo"]
+
     def test_dedupe_keeps_the_socketed_copy_not_the_granted_one(self):
         granted = {"id": "g/Sigil", "level_interval": [1, 100]}
         socketed = {"id": "g/Sigil", "level_interval": [1, 100],
@@ -275,6 +288,35 @@ class TestBuildFile:
         got = gen.resolve_ascendancies(gen.parse_specs(ignite_xml), idx)
         assert got == ["Mercenary1", "Mercenary1", "Mercenary3", "Mercenary3", "Mercenary3"]
         assert "" not in got
+
+    def test_declared_internal_id_fills_in_when_no_stage_has_a_node(self):
+        # 리그 스타터 가이드의 액트 트리는 어센던시 노드가 0개라 물려받을 값도 없다.
+        # PoB 가 <Spec> 에 적어 둔 ascendancyInternalId 는 지어낸 값이 아니고, 레포의
+        # PoB 10개에서 노드 유도값과 전부 일치했다(2026-09-23).
+        specs = [{"title": "Act 1", "nodes": [], "wsets": {}, "ascend_internal": "Mercenary3"},
+                 {"title": "Act 2", "nodes": [], "wsets": {}, "ascend_internal": "Mercenary3"}]
+        assert gen.resolve_ascendancies(specs, {}) == ["Mercenary3", "Mercenary3"]
+
+    def test_allocated_nodes_beat_the_declared_id(self, monkeypatch):
+        idx = {42: "AscendancyMercenary1Notable4"}
+        spec = {"title": "x", "nodes": [42], "wsets": {}, "ascend_internal": "Mercenary3"}
+        assert gen.spec_ascendancy(spec, idx) == "Mercenary1"
+        assert gen.resolve_ascendancies([spec], idx) == ["Mercenary1"]
+
+    def test_a_malformed_declared_id_is_ignored(self):
+        specs = [{"title": "x", "nodes": [], "wsets": {}, "ascend_internal": "nil"}]
+        assert gen.resolve_ascendancies(specs, {}) == [""]
+
+    def test_cli_fallback_only_fills_stages_nothing_else_resolved(self):
+        # 액트 PoB 가 어센던시를 통째로 비워 둔 경우에만 쓰이는 값이다.
+        idx = {42: "AscendancyMercenary1Notable4"}
+        specs = [{"title": "1", "nodes": [], "wsets": {}, "ascend_internal": ""},
+                 {"title": "2", "nodes": [42], "wsets": {}, "ascend_internal": ""}]
+        # 2단계가 노드로 읽히면 1단계는 그것을 물려받는다 — CLI 값은 끼어들지 않는다.
+        assert gen.resolve_ascendancies(specs, idx, "Mercenary3") == ["Mercenary1", "Mercenary1"]
+        empty = [{"title": "1", "nodes": [], "wsets": {}, "ascend_internal": ""}]
+        assert gen.resolve_ascendancies(empty, idx, "Mercenary3") == ["Mercenary3"]
+        assert gen.resolve_ascendancies(empty, idx, "쓰레기") == [""]
 
     def test_empty_ascendancy_is_refused_rather_than_written(self):
         with pytest.raises(SystemExit):

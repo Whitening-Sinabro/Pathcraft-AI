@@ -123,6 +123,10 @@ def parse_specs(xml: str) -> list[dict]:
             "title": ATTR("title", a) or f"{i + 1:02d}",
             "class_id": int(ATTR("classId", a) or 0),
             "ascend_id": int(ATTR("ascendClassId", a) or 0),
+            # PoB 가 <Spec> 에 직접 적는 내부 id("Mercenary3") — 플래너가 쓰는 문자열과
+            # 같은 모양이다. 리그 스타터 가이드의 액트 트리는 어센던시 노드를 하나도
+            # 안 찍어 노드로는 못 읽는데, 이 값은 저자가 적어 둔 데이터다.
+            "ascend_internal": ATTR("ascendancyInternalId", a),
             "nodes": [int(x) for x in ATTR("nodes", a).split(",") if x.strip().isdigit()],
             "wsets": weapon_sets(body),
         })
@@ -172,11 +176,13 @@ def parse_skill_sets(xml: str, table: dict[str, str], inferred: list[str]) -> li
                 gid = ATTR("gemId", g)
                 if not gid:
                     continue
-                if "SupportGem" in gid:
-                    supports.append({"id": resolve_gem(gid, table, inferred),
-                                     "level_interval": [1, 100]})
-                elif active is None:
+                if "SupportGem" not in gid and active is None:
                     active = resolve_gem(gid, table, inferred)
+                    continue
+                # 메타 젬(치명타 시 시전 등)에 끼운 스킬 젬도 여기로 온다. 정본 파일은
+                # Cast on Dodge 의 Tornado 를 support_skills 에 적는다 — 버리면 사라진다.
+                supports.append({"id": resolve_gem(gid, table, inferred),
+                                 "level_interval": [1, 100]})
             if active:
                 entry = {"id": active, "level_interval": [1, 100]}
                 # The known-good files drop the key entirely rather than writing an
@@ -342,7 +348,13 @@ def inventory_slots(body: str, items: dict[str, dict], bases: list[str],
 
 
 def spec_ascendancy(spec: dict, idx: dict[int, str]) -> str:
-    """할당된 어센던시 노드의 stringId 에서 플래너 번호를 읽는다 (없으면 빈 문자열)."""
+    """할당된 어센던시 노드의 stringId 에서 플래너 번호를 읽는다.
+
+    노드가 없으면 PoB 가 <Spec> 에 적어 둔 `ascendancyInternalId` 를 쓴다. 지어내는
+    값이 아니라 저자가 쓴 데이터이고, 레포의 PoB 10개에서 노드 유도값과 **전부
+    일치**했다(2026-09-23 확인). 리그 스타터 가이드의 액트 트리는 어센던시 노드를
+    하나도 안 찍기 때문에 이 경로가 없으면 플래너를 아예 못 만든다.
+    """
     for n in spec["nodes"]:
         m = ASC_ID.match(idx.get(n, ""))
         if m:
@@ -350,7 +362,13 @@ def spec_ascendancy(spec: dict, idx: dict[int, str]) -> str:
     return ""
 
 
-def resolve_ascendancies(specs: list[dict], idx: dict[int, str]) -> list[str]:
+def declared_ascendancy(spec: dict) -> str:
+    """<Spec ascendancyInternalId="Mercenary3"> — 저자가 적어 둔 값 (모양이 맞을 때만)."""
+    declared = spec.get("ascend_internal") or ""
+    return declared if re.fullmatch(r"[A-Za-z]+\d+", declared) else ""
+
+
+def resolve_ascendancies(specs: list[dict], idx: dict[int, str], fallback: str = "") -> list[str]:
     """어센던시 노드가 아직 없는 초반 세트는 뒤 세트의 값을 물려받는다.
 
     정본 25개 중 `ascendancy` 가 빈 문자열인 파일은 **0개**다. 어센던시 노드를
@@ -366,7 +384,11 @@ def resolve_ascendancies(specs: list[dict], idx: dict[int, str]) -> list[str]:
     for i in range(len(got) - 1, -1, -1):
         if not got[i] and i + 1 < len(got):
             got[i] = got[i + 1]
-    return got
+    # 어느 단계에도 어센던시 노드가 없으면(리그 스타터 가이드의 액트 트리가 그렇다)
+    # 물려받을 값 자체가 없다. 그때만 <Spec> 이 직접 적은 내부 id 를 쓴다 — 노드가
+    # 하나라도 있으면 그쪽이 이기므로 기존 동작은 그대로다.
+    fallback = fallback if re.fullmatch(r"[A-Za-z]+\d+", fallback or "") else ""
+    return [g or declared_ascendancy(s) or fallback for g, s in zip(got, specs)]
 
 
 def build_file(spec: dict, skills: list[dict], idx: dict[int, str],
@@ -489,6 +511,11 @@ def main() -> int:
     # PoB 의 <Spec title> 은 "01", "03 Swap" 같은 작업용 라벨이라 인게임 플래너
     # 목록에서 쓸모가 없다. 세트 수만큼 이름을 직접 준다(쉼표 구분).
     ap.add_argument("--names", default="")
+    # 리그 스타터 가이드의 액트 PoB 는 어센던시가 통째로 비어 있다(노드 0개 ·
+    # ascendancyInternalId="" · ascendClassId="0"). 트리에서도 PoB 속성에서도 못 읽으면
+    # 지어내는 대신 여기로 받는다 — 같은 가이드의 엔드게임 PoB 가 적어 둔 값을 쓸 것.
+    # 노드나 속성에서 읽힌 단계는 이 값으로 덮지 않는다.
+    ap.add_argument("--ascendancy", default="")
     ap.add_argument("--install", action="store_true")
     ap.add_argument("--verify-against")
     args = ap.parse_args()
@@ -502,7 +529,7 @@ def main() -> int:
     specs = parse_specs(xml)
     inferred: list[str] = []
     skill_sets = parse_skill_sets(xml, gem_paths(), inferred)
-    ascendancies = resolve_ascendancies(specs, idx)
+    ascendancies = resolve_ascendancies(specs, idx, args.ascendancy)
     items, bases, skipped = parse_items(xml), base_names(), []
     item_sets = [m.group(2) for m in re.finditer(r"<ItemSet\b([^>]*)>(.*?)</ItemSet>", xml, re.S)]
     out_dir = Path(args.out or (REPO / "build_planner"))

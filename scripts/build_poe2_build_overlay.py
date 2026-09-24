@@ -223,6 +223,7 @@ GAME_CLASS_TO_FILTER_CLASS = {
     "Helmets": "Helmets", "Shields": "Shields", "Focus": "Foci",
     "Amulets": "Amulets", "Belts": "Belts", "Rings": "Rings",
     "Jewels": "Jewels", "Charms": "Charms",
+    "TwoHandTalismans": "Talismans",
     # 필터는 `Life Flasks` / `Mana Flasks` 를 따로 쓴다. 한때 둘을 `Flasks` 한 덩어리로
     # 매핑해서 시뮬레이터가 플라스크 클래스를 틀리게 잡고 엉뚱한 블록을 평가했다.
     "LifeFlasks": "Life Flasks", "ManaFlasks": "Mana Flasks",
@@ -258,7 +259,28 @@ def class_index(text: str) -> dict[str, str]:
                 for entry in entries:
                     if isinstance(entry, dict) and entry.get("name"):
                         index.setdefault(entry["name"], filter_class)
+    for name, filter_class in ggpk_path_classes().items():
+        index.setdefault(name, filter_class)
     return index
+
+
+# 파생 DB(base_items_poe2.json)에 마법봉·셉터가 아예 없다. 그 사이 `Withered Wand` 는
+# 클래스를 몰라 Class 로만 거는 NeverSink 블록과 비교되지 않았고, 스윕도 같은 표를 써서
+# 마법봉을 제대로 평가하지 못했다(적대검증 2026-09-22). GGPK 원본 경로로 보충한다.
+GGPK_PATH_CLASSES = {"/Weapons/OneHandWeapons/Wands/": "Wands", "/Weapons/OneHandWeapons/Sceptres/": "Sceptres"}
+
+
+def ggpk_path_classes() -> dict[str, str]:
+    path = REPO_ROOT / "data" / "game_data_poe2" / "BaseItemTypes.json"
+    if not path.exists():
+        return {}
+    out: dict[str, str] = {}
+    for row in json.loads(path.read_text(encoding="utf-8")):
+        item_id, name = row.get("Id", ""), row.get("Name")
+        for marker, filter_class in GGPK_PATH_CLASSES.items():
+            if name and marker in item_id:
+                out.setdefault(name, filter_class)
+    return out
 
 
 def base_value_vocabulary(text: str) -> dict[str, set]:
@@ -442,15 +464,24 @@ def narrower_louder_blocks(
         if block.classes and base_type not in block.base_types:
             if not (scope["classes"] and scope["classes"] <= block.classes):
                 continue
-        if not block.base_types and not block.classes:
-            continue  # catch-all fallback ("unknown item"); recognising it is not a downgrade
+        if not block.base_types and not block.classes and not (
+            block.sockets_min or block.item_level_min or block.quality_min
+        ):
+            # 진짜 폴백("unknown item")만 건너뛴다. 바탕·클래스 이름이 없어도 `Quality >= 21`
+            # 처럼 조건이 붙은 블록(NeverSink 특출난 overqual1q2, 폰트 40 · 음량 300)은 모든
+            # 장비에 걸리는 좁은 경보다 — 한때 이걸 폴백으로 쳐서 퀄리티 24 지팡이·흉갑이
+            # 무음으로 떨어졌다(적대검증 2026-09-22).
+            continue
         rarities = scope["rarities"] & block.rarities
         if not rarities:
             continue
         sockets = max(scope["sockets_min"], block.sockets_min)
         item_level = max(scope["item_level_min"], block.item_level_min)
         quality = max(scope["quality_min"], block.quality_min)
-        if (block.font, block.volume) <= (style["font"], style_volume(style)):
+        # 글자와 음량은 **따로** 비교한다. 튜플 비교는 글자가 크면 음량을 안 본다 —
+        # NeverSink 가 (폰트 40, 음량 300)을 주는 아이템 레벨 82+ 자수정 반지를 우리
+        # (폰트 42, 무음)이 "더 크다"고 판정해 변이를 안 깔았고, 경보가 사라졌다.
+        if block.font <= style["font"] and block.volume <= style_volume(style):
             continue
         if (
             rarities == scope["rarities"]
@@ -476,7 +507,31 @@ DEFAULT_SOUND_ID = 3  # 스타일이 소리를 끈 상태에서 베이스가 소
 
 def style_volume(style: dict) -> int:
     """스타일이 스스로 요구하는 음량 바닥. 소리를 끈 스타일은 0."""
+    if style.get("custom_sound"):
+        return style["custom_sound"][1]
     return style["sound"][1] if style.get("sound") else 0
+
+
+GAME_DIR = Path.home() / "Documents" / "My Games" / "Path of Exile 2"
+
+
+def check_custom_sound(style_name: str, style: dict) -> None:
+    """커스텀 소리 파일이 게임 폴더에 없으면 빌드를 멈춘다.
+
+    게임은 없는 파일을 조용히 무시한다 — 경보가 사라지는 것이 유일한 증상이다.
+    그래서 경고가 아니라 실패다. 한글 파일명은 게임이 읽는지 확인하지 못해 막는다.
+    게임 폴더가 없는 환경(CI 등)에서는 존재 검사를 건너뛴다.
+    """
+    sound = style.get("custom_sound")
+    if not sound:
+        return
+    name, volume = sound[0], sound[1]
+    if not name.isascii():
+        raise SystemExit(f"custom sound gate FAIL: style '{style_name}' uses non-ASCII file name {name!r}")
+    if not 0 <= int(volume) <= 300:
+        raise SystemExit(f"custom sound gate FAIL: style '{style_name}' volume {volume} outside 0..300")
+    if GAME_DIR.is_dir() and not (GAME_DIR / name).is_file():
+        raise SystemExit(f"custom sound gate FAIL: style '{style_name}' file {name!r} not in {GAME_DIR}")
 
 
 def style_icon_size(style: dict) -> int:
@@ -508,8 +563,17 @@ def render_block(
         lines.append(f"\tItemLevel >= {int(rule['item_level_min'])}")
     if rule.get("quality_min"):
         lines.append(f"\tQuality >= {int(rule['quality_min'])}")
+    # 원본 블록을 베껴 온 보호 룰은 원본의 타락·복제 조건까지 가져와야 한다. 빼먹으면
+    # 베이스가 숨기는 타락 상태에 우리만 소리를 낸다(2026-09-23 적대검증).
+    for key, keyword in (("corrupted", "Corrupted"), ("mirrored", "Mirrored")):
+        if rule.get(key) is not None:
+            lines.append(f"\t{keyword} {'True' if rule[key] else 'False'}")
     if rule.get("area_level_max"):
         lines.append(f"\tAreaLevel <= {int(rule['area_level_max'])}")
+    if rule.get("unid_tier_max") is not None:
+        # 무음 룰이 NeverSink 의 미감정 티어 경보(매직 3+ · 레어 3+, 지역 65+)를 덮지 않게
+        # 높은 티어는 흘려보낸다. 빌더는 그 블록을 AreaLevel 때문에 비교하지 못한다.
+        lines.append(f"\tUnidentifiedItemTier <= {int(rule['unid_tier_max'])}")
     t, bo, bg = style["text"], style["border"], style["background"]
     lines.append(f"\tSetTextColor {t[0]} {t[1]} {t[2]} 255")
     lines.append(f"\tSetBorderColor {bo[0]} {bo[1]} {bo[2]} 255")
@@ -519,7 +583,10 @@ def render_block(
     # 붙이는데 우리가 100% 에 붙이면 흔한 드롭까지 전부 경보가 된다(캠페인 455개
     # 상황 중 289개가 베이스는 무음인데 우리만 소리를 냈다). 스타일에서 null 로
     # 끄면, **베이스가 이미 요구하는 경우에만** 다시 켜진다 — 회귀는 그대로 막는다.
-    if style.get("sound") is not None or volume > 0:
+    if style.get("custom_sound"):
+        # 커스텀 소리는 PlayAlertSound 를 대신한다(둘을 같이 쓰지 않는다).
+        lines.append(f'\tCustomAlertSound "{style["custom_sound"][0]}" {volume}')
+    elif style.get("sound") is not None or volume > 0:
         sound_id = style["sound"][0] if style.get("sound") else DEFAULT_SOUND_ID
         lines.append(f"\tPlayAlertSound {sound_id} {volume}")
     if style.get("beam"):
@@ -527,6 +594,53 @@ def render_block(
     if style.get("icon"):
         lines.append(f"\tMinimapIcon {icon_size} {style['icon'][1]} {style['icon'][2]}")
     return "\n".join(lines)
+
+
+def variant_order(key: tuple) -> tuple:
+    """(등급 수 오름차순, 나머지 조건 내림차순, 큰 소리 먼저) — 좁은 변이가 먼저 나간다.
+
+    조건이 똑같은 두 변이는 큰 쪽이 먼저여야 한다. 교집합 변이가 좁은 쪽과 조건이 같을 때
+    (좁은 쪽이 넓은 쪽 안에 들어가 있을 때) 작은 폰트가 앞서면 교집합을 깐 의미가 없다.
+    """
+    return (len(key[0]), -key[1], -key[2], -key[3], -key[4], -key[5], key)
+
+
+def add_overlap_variants(variants: dict[tuple, list[str]]) -> None:
+    """서로 포함 관계가 아닌 두 변이가 겹치는 구간에 교집합 변이를 더한다.
+
+    변이 A(등급 Normal · 아이템 레벨 79+, 폰트 42)와 B(등급 Normal · 퀄리티 24+, 폰트 45)는
+    어느 쪽도 다른 쪽을 포함하지 않는다. 정렬상 A 가 먼저라, 아이템 레벨 80 · 퀄리티 28
+    흰색 집중구는 A 에 걸려 NeverSink 의 폰트 45 를 잃었다(SSF 화염파 필터, 2026-09-22).
+    두 조건을 모두 가진 교집합 변이는 각 축이 둘 이상이라 정렬에서 둘보다 앞서므로,
+    거기에 둘 중 큰 값을 주면 겹치는 구간이 항상 큰 쪽으로 답한다.
+    먼저 걸리는 쪽이 이미 크거나 같으면 더하지 않는다 — 불필요한 블록은 소음이다.
+    """
+    by_name: dict[str, set[tuple]] = {}
+    for key, names in variants.items():
+        for name in names:
+            by_name.setdefault(name, set()).add(key)
+    changed = True
+    while changed:
+        changed = False
+        for name, keys in by_name.items():
+            for a in sorted(keys, key=variant_order):
+                for b in sorted(keys, key=variant_order):
+                    if variant_order(a) >= variant_order(b):
+                        continue  # a 가 먼저 걸리는 쪽인 쌍만 본다
+                    rarities = tuple(sorted(set(a[0]) & set(b[0])))
+                    if not rarities:
+                        continue
+                    font, volume = max(a[4], b[4]), max(a[5], b[5])
+                    if (font, volume) == (a[4], a[5]):
+                        continue  # 먼저 걸리는 a 가 이미 크거나 같다
+                    icon = min(a[6], b[6])
+                    merged = (rarities, max(a[1], b[1]), max(a[2], b[2]), max(a[3], b[3]),
+                              font, volume, icon)
+                    if merged in keys:
+                        continue
+                    keys.add(merged)
+                    variants.setdefault(merged, []).append(name)
+                    changed = True
 
 
 def build_rule_blocks(
@@ -586,6 +700,8 @@ def build_rule_blocks(
             key = (tuple(sorted(v_rarities)), v_sockets, v_ilvl, v_qual, v_font, v_volume, v_icon)
             variants.setdefault(key, []).append(base_type)
 
+    add_overlap_variants(variants)
+
     blocks = []
     # Variants carry extra conditions, so they must precede the general block --
     # first-match-wins would otherwise never reach them.
@@ -597,8 +713,7 @@ def build_rule_blocks(
     # 어떤 변이 A 가 B 를 가리려면 A 는 모든 축에서 B 보다 넓어야 하므로,
     # (등급 수 오름차순, 나머지 조건 내림차순) = 좁은 것부터가 정확한 순서다.
     for (rarities, sockets, ilvl, qual, v_font, v_volume, v_icon), names in sorted(
-        variants.items(),
-        key=lambda kv: (len(kv[0][0]), -kv[0][1], -kv[0][2], -kv[0][3], kv[0]),
+        variants.items(), key=lambda kv: variant_order(kv[0]),
     ):
         variant_rule = {
             **rule,
@@ -683,6 +798,15 @@ def render_hide_block(rule: dict, spec: dict, vocabulary: set[str]) -> str:
     # 상위 티어 미감정이면 숨기지 않는다.
     lines.append("	Sockets 0")
     lines.append("	Quality 0")
+    # 타락한 것은 숨기지 않는다 — NeverSink 는 두 번 타락한 흰색·파란색에 음량 300 을 준다.
+    # 스윕 격자에 타락 상태가 없어 게이트가 못 보던 구멍이다(2026-09-22 적대검증).
+    lines.append("	Corrupted False")
+    # 감정한 물건은 숨기지 않는다 — NeverSink 의 exoticmods 경보(Identified True +
+    # HasExplicitMod, 글자 42 · 소리 300)는 감정된 매직 무기에 붙는데, UnidentifiedItemTier 가
+    # 감정된 물건에 어떻게 매겨지는지는 공식 문서에 없다(2026-09-23 적대검증). 흰색은 옵션이
+    # 없어 그 경보에 안 걸리므로 등급을 나눠 매직 숨김에만 건다.
+    if rule.get("identified") is not None:
+        lines.append(f"	Identified {'True' if rule['identified'] else 'False'}")
     lines.append(f"	UnidentifiedItemTier <= {int(rule.get('unid_tier_max', 3))}")
     if rule.get("area_level_min"):
         lines.append(f"	AreaLevel >= {int(rule['area_level_min'])}")
@@ -725,6 +849,7 @@ def main() -> int:
     for name, style in spec["styles"].items():
         check_contrast(name, style)
         check_style_values(name, style, allowed_values)
+        check_custom_sound(name, style)
 
     blocks: list[str] = []
     hide_blocks: list[str] = []
