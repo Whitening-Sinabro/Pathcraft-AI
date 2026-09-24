@@ -1,0 +1,580 @@
+{
+  "character_configuration_applied": false,
+  "reason": "Planner generation and installation do not change character equipment or skill weapon-set checkboxes.",
+  "stages": [
+    {
+      "stage": 1,
+      "name": "01 시작 - 근접과 방패",
+      "loadout": {
+        "I": "한손 철퇴 + 방어도 방패 · 근접 피해와 기절",
+        "II": "토템 도입 전에는 별도 사용 스킬 없음",
+        "rotation": "몰려오는 강타(I) → 기절 준비 표시 → 뼈 박살(I). 02에서 토템을 추가하면 II를 설정한다."
+      },
+      "sets": [
+        0,
+        0
+      ],
+      "both_sets_connected": true,
+      "skills": [
+        {
+          "index": 0,
+          "id": "Metadata/Items/Gem/SkillGemPlayerDefault2HMace",
+          "english_name": "Mace Strike",
+          "display_name": "철퇴 타격",
+          "target": 1
+        },
+        {
+          "index": 1,
+          "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+          "english_name": "Boneshatter",
+          "display_name": "뼈 박살",
+          "target": 1
+        },
+        {
+          "index": 2,
+          "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+          "english_name": "Rolling Slam",
+          "display_name": "몰려오는 강타",
+          "target": 1
+        },
+        {
+          "index": 3,
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "english_name": "Infernal Cry",
+          "display_name": "지옥불 함성",
+          "target": 1
+        },
+        {
+          "index": 4,
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "english_name": "Raise Shield",
+          "display_name": "방패 들기",
+          "target": 1
+        }
+      ]
+    },
+    {
+      "stage": 2,
+      "name": "02 충격파 토템 - 1차 전직까지",
+      "loadout": {
+        "I": "한손 철퇴 + 방어도 방패 · 근접·지진·보조 공격",
+        "II": "한손 철퇴 + 공유 방패 · 충격파 토템",
+        "rotation": "충격파 토템은 II만, 지진·화산·근접·방패 스킬은 I만 체크. 토템 사용 뒤 I 스킬로 복귀. 뼈 박살은 기절 준비 표시가 뜰 때 사용한다."
+      },
+      "sets": [
+        6,
+        6
+      ],
+      "both_sets_connected": true,
+      "skills": [
+        {
+          "index": 0,
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "english_name": "Ancestral Spirits",
+          "display_name": "선대의 혼백",
+          "target": "automatic"
+        },
+        {
+          "index": 1,
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "english_name": "Raise Shield",
+          "display_name": "방패 들기",
+          "target": 1
+        },
+        {
+          "index": 2,
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "english_name": "Shockwave Totem",
+          "display_name": "충격파 토템",
+          "target": 2
+        },
+        {
+          "index": 3,
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "english_name": "Resonating Shield",
+          "display_name": "공명하는 방패",
+          "target": 1
+        },
+        {
+          "index": 4,
+          "id": "Metadata/Items/Gems/SkillGemVolcanicFissure",
+          "english_name": "Volcanic Fissure",
+          "display_name": "화산 균열",
+          "target": 1
+        },
+        {
+          "index": 5,
+          "id": "Metadata/Items/Gems/SkillGemEarthquake",
+          "english_name": "Earthquake",
+          "display_name": "지진",
+          "target": 1
+        },
+        {
+          "index": 6,
+          "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+          "english_name": "Rolling Slam",
+          "display_name": "몰려오는 강타",
+          "target": 1
+        },
+        {
+          "index": 7,
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "english_name": "Magma Barrier",
+          "display_name": "마그마 장벽",
+          "target": 1
+        },
+        {
+          "index": 8,
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "english_name": "Infernal Cry",
+          "display_name": "지옥불 함성",
+          "target": 1
+        },
+        {
+          "index": 9,
+          "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+          "english_name": "Boneshatter",
+          "display_name": "뼈 박살",
+          "target": 1
+        }
+      ]
+    },
+    {
+      "stage": 3,
+      "name": "03 토템과 망치 - 2차 전직까지",
+      "loadout": {
+        "I": "한손 철퇴 + 방어도 방패 · 근접·지진·보조 공격",
+        "II": "한손 철퇴 + 공유 방패 · 충격파 토템",
+        "rotation": "충격파 토템은 II만, 지진·화산·근접·방패 스킬은 I만 체크. 토템 사용 뒤 I 스킬로 복귀. 뼈 박살은 기절 준비 표시가 뜰 때 사용한다."
+      },
+      "sets": [
+        12,
+        12
+      ],
+      "both_sets_connected": true,
+      "skills": [
+        {
+          "index": 0,
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "english_name": "Ancestral Spirits",
+          "display_name": "선대의 혼백",
+          "target": "automatic"
+        },
+        {
+          "index": 1,
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "english_name": "Raise Shield",
+          "display_name": "방패 들기",
+          "target": 1
+        },
+        {
+          "index": 2,
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "english_name": "Infernal Cry",
+          "display_name": "지옥불 함성",
+          "target": 1
+        },
+        {
+          "index": 3,
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "english_name": "Resonating Shield",
+          "display_name": "공명하는 방패",
+          "target": 1
+        },
+        {
+          "index": 4,
+          "id": "Metadata/Items/Gems/SkillGemVolcanicFissure",
+          "english_name": "Volcanic Fissure",
+          "display_name": "화산 균열",
+          "target": 1
+        },
+        {
+          "index": 5,
+          "id": "Metadata/Items/Gem/SkillGemForgeHammer",
+          "english_name": "Forge Hammer",
+          "display_name": "대장간 망치",
+          "target": 1
+        },
+        {
+          "index": 6,
+          "id": "Metadata/Items/Gems/SkillGemEarthquake",
+          "english_name": "Earthquake",
+          "display_name": "지진",
+          "target": 1
+        },
+        {
+          "index": 7,
+          "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+          "english_name": "Boneshatter",
+          "display_name": "뼈 박살",
+          "target": 1
+        },
+        {
+          "index": 8,
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "english_name": "Magma Barrier",
+          "display_name": "마그마 장벽",
+          "target": 1
+        },
+        {
+          "index": 9,
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "english_name": "Shockwave Totem",
+          "display_name": "충격파 토템",
+          "target": 2
+        }
+      ]
+    },
+    {
+      "stage": 4,
+      "name": "04 타락 함성 - 마나 사용",
+      "loadout": {
+        "I": "한손 철퇴 + 방어도 방패 · 보강하는 함성",
+        "II": "한손 철퇴 + 공유 방패 · 충격파 토템",
+        "rotation": "충격파 토템(II) → 보강하는 함성(I). 지진·망치·방패 스킬도 I에 지정한다."
+      },
+      "sets": [
+        16,
+        16
+      ],
+      "both_sets_connected": true,
+      "skills": [
+        {
+          "index": 0,
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "english_name": "Ancestral Spirits",
+          "display_name": "선대의 혼백",
+          "target": "automatic"
+        },
+        {
+          "index": 1,
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "english_name": "Raise Shield",
+          "display_name": "방패 들기",
+          "target": 1
+        },
+        {
+          "index": 2,
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "english_name": "Fortifying Cry",
+          "display_name": "보강하는 함성",
+          "target": 1
+        },
+        {
+          "index": 3,
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "english_name": "Resonating Shield",
+          "display_name": "공명하는 방패",
+          "target": 1
+        },
+        {
+          "index": 4,
+          "id": "Metadata/Items/Gems/SkillGemVolcanicFissure",
+          "english_name": "Volcanic Fissure",
+          "display_name": "화산 균열",
+          "target": 1
+        },
+        {
+          "index": 5,
+          "id": "Metadata/Items/Gem/SkillGemForgeHammer",
+          "english_name": "Forge Hammer",
+          "display_name": "대장간 망치",
+          "target": 1
+        },
+        {
+          "index": 6,
+          "id": "Metadata/Items/Gems/SkillGemEarthquake",
+          "english_name": "Earthquake",
+          "display_name": "지진",
+          "target": 1
+        },
+        {
+          "index": 7,
+          "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+          "english_name": "Boneshatter",
+          "display_name": "뼈 박살",
+          "target": 1
+        },
+        {
+          "index": 8,
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "english_name": "Magma Barrier",
+          "display_name": "마그마 장벽",
+          "target": 1
+        },
+        {
+          "index": 9,
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "english_name": "Shockwave Totem",
+          "display_name": "충격파 토템",
+          "target": 2
+        }
+      ]
+    },
+    {
+      "stage": 5,
+      "name": "05 전사 토템 - 혈마법 전환",
+      "loadout": {
+        "I": "성소 셉터 + 방어도 방패 · 함성",
+        "II": "한손 철퇴 + 성소 셉터 · 선대의 전사 토템",
+        "rotation": "전사 토템(II) → 함성(I). 지면 분쇄는 전사 토템 내부에 넣는다. 불의 순수함 두 항목은 각각의 셉터 세트에 지정한다."
+      },
+      "sets": [
+        14,
+        14
+      ],
+      "both_sets_connected": true,
+      "skills": [
+        {
+          "index": 0,
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "english_name": "Ancestral Spirits",
+          "display_name": "선대의 혼백",
+          "target": "automatic"
+        },
+        {
+          "index": 1,
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "english_name": "Purity of Fire",
+          "display_name": "불의 순수함",
+          "target": 1
+        },
+        {
+          "index": 2,
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "english_name": "Raise Shield",
+          "display_name": "방패 들기",
+          "target": 1
+        },
+        {
+          "index": 3,
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "english_name": "Purity of Fire",
+          "display_name": "불의 순수함",
+          "target": 2
+        },
+        {
+          "index": 4,
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "english_name": "Resonating Shield",
+          "display_name": "공명하는 방패",
+          "target": 1
+        },
+        {
+          "index": 5,
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "english_name": "Magma Barrier",
+          "display_name": "마그마 장벽",
+          "target": 1
+        },
+        {
+          "index": 6,
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "english_name": "Fortifying Cry",
+          "display_name": "보강하는 함성",
+          "target": 1
+        },
+        {
+          "index": 7,
+          "id": "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
+          "english_name": "Ancestral Warrior Totem",
+          "display_name": "선대의 전사 토템",
+          "target": 2
+        },
+        {
+          "index": 8,
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "english_name": "Earthshatter",
+          "display_name": "지면 분쇄",
+          "target": "inside_totem"
+        },
+        {
+          "index": 9,
+          "id": "Metadata/Items/Gems/SkillGemSeismicCry",
+          "english_name": "Seismic Cry",
+          "display_name": "지진 함성",
+          "target": 1
+        }
+      ]
+    },
+    {
+      "stage": 6,
+      "name": "06 파콰테 - 두 함성 운영",
+      "loadout": {
+        "I": "성소 셉터 + 방어도 방패 · 함성",
+        "II": "한손 철퇴 + 성소 셉터 · 선대의 전사 토템",
+        "rotation": "전사 토템(II) → 함성(I). 지면 분쇄는 전사 토템 내부에 넣는다. 불의 순수함 두 항목은 각각의 셉터 세트에 지정한다."
+      },
+      "sets": [
+        22,
+        22
+      ],
+      "both_sets_connected": true,
+      "skills": [
+        {
+          "index": 0,
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "english_name": "Ancestral Spirits",
+          "display_name": "선대의 혼백",
+          "target": "automatic"
+        },
+        {
+          "index": 1,
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "english_name": "Purity of Fire",
+          "display_name": "불의 순수함",
+          "target": 1
+        },
+        {
+          "index": 2,
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "english_name": "Raise Shield",
+          "display_name": "방패 들기",
+          "target": 1
+        },
+        {
+          "index": 3,
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "english_name": "Purity of Fire",
+          "display_name": "불의 순수함",
+          "target": 2
+        },
+        {
+          "index": 4,
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "english_name": "Resonating Shield",
+          "display_name": "공명하는 방패",
+          "target": 1
+        },
+        {
+          "index": 5,
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "english_name": "Magma Barrier",
+          "display_name": "마그마 장벽",
+          "target": 1
+        },
+        {
+          "index": 6,
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "english_name": "Fortifying Cry",
+          "display_name": "보강하는 함성",
+          "target": 1
+        },
+        {
+          "index": 7,
+          "id": "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
+          "english_name": "Ancestral Warrior Totem",
+          "display_name": "선대의 전사 토템",
+          "target": 2
+        },
+        {
+          "index": 8,
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "english_name": "Earthshatter",
+          "display_name": "지면 분쇄",
+          "target": "inside_totem"
+        },
+        {
+          "index": 9,
+          "id": "Metadata/Items/Gems/SkillGemSeismicCry",
+          "english_name": "Seismic Cry",
+          "display_name": "지진 함성",
+          "target": 1
+        }
+      ]
+    },
+    {
+      "stage": 7,
+      "name": "07 지도 성장 - 후기 목표",
+      "loadout": {
+        "I": "성소 셉터 + 방어도 방패 · 함성",
+        "II": "한손 철퇴 + 성소 셉터 · 선대의 전사 토템",
+        "rotation": "전사 토템(II) → 함성(I). 지면 분쇄는 전사 토템 내부에 넣는다. 불의 순수함 두 항목은 각각의 셉터 세트에 지정한다."
+      },
+      "sets": [
+        22,
+        22
+      ],
+      "both_sets_connected": true,
+      "skills": [
+        {
+          "index": 0,
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "english_name": "Ancestral Spirits",
+          "display_name": "선대의 혼백",
+          "target": "automatic"
+        },
+        {
+          "index": 1,
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "english_name": "Purity of Fire",
+          "display_name": "불의 순수함",
+          "target": 1
+        },
+        {
+          "index": 2,
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "english_name": "Raise Shield",
+          "display_name": "방패 들기",
+          "target": 1
+        },
+        {
+          "index": 3,
+          "id": "Metadata/Items/Gems/SkillGemHarbingerOfMadness",
+          "english_name": "Harbinger of Madness",
+          "display_name": "광기의 선구자",
+          "target": "automatic"
+        },
+        {
+          "index": 4,
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "english_name": "Purity of Fire",
+          "display_name": "불의 순수함",
+          "target": 2
+        },
+        {
+          "index": 5,
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "english_name": "Resonating Shield",
+          "display_name": "공명하는 방패",
+          "target": 1
+        },
+        {
+          "index": 6,
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "english_name": "Magma Barrier",
+          "display_name": "마그마 장벽",
+          "target": 1
+        },
+        {
+          "index": 7,
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "english_name": "Fortifying Cry",
+          "display_name": "보강하는 함성",
+          "target": 1
+        },
+        {
+          "index": 8,
+          "id": "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
+          "english_name": "Ancestral Warrior Totem",
+          "display_name": "선대의 전사 토템",
+          "target": 2
+        },
+        {
+          "index": 9,
+          "id": "Metadata/Items/Gems/SkillGemSeismicCry",
+          "english_name": "Seismic Cry",
+          "display_name": "지진 함성",
+          "target": 1
+        },
+        {
+          "index": 10,
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "english_name": "Earthshatter",
+          "display_name": "지면 분쇄",
+          "target": "inside_totem"
+        }
+      ]
+    }
+  ]
+}

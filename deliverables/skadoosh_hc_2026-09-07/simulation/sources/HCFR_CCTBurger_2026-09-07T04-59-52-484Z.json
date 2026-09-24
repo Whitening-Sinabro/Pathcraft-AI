@@ -1,0 +1,3711 @@
+{
+  "type": "found",
+  "charModel": {
+    "account": "CololadoBurger#7117",
+    "name": "HCFR_CCTBurger",
+    "league": "HC Forbidden Rites",
+    "defensiveStats": {
+      "life": 232,
+      "energyShield": 0,
+      "ward": 0,
+      "mana": 91,
+      "spirit": 1,
+      "movementSpeed": 92,
+      "lifeRegen": 4,
+      "evasionRating": 23,
+      "evadeChance": 0,
+      "evadeChanceMax": 95,
+      "enemyAccuracy": 2114,
+      "baseEvadeChance": 0,
+      "armour": 229,
+      "damageReductions": {
+        "physical": {
+          "value": 2,
+          "max": 90,
+          "effectiveAppliedArmour": 229,
+          "base": 0,
+          "takenDamage": 979
+        },
+        "fire": null,
+        "cold": null,
+        "lightning": null,
+        "chaos": null
+      },
+      "deflectChance": 0,
+      "deflectChanceMax": 95,
+      "deflectionRating": 0,
+      "deflectEffect": 40,
+      "strength": 45,
+      "dexterity": 12,
+      "intelligence": 7,
+      "enduranceCharges": 3,
+      "frenzyCharges": 3,
+      "powerCharges": 3,
+      "effectiveHealthPool": 214,
+      "physicalMaximumHitTaken": 252,
+      "fireMaximumHitTaken": 166,
+      "coldMaximumHitTaken": 155,
+      "lightningMaximumHitTaken": 151,
+      "chaosMaximumHitTaken": 232,
+      "fireResistance": -40,
+      "fireResistanceOverCap": 0,
+      "fireResistanceMax": 75,
+      "coldResistance": -50,
+      "coldResistanceOverCap": 0,
+      "coldResistanceMax": 75,
+      "lightningResistance": -54,
+      "lightningResistanceOverCap": 0,
+      "lightningResistanceMax": 75,
+      "chaosResistance": 0,
+      "chaosResistanceOverCap": 0,
+      "chaosResistanceMax": 75,
+      "blockChance": 26,
+      "itemRarity": 10,
+      "physicalTakenAs": {
+        "physical": 100,
+        "lightning": 0,
+        "fire": 0,
+        "cold": 0,
+        "chaos": 0
+      },
+      "damageTypes": {
+        "physical": null,
+        "fire": {
+          "takenAs": null,
+          "takenAsFromHits": null,
+          "attackMult": 1,
+          "spellMult": 1,
+          "dotMult": 1.4,
+          "flat": null,
+          "esBypass": null,
+          "momShare": 0
+        },
+        "cold": {
+          "takenAs": null,
+          "takenAsFromHits": null,
+          "attackMult": 1,
+          "spellMult": 1,
+          "dotMult": 1.5,
+          "flat": null,
+          "esBypass": null,
+          "momShare": 0
+        },
+        "lightning": {
+          "takenAs": null,
+          "takenAsFromHits": null,
+          "attackMult": 1,
+          "spellMult": 1,
+          "dotMult": 1.54,
+          "flat": null,
+          "esBypass": null,
+          "momShare": 0
+        },
+        "chaos": null
+      },
+      "recovery": {
+        "regen": {
+          "life": 4,
+          "energyShield": 0,
+          "mana": 4
+        },
+        "overleech": false,
+        "recharge": null,
+        "recoup": null,
+        "onIncomingHit": null,
+        "maxLifeLeechRate": 46,
+        "maxEnergyShieldLeechRate": 0
+      },
+      "lifeLossPrevention": null,
+      "lowestMaximumHitTaken": 151
+    },
+    "breakdowns": {
+      "stats": {
+        "0": {
+          "base": 232,
+          "inc": 0,
+          "more": 1,
+          "total": 232,
+          "mods": [
+            [
+              0,
+              124,
+              0
+            ],
+            [
+              0,
+              18,
+              4
+            ],
+            [
+              0,
+              90,
+              10
+            ]
+          ],
+          "basePercent": false
+        },
+        "1": {
+          "base": 91,
+          "inc": 0,
+          "more": 1,
+          "total": 91,
+          "mods": [
+            [
+              0,
+              66,
+              0
+            ],
+            [
+              0,
+              14,
+              1
+            ],
+            [
+              0,
+              11,
+              6
+            ]
+          ],
+          "basePercent": false
+        },
+        "2": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": false
+        },
+        "3": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 1,
+          "mods": [],
+          "basePercent": false
+        },
+        "4": {
+          "base": 229,
+          "inc": 0,
+          "more": 1,
+          "total": 229,
+          "mods": [
+            [
+              0,
+              15,
+              2
+            ],
+            [
+              0,
+              88,
+              3
+            ],
+            [
+              0,
+              50,
+              4
+            ],
+            [
+              0,
+              29,
+              6
+            ],
+            [
+              0,
+              47,
+              8
+            ]
+          ],
+          "basePercent": false
+        },
+        "5": {
+          "base": 23,
+          "inc": 0,
+          "more": 1,
+          "total": 23,
+          "mods": [
+            [
+              0,
+              7,
+              0
+            ],
+            [
+              0,
+              16,
+              7
+            ]
+          ],
+          "basePercent": false
+        },
+        "6": {
+          "base": 45,
+          "inc": 0,
+          "more": 1,
+          "total": 45,
+          "mods": [
+            [
+              0,
+              15,
+              0
+            ],
+            [
+              0,
+              6,
+              4
+            ],
+            [
+              0,
+              14,
+              5
+            ],
+            [
+              0,
+              10,
+              11
+            ]
+          ],
+          "basePercent": false
+        },
+        "7": {
+          "base": 12,
+          "inc": 0,
+          "more": 1,
+          "total": 12,
+          "mods": [
+            [
+              0,
+              7,
+              0
+            ],
+            [
+              0,
+              5,
+              2
+            ]
+          ],
+          "basePercent": false
+        },
+        "8": {
+          "base": 7,
+          "inc": 0,
+          "more": 1,
+          "total": 7,
+          "mods": [
+            [
+              0,
+              7,
+              0
+            ]
+          ],
+          "basePercent": false
+        },
+        "9": {
+          "base": -8,
+          "inc": 0,
+          "more": 1,
+          "total": 92,
+          "mods": [
+            [
+              0,
+              -5,
+              3
+            ],
+            [
+              0,
+              -3,
+              4
+            ]
+          ],
+          "basePercent": true
+        },
+        "10": {
+          "base": 0,
+          "inc": 10,
+          "more": 1,
+          "total": 10,
+          "mods": [
+            [
+              1,
+              10,
+              6
+            ]
+          ],
+          "basePercent": true
+        },
+        "11": {
+          "base": 3,
+          "inc": 0,
+          "more": 1,
+          "total": 3,
+          "mods": [
+            [
+              0,
+              3,
+              0
+            ]
+          ],
+          "basePercent": false
+        },
+        "12": {
+          "base": 3,
+          "inc": 0,
+          "more": 1,
+          "total": 3,
+          "mods": [
+            [
+              0,
+              3,
+              0
+            ]
+          ],
+          "basePercent": false
+        },
+        "13": {
+          "base": 3,
+          "inc": 0,
+          "more": 1,
+          "total": 3,
+          "mods": [
+            [
+              0,
+              3,
+              0
+            ]
+          ],
+          "basePercent": false
+        },
+        "14": {
+          "base": -40,
+          "inc": 0,
+          "more": 1,
+          "total": -40,
+          "mods": [
+            [
+              0,
+              -60,
+              0
+            ],
+            [
+              0,
+              7,
+              3
+            ],
+            [
+              0,
+              7,
+              4
+            ],
+            [
+              0,
+              6,
+              6
+            ]
+          ],
+          "basePercent": true
+        },
+        "15": {
+          "base": -50,
+          "inc": 0,
+          "more": 1,
+          "total": -50,
+          "mods": [
+            [
+              0,
+              -60,
+              0
+            ],
+            [
+              0,
+              10,
+              9
+            ]
+          ],
+          "basePercent": true
+        },
+        "16": {
+          "base": -54,
+          "inc": 0,
+          "more": 1,
+          "total": -54,
+          "mods": [
+            [
+              0,
+              -60,
+              0
+            ],
+            [
+              0,
+              6,
+              4
+            ]
+          ],
+          "basePercent": true
+        },
+        "17": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": true
+        },
+        "18": {
+          "base": 75,
+          "inc": 0,
+          "more": 1,
+          "total": 75,
+          "mods": [
+            [
+              0,
+              75,
+              0
+            ]
+          ],
+          "basePercent": true
+        },
+        "19": {
+          "base": 75,
+          "inc": 0,
+          "more": 1,
+          "total": 75,
+          "mods": [
+            [
+              0,
+              75,
+              0
+            ]
+          ],
+          "basePercent": true
+        },
+        "20": {
+          "base": 75,
+          "inc": 0,
+          "more": 1,
+          "total": 75,
+          "mods": [
+            [
+              0,
+              75,
+              0
+            ]
+          ],
+          "basePercent": true
+        },
+        "21": {
+          "base": 75,
+          "inc": 0,
+          "more": 1,
+          "total": 75,
+          "mods": [
+            [
+              0,
+              75,
+              0
+            ]
+          ],
+          "basePercent": true
+        },
+        "22": {
+          "base": 26,
+          "inc": 0,
+          "more": 1,
+          "total": 26,
+          "mods": [
+            [
+              0,
+              26,
+              4
+            ]
+          ],
+          "basePercent": true
+        },
+        "23": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": true
+        },
+        "24": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 40,
+          "mods": [],
+          "basePercent": true
+        },
+        "25": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": false
+        },
+        "26": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": false
+        },
+        "30": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": true
+        },
+        "31": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": true
+        },
+        "32": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": true
+        },
+        "33": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": true
+        },
+        "34": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": true
+        },
+        "35": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": true
+        },
+        "36": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": true
+        },
+        "37": {
+          "base": 0,
+          "inc": 0,
+          "more": 1,
+          "total": 0,
+          "mods": [],
+          "basePercent": true
+        },
+        "77": {
+          "base": 4.1,
+          "inc": 0,
+          "more": 1,
+          "total": 4,
+          "mods": [
+            [
+              0,
+              2.5,
+              3
+            ],
+            [
+              0,
+              1.6,
+              6
+            ]
+          ],
+          "basePercent": false
+        },
+        "79": {
+          "base": 3.64,
+          "inc": 14,
+          "more": 1,
+          "total": 4,
+          "mods": [
+            [
+              0,
+              3.64,
+              0
+            ],
+            [
+              1,
+              14,
+              7
+            ]
+          ],
+          "basePercent": false
+        }
+      },
+      "sources": [
+        [
+          0
+        ],
+        [
+          5,
+          "Intelligence"
+        ],
+        [
+          2,
+          "Armageddon Vise, Stocky Mitts"
+        ],
+        [
+          2,
+          "Viper Hide, Fur Plate"
+        ],
+        [
+          2,
+          "Dragon Rock, Splintered Tower Shield"
+        ],
+        [
+          2,
+          "Amber Amulet"
+        ],
+        [
+          2,
+          "Corruption Keep, Rusted Greathelm"
+        ],
+        [
+          2,
+          "Agile Iron Ring of Excitement"
+        ],
+        [
+          2,
+          "Lacquered Rough Greaves"
+        ],
+        [
+          7,
+          "Act 1: Clearfell"
+        ],
+        [
+          5,
+          "Strength"
+        ],
+        [
+          1,
+          "5710"
+        ]
+      ]
+    },
+    "skills": [
+      {
+        "allGems": [
+          {
+            "name": "Boneshatter",
+            "itemData": {
+              "doubleCorrupted": false,
+              "desecrated": false,
+              "desecratedMods": [],
+              "bondedMods": [],
+              "grantedSkills": [],
+              "runeMods": [],
+              "sockets": [
+                {
+                  "group": 0,
+                  "attr": null,
+                  "sColour": null,
+                  "type": "gem"
+                },
+                {
+                  "group": 1,
+                  "attr": null,
+                  "sColour": null,
+                  "type": "gem"
+                }
+              ],
+              "socketedItems": [
+                {
+                  "socket": 0,
+                  "doubleCorrupted": false,
+                  "desecrated": false,
+                  "desecratedMods": [],
+                  "bondedMods": [],
+                  "grantedSkills": [],
+                  "runeMods": [],
+                  "sockets": [],
+                  "socketedItems": [],
+                  "support": true,
+                  "gemTabs": [
+                    {
+                      "name": "Support",
+                      "pages": [
+                        {
+                          "skillName": "",
+                          "description": null,
+                          "properties": null,
+                          "stats": [
+                            "Supported Skills cause an [Aftershock] when they [HeavyStun|Heavy Stun] an enemy, Damaging other enemies within 1.5 metres\n[Aftershock|Aftershocks] caused this way cannot [Stun]"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "gemSkill": null,
+                  "gemBackground": null,
+                  "weaponRequirements": null,
+                  "supportGemRequirements": [
+                    {
+                      "name": "+5 [Strength|Str]",
+                      "values": [
+                        [
+                          "(5)",
+                          0
+                        ]
+                      ],
+                      "displayMode": 0,
+                      "progress": null,
+                      "type": 63,
+                      "suffix": null,
+                      "icon": null
+                    }
+                  ],
+                  "gemSockets": null,
+                  "iconTierText": null,
+                  "qualityProperty": null,
+                  "id": "174dc3a9d0a4651fc009db797eb630992ca70d4e1fe6c8c44e7553815ed869e1",
+                  "inventoryId": null,
+                  "name": "",
+                  "frameTypeId": "Gem",
+                  "frameType": 4,
+                  "ilvl": 0,
+                  "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9JbXBhY3RTaG9ja3dhdmVTdXBwb3J0R2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5b3ad088c3/ImpactShockwaveSupportGem.png",
+                  "w": 1,
+                  "h": 1,
+                  "x": null,
+                  "y": null,
+                  "note": null,
+                  "typeLine": "Impact Shockwave",
+                  "baseType": "Impact Shockwave",
+                  "identified": true,
+                  "corrupted": false,
+                  "fractured": false,
+                  "synthesised": false,
+                  "duplicated": false,
+                  "mods": null,
+                  "implicitMods": [],
+                  "explicitMods": [],
+                  "mutatedMods": [],
+                  "mutated": false,
+                  "scourgeMods": [],
+                  "crucibleMods": [],
+                  "fracturedMods": [],
+                  "craftedMods": [],
+                  "enchantMods": [],
+                  "utilityMods": [],
+                  "properties": [
+                    {
+                      "name": "[SupportGem|Support], [Attack], [AoESkill|AoE], [Melee], [Strike]",
+                      "values": [],
+                      "displayMode": 0,
+                      "progress": null,
+                      "type": null,
+                      "suffix": null,
+                      "icon": null
+                    },
+                    {
+                      "name": "[SupportGemCategory|Category]",
+                      "values": [
+                        [
+                          "Impact Shockwave",
+                          0
+                        ]
+                      ],
+                      "displayMode": 0,
+                      "progress": null,
+                      "type": null,
+                      "suffix": null,
+                      "icon": null
+                    }
+                  ],
+                  "additionalProperties": [],
+                  "requirements": [],
+                  "extended": null,
+                  "league": "HC Forbidden Rites",
+                  "artFilename": null,
+                  "flavourText": null,
+                  "descrText": "Place into a Skill's Support Gem socket in the Skills Panel to apply its effects to that Skill. You cannot have multiple Support Gems of the same Category socketed within one Skill.",
+                  "secDescrText": "Supports [Melee|Melee] [Strike|Strike] Skills and [Wind] [Attack] Skills, causing them to create an [Aftershock] that damages enemies around the target when they [HeavyStun|Heavy Stun] an enemy.",
+                  "prophecyText": null,
+                  "replica": false,
+                  "stackSize": null,
+                  "realm": "poe2",
+                  "verified": false,
+                  "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9JdGVtc1N1cHBvcnRTb2NrZXRlZFdoaXRlIiwicmVhbG0iOiJwb2UyIn1d/7815336083/ItemsSupportSocketedWhite.png"
+                }
+              ],
+              "support": false,
+              "gemTabs": [
+                {
+                  "name": "Initial Strike",
+                  "pages": [
+                    {
+                      "skillName": "Initial Strike",
+                      "description": null,
+                      "properties": null,
+                      "stats": [
+                        "+0.2 metres to [Melee] [Strike] Range",
+                        "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                        "Cannot cause [Stun] buildup"
+                      ]
+                    },
+                    {
+                      "skillName": "Shockwave",
+                      "description": null,
+                      "properties": [
+                        {
+                          "name": "Attack Damage",
+                          "values": [
+                            [
+                              "242%",
+                              0
+                            ]
+                          ],
+                          "displayMode": 0,
+                          "progress": null,
+                          "type": null,
+                          "suffix": null,
+                          "icon": null
+                        }
+                      ],
+                      "stats": [
+                        "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                        "Shockwave radius is 2 metres",
+                        "50% more damage with [Hit|Hits] for Shockwaves originating\nfrom a [Rarity|Unique] enemy"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "gemSkill": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvQnJ1dGVCb25lc2hhdHRlciIsInJlYWxtIjoicG9lMiJ9XQ/f5f2f11cb9/BruteBoneshatter.png",
+              "gemBackground": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9TbWFydEhvdmVyL0dlbUhvdmVySW1hZ2UvR2VtSG92ZXJJbWFnZUJvbmVzaGF0dGVyIiwicmVhbG0iOiJwb2UyIn1d/9100e72999/GemHoverImageBoneshatter.png",
+              "weaponRequirements": [
+                {
+                  "name": "",
+                  "values": [
+                    [
+                      "[Mace|One Hand Mace]",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 96,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "",
+                  "values": [
+                    [
+                      "[Mace|Two Hand Mace]",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 96,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "supportGemRequirements": null,
+              "gemSockets": [
+                "W",
+                "W"
+              ],
+              "iconTierText": null,
+              "qualityProperty": null,
+              "id": "2e5a8bc0884900589ceb691df65e41d7cf121c94f8579e61e038e5596064eb18",
+              "inventoryId": "SkillSlots",
+              "name": "",
+              "frameTypeId": "Gem",
+              "frameType": 4,
+              "ilvl": 0,
+              "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvQm9uZXNoYXR0ZXJTa2lsbEdlbSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bf631a7d17/BoneshatterSkillGem.png",
+              "w": 1,
+              "h": 1,
+              "x": 1,
+              "y": 0,
+              "note": null,
+              "typeLine": "Boneshatter",
+              "baseType": "Boneshatter",
+              "identified": true,
+              "corrupted": false,
+              "fractured": false,
+              "synthesised": false,
+              "duplicated": false,
+              "mods": null,
+              "implicitMods": [],
+              "explicitMods": [],
+              "mutatedMods": [],
+              "mutated": false,
+              "scourgeMods": [],
+              "crucibleMods": [],
+              "fracturedMods": [],
+              "craftedMods": [],
+              "enchantMods": [],
+              "utilityMods": [],
+              "properties": [
+                {
+                  "name": "[Attack], [AoESkill|AoE], [Melee], [Strike]",
+                  "values": [],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Level",
+                  "values": [
+                    [
+                      "3",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 5,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Cost",
+                  "values": [
+                    [
+                      "11 Mana",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Attack Speed",
+                  "values": [
+                    [
+                      "60% of base",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Attack Damage",
+                  "values": [
+                    [
+                      "121%",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "additionalProperties": [],
+              "requirements": [
+                {
+                  "name": "Level",
+                  "values": [
+                    [
+                      "6",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 62,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "[Strength|Str]",
+                  "values": [
+                    [
+                      "14",
+                      0
+                    ]
+                  ],
+                  "displayMode": 1,
+                  "progress": null,
+                  "type": 63,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "extended": null,
+              "league": "HC Forbidden Rites",
+              "artFilename": null,
+              "flavourText": null,
+              "descrText": "Skills can be managed in the Skills Panel.",
+              "secDescrText": "Attack enemies with a melee [Strike|Strike]. The [Strike|Strike] will cause a [HeavyStun|Heavy Stun] on enemies that are [PrimedStun|Primed for Stun]. Upon causing a [HeavyStun|Heavy Stun] it will also create a Shockwave, dealing a large amount of damage in an area.",
+              "prophecyText": null,
+              "replica": false,
+              "stackSize": null,
+              "realm": "poe2",
+              "verified": false
+            },
+            "level": 3,
+            "quality": 0
+          },
+          {
+            "name": "Impact Shockwave",
+            "itemData": {
+              "doubleCorrupted": false,
+              "desecrated": false,
+              "desecratedMods": [],
+              "bondedMods": [],
+              "grantedSkills": [],
+              "runeMods": [],
+              "sockets": [],
+              "socketedItems": [],
+              "support": true,
+              "gemTabs": [
+                {
+                  "name": "Support",
+                  "pages": [
+                    {
+                      "skillName": "",
+                      "description": null,
+                      "properties": null,
+                      "stats": [
+                        "Supported Skills cause an [Aftershock] when they [HeavyStun|Heavy Stun] an enemy, Damaging other enemies within 1.5 metres\n[Aftershock|Aftershocks] caused this way cannot [Stun]"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "gemSkill": null,
+              "gemBackground": null,
+              "weaponRequirements": null,
+              "supportGemRequirements": [
+                {
+                  "name": "+5 [Strength|Str]",
+                  "values": [
+                    [
+                      "(5)",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 63,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "gemSockets": null,
+              "iconTierText": null,
+              "qualityProperty": null,
+              "id": "174dc3a9d0a4651fc009db797eb630992ca70d4e1fe6c8c44e7553815ed869e1",
+              "inventoryId": null,
+              "name": "",
+              "frameTypeId": "Gem",
+              "frameType": 4,
+              "ilvl": 0,
+              "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9JbXBhY3RTaG9ja3dhdmVTdXBwb3J0R2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5b3ad088c3/ImpactShockwaveSupportGem.png",
+              "w": 1,
+              "h": 1,
+              "x": null,
+              "y": null,
+              "note": null,
+              "typeLine": "Impact Shockwave",
+              "baseType": "Impact Shockwave",
+              "identified": true,
+              "corrupted": false,
+              "fractured": false,
+              "synthesised": false,
+              "duplicated": false,
+              "mods": null,
+              "implicitMods": [],
+              "explicitMods": [],
+              "mutatedMods": [],
+              "mutated": false,
+              "scourgeMods": [],
+              "crucibleMods": [],
+              "fracturedMods": [],
+              "craftedMods": [],
+              "enchantMods": [],
+              "utilityMods": [],
+              "properties": [
+                {
+                  "name": "[SupportGem|Support], [Attack], [AoESkill|AoE], [Melee], [Strike]",
+                  "values": [],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "[SupportGemCategory|Category]",
+                  "values": [
+                    [
+                      "Impact Shockwave",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "additionalProperties": [],
+              "requirements": [],
+              "extended": null,
+              "league": "HC Forbidden Rites",
+              "artFilename": null,
+              "flavourText": null,
+              "descrText": "Place into a Skill's Support Gem socket in the Skills Panel to apply its effects to that Skill. You cannot have multiple Support Gems of the same Category socketed within one Skill.",
+              "secDescrText": "Supports [Melee|Melee] [Strike|Strike] Skills and [Wind] [Attack] Skills, causing them to create an [Aftershock] that damages enemies around the target when they [HeavyStun|Heavy Stun] an enemy.",
+              "prophecyText": null,
+              "replica": false,
+              "stackSize": null,
+              "realm": "poe2",
+              "verified": false,
+              "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9JdGVtc1N1cHBvcnRTb2NrZXRlZFdoaXRlIiwicmVhbG0iOiJwb2UyIn1d/7815336083/ItemsSupportSocketedWhite.png"
+            },
+            "level": 0,
+            "quality": 0
+          }
+        ],
+        "dps": []
+      },
+      {
+        "allGems": [
+          {
+            "name": "Raise Shield",
+            "itemData": {
+              "doubleCorrupted": false,
+              "desecrated": false,
+              "desecratedMods": [],
+              "bondedMods": [],
+              "grantedSkills": [],
+              "runeMods": [],
+              "sockets": [
+                {
+                  "group": 0,
+                  "attr": null,
+                  "sColour": null,
+                  "type": "gem"
+                },
+                {
+                  "group": 1,
+                  "attr": null,
+                  "sColour": null,
+                  "type": "gem"
+                }
+              ],
+              "socketedItems": [],
+              "support": false,
+              "gemTabs": [
+                {
+                  "name": "Raise Shield",
+                  "pages": [
+                    {
+                      "skillName": "Raise Shield",
+                      "description": null,
+                      "properties": null,
+                      "stats": [
+                        "Shield Bash causes 600% more [HeavyStun|Heavy Stun] buildup",
+                        "Shield Bash always [LightStun|Light Stuns]\nShield Bash [Daze|Dazes] if holding a Tower Shield",
+                        "Shield Bash can't be [Evasion|Evaded]",
+                        "Shield Bash deals 3 to 4 [Physical|Physical] Damage per 5 [Armour|Armour] on [Shield|Shield]"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "gemSkill": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvQnJ1dGVTaGllbGRCbG9jayIsInJlYWxtIjoicG9lMiJ9XQ/117cb43abb/BruteShieldBlock.png",
+              "gemBackground": null,
+              "weaponRequirements": [
+                {
+                  "name": "",
+                  "values": [
+                    [
+                      "[ArmouredShield|Armoured Shield]",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 96,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "supportGemRequirements": null,
+              "gemSockets": [
+                "W",
+                "W"
+              ],
+              "iconTierText": null,
+              "qualityProperty": null,
+              "id": null,
+              "inventoryId": null,
+              "name": "",
+              "frameTypeId": "Gem",
+              "frameType": 4,
+              "ilvl": 0,
+              "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvQmxhbmtHZW0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/250ec3ed08/BlankGem.png",
+              "w": 1,
+              "h": 1,
+              "x": null,
+              "y": null,
+              "note": null,
+              "typeLine": "Raise Shield",
+              "baseType": "Raise Shield",
+              "identified": true,
+              "corrupted": false,
+              "fractured": false,
+              "synthesised": false,
+              "duplicated": false,
+              "mods": null,
+              "implicitMods": [],
+              "explicitMods": [],
+              "mutatedMods": [],
+              "mutated": false,
+              "scourgeMods": [],
+              "crucibleMods": [],
+              "fracturedMods": [],
+              "craftedMods": [],
+              "enchantMods": [],
+              "utilityMods": [],
+              "properties": [
+                {
+                  "name": "[Attack], [AoESkill|AoE], [Melee], [Physical], [Channelling]",
+                  "values": [],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Cost",
+                  "values": [
+                    [
+                      "0 Mana, 0 Mana per second",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Attack Time",
+                  "values": [
+                    [
+                      "0.55s",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "[Critical|Critical Hit] Chance",
+                  "values": [
+                    [
+                      "5.00%",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Attack Damage",
+                  "values": [
+                    [
+                      "80%",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "additionalProperties": [],
+              "requirements": [],
+              "extended": null,
+              "league": "HC Forbidden Rites",
+              "artFilename": null,
+              "flavourText": null,
+              "descrText": "Skills can be managed in the Skills Panel.",
+              "secDescrText": "Raise your [Shield] to [Block] all incoming [Block|Blockable] hits. Release immediately after [Block|Blocking] when an enemy is close to perform a Shield Bash, damaging and [Stun|Stunning] enemies. While your [Shield] is raised you cannot be [LightStun|Light Stunned] by hits you [Block], but [Block|Blocking] too much damage may [HeavyStunPlayer|Heavy Stun] you. You cannot [Evasion|Evade] while your [Shield] is raised, but [Evasion] instead grants an equal chance to avoid this [HeavyStunPlayer|Heavy Stun] buildup.",
+              "prophecyText": null,
+              "replica": false,
+              "stackSize": null,
+              "realm": "poe2",
+              "verified": false
+            },
+            "level": 0,
+            "quality": 0
+          }
+        ],
+        "dps": []
+      },
+      {
+        "allGems": [
+          {
+            "name": "Infernal Cry",
+            "itemData": {
+              "doubleCorrupted": false,
+              "desecrated": false,
+              "desecratedMods": [],
+              "bondedMods": [],
+              "grantedSkills": [],
+              "runeMods": [],
+              "sockets": [
+                {
+                  "group": 0,
+                  "attr": null,
+                  "sColour": null,
+                  "type": "gem"
+                },
+                {
+                  "group": 1,
+                  "attr": null,
+                  "sColour": null,
+                  "type": "gem"
+                }
+              ],
+              "socketedItems": [],
+              "support": false,
+              "gemTabs": [
+                {
+                  "name": "Infernal Cry",
+                  "pages": [
+                    {
+                      "skillName": "Infernal Cry",
+                      "description": null,
+                      "properties": null,
+                      "stats": [
+                        "[Empowered|Empowers] one [Attack] per 10 enemy [Power] in\nrange, counting up to 50 [Power]",
+                        "[Empowered] [Attack|Attacks] [Gain] 32% of damage as extra [Fire] damage",
+                        "Warcry radius is 4 metres",
+                        "Destabilises Enemies for 8 seconds"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Combust",
+                  "pages": [
+                    {
+                      "skillName": "Combust",
+                      "description": "The enemy's [Corpse|Corpse] violently explodes, dealing [Fire|Fire] damage in an area around it.",
+                      "properties": [
+                        {
+                          "name": "[Critical|Critical Hit] Chance",
+                          "values": [
+                            [
+                              "7.00%",
+                              0
+                            ]
+                          ],
+                          "displayMode": 0,
+                          "progress": null,
+                          "type": null,
+                          "suffix": null,
+                          "icon": null
+                        }
+                      ],
+                      "stats": [
+                        "Deals 6 to 9 [Fire|Fire] Damage",
+                        "Deals 10% more [Fire] Damage per 1 [Power] of exploding [Corpse]",
+                        "Explosion radius is 1.6 metres"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "gemSkill": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvQnJ1dGVJbmZlcm5hbENyeSIsInJlYWxtIjoicG9lMiJ9XQ/a68406f6b3/BruteInfernalCry.png",
+              "gemBackground": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9TbWFydEhvdmVyL0dlbUhvdmVySW1hZ2UvR2VtSG92ZXJJbWFnZUluZmVybmFsQ3J5IiwicmVhbG0iOiJwb2UyIn1d/778b0558bf/GemHoverImageInfernalCry.png",
+              "weaponRequirements": null,
+              "supportGemRequirements": null,
+              "gemSockets": [
+                "W",
+                "W"
+              ],
+              "iconTierText": null,
+              "qualityProperty": null,
+              "id": "91250094bacf46c50b22d889a0056a143a8a78793995eeee5e3a60f13f38fa48",
+              "inventoryId": "SkillSlots",
+              "name": "",
+              "frameTypeId": "Gem",
+              "frameType": 4,
+              "ilvl": 0,
+              "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvSW5mZXJuYWxDcnlTa2lsbEdlbSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/2d1084d36a/InfernalCrySkillGem.png",
+              "w": 1,
+              "h": 1,
+              "x": 2,
+              "y": 0,
+              "note": null,
+              "typeLine": "Infernal Cry",
+              "baseType": "Infernal Cry",
+              "identified": true,
+              "corrupted": false,
+              "fractured": false,
+              "synthesised": false,
+              "duplicated": false,
+              "mods": null,
+              "implicitMods": [],
+              "explicitMods": [],
+              "mutatedMods": [],
+              "mutated": false,
+              "scourgeMods": [],
+              "crucibleMods": [],
+              "fracturedMods": [],
+              "craftedMods": [],
+              "enchantMods": [],
+              "utilityMods": [],
+              "properties": [
+                {
+                  "name": "[Warcry], [AoESkill|AoE], [Trigger], [Fire], [DurationSkill|Duration], [Nova]",
+                  "values": [],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Level",
+                  "values": [
+                    [
+                      "3",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 5,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Cost",
+                  "values": [
+                    [
+                      "24 Mana",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Cooldown Time",
+                  "values": [
+                    [
+                      "8.00s",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Use Time",
+                  "values": [
+                    [
+                      "0.80s",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "additionalProperties": [],
+              "requirements": [
+                {
+                  "name": "Level",
+                  "values": [
+                    [
+                      "6",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 62,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "[Strength|Str]",
+                  "values": [
+                    [
+                      "14",
+                      0
+                    ]
+                  ],
+                  "displayMode": 1,
+                  "progress": null,
+                  "type": 63,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "extended": null,
+              "league": "HC Forbidden Rites",
+              "artFilename": null,
+              "flavourText": null,
+              "descrText": "Skills can be managed in the Skills Panel.",
+              "secDescrText": "Perform a [Warcry], [Empowered|Empowering] subsequent [Melee] [Attack|Attacks] if there are enemies nearby. Enemies in the warcry's area are destabilised and will Combust on death. This Skill's cooldown can be bypassed by expending an [Charges|Endurance Charge].",
+              "prophecyText": null,
+              "replica": false,
+              "stackSize": null,
+              "realm": "poe2",
+              "verified": false
+            },
+            "level": 3,
+            "quality": 0
+          }
+        ],
+        "dps": []
+      },
+      {
+        "allGems": [
+          {
+            "name": "Rolling Slam",
+            "itemData": {
+              "doubleCorrupted": false,
+              "desecrated": false,
+              "desecratedMods": [],
+              "bondedMods": [],
+              "grantedSkills": [],
+              "runeMods": [],
+              "sockets": [
+                {
+                  "group": 0,
+                  "attr": null,
+                  "sColour": null,
+                  "type": "gem"
+                },
+                {
+                  "group": 1,
+                  "attr": null,
+                  "sColour": null,
+                  "type": "gem"
+                }
+              ],
+              "socketedItems": [],
+              "support": false,
+              "gemTabs": [
+                {
+                  "name": "Rolling Slam",
+                  "pages": [
+                    {
+                      "skillName": "Rolling Slam",
+                      "description": null,
+                      "properties": null,
+                      "stats": [
+                        "+1 second to [TotalPlus|Total] [Attack] Time",
+                        "While [DualWield|Dual Wielding], both weapons hit with 30% less damage"
+                      ]
+                    },
+                    {
+                      "skillName": "First Slam",
+                      "description": null,
+                      "properties": [
+                        {
+                          "name": "Attack Damage",
+                          "values": [
+                            [
+                              "91%",
+                              0
+                            ]
+                          ],
+                          "displayMode": 0,
+                          "progress": null,
+                          "type": null,
+                          "suffix": null,
+                          "icon": null
+                        }
+                      ],
+                      "stats": [
+                        "50% more [Stun] buildup",
+                        "Impact radius is 1.4 metres"
+                      ]
+                    },
+                    {
+                      "skillName": "Second Slam",
+                      "description": null,
+                      "properties": [
+                        {
+                          "name": "Attack Damage",
+                          "values": [
+                            [
+                              "182%",
+                              0
+                            ]
+                          ],
+                          "displayMode": 0,
+                          "progress": null,
+                          "type": null,
+                          "suffix": null,
+                          "icon": null
+                        }
+                      ],
+                      "stats": [
+                        "50% more Damage against [HeavyStun|Heavy Stunned] Enemies",
+                        "Impact radius is 1.8 metres"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "gemSkill": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvQnJ1dGVEb3VibGVTbGFtIiwicmVhbG0iOiJwb2UyIn1d/6cdda5fb3c/BruteDoubleSlam.png",
+              "gemBackground": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9TbWFydEhvdmVyL0dlbUhvdmVySW1hZ2UvR2VtSG92ZXJJbWFnZURvdWJsZVNsYW0iLCJyZWFsbSI6InBvZTIifV0/e80c748c20/GemHoverImageDoubleSlam.png",
+              "weaponRequirements": [
+                {
+                  "name": "",
+                  "values": [
+                    [
+                      "[Mace|One Hand Mace]",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 96,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "",
+                  "values": [
+                    [
+                      "[Mace|Two Hand Mace]",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 96,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "supportGemRequirements": null,
+              "gemSockets": [
+                "W",
+                "W"
+              ],
+              "iconTierText": null,
+              "qualityProperty": null,
+              "id": "9a9b7d8bc010125dff82cc980d29845a5ad39d3083f523738ae7bdc6a6ad34cc",
+              "inventoryId": "SkillSlots",
+              "name": "",
+              "frameTypeId": "Gem",
+              "frameType": 4,
+              "ilvl": 0,
+              "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvRG91YmxlU2xhbVNraWxsR2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9ea13f077b/DoubleSlamSkillGem.png",
+              "w": 1,
+              "h": 1,
+              "x": 0,
+              "y": 0,
+              "note": null,
+              "typeLine": "Rolling Slam",
+              "baseType": "Rolling Slam",
+              "identified": true,
+              "corrupted": false,
+              "fractured": false,
+              "synthesised": false,
+              "duplicated": false,
+              "mods": null,
+              "implicitMods": [],
+              "explicitMods": [],
+              "mutatedMods": [],
+              "mutated": false,
+              "scourgeMods": [],
+              "crucibleMods": [],
+              "fracturedMods": [],
+              "craftedMods": [],
+              "enchantMods": [],
+              "utilityMods": [],
+              "properties": [
+                {
+                  "name": "[Attack], [AoESkill|AoE], [Melee], [Slam]",
+                  "values": [],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Level",
+                  "values": [
+                    [
+                      "3",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 5,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Cost",
+                  "values": [
+                    [
+                      "18 Mana",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "additionalProperties": [],
+              "requirements": [
+                {
+                  "name": "Level",
+                  "values": [
+                    [
+                      "6",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 62,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "[Strength|Str]",
+                  "values": [
+                    [
+                      "14",
+                      0
+                    ]
+                  ],
+                  "displayMode": 1,
+                  "progress": null,
+                  "type": 63,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "extended": null,
+              "league": "HC Forbidden Rites",
+              "artFilename": null,
+              "flavourText": null,
+              "descrText": "Skills can be managed in the Skills Panel.",
+              "secDescrText": "[Slam|Slam] the ground to [Stun|Stun] enemies and [Knockback|knock them away], then continue forward and perform a devastating second [Slam|Slam].",
+              "prophecyText": null,
+              "replica": false,
+              "stackSize": null,
+              "realm": "poe2",
+              "verified": false
+            },
+            "level": 3,
+            "quality": 0
+          }
+        ],
+        "dps": []
+      }
+    ],
+    "level": 9,
+    "class": "Warrior",
+    "pathOfBuildingExport": "eNrtPF1z2ziSz6NfwXLV3UsyNsFv5uzdkmU79sWOfZaT3D5NgQQocU2RGhK0o_n11wBIiZRICXTmZmeuLg8OCXQ3gO5GfwHU6d-_LxLtheZFnKVnR-hYP9JoGmYkTmdnR1-ern72jv7-t9HpA2bz--i8jBPeY_xt9NOpeNFwEdKUTBJcFJ_xgp4dfc5SeqSFc5zjkNH8lr7QZFyy7C4j0BvhpODdG_hvOM_jLD_SEg55duQfaQscp9MsfKbsY56Vy7Mj80hjOJ9R9rWeqP4LOtJeYvoqyT49Xl4ewaR-On1I8IrmU4aZVsCfs6MxLA7P6AVewF_AwUkJCMg4tlzLsx3PtY9O9mKel3nB3oA-XVJK1hj6sef2QT7k9DKKaMjiFzrJYzaZ4zTcDNY7QgcsOvb3gt-VCYuXSUzzNYrRB3-9Q930-2CfMoaTi4fpZiKwYNtEhm158Gc_WsY2bOqD_Baz-XkCHB0-yM0sjRlt4unHuq47ju5zIRoWYFv7xt0lIAd2PccyPNc09iE_ZHGRpW9nzRvnPSmTBHZqC7sP9pEWNH_BLG7Psxd-ki2COO0SxUGO3OEUT7JiI3CE9oE-0BzMC2th6AcQpjTMwCI1Ufxj21UYphu5d7zbOKLqkIOWUiEMnc3b1nE5VYUbTPhtE3oEU6sGOc3KRBGSbSyeZffvhF-bgP3b64J-bziDXsuTbmbm9pN6yfjWO7yGpzwOSkYVALntuLx-2Nh4ZB07jmF4nm6ZntPriOarIg5xcoe_x4tyAQ7gCT_TzcwM2-hXv9mcpWBx-nCR3bvTr-Kc9qI5Tr8ZSkj_aP1ucI6zoneF-0xXnF7jlIzDsITYZtUYy-uVLc6fU1oUqjYYbKoyBt_wKvOGOCT8wIFv0lCN6pc0r2ajQp9jPMLu5tFSkFBVlM0glZFouBJ9_1gzmlYDboRgHaN9SLeUhvOPIMFHrLKBuFPYeA-0l7UcVom1HLCDtT5SQxjAJo44mE0caSCbpssYYsrNjPbDdaxdGWPA4i9Tms9W03lME6LgoxrQNbcmeKmydpB9E1tJB9rDdUlICXWgnLhDHTraCy6aTskw9zNCgqvx4AUTupVZ9KsyhaB_EMZDnv2T51LJMDRYRpIMx3jjaBc0SjhaxiUIXlMZQ3WAcb7IykaSZ_h75SfBlcRXBwkyJX6kpAxb4Uuv1V_nuOcJJPdbCzGcg2iC3124_UxgDIfPFxmZDRPqIIz2_KblcglGi28GVQI8_AH3HzfC2J8tBeh72MlKpooHStsD2ArQygOsg7-dUSxFFPW18OhtaxgVYOUB1uK8A0u5AJ8j6jh3WbOU4xt7SjkFBak_YhKXxR1l8L5xvr0yhWRdKfMWgFs1gd6pZK-w5DmvmxXDoCE43pR8eqeS0_S3lTL9FrjSAJcpgTgbeKk8xjZG1zDnZRQV8vEpXoBzKYoLzLBGqizsK85jnDLEY5PtRkM0FhTn4fwWdOrsqPl2hZMkAHMDrZz-6YkokPKnCU7CQgx5ky5LpqWi8LmIi_CXAKbDS5hAiOWi5np5dXU5ebr5ellNuIlSPMdJ8ktaLgJev5P_b4KoqXQoWpglCV4WlKzLrTE8TjnulHIfAoOVQSGhz46-xvRVdF5QhuOkUKIGiVNdEm3SEnQ2fSqUvgH_8piLt0nocrHkCkkJF6_alEQZcWcyciY86OHiVuOULNw2SUlHMsEFEwGXCpWJiIybRHiL2lJuFkucbLG2alMW9dNqSSXzdpnCoK8Atx9HcajO4EY9uMWbOh9WoSFKuG182aSCLEupbeyqTYmrooy7xVXZpqRfNMSrNrZsUkFeB-xtAuvmLAXuKlG6TOg4Trhj2pLs5ywVyg5WZA2gQvAO7JB0elsE79mc5nWPCiXYJbJCVezsnrpdiVeisNFiE29RWovI25uookVt18c7O7ZqUxJLK-tsmbJmjwqpOrppEpFtimKoQv-WCGSb0krqzK-1iKpRaaMIkzt-yWKyay22O3-YoEgIfod58ZD_dyCzzuuUaF0luHje2i1VWy86y8s92F8gFY3Z6seI8P32YxT4tvsxCjyGWyhhP-6EIY97g48N5jqy3B54Ros346-j0DdTkLHym9FFKK9s-kFjecLSZfvXXT9Ga8rK9AJYsn9XbBZ1YFYKtkOdlnSUgxYq9391bLBr2mTHjxMCN36tGi_2Ulons9cUJ_wsOkt-jOD2uYmCCHpp8WJkucQpqandD4nS-7mXsQKIiuzrghc9ix-aJbjvxapB5_SkTudOJ1kaxTMNy4sb4mVKGU_IxHjrFjGAbKzzuQAkQXFaz0CmdxdxwU9QLq8feEh4nzZc2148frIa89meU8rjSGAsKHWyGoLKk5O34An2iBCeVzGHIk7mkI3U0f8APBm2D8L7AgIXueaqe5lVUr6-H_MZEvtgxUcTyelWsr0f6xHn9D7_ksa_lvQQhfWsK92WFAGxYOOQaQicwYrNszz9BAzWblLtaU61u00wqErnfjbHCw38cpZPYHskdIGLYSQMHg7TQssi7YIW4HmmMAuai4aPOC-fITnUpvM8Tukguub4N_ysnWczkCqekfJ5GPZ_ApdxGv87XmbFfxSwwnAepziPy8V5Akn7P_HrIHrW5YryFV3DMp6zHE_jBLRFu8ZJokznJgW-JCWhmvEJ-BRrkzwrCn44niWMDmbShpz5KY9xrn2FXQPW6hYUA-e4pvMAy6XzLCE0r7DF9pry0kWX_u3CT8MsD-dDEOZgoQbAb8xNluflkp98TPIVEJi1doi-lwIY1XNg5xV0neeZMNg1pt-PSOgiS6-yfLEz3T2jUW5s6nyqRvB0xzyAIgrPdYGsxltfvNiPVqd_Ndqh6fF6_fZQvmMrYD00WWcqIGxPzT44t8YNxTWSAs4O61QG4odS3ygW1ye2hWwcIlCdZkFo8IjT5tDuQUxgSXuFBwdbp9hrHUTuIbbwc5_hYuZYg8TcPIxSFrO45NvYIMYh-PrwZ_iC1qiDVrVzQKW8tPZp55CZVmXkjR7tGWoTQEzKHLI_1i4nbUyVEo2LGMJ-TmW8WGRcoETJOHcQ-Ah_MKFvocGzvpSSdbA1DFtGajxmeyuBmOd34vwgfJ5kZcqmNIkaRPaIr4hncXIfiTx6xzdVycTJOrqXOYF44483i2WWM41-5_894JytapcusocbRhdFlTLw5yph0Ip59spL8TXrIRutA9myoPL2JBi3ZZYKjDROZJLBaTTzCwg9Y7b6oN2NP95MRvdLDBGEdgfReSmCP6yJWgsPcIA_2reY0JGMU7Wbiw-aQawwIl4UEuLrtk08A2HDCR0cmbaOie3SgJLIj3TTsCNkWYEdBBY1fcNEkY99NBLTEebgg2aN_qvEiZiNPhJtj_RX3gwsSuIQklveYdn_psVpmFMMwtbGCy4qrbqnQsnIMJvdVb1DyO0uI8JUV6vXcv7CT2fXkm1BGLsQpyd8um02Gm02Po4fL0cXOZ5B3vgIsc5oClPn4RhM5onrhyb36EgGCR80W2_ykxDbxya2XIOagR_4Fg2QS2zPNCLLMm3LCAxsYAQsxRi5oe-bURAGNKKW7iLfC1X4qTf5iUYfYZWs0MQ5D8wfxwWt5_jOsDWWaXKqI-S2GC8b3yGPgyxkmq_xQuDoncObpgy0csbmo3eAB-_cJmjSnHLvB1CieW1pm32_j7i2IMyDENZBCPsghHMQwlVTLLNDsa7xSxZq5zilo3tIgcDaYojoFwuaN5XIsy1Pd7FDkIOo51nE9yKDBAjrUWjboDMBIp5u6Q7WXdt2PTMIsY24qkWe6UdWS4lcJSWaYDA6hWaipopwi66Jskq5HFlWs6v2kpp0k6MxIYVmcH2wNB44ttoRb_cbmlJ1tg2BOHHVhBP9S-lPl-ytDtk_4DiVop8uwFdxPlzviB45kUexo9uGBxLFuuVSNwqQaVm27VGTWI6uI9enoRGEuuli5KNQt7FuBp5pOrhtP_xu0Ttb9lg_KFiLC9CVFmBHsNauYN8hX9id6qBYk1feaiVrW_iWkrU0QpDV5MWa_2MWpUtn7MP-nFvn_f7c9yPbxREihg2GgNjwFriu5YdURyTQfY_aHiGWG4bIx4ZrmqBaPol0cOjg7Z3gLf7c2u_P7T_WnzttNn6-f7wb347GPJiDyZUJZU1-uYaph64R4cizkAc8skM3tJBlWJhEnk2jyES6ayAHOy6yYINhnzquH3mRTZGvW1v7bcMkr21f3yGr5VNV1t-1OrfDsNSlFYhYPlG6HD2WBQNWS-dCk8U6VDH85tItXfdR4ILQISpBOlgPQsyIUNuHdfoU4hKDkoC4vhuZRmAb2Aldz4Nm4gdOFBAVVTHaqtJjF94h1IxBeNQ6Qi2rJNfLlV6G0xEoGakjkO3ABB07cqeIG9BUnkNpS5B_IaLqv7x38bosxRhSGBBszuNWboqBV5ffgfHiSmNT7mYAbgXZuuGDoIkJBkEnFoksFBKIT13TIpSCGni6DXFs6ISQDgQhCiwbW1EYOUZL7k5_SNH0EFteRSiB8PcFCF9Em1WFpFYJ1DIqIo9pSZPfyvrD5NglA79LBrc4BC7zVOExK2dzsQVfwNrVG9ByW7mCTXXIv4IocgJsUYP6iLqe65oUh75DwBCZZhja1KIRdkMUIWT6nhvYrk1NJ_C9liBshTBP30oI3mqEkN5hhYAmSJYQEM5XSEFGUwbZ00q7ixnbMADZreQTG6ZN9NCLXB951NdDw4_AvILvClxeIQvAwpqOFzqwaBLYugc9RmQ4puk5lk0Hx7l6QynNfUq5CWdNaV7Irt4KTl7Q75Abwqj_UmVEqEMgX2Nu8q55gHBV5tpDwrdMLQjPa5kEww4MYpu6j93I8HWdYBxQyw8iG4WgmSZ1QkxoGIH6QbJqBdBvedTzPcd1IYzo10T5VT-wfgpuKaXgjzMIgHtjiXeG0dDPnsTTOLb_HPZ9SxSbg1-NxSyh4nIQLhO2v6Lz0-k0yQATKNxIL8EfH4Ivj7f8vrGsUEk8bV0Ja6GYe1G06SteduIZ-_CMThR9L0r_UG4n3jVEJ5R1IoBKd2GcZ2SlNe-2baN1T_BjAtFo0Ynh94yTsW54pxNeRpadCF4ngvDRaACPBYIxFMEcgHBOk_YKZNFyfWliL7K4vbW1oOH4xg_imwr4die-zKpU5o_24A-Rz3iHX4fhh9C_pcMUjMMbTcNWl7pFyM2fPmeMis8aeGv9cipK3tp0nr2OyQs30E9ZlhTrY228XNJ0c5OH0AICPFxdUq2O2E9F8bKuklcfLrDqiwxhQj_Sxa38uZg0g0Cj_mC92V95HWlYRXkdVgRZBnRtZiOq7uWSl-qhnV-Zh77x7S30yKbifHXxMK1l3mq84jXV9o9hyGtG1Xxbt35Eo0ZTfr9nc-8oDfmp_k1aff9TzTUBZ5twQfDfwRlveFB1b7WK20gN9_HTKcxQC2USWDOJ41VNfPjqHTJzwVQ5LTCKAU5QPblmo9FuXC9gJhXojjJMMMNSNU5g_BMxNXiQlWd5kan-hR8kVYx_d8ivam4K1Efar7XQQCfFxy6cfIOG_OSHf9QjPsjZ6q21W47-Z2C8_seyvVjz_SaNaJ7iZMK_9a34bjb5XgNoAqKT7w0aHXyve8UQ_2uMR38ttp9DOFvMMWM072Z7C6CT6w2IDq438U_-PPsdOLC2ovxDpZCJm0GvkO52b3sJpDWgulWwTasapEsbOwH_3yCsNZPfbIEIcJrgRbdmVgCahOiURoNGhwiaI_yr-K4VENg0chbw2GUeQjTDOfLB-NA4yX2v9Rzlvs2NimcVATYA_zp-tHqsQ0AZn_HHp5zSOk4T86juPvOX5m8DVnGmbIGocCXuNIL74B3V7wFW6ZR8bnQ7XOL8pumq-hhNBKkZ4bGa6ZvOe9tF-nvTtG3nvWUix3pv2aZjvrcc07DfWy5y7fe2bbnme9uzDe-oqgvgfDVuT1CIhsGKGj8zWB3DnEJsLPViztiy-HBy8vr6erzEbJ5F9Huc0OMwW5wsgRBw4mfB8p85pZMx_Duf_WM8Gfuzq2fn4upTHBZP97pP4u_2J957diaZXY9wWhVJKiHwS_F5TGSkDe_rj-nqDoh5v3-W3OAbiq2fC5bXz7VAW8RAjiAlIVAuxlqc_Hvg6rPmKcsFof67Kb9lWR2Jm_Ltv4Wg-dM_qruLpyc7vx75P4S4Rdw=",
+    "items": [
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [
+            {
+              "name": "Grants Skill",
+              "values": [
+                [
+                  "Raise Shield",
+                  25
+                ]
+              ],
+              "displayMode": 0,
+              "icon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvQnJ1dGVTaGllbGRCbG9jayIsInJlYWxtIjoicG9lMiJ9XQ/117cb43abb/BruteShieldBlock.png"
+            }
+          ],
+          "runeMods": [],
+          "sockets": [],
+          "socketedItems": [
+            {
+              "socket": 0,
+              "doubleCorrupted": false,
+              "desecrated": false,
+              "desecratedMods": [],
+              "bondedMods": [],
+              "grantedSkills": [],
+              "runeMods": [],
+              "sockets": [
+                {
+                  "group": 0,
+                  "attr": null,
+                  "sColour": null,
+                  "type": "gem"
+                },
+                {
+                  "group": 1,
+                  "attr": null,
+                  "sColour": null,
+                  "type": "gem"
+                }
+              ],
+              "socketedItems": [],
+              "support": false,
+              "gemTabs": [
+                {
+                  "name": "Raise Shield",
+                  "pages": [
+                    {
+                      "skillName": "Raise Shield",
+                      "description": null,
+                      "properties": null,
+                      "stats": [
+                        "Shield Bash causes 600% more [HeavyStun|Heavy Stun] buildup",
+                        "Shield Bash always [LightStun|Light Stuns]\nShield Bash [Daze|Dazes] if holding a Tower Shield",
+                        "Shield Bash can't be [Evasion|Evaded]",
+                        "Shield Bash deals 3 to 4 [Physical|Physical] Damage per 5 [Armour|Armour] on [Shield|Shield]"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "gemSkill": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvQnJ1dGVTaGllbGRCbG9jayIsInJlYWxtIjoicG9lMiJ9XQ/117cb43abb/BruteShieldBlock.png",
+              "gemBackground": null,
+              "weaponRequirements": [
+                {
+                  "name": "",
+                  "values": [
+                    [
+                      "[ArmouredShield|Armoured Shield]",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": 96,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "supportGemRequirements": null,
+              "gemSockets": [
+                "W",
+                "W"
+              ],
+              "iconTierText": null,
+              "qualityProperty": null,
+              "id": null,
+              "inventoryId": null,
+              "name": "",
+              "frameTypeId": "Gem",
+              "frameType": 4,
+              "ilvl": 0,
+              "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvQmxhbmtHZW0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/250ec3ed08/BlankGem.png",
+              "w": 1,
+              "h": 1,
+              "x": null,
+              "y": null,
+              "note": null,
+              "typeLine": "Raise Shield",
+              "baseType": "Raise Shield",
+              "identified": true,
+              "corrupted": false,
+              "fractured": false,
+              "synthesised": false,
+              "duplicated": false,
+              "mods": null,
+              "implicitMods": [],
+              "explicitMods": [],
+              "mutatedMods": [],
+              "mutated": false,
+              "scourgeMods": [],
+              "crucibleMods": [],
+              "fracturedMods": [],
+              "craftedMods": [],
+              "enchantMods": [],
+              "utilityMods": [],
+              "properties": [
+                {
+                  "name": "[Attack], [AoESkill|AoE], [Melee], [Physical], [Channelling]",
+                  "values": [],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Cost",
+                  "values": [
+                    [
+                      "0 Mana, 0 Mana per second",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Attack Time",
+                  "values": [
+                    [
+                      "0.55s",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "[Critical|Critical Hit] Chance",
+                  "values": [
+                    [
+                      "5.00%",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                },
+                {
+                  "name": "Attack Damage",
+                  "values": [
+                    [
+                      "80%",
+                      0
+                    ]
+                  ],
+                  "displayMode": 0,
+                  "progress": null,
+                  "type": null,
+                  "suffix": null,
+                  "icon": null
+                }
+              ],
+              "additionalProperties": [],
+              "requirements": [],
+              "extended": null,
+              "league": "HC Forbidden Rites",
+              "artFilename": null,
+              "flavourText": null,
+              "descrText": "Skills can be managed in the Skills Panel.",
+              "secDescrText": "Raise your [Shield] to [Block] all incoming [Block|Blockable] hits. Release immediately after [Block|Blocking] when an enemy is close to perform a Shield Bash, damaging and [Stun|Stunning] enemies. While your [Shield] is raised you cannot be [LightStun|Light Stunned] by hits you [Block], but [Block|Blocking] too much damage may [HeavyStunPlayer|Heavy Stun] you. You cannot [Evasion|Evade] while your [Shield] is raised, but [Evasion] instead grants an equal chance to avoid this [HeavyStunPlayer|Heavy Stun] buildup.",
+              "prophecyText": null,
+              "replica": false,
+              "stackSize": null,
+              "realm": "poe2",
+              "verified": false
+            }
+          ],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "dd59a3a472e3b9b94eb17d5832f443542b2a2a1df9aa17c993fbcbefe407198c",
+          "inventoryId": "Offhand",
+          "name": "Dragon Rock",
+          "frameTypeId": "Rare",
+          "frameType": 2,
+          "ilvl": 4,
+          "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1Rvd2VyMDEiLCJ3IjoyLCJoIjo0LCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/7aa530b23a/Tower01.png",
+          "w": 2,
+          "h": 4,
+          "x": 0,
+          "y": 0,
+          "note": null,
+          "typeLine": "Splintered Tower Shield",
+          "baseType": "Splintered Tower Shield",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "explicit": [
+              {
+                "id": "IncreasedLife1",
+                "stats": {
+                  "base_maximum_life": 18
+                }
+              },
+              {
+                "id": "LocalIncreasedPhysicalDamageReductionRatingPercent1",
+                "stats": {
+                  "local_physical_damage_reduction_rating_+%": 17
+                }
+              },
+              {
+                "id": "Strength1",
+                "stats": {
+                  "additional_strength": 6
+                }
+              },
+              {
+                "id": "LightningResist1",
+                "stats": {
+                  "base_lightning_damage_resistance_%": 6
+                }
+              },
+              {
+                "id": "LocalIncreasedPhysicalDamageReductionRating1",
+                "stats": {
+                  "local_base_physical_damage_reduction_rating": 25
+                }
+              },
+              {
+                "id": "FireResist1",
+                "stats": {
+                  "base_fire_damage_resistance_%": 7
+                }
+              }
+            ]
+          },
+          "implicitMods": [],
+          "explicitMods": [
+            "+25 to [Armour|Armour]",
+            "17% increased [Armour|Armour]",
+            "+18 to maximum Life",
+            "+6 to [Strength|Strength]",
+            "+7% to [Resistances|Fire Resistance]",
+            "+6% to [Resistances|Lightning Resistance]"
+          ],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "[Shield]",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Block] chance",
+              "values": [
+                [
+                  "26%",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 15,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Armour]",
+              "values": [
+                [
+                  "50",
+                  1
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 16,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": null,
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Rare"
+        },
+        "itemSlot": 6
+      },
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [],
+          "runeMods": [],
+          "sockets": [],
+          "socketedItems": [],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "854807a6d161e884d98f2db1a0fc55993b1d80406a0755783bca514eb1f839f4",
+          "inventoryId": "Weapon2",
+          "name": "Havoc Bane",
+          "frameTypeId": "Rare",
+          "frameType": 2,
+          "ilvl": 7,
+          "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Ud29IYW5kTWFjZXMvQmFzZXR5cGVzLzJITWFjZTAyIiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/3ed2c526c1/2HMace02.png",
+          "w": 2,
+          "h": 4,
+          "x": 0,
+          "y": 0,
+          "note": null,
+          "typeLine": "Oak Greathammer",
+          "baseType": "Oak Greathammer",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "implicit": [
+              {
+                "id": "MaceImplicitStunDamageIncrease1",
+                "stats": {
+                  "local_hit_damage_stun_multiplier_+%": 31
+                }
+              }
+            ],
+            "explicit": [
+              {
+                "id": "LocalAddedColdDamageTwoHand1",
+                "stats": {
+                  "local_minimum_added_cold_damage": 2,
+                  "local_maximum_added_cold_damage": 4
+                }
+              },
+              {
+                "id": "LocalIncreasedPhysicalDamagePercent1",
+                "stats": {
+                  "local_physical_damage_+%": 44
+                }
+              },
+              {
+                "id": "LocalIncreasedAttackSpeed1",
+                "stats": {
+                  "local_attack_speed_+%": 5
+                }
+              },
+              {
+                "id": "LocalAddedLightningDamageTwoHand1_",
+                "stats": {
+                  "local_minimum_added_lightning_damage": 1,
+                  "local_maximum_added_lightning_damage": 9
+                }
+              }
+            ]
+          },
+          "implicitMods": [
+            "Causes 31% increased [Stun|Stun] Buildup"
+          ],
+          "explicitMods": [
+            "44% increased [Physical] Damage",
+            "Adds 2 to 4 [Cold|Cold] Damage",
+            "Adds 1 to 9 [Lightning|Lightning] Damage",
+            "5% increased [Attack] Speed"
+          ],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "[Mace|Two Hand Mace]",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Physical] Damage",
+              "values": [
+                [
+                  "23-43",
+                  1
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 9,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[ElementalDamage|Elemental] Damage",
+              "values": [
+                [
+                  "2-4",
+                  5
+                ],
+                [
+                  "1-9",
+                  6
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 10,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Critical|Critical Hit] Chance",
+              "values": [
+                [
+                  "5.00%",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 12,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "Attacks per Second",
+              "values": [
+                [
+                  "1.05",
+                  1
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 13,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [
+            {
+              "name": "[Strength|Strength]",
+              "values": [
+                [
+                  "11",
+                  0
+                ]
+              ],
+              "displayMode": 1,
+              "progress": null,
+              "type": 63,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": null,
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Rare"
+        },
+        "itemSlot": 15
+      },
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [],
+          "runeMods": [],
+          "sockets": [],
+          "socketedItems": [],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "16f8ea60528514a047e7fb1344558e3d4600179ec2bc037a191c05a03b8336ac",
+          "inventoryId": "Weapon",
+          "name": "Pain Bane",
+          "frameTypeId": "Rare",
+          "frameType": 2,
+          "ilvl": 9,
+          "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kTWFjZXMvQmFzZXR5cGVzLzFITWFjZTAyIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/7a5fb1add8/1HMace02.png",
+          "w": 2,
+          "h": 3,
+          "x": 0,
+          "y": 0,
+          "note": null,
+          "typeLine": "Smithing Hammer",
+          "baseType": "Smithing Hammer",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "implicit": [
+              {
+                "id": "MaceImplicitFireDamage1",
+                "stats": {
+                  "local_weapon_implicit_hidden_%_base_damage_is_fire": 50
+                }
+              }
+            ],
+            "explicit": [
+              {
+                "id": "StunDamageIncrease1",
+                "stats": {
+                  "local_hit_damage_stun_multiplier_+%": 23
+                }
+              },
+              {
+                "id": "LocalAddedFireDamage2",
+                "stats": {
+                  "local_minimum_added_fire_damage": 4,
+                  "local_maximum_added_fire_damage": 7
+                }
+              },
+              {
+                "id": "LocalAddedLightningDamage1",
+                "stats": {
+                  "local_minimum_added_lightning_damage": 1,
+                  "local_maximum_added_lightning_damage": 4
+                }
+              },
+              {
+                "id": "LocalIncreasedPhysicalDamagePercent1",
+                "stats": {
+                  "local_physical_damage_+%": 40
+                }
+              },
+              {
+                "id": "LocalLightRadiusAndAccuracy1",
+                "stats": {
+                  "light_radius_+%": 5,
+                  "local_accuracy_rating": 19
+                }
+              }
+            ]
+          },
+          "implicitMods": [],
+          "explicitMods": [
+            "40% increased [Physical] Damage",
+            "Adds 4 to 7 [Fire|Fire] Damage",
+            "Adds 1 to 4 [Lightning|Lightning] Damage",
+            "+19 to [Accuracy|Accuracy] Rating",
+            "Causes 23% increased [Stun|Stun] Buildup",
+            "5% increased [LightRadius|Light Radius]"
+          ],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "[Mace|One Hand Mace]",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Physical] Damage",
+              "values": [
+                [
+                  "7-13",
+                  1
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 9,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[ElementalDamage|Elemental] Damage",
+              "values": [
+                [
+                  "9-16",
+                  4
+                ],
+                [
+                  "1-4",
+                  6
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 10,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Critical|Critical Hit] Chance",
+              "values": [
+                [
+                  "5.00%",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 12,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "Attacks per Second",
+              "values": [
+                [
+                  "1.45",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 13,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [
+            {
+              "name": "Level",
+              "values": [
+                [
+                  "6",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 62,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Strength|Str]",
+              "values": [
+                [
+                  "11",
+                  0
+                ]
+              ],
+              "displayMode": 1,
+              "progress": null,
+              "type": 63,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": null,
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Rare"
+        },
+        "itemSlot": 7
+      },
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [],
+          "runeMods": [],
+          "sockets": [],
+          "socketedItems": [],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "7230c72faf841801d5c7c41424adf85eff3107216a67146aca9e679f8f5e1904",
+          "inventoryId": "Amulet",
+          "name": "",
+          "frameTypeId": "Normal",
+          "frameType": 0,
+          "ilvl": 9,
+          "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9CYXNldHlwZXMvQW1iZXJBbXVsZXQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b2698b19ad/AmberAmulet.png",
+          "w": 1,
+          "h": 1,
+          "x": 0,
+          "y": 0,
+          "note": null,
+          "typeLine": "Amber Amulet",
+          "baseType": "Amber Amulet",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "implicit": [
+              {
+                "id": "AmuletImplicitStrength1",
+                "stats": {
+                  "additional_strength": 14
+                }
+              }
+            ]
+          },
+          "implicitMods": [
+            "+14 to [Strength|Strength]"
+          ],
+          "explicitMods": [],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "Amulet",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [
+            {
+              "name": "Level",
+              "values": [
+                [
+                  "8",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 62,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": null,
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Normal"
+        },
+        "itemSlot": 4
+      },
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [],
+          "runeMods": [],
+          "sockets": [],
+          "socketedItems": [],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "40091b756b42b1036add3fde5946a9efbc2edbd797f32b52a6c788fbcd9b6fbd",
+          "inventoryId": "Helm",
+          "name": "Corruption Keep",
+          "frameTypeId": "Rare",
+          "frameType": 2,
+          "ilvl": 4,
+          "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL0Jhc2V0eXBlcy9IZWxtZXRTdHIwMSIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/43e780c05c/HelmetStr01.png",
+          "w": 2,
+          "h": 2,
+          "x": 0,
+          "y": 0,
+          "note": null,
+          "typeLine": "Rusted Greathelm",
+          "baseType": "Rusted Greathelm",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "explicit": [
+              {
+                "id": "FireResist1",
+                "stats": {
+                  "base_fire_damage_resistance_%": 6
+                }
+              },
+              {
+                "id": "IncreasedAccuracy1",
+                "stats": {
+                  "accuracy_rating": 19
+                }
+              },
+              {
+                "id": "IncreasedMana1",
+                "stats": {
+                  "base_maximum_mana": 11
+                }
+              },
+              {
+                "id": "LifeRegeneration1",
+                "stats": {
+                  "base_life_regeneration_rate_per_minute": 97
+                }
+              },
+              {
+                "id": "ItemFoundRarityIncrease1",
+                "stats": {
+                  "base_item_found_rarity_+%": 10
+                }
+              }
+            ]
+          },
+          "implicitMods": [],
+          "explicitMods": [
+            "+19 to [Accuracy|Accuracy] Rating",
+            "+11 to maximum Mana",
+            "10% increased [ItemRarity|Rarity of Items] found",
+            "+6% to [Resistances|Fire Resistance]",
+            "1.6 Life Regeneration per second"
+          ],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "Helmet",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Armour]",
+              "values": [
+                [
+                  "29",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 16,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [
+            {
+              "name": "Level",
+              "values": [
+                [
+                  "2",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 62,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": null,
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Rare"
+        },
+        "itemSlot": 1
+      },
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [],
+          "runeMods": [],
+          "sockets": [],
+          "socketedItems": [],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "3ba0415029946d3e580d4df41cd542734deefde8053a4c6c26cbc1b45a4fcf62",
+          "inventoryId": "Ring",
+          "name": "",
+          "frameTypeId": "Magic",
+          "frameType": 1,
+          "ilvl": 6,
+          "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvQmFzZXR5cGVzL0lyb25SaW5nIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/155a44583e/IronRing.png",
+          "w": 1,
+          "h": 1,
+          "x": 0,
+          "y": 0,
+          "note": null,
+          "typeLine": "Agile Iron Ring of Excitement",
+          "baseType": "Iron Ring",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "implicit": [
+              {
+                "id": "RingImplicitPhysicalDamage1",
+                "stats": {
+                  "attack_minimum_added_physical_damage": 1,
+                  "attack_maximum_added_physical_damage": 4
+                }
+              }
+            ],
+            "explicit": [
+              {
+                "id": "ManaRegeneration1",
+                "stats": {
+                  "mana_regeneration_rate_+%": 14
+                }
+              },
+              {
+                "id": "IncreasedEvasionRating1",
+                "stats": {
+                  "base_evasion_rating": 16
+                }
+              }
+            ]
+          },
+          "implicitMods": [
+            "Adds 1 to 4 [Physical|Physical] Damage to [Attack|Attacks]"
+          ],
+          "explicitMods": [
+            "+16 to [Evasion] Rating",
+            "14% increased Mana Regeneration Rate"
+          ],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "Ring",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": null,
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Magic"
+        },
+        "itemSlot": 8
+      },
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [],
+          "runeMods": [],
+          "sockets": [],
+          "socketedItems": [],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "d5e02d4bff6ba4e2e91e78773eac96dc7c33cc5e4efa7c1f113987b575e36b98",
+          "inventoryId": "Boots",
+          "name": "",
+          "frameTypeId": "Magic",
+          "frameType": 1,
+          "ilvl": 5,
+          "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9CYXNldHlwZXMvQm9vdHNTdHIwMSIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/81d947fe49/BootsStr01.png",
+          "w": 2,
+          "h": 2,
+          "x": 0,
+          "y": 0,
+          "note": null,
+          "typeLine": "Lacquered Rough Greaves",
+          "baseType": "Rough Greaves",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "explicit": [
+              {
+                "id": "LocalIncreasedPhysicalDamageReductionRating1",
+                "stats": {
+                  "local_base_physical_damage_reduction_rating": 25
+                }
+              }
+            ]
+          },
+          "implicitMods": [],
+          "explicitMods": [
+            "+25 to [Armour|Armour]"
+          ],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "Boots",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Armour]",
+              "values": [
+                [
+                  "47",
+                  1
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 16,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": null,
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Magic"
+        },
+        "itemSlot": 5
+      },
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [],
+          "runeMods": [],
+          "sockets": [],
+          "socketedItems": [],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "2a235d0c8f7918e90c29fe67259b71175b904368c6b57db5082592f26338645e",
+          "inventoryId": "Gloves",
+          "name": "Armageddon Vise",
+          "frameTypeId": "Rare",
+          "frameType": 2,
+          "ilvl": 7,
+          "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvQmFzZXR5cGVzL0dsb3Zlc1N0cjAxIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9087556afe/GlovesStr01.png",
+          "w": 2,
+          "h": 2,
+          "x": 0,
+          "y": 0,
+          "note": null,
+          "typeLine": "Stocky Mitts",
+          "baseType": "Stocky Mitts",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "explicit": [
+              {
+                "id": "Dexterity1",
+                "stats": {
+                  "additional_dexterity": 5
+                }
+              },
+              {
+                "id": "AddedPhysicalDamage1",
+                "stats": {
+                  "attack_minimum_added_physical_damage": 1,
+                  "attack_maximum_added_physical_damage": 3
+                }
+              },
+              {
+                "id": "AddedFireDamage1",
+                "stats": {
+                  "attack_minimum_added_fire_damage": 2,
+                  "attack_maximum_added_fire_damage": 3
+                }
+              }
+            ]
+          },
+          "implicitMods": [],
+          "explicitMods": [
+            "Adds 1 to 3 [Physical|Physical] Damage to [Attack|Attacks]",
+            "Adds 2 to 3 [Fire] damage to [Attack|Attacks]",
+            "+5 to [Dexterity|Dexterity]"
+          ],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "Gloves",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Armour]",
+              "values": [
+                [
+                  "15",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 16,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": null,
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Rare"
+        },
+        "itemSlot": 2
+      },
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [],
+          "runeMods": [],
+          "sockets": [
+            {
+              "group": 0,
+              "attr": null,
+              "sColour": null,
+              "type": "rune"
+            }
+          ],
+          "socketedItems": [],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "325b2d5309a7f2900daabe49bf51c4e23e6cadecf87bbef4bdaa48e898677a27",
+          "inventoryId": "BodyArmour",
+          "name": "Viper Hide",
+          "frameTypeId": "Rare",
+          "frameType": 2,
+          "ilvl": 5,
+          "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9CYXNldHlwZXMvQm9keVN0cjAyIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/7996e5d86a/BodyStr02.png",
+          "w": 2,
+          "h": 3,
+          "x": 0,
+          "y": 0,
+          "note": null,
+          "typeLine": "Fur Plate",
+          "baseType": "Fur Plate",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "explicit": [
+              {
+                "id": "LocalIncreasedPhysicalDamageReductionRating1",
+                "stats": {
+                  "local_base_physical_damage_reduction_rating": 22
+                }
+              },
+              {
+                "id": "LifeRegeneration2",
+                "stats": {
+                  "base_life_regeneration_rate_per_minute": 151
+                }
+              },
+              {
+                "id": "FireResist1",
+                "stats": {
+                  "base_fire_damage_resistance_%": 7
+                }
+              }
+            ]
+          },
+          "implicitMods": [],
+          "explicitMods": [
+            "+22 to [Armour|Armour]",
+            "+7% to [Resistances|Fire Resistance]",
+            "2.5 Life Regeneration per second"
+          ],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "Body Armour",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Armour]",
+              "values": [
+                [
+                  "88",
+                  1
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 16,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [
+            {
+              "name": "Level",
+              "values": [
+                [
+                  "4",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 62,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "[Strength|Str]",
+              "values": [
+                [
+                  "10",
+                  0
+                ]
+              ],
+              "displayMode": 1,
+              "progress": null,
+              "type": 63,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": null,
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Rare"
+        },
+        "itemSlot": 3
+      }
+    ],
+    "keystones": [],
+    "flasks": [
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [],
+          "runeMods": [],
+          "sockets": [],
+          "socketedItems": [],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "2d4cfd8fcdd9055d821a26c6af350ad57ebedf9f0325f144b5bb4e39231f9a91",
+          "inventoryId": "Flask",
+          "name": "",
+          "frameTypeId": "Magic",
+          "frameType": 1,
+          "ilvl": 4,
+          "icon": "https://web.poecdn.com/gen/image/WzksMTQseyJmIjoiMkRJdGVtcy9GbGFza3MvQmFzZXR5cGVzL0ZsYXNrTWFuYTAyIiwidyI6MSwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiIsImxldmVsIjoxfV0/7c487e3724/FlaskMana02.png",
+          "w": 1,
+          "h": 2,
+          "x": 1,
+          "y": 0,
+          "note": null,
+          "typeLine": "Opaque Medium Mana Flask of the Wide",
+          "baseType": "Medium Mana Flask",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "explicit": [
+              {
+                "id": "FlaskIncreasedRecoveryAmount1",
+                "stats": {
+                  "local_flask_amount_to_recover_+%": 45
+                }
+              },
+              {
+                "id": "FlaskExtraCharges1",
+                "stats": {
+                  "local_max_charges_+%": 23
+                }
+              }
+            ]
+          },
+          "implicitMods": [],
+          "explicitMods": [
+            "45% increased Amount Recovered",
+            "23% increased Charges"
+          ],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "[Flask]",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "Recovers {0} Mana over {1} Seconds",
+              "values": [
+                [
+                  "102",
+                  1
+                ],
+                [
+                  "3",
+                  0
+                ]
+              ],
+              "displayMode": 3,
+              "progress": null,
+              "type": null,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "Consumes {0} of {1} Charges on use",
+              "values": [
+                [
+                  "10",
+                  0
+                ],
+                [
+                  "79",
+                  1
+                ]
+              ],
+              "displayMode": 3,
+              "progress": null,
+              "type": null,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "Currently has {0} Charges",
+              "values": [
+                [
+                  "79",
+                  0
+                ]
+              ],
+              "displayMode": 3,
+              "progress": null,
+              "type": null,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [
+            {
+              "name": "Level",
+              "values": [
+                [
+                  "4",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 62,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": "Right click to drink. Can only hold charges while in belt. Refill at [Wells|Wells] or by killing monsters.",
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Magic"
+        },
+        "itemSlot": 14
+      },
+      {
+        "itemData": {
+          "doubleCorrupted": false,
+          "desecrated": false,
+          "desecratedMods": [],
+          "bondedMods": [],
+          "grantedSkills": [],
+          "runeMods": [],
+          "sockets": [],
+          "socketedItems": [],
+          "support": false,
+          "gemTabs": null,
+          "gemSkill": null,
+          "gemBackground": null,
+          "weaponRequirements": null,
+          "supportGemRequirements": null,
+          "gemSockets": null,
+          "iconTierText": null,
+          "qualityProperty": null,
+          "id": "99f57af1d259f4d5f57b7749ce01db098e58dd47cc19a27331349df0923ad56b",
+          "inventoryId": "Flask",
+          "name": "",
+          "frameTypeId": "Magic",
+          "frameType": 1,
+          "ilvl": 4,
+          "icon": "https://web.poecdn.com/gen/image/WzksMTQseyJmIjoiMkRJdGVtcy9GbGFza3MvQmFzZXR5cGVzL0ZsYXNrTGlmZTAyIiwidyI6MSwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiIsImxldmVsIjoxfV0/5dc1749207/FlaskLife02.png",
+          "w": 1,
+          "h": 2,
+          "x": 0,
+          "y": 0,
+          "note": null,
+          "typeLine": "Opaque Medium Life Flask of the Wide",
+          "baseType": "Medium Life Flask",
+          "identified": true,
+          "corrupted": false,
+          "fractured": false,
+          "synthesised": false,
+          "duplicated": false,
+          "mods": {
+            "explicit": [
+              {
+                "id": "FlaskIncreasedRecoveryAmount1",
+                "stats": {
+                  "local_flask_amount_to_recover_+%": 44
+                }
+              },
+              {
+                "id": "FlaskExtraCharges1",
+                "stats": {
+                  "local_max_charges_+%": 25
+                }
+              }
+            ]
+          },
+          "implicitMods": [],
+          "explicitMods": [
+            "44% increased Amount Recovered",
+            "25% increased Charges"
+          ],
+          "mutatedMods": [],
+          "mutated": false,
+          "scourgeMods": [],
+          "crucibleMods": [],
+          "fracturedMods": [],
+          "craftedMods": [],
+          "enchantMods": [],
+          "utilityMods": [],
+          "properties": [
+            {
+              "name": "[Flask]",
+              "values": [],
+              "displayMode": 0,
+              "progress": null,
+              "type": 109,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "Recovers {0} Life over {1} Seconds",
+              "values": [
+                [
+                  "130",
+                  1
+                ],
+                [
+                  "5",
+                  0
+                ]
+              ],
+              "displayMode": 3,
+              "progress": null,
+              "type": null,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "Consumes {0} of {1} Charges on use",
+              "values": [
+                [
+                  "10",
+                  0
+                ],
+                [
+                  "81",
+                  1
+                ]
+              ],
+              "displayMode": 3,
+              "progress": null,
+              "type": null,
+              "suffix": null,
+              "icon": null
+            },
+            {
+              "name": "Currently has {0} Charges",
+              "values": [
+                [
+                  "81",
+                  0
+                ]
+              ],
+              "displayMode": 3,
+              "progress": null,
+              "type": null,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "additionalProperties": [],
+          "requirements": [
+            {
+              "name": "Level",
+              "values": [
+                [
+                  "4",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "progress": null,
+              "type": 62,
+              "suffix": null,
+              "icon": null
+            }
+          ],
+          "extended": null,
+          "league": "HC Forbidden Rites",
+          "artFilename": null,
+          "flavourText": null,
+          "descrText": "Right click to drink. Can only hold charges while in belt. Refill at [Wells|Wells] or by killing monsters.",
+          "secDescrText": null,
+          "prophecyText": null,
+          "replica": false,
+          "stackSize": null,
+          "realm": "poe2",
+          "verified": false,
+          "rarity": "Magic"
+        },
+        "itemSlot": 14
+      }
+    ],
+    "jewels": [],
+    "passiveSelection": [
+      3936,
+      5710,
+      33556,
+      43164,
+      45363,
+      46325,
+      55473,
+      58528
+    ],
+    "passiveSelectionSet1": [],
+    "passiveSelectionSet2": [],
+    "passiveCounts": {
+      "passives": 8,
+      "anoints": 0,
+      "ascendancy": 0,
+      "bonusPassives": 0
+    },
+    "passiveTreeName": "PassiveTree-0.5",
+    "lastSeenUtc": null,
+    "updatedUtc": "2026-09-07T04:44:59.56994Z",
+    "lastCheckedUtc": "2026-09-07T04:59:51.337205Z",
+    "status": 3,
+    "baseClass": 2,
+    "useSecondWeaponSet": false,
+    "enableBondedMods": false,
+    "questStats": [
+      "+10% to [Resistances|Cold Resistance]",
+      "9 [BrokenFace|Broken Boss Faces]"
+    ]
+  }
+}

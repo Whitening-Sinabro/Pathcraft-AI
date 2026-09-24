@@ -1,0 +1,1733 @@
+[
+  {
+    "id": "w2-ice",
+    "family_id": "ice-shot",
+    "family_name": "Ice Shot",
+    "variant": "Fubgun campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": "w2-s01: title/overview states 0.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Fubgun",
+    "url": "https://mobalytics.gg/poe-2/profile/fubgun/builds/0-5-ice-shot-deadeye-leveling-guide",
+    "published_at": null,
+    "updated_at": "2026-09-12",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 6900,
+      "rank": null,
+      "scope": "Rounded K display converted to approximate count; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s01"
+    },
+    "class": "Ranger",
+    "ascendancy": "Deadeye",
+    "main_skills": [
+      "Lightning Arrow",
+      "Lightning Rod",
+      "Ice Shot"
+    ],
+    "damage_structure": "Bow attacks; elemental damage",
+    "defense_structure": "Evasion, life, resistances",
+    "skills": [
+      {
+        "name": "Lightning Arrow",
+        "supports": [
+          "Rapid Attacks I",
+          "Elemental Armament I"
+        ],
+        "source_id": "w2-s01",
+        "locator": "Build Overview; Equipment lines 113-117, 240-255"
+      },
+      {
+        "name": "Lightning Rod",
+        "supports": [],
+        "source_id": "w2-s01",
+        "locator": "Build Overview; Equipment lines 113-117, 240-255"
+      },
+      {
+        "name": "Ice Shot",
+        "supports": [],
+        "source_id": "w2-s01",
+        "locator": "Build Overview; Equipment lines 113-117, 240-255"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Recurve Bow",
+        "role": "example",
+        "condition": "Level 16, six modifiers and two sockets",
+        "source_id": "w2-s01",
+        "locator": "Build Overview; Equipment lines 113-117, 240-255"
+      }
+    ],
+    "resource_constraints": [
+      "Save crafting currency for level-16 bow."
+    ],
+    "stages": [
+      {
+        "name": "Level 31",
+        "conditions": "Level 31",
+        "skills": [
+          "Ice Shot"
+        ],
+        "gear": [],
+        "transition": "Replace Lightning Arrow/Rod after unlock",
+        "source_id": "w2-s01",
+        "locator": "Build Overview; Equipment lines 113-117, 240-255"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded.",
+      "Historical title/body and current 0.5.5 tag differ; no automatic patch normalization."
+    ],
+    "patch_sensitive_dependencies": [
+      "Bow attacks; elemental damage"
+    ],
+    "claims": [
+      {
+        "id": "w2-ice-claim1",
+        "text": "Start with lightning bow skills; switch at level 31 when Ice Shot unlocks; use endgame guide after campaign.",
+        "kind": "creator_claim",
+        "source_id": "w2-s01",
+        "locator": "Build Overview; Equipment lines 113-117, 240-255"
+      }
+    ],
+    "source_ids": [
+      "w2-s01"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-arc",
+    "family_id": "arc-fusillade",
+    "family_name": "Arc and Ember Fusillade",
+    "variant": "Spud the King campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": "w2-s02: title/overview states 0.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Spud the King",
+    "url": "https://mobalytics.gg/poe-2/profile/spud-the-king-nksem3/builds/sorceress-leveling-0-5-league-starter",
+    "published_at": null,
+    "updated_at": "2026-05-29",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 115,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s02"
+    },
+    "class": "Sorceress",
+    "ascendancy": "Stormweaver",
+    "main_skills": [
+      "Arc",
+      "Ember Fusillade",
+      "Orb of Storms"
+    ],
+    "damage_structure": "Lightning infusion and exposure",
+    "defense_structure": "Arctic Armour; creator calls build squishy",
+    "skills": [
+      {
+        "name": "Arc",
+        "supports": [
+          "Unleash",
+          "Rapid Casting"
+        ],
+        "source_id": "w2-s02",
+        "locator": "How it Plays lines 514-522"
+      },
+      {
+        "name": "Ember Fusillade",
+        "supports": [],
+        "source_id": "w2-s02",
+        "locator": "How it Plays lines 514-522"
+      },
+      {
+        "name": "Orb of Storms",
+        "supports": [],
+        "source_id": "w2-s02",
+        "locator": "How it Plays lines 514-522"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Weapon with all spell levels",
+        "role": "required",
+        "condition": "Creator lists all-skills weapon as needed",
+        "source_id": "w2-s02",
+        "locator": "How it Plays lines 514-522"
+      }
+    ],
+    "resource_constraints": [
+      "Two passive weapon sets can share one weapon."
+    ],
+    "stages": [
+      {
+        "name": "Act 2",
+        "conditions": "Act 2",
+        "skills": [
+          "Arc"
+        ],
+        "gear": [],
+        "transition": "Replace Essence Drain and Contagion",
+        "source_id": "w2-s02",
+        "locator": "How it Plays lines 514-522"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded.",
+      "Historical title/body and current 0.5.5 tag differ; no automatic patch normalization."
+    ],
+    "patch_sensitive_dependencies": [
+      "Lightning infusion and exposure"
+    ],
+    "claims": [
+      {
+        "id": "w2-arc-claim1",
+        "text": "ED/Contagion lasts through Act 1; Act 2 replaces it with Arc clear. Frost Bomb and Elemental Weakness use a resistance-focused weapon set.",
+        "kind": "creator_claim",
+        "source_id": "w2-s02",
+        "locator": "How it Plays lines 514-522"
+      }
+    ],
+    "source_ids": [
+      "w2-s02"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-grenade",
+    "family_id": "grenades",
+    "family_name": "Grenades",
+    "variant": "GuyThatDies campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": "w2-s03: title/overview states 0.5.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "GuyThatDies",
+    "url": "https://mobalytics.gg/poe-2/profile/guythatdies/builds/0-4-mercenary-grenades-leaguestarter",
+    "published_at": null,
+    "updated_at": "2026-09-06",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 831,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s03"
+    },
+    "class": "Mercenary",
+    "ascendancy": null,
+    "main_skills": [
+      "Explosive Grenade",
+      "Flash Grenade",
+      "Gas Grenade"
+    ],
+    "damage_structure": "Attack grenades, flat damage",
+    "defense_structure": "Life, armour, resistances",
+    "skills": [
+      {
+        "name": "Explosive Grenade",
+        "supports": [
+          "Multishot I",
+          "Elemental Armament I"
+        ],
+        "source_id": "w2-s03",
+        "locator": "Build Variants; Equipment; Skill Gems lines 114-122,190-202,272-279"
+      },
+      {
+        "name": "Flash Grenade",
+        "supports": [],
+        "source_id": "w2-s03",
+        "locator": "Build Variants; Equipment; Skill Gems lines 114-122,190-202,272-279"
+      },
+      {
+        "name": "Gas Grenade",
+        "supports": [],
+        "source_id": "w2-s03",
+        "locator": "Build Variants; Equipment; Skill Gems lines 114-122,190-202,272-279"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Varnished Crossbow",
+        "role": "example",
+        "condition": "Level 16",
+        "source_id": "w2-s03",
+        "locator": "Build Variants; Equipment; Skill Gems lines 114-122,190-202,272-279"
+      }
+    ],
+    "resource_constraints": [
+      "Save Regals, Alchemy, runes and Exalts until Act 2."
+    ],
+    "stages": [
+      {
+        "name": "Level 14 before Geonor",
+        "conditions": "Level 14 before Geonor",
+        "skills": [
+          "Gas Grenade"
+        ],
+        "gear": [],
+        "transition": "Add newly unlocked grenade",
+        "source_id": "w2-s03",
+        "locator": "Build Variants; Equipment; Skill Gems lines 114-122,190-202,272-279"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded."
+    ],
+    "patch_sensitive_dependencies": [
+      "Attack grenades, flat damage"
+    ],
+    "claims": [
+      {
+        "id": "w2-grenade-claim1",
+        "text": "Target level 14 before Geonor to unlock Gas Grenade; reserve currency for a level-16 crossbow.",
+        "kind": "creator_claim",
+        "source_id": "w2-s03",
+        "locator": "Build Variants; Equipment; Skill Gems lines 114-122,190-202,272-279"
+      }
+    ],
+    "source_ids": [
+      "w2-s03"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-glacial",
+    "family_id": "glacial-cascade",
+    "family_name": "Glacial Cascade",
+    "variant": "GuyThatDies campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": "w2-s04: title/overview states 0.5.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "GuyThatDies",
+    "url": "https://mobalytics.gg/poe-2/builds/hollow-palm-levelling",
+    "published_at": null,
+    "updated_at": "2026-09-11",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 608,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s04"
+    },
+    "class": "Monk",
+    "ascendancy": null,
+    "main_skills": [
+      "Glacial Cascade",
+      "Frozen Locus",
+      "Tempest Flurry"
+    ],
+    "damage_structure": "Cold attacks and shatter",
+    "defense_structure": "Life, evasion, resistances; described as very squishy",
+    "skills": [
+      {
+        "name": "Glacial Cascade",
+        "supports": [],
+        "source_id": "w2-s04",
+        "locator": "Equipment and Skill Gems lines 190-246"
+      },
+      {
+        "name": "Frozen Locus",
+        "supports": [],
+        "source_id": "w2-s04",
+        "locator": "Equipment and Skill Gems lines 190-246"
+      },
+      {
+        "name": "Tempest Flurry",
+        "supports": [],
+        "source_id": "w2-s04",
+        "locator": "Equipment and Skill Gems lines 190-246"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Rawhide Belt",
+        "role": "example",
+        "condition": "Life and resistances",
+        "source_id": "w2-s04",
+        "locator": "Equipment and Skill Gems lines 190-246"
+      }
+    ],
+    "resource_constraints": [
+      "Attribute panel: 0 strength, 10 dexterity, 25 intelligence."
+    ],
+    "stages": [
+      {
+        "name": "Hollow Palm Technique obtained",
+        "conditions": "Hollow Palm Technique obtained",
+        "skills": [
+          "Glacial Cascade"
+        ],
+        "gear": [],
+        "transition": "Unequip weapon",
+        "source_id": "w2-s04",
+        "locator": "Equipment and Skill Gems lines 190-246"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded."
+    ],
+    "patch_sensitive_dependencies": [
+      "Cold attacks and shatter"
+    ],
+    "claims": [
+      {
+        "id": "w2-glacial-claim1",
+        "text": "Equipment advice removes the weapon after obtaining Hollow Palm Technique; gloves prioritize skill levels.",
+        "kind": "creator_claim",
+        "source_id": "w2-s04",
+        "locator": "Equipment and Skill Gems lines 190-246"
+      }
+    ],
+    "source_ids": [
+      "w2-s04"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-varashta",
+    "family_id": "djinn",
+    "family_name": "Varashta minions",
+    "variant": "GuyThatDies campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": "w2-s05: title/overview states 0.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "GuyThatDies",
+    "url": "https://mobalytics.gg/poe-2/builds/varashta-levelling",
+    "published_at": null,
+    "updated_at": "2026-09-08",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 440,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s05"
+    },
+    "class": "Sorceress",
+    "ascendancy": "Disciple of Varashta",
+    "main_skills": [
+      "Essence Drain",
+      "Ember Fusillade"
+    ],
+    "damage_structure": "Early spells into ascendancy minions",
+    "defense_structure": "Life, armour, resistances",
+    "skills": [
+      {
+        "name": "Essence Drain",
+        "supports": [],
+        "source_id": "w2-s05",
+        "locator": "Build Overview; Variants; Equipment lines 109-133,201-220"
+      },
+      {
+        "name": "Ember Fusillade",
+        "supports": [],
+        "source_id": "w2-s05",
+        "locator": "Build Overview; Variants; Equipment lines 109-133,201-220"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Sceptre or helmet with +1 minion skills",
+        "role": "example",
+        "condition": "Ascension upgrade",
+        "source_id": "w2-s05",
+        "locator": "Build Overview; Variants; Equipment lines 109-133,201-220"
+      }
+    ],
+    "resource_constraints": [
+      "Minion gem levels emphasized; play around cooldowns."
+    ],
+    "stages": [
+      {
+        "name": "Act 2 ascension, level-19 variant",
+        "conditions": "Act 2 ascension, level-19 variant",
+        "skills": [
+          "Varashta minions"
+        ],
+        "gear": [],
+        "transition": "Replace early spell setup after ascending",
+        "source_id": "w2-s05",
+        "locator": "Build Overview; Variants; Equipment lines 109-133,201-220"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded.",
+      "Historical title/body and current 0.5.5 tag differ; no automatic patch normalization."
+    ],
+    "patch_sensitive_dependencies": [
+      "Early spells into ascendancy minions"
+    ],
+    "claims": [
+      {
+        "id": "w2-varashta-claim1",
+        "text": "Use Essence Drain then Ember Fusillade until Act 2 ascension; the level-19 variant marks the Varashta swap.",
+        "kind": "creator_claim",
+        "source_id": "w2-s05",
+        "locator": "Build Overview; Variants; Equipment lines 109-133,201-220"
+      }
+    ],
+    "source_ids": [
+      "w2-s05"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-minions",
+    "family_id": "witch-minion-army",
+    "family_name": "Witch minion army",
+    "variant": "GuyThatDies campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": "w2-s06: title/overview states 0.5.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "GuyThatDies",
+    "url": "https://mobalytics.gg/poe-2/builds/witch-minions-leveling",
+    "published_at": null,
+    "updated_at": "2026-09-06",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "detail_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 358,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s06"
+    },
+    "class": "Witch",
+    "ascendancy": null,
+    "main_skills": [],
+    "damage_structure": "Minion gem-level scaling",
+    "defense_structure": "Energy Shield",
+    "skills": [],
+    "equipment": [
+      {
+        "name": "Sceptre or helmet with +1 minion skills",
+        "role": "example",
+        "condition": "Early upgrade",
+        "source_id": "w2-s06",
+        "locator": "Build Overview; Equipment lines 108-118,184-196"
+      }
+    ],
+    "resource_constraints": [
+      "Low-level gambling method is creator advice, not validated."
+    ],
+    "stages": [],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded."
+    ],
+    "patch_sensitive_dependencies": [
+      "Minion gem-level scaling"
+    ],
+    "claims": [
+      {
+        "id": "w2-minions-claim1",
+        "text": "Campaign and early-map guide for Infernalist or Lich. Creator suggests level-5 alt gambling for +1 minion skill gear.",
+        "kind": "creator_claim",
+        "source_id": "w2-s06",
+        "locator": "Build Overview; Equipment lines 108-118,184-196"
+      }
+    ],
+    "source_ids": [
+      "w2-s06"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-edc",
+    "family_id": "ed-contagion",
+    "family_name": "Essence Drain Contagion",
+    "variant": "GuyThatDies campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": "w2-s07: title/overview states 0.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "GuyThatDies",
+    "url": "https://mobalytics.gg/poe-2/builds/bone-storm-leaguestarter",
+    "published_at": null,
+    "updated_at": "2026-09-06",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 212,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s07"
+    },
+    "class": "Witch",
+    "ascendancy": null,
+    "main_skills": [
+      "Essence Drain",
+      "Contagion",
+      "Chaos Bolt"
+    ],
+    "damage_structure": "Chaos spells with separate physical weapon set",
+    "defense_structure": "Life, armour, resistances",
+    "skills": [
+      {
+        "name": "Essence Drain",
+        "supports": [],
+        "source_id": "w2-s07",
+        "locator": "Build Variants; Equipment lines 119-190"
+      },
+      {
+        "name": "Contagion",
+        "supports": [],
+        "source_id": "w2-s07",
+        "locator": "Build Variants; Equipment lines 119-190"
+      },
+      {
+        "name": "Chaos Bolt",
+        "supports": [],
+        "source_id": "w2-s07",
+        "locator": "Build Variants; Equipment lines 119-190"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "+2 projectile-skills crossbow",
+        "role": "alternative",
+        "condition": "If found",
+        "source_id": "w2-s07",
+        "locator": "Build Variants; Equipment lines 119-190"
+      }
+    ],
+    "resource_constraints": [
+      "Requires managing two weapon sets."
+    ],
+    "stages": [
+      {
+        "name": "Level 6 then level 14",
+        "conditions": "Level 6 then level 14",
+        "skills": [
+          "Essence Drain"
+        ],
+        "gear": [],
+        "transition": "Unlock ED at 6; separate chaos/physical weapon sets at 14",
+        "source_id": "w2-s07",
+        "locator": "Build Variants; Equipment lines 119-190"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded.",
+      "Historical title/body and current 0.5.5 tag differ; no automatic patch normalization."
+    ],
+    "patch_sensitive_dependencies": [
+      "Chaos spells with separate physical weapon set"
+    ],
+    "claims": [
+      {
+        "id": "w2-edc-claim1",
+        "text": "Essence Drain begins at level 6; from level 14 assign chaos gear to set 1 and physical gear to set 2.",
+        "kind": "creator_claim",
+        "source_id": "w2-s07",
+        "locator": "Build Variants; Equipment lines 119-190"
+      }
+    ],
+    "source_ids": [
+      "w2-s07"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-slam",
+    "family_id": "slam-boneshatter",
+    "family_name": "Slam Boneshatter leveling",
+    "variant": "Woolie campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": "w2-s08: title/overview states 0.5.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "Trade and SSF routes"
+    },
+    "creator": "Woolie",
+    "url": "https://mobalytics.gg/poe-2/builds/warrior-leveling-woolie",
+    "published_at": null,
+    "updated_at": "2026-08-30",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 3000,
+      "rank": null,
+      "scope": "Rounded K display converted to approximate count; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s08"
+    },
+    "class": "Warrior",
+    "ascendancy": null,
+    "main_skills": [
+      "Rolling Slam",
+      "Boneshatter",
+      "Perfect Strike"
+    ],
+    "damage_structure": "Prime stun then Boneshatter; timed strike bosses",
+    "defense_structure": null,
+    "skills": [
+      {
+        "name": "Rolling Slam",
+        "supports": [
+          "Brink I"
+        ],
+        "source_id": "w2-s08",
+        "locator": "Very Important Info; Skill Rotation lines 128-175"
+      },
+      {
+        "name": "Boneshatter",
+        "supports": [],
+        "source_id": "w2-s08",
+        "locator": "Very Important Info; Skill Rotation lines 128-175"
+      },
+      {
+        "name": "Perfect Strike",
+        "supports": [],
+        "source_id": "w2-s08",
+        "locator": "Very Important Info; Skill Rotation lines 128-175"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Two-handed mace",
+        "role": "example",
+        "condition": "Upgrade when damage falls",
+        "source_id": "w2-s08",
+        "locator": "Very Important Info; Skill Rotation lines 128-175"
+      }
+    ],
+    "resource_constraints": [
+      "Trade buying and SSF vendor/crafting routes described."
+    ],
+    "stages": [
+      {
+        "name": "Perfect Strike acquired",
+        "conditions": "Perfect Strike acquired",
+        "skills": [
+          "Perfect Strike"
+        ],
+        "gear": [],
+        "transition": "Change boss rotation from Mace Strike; retain it as alternative",
+        "source_id": "w2-s08",
+        "locator": "Very Important Info; Skill Rotation lines 128-175"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded."
+    ],
+    "patch_sensitive_dependencies": [
+      "Prime stun then Boneshatter; timed strike bosses"
+    ],
+    "claims": [
+      {
+        "id": "w2-slam-claim1",
+        "text": "Brink prevents premature full stun. Before Perfect Strike use Earthquake/Mace Strike; after acquiring it add Infernal Cry and timed releases.",
+        "kind": "creator_claim",
+        "source_id": "w2-s08",
+        "locator": "Very Important Info; Skill Rotation lines 128-175"
+      }
+    ],
+    "source_ids": [
+      "w2-s08"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-spark-big",
+    "family_id": "spark",
+    "family_name": "Spark",
+    "variant": "BigDaddy Gaming campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": "w2-s09: title/overview states 0.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "SSF tagged"
+    },
+    "creator": "BigDaddy Gaming",
+    "url": "https://mobalytics.gg/poe-2/builds/lightning-caster-leveling",
+    "published_at": null,
+    "updated_at": "2026-09-07",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "detail_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 962,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s09"
+    },
+    "class": "Sorceress",
+    "ascendancy": "Stormweaver",
+    "main_skills": [
+      "Spark",
+      "Frost Bomb",
+      "Orb of Storms"
+    ],
+    "damage_structure": "Cold-infused Spark; lightning infusion utility",
+    "defense_structure": "Resistances and Energy Shield; optional hybrid evasion",
+    "skills": [
+      {
+        "name": "Spark",
+        "supports": [],
+        "source_id": "w2-s09",
+        "locator": "Build Overview; stat priorities lines 112-170"
+      },
+      {
+        "name": "Frost Bomb",
+        "supports": [],
+        "source_id": "w2-s09",
+        "locator": "Build Overview; stat priorities lines 112-170"
+      },
+      {
+        "name": "Orb of Storms",
+        "supports": [],
+        "source_id": "w2-s09",
+        "locator": "Build Overview; stat priorities lines 112-170"
+      }
+    ],
+    "equipment": [],
+    "resource_constraints": [
+      "Attributes must satisfy gems; strength/intelligence mix for life/mana."
+    ],
+    "stages": [],
+    "alternatives": [],
+    "similarities_differences": [
+      "Shared Spark family; BigDaddy emphasizes infusion leveling, animeprincess describes later trigger investment."
+    ],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded.",
+      "Historical title/body and current 0.5.5 tag differ; no automatic patch normalization."
+    ],
+    "patch_sensitive_dependencies": [
+      "Cold-infused Spark; lightning infusion utility"
+    ],
+    "claims": [
+      {
+        "id": "w2-spark-big-claim1",
+        "text": "Frost Bomb supplies exposure and cold infusion; Orb of Storms supplies lightning infusion. The page claims 15+ test runs.",
+        "kind": "creator_claim",
+        "source_id": "w2-s09",
+        "locator": "Build Overview; stat priorities lines 112-170"
+      }
+    ],
+    "source_ids": [
+      "w2-s09"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-twister-ap",
+    "family_id": "twister",
+    "family_name": "Twister",
+    "variant": "animeprincess campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": "w2-s10: title/overview states 0.5.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "animeprincess",
+    "url": "https://mobalytics.gg/poe-2/profile/animeprincess/builds/0-5-5-twister-gemling-comprehensive-leveling-guide",
+    "published_at": null,
+    "updated_at": "2026-09-16",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "detail_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 304,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s10"
+    },
+    "class": "Mercenary",
+    "ascendancy": "Gemling Legionnaire",
+    "main_skills": [
+      "Whirling Slash",
+      "Twister"
+    ],
+    "damage_structure": "Twister ricochets after Whirling Slash setup",
+    "defense_structure": "Early evasion, deflection, freeze",
+    "skills": [
+      {
+        "name": "Whirling Slash",
+        "supports": [],
+        "source_id": "w2-s10",
+        "locator": "Build Overview; Strengths and Weaknesses lines 111-156"
+      },
+      {
+        "name": "Twister",
+        "supports": [],
+        "source_id": "w2-s10",
+        "locator": "Build Overview; Strengths and Weaknesses lines 111-156"
+      }
+    ],
+    "equipment": [],
+    "resource_constraints": [
+      "Correct weapon and passive set assignments required."
+    ],
+    "stages": [],
+    "alternatives": [],
+    "similarities_differences": [
+      "Shared family with the other Twister creator guide; alternate progression advice is not another family."
+    ],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded."
+    ],
+    "patch_sensitive_dependencies": [
+      "Twister ricochets after Whirling Slash setup"
+    ],
+    "claims": [
+      {
+        "id": "w2-twister-ap-claim1",
+        "text": "No unique required for campaign or initial maps; enclosed arenas improve repeat hits, while open arenas reduce boss damage.",
+        "kind": "creator_claim",
+        "source_id": "w2-s10",
+        "locator": "Build Overview; Strengths and Weaknesses lines 111-156"
+      }
+    ],
+    "source_ids": [
+      "w2-s10"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-twister-far",
+    "family_id": "twister",
+    "family_name": "Twister",
+    "variant": "xthefarmerx campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": "w2-s11: title/overview states 0.5.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "Trade"
+    },
+    "creator": "xthefarmerx",
+    "url": "https://mobalytics.gg/poe-2/builds/xthefarmerx-s-gemling-twister-league-starter",
+    "published_at": null,
+    "updated_at": "2026-09-08",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 37,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s11"
+    },
+    "class": "Mercenary",
+    "ascendancy": "Gemling Legionnaire",
+    "main_skills": [
+      "Twister",
+      "Whirling Slash",
+      "Barrage"
+    ],
+    "damage_structure": "Chilled ground and charge-enhanced Twister",
+    "defense_structure": null,
+    "skills": [
+      {
+        "name": "Twister",
+        "supports": [],
+        "source_id": "w2-s11",
+        "locator": "Build Variants; Equipment lines 152-192"
+      },
+      {
+        "name": "Whirling Slash",
+        "supports": [],
+        "source_id": "w2-s11",
+        "locator": "Build Variants; Equipment lines 152-192"
+      },
+      {
+        "name": "Barrage",
+        "supports": [],
+        "source_id": "w2-s11",
+        "locator": "Build Variants; Equipment lines 152-192"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Spear and buckler",
+        "role": "example",
+        "condition": "Mule Huntress for early equipment",
+        "source_id": "w2-s11",
+        "locator": "Build Variants; Equipment lines 152-192"
+      }
+    ],
+    "resource_constraints": [
+      "Trade weapon upgrade budget: at least one Exalt per act."
+    ],
+    "stages": [
+      {
+        "name": "Level 6, first level-3 gem",
+        "conditions": "Level 6, first level-3 gem",
+        "skills": [
+          "Fangs of Frost"
+        ],
+        "gear": [],
+        "transition": "Optional replacement for Frost Bomb/Ice Nova chilled-ground setup",
+        "source_id": "w2-s11",
+        "locator": "Build Variants; Equipment lines 152-192"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [
+      "Shared family with the other Twister creator guide; alternate progression advice is not another family."
+    ],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded."
+    ],
+    "patch_sensitive_dependencies": [
+      "Chilled ground and charge-enhanced Twister"
+    ],
+    "claims": [
+      {
+        "id": "w2-twister-far-claim1",
+        "text": "Act 1 uses Frost Bomb/infused Ice Nova; level 6 offers Parry/Fangs of Frost; cold setup can remain until Act 2 automation.",
+        "kind": "creator_claim",
+        "source_id": "w2-s11",
+        "locator": "Build Variants; Equipment lines 152-192"
+      }
+    ],
+    "source_ids": [
+      "w2-s11"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-plants",
+    "family_id": "plants",
+    "family_name": "Plants",
+    "variant": "Scorpius campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": "w2-s12: title/overview states 0.5.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Scorpius",
+    "url": "https://mobalytics.gg/poe-2/builds/plant-oracle-druid?_lang=en_us",
+    "published_at": null,
+    "updated_at": "2026-09-14",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 502,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s12"
+    },
+    "class": "Druid",
+    "ascendancy": "Oracle",
+    "main_skills": [
+      "Entangle",
+      "Thrashing Vines",
+      "Thunderstorm",
+      "Bonestorm"
+    ],
+    "damage_structure": "Plant skills with supplemental boss spell",
+    "defense_structure": null,
+    "skills": [
+      {
+        "name": "Entangle",
+        "supports": [],
+        "source_id": "w2-s12",
+        "locator": "Act 1 checklist lines 139-153"
+      },
+      {
+        "name": "Thrashing Vines",
+        "supports": [],
+        "source_id": "w2-s12",
+        "locator": "Act 1 checklist lines 139-153"
+      },
+      {
+        "name": "Thunderstorm",
+        "supports": [],
+        "source_id": "w2-s12",
+        "locator": "Act 1 checklist lines 139-153"
+      },
+      {
+        "name": "Bonestorm",
+        "supports": [],
+        "source_id": "w2-s12",
+        "locator": "Act 1 checklist lines 139-153"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Talisman",
+        "role": "example",
+        "condition": "Free talisman in weapon set 2",
+        "source_id": "w2-s12",
+        "locator": "Act 1 checklist lines 139-153"
+      }
+    ],
+    "resource_constraints": [
+      "Wasting Casts at character level 14 is optional."
+    ],
+    "stages": [
+      {
+        "name": "Level-4 Spirit gem then level-5 skill gem",
+        "conditions": "Level-4 Spirit gem then level-5 skill gem",
+        "skills": [
+          "Ravenous Swarm",
+          "Bonestorm"
+        ],
+        "gear": [],
+        "transition": "Add Corrosion swarm then boss-damage spell",
+        "source_id": "w2-s12",
+        "locator": "Act 1 checklist lines 139-153"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded."
+    ],
+    "patch_sensitive_dependencies": [
+      "Plant skills with supplemental boss spell"
+    ],
+    "claims": [
+      {
+        "id": "w2-plants-claim1",
+        "text": "First gem becomes Entangle; level-4 Spirit gem enables Ravenous Swarm/Corrosion; level-5 skill gem adds Bonestorm for bosses.",
+        "kind": "creator_claim",
+        "source_id": "w2-s12",
+        "locator": "Act 1 checklist lines 139-153"
+      }
+    ],
+    "source_ids": [
+      "w2-s12"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-snipe",
+    "family_id": "snipe",
+    "family_name": "Instant Snipe",
+    "variant": "SiahZ campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": "w2-s13: title/overview states 0.5.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "SiahZ",
+    "url": "https://mobalytics.gg/poe-2/profile/siahz/builds/siahz-s-instant-snipe-gemling-league-starter",
+    "published_at": null,
+    "updated_at": "2026-09-10",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "detail_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 76,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s13"
+    },
+    "class": "Mercenary",
+    "ascendancy": "Gemling Legionnaire",
+    "main_skills": [
+      "Snipe",
+      "Barrage",
+      "Tornado Shot"
+    ],
+    "damage_structure": "Snipe burst with bow support skills",
+    "defense_structure": "Ghost Dance, Virtuous Barrier",
+    "skills": [
+      {
+        "name": "Snipe",
+        "supports": [
+          "Verglas",
+          "Blindside"
+        ],
+        "source_id": "w2-s13",
+        "locator": "Skill Gems lines 281-417; author comments 712,735"
+      },
+      {
+        "name": "Barrage",
+        "supports": [],
+        "source_id": "w2-s13",
+        "locator": "Skill Gems lines 281-417; author comments 712,735"
+      },
+      {
+        "name": "Tornado Shot",
+        "supports": [],
+        "source_id": "w2-s13",
+        "locator": "Skill Gems lines 281-417; author comments 712,735"
+      }
+    ],
+    "equipment": [],
+    "resource_constraints": [
+      "Level-75 crit-swap heading lacks extracted readiness conditions."
+    ],
+    "stages": [],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded."
+    ],
+    "patch_sensitive_dependencies": [
+      "Snipe burst with bow support skills"
+    ],
+    "claims": [
+      {
+        "id": "w2-snipe-claim1",
+        "text": "Author says early acts use repeated Lightning Rod then Lightning Arrow; warns Prisoner hitbox issue and suggests aiming at Krutog's foot.",
+        "kind": "creator_claim",
+        "source_id": "w2-s13",
+        "locator": "Skill Gems lines 281-417; author comments 712,735"
+      }
+    ],
+    "source_ids": [
+      "w2-s13"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-shield",
+    "family_id": "shield-wall",
+    "family_name": "Shield Wall",
+    "variant": "lundburgerr campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": "w2-s14: title/overview states 0.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "lundburgerr",
+    "url": "https://mobalytics.gg/poe-2/builds/warrior-league-start-lundburgerr",
+    "published_at": null,
+    "updated_at": "2026-09-14",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 862,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s14"
+    },
+    "class": "Warrior",
+    "ascendancy": "Smith of Kitava",
+    "main_skills": [
+      "Shield Wall",
+      "Rolling Slam",
+      "Boneshatter",
+      "Perfect Strike"
+    ],
+    "damage_structure": "Shield wall and warcry damage",
+    "defense_structure": "Ascendancy resistance support",
+    "skills": [
+      {
+        "name": "Shield Wall",
+        "supports": [],
+        "source_id": "w2-s14",
+        "locator": "Build Overview; Variants lines 114-150"
+      },
+      {
+        "name": "Rolling Slam",
+        "supports": [],
+        "source_id": "w2-s14",
+        "locator": "Build Overview; Variants lines 114-150"
+      },
+      {
+        "name": "Boneshatter",
+        "supports": [],
+        "source_id": "w2-s14",
+        "locator": "Build Overview; Variants lines 114-150"
+      },
+      {
+        "name": "Perfect Strike",
+        "supports": [],
+        "source_id": "w2-s14",
+        "locator": "Build Overview; Variants lines 114-150"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Talisman",
+        "role": "alternative",
+        "condition": "Optional swap for Pounce",
+        "source_id": "w2-s14",
+        "locator": "Build Overview; Variants lines 114-150"
+      }
+    ],
+    "resource_constraints": [
+      "Instant flask interaction with Vaal Pact explicitly untested."
+    ],
+    "stages": [
+      {
+        "name": "Level 22",
+        "conditions": "Level 22",
+        "skills": [
+          "Shield Wall"
+        ],
+        "gear": [],
+        "transition": "Replace early Rolling Slam/Boneshatter setup",
+        "source_id": "w2-s14",
+        "locator": "Build Overview; Variants lines 114-150"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded.",
+      "Historical title/body and current 0.5.5 tag differ; no automatic patch normalization."
+    ],
+    "patch_sensitive_dependencies": [
+      "Shield wall and warcry damage"
+    ],
+    "claims": [
+      {
+        "id": "w2-shield-claim1",
+        "text": "Level 14 adds Perfect Strike using Leitis reward after Executioner; level 22 unlocks Shield Wall and the main swap.",
+        "kind": "creator_claim",
+        "source_id": "w2-s14",
+        "locator": "Build Overview; Variants lines 114-150"
+      }
+    ],
+    "source_ids": [
+      "w2-s14"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-spark-ap",
+    "family_id": "spark",
+    "family_name": "Spark",
+    "variant": "animeprincess campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.0",
+      "provenance": "w2-s15: title/overview states 0.5.0; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "animeprincess",
+    "url": "https://mobalytics.gg/poe-2/builds/animeprincess-stormweaver-sorc-league-starter",
+    "published_at": null,
+    "updated_at": "2026-09-11",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "detail_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 7500,
+      "rank": null,
+      "scope": "Rounded K display converted to approximate count; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s15"
+    },
+    "class": "Sorceress",
+    "ascendancy": "Stormweaver",
+    "main_skills": [
+      "Spark",
+      "Orb of Storms",
+      "Cast on Critical",
+      "Comet"
+    ],
+    "damage_structure": "Orb limits and Elemental Equilibrium cold infusions",
+    "defense_structure": null,
+    "skills": [
+      {
+        "name": "Spark",
+        "supports": [],
+        "source_id": "w2-s15",
+        "locator": "Build Overview lines 109-115"
+      },
+      {
+        "name": "Orb of Storms",
+        "supports": [],
+        "source_id": "w2-s15",
+        "locator": "Build Overview lines 109-115"
+      },
+      {
+        "name": "Cast on Critical",
+        "supports": [],
+        "source_id": "w2-s15",
+        "locator": "Build Overview lines 109-115"
+      },
+      {
+        "name": "Comet",
+        "supports": [],
+        "source_id": "w2-s15",
+        "locator": "Build Overview lines 109-115"
+      }
+    ],
+    "equipment": [],
+    "resource_constraints": [
+      "No concrete investment threshold extracted."
+    ],
+    "stages": [],
+    "alternatives": [],
+    "similarities_differences": [
+      "Shared Spark family; BigDaddy emphasizes infusion leveling, animeprincess describes later trigger investment."
+    ],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded.",
+      "Historical title/body and current 0.5.5 tag differ; no automatic patch normalization."
+    ],
+    "patch_sensitive_dependencies": [
+      "Orb limits and Elemental Equilibrium cold infusions"
+    ],
+    "claims": [
+      {
+        "id": "w2-spark-ap-claim1",
+        "text": "Author labels overview 0.5.0 and describes adding Cast on Critical Comet with investment.",
+        "kind": "creator_claim",
+        "source_id": "w2-s15",
+        "locator": "Build Overview lines 109-115"
+      }
+    ],
+    "source_ids": [
+      "w2-s15"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-wyvern-gtd",
+    "family_id": "oil-barrage-wyvern",
+    "family_name": "Oil Barrage Wyvern",
+    "variant": "GuyThatDies campaign/starter guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": "w2-s16: title/overview states 0.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "GuyThatDies",
+    "url": "https://mobalytics.gg/poe-2/builds/wyvern-druid-leveling",
+    "published_at": null,
+    "updated_at": "2026-06-04",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 218,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s16"
+    },
+    "class": "Druid",
+    "ascendancy": null,
+    "main_skills": [
+      "Rend",
+      "Wing Blast",
+      "Oil Barrage"
+    ],
+    "damage_structure": "Stun-generated power charges empower barrage",
+    "defense_structure": "Life, armour, resistances",
+    "skills": [
+      {
+        "name": "Rend",
+        "supports": [],
+        "source_id": "w2-s16",
+        "locator": "Equipment 178-188; How it Plays 410-435"
+      },
+      {
+        "name": "Wing Blast",
+        "supports": [],
+        "source_id": "w2-s16",
+        "locator": "Equipment 178-188; How it Plays 410-435"
+      },
+      {
+        "name": "Oil Barrage",
+        "supports": [],
+        "source_id": "w2-s16",
+        "locator": "Equipment 178-188; How it Plays 410-435"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Frenzied Talisman",
+        "role": "example",
+        "condition": "Save currency for level 22",
+        "source_id": "w2-s16",
+        "locator": "Equipment 178-188; How it Plays 410-435"
+      }
+    ],
+    "resource_constraints": [
+      "Campaign requires no ascendancy according to author."
+    ],
+    "stages": [
+      {
+        "name": "Level 31 then 36",
+        "conditions": "Level 31 then 36",
+        "skills": [
+          "Oil Barrage",
+          "Lingering Illusion"
+        ],
+        "gear": [],
+        "transition": "Add barrage then replace stun-only charge generation with illusions",
+        "source_id": "w2-s16",
+        "locator": "Equipment 178-188; How it Plays 410-435"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [
+      "Shared Wyvern family; different starting class and early spell/bow routes."
+    ],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded.",
+      "Historical title/body and current 0.5.5 tag differ; no automatic patch normalization."
+    ],
+    "patch_sensitive_dependencies": [
+      "Stun-generated power charges empower barrage"
+    ],
+    "claims": [
+      {
+        "id": "w2-wyvern-gtd-claim1",
+        "text": "Level 6 replaces Volcano/Contagion with Rend/Wing Blast; level 31 adds Oil Barrage; level 36 adds illusion charge generation.",
+        "kind": "creator_claim",
+        "source_id": "w2-s16",
+        "locator": "Equipment 178-188; How it Plays 410-435"
+      }
+    ],
+    "source_ids": [
+      "w2-s16"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w2-wyvern-peu",
+    "family_id": "oil-barrage-wyvern",
+    "family_name": "Oil Barrage Wyvern",
+    "variant": "Peuget2 Spirit Walker guide",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": "w2-s17: title/overview states 0.5; page tag states 0.5.5 FR. Update timestamp is not patch evidence."
+    },
+    "league": "Forbidden Rites (page tag; historical body may describe 0.5)",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Peuget2",
+    "url": "https://mobalytics.gg/poe-2/builds/0-4-hellfire-wyvern-league-starter",
+    "published_at": null,
+    "updated_at": "2026-05-26",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "page_favorites_display",
+      "value": 229,
+      "rank": null,
+      "scope": "Guide-page favorites; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w2-s17"
+    },
+    "class": "Huntress",
+    "ascendancy": "Spirit Walker",
+    "main_skills": [
+      "Oil Barrage",
+      "Lightning Arrow",
+      "Lightning Rod"
+    ],
+    "damage_structure": "Power-charge barrage and extra projectiles",
+    "defense_structure": "Creator proposes Spirit Walker damage reduction",
+    "skills": [
+      {
+        "name": "Oil Barrage",
+        "supports": [],
+        "source_id": "w2-s17",
+        "locator": "Build Overview; Variants lines 111-184"
+      },
+      {
+        "name": "Lightning Arrow",
+        "supports": [],
+        "source_id": "w2-s17",
+        "locator": "Build Overview; Variants lines 111-184"
+      },
+      {
+        "name": "Lightning Rod",
+        "supports": [],
+        "source_id": "w2-s17",
+        "locator": "Build Overview; Variants lines 111-184"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Starkonja's Head",
+        "role": "example",
+        "condition": "Proposed defensive package",
+        "source_id": "w2-s17",
+        "locator": "Build Overview; Variants lines 111-184"
+      }
+    ],
+    "resource_constraints": [
+      "Early strength/intelligence for talismans."
+    ],
+    "stages": [
+      {
+        "name": "Level 31 then tier-4 supports",
+        "conditions": "Level 31 then tier-4 supports",
+        "skills": [
+          "Oil Barrage"
+        ],
+        "gear": [],
+        "transition": "Use for bosses first; expand to clearing after support access",
+        "source_id": "w2-s17",
+        "locator": "Build Overview; Variants lines 111-184"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [
+      "Shared Wyvern family; different starting class and early spell/bow routes."
+    ],
+    "gaps_conflicts": [
+      "Only opened text extracted; interactive equipment/tree variants incomplete.",
+      "HC/SC unknown; economy unknown unless explicitly recorded.",
+      "Historical title/body and current 0.5.5 tag differ; no automatic patch normalization."
+    ],
+    "patch_sensitive_dependencies": [
+      "Power-charge barrage and extra projectiles"
+    ],
+    "claims": [
+      {
+        "id": "w2-wyvern-peu-claim1",
+        "text": "Start lightning bow; level 31 enables Oil Barrage bossing; tier-4 supports later enable barrage clear.",
+        "kind": "creator_claim",
+        "source_id": "w2-s17",
+        "locator": "Build Overview; Variants lines 111-184"
+      }
+    ],
+    "source_ids": [
+      "w2-s17"
+    ],
+    "approval_status": "collected_not_game_validated"
+  }
+]

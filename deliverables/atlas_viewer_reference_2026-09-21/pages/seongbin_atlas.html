@@ -1,0 +1,1389 @@
+<title>임성빈 젬링 아틀라스</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --ground:#f3efe7; --panel:#fbf8f2; --ink:#1f1a14; --muted:#6b6154; --rule:#ddd3c3;
+  --ember:#b4431c; --gold:#9a7a2c; --ritual:#a3262c; --abyss:#3f7d3a; --delirium:#5a6f8a; --expedition:#2f6f86;
+  --chip:#efe7d8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#16130f; --panel:#1f1a15; --ink:#efe6d6; --muted:#a89a86; --rule:#3a3128;
+    --ember:#e8743f; --gold:#d6b25a; --ritual:#e0555b; --abyss:#77bf6c; --delirium:#9db3d1; --expedition:#6fb9cf; --chip:#2a231c;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#16130f; --panel:#1f1a15; --ink:#efe6d6; --muted:#a89a86; --rule:#3a3128;
+  --ember:#e8743f; --gold:#d6b25a; --ritual:#e0555b; --abyss:#77bf6c; --delirium:#9db3d1; --expedition:#6fb9cf; --chip:#2a231c;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:15px/1.65 "IBM Plex Sans KR",system-ui,sans-serif;padding-inline:16px;padding-block:28px 64px}
+main{max-width:920px;margin:0 auto;display:grid;gap:40px}
+h1,h2{font-family:"Nanum Myeongjo",serif;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.2}
+h2{font-size:22px}
+.lede{color:var(--muted);max-width:65ch;margin:10px 0 0}
+.meta{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+.bars{display:grid;gap:10px;margin-top:14px}
+.bar{display:grid;grid-template-columns:7.5em 1fr 4.5em;align-items:center;gap:12px}
+.bar b{font-weight:600}
+.track{height:10px;background:var(--chip);border-radius:5px;overflow:hidden}
+.track i{display:block;height:100%}
+.num{font:500 13px "IBM Plex Mono",monospace;text-align:right;font-variant-numeric:tabular-nums}
+.timeline{display:grid;gap:0;border-left:2px solid var(--rule);margin-left:6px}
+.day{position:relative;padding:0 0 30px 26px}
+.day::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--ground);border:2px solid var(--ember)}
+.day h3{margin:0;font:600 17px "IBM Plex Sans KR",sans-serif}
+.day h3 span{font:500 12px "IBM Plex Mono",monospace;color:var(--muted);margin-left:8px}
+.day p{margin:6px 0 10px;max-width:65ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.tag{font-size:13px;padding:2px 9px;border-radius:999px;background:var(--chip);border:1px solid var(--rule)}
+.tag.sel{border-color:var(--ember);color:var(--ember)}
+.tag.req{color:var(--muted);border-style:dashed}
+.src{font-size:13px;color:var(--muted)}
+.src a{color:var(--ember)}
+figure{margin:12px 0 0}
+figure img{display:block;width:100%;border-radius:6px;border:1px solid var(--rule)}
+figcaption{font-size:12.5px;color:var(--muted);margin-top:6px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.note{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:16px 18px}
+.note ul{margin:6px 0 0;padding-left:20px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:12.5px;letter-spacing:.03em}
+td.n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+.treebox{background:#12100e;border:1px solid var(--rule);border-radius:8px;padding:8px;overflow-x:auto}
+.treebox svg{display:block;width:100%;min-width:560px;height:auto}
+.treebox line{stroke-linecap:round}
+.e-off{stroke:#3b352d;stroke-width:1.5}
+.e-on{stroke-width:4}
+.e-on.m{stroke:#d6b25a}.e-on.ri{stroke:#e0555b}.e-on.ab{stroke:#77bf6c}.e-on.ex{stroke:#6fb9cf}.e-on.de{stroke:#9db3d1}
+.n{stroke-width:1.5}
+.n.off{fill:#26221d;stroke:#5a5247}
+.n.unk{fill:#26221d;stroke:#9db3d1;stroke-dasharray:3 2}
+.n.on{stroke:#fff5dc}
+.n.on.m{fill:#d6b25a}.n.on.ri{fill:#e0555b}.n.on.ab{fill:#77bf6c}.n.on.ex{fill:#6fb9cf}.n.on.de{fill:#9db3d1}
+.n:hover{stroke:#fff;stroke-width:3}
+.ch{font:700 11px "IBM Plex Mono",monospace;fill:#16130f;text-anchor:middle;pointer-events:none}
+.lb{font:600 22px "IBM Plex Sans KR",sans-serif;fill:#cdbfa8;text-anchor:middle}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+a:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+@media (max-width:520px){.bar{grid-template-columns:6em 1fr 4em}}
+</style>
+
+<main>
+<header>
+  <div class="meta">POE2 0.5.5 · HC Forbidden Rites · 임성빈_화염파_젬링</div>
+  <h1>임성빈 젬링 아틀라스</h1>
+  <p class="lede">임성빈이 아틀라스를 어떤 순서로 찍었는지, 9/7 첫 포인트부터 9/11 완성까지 방송 화면에서 그대로 옮겼다. 공개된 아틀라스 트리는 어디에도 없어서(모발리틱스 0건·ninja 미수록) 다시보기 화면이 유일한 원본이다. 모든 숫자와 노드 이름은 화면 판독이고, 링크를 누르면 그 장면으로 간다.</p>
+</header>
+
+<section>
+  <h2>전체 트리 — 9/11 최종</h2>
+  <p class="lede">게임 화면은 본 트리를 한 번에 다 못 보여준다. 그래서 poe.ninja 의 POE2 아틀라스 트리 데이터(노드 537개 위치·연결)에 방송에서 읽은 할당 상태를 얹어 직접 그렸다. 노드에 마우스를 올리면 이름(영문)과 고른 번호가 뜬다.</p>
+  <div class="treebox"><svg viewBox="0 0 1444 1489" role="img" aria-label="임성빈 최종 아틀라스 트리 전체">
+<line class="e-on de" x1="306.5" y1="1268.9" x2="328.4" y2="1306.8"/>
+<line class="e-on m" x1="536.1" y1="753.9" x2="495.4" y2="722.6"/>
+<line class="e-on m" x1="536.1" y1="753.9" x2="562.3" y2="753.9"/>
+<line class="e-on de" x1="191.2" y1="1355.0" x2="210.0" y2="1340.1"/>
+<line class="e-on ri" x1="282.2" y1="1021.4" x2="296.9" y2="987.4"/>
+<line class="e-on ri" x1="282.2" y1="1021.4" x2="239.5" y2="1037.9"/>
+<line class="e-on m" x1="1111.4" y1="337.6" x2="1079.0" y2="337.6"/>
+<line class="e-on ex" x1="1184.6" y1="1305.0" x2="1191.3" y2="1271.1"/>
+<line class="e-on m" x1="678.4" y1="371.8" x2="641.7" y2="392.9"/>
+<line class="e-on m" x1="378.9" y1="379.1" x2="379.4" y2="336.4"/>
+<line class="e-on m" x1="907.8" y1="1105.9" x2="934.6" y2="1105.9"/>
+<line class="e-on ex" x1="1335.3" y1="1387.0" x2="1324.9" y2="1418.1"/>
+<line class="e-off" x1="632.9" y1="1374.4" x2="644.8" y2="1345.8"/>
+<line class="e-on ex" x1="1214.5" y1="1403.7" x2="1174.9" y2="1418.9"/>
+<line class="e-off" x1="675.6" y1="1355.6" x2="674.3" y2="1318.7"/>
+<line class="e-on m" x1="471.3" y1="753.9" x2="480.8" y2="776.8"/>
+<line class="e-on m" x1="1155.0" y1="783.9" x2="1126.9" y2="800.1"/>
+<line class="e-on m" x1="480.4" y1="268.8" x2="480.4" y2="229.4"/>
+<line class="e-on m" x1="553.4" y1="230.0" x2="585.8" y2="230.0"/>
+<line class="e-on m" x1="553.4" y1="230.0" x2="537.2" y2="258.0"/>
+<line class="e-on m" x1="870.3" y1="225.1" x2="830.1" y2="225.1"/>
+<line class="e-on m" x1="421.8" y1="438.7" x2="421.8" y2="391.7"/>
+<line class="e-on m" x1="1115.6" y1="673.0" x2="1148.0" y2="640.6"/>
+<line class="e-off" x1="638.8" y1="1298.4" x2="630.2" y2="1255.1"/>
+<line class="e-on ab" x1="946.8" y1="1344.7" x2="935.0" y2="1316.2"/>
+<line class="e-on ri" x1="159.2" y1="1055.2" x2="153.0" y2="1028.5"/>
+<line class="e-on ab" x1="988.1" y1="1298.7" x2="963.3" y2="1273.8"/>
+<line class="e-on m" x1="785.8" y1="630.7" x2="817.4" y2="599.3"/>
+<line class="e-off" x1="1306.5" y1="1020.0" x2="1323.4" y2="990.6"/>
+<line class="e-on m" x1="830.1" y1="225.1" x2="782.9" y2="228.0"/>
+<line class="e-on m" x1="945.9" y1="369.0" x2="979.9" y2="358.3"/>
+<line class="e-off" x1="1254.5" y1="1110.2" x2="1212.6" y2="1110.2"/>
+<line class="e-off" x1="1254.5" y1="1110.2" x2="1237.0" y2="1079.9"/>
+<line class="e-off" x1="1254.5" y1="1110.2" x2="1272.0" y2="1079.8"/>
+<line class="e-on m" x1="729.5" y1="76.2" x2="701.5" y2="60.0"/>
+<line class="e-on m" x1="729.5" y1="76.2" x2="757.6" y2="60.0"/>
+<line class="e-on m" x1="740.6" y1="984.3" x2="756.8" y2="956.2"/>
+<line class="e-on m" x1="389.4" y1="471.1" x2="362.6" y2="471.1"/>
+<line class="e-on m" x1="389.4" y1="471.1" x2="421.8" y2="438.7"/>
+<line class="e-on ri" x1="100.4" y1="1015.4" x2="93.9" y2="985.3"/>
+<line class="e-on m" x1="296.1" y1="785.0" x2="273.2" y2="807.9"/>
+<line class="e-on m" x1="296.1" y1="785.0" x2="296.7" y2="755.1"/>
+<line class="e-on m" x1="523.9" y1="620.3" x2="507.7" y2="592.3"/>
+<line class="e-on m" x1="347.0" y1="336.4" x2="330.8" y2="308.3"/>
+<line class="e-on de" x1="228.8" y1="1355.0" x2="210.0" y2="1340.1"/>
+<line class="e-on ab" x1="866.4" y1="1344.7" x2="878.2" y2="1373.1"/>
+<line class="e-on ab" x1="805.1" y1="1337.8" x2="805.1" y2="1302.7"/>
+<line class="e-on m" x1="1003.7" y1="920.0" x2="1003.7" y2="883.8"/>
+<line class="e-on m" x1="853.2" y1="654.1" x2="876.1" y2="663.6"/>
+<line class="e-on m" x1="590.8" y1="1010.8" x2="585.0" y2="1037.2"/>
+<line class="e-off" x1="1347.6" y1="1109.8" x2="1384.6" y2="1109.8"/>
+<line class="e-off" x1="1347.6" y1="1109.8" x2="1330.4" y2="1079.9"/>
+<line class="e-on m" x1="592.1" y1="1074.6" x2="560.8" y2="1082.9"/>
+<line class="e-on m" x1="868.3" y1="932.4" x2="804.2" y2="899.8"/>
+<line class="e-on m" x1="634.7" y1="592.3" x2="599.3" y2="592.3"/>
+<line class="e-on m" x1="979.9" y1="358.3" x2="962.1" y2="337.9"/>
+<line class="e-on m" x1="979.9" y1="358.3" x2="994.7" y2="379.2"/>
+<line class="e-on de" x1="336.0" y1="1349.9" x2="328.4" y2="1306.8"/>
+<line class="e-off" x1="1271.2" y1="959.0" x2="1271.2" y2="931.5"/>
+<line class="e-on m" x1="938.8" y1="781.8" x2="938.8" y2="725.7"/>
+<line class="e-on m" x1="938.8" y1="781.8" x2="925.4" y2="805.0"/>
+<line class="e-on m" x1="417.0" y1="641.9" x2="417.0" y2="674.3"/>
+<line class="e-on m" x1="417.0" y1="641.9" x2="445.1" y2="625.7"/>
+<line class="e-on m" x1="417.0" y1="641.9" x2="394.4" y2="628.8"/>
+<line class="e-off" x1="608.7" y1="1388.8" x2="605.0" y2="1354.4"/>
+<line class="e-on m" x1="954.4" y1="409.0" x2="994.7" y2="379.2"/>
+<line class="e-on m" x1="341.3" y1="724.3" x2="327.9" y2="701.1"/>
+<line class="e-on m" x1="476.0" y1="592.6" x2="507.7" y2="592.3"/>
+<line class="e-on m" x1="1118.1" y1="286.6" x2="1095.2" y2="277.1"/>
+<line class="e-on m" x1="1118.1" y1="286.6" x2="1127.6" y2="309.5"/>
+<line class="e-on m" x1="605.9" y1="719.3" x2="583.0" y2="709.8"/>
+<line class="e-off" x1="558.3" y1="1317.5" x2="550.2" y2="1288.4"/>
+<line class="e-on de" x1="278.8" y1="1389.7" x2="288.2" y2="1363.7"/>
+<line class="e-on ex" x1="1174.9" y1="1418.9" x2="1139.2" y2="1413.5"/>
+<line class="e-on m" x1="464.7" y1="379.1" x2="464.1" y2="346.8"/>
+<line class="e-off" x1="1316.0" y1="1052.8" x2="1351.3" y2="1052.8"/>
+<line class="e-on m" x1="1037.6" y1="391.8" x2="1080.6" y2="379.2"/>
+<line class="e-on m" x1="1037.6" y1="391.8" x2="994.7" y2="379.2"/>
+<line class="e-on m" x1="1037.6" y1="391.8" x2="1037.6" y2="353.3"/>
+<line class="e-on m" x1="1127.6" y1="309.5" x2="1111.4" y2="337.6"/>
+<line class="e-on m" x1="697.3" y1="686.9" x2="673.5" y2="630.7"/>
+<line class="e-on m" x1="697.3" y1="686.9" x2="638.3" y2="686.9"/>
+<line class="e-on m" x1="697.3" y1="686.9" x2="673.5" y2="743.0"/>
+<line class="e-on m" x1="697.3" y1="686.9" x2="706.7" y2="664.0"/>
+<line class="e-on ex" x1="1226.0" y1="1313.7" x2="1282.5" y2="1279.7"/>
+<line class="e-off" x1="519.0" y1="1412.6" x2="513.4" y2="1375.7"/>
+<line class="e-on m" x1="886.4" y1="811.5" x2="863.5" y2="821.0"/>
+<line class="e-on m" x1="886.4" y1="811.5" x2="914.4" y2="827.7"/>
+<line class="e-on ri" x1="255.4" y1="1004.6" x2="253.2" y2="973.6"/>
+<line class="e-on m" x1="1036.1" y1="851.4" x2="1087.1" y2="831.3"/>
+<line class="e-on m" x1="1148.0" y1="753.8" x2="1148.0" y2="705.4"/>
+<line class="e-on m" x1="1148.0" y1="753.8" x2="1181.0" y2="753.8"/>
+<line class="e-on ex" x1="1243.3" y1="1378.4" x2="1214.5" y2="1403.7"/>
+<line class="e-off" x1="1237.0" y1="1020.0" x2="1237.0" y2="990.6"/>
+<line class="e-on ri" x1="181.2" y1="1121.0" x2="147.3" y2="1072.6"/>
+<line class="e-on ri" x1="181.2" y1="1121.0" x2="181.2" y2="1088.6"/>
+<line class="e-on ri" x1="181.2" y1="1121.0" x2="215.2" y2="1072.6"/>
+<line class="e-on m" x1="756.8" y1="956.2" x2="758.0" y2="924.9"/>
+<line class="e-on m" x1="421.8" y1="503.5" x2="454.2" y2="471.1"/>
+<line class="e-on m" x1="421.8" y1="503.5" x2="389.4" y2="471.1"/>
+<line class="e-on m" x1="585.8" y1="230.0" x2="604.2" y2="250.0"/>
+<line class="e-on m" x1="804.3" y1="441.2" x2="850.1" y2="441.2"/>
+<line class="e-on m" x1="979.5" y1="273.1" x2="979.5" y2="230.0"/>
+<line class="e-on m" x1="853.2" y1="718.9" x2="876.1" y2="709.4"/>
+<line class="e-on m" x1="1049.2" y1="776.7" x2="1088.3" y2="781.8"/>
+<line class="e-on m" x1="1049.2" y1="776.7" x2="1039.7" y2="753.8"/>
+<line class="e-off" x1="1367.3" y1="1079.9" x2="1351.3" y2="1052.8"/>
+<line class="e-on m" x1="645.0" y1="1042.1" x2="678.8" y2="1079.3"/>
+<line class="e-on m" x1="880.8" y1="439.5" x2="919.6" y2="429.1"/>
+<line class="e-off" x1="1271.2" y1="990.6" x2="1297.9" y2="990.6"/>
+<line class="e-off" x1="1271.2" y1="990.6" x2="1271.2" y2="959.0"/>
+<line class="e-on ex" x1="1139.2" y1="1413.5" x2="1119.7" y2="1387.3"/>
+<line class="e-on m" x1="464.1" y1="346.8" x2="486.5" y2="331.7"/>
+<line class="e-off" x1="646.5" y1="1399.4" x2="675.6" y2="1355.6"/>
+<line class="e-off" x1="646.5" y1="1399.4" x2="632.9" y2="1374.4"/>
+<line class="e-on m" x1="450.4" y1="1053.6" x2="450.4" y2="1021.2"/>
+<line class="e-on m" x1="450.4" y1="1053.6" x2="478.5" y2="1069.8"/>
+<line class="e-on ri" x1="120.3" y1="1006.3" x2="120.3" y2="985.2"/>
+<line class="e-on m" x1="934.6" y1="1105.9" x2="961.5" y2="1066.3"/>
+<line class="e-on m" x1="934.6" y1="1105.9" x2="967.3" y2="1105.9"/>
+<line class="e-on m" x1="1037.6" y1="503.6" x2="1005.2" y2="471.2"/>
+<line class="e-on m" x1="701.5" y1="888.8" x2="729.5" y2="840.2"/>
+<line class="e-on m" x1="701.5" y1="888.8" x2="654.9" y2="899.8"/>
+<line class="e-on m" x1="701.5" y1="888.8" x2="729.5" y2="905.0"/>
+<line class="e-on m" x1="379.4" y1="336.4" x2="347.0" y2="336.4"/>
+<line class="e-on m" x1="379.4" y1="336.4" x2="395.6" y2="308.3"/>
+<line class="e-off" x1="141.2" y1="1389.7" x2="131.7" y2="1363.7"/>
+<line class="e-on ex" x1="1245.7" y1="1224.3" x2="1261.5" y2="1252.2"/>
+<line class="e-on m" x1="510.6" y1="643.5" x2="523.9" y2="620.3"/>
+<line class="e-on de" x1="171.1" y1="1339.5" x2="189.9" y2="1315.1"/>
+<line class="e-on de" x1="171.1" y1="1339.5" x2="191.2" y2="1355.0"/>
+<line class="e-on m" x1="729.7" y1="421.6" x2="729.7" y2="401.3"/>
+<line class="e-on m" x1="938.8" y1="725.7" x2="963.3" y2="722.5"/>
+<line class="e-on m" x1="938.8" y1="725.7" x2="925.7" y2="703.1"/>
+<line class="e-on m" x1="975.2" y1="698.2" x2="985.3" y2="674.2"/>
+<line class="e-on m" x1="395.0" y1="722.6" x2="406.8" y2="698.3"/>
+<line class="e-on m" x1="551.3" y1="1105.9" x2="560.8" y2="1128.8"/>
+<line class="e-on m" x1="729.7" y1="438.8" x2="729.7" y2="421.6"/>
+<line class="e-off" x1="530.8" y1="1345.6" x2="522.7" y2="1318.8"/>
+<line class="e-off" x1="530.8" y1="1345.6" x2="513.4" y2="1375.7"/>
+<line class="e-on m" x1="620.5" y1="405.2" x2="640.6" y2="431.3"/>
+<line class="e-on m" x1="620.5" y1="405.2" x2="586.8" y2="422.7"/>
+<line class="e-off" x1="1296.3" y1="1109.8" x2="1254.5" y2="1110.2"/>
+<line class="e-off" x1="1296.3" y1="1109.8" x2="1347.6" y2="1109.8"/>
+<line class="e-on m" x1="344.1" y1="673.1" x2="370.9" y2="673.1"/>
+<line class="e-on de" x1="230.1" y1="1315.1" x2="225.3" y2="1292.8"/>
+<line class="e-off" x1="582.5" y1="1290.5" x2="563.2" y2="1267.9"/>
+<line class="e-off" x1="484.9" y1="1295.3" x2="496.9" y2="1267.4"/>
+<line class="e-on m" x1="406.8" y1="698.3" x2="417.0" y2="674.3"/>
+<line class="e-on ab" x1="935.0" y1="1373.1" x2="946.8" y2="1344.7"/>
+<line class="e-on m" x1="850.1" y1="395.4" x2="850.1" y2="441.2"/>
+<line class="e-on m" x1="572.5" y1="592.3" x2="563.1" y2="569.3"/>
+<line class="e-on m" x1="572.5" y1="592.3" x2="599.3" y2="592.3"/>
+<line class="e-on m" x1="670.5" y1="1012.3" x2="658.6" y2="968.1"/>
+<line class="e-on m" x1="677.4" y1="283.4" x2="657.7" y2="308.6"/>
+<line class="e-off" x1="610.4" y1="1420.5" x2="646.5" y2="1399.4"/>
+<line class="e-on m" x1="729.5" y1="1126.3" x2="660.4" y2="1126.4"/>
+<line class="e-on m" x1="729.5" y1="1126.3" x2="780.1" y2="1079.2"/>
+<line class="e-on m" x1="729.5" y1="1126.3" x2="745.8" y2="1058.9"/>
+<line class="e-on m" x1="729.5" y1="1126.3" x2="713.9" y2="1058.9"/>
+<line class="e-on m" x1="729.5" y1="1126.3" x2="798.7" y2="1126.4"/>
+<line class="e-on m" x1="920.0" y1="559.1" x2="897.1" y2="568.6"/>
+<line class="e-on m" x1="750.2" y1="763.6" x2="729.7" y2="719.3"/>
+<line class="e-on m" x1="750.2" y1="763.6" x2="729.5" y2="796.8"/>
+<line class="e-on ex" x1="1234.6" y1="1346.0" x2="1205.7" y2="1362.8"/>
+<line class="e-on ex" x1="1234.6" y1="1346.0" x2="1202.3" y2="1337.4"/>
+<line class="e-on ex" x1="1234.6" y1="1346.0" x2="1226.0" y2="1313.7"/>
+<line class="e-on ex" x1="1234.6" y1="1346.0" x2="1258.3" y2="1322.4"/>
+<line class="e-on ex" x1="1234.6" y1="1346.0" x2="1267.0" y2="1354.7"/>
+<line class="e-on ex" x1="1234.6" y1="1346.0" x2="1243.3" y2="1378.4"/>
+<line class="e-on m" x1="780.9" y1="371.8" x2="804.3" y2="395.4"/>
+<line class="e-on m" x1="752.6" y1="709.8" x2="785.8" y2="743.0"/>
+<line class="e-on m" x1="752.6" y1="709.8" x2="729.7" y2="719.3"/>
+<line class="e-on m" x1="752.6" y1="709.8" x2="762.1" y2="686.9"/>
+<line class="e-on m" x1="523.5" y1="471.2" x2="481.0" y2="471.1"/>
+<line class="e-on ab" x1="830.0" y1="1397.9" x2="805.1" y2="1373.0"/>
+<line class="e-on m" x1="757.7" y1="326.0" x2="780.9" y2="312.6"/>
+<line class="e-on m" x1="883.8" y1="1074.6" x2="852.5" y2="1082.9"/>
+<line class="e-on m" x1="883.8" y1="1074.6" x2="907.8" y2="1105.9"/>
+<line class="e-on m" x1="1209.5" y1="801.3" x2="1183.1" y2="800.1"/>
+<line class="e-on ri" x1="276.6" y1="990.4" x2="254.5" y2="942.9"/>
+<line class="e-on m" x1="919.6" y1="429.1" x2="954.4" y2="409.0"/>
+<line class="e-on m" x1="919.6" y1="429.1" x2="954.4" y2="449.2"/>
+<line class="e-off" x1="563.2" y1="1267.9" x2="571.5" y2="1240.2"/>
+<line class="e-on m" x1="452.5" y1="920.2" x2="452.5" y2="883.1"/>
+<line class="e-on ri" x1="91.6" y1="1052.4" x2="60.0" y2="1038.6"/>
+<line class="e-on m" x1="1087.1" y1="831.3" x2="1088.3" y2="781.8"/>
+<line class="e-on m" x1="1087.1" y1="831.3" x2="1126.9" y2="832.5"/>
+<line class="e-on m" x1="910.0" y1="230.6" x2="870.3" y2="225.1"/>
+<line class="e-on m" x1="910.0" y1="230.6" x2="979.5" y2="230.0"/>
+<line class="e-on ri" x1="71.7" y1="985.3" x2="85.7" y2="956.0"/>
+<line class="e-on m" x1="615.0" y1="1114.2" x2="583.7" y2="1138.3"/>
+<line class="e-on m" x1="615.0" y1="1114.2" x2="611.7" y2="1089.7"/>
+<line class="e-off" x1="507.1" y1="1349.3" x2="488.9" y2="1323.3"/>
+<line class="e-off" x1="488.3" y1="1367.9" x2="475.2" y2="1347.1"/>
+<line class="e-on ab" x1="988.1" y1="1323.0" x2="988.1" y2="1298.7"/>
+<line class="e-off" x1="1237.0" y1="1079.9" x2="1237.0" y2="1052.5"/>
+<line class="e-on m" x1="697.3" y1="471.2" x2="729.7" y2="438.8"/>
+<line class="e-on m" x1="697.3" y1="471.2" x2="729.7" y2="503.6"/>
+<line class="e-on m" x1="552.6" y1="1037.2" x2="585.0" y2="1037.2"/>
+<line class="e-on m" x1="552.6" y1="1037.2" x2="510.9" y2="1037.4"/>
+<line class="e-off" x1="1272.0" y1="1079.8" x2="1287.6" y2="1052.8"/>
+<line class="e-on m" x1="729.7" y1="216.2" x2="782.9" y2="228.0"/>
+<line class="e-on m" x1="729.7" y1="216.2" x2="697.0" y2="220.5"/>
+<line class="e-on m" x1="729.7" y1="216.2" x2="729.5" y2="103.0"/>
+<line class="e-on m" x1="421.8" y1="229.9" x2="480.4" y2="229.4"/>
+<line class="e-on m" x1="421.8" y1="229.9" x2="363.2" y2="229.4"/>
+<line class="e-on m" x1="421.8" y1="229.9" x2="421.8" y2="159.7"/>
+<line class="e-on m" x1="421.8" y1="229.9" x2="446.4" y2="205.3"/>
+<line class="e-on m" x1="1005.8" y1="1054.4" x2="1005.8" y2="1022.0"/>
+<line class="e-off" x1="559.0" y1="1391.5" x2="572.4" y2="1357.2"/>
+<line class="e-on m" x1="395.6" y1="308.3" x2="363.2" y2="275.9"/>
+<line class="e-on m" x1="658.5" y1="264.5" x2="677.4" y2="283.4"/>
+<line class="e-on m" x1="658.5" y1="264.5" x2="627.2" y2="272.9"/>
+<line class="e-on m" x1="658.5" y1="264.5" x2="666.8" y2="233.2"/>
+<line class="e-on m" x1="780.9" y1="312.6" x2="729.7" y2="283.0"/>
+<line class="e-on m" x1="780.9" y1="312.6" x2="780.9" y2="371.8"/>
+<line class="e-on m" x1="780.9" y1="312.6" x2="817.6" y2="291.4"/>
+<line class="e-on m" x1="945.3" y1="1038.2" x2="919.8" y2="982.5"/>
+<line class="e-on m" x1="945.3" y1="1038.2" x2="1005.8" y2="1022.0"/>
+<line class="e-on m" x1="332.5" y1="832.5" x2="327.4" y2="793.4"/>
+<line class="e-on m" x1="937.6" y1="278.5" x2="925.7" y2="254.2"/>
+<line class="e-on m" x1="937.6" y1="278.5" x2="917.9" y2="293.6"/>
+<line class="e-on de" x1="210.0" y1="1429.4" x2="181.5" y2="1378.4"/>
+<line class="e-off" x1="210.0" y1="1429.4" x2="275.2" y2="1427.7"/>
+<line class="e-off" x1="210.0" y1="1429.4" x2="238.4" y2="1378.4"/>
+<line class="e-off" x1="210.0" y1="1429.4" x2="144.7" y2="1427.7"/>
+<line class="e-on de" x1="210.0" y1="1429.4" x2="278.8" y2="1389.7"/>
+<line class="e-off" x1="210.0" y1="1429.4" x2="141.2" y2="1389.7"/>
+<line class="e-on m" x1="560.8" y1="1082.9" x2="538.3" y2="1067.8"/>
+<line class="e-on m" x1="605.9" y1="686.9" x2="586.5" y2="686.9"/>
+<line class="e-on m" x1="1096.2" y1="229.4" x2="1095.2" y2="277.1"/>
+<line class="e-on ri" x1="147.3" y1="1072.6" x2="123.0" y2="1037.9"/>
+<line class="e-on m" x1="354.2" y1="753.9" x2="370.4" y2="782.0"/>
+<line class="e-on m" x1="354.2" y1="753.9" x2="395.0" y2="722.6"/>
+<line class="e-on m" x1="354.2" y1="753.9" x2="341.3" y2="724.3"/>
+<line class="e-on ri" x1="181.2" y1="1088.6" x2="181.1" y2="1067.8"/>
+<line class="e-on m" x1="611.7" y1="1089.7" x2="592.1" y2="1074.6"/>
+<line class="e-off" x1="310.0" y1="1332.3" x2="297.9" y2="1299.2"/>
+<line class="e-on m" x1="954.4" y1="449.2" x2="978.5" y2="471.2"/>
+<line class="e-off" x1="1205.9" y1="1080.2" x2="1188.7" y2="1052.8"/>
+<line class="e-on ab" x1="880.7" y1="1422.8" x2="854.7" y2="1422.5"/>
+<line class="e-on m" x1="702.9" y1="956.2" x2="701.7" y2="924.9"/>
+<line class="e-on ri" x1="153.0" y1="1000.8" x2="153.0" y2="973.7"/>
+<line class="e-on m" x1="962.1" y1="337.9" x2="962.1" y2="281.8"/>
+<line class="e-on m" x1="962.1" y1="337.9" x2="929.7" y2="337.9"/>
+<line class="e-on m" x1="1063.7" y1="722.5" x2="1051.8" y2="698.2"/>
+<line class="e-on m" x1="925.4" y1="805.0" x2="914.4" y2="827.7"/>
+<line class="e-on m" x1="420.6" y1="259.1" x2="421.8" y2="229.9"/>
+<line class="e-on m" x1="660.4" y1="1126.4" x2="615.0" y2="1114.2"/>
+<line class="e-on m" x1="327.4" y1="793.4" x2="296.1" y2="785.0"/>
+<line class="e-on m" x1="762.1" y1="471.2" x2="729.7" y2="438.8"/>
+<line class="e-on m" x1="762.1" y1="471.2" x2="729.7" y2="503.6"/>
+<line class="e-on ab" x1="830.3" y1="1302.7" x2="850.7" y2="1279.9"/>
+<line class="e-on m" x1="914.4" y1="827.7" x2="917.7" y2="852.3"/>
+<line class="e-on m" x1="729.5" y1="796.8" x2="709.1" y2="763.6"/>
+<line class="e-on m" x1="1088.9" y1="673.0" x2="1115.6" y2="673.0"/>
+<line class="e-on m" x1="1088.9" y1="673.0" x2="1041.4" y2="674.2"/>
+<line class="e-on m" x1="666.8" y1="233.2" x2="643.9" y2="210.3"/>
+<line class="e-on m" x1="519.9" y1="782.0" x2="536.1" y2="753.9"/>
+<line class="e-on ab" x1="805.1" y1="1373.0" x2="805.1" y2="1337.8"/>
+<line class="e-on m" x1="484.9" y1="850.7" x2="480.8" y2="776.8"/>
+<line class="e-on m" x1="484.9" y1="850.7" x2="540.6" y2="851.3"/>
+<line class="e-off" x1="113.5" y1="1268.9" x2="91.6" y2="1306.8"/>
+<line class="e-on m" x1="311.7" y1="640.7" x2="311.7" y2="592.6"/>
+<line class="e-on m" x1="1051.8" y1="698.2" x2="1041.4" y2="674.2"/>
+<line class="e-on ab" x1="983.0" y1="1397.9" x2="1007.9" y2="1373.1"/>
+<line class="e-on m" x1="919.8" y1="982.5" x2="868.3" y2="932.4"/>
+<line class="e-on m" x1="820.8" y1="686.5" x2="853.2" y2="686.5"/>
+<line class="e-on m" x1="820.8" y1="686.5" x2="853.2" y2="654.1"/>
+<line class="e-on m" x1="820.8" y1="686.5" x2="853.2" y2="718.9"/>
+<line class="e-on m" x1="870.3" y1="293.3" x2="917.9" y2="293.6"/>
+<line class="e-on m" x1="870.3" y1="293.3" x2="877.2" y2="342.2"/>
+<line class="e-on m" x1="870.3" y1="293.3" x2="870.3" y2="265.3"/>
+<line class="e-on m" x1="804.3" y1="395.4" x2="804.3" y2="441.2"/>
+<line class="e-on m" x1="804.3" y1="395.4" x2="850.1" y2="395.4"/>
+<line class="e-off" x1="110.0" y1="1332.3" x2="122.1" y2="1299.2"/>
+<line class="e-on m" x1="713.9" y1="1058.9" x2="702.9" y2="1012.3"/>
+<line class="e-on ex" x1="1267.0" y1="1354.7" x2="1259.9" y2="1420.4"/>
+<line class="e-on m" x1="521.0" y1="230.0" x2="480.4" y2="229.4"/>
+<line class="e-on m" x1="521.0" y1="230.0" x2="553.4" y2="230.0"/>
+<line class="e-on ri" x1="208.9" y1="1000.9" x2="209.0" y2="973.9"/>
+<line class="e-on m" x1="538.3" y1="1067.8" x2="478.5" y2="1069.8"/>
+<line class="e-on m" x1="709.1" y1="763.6" x2="729.7" y2="719.3"/>
+<line class="e-on m" x1="1037.6" y1="272.9" x2="1037.6" y2="230.6"/>
+<line class="e-on m" x1="641.7" y1="392.9" x2="671.4" y2="425.3"/>
+<line class="e-on m" x1="641.7" y1="392.9" x2="620.5" y2="405.2"/>
+<line class="e-on m" x1="870.3" y1="265.3" x2="870.3" y2="225.1"/>
+<line class="e-on m" x1="844.1" y1="1114.2" x2="852.5" y2="1082.9"/>
+<line class="e-on ab" x1="988.1" y1="1353.3" x2="988.1" y2="1323.0"/>
+<line class="e-on m" x1="759.2" y1="393.4" x2="780.9" y2="371.8"/>
+<line class="e-on de" x1="288.2" y1="1363.7" x2="336.0" y2="1349.9"/>
+<line class="e-off" x1="288.2" y1="1363.7" x2="310.0" y2="1332.3"/>
+<line class="e-on m" x1="571.9" y1="875.3" x2="600.0" y2="859.1"/>
+<line class="e-on ri" x1="209.2" y1="1028.7" x2="208.9" y2="1000.9"/>
+<line class="e-on ri" x1="209.2" y1="1028.7" x2="229.7" y2="1008.3"/>
+<line class="e-on m" x1="979.5" y1="230.0" x2="1037.6" y2="230.6"/>
+<line class="e-on m" x1="1183.1" y1="800.1" x2="1155.0" y2="783.9"/>
+<line class="e-on m" x1="1183.1" y1="800.1" x2="1183.1" y2="832.5"/>
+<line class="e-on m" x1="1183.1" y1="800.1" x2="1181.0" y2="753.8"/>
+<line class="e-on m" x1="853.2" y1="686.5" x2="872.7" y2="686.5"/>
+<line class="e-on m" x1="421.8" y1="391.7" x2="464.7" y2="379.1"/>
+<line class="e-on m" x1="421.8" y1="391.7" x2="378.9" y2="379.1"/>
+<line class="e-on m" x1="813.9" y1="1042.0" x2="817.2" y2="1017.4"/>
+<line class="e-on m" x1="961.5" y1="1066.3" x2="1005.8" y2="1054.4"/>
+<line class="e-on m" x1="961.5" y1="1066.3" x2="945.3" y2="1038.2"/>
+<line class="e-off" x1="574.0" y1="1327.3" x2="582.5" y2="1290.5"/>
+<line class="e-on ri" x1="229.7" y1="1008.3" x2="229.7" y2="987.1"/>
+<line class="e-on m" x1="540.6" y1="851.3" x2="571.9" y2="875.3"/>
+<line class="e-off" x1="1166.1" y1="1110.2" x2="1124.3" y2="1110.2"/>
+<line class="e-on ri" x1="181.1" y1="1067.8" x2="202.9" y2="1055.2"/>
+<line class="e-on ri" x1="181.1" y1="1067.8" x2="159.2" y2="1055.2"/>
+<line class="e-on ri" x1="181.1" y1="1067.8" x2="181.1" y2="1037.6"/>
+<line class="e-on ab" x1="935.0" y1="1316.2" x2="906.6" y2="1304.5"/>
+<line class="e-on m" x1="641.8" y1="1017.6" x2="645.0" y2="1042.1"/>
+<line class="e-on m" x1="641.8" y1="1017.6" x2="622.1" y2="1002.5"/>
+<line class="e-on m" x1="1012.9" y1="753.8" x2="1039.7" y2="753.8"/>
+<line class="e-on m" x1="1037.6" y1="160.3" x2="1070.0" y2="127.9"/>
+<line class="e-on m" x1="1037.6" y1="160.3" x2="1005.2" y2="127.9"/>
+<line class="e-on m" x1="897.1" y1="568.6" x2="888.7" y2="599.9"/>
+<line class="e-on m" x1="402.8" y1="782.0" x2="419.0" y2="753.9"/>
+<line class="e-on m" x1="965.3" y1="629.6" x2="942.9" y2="614.4"/>
+<line class="e-on m" x1="436.8" y1="287.1" x2="436.8" y2="327.3"/>
+<line class="e-on m" x1="436.8" y1="287.1" x2="420.6" y2="259.1"/>
+<line class="e-on ex" x1="1218.0" y1="1238.4" x2="1245.7" y2="1224.3"/>
+<line class="e-on m" x1="1003.7" y1="883.8" x2="971.3" y2="851.4"/>
+<line class="e-on m" x1="1003.7" y1="883.8" x2="1036.1" y2="851.4"/>
+<line class="e-on m" x1="454.2" y1="471.1" x2="421.8" y2="438.7"/>
+<line class="e-on m" x1="757.6" y1="888.8" x2="729.5" y2="840.2"/>
+<line class="e-on m" x1="757.6" y1="888.8" x2="804.2" y2="899.8"/>
+<line class="e-on m" x1="673.5" y1="630.7" x2="634.7" y2="592.3"/>
+<line class="e-on ri" x1="181.1" y1="1037.6" x2="181.1" y2="1007.8"/>
+<line class="e-on ab" x1="864.5" y1="1243.4" x2="892.7" y2="1243.4"/>
+<line class="e-on ab" x1="1007.9" y1="1293.1" x2="983.0" y2="1268.2"/>
+<line class="e-on m" x1="560.8" y1="1128.8" x2="533.8" y2="1127.1"/>
+<line class="e-on m" x1="560.8" y1="1128.8" x2="583.7" y2="1138.3"/>
+<line class="e-on de" x1="282.2" y1="1246.7" x2="306.5" y2="1268.9"/>
+<line class="e-on m" x1="850.1" y1="441.2" x2="880.8" y2="439.5"/>
+<line class="e-on m" x1="421.8" y1="530.3" x2="421.8" y2="503.5"/>
+<line class="e-on m" x1="363.2" y1="275.9" x2="363.2" y2="229.4"/>
+<line class="e-on ab" x1="906.6" y1="1304.5" x2="878.2" y2="1316.2"/>
+<line class="e-on ab" x1="906.6" y1="1304.5" x2="906.6" y2="1278.8"/>
+<line class="e-on m" x1="729.7" y1="719.3" x2="706.7" y2="709.8"/>
+<line class="e-on m" x1="729.7" y1="719.3" x2="785.8" y2="743.0"/>
+<line class="e-on m" x1="830.2" y1="787.8" x2="863.5" y2="821.0"/>
+<line class="e-on m" x1="510.9" y1="1037.4" x2="539.2" y2="982.6"/>
+<line class="e-on m" x1="510.9" y1="1037.4" x2="450.4" y2="1021.2"/>
+<line class="e-on ex" x1="1191.3" y1="1271.1" x2="1218.0" y2="1238.4"/>
+<line class="e-on m" x1="952.4" y1="591.5" x2="920.0" y2="559.1"/>
+<line class="e-on m" x1="952.4" y1="591.5" x2="991.8" y2="591.6"/>
+<line class="e-off" x1="84.0" y1="1349.9" x2="91.6" y2="1306.8"/>
+<line class="e-on m" x1="1037.6" y1="530.4" x2="1037.6" y2="503.6"/>
+<line class="e-on m" x1="1041.4" y1="641.8" x2="1013.4" y2="625.6"/>
+<line class="e-on m" x1="1041.4" y1="641.8" x2="1059.4" y2="622.9"/>
+<line class="e-on ab" x1="805.1" y1="1302.7" x2="830.3" y2="1302.7"/>
+<line class="e-on ab" x1="805.1" y1="1302.7" x2="830.0" y2="1277.8"/>
+<line class="e-on m" x1="586.8" y1="422.7" x2="552.0" y2="442.8"/>
+<line class="e-on m" x1="1126.9" y1="832.5" x2="1126.9" y2="800.1"/>
+<line class="e-on m" x1="762.1" y1="686.9" x2="752.6" y2="664.0"/>
+<line class="e-on m" x1="762.1" y1="686.9" x2="820.8" y2="686.5"/>
+<line class="e-on m" x1="762.1" y1="686.9" x2="785.8" y2="743.0"/>
+<line class="e-on m" x1="762.1" y1="686.9" x2="785.8" y2="630.7"/>
+<line class="e-on m" x1="985.3" y1="641.8" x2="985.3" y2="674.2"/>
+<line class="e-on m" x1="985.3" y1="641.8" x2="1013.4" y2="625.6"/>
+<line class="e-on m" x1="985.3" y1="641.8" x2="965.3" y2="629.6"/>
+<line class="e-off" x1="1271.2" y1="1020.0" x2="1271.2" y2="990.6"/>
+<line class="e-on m" x1="370.4" y1="782.0" x2="402.8" y2="782.0"/>
+<line class="e-on m" x1="697.0" y1="220.5" x2="689.3" y2="191.5"/>
+<line class="e-on m" x1="1005.2" y1="471.2" x2="978.5" y2="471.2"/>
+<line class="e-on m" x1="1005.2" y1="471.2" x2="1037.6" y2="438.8"/>
+<line class="e-on m" x1="436.8" y1="327.3" x2="464.1" y2="346.8"/>
+<line class="e-on m" x1="371.5" y1="831.3" x2="370.4" y2="782.0"/>
+<line class="e-on m" x1="371.5" y1="831.3" x2="332.5" y2="832.5"/>
+<line class="e-on m" x1="701.6" y1="358.4" x2="701.6" y2="326.0"/>
+<line class="e-on m" x1="701.6" y1="358.4" x2="729.7" y2="374.6"/>
+<line class="e-on m" x1="1037.6" y1="353.3" x2="1037.6" y2="313.1"/>
+<line class="e-off" x1="605.0" y1="1354.4" x2="638.8" y2="1298.4"/>
+<line class="e-off" x1="605.0" y1="1354.4" x2="599.3" y2="1320.9"/>
+<line class="e-on ab" x1="854.7" y1="1422.5" x2="830.0" y2="1397.9"/>
+<line class="e-off" x1="513.4" y1="1375.7" x2="507.1" y2="1349.3"/>
+<line class="e-off" x1="513.4" y1="1375.7" x2="488.3" y2="1367.9"/>
+<line class="e-on m" x1="973.7" y1="777.2" x2="938.8" y2="781.8"/>
+<line class="e-on m" x1="942.9" y1="614.4" x2="952.4" y2="591.5"/>
+<line class="e-on m" x1="678.8" y1="1079.3" x2="729.5" y2="1126.3"/>
+<line class="e-on m" x1="543.9" y1="826.7" x2="540.6" y2="851.3"/>
+<line class="e-on m" x1="543.9" y1="826.7" x2="519.9" y2="782.0"/>
+<line class="e-on m" x1="543.9" y1="826.7" x2="594.8" y2="820.0"/>
+<line class="e-on m" x1="1002.8" y1="293.0" x2="979.5" y2="273.1"/>
+<line class="e-on m" x1="801.0" y1="968.1" x2="804.2" y2="899.8"/>
+<line class="e-on m" x1="729.5" y1="840.2" x2="729.5" y2="796.8"/>
+<line class="e-on m" x1="1148.0" y1="705.4" x2="1115.6" y2="673.0"/>
+<line class="e-on ab" x1="920.3" y1="1330.9" x2="906.6" y2="1344.7"/>
+<line class="e-on ab" x1="920.3" y1="1330.9" x2="935.0" y2="1316.2"/>
+<line class="e-off" x1="1173.8" y1="1080.2" x2="1205.9" y2="1080.2"/>
+<line class="e-on m" x1="845.2" y1="1001.2" x2="872.5" y2="1038.2"/>
+<line class="e-on m" x1="845.2" y1="1001.2" x2="868.8" y2="980.0"/>
+<line class="e-off" x1="1287.6" y1="1052.8" x2="1306.5" y2="1020.0"/>
+<line class="e-on m" x1="729.7" y1="572.4" x2="729.7" y2="503.6"/>
+<line class="e-on m" x1="789.2" y1="1012.3" x2="801.0" y2="968.1"/>
+<line class="e-on ri" x1="239.5" y1="1037.9" x2="276.6" y2="990.4"/>
+<line class="e-on ri" x1="239.5" y1="1037.9" x2="270.5" y2="1052.4"/>
+<line class="e-on ri" x1="239.5" y1="1037.9" x2="255.4" y2="1004.6"/>
+<line class="e-on m" x1="594.8" y1="820.0" x2="628.1" y2="786.7"/>
+<line class="e-on m" x1="987.4" y1="753.8" x2="973.7" y2="777.2"/>
+<line class="e-on m" x1="987.4" y1="753.8" x2="1012.9" y2="753.8"/>
+<line class="e-on m" x1="532.3" y1="285.8" x2="493.2" y2="280.7"/>
+<line class="e-on m" x1="532.3" y1="285.8" x2="541.8" y2="308.8"/>
+<line class="e-on m" x1="1037.6" y1="438.8" x2="1037.6" y2="391.8"/>
+<line class="e-on m" x1="1088.3" y1="781.8" x2="1104.5" y2="753.8"/>
+<line class="e-on m" x1="445.1" y1="625.7" x2="473.1" y2="641.9"/>
+<line class="e-on m" x1="627.2" y1="272.9" x2="604.2" y2="250.0"/>
+<line class="e-on m" x1="729.7" y1="262.7" x2="729.7" y2="283.0"/>
+<line class="e-on m" x1="729.7" y1="262.7" x2="729.7" y2="216.2"/>
+<line class="e-on m" x1="729.7" y1="262.7" x2="677.4" y2="283.4"/>
+<line class="e-on m" x1="752.6" y1="664.0" x2="785.8" y2="630.7"/>
+<line class="e-on m" x1="552.0" y1="442.8" x2="531.9" y2="408.0"/>
+<line class="e-on m" x1="552.0" y1="442.8" x2="523.5" y2="471.2"/>
+<line class="e-off" x1="516.3" y1="1287.6" x2="530.8" y2="1254.7"/>
+<line class="e-on m" x1="817.2" y1="1017.4" x2="845.2" y2="1001.2"/>
+<line class="e-on m" x1="872.5" y1="1038.2" x2="945.3" y2="1038.2"/>
+<line class="e-on m" x1="872.5" y1="1038.2" x2="845.2" y2="1066.0"/>
+<line class="e-on ex" x1="1295.2" y1="1321.5" x2="1322.1" y2="1351.7"/>
+<line class="e-on de" x1="181.5" y1="1378.4" x2="171.1" y2="1339.5"/>
+<line class="e-on ex" x1="1258.3" y1="1322.4" x2="1295.2" y2="1321.5"/>
+<line class="e-on ab" x1="892.7" y1="1243.4" x2="920.9" y2="1243.4"/>
+<line class="e-off" x1="488.9" y1="1323.3" x2="484.9" y2="1295.3"/>
+<line class="e-on m" x1="478.5" y1="1069.8" x2="510.9" y2="1037.4"/>
+<line class="e-on ab" x1="1007.9" y1="1373.1" x2="1007.9" y2="1337.9"/>
+<line class="e-on ab" x1="1007.9" y1="1373.1" x2="988.1" y2="1353.3"/>
+<line class="e-on m" x1="622.1" y1="1002.5" x2="590.8" y2="1010.8"/>
+<line class="e-on m" x1="622.1" y1="1002.5" x2="597.9" y2="981.2"/>
+<line class="e-on m" x1="591.3" y1="932.0" x2="654.9" y2="899.8"/>
+<line class="e-on m" x1="971.3" y1="851.4" x2="973.7" y2="777.2"/>
+<line class="e-on m" x1="971.3" y1="851.4" x2="917.7" y2="852.3"/>
+<line class="e-off" x1="567.0" y1="1428.8" x2="608.7" y2="1388.8"/>
+<line class="e-off" x1="567.0" y1="1428.8" x2="519.0" y2="1412.6"/>
+<line class="e-off" x1="567.0" y1="1428.8" x2="559.0" y2="1391.5"/>
+<line class="e-off" x1="567.0" y1="1428.8" x2="610.4" y2="1420.5"/>
+<line class="e-off" x1="144.7" y1="1427.7" x2="118.0" y2="1392.8"/>
+<line class="e-on de" x1="248.8" y1="1339.5" x2="230.1" y2="1315.1"/>
+<line class="e-on de" x1="248.8" y1="1339.5" x2="228.8" y2="1355.0"/>
+<line class="e-on m" x1="279.3" y1="673.1" x2="311.7" y2="640.7"/>
+<line class="e-on m" x1="288.3" y1="844.4" x2="273.2" y2="807.9"/>
+<line class="e-off" x1="599.3" y1="1320.9" x2="612.6" y2="1291.2"/>
+<line class="e-off" x1="238.4" y1="1378.4" x2="248.8" y2="1339.5"/>
+<line class="e-on m" x1="729.5" y1="103.0" x2="729.5" y2="76.2"/>
+<line class="e-on m" x1="1104.5" y1="753.8" x2="1063.7" y2="722.5"/>
+<line class="e-on m" x1="1104.5" y1="753.8" x2="1148.0" y2="753.8"/>
+<line class="e-on m" x1="370.9" y1="673.1" x2="417.0" y2="674.3"/>
+<line class="e-on ri" x1="202.9" y1="1055.2" x2="209.2" y2="1028.7"/>
+<line class="e-off" x1="1330.4" y1="1079.9" x2="1316.0" y2="1052.8"/>
+<line class="e-off" x1="1141.6" y1="1080.2" x2="1173.8" y2="1080.2"/>
+<line class="e-on ab" x1="932.3" y1="1422.8" x2="958.1" y2="1422.8"/>
+<line class="e-on m" x1="991.8" y1="591.6" x2="1037.6" y2="591.6"/>
+<line class="e-off" x1="1297.9" y1="990.6" x2="1297.9" y2="959.0"/>
+<line class="e-on m" x1="917.7" y1="852.3" x2="863.5" y2="866.8"/>
+<line class="e-on ri" x1="153.0" y1="1028.5" x2="153.0" y2="1000.8"/>
+<line class="e-off" x1="1351.3" y1="1052.8" x2="1332.7" y2="1020.0"/>
+<line class="e-on m" x1="706.7" y1="664.0" x2="729.7" y2="654.5"/>
+<line class="e-on m" x1="706.7" y1="664.0" x2="673.5" y2="630.7"/>
+<line class="e-on m" x1="756.8" y1="1012.3" x2="789.2" y2="1012.3"/>
+<line class="e-on m" x1="756.8" y1="1012.3" x2="740.6" y2="984.3"/>
+<line class="e-on m" x1="673.5" y1="743.0" x2="628.1" y2="786.7"/>
+<line class="e-on m" x1="673.5" y1="743.0" x2="729.7" y2="719.3"/>
+<line class="e-on m" x1="607.9" y1="309.6" x2="657.7" y2="308.6"/>
+<line class="e-on m" x1="607.9" y1="309.6" x2="541.8" y2="308.8"/>
+<line class="e-on m" x1="607.9" y1="309.6" x2="603.7" y2="342.2"/>
+<line class="e-on m" x1="486.5" y1="331.7" x2="477.0" y2="308.8"/>
+<line class="e-on m" x1="486.5" y1="331.7" x2="523.2" y2="350.2"/>
+<line class="e-off" x1="131.7" y1="1363.7" x2="84.0" y2="1349.9"/>
+<line class="e-off" x1="131.7" y1="1363.7" x2="110.0" y2="1332.3"/>
+<line class="e-on m" x1="1037.6" y1="230.6" x2="1096.2" y2="229.4"/>
+<line class="e-on m" x1="1037.6" y1="230.6" x2="1037.6" y2="160.3"/>
+<line class="e-on ex" x1="1119.7" y1="1387.3" x2="1153.3" y2="1375.5"/>
+<line class="e-on m" x1="421.8" y1="592.6" x2="476.0" y2="592.6"/>
+<line class="e-on m" x1="421.8" y1="592.6" x2="421.8" y2="530.3"/>
+<line class="e-on m" x1="539.2" y1="982.6" x2="591.3" y2="932.0"/>
+<line class="e-on m" x1="658.6" y1="968.1" x2="654.9" y2="899.8"/>
+<line class="e-on ri" x1="215.2" y1="1072.6" x2="239.5" y2="1037.9"/>
+<line class="e-on m" x1="537.2" y1="258.0" x2="532.3" y2="285.8"/>
+<line class="e-on m" x1="295.5" y1="701.1" x2="279.3" y2="673.1"/>
+<line class="e-on m" x1="798.7" y1="1126.4" x2="844.1" y2="1114.2"/>
+<line class="e-on m" x1="563.1" y1="569.3" x2="507.7" y2="592.3"/>
+<line class="e-on ab" x1="906.6" y1="1384.9" x2="935.0" y2="1373.1"/>
+<line class="e-off" x1="1124.3" y1="1110.2" x2="1141.6" y2="1080.2"/>
+<line class="e-on ab" x1="1007.9" y1="1337.9" x2="1007.9" y2="1293.1"/>
+<line class="e-on m" x1="729.7" y1="654.5" x2="729.7" y2="607.4"/>
+<line class="e-on m" x1="729.7" y1="654.5" x2="752.6" y2="664.0"/>
+<line class="e-on m" x1="729.7" y1="654.5" x2="673.5" y2="630.7"/>
+<line class="e-on m" x1="729.7" y1="654.5" x2="785.8" y2="630.7"/>
+<line class="e-on m" x1="1003.7" y1="976.4" x2="1005.8" y2="1022.0"/>
+<line class="e-on m" x1="1003.7" y1="976.4" x2="1003.7" y2="920.0"/>
+<line class="e-on m" x1="817.4" y1="599.3" x2="888.7" y2="599.9"/>
+<line class="e-on m" x1="483.5" y1="698.3" x2="495.4" y2="722.6"/>
+<line class="e-on m" x1="311.7" y1="592.6" x2="421.8" y2="592.6"/>
+<line class="e-off" x1="1384.6" y1="1109.8" x2="1367.3" y2="1079.9"/>
+<line class="e-on m" x1="1079.0" y1="337.6" x2="1080.6" y2="379.2"/>
+<line class="e-on m" x1="413.9" y1="310.0" x2="436.8" y2="287.1"/>
+<line class="e-on m" x1="413.9" y1="310.0" x2="395.6" y2="308.3"/>
+<line class="e-on m" x1="480.8" y1="776.8" x2="519.9" y2="782.0"/>
+<line class="e-off" x1="275.2" y1="1427.7" x2="302.0" y2="1392.8"/>
+<line class="e-on m" x1="1148.0" y1="640.6" x2="1176.1" y2="656.8"/>
+<line class="e-on m" x1="1148.0" y1="640.6" x2="1148.0" y2="591.6"/>
+<line class="e-off" x1="137.7" y1="1246.7" x2="113.5" y2="1268.9"/>
+<line class="e-off" x1="1188.7" y1="1052.8" x2="1156.6" y2="1052.8"/>
+<line class="e-on de" x1="189.9" y1="1315.1" x2="194.7" y2="1292.8"/>
+<line class="e-off" x1="1212.6" y1="1110.2" x2="1166.1" y2="1110.2"/>
+<line class="e-on m" x1="1070.0" y1="471.2" x2="1037.6" y2="503.6"/>
+<line class="e-on m" x1="1070.0" y1="471.2" x2="1096.8" y2="471.2"/>
+<line class="e-on m" x1="1070.0" y1="471.2" x2="1037.6" y2="438.8"/>
+<line class="e-on ex" x1="1202.3" y1="1337.4" x2="1184.6" y2="1305.0"/>
+<line class="e-on ab" x1="983.0" y1="1268.2" x2="958.1" y2="1243.4"/>
+<line class="e-on ri" x1="123.0" y1="1037.9" x2="100.4" y2="1015.4"/>
+<line class="e-on ri" x1="123.0" y1="1037.9" x2="79.6" y2="1021.4"/>
+<line class="e-on ri" x1="123.0" y1="1037.9" x2="91.6" y2="1052.4"/>
+<line class="e-on ri" x1="123.0" y1="1037.9" x2="120.3" y2="1006.3"/>
+<line class="e-off" x1="1237.0" y1="990.6" x2="1237.0" y2="959.0"/>
+<line class="e-off" x1="1237.0" y1="990.6" x2="1206.5" y2="990.6"/>
+<line class="e-on m" x1="745.8" y1="1058.9" x2="756.8" y2="1012.3"/>
+<line class="e-on ab" x1="830.0" y1="1277.8" x2="864.5" y2="1243.4"/>
+<line class="e-on m" x1="421.8" y1="159.7" x2="454.2" y2="127.3"/>
+<line class="e-on m" x1="421.8" y1="159.7" x2="389.4" y2="127.3"/>
+<line class="e-off" x1="1237.0" y1="1052.5" x2="1204.1" y2="1019.6"/>
+<line class="e-off" x1="1237.0" y1="1052.5" x2="1237.0" y2="1020.0"/>
+<line class="e-off" x1="1237.0" y1="1052.5" x2="1271.2" y2="1020.0"/>
+<line class="e-on ex" x1="1322.1" y1="1351.7" x2="1335.3" y2="1387.0"/>
+<line class="e-on ab" x1="906.5" y1="1422.8" x2="906.6" y2="1384.9"/>
+<line class="e-on ab" x1="906.5" y1="1422.8" x2="932.3" y2="1422.8"/>
+<line class="e-on ab" x1="906.5" y1="1422.8" x2="880.7" y2="1422.8"/>
+<line class="e-on m" x1="817.6" y1="291.4" x2="870.3" y2="293.3"/>
+<line class="e-on m" x1="817.6" y1="291.4" x2="831.2" y2="342.2"/>
+<line class="e-on m" x1="493.2" y1="280.7" x2="477.0" y2="308.8"/>
+<line class="e-on m" x1="493.2" y1="280.7" x2="480.4" y2="268.8"/>
+<line class="e-on ri" x1="79.6" y1="1021.4" x2="71.7" y2="985.3"/>
+<line class="e-on m" x1="452.5" y1="981.7" x2="450.4" y2="1021.2"/>
+<line class="e-on m" x1="452.5" y1="981.7" x2="452.5" y2="920.2"/>
+<line class="e-off" x1="572.4" y1="1357.2" x2="558.3" y2="1317.5"/>
+<line class="e-off" x1="572.4" y1="1357.2" x2="574.0" y2="1327.3"/>
+<line class="e-on m" x1="785.8" y1="743.0" x2="830.2" y2="787.8"/>
+<line class="e-off" x1="522.7" y1="1318.8" x2="516.3" y2="1287.6"/>
+<line class="e-on m" x1="719.1" y1="984.3" x2="702.9" y2="956.2"/>
+<line class="e-off" x1="1237.0" y1="959.0" x2="1237.0" y2="931.5"/>
+<line class="e-on m" x1="481.0" y1="471.1" x2="454.2" y2="471.1"/>
+<line class="e-on ab" x1="878.2" y1="1316.2" x2="866.4" y2="1344.7"/>
+<line class="e-on m" x1="729.7" y1="607.4" x2="729.7" y2="572.4"/>
+<line class="e-on m" x1="327.9" y1="701.1" x2="295.5" y2="701.1"/>
+<line class="e-on m" x1="327.9" y1="701.1" x2="344.1" y2="673.1"/>
+<line class="e-off" x1="1206.5" y1="990.6" x2="1206.5" y2="959.0"/>
+<line class="e-on m" x1="729.5" y1="905.0" x2="757.6" y2="888.8"/>
+<line class="e-on m" x1="638.3" y1="686.9" x2="605.9" y2="654.5"/>
+<line class="e-on m" x1="638.3" y1="686.9" x2="605.9" y2="686.9"/>
+<line class="e-on m" x1="638.3" y1="686.9" x2="605.9" y2="719.3"/>
+<line class="e-on ab" x1="958.1" y1="1422.8" x2="983.0" y2="1397.9"/>
+<line class="e-on m" x1="419.0" y1="753.9" x2="445.8" y2="753.9"/>
+<line class="e-on m" x1="296.7" y1="755.1" x2="295.5" y2="701.1"/>
+<line class="e-on ri" x1="270.5" y1="1052.4" x2="299.6" y2="1038.6"/>
+<line class="e-on m" x1="780.1" y1="1079.2" x2="813.9" y2="1042.0"/>
+<line class="e-on m" x1="963.3" y1="722.5" x2="975.2" y2="698.2"/>
+<line class="e-on ri" x1="85.7" y1="956.0" x2="123.5" y2="937.2"/>
+<line class="e-on m" x1="420.1" y1="850.7" x2="371.5" y2="831.3"/>
+<line class="e-on m" x1="273.2" y1="807.9" x2="246.9" y2="808.6"/>
+<line class="e-on m" x1="452.5" y1="883.1" x2="420.1" y2="850.7"/>
+<line class="e-on m" x1="452.5" y1="883.1" x2="484.9" y2="850.7"/>
+<line class="e-on m" x1="531.9" y1="408.0" x2="464.7" y2="379.1"/>
+<line class="e-on m" x1="729.7" y1="401.3" x2="729.7" y2="374.6"/>
+<line class="e-on m" x1="729.7" y1="401.3" x2="678.4" y2="371.8"/>
+<line class="e-on m" x1="729.7" y1="401.3" x2="759.2" y2="393.4"/>
+<line class="e-on m" x1="473.1" y1="674.3" x2="483.5" y2="698.3"/>
+<line class="e-on m" x1="473.1" y1="641.9" x2="473.1" y2="674.3"/>
+<line class="e-on m" x1="473.1" y1="641.9" x2="510.6" y2="643.5"/>
+<line class="e-on m" x1="962.1" y1="281.8" x2="937.6" y2="278.5"/>
+<line class="e-on m" x1="962.1" y1="281.8" x2="979.5" y2="273.1"/>
+<line class="e-on m" x1="1037.6" y1="591.6" x2="1148.0" y2="591.6"/>
+<line class="e-on m" x1="1037.6" y1="591.6" x2="1037.6" y2="530.4"/>
+<line class="e-on m" x1="1041.4" y1="674.2" x2="1041.4" y2="641.8"/>
+<line class="e-on m" x1="702.9" y1="1012.3" x2="670.5" y2="1012.3"/>
+<line class="e-on m" x1="702.9" y1="1012.3" x2="719.1" y2="984.3"/>
+<line class="e-on ex" x1="1205.7" y1="1362.8" x2="1149.8" y2="1327.6"/>
+<line class="e-on ex" x1="1324.9" y1="1418.1" x2="1296.8" y2="1404.3"/>
+<line class="e-on m" x1="605.9" y1="654.5" x2="583.0" y2="664.0"/>
+<line class="e-on m" x1="1037.6" y1="313.1" x2="1037.6" y2="272.9"/>
+<line class="e-on m" x1="1037.6" y1="313.1" x2="1002.8" y2="293.0"/>
+<line class="e-off" x1="1204.1" y1="1019.6" x2="1175.1" y2="1019.6"/>
+<line class="e-on m" x1="445.8" y1="753.9" x2="471.3" y2="753.9"/>
+<line class="e-on m" x1="706.7" y1="709.8" x2="673.5" y2="743.0"/>
+<line class="e-on m" x1="706.7" y1="709.8" x2="697.3" y2="686.9"/>
+<circle class="n on de" cx="306.5" cy="1268.9" r="3.2"><title>Grand Mirror Chance</title></circle>
+<circle class="n on m" cx="536.1" cy="753.9" r="3.2"><title>Azmeri Spirit Chance</title></circle>
+<circle class="n on de" cx="191.2" cy="1355.0" r="3.2"><title>Grand Mirror Chance</title></circle>
+<circle class="n on m" cx="1126.9" cy="800.1" r="5"><title>To the Strong Go the Spoils</title></circle>
+<circle class="n on ri" cx="282.2" cy="1021.4" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on de" cx="328.4" cy="1306.8" r="5"><title>You thought you were free?</title></circle>
+<circle class="n on m" cx="1111.4" cy="337.6" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n off in" cx="1323.4" cy="990.6" r="5"><title>The Lost Architect (미할당)</title></circle>
+<circle class="n on ex" cx="1184.6" cy="1305.0" r="5"><title>The Quest Continues</title></circle>
+<circle class="n on m" cx="678.4" cy="371.8" r="3.2"><title>City Biome: Summoning Circle Chance</title></circle>
+<circle class="n on m" cx="1176.1" cy="656.8" r="5"><title>Mysterious Charms and Trinkets</title></circle>
+<circle class="n on m" cx="378.9" cy="379.1" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n on m" cx="907.8" cy="1105.9" r="3.2"><title>Rogue Exile Chance</title></circle>
+<circle class="n on ex" cx="1335.3" cy="1387.0" r="5"><title>Sown Seeds</title></circle>
+<circle class="n off br" cx="632.9" cy="1374.4" r="3.2"><title>Wombgift Quantity (미할당)</title></circle>
+<circle class="n on ex" cx="1214.5" cy="1403.7" r="7.5"><title>Expanding Territory</title></circle>
+<circle class="n off br" cx="675.6" cy="1355.6" r="3.2"><title>Wombgift Quantity (미할당)</title></circle>
+<circle class="n on m" cx="471.3" cy="753.9" r="5"><title>Hunt the Apex</title></circle>
+<circle class="n on m" cx="689.3" cy="191.5" r="5"><title>Convenient Beliefs</title></circle>
+<circle class="n on m" cx="1155.0" cy="783.9" r="3.2"><title>Additional Rare Monster Chance</title></circle>
+<circle class="n on m" cx="480.4" cy="268.8" r="3.2"><title>Item Rarity</title></circle>
+<circle class="n on m" cx="553.4" cy="230.0" r="7.5"><title>Water Mastery</title></circle>
+<circle class="n on m" cx="870.3" cy="225.1" r="7.5"><title>Desert Mastery</title></circle>
+<circle class="n off in" cx="1271.2" cy="931.5" r="5"><title>Riches of the Empire (미할당)</title></circle>
+<circle class="n on m" cx="421.8" cy="438.7" r="5"><title>Exceptional Vestments</title></circle>
+<circle class="n on m" cx="1115.6" cy="673.0" r="5"><title>Mysterious Transference</title></circle>
+<circle class="n off br" cx="638.8" cy="1298.4" r="3.2"><title>Hiveblood Quantity (미할당)</title></circle>
+<circle class="n on ab" cx="946.8" cy="1344.7" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on ri" cx="159.2" cy="1055.2" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on ab" cx="988.1" cy="1298.7" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on m" cx="246.9" cy="808.6" r="7.5"><title>Evolving Throngs</title></circle>
+<circle class="n on m" cx="785.8" cy="630.7" r="5"><title>Highs and Lows</title></circle>
+<circle class="n off in" cx="1306.5" cy="1020.0" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="830.1" cy="225.1" r="3.2"><title>Desert Biome: Drop Quantity</title></circle>
+<circle class="n on m" cx="945.9" cy="369.0" r="7.5"><title>Corrupted Lattices</title></circle>
+<circle class="n off in" cx="1254.5" cy="1110.2" r="9"><title>Incursion (미할당)</title></circle>
+<circle class="n on m" cx="729.5" cy="76.2" r="5"><title>Fabled Treasures</title></circle>
+<circle class="n on m" cx="740.6" cy="984.3" r="3.2"><title>Essence Chance</title></circle>
+<circle class="n off in" cx="1175.1" cy="1019.6" r="5"><title>Power Relays (미할당)</title></circle>
+<circle class="n on m" cx="389.4" cy="471.1" r="3.2"><title>Additional Cleansed Packs</title></circle>
+<circle class="n on ri" cx="100.4" cy="1015.4" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="296.1" cy="785.0" r="5"><title>Multiplying Monstrosities</title></circle>
+<circle class="n on m" cx="523.9" cy="620.3" r="5"><title>Cult of the Rains</title></circle>
+<circle class="n on ri" cx="120.3" cy="985.2" r="5"><title>Patient Devotion</title></circle>
+<circle class="n on m" cx="640.6" cy="431.3" r="5"><title>Bring Me Your Leader</title></circle>
+<circle class="n on m" cx="347.0" cy="336.4" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n on de" cx="228.8" cy="1355.0" r="3.2"><title>Grand Mirror Chance</title></circle>
+<circle class="n on ab" cx="866.4" cy="1344.7" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on ab" cx="805.1" cy="1337.8" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on m" cx="1003.7" cy="920.0" r="5"><title>Mutating Monsters</title></circle>
+<circle class="n on m" cx="533.8" cy="1127.1" r="7.5"><title>Craftsman&#x27;s Creed — 선택 3번</title></circle>
+<text class="ch" x="533.8" y="1131.1">3</text>
+<circle class="n on m" cx="853.2" cy="654.1" r="3.2"><title>Essence Chance</title></circle>
+<circle class="n on m" cx="590.8" cy="1010.8" r="3.2"><title>Shrine Chance</title></circle>
+<circle class="n on ex" cx="1282.5" cy="1279.7" r="5"><title>Buried Ambition</title></circle>
+<circle class="n off in" cx="1347.6" cy="1109.8" r="5"><title>Offerings to the Queen (미할당)</title></circle>
+<circle class="n on m" cx="592.1" cy="1074.6" r="5"><title>Guarded Wealth</title></circle>
+<circle class="n on m" cx="868.3" cy="932.4" r="3.2"><title>Rare Monsters</title></circle>
+<circle class="n on m" cx="634.7" cy="592.3" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on m" cx="979.9" cy="358.3" r="5"><title>Harmonic Corruption</title></circle>
+<circle class="n on de" cx="336.0" cy="1349.9" r="3.2"><title>Grand Mirror Chance</title></circle>
+<circle class="n off in" cx="1271.2" cy="959.0" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="938.8" cy="781.8" r="5"><title>The Deadliest Hunt</title></circle>
+<circle class="n on m" cx="417.0" cy="641.9" r="3.2"><title>Shrine Chance</title></circle>
+<circle class="n on m" cx="729.7" cy="283.0" r="5"><title>Guild Craftsmen</title></circle>
+<circle class="n off br" cx="608.7" cy="1388.8" r="3.2"><title>Wombgift Quantity (미할당)</title></circle>
+<circle class="n on m" cx="954.4" cy="409.0" r="3.2"><title>Grass Biome: Rare Packs</title></circle>
+<circle class="n off br" cx="612.6" cy="1291.2" r="5"><title>Study the Chains (미할당)</title></circle>
+<circle class="n on m" cx="341.3" cy="724.3" r="5"><title>Favoured Treasures</title></circle>
+<circle class="n on m" cx="476.0" cy="592.6" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on m" cx="1118.1" cy="286.6" r="3.2"><title>Azmeri Spirit and Strongbox Chance</title></circle>
+<circle class="n on m" cx="1095.2" cy="277.1" r="5"><title>Viridi&#x27;s Sacrifice</title></circle>
+<circle class="n on ri" cx="253.2" cy="973.6" r="5"><title>Royal Lenience</title></circle>
+<circle class="n on m" cx="605.9" cy="719.3" r="3.2"><title>Azmeri Spirit Chance</title></circle>
+<circle class="n on m" cx="917.9" cy="293.6" r="5"><title>Intensifying Energies</title></circle>
+<circle class="n off br" cx="558.3" cy="1317.5" r="3.2"><title>Hiveblood Quantity (미할당)</title></circle>
+<circle class="n on de" cx="278.8" cy="1389.7" r="3.2"><title>Grand Mirror Chance</title></circle>
+<circle class="n on ex" cx="1174.9" cy="1418.9" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n on m" cx="586.5" cy="686.9" r="5"><title>Royal Craftsmanship</title></circle>
+<circle class="n on m" cx="464.7" cy="379.1" r="5"><title>Freed From Corruption</title></circle>
+<circle class="n off in" cx="1316.0" cy="1052.8" r="5"><title>Military Reinforcements (미할당)</title></circle>
+<circle class="n on m" cx="1037.6" cy="391.8" r="3.2"><title>Corruption Areas: Rare Monster Modifier Chance</title></circle>
+<circle class="n on m" cx="1127.6" cy="309.5" r="5"><title>Pandora&#x27;s Box</title></circle>
+<circle class="n on ex" cx="1259.9" cy="1420.4" r="7.5"><title>Strategic Advantage</title></circle>
+<circle class="n on m" cx="697.3" cy="686.9" r="3.2"><title>Pack Size</title></circle>
+<circle class="n on m" cx="925.7" cy="703.1" r="7.5"><title>Legendary Duels</title></circle>
+<circle class="n on ex" cx="1226.0" cy="1313.7" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n off br" cx="519.0" cy="1412.6" r="3.2"><title>Hiveblood Quantity (미할당)</title></circle>
+<circle class="n on m" cx="886.4" cy="811.5" r="3.2"><title>Forest Biome: Rare Beast Modifiers Chance</title></circle>
+<circle class="n on ri" cx="255.4" cy="1004.6" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="1036.1" cy="851.4" r="3.2"><title>Rare Monsters</title></circle>
+<circle class="n on m" cx="1148.0" cy="753.8" r="3.2"><title>Swamp Biome: Increased Summoning Circle Chance</title></circle>
+<circle class="n on ex" cx="1243.3" cy="1378.4" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n off in" cx="1237.0" cy="1020.0" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on ri" cx="181.2" cy="1121.0" r="9"><title>Ritual</title></circle>
+<circle class="n on m" cx="756.8" cy="956.2" r="5"><title>Crystalline Overgrowth</title></circle>
+<circle class="n on m" cx="421.8" cy="503.5" r="5"><title>Hidden Scars</title></circle>
+<circle class="n on m" cx="643.9" cy="210.3" r="5"><title>Escalating Rivalry</title></circle>
+<circle class="n on m" cx="585.8" cy="230.0" r="3.2"><title>Water Biome: Drop Rarity</title></circle>
+<circle class="n on m" cx="804.3" cy="441.2" r="5"><title>Greater Gifts</title></circle>
+<circle class="n on m" cx="330.8" cy="308.3" r="5"><title>Symbiotic Strongboxes</title></circle>
+<circle class="n on m" cx="979.5" cy="273.1" r="3.2"><title>Essence Chance</title></circle>
+<circle class="n on m" cx="853.2" cy="718.9" r="3.2"><title>Rogue Exile Chance</title></circle>
+<circle class="n on m" cx="450.4" cy="1021.2" r="5"><title>Expanding Hordes</title></circle>
+<circle class="n on m" cx="1049.2" cy="776.7" r="3.2"><title>Summoning Circle Chance</title></circle>
+<circle class="n off in" cx="1367.3" cy="1079.9" r="5"><title>Patrolling Legions (미할당)</title></circle>
+<circle class="n on m" cx="583.0" cy="664.0" r="5"><title>Twice-Answered Prayers</title></circle>
+<circle class="n on ri" cx="153.0" cy="973.7" r="7.5"><title>Invigorated Sacrifices</title></circle>
+<circle class="n on m" cx="645.0" cy="1042.1" r="5"><title>Favoured Disciple</title></circle>
+<circle class="n on m" cx="880.8" cy="439.5" r="3.2"><title>Grass Biome: Drop Quantity</title></circle>
+<circle class="n off in" cx="1332.7" cy="1020.0" r="5"><title>Loyal Gatekeepers (미할당)</title></circle>
+<circle class="n on m" cx="729.7" cy="503.6" r="3.2"><title>Tablet Effect</title></circle>
+<circle class="n on m" cx="523.2" cy="350.2" r="7.5"><title>On the Wind</title></circle>
+<circle class="n off in" cx="1271.2" cy="990.6" r="5"><title>Bloodrite Vestments (미할당)</title></circle>
+<circle class="n on ex" cx="1139.2" cy="1413.5" r="5"><title>Gaining Traction</title></circle>
+<circle class="n on m" cx="464.1" cy="346.8" r="3.2"><title>Cleansed Areas: Sacred Spirit Chance</title></circle>
+<circle class="n off br" cx="646.5" cy="1399.4" r="5"><title>Diverse Control (미할당)</title></circle>
+<circle class="n on de" cx="210.0" cy="1340.1" r="7.5"><title>Recurring Nightmares — 선택 2번</title></circle>
+<text class="ch" x="210.0" y="1344.1">2</text>
+<circle class="n on m" cx="450.4" cy="1053.6" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on m" cx="363.2" cy="229.4" r="5"><title>Memories of the Vaal</title></circle>
+<circle class="n on ri" cx="120.3" cy="1006.3" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="978.5" cy="471.2" r="5"><title>Heart of Corruption</title></circle>
+<circle class="n on m" cx="1059.4" cy="622.9" r="7.5"><title>Crystalline Patterns</title></circle>
+<circle class="n on m" cx="507.7" cy="592.3" r="3.2"><title>Water Biome: Item Rarity</title></circle>
+<circle class="n on m" cx="362.6" cy="471.1" r="5"><title>Verdant Growth</title></circle>
+<circle class="n on m" cx="934.6" cy="1105.9" r="5"><title>Keen Crafters</title></circle>
+<circle class="n on m" cx="1037.6" cy="503.6" r="5"><title>Cataclysm&#x27;s Wake</title></circle>
+<circle class="n on m" cx="701.5" cy="888.8" r="5"><title>Twin Threats</title></circle>
+<circle class="n on m" cx="379.4" cy="336.4" r="5"><title>Bardiyan Craftsmanship</title></circle>
+<circle class="n off in" cx="1237.0" cy="931.5" r="5"><title>Xipocado&#x27;s Machinations (미할당)</title></circle>
+<circle class="n unk de" cx="141.2" cy="1389.7" r="3.2"><title>Grand Mirror Chance (할당 여부 미확인)</title></circle>
+<circle class="n on ex" cx="1245.7" cy="1224.3" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n on m" cx="510.6" cy="643.5" r="3.2"><title>Water Biome: Shrine Chance</title></circle>
+<circle class="n on de" cx="171.1" cy="1339.5" r="5"><title>Come on! Face me!</title></circle>
+<circle class="n on m" cx="729.7" cy="421.6" r="3.2"><title>City Biome: Tablet Effect</title></circle>
+<circle class="n on m" cx="938.8" cy="725.7" r="3.2"><title>Rogue Exile Chance</title></circle>
+<circle class="n on m" cx="975.2" cy="698.2" r="3.2"><title>Rogue Exile and Essence Chance</title></circle>
+<circle class="n on m" cx="395.0" cy="722.6" r="5"><title>Hidden Compartments</title></circle>
+<circle class="n on m" cx="551.3" cy="1105.9" r="5"><title>Specialised Containers</title></circle>
+<circle class="n on m" cx="729.7" cy="438.8" r="3.2"><title>Tablet Effect</title></circle>
+<circle class="n on m" cx="757.6" cy="60.0" r="5"><title>Partial Translation</title></circle>
+<circle class="n on m" cx="628.1" cy="786.7" r="3.2"><title>Grass Biome: Summoning Circle Chance</title></circle>
+<circle class="n on m" cx="872.7" cy="686.5" r="5"><title>Danger in the Wilds</title></circle>
+<circle class="n on m" cx="852.5" cy="1082.9" r="3.2"><title>Rogue Exile Chance</title></circle>
+<circle class="n off br" cx="530.8" cy="1345.6" r="3.2"><title>Wombgift Quantity (미할당)</title></circle>
+<circle class="n on m" cx="620.5" cy="405.2" r="3.2"><title>City Biome: Summoning Circle Chance</title></circle>
+<circle class="n off in" cx="1296.3" cy="1109.8" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n off br" cx="571.5" cy="1240.2" r="7.5"><title>Sole Purpose (미할당)</title></circle>
+<circle class="n on m" cx="344.1" cy="673.1" r="5"><title>Closer to the Heavens</title></circle>
+<circle class="n on de" cx="230.1" cy="1315.1" r="3.2"><title>Grand Mirror Chance</title></circle>
+<circle class="n off br" cx="582.5" cy="1290.5" r="5"><title>Provoke the Swarm (미할당)</title></circle>
+<circle class="n off br" cx="484.9" cy="1295.3" r="3.2"><title>Hiveblood Quantity (미할당)</title></circle>
+<circle class="n on m" cx="406.8" cy="698.3" r="3.2"><title>Shrine and Strongbox Chance</title></circle>
+<circle class="n on ab" cx="935.0" cy="1373.1" r="5"><title>Strange Aversions</title></circle>
+<circle class="n on m" cx="850.1" cy="395.4" r="5"><title>Exceptional Footwear</title></circle>
+<circle class="n on m" cx="572.5" cy="592.3" r="3.2"><title>Water Biome: Magic Pack Size</title></circle>
+<circle class="n off de" cx="297.9" cy="1299.2" r="5"><title>I know your childhood fears... (미할당)</title></circle>
+<circle class="n on ab" cx="963.3" cy="1273.8" r="5"><title>Endless War</title></circle>
+<circle class="n on m" cx="670.5" cy="1012.3" r="3.2"><title>Azmeri Spirit Chance</title></circle>
+<circle class="n on m" cx="701.6" cy="326.0" r="5"><title>Warlord&#x27;s Vendetta</title></circle>
+<circle class="n on m" cx="985.3" cy="674.2" r="5"><title>Man Trap</title></circle>
+<circle class="n on m" cx="677.4" cy="283.4" r="3.2"><title>City Biome: Rogue Exile Chance</title></circle>
+<circle class="n on ab" cx="906.6" cy="1344.7" r="7.5"><title>Vile Treasures — 선택 2번</title></circle>
+<text class="ch" x="906.6" y="1348.7">2</text>
+<circle class="n off br" cx="610.4" cy="1420.5" r="3.2"><title>Hiveblood Quantity (미할당)</title></circle>
+<circle class="n on de" cx="194.7" cy="1292.8" r="5"><title>You can&#x27;t scare me anymore!</title></circle>
+<circle class="n on m" cx="729.5" cy="1126.3" r="9"><title>Atlas</title></circle>
+<circle class="n on m" cx="920.0" cy="559.1" r="5"><title>Harsh Adaptations</title></circle>
+<circle class="n on m" cx="750.2" cy="763.6" r="5"><title>Specialised Seeker</title></circle>
+<circle class="n on ex" cx="1234.6" cy="1346.0" r="9"><title>Expedition</title></circle>
+<circle class="n on m" cx="780.9" cy="371.8" r="5"><title>Dread Lieutenants</title></circle>
+<circle class="n on m" cx="752.6" cy="709.8" r="3.2"><title>Rare Monsters</title></circle>
+<circle class="n on m" cx="523.5" cy="471.2" r="3.2"><title>Forest Biome: Gold Found</title></circle>
+<circle class="n on ab" cx="830.0" cy="1397.9" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on m" cx="657.7" cy="308.6" r="5"><title>Urban Sprawl</title></circle>
+<circle class="n on m" cx="757.7" cy="326.0" r="5"><title>Just Another Day in Wraeclast</title></circle>
+<circle class="n on ab" cx="850.7" cy="1279.9" r="5"><title>Dark Bloodlines</title></circle>
+<circle class="n on ri" cx="181.1" cy="1007.8" r="5"><title>Bring Forth the Unseen</title></circle>
+<circle class="n on m" cx="883.8" cy="1074.6" r="5"><title>Competing Explorers</title></circle>
+<circle class="n on m" cx="1209.5" cy="801.3" r="7.5"><title>Nemesis Rising — 선택 3번</title></circle>
+<text class="ch" x="1209.5" y="805.3">3</text>
+<circle class="n on ri" cx="276.6" cy="990.4" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="919.6" cy="429.1" r="7.5"><title>Grass Mastery</title></circle>
+<circle class="n off br" cx="563.2" cy="1267.9" r="3.2"><title>Wombgift Quantity (미할당)</title></circle>
+<circle class="n on m" cx="452.5" cy="920.2" r="5"><title>Adaptive Biology</title></circle>
+<circle class="n on ri" cx="91.6" cy="1052.4" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="1087.1" cy="831.3" r="3.2"><title>Rare Monster Modifiers Chance</title></circle>
+<circle class="n on m" cx="910.0" cy="230.6" r="3.2"><title>Desert Biome: Drop Quantity</title></circle>
+<circle class="n on ri" cx="71.7" cy="985.3" r="5"><title>Between Two Worlds</title></circle>
+<circle class="n on m" cx="615.0" cy="1114.2" r="5"><title>Inlaid Inscriptions</title></circle>
+<circle class="n off br" cx="507.1" cy="1349.3" r="3.2"><title>Wombgift Quantity (미할당)</title></circle>
+<circle class="n off br" cx="488.3" cy="1367.9" r="3.2"><title>Wombgift Quantity (미할당)</title></circle>
+<circle class="n on m" cx="654.9" cy="899.8" r="3.2"><title>Rare Monsters</title></circle>
+<circle class="n on ab" cx="988.1" cy="1323.0" r="5"><title>Stir the Swarm</title></circle>
+<circle class="n off in" cx="1237.0" cy="1079.9" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="697.3" cy="471.2" r="5"><title>Reverse Transcription</title></circle>
+<circle class="n on m" cx="876.1" cy="663.6" r="5"><title>Inexplicable Alchemy</title></circle>
+<circle class="n on m" cx="552.6" cy="1037.2" r="3.2"><title>Shrine Chance</title></circle>
+<circle class="n off in" cx="1272.0" cy="1079.8" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="729.7" cy="216.2" r="5"><title>Hope in Despair</title></circle>
+<circle class="n off br" cx="674.3" cy="1318.7" r="5"><title>Growing Wealth (미할당)</title></circle>
+<circle class="n on m" cx="421.8" cy="229.9" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on m" cx="1005.8" cy="1054.4" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<circle class="n off br" cx="559.0" cy="1391.5" r="3.2"><title>Wombgift Quantity (미할당)</title></circle>
+<circle class="n on m" cx="395.6" cy="308.3" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n on m" cx="658.5" cy="264.5" r="5"><title>Famous Locals</title></circle>
+<circle class="n on m" cx="780.9" cy="312.6" r="3.2"><title>City Biome: Tablet Effect</title></circle>
+<circle class="n on m" cx="945.3" cy="1038.2" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<circle class="n on m" cx="332.5" cy="832.5" r="5"><title>Befit the Challenge</title></circle>
+<circle class="n on m" cx="937.6" cy="278.5" r="3.2"><title>Essence Chance</title></circle>
+<circle class="n on de" cx="210.0" cy="1429.4" r="9"><title>Delirium</title></circle>
+<circle class="n on m" cx="560.8" cy="1082.9" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n on m" cx="605.9" cy="686.9" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n on m" cx="1096.2" cy="229.4" r="5"><title>Memories of the Ezomytes</title></circle>
+<circle class="n on m" cx="868.8" cy="980.0" r="7.5"><title>Blood on the Stones — 선택 1번</title></circle>
+<text class="ch" x="868.8" y="984.0">1</text>
+<circle class="n on ri" cx="147.3" cy="1072.6" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="354.2" cy="753.9" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n on ri" cx="181.2" cy="1088.6" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="611.7" cy="1089.7" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n off de" cx="310.0" cy="1332.3" r="3.2"><title>Grand Mirror Chance (미할당)</title></circle>
+<circle class="n on m" cx="954.4" cy="449.2" r="3.2"><title>Grass Biome: Rare Packs</title></circle>
+<circle class="n on m" cx="541.8" cy="308.8" r="5"><title>Those Who Hear</title></circle>
+<circle class="n off in" cx="1205.9" cy="1080.2" r="5"><title>Secrets of the Ancients (미할당)</title></circle>
+<circle class="n on ab" cx="880.7" cy="1422.8" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on m" cx="702.9" cy="956.2" r="5"><title>Worthy Hunter</title></circle>
+<circle class="n on ri" cx="153.0" cy="1000.8" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on ex" cx="1149.8" cy="1327.6" r="5"><title>Feeling Lucky?</title></circle>
+<circle class="n on ri" cx="123.5" cy="937.2" r="5"><title>Ancient Enmities</title></circle>
+<circle class="n on m" cx="962.1" cy="337.9" r="3.2"><title>Essence Chance</title></circle>
+<circle class="n on m" cx="1063.7" cy="722.5" r="5"><title>Energised Precipitate</title></circle>
+<circle class="n on m" cx="925.4" cy="805.0" r="3.2"><title>Rogue Exile Chance</title></circle>
+<circle class="n on m" cx="876.1" cy="709.4" r="5"><title>Dressed in Fineries</title></circle>
+<circle class="n on m" cx="420.6" cy="259.1" r="3.2"><title>Mountain Biome: Pack Size</title></circle>
+<circle class="n on m" cx="660.4" cy="1126.4" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n on m" cx="327.4" cy="793.4" r="3.2"><title>Pack Size</title></circle>
+<circle class="n on m" cx="762.1" cy="471.2" r="5"><title>Propagating Secrets</title></circle>
+<circle class="n on ab" cx="830.3" cy="1302.7" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on m" cx="914.4" cy="827.7" r="5"><title>Call of the Spirit</title></circle>
+<circle class="n on m" cx="600.0" cy="859.1" r="5"><title>Bounty of the Fields</title></circle>
+<circle class="n on m" cx="729.5" cy="796.8" r="5"><title>No Simple Battles</title></circle>
+<circle class="n on m" cx="1088.9" cy="673.0" r="3.2"><title>Swamp Biome: Essence Chance</title></circle>
+<circle class="n on m" cx="666.8" cy="233.2" r="3.2"><title>Rogue Exile Chance</title></circle>
+<circle class="n on m" cx="519.9" cy="782.0" r="5"><title>Grip of the Wilds</title></circle>
+<circle class="n on ab" cx="805.1" cy="1373.0" r="7.5"><title>Lord of the Pit — 선택 2번</title></circle>
+<text class="ch" x="805.1" y="1377.0">2</text>
+<circle class="n on m" cx="484.9" cy="850.7" r="3.2"><title>Tablet Effect</title></circle>
+<circle class="n unk de" cx="113.5" cy="1268.9" r="3.2"><title>Grand Mirror Chance (할당 여부 미확인)</title></circle>
+<circle class="n on ab" cx="878.2" cy="1373.1" r="5"><title>Close to the Surface</title></circle>
+<circle class="n on m" cx="311.7" cy="640.7" r="5"><title>Forgotten Heights</title></circle>
+<circle class="n on m" cx="1051.8" cy="698.2" r="3.2"><title>Essence and Summoning Circle Chance</title></circle>
+<circle class="n on ab" cx="983.0" cy="1397.9" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on de" cx="225.3" cy="1292.8" r="5"><title>Are you sure you want to do that?</title></circle>
+<circle class="n on m" cx="863.5" cy="821.0" r="5"><title>Evolutionary Pressures</title></circle>
+<circle class="n on m" cx="919.8" cy="982.5" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<circle class="n on m" cx="820.8" cy="686.5" r="7.5"><title>Overlord&#x27;s Domain</title></circle>
+<circle class="n on m" cx="870.3" cy="293.3" r="3.2"><title>Rare Monster Modifiers Chance</title></circle>
+<circle class="n on m" cx="804.3" cy="395.4" r="3.2"><title>Item Rarity</title></circle>
+<circle class="n on m" cx="394.4" cy="628.8" r="7.5"><title>Fabled Showdown</title></circle>
+<circle class="n unk de" cx="110.0" cy="1332.3" r="3.2"><title>Grand Mirror Chance (할당 여부 미확인)</title></circle>
+<circle class="n off br" cx="475.2" cy="1347.1" r="5"><title>Essence Transference (미할당)</title></circle>
+<circle class="n on m" cx="389.4" cy="127.3" r="5"><title>Risk and Reward</title></circle>
+<circle class="n on m" cx="713.9" cy="1058.9" r="3.2"><title>Azmeri Spirit Chance</title></circle>
+<circle class="n on m" cx="729.7" cy="374.6" r="3.2"><title>City Biome: Rare Monster Modifiers</title></circle>
+<circle class="n on ex" cx="1267.0" cy="1354.7" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n on m" cx="521.0" cy="230.0" r="3.2"><title>Water Biome: Drop Rarity</title></circle>
+<circle class="n on m" cx="1070.0" cy="127.9" r="5"><title>Hard-Won Treasures</title></circle>
+<circle class="n on ri" cx="208.9" cy="1000.9" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="538.3" cy="1067.8" r="5"><title>Drawn to Riches</title></circle>
+<circle class="n on ex" cx="1261.5" cy="1252.2" r="7.5"><title>Cultivate the Sea — 선택 6번</title></circle>
+<text class="ch" x="1261.5" y="1256.2">6</text>
+<circle class="n on m" cx="709.1" cy="763.6" r="5"><title>Valuable Paths</title></circle>
+<circle class="n on m" cx="1037.6" cy="272.9" r="3.2"><title>Swamp Biome: Pack Size</title></circle>
+<circle class="n on m" cx="641.7" cy="392.9" r="5"><title>Serle&#x27;s Legacy</title></circle>
+<circle class="n on m" cx="758.0" cy="924.9" r="7.5"><title>Essence Dowsing — 선택 3번</title></circle>
+<text class="ch" x="758.0" y="928.9">3</text>
+<circle class="n on m" cx="870.3" cy="265.3" r="3.2"><title>Desert Biome: Experience</title></circle>
+<circle class="n on m" cx="844.1" cy="1114.2" r="5"><title>Wealthy Exiles</title></circle>
+<circle class="n on m" cx="831.2" cy="342.2" r="7.5"><title>History of the Vaal</title></circle>
+<circle class="n on ab" cx="988.1" cy="1353.3" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on m" cx="583.0" cy="709.8" r="5"><title>Light of the Draíocht</title></circle>
+<circle class="n on m" cx="604.2" cy="250.0" r="5"><title>Here for the Same Reason</title></circle>
+<circle class="n on m" cx="759.2" cy="393.4" r="3.2"><title>City Biome: Rare Monster Modifiers</title></circle>
+<circle class="n on de" cx="288.2" cy="1363.7" r="5"><title>There&#x27;s nowhere to hide...</title></circle>
+<circle class="n on m" cx="571.9" cy="875.3" r="3.2"><title>Grass Biome: Pack Size</title></circle>
+<circle class="n on ri" cx="209.2" cy="1028.7" r="7.5"><title>Traveller&#x27;s Woe</title></circle>
+<circle class="n on m" cx="1181.0" cy="753.8" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<circle class="n on m" cx="979.5" cy="230.0" r="5"><title>Memories of the Karui</title></circle>
+<circle class="n on m" cx="1183.1" cy="800.1" r="3.2"><title>Rare Monster Modifiers Chance</title></circle>
+<circle class="n on m" cx="853.2" cy="686.5" r="3.2"><title>Summoning Circle Chance</title></circle>
+<circle class="n on m" cx="421.8" cy="391.7" r="3.2"><title>Additional Cleansed Packs</title></circle>
+<circle class="n on m" cx="813.9" cy="1042.0" r="5"><title>Challenging Foe</title></circle>
+<circle class="n on m" cx="961.5" cy="1066.3" r="5"><title>Fit for a King</title></circle>
+<circle class="n off br" cx="574.0" cy="1327.3" r="3.2"><title>Hiveblood Quantity (미할당)</title></circle>
+<circle class="n on ri" cx="229.7" cy="1008.3" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="1013.4" cy="625.6" r="5"><title>Greater Pattern</title></circle>
+<circle class="n on m" cx="540.6" cy="851.3" r="5"><title>Whispers of the Waving Grains</title></circle>
+<circle class="n off in" cx="1166.1" cy="1110.2" r="5"><title>Protected Treasures (미할당)</title></circle>
+<circle class="n on m" cx="863.5" cy="866.8" r="5"><title>The Hunt Goes On</title></circle>
+<circle class="n on ri" cx="181.1" cy="1067.8" r="5"><title>Reborn in Shadow</title></circle>
+<circle class="n unk de" cx="118.0" cy="1392.8" r="5"><title>Get out of my head! (할당 여부 미확인)</title></circle>
+<circle class="n on ex" cx="1296.8" cy="1404.3" r="5"><title>Face the Past</title></circle>
+<circle class="n on ab" cx="935.0" cy="1316.2" r="5"><title>Rotting Bones</title></circle>
+<circle class="n on m" cx="641.8" cy="1017.6" r="3.2"><title>Shrine Chance</title></circle>
+<circle class="n on m" cx="1012.9" cy="753.8" r="3.2"><title>Rogue Exile and Summoning Circle Chance</title></circle>
+<circle class="n on m" cx="1037.6" cy="160.3" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<circle class="n on m" cx="897.1" cy="568.6" r="3.2"><title>Desert Biome: Rare Monster Chance</title></circle>
+<circle class="n on m" cx="967.3" cy="1105.9" r="7.5"><title>Well-equipped Opponents — 선택 2번</title></circle>
+<text class="ch" x="967.3" y="1109.9">2</text>
+<circle class="n unk de" cx="91.6" cy="1306.8" r="5"><title>I see your true nature now! (할당 여부 미확인)</title></circle>
+<circle class="n on m" cx="402.8" cy="782.0" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n on m" cx="877.2" cy="342.2" r="5"><title>Exceptional Adornments</title></circle>
+<circle class="n on m" cx="965.3" cy="629.6" r="3.2"><title>Desert Biome: Essence Chance</title></circle>
+<circle class="n on m" cx="436.8" cy="287.1" r="7.5"><title>Mountain Mastery</title></circle>
+<circle class="n on ex" cx="1218.0" cy="1238.4" r="7.5"><title>Double or Nothing — 선택 1번</title></circle>
+<text class="ch" x="1218.0" y="1242.4">1</text>
+<circle class="n on m" cx="701.5" cy="60.0" r="5"><title>Curiously Durable Stone</title></circle>
+<circle class="n on m" cx="1003.7" cy="883.8" r="5"><title>Eons of Domination</title></circle>
+<circle class="n on m" cx="454.2" cy="471.1" r="3.2"><title>Additional Cleansed Packs</title></circle>
+<circle class="n on m" cx="757.6" cy="888.8" r="5"><title>Rising Danger</title></circle>
+<circle class="n on m" cx="673.5" cy="630.7" r="5"><title>Plentiful Lands</title></circle>
+<circle class="n on ri" cx="181.1" cy="1037.6" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on ab" cx="864.5" cy="1243.4" r="5"><title>Unholy Influence</title></circle>
+<circle class="n on ab" cx="1007.9" cy="1293.1" r="5"><title>Shadow of Undeath</title></circle>
+<circle class="n on m" cx="560.8" cy="1128.8" r="3.2"><title>Strongbox Chance</title></circle>
+<circle class="n on de" cx="282.2" cy="1246.7" r="5"><title>Is this about me... or you?</title></circle>
+<circle class="n on m" cx="850.1" cy="441.2" r="3.2"><title>Rare Monster Modifiers Chance</title></circle>
+<circle class="n on m" cx="421.8" cy="530.3" r="3.2"><title>Additional Cleansed Packs</title></circle>
+<circle class="n on m" cx="363.2" cy="275.9" r="5"><title>An Appropriate Vault</title></circle>
+<circle class="n on ab" cx="958.1" cy="1243.4" r="5"><title>Blessing of the Source</title></circle>
+<circle class="n on ab" cx="906.6" cy="1304.5" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on m" cx="729.7" cy="719.3" r="7.5"><title>The Chosen Path</title></circle>
+<circle class="n on m" cx="830.2" cy="787.8" r="3.2"><title>Rare Monsters</title></circle>
+<circle class="n on m" cx="888.7" cy="599.9" r="5"><title>Survival of the Fittest</title></circle>
+<circle class="n on m" cx="510.9" cy="1037.4" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on ex" cx="1191.3" cy="1271.1" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n on m" cx="495.4" cy="722.6" r="5"><title>Spirit-Touched Spoils</title></circle>
+<circle class="n on m" cx="952.4" cy="591.5" r="3.2"><title>Desert Biome: Rare Monster Modifiers Chance</title></circle>
+<circle class="n unk de" cx="84.0" cy="1349.9" r="3.2"><title>Grand Mirror Chance (할당 여부 미확인)</title></circle>
+<circle class="n on m" cx="417.0" cy="674.3" r="5"><title>Offerings to the Unknown</title></circle>
+<circle class="n on m" cx="1037.6" cy="530.4" r="3.2"><title>Corruption Areas: Rare Monster Modifier Chance</title></circle>
+<circle class="n on m" cx="1041.4" cy="641.8" r="3.2"><title>Essence Chance</title></circle>
+<circle class="n on ab" cx="805.1" cy="1302.7" r="5"><title>Sprawling Rupture</title></circle>
+<circle class="n on m" cx="586.8" cy="422.7" r="3.2"><title>Forest Biome: Rare Packs</title></circle>
+<circle class="n on m" cx="1126.9" cy="832.5" r="3.2"><title>Rare Monster Modifiers Chance</title></circle>
+<circle class="n on m" cx="762.1" cy="686.9" r="3.2"><title>Rare Monster Modifiers Chance</title></circle>
+<circle class="n on m" cx="985.3" cy="641.8" r="3.2"><title>Essence Chance</title></circle>
+<circle class="n on m" cx="562.3" cy="753.9" r="7.5"><title>Sacred Sap</title></circle>
+<circle class="n on m" cx="1148.0" cy="591.6" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<circle class="n off in" cx="1271.2" cy="1020.0" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n unk de" cx="122.1" cy="1299.2" r="5"><title>I&#x27;m not alone anymore! (할당 여부 미확인)</title></circle>
+<circle class="n on m" cx="370.4" cy="782.0" r="5"><title>Intriguing Designs</title></circle>
+<circle class="n on m" cx="701.7" cy="924.9" r="7.5"><title>Unseen Rivers — 선택 2번</title></circle>
+<text class="ch" x="701.7" y="928.9">2</text>
+<circle class="n on m" cx="697.0" cy="220.5" r="3.2"><title>Shrine Chance</title></circle>
+<circle class="n on m" cx="1005.2" cy="471.2" r="3.2"><title>Corruption Areas: Rare Monster Modifier Chance</title></circle>
+<circle class="n on m" cx="436.8" cy="327.3" r="3.2"><title>Mountain Biome: Drop Rarity</title></circle>
+<circle class="n on m" cx="371.5" cy="831.3" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on m" cx="701.6" cy="358.4" r="5"><title>Warring Survivors</title></circle>
+<circle class="n on m" cx="1037.6" cy="353.3" r="3.2"><title>Swamp Biome: Experience</title></circle>
+<circle class="n on m" cx="845.2" cy="1066.0" r="5"><title>Overheard Summons</title></circle>
+<circle class="n off br" cx="605.0" cy="1354.4" r="5"><title>Frantic Invasion (미할당)</title></circle>
+<circle class="n on ab" cx="854.7" cy="1422.5" r="5"><title>Ghastly Relics</title></circle>
+<circle class="n off in" cx="1156.6" cy="1052.8" r="5"><title>Royal Prerogative (미할당)</title></circle>
+<circle class="n on m" cx="1039.7" cy="753.8" r="5"><title>Distant Origins</title></circle>
+<circle class="n off br" cx="513.4" cy="1375.7" r="7.5"><title>Breeding Program (미할당)</title></circle>
+<circle class="n on m" cx="973.7" cy="777.2" r="3.2"><title>Rogue Exile Chance</title></circle>
+<circle class="n on m" cx="942.9" cy="614.4" r="5"><title>Arid Stability</title></circle>
+<circle class="n on m" cx="678.8" cy="1079.3" r="3.2"><title>Shrine Chance</title></circle>
+<circle class="n on m" cx="543.9" cy="826.7" r="3.2"><title>Grass Biome: Azmeri Spirit Chance</title></circle>
+<circle class="n on m" cx="477.0" cy="308.8" r="3.2"><title>Azmeri Spirit Chance</title></circle>
+<circle class="n on m" cx="1002.8" cy="293.0" r="3.2"><title>Swamp Biome: Experience</title></circle>
+<circle class="n on m" cx="801.0" cy="968.1" r="5"><title>Trapped Subordinate</title></circle>
+<circle class="n on m" cx="480.4" cy="229.4" r="5"><title>Memories of the Maraketh</title></circle>
+<circle class="n on m" cx="729.5" cy="840.2" r="3.2"><title>Rare Monster Modifiers Chance</title></circle>
+<circle class="n on m" cx="1148.0" cy="705.4" r="5"><title>Boss of the Bog</title></circle>
+<circle class="n on ab" cx="920.3" cy="1330.9" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n off in" cx="1173.8" cy="1080.2" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="845.2" cy="1001.2" r="5"><title>Runic Flare</title></circle>
+<circle class="n off in" cx="1287.6" cy="1052.8" r="5"><title>Stolen Authority (미할당)</title></circle>
+<circle class="n on m" cx="729.7" cy="572.4" r="5"><title>Archaeological Interest</title></circle>
+<circle class="n on m" cx="789.2" cy="1012.3" r="3.2"><title>Essence Chance</title></circle>
+<circle class="n on ri" cx="239.5" cy="1037.9" r="5"><title>Royal Tithe</title></circle>
+<circle class="n on m" cx="782.9" cy="228.0" r="7.5"><title>History of the Faridun</title></circle>
+<circle class="n on ri" cx="60.0" cy="1038.6" r="5"><title>Magnanimous Offerings</title></circle>
+<circle class="n on m" cx="594.8" cy="820.0" r="5"><title>Moths to the Flame</title></circle>
+<circle class="n on m" cx="987.4" cy="753.8" r="5"><title>Uncommon Alliances</title></circle>
+<circle class="n on m" cx="532.3" cy="285.8" r="3.2"><title>Azmeri Spirit Chance</title></circle>
+<circle class="n on m" cx="1037.6" cy="438.8" r="5"><title>Exceptional Armaments</title></circle>
+<circle class="n on m" cx="1088.3" cy="781.8" r="5"><title>Lord of the Runes</title></circle>
+<circle class="n on m" cx="445.1" cy="625.7" r="5"><title>Gathered Masses</title></circle>
+<circle class="n on ex" cx="1153.3" cy="1375.5" r="7.5"><title>Calculated Investment</title></circle>
+<circle class="n on m" cx="627.2" cy="272.9" r="3.2"><title>Rogue Exile Chance</title></circle>
+<circle class="n on m" cx="729.7" cy="262.7" r="3.2"><title>City Biome: Tablet Effect</title></circle>
+<circle class="n on m" cx="752.6" cy="664.0" r="3.2"><title>Item Rarity</title></circle>
+<circle class="n on m" cx="925.7" cy="254.2" r="5"><title>Mysteries of Silence</title></circle>
+<circle class="n on m" cx="552.0" cy="442.8" r="7.5"><title>Forest Mastery</title></circle>
+<circle class="n off br" cx="516.3" cy="1287.6" r="3.2"><title>Hiveblood Quantity (미할당)</title></circle>
+<circle class="n on m" cx="817.2" cy="1017.4" r="3.2"><title>Summoning Circle Chance</title></circle>
+<circle class="n off br" cx="630.2" cy="1255.1" r="5"><title>Flesh Flower (미할당)</title></circle>
+<circle class="n on m" cx="872.5" cy="1038.2" r="3.2"><title>Summoning Circle Chance</title></circle>
+<circle class="n on ex" cx="1295.2" cy="1321.5" r="7.5"><title>Steady Development</title></circle>
+<circle class="n on de" cx="181.5" cy="1378.4" r="3.2"><title>Grand Mirror Chance</title></circle>
+<circle class="n on ex" cx="1258.3" cy="1322.4" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n off br" cx="644.8" cy="1345.8" r="5"><title>Exquisite Design (미할당)</title></circle>
+<circle class="n on ab" cx="892.7" cy="1243.4" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n off br" cx="488.9" cy="1323.3" r="5"><title>Moment of Risk (미할당)</title></circle>
+<circle class="n on m" cx="1005.2" cy="127.9" r="5"><title>Controlled Climates</title></circle>
+<circle class="n on m" cx="478.5" cy="1069.8" r="5"><title>Bountiful Bloodlines</title></circle>
+<circle class="n on ab" cx="1007.9" cy="1373.1" r="5"><title>Dark Depths</title></circle>
+<circle class="n on m" cx="622.1" cy="1002.5" r="5"><title>Seasonal Blessing</title></circle>
+<circle class="n on m" cx="585.0" cy="1037.2" r="5"><title>Mystic Guardians</title></circle>
+<circle class="n on m" cx="591.3" cy="932.0" r="3.2"><title>Rare Monsters</title></circle>
+<circle class="n on m" cx="971.3" cy="851.4" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<circle class="n off br" cx="567.0" cy="1428.8" r="9"><title>Breach (미할당)</title></circle>
+<circle class="n unk de" cx="144.7" cy="1427.7" r="3.2"><title>Grand Mirror Chance (할당 여부 미확인)</title></circle>
+<circle class="n on de" cx="248.8" cy="1339.5" r="5"><title>You can&#x27;t just wake up from this one.</title></circle>
+<circle class="n on m" cx="279.3" cy="673.1" r="3.2"><title>Mountain Biome: Rare Chest Chance</title></circle>
+<circle class="n off de" cx="302.0" cy="1392.8" r="5"><title>These demons are all your own... (미할당)</title></circle>
+<circle class="n on m" cx="603.7" cy="342.2" r="5"><title>Exceptional Handiwork</title></circle>
+<circle class="n on m" cx="288.3" cy="844.4" r="5"><title>Infused Flesh</title></circle>
+<circle class="n on m" cx="446.4" cy="205.3" r="5"><title>Shattered Questions</title></circle>
+<circle class="n off br" cx="599.3" cy="1320.9" r="3.2"><title>Hiveblood Quantity (미할당)</title></circle>
+<circle class="n off de" cx="238.4" cy="1378.4" r="3.2"><title>Grand Mirror Chance (미할당)</title></circle>
+<circle class="n on m" cx="729.5" cy="103.0" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<circle class="n on m" cx="1104.5" cy="753.8" r="3.2"><title>Summoning Circle Chance</title></circle>
+<circle class="n on m" cx="370.9" cy="673.1" r="3.2"><title>Mountain Biome: Shrine Chance</title></circle>
+<circle class="n on ri" cx="202.9" cy="1055.2" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n off in" cx="1330.4" cy="1079.9" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n off in" cx="1141.6" cy="1080.2" r="5"><title>Expanded Designs (미할당)</title></circle>
+<circle class="n on ab" cx="932.3" cy="1422.8" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on m" cx="991.8" cy="591.6" r="3.2"><title>Rare Monster Modifiers Chance</title></circle>
+<circle class="n off in" cx="1297.9" cy="990.6" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="917.7" cy="852.3" r="3.2"><title>Forest Biome: Azmeri Spirit Chance</title></circle>
+<circle class="n off br" cx="496.9" cy="1267.4" r="7.5"><title>Shape the Chains (미할당)</title></circle>
+<circle class="n on ri" cx="153.0" cy="1028.5" r="5"><title>From the Mists</title></circle>
+<circle class="n off in" cx="1351.3" cy="1052.8" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="706.7" cy="664.0" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on m" cx="1080.6" cy="379.2" r="3.2"><title>Corruption Areas: Strongbox Chance</title></circle>
+<circle class="n on m" cx="671.4" cy="425.3" r="7.5"><title>History of the Ezomytes</title></circle>
+<circle class="n on m" cx="804.2" cy="899.8" r="3.2"><title>Rare Monsters</title></circle>
+<circle class="n on m" cx="756.8" cy="1012.3" r="5"><title>Imprisoned Monstrosities</title></circle>
+<circle class="n on m" cx="673.5" cy="743.0" r="5"><title>Hidden Things in Shaded Places</title></circle>
+<circle class="n on m" cx="607.9" cy="309.6" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on m" cx="486.5" cy="331.7" r="5"><title>The Chosen Children</title></circle>
+<circle class="n on ri" cx="254.5" cy="942.9" r="5"><title>Hour of the Nameless</title></circle>
+<circle class="n unk de" cx="131.7" cy="1363.7" r="5"><title>The mirrors... the mirrors! (할당 여부 미확인)</title></circle>
+<circle class="n on m" cx="1037.6" cy="230.6" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<circle class="n on ri" cx="209.0" cy="973.9" r="5"><title>Spreading Darkness</title></circle>
+<circle class="n on ex" cx="1119.7" cy="1387.3" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n on m" cx="421.8" cy="592.6" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on m" cx="929.7" cy="337.9" r="5"><title>Burst of Energy</title></circle>
+<circle class="n on m" cx="539.2" cy="982.6" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on m" cx="658.6" cy="968.1" r="5"><title>Spoils of the Hunt</title></circle>
+<circle class="n on ri" cx="215.2" cy="1072.6" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="537.2" cy="258.0" r="3.2"><title>Water Biome: Gold Found</title></circle>
+<circle class="n on m" cx="295.5" cy="701.1" r="5"><title>Treasure Coves</title></circle>
+<circle class="n on m" cx="798.7" cy="1126.4" r="3.2"><title>Rogue Exile Chance</title></circle>
+<circle class="n on m" cx="563.1" cy="569.3" r="5"><title>Something in the Water</title></circle>
+<circle class="n on ab" cx="906.6" cy="1384.9" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n off in" cx="1124.3" cy="1110.2" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on ab" cx="1007.9" cy="1337.9" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on ab" cx="920.9" cy="1243.4" r="5"><title>Armaments of Evil</title></circle>
+<circle class="n on m" cx="729.7" cy="654.5" r="7.5"><title>The Journey Ahead</title></circle>
+<circle class="n on m" cx="1003.7" cy="976.4" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<circle class="n on m" cx="817.4" cy="599.3" r="3.2"><title>Item Rarity</title></circle>
+<circle class="n on m" cx="483.5" cy="698.3" r="3.2"><title>Azmeri Spirit and Shrine Chance</title></circle>
+<circle class="n on m" cx="311.7" cy="592.6" r="3.2"><title>Item Rarity</title></circle>
+<circle class="n on ri" cx="296.9" cy="987.4" r="5"><title>Umbral Gathering</title></circle>
+<circle class="n off in" cx="1384.6" cy="1109.8" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="1079.0" cy="337.6" r="5"><title>Enemy&#x27;s Hoard</title></circle>
+<circle class="n on m" cx="413.9" cy="310.0" r="3.2"><title>Mountain Biome: Pack Size</title></circle>
+<circle class="n on m" cx="480.8" cy="776.8" r="3.2"><title>Azmeri Spirit Chance</title></circle>
+<circle class="n off de" cx="275.2" cy="1427.7" r="3.2"><title>Grand Mirror Chance (미할당)</title></circle>
+<circle class="n off in" cx="1297.9" cy="959.0" r="7.5"><title>Atziri&#x27;s Assets (미할당)</title></circle>
+<circle class="n on m" cx="1148.0" cy="640.6" r="3.2"><title>Swamp Biome: Unique Monster Item Rarity</title></circle>
+<circle class="n unk de" cx="137.7" cy="1246.7" r="5"><title>Is that the best you&#x27;ve got?! (할당 여부 미확인)</title></circle>
+<circle class="n off in" cx="1188.7" cy="1052.8" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on de" cx="189.9" cy="1315.1" r="3.2"><title>Grand Mirror Chance</title></circle>
+<circle class="n off in" cx="1212.6" cy="1110.2" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="1070.0" cy="471.2" r="3.2"><title>Corruption Areas: Rare Monster Modifier Chance</title></circle>
+<circle class="n on ex" cx="1202.3" cy="1337.4" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n on ab" cx="983.0" cy="1268.2" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on ri" cx="123.0" cy="1037.9" r="5"><title>Tempting Offers</title></circle>
+<circle class="n off in" cx="1237.0" cy="990.6" r="5"><title>Efficient Arteries (미할당)</title></circle>
+<circle class="n on m" cx="745.8" cy="1058.9" r="3.2"><title>Essence Chance</title></circle>
+<circle class="n on ri" cx="229.7" cy="987.1" r="5"><title>Mysterious Rites</title></circle>
+<circle class="n on ab" cx="830.0" cy="1277.8" r="3.2"><title>Depths Chance</title></circle>
+<circle class="n on ri" cx="299.6" cy="1038.6" r="5"><title>Ongoing Chants</title></circle>
+<circle class="n on m" cx="421.8" cy="159.7" r="3.2"><title>Item Rarity</title></circle>
+<circle class="n off in" cx="1237.0" cy="1052.5" r="5"><title>Training and Preparation (미할당)</title></circle>
+<circle class="n on ex" cx="1322.1" cy="1351.7" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n on ab" cx="906.5" cy="1422.8" r="9"><title>Abyss</title></circle>
+<circle class="n on m" cx="817.6" cy="291.4" r="5"><title>Monuments in Time</title></circle>
+<circle class="n on m" cx="493.2" cy="280.7" r="5"><title>Quickened Flow</title></circle>
+<circle class="n on ri" cx="79.6" cy="1021.4" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="452.5" cy="981.7" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n off br" cx="572.4" cy="1357.2" r="5"><title>Swelling Hives (미할당)</title></circle>
+<circle class="n on m" cx="785.8" cy="743.0" r="5"><title>Apex Predators</title></circle>
+<circle class="n off br" cx="522.7" cy="1318.8" r="5"><title>Reality Wound (미할당)</title></circle>
+<circle class="n on m" cx="719.1" cy="984.3" r="3.2"><title>Azmeri Spirit Chance</title></circle>
+<circle class="n off br" cx="530.8" cy="1254.7" r="7.5"><title>Tear Open the Rift (미할당)</title></circle>
+<circle class="n off in" cx="1237.0" cy="959.0" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="481.0" cy="471.1" r="5"><title>From Distances Untold</title></circle>
+<circle class="n on m" cx="583.7" cy="1138.3" r="5"><title>Enchanted Locks</title></circle>
+<circle class="n on ab" cx="878.2" cy="1316.2" r="5"><title>Abyssal Ire</title></circle>
+<circle class="n on ri" cx="93.9" cy="985.3" r="5"><title>Prayer and Pledge</title></circle>
+<circle class="n on m" cx="729.7" cy="607.4" r="5"><title>Between Sand and Sea</title></circle>
+<circle class="n on m" cx="327.9" cy="701.1" r="3.2"><title>Mountain Biome: Strongbox Chance</title></circle>
+<circle class="n on m" cx="1005.8" cy="1022.0" r="5"><title>Pathkeepers</title></circle>
+<circle class="n off in" cx="1206.5" cy="990.6" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="729.5" cy="905.0" r="3.2"><title>Rare Monster Modifiers Chance</title></circle>
+<circle class="n on m" cx="454.2" cy="127.3" r="5"><title>Enigmatic Intensification</title></circle>
+<circle class="n on m" cx="638.3" cy="686.9" r="7.5"><title>Overlord&#x27;s Influence</title></circle>
+<circle class="n on m" cx="1183.1" cy="832.5" r="5"><title>Lethal Variants</title></circle>
+<circle class="n on ab" cx="958.1" cy="1422.8" r="5"><title>From Below</title></circle>
+<circle class="n on m" cx="419.0" cy="753.9" r="5"><title>Living Metal</title></circle>
+<circle class="n on m" cx="296.7" cy="755.1" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on ri" cx="270.5" cy="1052.4" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n off br" cx="550.2" cy="1288.4" r="5"><title>Reactive Hiveseeding (미할당)</title></circle>
+<circle class="n on m" cx="597.9" cy="981.2" r="7.5"><title>Divined Blessing — 선택 2번</title></circle>
+<text class="ch" x="597.9" y="985.2">2</text>
+<circle class="n on m" cx="780.1" cy="1079.2" r="3.2"><title>Summoning Circle Chance</title></circle>
+<circle class="n on m" cx="599.3" cy="592.3" r="5"><title>Thriving Waters</title></circle>
+<circle class="n on m" cx="963.3" cy="722.5" r="5"><title>Competitive Archaeology</title></circle>
+<circle class="n on ri" cx="85.7" cy="956.0" r="3.2"><title>Increased Tribute</title></circle>
+<circle class="n on m" cx="420.1" cy="850.7" r="5"><title>Atop the World</title></circle>
+<circle class="n on m" cx="273.2" cy="807.9" r="3.2"><title>Magic Packs</title></circle>
+<circle class="n on m" cx="994.7" cy="379.2" r="3.2"><title>Corruption Areas: Essence Chance</title></circle>
+<circle class="n on m" cx="452.5" cy="883.1" r="5"><title>Eons of Contamination</title></circle>
+<circle class="n on m" cx="531.9" cy="408.0" r="3.2"><title>Forest Biome: Gold Found</title></circle>
+<circle class="n on m" cx="729.7" cy="401.3" r="5"><title>Industrial Improvements</title></circle>
+<circle class="n on m" cx="473.1" cy="674.3" r="5"><title>Curious Spirits</title></circle>
+<circle class="n on m" cx="473.1" cy="641.9" r="3.2"><title>Shrine Chance</title></circle>
+<circle class="n on m" cx="962.1" cy="281.8" r="5"><title>Massive Crystals</title></circle>
+<circle class="n on m" cx="1037.6" cy="591.6" r="3.2"><title>Rare Monsters</title></circle>
+<circle class="n on m" cx="1041.4" cy="674.2" r="5"><title>Flawless Patterns</title></circle>
+<circle class="n on m" cx="702.9" cy="1012.3" r="5"><title>Spill the Sap</title></circle>
+<circle class="n on ex" cx="1205.7" cy="1362.8" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n on ex" cx="1324.9" cy="1418.1" r="3.2"><title>Logbook Chance</title></circle>
+<circle class="n off in" cx="1206.5" cy="959.0" r="5"><title>Transcendent Progress (미할당)</title></circle>
+<circle class="n on m" cx="605.9" cy="654.5" r="3.2"><title>Shrine Chance</title></circle>
+<circle class="n on m" cx="1037.6" cy="313.1" r="7.5"><title>Swamp Mastery</title></circle>
+<circle class="n on ab" cx="906.6" cy="1278.8" r="7.5"><title>Balance of Power — 선택 1번</title></circle>
+<text class="ch" x="906.6" y="1282.8">1</text>
+<circle class="n off in" cx="1204.1" cy="1019.6" r="3.2"><title>Reduced Destabilization (미할당)</title></circle>
+<circle class="n on m" cx="1096.8" cy="471.2" r="5"><title>Corrupted Mutations</title></circle>
+<circle class="n on m" cx="445.8" cy="753.9" r="3.2"><title>Azmeri Spirit and Strongbox Chance</title></circle>
+<circle class="n on m" cx="706.7" cy="709.8" r="3.2"><title>Unique Monster Item Rarity</title></circle>
+<text class="lb" x="729" y="30">본 트리 336/336</text>
+<text class="lb" x="180" y="915">의식 36/36</text>
+<text class="lb" x="1254" y="905">인커전 0/36</text>
+<text class="lb" x="210" y="1475">환영 22/31</text>
+<text class="lb" x="566" y="1475">균열 0/32</text>
+<text class="lb" x="906" y="1475">심연 35/35</text>
+<text class="lb" x="1234" y="1475">탐험 24/24</text>
+</svg></div>
+  <div class="legend">
+    <span><i style="background:#d6b25a"></i>할당</span>
+    <span><i style="background:#26221d;border:1px solid #5a5247"></i>미할당</span>
+    <span><i style="background:#26221d;border:1px dashed #9db3d1"></i>환영 왼쪽 날개 — 10개 중 6개 할당, 어느 것인지 미확인</span>
+    <span>숫자 = 선택형 노드에서 고른 번호</span>
+  </div>
+  <div class="tbl" style="margin-top:16px"><table>
+    <thead><tr><th>선택형 노드</th><th>트리</th><th>번호</th><th>근거</th></tr></thead>
+    <tbody>
+      <tr><td>Nemesis Rising (부상하는 숙적)</td><td>본</td><td class="n">3 · 추가 희귀 몬스터</td><td><a href="https://www.youtube.com/watch?v=xnREtaV3m1A&t=3067">9/8 0:51:07</a> 노드 제목</td></tr>
+      <tr><td>Unseen Rivers</td><td>본 · 뿌리 부채꼴</td><td class="n">2</td><td rowspan="6"><a href="https://www.youtube.com/watch?v=GybQGLXje84&t=8866">9/11 2:27:46</a> 아이콘 숫자</td></tr>
+      <tr><td>Essence Dowsing</td><td>본 · 뿌리 부채꼴</td><td class="n">3</td></tr>
+      <tr><td>Divined Blessing</td><td>본 · 뿌리 부채꼴</td><td class="n">2</td></tr>
+      <tr><td>Blood on the Stones</td><td>본 · 뿌리 부채꼴</td><td class="n">1</td></tr>
+      <tr><td>Craftsman's Creed</td><td>본 · 뿌리 부채꼴</td><td class="n">3</td></tr>
+      <tr><td>Well-equipped Opponents</td><td>본 · 뿌리 부채꼴</td><td class="n">2</td></tr>
+      <tr><td>Balance of Power · Vile Treasures · Lord of the Pit</td><td>심연</td><td class="n">1 · 2 · 2</td><td>9/11 2:27:46</td></tr>
+      <tr><td>Double or Nothing (묻고 더블로 가)</td><td>탐험</td><td class="n">1 · 더블</td><td><a href="https://www.youtube.com/watch?v=GybQGLXje84&t=3518">9/11 0:58:38</a> 툴팁</td></tr>
+      <tr><td>Cultivate the Sea (바다 개발)</td><td>탐험</td><td class="n">6 · 사막</td><td>9/11 0:58:41 툴팁</td></tr>
+      <tr><td>Recurring Nightmares</td><td>환영</td><td class="n">2</td><td>9/11 2:27:47</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">번호를 못 읽은 선택형 노드: 본 트리 위쪽 21개(물·사막·숲·산·늪·풀 숙련, 역사 3종 등) · 의식 2개(화면에 3 하나가 보이지만 어느 노드인지 못 가름) · 탐험 4개. 9/11 방송에서 그쪽을 화면에 띄운 적이 없다. 할당 자체는 336/336·36/36·24/24 라 전부 켜져 있다.</p>
+</section>
+
+<section>
+  <h2>최종 상태 — 9/11</h2>
+  <div class="bars">
+    <div class="bar"><b>본 트리</b><div class="track"><i style="width:100%;background:var(--gold)"></i></div><span class="num">336/336</span></div>
+    <div class="bar"><b><span class="dot" style="background:var(--ritual)"></span>의식</b><div class="track"><i style="width:100%;background:var(--ritual)"></i></div><span class="num">36/36</span></div>
+    <div class="bar"><b><span class="dot" style="background:var(--abyss)"></span>심연</b><div class="track"><i style="width:100%;background:var(--abyss)"></i></div><span class="num">35/35</span></div>
+    <div class="bar"><b><span class="dot" style="background:var(--expedition)"></span>탐험</b><div class="track"><i style="width:100%;background:var(--expedition)"></i></div><span class="num">24/24</span></div>
+    <div class="bar"><b><span class="dot" style="background:var(--delirium)"></span>환영</b><div class="track"><i style="width:71%;background:var(--delirium)"></i></div><span class="num">22/31</span></div>
+    <div class="bar"><b>인커전</b><div class="track"><i style="width:0"></i></div><span class="num">0/36</span></div>
+    <div class="bar"><b>균열</b><div class="track"><i style="width:0"></i></div><span class="num">0/32</span></div>
+  </div>
+  <figure>
+    <img src="img/d0911.jpg" alt="9/11 아틀라스 전체 화면, 시야 x1.0" loading="lazy">
+    <figcaption>9/11 0:58:35, 시야 x1.0. 전체가 한 화면에 가장 크게 잡힌 장면이다. 본 트리 선택형 노드에 고른 번호(1·2·3)가 찍혀 있다. <a href="https://www.youtube.com/watch?v=GybQGLXje84&t=3515">영상</a></figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>찍은 순서</h2>
+  <p class="lede" style="margin-bottom:18px">본 트리를 먼저 다 채우고, 서브트리는 의식 → 심연 → 환영 → 탐험 순서로 갔다. 방송에서 "의식이 1순위"라고 말했지만, 실제로 의식을 36/36 다 채운 건 본 트리 336을 끝낸 다음(9/10)이다.</p>
+
+  <div class="timeline">
+    <article class="day">
+      <h3>9/7 · 맵핑 첫날<span>Lv68 → 85</span></h3>
+      <p>본 트리 6 → 35. 초반은 희귀·마법 몬스터와 경로석 쪽을 찍었다. 의식 포인트는 4:26에 처음 받았다("Ritual Atlas Skill Point").</p>
+      <div class="tags">
+        <span class="tag">마법 무리</span><span class="tag">쌍둥이 위협</span><span class="tag">세계의 꼭대기</span><span class="tag">희귀 몬스터</span><span class="tag">흥미로운 설계</span><span class="tag">공물 점수 증가 (의식)</span>
+        <span class="tag req">신비한 수호자들 · 적응형 생태 · 왕에게 어울리는 것 · 귀중한 길 · 정점의 포식자 · 인내하는 헌신 — 이날은 아직 못 찍음</span>
+      </div>
+      <p class="src">본 트리 6/336 <a href="https://www.youtube.com/watch?v=39kHWKUhwhU&t=4477">1:14:37</a> · 12/336 <a href="https://www.youtube.com/watch?v=39kHWKUhwhU&t=6087">1:41:27</a> · 27/336 <a href="https://www.youtube.com/watch?v=39kHWKUhwhU&t=10082">2:48:02</a> · 35/336 <a href="https://www.youtube.com/watch?v=39kHWKUhwhU&t=10992">3:03:12</a> · 의식 6/36 <a href="https://www.youtube.com/watch?v=39kHWKUhwhU&t=15967">4:26:07</a> · 의식 13/36 <a href="https://www.youtube.com/watch?v=39kHWKUhwhU&t=21602">6:00:02</a></p>
+      <figure><img src="img/d0907.jpg" alt="9/7 본 트리 6/336" loading="lazy"><figcaption>9/7 1:14:37 — 본 트리 6/336, 의식 0/36. 확대 상태라 트리 일부만 보인다.</figcaption></figure>
+    </article>
+
+    <article class="day">
+      <h3>9/8 · 본 트리 확장<span>Lv87 → 89</span></h3>
+      <p>본 트리 73 이상. 이날은 서브트리 없이 본 트리만 넓혔다. 선택형 노드 <b>부상하는 숙적</b>에서는 3번 "추가 희귀 몬스터"를 골랐다(노드 제목에 그대로 붙는다). 아틀라스 대가 패널의 도리아니의 과학은 이때 0/1이다.</p>
+      <div class="tags">
+        <span class="tag sel">부상하는 숙적 → 3 추가 희귀 몬스터</span><span class="tag">선호되는 보물</span><span class="tag">보물 만</span><span class="tag">성소 확률</span><span class="tag">살아있는 금속</span><span class="tag">역전사</span><span class="tag">절망 속의 희망</span><span class="tag">사막 숙련</span><span class="tag">고유 몬스터 아이템 희귀도</span><span class="tag">고고학적 흥미</span><span class="tag">탈주 유배자 확률</span>
+      </div>
+      <p class="src">부상하는 숙적 <a href="https://www.youtube.com/watch?v=xnREtaV3m1A&t=1100">0:18:20</a> · 3번 확정 <a href="https://www.youtube.com/watch?v=xnREtaV3m1A&t=3067">0:51:07</a> · 73/336 <a href="https://www.youtube.com/watch?v=xnREtaV3m1A&t=6652">1:50:52</a> · 사막 숙련 <a href="https://www.youtube.com/watch?v=xnREtaV3m1A&t=13350">3:42:30</a> · 탈주 유배자 확률 <a href="https://www.youtube.com/watch?v=xnREtaV3m1A&t=14380">3:59:40</a></p>
+      <figure><img src="img/d0908.jpg" alt="9/8 부상하는 숙적 선택 툴팁" loading="lazy"><figcaption>9/8 0:51:07 — 부상하는 숙적 네 선택지 중 3번이 강조됐다.</figcaption></figure>
+    </article>
+
+    <article class="day">
+      <h3>9/9 · 본 트리 완성, 심연 시작<span>Lv90 → 91</span></h3>
+      <p>0:50에 본 트리 <b>336/336</b>. 의식은 13/36에서 멈춰 있고, 녹색 트리에 포인트를 넣기 시작했다. 녹색 트리가 <b>심연</b>이라는 건 노드 툴팁("심연에서 생성되는 몬스터 25% 증가")으로 확인했다. 심연 15 → 18 → 24/35.</p>
+      <div class="tags">
+        <span class="tag">지하 확률</span><span class="tag">뻗어 가는 파열</span><span class="tag">어둠의 혈맹</span><span class="tag req">근원의 축복 (미할당)</span>
+      </div>
+      <p class="src">7개 트리 전경 <a href="https://www.youtube.com/watch?v=rsKbeELo0TM&t=3055">0:50:55</a> · 심연 18/35 <a href="https://www.youtube.com/watch?v=rsKbeELo0TM&t=5031">1:23:51</a> · 심연 24/35 <a href="https://www.youtube.com/watch?v=rsKbeELo0TM&t=7635">2:07:15</a></p>
+      <figure><img src="img/d0909.jpg" alt="9/9 7개 트리 전경" loading="lazy"><figcaption>9/9 0:50:55 — 트리 7개가 한 화면에 다 들어온 첫 장면. 본 336/336 · 의식 13/36 · 심연 15/35 · 나머지 0.</figcaption></figure>
+    </article>
+
+    <article class="day">
+      <h3>9/10 · 의식 마무리, 환영 시작<span>Lv91+</span></h3>
+      <p>방송 시작 직후 의식 28/36이었고, 같은 날 "의식 트리 완료 → 환영 시작"이라고 말했다(9/11 화면엔 36/36). 2:46에 환영 트리에 첫 포인트(2/31)를 넣었다. 방송에서 "환영 강도 200 목표"라고 말한 것과 맞는다.</p>
+      <div class="tags"><span class="tag">수수께끼의 의례 (의식)</span><span class="tag">와라! 덤벼라! (환영)</span><span class="tag">숨을 곳은 없다… (환영)</span></div>
+      <p class="src">의식 28/36 <a href="https://www.youtube.com/watch?v=8HL9pm3sZrc&t=268">0:04:28</a> · 환영 2/31 <a href="https://www.youtube.com/watch?v=8HL9pm3sZrc&t=10013">2:46:53</a></p>
+    </article>
+
+    <article class="day">
+      <h3>9/11 · 탐험 완주<span>Lv95</span></h3>
+      <p>환영 22/31에서 멈추고 탐험으로 넘어갔다. 탐험 12/24(0:58) → 18/24(2:28) → <b>24/24</b>(3:04). 심연은 35/35로 끝나 있다.</p>
+      <div class="tags"><span class="tag">일지 확률</span><span class="tag">영토 확장</span><span class="tag">전략적 우위</span><span class="tag">계산된 투자</span><span class="tag sel">바다 개발: 사막 (6번)</span></div>
+      <p class="src">전체 x1.0 <a href="https://www.youtube.com/watch?v=GybQGLXje84&t=3515">0:58:35</a> · 18/24 <a href="https://www.youtube.com/watch?v=GybQGLXje84&t=8866">2:27:46</a> · 24/24 <a href="https://www.youtube.com/watch?v=GybQGLXje84&t=11078">3:04:38</a></p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>다른 화염파 유저 아틀라스 — 하드코어 기준</h2>
+  <p class="lede">아틀라스는 빌드보다 파밍 방식에 따라 갈리지만, 같은 화염파 젬링 유저가 공개한 것만 모았다. <b>하코 근거가 있는 건 임성빈 하나다.</b> 나머지는 소프트코어이거나 하코 여부를 확인하지 못했다. 그래서 아래에서 하코에 위험한 선택지를 따로 표시했다.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>누구</th><th>하코</th><th>공개한 것</th><th>수정일</th><th>링크</th></tr></thead>
+    <tbody>
+      <tr><td><b>임성빈</b> (ko)</td><td>하코 (ninja 리그 HC Forbidden Rites)</td><td>이 페이지. 전체 할당 + 선택 번호 13개</td><td class="n">9/11 방송</td><td>위 전체 트리</td></tr>
+      <tr><td><b>fubgun</b> (en, 화염파 기름 유탄 가이드 작성자)</td><td>소코</td><td>아틀라스 7종(탐험·의식 벨트·커런시 심연·균열 희귀·심연 희귀·리니지 젬·환영 러시). 노드 전부 + 선택형 노드 옵션 이름까지</td><td class="n">9/10</td><td><a href="https://mobalytics.gg/poe-2/atlas-trees/fubgun-atlas-tree-strats">모발리틱스</a></td></tr>
+      <tr><td><b>천주</b> (ko, 화염파 젬링 → 검은 화염 계약)</td><td>확인 못 함</td><td>구글시트 "앤드게임 아틀라스" 탭: 본 트리 초반 1~11 순서 그림(55/336 시점) + 선택형 노드 6개(한글)</td><td class="n">리그 초</td><td><a href="https://docs.google.com/spreadsheets/d/1OQI8kn3Swk_eqpQGwCYVXJUi5D8IGNvsYqYDrqKeo0Q/edit#gid=68135205">시트</a> · 영상 <a href="https://www.youtube.com/watch?v=pFq8_orqiN0&t=123">2:03 아틀라스 노드 한번에 얻는 법</a></td></tr>
+      <tr><td><b>ds lily</b> (en, 기름 유탄 화염파 젬링)</td><td>근거 없음</td><td>초반 진행 4단계(본 트리 31 → 64 → 95 → 123), 선택형 노드 없음</td><td class="n">6/5 (0.5.0)</td><td><a href="https://mobalytics.gg/poe-2/atlas-trees/dslily-early-atlas-tree-progression">모발리틱스</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="margin:24px 0 6px;font-size:17px">천주 초반 선택 (시트 원문)</h3>
+  <div class="tags">
+    <span class="tag">점쳐진 축복 → 깨우침의 성소</span><span class="tag">선택받은 길 → 성소</span><span class="tag" style="border-color:var(--ritual);color:var(--ritual)">앞으로의 여정 → 효율 ⚠</span><span class="tag">부상하는 숙적 → 3번</span><span class="tag">대군주의 영향력 → 성소</span><span class="tag">진화하는 인파 → 2번</span>
+  </div>
+  <p class="src">방향: 콘텐츠를 거의 배제하고 도리아니 퀘스트로 성벽 안 중재자 → 신성의 중재자 → 성벽 밖 가부장·가모장 → 중재자 한 번 더 → 전체 해금 후 의식·심연·탐험 + 혼돈의 사원 파밍. 성벽 들어가기 전 힐다 포인트 1개 먼저(희귀 몬스터 증가).</p>
+
+  <h3 style="margin:24px 0 6px;font-size:17px">하코에서 조심할 선택지 (옵션 원문 = 모발리틱스)</h3>
+  <p class="src" style="margin-bottom:10px">몬스터 자체를 세게 만드는 옵션만 골랐다. 드롭만 늘리는 옵션은 뺐다. "fubgun" 칸은 7종 중 몇 개에서 골랐는지다.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>노드 : 옵션</th><th>효과 원문</th><th>fubgun</th><th>임성빈</th></tr></thead>
+    <tbody>
+      <tr><td>The Journey Ahead (앞으로의 여정) : Effectiveness</td><td>15% increased Effectiveness of Monsters in your Maps</td><td class="n">2/7</td><td>번호 미확인 · 천주는 이걸 골랐다</td></tr>
+      <tr><td>Desert Mastery (사막 숙련) : Effectiveness</td><td>15% increased Effectiveness of Monsters</td><td class="n">6/7</td><td>미확인</td></tr>
+      <tr><td>Grass Mastery (풀 숙련) : Effectiveness</td><td>15% increased Effectiveness of Monsters</td><td class="n">4/7</td><td>미확인</td></tr>
+      <tr><td>Nemesis Rising (부상하는 숙적) : Effectiveness</td><td>15% increased Effectiveness of Rare Monsters</td><td class="n">1/7</td><td rowspan="3">3번 = <b>Additional Rare Monster</b> (9/8 화면 노드 제목) — 셋 중 가장 덜 위험</td></tr>
+      <tr><td>Nemesis Rising : Monster Modifiers</td><td>Rare Monsters have 30% increased chance of Monster Modifiers</td><td class="n">1/7</td></tr>
+      <tr><td>Nemesis Rising : Additional Rare Monster</td><td>Rare Monster Packs … 50% increased chance to have an Additional Rare Monster</td><td class="n">4/7</td></tr>
+      <tr><td>Blood on the Stones : Bosses</td><td>Summoning Circle Bosses are Powerful</td><td class="n">5/7</td><td>1번 (옵션 이름 미확인)</td></tr>
+      <tr><td>Invigorated Sacrifices (의식) : Contrition</td><td>Skills from Ritual Altars deal 50% increased Damage, … 10% increased number of Favours</td><td class="n">7/7</td><td>의식 2개 중 하나가 3번</td></tr>
+      <tr><td>Shape the Chains (균열) : Empower Rares</td><td>30% increased Effectiveness of Rare Breach Monsters</td><td class="n">6/7</td><td>균열 안 찍음</td></tr>
+      <tr><td>Sacred Sap : Commingled</td><td>Possessed by a Sacred Spirit → also Possessed by another random Spirit</td><td class="n">6/7</td><td>미확인</td></tr>
+      <tr><td>Favour the Villain</td><td>25% chance Shrine Buffs are instead applied to the Boss</td><td class="n">6/7</td><td>미확인</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">읽는 법: fubgun(소코)은 몬스터 강화를 거의 다 켠다. 하코 기준인 임성빈은 부상하는 숙적에서 강화 대신 "희귀 1마리 추가"를 골랐다. 확인된 차이는 이것 하나다. 나머지 강화 옵션을 임성빈이 켰는지는 화면에서 못 읽었다. 번호 ↔ 옵션 이름 대응표가 없어서 "Blood on the Stones 1번"이 Bosses 인지도 모른다.</p>
+</section>
+
+<section class="note">
+  <h2 style="font-size:18px">아직 모르는 것</h2>
+  <ul>
+    <li><b>본 트리 선택형 노드의 번호.</b> 9/11 화면에 1·2·3 번호는 보이는데, 노드 이름과 1:1로 짝지은 건 부상하는 숙적(3번) 하나뿐이다. 나머지는 해당 장면을 한 장씩 확대해서 읽어야 한다.</li>
+    <li><b>사막 숙련은 몇 번인지 미확정.</b> 툴팁에서 2번 줄이 밝게 보이지만, 커서를 올린 줄인지 고른 줄인지 화면만으로는 구분이 안 된다.</li>
+    <li>삼각형 0/36 = <b>인커전</b>, 보라 0/32 = <b>균열</b>(poe.ninja 데이터의 서브트리 이름·노드 수로 확인). 둘 다 안 찍었다.</li>
+    <li><b>환영 왼쪽 날개 4개.</b> 9/11 화면에서 왼쪽 가장자리 밖이라 어느 4개를 안 찍었는지 모른다. 오른쪽 5개 미할당은 화면으로 확정.</li>
+    <li>9/12 이후는 방송이 없다(치지직 마지막 방송 9/11, 유튜브 신규 다시보기 0).</li>
+  </ul>
+</section>
+
+<section>
+  <h2>찾은 방법</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>단계</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1</td><td>다시보기 8편(9/5~9/11) 전 구간을 5초 간격으로 저해상도 스캔</td></tr>
+      <tr><td class="n">2</td><td>생명 구슬·마나 구슬이 <b>둘 다</b> 사라진 구간(=전체 화면 메뉴)만 추림 — 9/7 194구간, 9/8 139구간 …</td></tr>
+      <tr><td class="n">3</td><td>구간 썸네일 시트를 눈으로 보고 아틀라스 화면만 골라냄. 캠페인 3편은 아틀라스 0건</td></tr>
+      <tr><td class="n">4</td><td>고른 장면을 1080p로 다시 받아 숫자·툴팁 판독</td></tr>
+    </tbody>
+  </table></div>
+</section>
+</main>

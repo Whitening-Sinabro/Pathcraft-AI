@@ -1,0 +1,60 @@
+{
+  "checked_utc": "2026-09-09T03:25:50.301068+00:00",
+  "report": "빌드핵심_추가확인.html",
+  "new_clips": [
+    {
+      "label": "armour_threshold_followup",
+      "interval": [
+        6845,
+        6890
+      ],
+      "duration": 45,
+      "sha256": "c667e31ebf9710bcd38a3fbd3667ace6b491db7c9822120bc257ebe6ef90c2aa"
+    },
+    {
+      "label": "scavenged_followup",
+      "interval": [
+        4625,
+        4665
+      ],
+      "duration": 40,
+      "sha256": "a8ee7f642aafaae3ae7ddd94ee3534565db95ba42f47dc817b8d08a129fc4a05"
+    }
+  ],
+  "new_clip_seconds": 85,
+  "accuracy_frames_extracted": 70,
+  "missing_local_links": [],
+  "asr_labels_automatic": true,
+  "continuous_full_video_viewing": false,
+  "native_validation": "planner_note_validation.json",
+  "uncertainties": [
+    "Echo / Urgent Call interaction and net recovery",
+    "Live totem accuracy after swap, beyond the G-panel display",
+    "Scavenged Plating uptime after the final armour-break investment"
+  ],
+  "browser": {
+    "checkedUtc": "2026-09-09T03:25:52.301Z",
+    "replays": [
+      {
+        "src": "../clips/armour_threshold_followup.mp4",
+        "width": 1280,
+        "duration": 45,
+        "time": 2.5,
+        "speed": 0.5
+      },
+      {
+        "src": "../clips/scavenged_followup.mp4",
+        "width": 1280,
+        "duration": 40,
+        "time": 2.5,
+        "speed": 0.5
+      }
+    ],
+    "mobile": {
+      "viewport": 390,
+      "page": 390
+    },
+    "pageErrors": [],
+    "allImagesLoaded": true
+  }
+}

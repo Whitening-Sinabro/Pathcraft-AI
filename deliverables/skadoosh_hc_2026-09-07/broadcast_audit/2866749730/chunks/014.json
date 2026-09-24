@@ -1,0 +1,31 @@
+{
+  "video_id": "2866749730",
+  "interval": [
+    16795,
+    18000
+  ],
+  "model": "faster-whisper-large-v3-turbo",
+  "language": "en",
+  "vad": true,
+  "threshold": 0.4,
+  "beam": 5,
+  "initial_prompt": null,
+  "segments": [
+    {
+      "start": 16795.0,
+      "end": 17541.22,
+      "text": "yes yeah i can have three totems interesting very interesting okay positive bug you very interesting but very interesting oh man that crit options united ground got that now let's get damage is it only fortifying cry it's only fortifying cry it's so weird",
+      "avg_logprob": -0.24908088585909674,
+      "no_speech_prob": 0.0
+    },
+    {
+      "start": 17541.51,
+      "end": 17991.82,
+      "text": "that's why it doesn't lag as much anymore now that's nice i'm not using as much you didn't want this and i need some lunch actually what okay apparently each echo heals you wow that's very interesting actually it's not a good life you can get that on the helmets",
+      "avg_logprob": -0.19423491970218462,
+      "no_speech_prob": 0.0
+    }
+  ],
+  "human_checked": false,
+  "completed_utc": "2026-09-07T08:34:29.177241+00:00"
+}

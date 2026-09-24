@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "checks": "Local references exist; Twitch timestamps fit preserved VOD lengths; ASR and source snapshot hashes match; HTML source frames embedded unchanged.",
+  "local_reference_count": 28,
+  "timestamped_twitch_links": 22,
+  "asr_clips": 13,
+  "asr_seconds_processed": 3820,
+  "asr_unique_seconds": 3785,
+  "equipment_levels": [
+    24,
+    34,
+    43
+  ],
+  "images_embedded": 3,
+  "outputs": {
+    "초반생존_방송상세분석.md": {
+      "bytes": 32991,
+      "sha256": "1a5f4a88d57017a4a1670b3dd74082aeb9b0d16568c25adc3a53537d95c2ffd8"
+    },
+    "초반생존_방송상세분석.html": {
+      "bytes": 1781858,
+      "sha256": "d8fd17d4a8a1ce13d12815403185c10f576a81c7af331a0fec30f8099371bb1b"
+    }
+  },
+  "limits": [
+    "ASR is not human listening.",
+    "No browser visual rendering check.",
+    "Link syntax/range validation is not a guarantee of Twitch playback availability.",
+    "No character-specific death diagnosis or in-game testing."
+  ]
+}

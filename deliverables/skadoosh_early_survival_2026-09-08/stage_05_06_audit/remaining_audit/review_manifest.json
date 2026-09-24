@@ -1,0 +1,103 @@
+{
+  "created_at_utc": "2026-09-08T14:48:56.648564+00:00",
+  "full_broadcasts_reviewed_continuously": false,
+  "keystroke_log_available": false,
+  "inspection_coverage": {
+    "full_broadcast_reviewed_continuously": false,
+    "method": "ASR windows then selected frames, selected-node atlases and one-second gem-window frames",
+    "total_frames_reviewed": 64,
+    "count_scope": "Only newly counted first-Seismic 28 and Vitality 36 one-second frames. Excludes node atlases and earlier reviewed frames.",
+    "node_atlases": 13,
+    "visual_record": "visual_review.json"
+  },
+  "source_alignment_file": "../source_alignment.json",
+  "replay_seconds": 112,
+  "clips": [
+    {
+      "name": "passive54_final",
+      "file": "../../later_planner_audit/awt_transition.mp4",
+      "file_start": 1620,
+      "scene_start": 1792,
+      "duration": 36,
+      "vod": "2866749730",
+      "clip": "passive54_final_replay.mp4",
+      "poster": "passive54_final_poster.jpg",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "codec_type": "audio"
+          }
+        ],
+        "format": {
+          "duration": "36.000000"
+        }
+      },
+      "sha256": "7b11781353aa564bfeb0a92fe1c32ae12c8604b5b07338f396facd531ca7038d"
+    },
+    {
+      "name": "passive65_final",
+      "file": "../../later_planner_audit/paquate_transition.mp4",
+      "file_start": 14040,
+      "scene_start": 14100,
+      "duration": 50,
+      "vod": "2866749730",
+      "clip": "passive65_final_replay.mp4",
+      "poster": "passive65_final_poster.jpg",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "codec_type": "audio"
+          }
+        ],
+        "format": {
+          "duration": "50.000000"
+        }
+      },
+      "sha256": "e5df9f20957fa268bdcaa458e77dbc52215811a7adca3de9a0baaa69468bd9b4"
+    },
+    {
+      "name": "first_seismic",
+      "file": "../../later_planner_audit/awt_transition.mp4",
+      "file_start": 1620,
+      "scene_start": 3127,
+      "duration": 26,
+      "vod": "2866749730",
+      "clip": "first_seismic_replay.mp4",
+      "poster": "first_seismic_poster.jpg",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "codec_type": "audio"
+          }
+        ],
+        "format": {
+          "duration": "26.000000"
+        }
+      },
+      "sha256": "24f24a302a3deb5e09843cbc4c24ecfd54a0aa15f7f4a4e243bfa78c4abdf850"
+    }
+  ],
+  "browser_playback_verified": true,
+  "browser_validation_file": "review_page_validation.json"
+}

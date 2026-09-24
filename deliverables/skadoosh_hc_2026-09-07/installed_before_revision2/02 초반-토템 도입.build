@@ -1,0 +1,283 @@
+{
+  "author": "Skadoosh / Pathcraft",
+  "link": "https://mobalytics.gg/poe-2/builds/skadoosh-warbringer-leveling-41",
+  "ascendancy": "Warrior2",
+  "inventory_slots": [
+    {
+      "additional_text": "좁은 철퇴 (Slim Mace)\n1. 물리 피해 1~4 추가\n2. 물리 피해 50% 증가\n3. 공격 속도 8% 증가\n\n[세트1 무기]\n한손 철퇴 + 방어도 방패\n아래 세트1 스킬을 G에서 I에만 체크. 세트2 공격 뒤 방패가 필요하면 방패 들기 또는 세트1 함성으로 복귀.\n\n[세트1 스킬과 그 안에 꽂을 보조]\n몰려오는 강타 (Rolling Slam) → 기절 I (Stun I)\n지진 (Earthquake) → 지속시간 연장 I (Prolonged Duration I)\n지옥불 함성 (Infernal Cry) → 연결 보조 없음\n마그마 장벽 (Magma Barrier) → 연결 보조 없음",
+      "inventory_id": "Weapon1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "대장간 대형 망치 (Forge Maul)\n1. 물리 피해 4~7 추가\n2. 물리 피해 65% 증가\n\n[세트2 무기]\n양손 철퇴\n아래 세트2 스킬을 G에서 II에만 체크. 설치/공격 뒤 위험 구간에서는 세트1 복귀.\n\n[세트2 스킬과 그 안에 꽂을 보조]\n철퇴 타격 (Mace Strike) → 연결 보조 없음\n뼈 박살 (Boneshatter) → 충돌 충격파 (Impact Shockwave) + 범위 확대 I (Magnified Area I)\n충격파 토템 (Shockwave Totem) → 과잉 I (Overabundance I) + 포악함 I (Brutality I)",
+      "inventory_id": "Weapon2",
+      "level_interval": [
+        11,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "방벽 거대 방패 (Barricade Tower Shield)\n1. 막기 확률 20% 증가",
+      "inventory_id": "Offhand1",
+      "level_interval": [
+        16,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "레이더 판금 갑옷 (Raider Plate)\n1. 방어도 +23\n2. 방어도 15% 증가\n\n[전환 조건]\n충격파 토템과 기본 보조 확보. 양손 철퇴를 세트2에 장착하고 뼈 박살/토템을 세트2로 지정한다.\n\n[스킬 운영]\n잡몹: 몰려오는 강타(1)로 기절 준비 → 뼈 박살(2) → 방패 세트1 복귀. 토템 도입 후 보스: 토템(2) 설치 → 지진(1)으로 요철 지대 → 이동. 지옥불 함성은 단일 대상 보조.\n\n[하드코어 진행]\n65레벨 이후라도 캠페인 중이면 01-Campaign 필터 유지. 장비는 최대 생명력·현재 지역 저항·방어도, 장화 이동 속도, 생명력 플라스크 우선. 출처 장비의 낮은 방어 수치를 그대로 복사하지 않는다.",
+      "inventory_id": "BodyArmour1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "거대 생명력 플라스크 (Grand Life Flask)",
+      "inventory_id": "Flask1",
+      "level_interval": [
+        16,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "거대 마나 플라스크 (Grand Mana Flask)",
+      "inventory_id": "Flask1",
+      "level_interval": [
+        16,
+        100
+      ],
+      "slot_x": 1,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "사파이어 호신부 (Sapphire Charm)",
+      "inventory_id": "Charm1",
+      "level_interval": [
+        5,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Gloves1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "\n\n[보조 젬을 넣는 곳]\nG 스킬창에서 해당 큰 스킬 젬을 선택하고 그 스킬의 작은 보조 소켓에 연결. 아래 각 스킬의 연결 목록을 그대로 따른다. 무기 룬 소켓이 아니다.\n선대의 전사 토템 안의 지면 분쇄는 예외적으로 연결하는 액티브 젬이다. 별도 지면 분쇄 스킬칸만 만들면 토템 연결이 완성되지 않는다.\n보조 소켓이 부족하면 주얼러 오브로 확장. 무조건 오른쪽부터 모든 보조를 갖출 필요는 없으며 주력 토템/함성의 핵심 보조부터 확보."
+    }
+  ],
+  "name": "02 초반-토템 도입",
+  "passives": [
+    {
+      "id": "melee18"
+    },
+    {
+      "id": "melee17"
+    },
+    {
+      "id": "marauder_brute_notable1"
+    },
+    {
+      "id": "melee54"
+    },
+    {
+      "id": "melee55"
+    },
+    {
+      "id": "melee19"
+    },
+    {
+      "id": "strength19"
+    },
+    {
+      "id": "strength21"
+    },
+    {
+      "id": "strength15"
+    },
+    {
+      "id": "armour35"
+    },
+    {
+      "id": "armour5"
+    },
+    {
+      "id": "stun5"
+    },
+    {
+      "id": "stun4_"
+    },
+    {
+      "id": "melee56"
+    },
+    {
+      "id": "attributes32"
+    },
+    {
+      "id": "jewel_slot1956"
+    },
+    {
+      "id": "attributes58"
+    },
+    {
+      "id": "strength73"
+    },
+    {
+      "id": "attributes82"
+    },
+    {
+      "id": "one_handed19",
+      "weapon_set": 1
+    },
+    {
+      "id": "one_handed18",
+      "weapon_set": 1
+    },
+    {
+      "id": "one_handed17",
+      "weapon_set": 1
+    },
+    {
+      "id": "one_handed20",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems49",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems53",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems14",
+      "weapon_set": 2
+    },
+    {
+      "id": "two_handed1",
+      "weapon_set": 2
+    },
+    {
+      "id": "AscendancyWarrior2Start"
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefault2HMace",
+      "level_interval": [
+        1,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemImpactShockwave",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemOverpower",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+      "level_interval": [
+        7,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemOverabundance",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutality",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEarthquake",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistence",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+      "level_interval": [
+        7,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+      "level_interval": [
+        11,
+        100
+      ]
+    }
+  ]
+}

@@ -1,0 +1,789 @@
+{
+  "author": "Skadoosh / Pathcraft",
+  "link": "https://poe.ninja/poe2/builds/forbiddenriteshc/character/ITheCon-2183/SkadooshShoutedHard",
+  "ascendancy": "Warrior2",
+  "inventory_slots": [
+    {
+      "additional_text": "성소 셉터 (Shrine Sceptre)\n1. 정신력 49% 증가\n2. 최대 마나 +22\n3. 자신의 존재 범위 내 동료 시전 속도 18% 증가\n\n[세트1 무기]\n정신력 셉터 + 방어도 방패\n아래 세트1 스킬을 G에서 I에만 체크. 세트2 공격 뒤 방패가 필요하면 방패 들기 또는 세트1 함성으로 복귀.\n\n[세트1 스킬과 그 안에 꽂을 보조]\n불의 순수함 (Purity of Fire) → 활력 II (Vitality II) + 식인 II (Cannibalism II) + 따뜻한 피 (Warm Blooded)\n방패 들기 (Raise Shield) → 연결 보조 없음\n공명하는 방패 (Resonating Shield) → 격노 I (Rage I) + 방어구 철거자 I (Armour Demolisher I)\n마그마 장벽 (Magma Barrier) → 연결 보조 없음\n보강하는 함성 (Fortifying Cry) → 파콰테의 맹약 (Paquate's Pact) + 메아리치는 함성 (Echoing Cry) + 포악함 II (Brutality II) + 고통 격화 II (Swift Affliction II)\n지진 함성 (Seismic Cry) → 우주의 영사 (Astral Projection) + 효율 II (Efficiency II) + 격노하는 함성 (Raging Cry)",
+      "inventory_id": "Weapon1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Weapon2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "unique_name": "Sadist's Mercy",
+      "additional_text": "\n\n[세트2 무기]\n물리 한손 철퇴 + 정신력 셉터\n아래 세트2 스킬을 G에서 II에만 체크. 설치/공격 뒤 위험 구간에서는 세트1 복귀.\n\n[세트2 스킬과 그 안에 꽂을 보조]\n불의 순수함 (Purity of Fire) → 활력 I (Vitality I) + 정밀함 II (Precision II)\n선대의 전사 토템 (Ancestral Warrior Totem) → 지면 분쇄 (Earthshatter) + 긴급한 토템 III (Urgent Totems III) + 파생하는 균열 I (Branching Fissures I) + 포악함 III (Brutality III) [토템 안에 연결하는 액티브]"
+    },
+    {
+      "additional_text": "금가공 거대 방패 (Goldworked Tower Shield)\n1. 방어도 58% 증가\n2. 화염 저항 +33%\n3. 번개 저항 +30%\n4. 방어도의 +19%가 원소 피해에도 적용\n5. 물리 가시 피해 2~4\n6. 방어도 +194",
+      "inventory_id": "Offhand1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "성소 셉터 (Shrine Sceptre)\n1. 정신력 31% 증가\n2. 최대 마나 +10\n3. 모든 소환수 스킬 레벨 +1\n\n[최종 세트2]\n정신력 셉터 자리. 양손 철퇴를 끼우면 이 셉터를 함께 쓸 수 없으므로 이 단계의 정신력 설계가 깨짐. 원본 철퇴는 Sadist's Mercy이며 실제 장비 예시. 대체 철퇴는 물리 피해·공격 속도와 양 세트 정신력 충족을 확인.",
+      "inventory_id": "Offhand2",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "지휘관 대헬름 (Commander Greathelm)\n1. 방어도 +19\n2. 방어도 65% 증가\n3. 최대 생명력 +63\n4. 화염 저항 +11%\n5. 생명력 초당 4.6 재생\n6. 냉기 저항 +31%\n\n[자동으로 부여되는 스킬 — 따로 제작하지 않음]\n선대의 혼백 (Ancestral Spirits) → 연결 보조 없음\n광기의 선구자 (Harbinger of Madness) → 연결 보조 없음",
+      "inventory_id": "Helm1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "우아한 판금 갑옷 (Elegant Plate)\n1. 방어도 +92\n2. 정신력 +42\n3. 냉기 저항 +20%\n4. 생명력 초당 16.2 재생\n5. 최대 생명력 +113\n6. 방어도의 +27%가 원소 피해에도 적용\n\n[전환 조건]\n양 무기 세트의 예약 후 정신력, 지속 회복, 선대의 전사 토템+지면 분쇄, 파콰테의 맹약을 모두 준비. 원본 전체 트리는 일반 97점/전직 6점의 목표이며 65레벨 전환표가 아님.\n\n[스킬 운영]\n선대의 전사 토템(2) 설치 → 보강하는 함성(1)으로 방패 세트 복귀 → 토템의 지면 분쇄 가시를 함성으로 폭발 → 이동. 지진 함성(1)은 격노/보조 폭발용. 파콰테 반복 사용/발동의 생명력 비용을 감당 못 하면 이전 함성 유지 구성으로 돌아간다.\n\n[하드코어 진행]\n65레벨 이후라도 캠페인 중이면 01-Campaign 필터 유지. 장비는 최대 생명력·현재 지역 저항·방어도, 장화 이동 속도, 생명력 플라스크 우선. 출처 장비의 낮은 방어 수치를 그대로 복사하지 않는다.",
+      "inventory_id": "BodyArmour1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "정교한 미트 (Detailed Mitts)\n1. 공격 시 화염 피해 6~13 추가\n2. 모든 근접 스킬 레벨 +2\n3. 냉기 저항 +28%\n4. 공격으로 적 명중 시 생명력 3 획득\n5. 방어도 27% 증가\n6. 최대 생명력 +29\n\n[보조 젬을 넣는 곳]\nG 스킬창에서 해당 큰 스킬 젬을 선택하고 그 스킬의 작은 보조 소켓에 연결. 아래 각 스킬의 연결 목록을 그대로 따른다. 무기 룬 소켓이 아니다.\n선대의 전사 토템 안의 지면 분쇄는 예외적으로 연결하는 액티브 젬이다. 별도 지면 분쇄 스킬칸만 만들면 토템 연결이 완성되지 않는다.\n보조 소켓이 부족하면 주얼러 오브로 확장. 무조건 오른쪽부터 모든 보조를 갖출 필요는 없으며 주력 토템/함성의 핵심 보조부터 확보.",
+      "inventory_id": "Gloves1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "청동 각반 (Bronze Greaves)\n1. 이동 속도 15% 증가\n2. 냉기 저항 +19%\n3. 생명력 초당 3.9 재생\n4. 기절 한계치 +10",
+      "inventory_id": "Boots1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "태양의 목걸이 (Solar Amulet)\n1. 최대 마나 +44\n2. 정신력 +36\n3. 화염 저항 +25%\n4. 냉기 저항 +25%\n5. 생명력 초당 12.1 재생\n6. 최대 생명력 +40\n\n[정신력/회복 확인]\n토템 예약 전, 버프를 켠 상태의 남은 정신력이 양 세트 모두 토템 수 × 75 이상이어야 함. 4기라면 각 세트 300 이상. 셉터 두 개의 불의 순수함은 각각 다른 스킬칸이므로 활력 II/식인 II/따뜻한 피는 세트1, 활력 I/정밀함 II는 세트2의 불의 순수함에 연결.\n혈마법은 마나 비용을 생명력으로 바꿈. 파콰테 연타의 추가 생명력 비용까지 지속 회복으로 감당되는지 먼저 확인.",
+      "inventory_id": "Amulet1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "생가죽 허리띠 (Rawhide Belt)\n1. 최대 생명력 +82\n2. 플라스크 생명력 회복 속도 18% 증가\n3. 호신부 효과 지속시간 10% 증가\n4. 힘 +11\n5. 화염 저항 +25%\n6. 번개 저항 +20%",
+      "inventory_id": "Belt1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "루비 반지 (Ruby Ring)\n1. 최대 생명력 +82\n2. 최대 마나 +33\n3. 냉기 저항 +14%\n4. 번개 저항 +16%\n5. 공격 시 화염 피해 5~9 추가",
+      "inventory_id": "Ring1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "자수정 반지 (Amethyst Ring)\n1. 공격 시 냉기 피해 3~5 추가\n2. 최대 생명력 +14\n3. 최대 마나 +27\n4. 지능 +7\n5. 화염 저항 +17%\n6. 생명력 초당 3.3 재생",
+      "inventory_id": "Ring2",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "초월한 생명력 플라스크 (Transcendent Life Flask)\n1. 생명력 회복량 83% 증가\n2. 사용 시 생명력 회복량의 15%만큼 마나 제거\n3. 사용 시 소모 충전 20% 감소",
+      "inventory_id": "Flask1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "돌 호신부 (Stone Charm)\n1. 매초 충전 0.15 획득",
+      "inventory_id": "Charm1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "해독 호신부 (Antidote Charm)\n1. 사용 시 소모 충전 15% 감소",
+      "inventory_id": "Charm1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 1,
+      "slot_y": 0
+    }
+  ],
+  "name": "09 준비완료-AWT와 파콰테",
+  "passives": [
+    {
+      "id": "warcries34",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes70"
+    },
+    {
+      "id": "AscendancyWarrior2Small5"
+    },
+    {
+      "id": "jewel_slot1974"
+    },
+    {
+      "id": "physical28"
+    },
+    {
+      "id": "strength70"
+    },
+    {
+      "id": "warcries38",
+      "weapon_set": 1
+    },
+    {
+      "id": "warcries9",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes3"
+    },
+    {
+      "id": "totems1",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems9",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems36",
+      "weapon_set": 2
+    },
+    {
+      "id": "warcries11",
+      "weapon_set": 1
+    },
+    {
+      "id": "strength38"
+    },
+    {
+      "id": "armour47"
+    },
+    {
+      "id": "marauder_brute_notable2"
+    },
+    {
+      "id": "criticals33"
+    },
+    {
+      "id": "wolf12",
+      "weapon_set": 1
+    },
+    {
+      "id": "intelligence74"
+    },
+    {
+      "id": "armour46"
+    },
+    {
+      "id": "life_regeneration25"
+    },
+    {
+      "id": "strength41"
+    },
+    {
+      "id": "armour_break28"
+    },
+    {
+      "id": "totems37",
+      "weapon_set": 2
+    },
+    {
+      "id": "life_regeneration24"
+    },
+    {
+      "id": "strength21"
+    },
+    {
+      "id": "criticals101",
+      "weapon_set": 2
+    },
+    {
+      "id": "warcries29",
+      "weapon_set": 1
+    },
+    {
+      "id": "armour49"
+    },
+    {
+      "id": "totems34"
+    },
+    {
+      "id": "attributes16"
+    },
+    {
+      "id": "block7_",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals95",
+      "weapon_set": 2
+    },
+    {
+      "id": "attributes80"
+    },
+    {
+      "id": "strength67"
+    },
+    {
+      "id": "strength26"
+    },
+    {
+      "id": "totems45"
+    },
+    {
+      "id": "armour_break29"
+    },
+    {
+      "id": "totems44",
+      "weapon_set": 2
+    },
+    {
+      "id": "criticals93_"
+    },
+    {
+      "id": "totems43"
+    },
+    {
+      "id": "jewel_slot1977"
+    },
+    {
+      "id": "totems14",
+      "weapon_set": 2
+    },
+    {
+      "id": "jewel_slot1956"
+    },
+    {
+      "id": "strength69"
+    },
+    {
+      "id": "strength64"
+    },
+    {
+      "id": "armour14"
+    },
+    {
+      "id": "criticals40"
+    },
+    {
+      "id": "strength36"
+    },
+    {
+      "id": "warcries3"
+    },
+    {
+      "id": "warcries39",
+      "weapon_set": 1
+    },
+    {
+      "id": "armour48"
+    },
+    {
+      "id": "warcries18",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes15"
+    },
+    {
+      "id": "wolf14",
+      "weapon_set": 1
+    },
+    {
+      "id": "armour35"
+    },
+    {
+      "id": "shield15",
+      "weapon_set": 1
+    },
+    {
+      "id": "intelligence72"
+    },
+    {
+      "id": "AscendancyWarrior2Start"
+    },
+    {
+      "id": "criticals94",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems19",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength22"
+    },
+    {
+      "id": "wolf13_",
+      "weapon_set": 1
+    },
+    {
+      "id": "warcries17"
+    },
+    {
+      "id": "totems35",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems26",
+      "weapon_set": 2
+    },
+    {
+      "id": "armour6"
+    },
+    {
+      "id": "strength53"
+    },
+    {
+      "id": "strength44"
+    },
+    {
+      "id": "AscendancyWarrior2Small6"
+    },
+    {
+      "id": "AscendancyWarrior2Notable6"
+    },
+    {
+      "id": "warcries36",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes54_"
+    },
+    {
+      "id": "warcries1",
+      "weapon_set": 1
+    },
+    {
+      "id": "AscendancyWarrior2Notable7"
+    },
+    {
+      "id": "strength25"
+    },
+    {
+      "id": "totems38",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength39_"
+    },
+    {
+      "id": "warcries35",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems11",
+      "weapon_set": 2
+    },
+    {
+      "id": "armour_break37"
+    },
+    {
+      "id": "strength23"
+    },
+    {
+      "id": "shield1",
+      "weapon_set": 1
+    },
+    {
+      "id": "passive_keystone_ancestral_bond"
+    },
+    {
+      "id": "shield5",
+      "weapon_set": 1
+    },
+    {
+      "id": "AscendancyWarrior2Notable4_"
+    },
+    {
+      "id": "strength54"
+    },
+    {
+      "id": "warcries25",
+      "weapon_set": 1
+    },
+    {
+      "id": "intelligence8"
+    },
+    {
+      "id": "strength40_"
+    },
+    {
+      "id": "AscendancyWarrior2Small7_"
+    },
+    {
+      "id": "totems6",
+      "weapon_set": 2
+    },
+    {
+      "id": "attributes55"
+    },
+    {
+      "id": "life_regeneration17_"
+    },
+    {
+      "id": "totems21",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength71"
+    },
+    {
+      "id": "passive_keystone_blood_magic"
+    },
+    {
+      "id": "totems33_",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength51"
+    },
+    {
+      "id": "warcries10",
+      "weapon_set": 1
+    },
+    {
+      "id": "strength42"
+    },
+    {
+      "id": "totems8",
+      "weapon_set": 2
+    },
+    {
+      "id": "attributes71"
+    },
+    {
+      "id": "physical29"
+    },
+    {
+      "id": "strength24_"
+    },
+    {
+      "id": "shield16",
+      "weapon_set": 1
+    },
+    {
+      "id": "strength15"
+    },
+    {
+      "id": "jewel_slot1971"
+    },
+    {
+      "id": "criticals35"
+    },
+    {
+      "id": "duelist_mercenary_notable1"
+    },
+    {
+      "id": "attributes32"
+    },
+    {
+      "id": "totems39",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength45_"
+    },
+    {
+      "id": "criticals31"
+    },
+    {
+      "id": "intelligence71"
+    },
+    {
+      "id": "strength65_"
+    },
+    {
+      "id": "attributes5"
+    },
+    {
+      "id": "physical26"
+    },
+    {
+      "id": "totems25",
+      "weapon_set": 2
+    },
+    {
+      "id": "attributes6"
+    },
+    {
+      "id": "totems15",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength68"
+    },
+    {
+      "id": "warcries37",
+      "weapon_set": 1
+    },
+    {
+      "id": "physical37"
+    },
+    {
+      "id": "block15",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems48_",
+      "weapon_set": 2
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+      "level_interval": [
+        1,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitalityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemCannibalismTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemWarmBlooded",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+      "level_interval": [
+        1,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHarbingerOfMadness",
+      "level_interval": [
+        1,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitality",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrecisionTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+      "level_interval": [
+        15,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemRage",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemDemolisher",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+      "level_interval": [
+        11,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+      "level_interval": [
+        32,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemCorruptingCryThree",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemEchoingCry",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutalityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
+      "level_interval": [
+        53,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "level_interval": [
+            23,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemBranchingFissures",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutalityThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSeismicCry",
+      "level_interval": [
+        42,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemAstralProjection",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRagingCry",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    }
+  ]
+}

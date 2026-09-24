@@ -1,0 +1,389 @@
+{
+  "author": "Skadoosh / Pathcraft",
+  "link": "https://poe.ninja/poe2/builds/forbiddenriteshc/character/ITheCon-2183/SkadooshShoutedHard",
+  "ascendancy": "Warrior2",
+  "inventory_slots": [
+    {
+      "inventory_id": "Weapon1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{세트 I · 한손 철퇴 + 방어도 방패}\nG에서 I만 체크.\n<b>{사용 스킬 → 연결 젬}\n몰려오는 강타 → 기절 I\n지진 → 지속시간 연장 I\n지옥불 함성 → 연결 보조 없음\n마그마 장벽 [버프] → 연결 보조 없음\n방패 들기 → 연결 보조 없음\n\n<b>{추천 옵션 · 세트 I · 한손 철퇴}\n1. 물리 피해 추가\n2. 물리 피해 % 증가\n3. 공격 속도 증가\n4. 명중률 / 모든 근접 스킬 레벨\n\n한손 철퇴+방패. 물리 피해 범위와 공격 속도를 함께 비교한다."
+    },
+    {
+      "inventory_id": "Weapon2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{세트 II · 양손 철퇴}\nG에서 II만 체크.\n<b>{사용 스킬 → 연결 젬}\n철퇴 타격 [기본 공격] → 연결 보조 없음\n뼈 박살 → 충돌 충격파 + 범위 확대 I\n충격파 토템 → 과잉 I + 포악함 I\n\n<b>{추천 옵션 · 세트 II · 양손 철퇴}\n1. 물리 피해 추가\n2. 물리 피해 % 증가\n3. 공격 속도 증가\n4. 명중률 / 모든 근접 스킬 레벨\n\n물리 피해가 좋은 무기로 뼈 박살·충격파 토템을 사용한다. 한손 철퇴+공유 방패로 바꾸려면 먼저 토템 피해를 비교한다."
+    },
+    {
+      "inventory_id": "Offhand1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 세트 I · 방어도 방패}\n1. 최대 생명력\n2. 부족한 원소 저항\n3. 방어도 / 막기 확률\n4. 초당 생명력 재생\n\n한손 철퇴와 함께 사용한다. 새 방패로 바꿀 때 생명력·저항 손실도 비교한다."
+    },
+    {
+      "inventory_id": "Offhand2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 세트 II · 보조 무기}\n1. 양손 철퇴 사용 중에는 비워 둔다\n2. 한손 철퇴로 바꿀 때만 방패 공유를 검토한다\n\n한손 철퇴 전환 시 방패 옵션: 최대 생명력 → 부족한 원소 저항 → 방어도 / 막기."
+    },
+    {
+      "inventory_id": "Helm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 투구 · 방어도 장비}\n1. 최대 생명력\n2. 부족한 화염·냉기·번개 저항\n3. 방어도\n4. 초당 생명력 재생"
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 갑옷 · 방어도 장비}\n1. 최대 생명력\n2. 부족한 화염·냉기·번개 저항\n3. 방어도\n4. 초당 생명력 재생"
+    },
+    {
+      "inventory_id": "Gloves1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 장갑}\n1. 최대 생명력\n2. 부족한 원소 저항\n3. 공격 속도 / 공격 시 물리 피해 추가\n4. 모든 근접 스킬 레벨 +\n\n생명력·저항이 크게 떨어지는 공격 옵션만 있는 장갑은 신중하게 비교한다."
+    },
+    {
+      "inventory_id": "Boots1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 장화}\n1. 이동 속도 증가\n2. 최대 생명력\n3. 부족한 원소 저항\n4. 초당 생명력 재생 / 방어도"
+    },
+    {
+      "inventory_id": "Amulet1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 목걸이}\n1. 최대 생명력\n2. 부족한 원소 저항\n3. 젬에 부족한 민첩·지능\n4. 모든 근접 스킬 레벨 +"
+    },
+    {
+      "inventory_id": "Belt1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 허리띠}\n1. 최대 생명력\n2. 부족한 원소 저항\n3. 플라스크 생명력 회복량 / 회복 속도\n4. 호신부 효과 지속시간\n\n사용할 수 있는 호신부 칸 수를 확인한다."
+    },
+    {
+      "inventory_id": "Flask1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 생명력 플라스크}\n1. 현재 착용 가능한 높은 회복량\n2. 회복 속도 / 즉시 회복 부분\n3. 충전 유지에 도움이 되는 옵션\n\n플라스크를 사용한 회복은 장비의 초당 생명력 재생과 별개다."
+    },
+    {
+      "inventory_id": "Charm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 호신부}\n1. 기절 대응용 호신부 우선 검토\n2. 동결이 문제인 구간에는 동결 대응용\n3. 효과 지속시간 / 충전 유지\n\n열린 호신부 칸 수와 지금 마주치는 위험에 맞춰 고른다."
+    },
+    {
+      "inventory_id": "Ring1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 반지}\n1. 최대 생명력\n2. 부족한 화염·냉기·번개 저항\n3. 초당 생명력 재생\n4. 마나 재생 / 필요한 민첩·지능\n\n근접·토템 초반에는 공격 시 물리 피해 추가도 딜 옵션이다."
+    },
+    {
+      "inventory_id": "Ring2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 반지}\n1. 최대 생명력\n2. 부족한 화염·냉기·번개 저항\n3. 초당 생명력 재생\n4. 마나 재생 / 필요한 민첩·지능\n\n근접·토템 초반에는 공격 시 물리 피해 추가도 딜 옵션이다."
+    },
+    {
+      "inventory_id": "Flask1",
+      "slot_x": 1,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 마나 플라스크}\n1. 현재 착용 가능한 높은 마나 회복량\n2. 회복 속도\n3. 충전 유지에 도움이 되는 옵션\n\n연속 공격·토템 설치에 쓴 마나를 보충한다."
+    }
+  ],
+  "name": "02 초반-토템 도입",
+  "passives": [
+    {
+      "id": "jagged_ground26",
+      "weapon_set": 1
+    },
+    {
+      "id": "melee17"
+    },
+    {
+      "id": "marauder_brute_notable1"
+    },
+    {
+      "id": "attributes82",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "jagged_ground4",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems51",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength21",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems12_"
+    },
+    {
+      "id": "totems34"
+    },
+    {
+      "id": "melee56"
+    },
+    {
+      "id": "attributes58",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems14",
+      "weapon_set": 2,
+      "additional_text": "토템 한도에 관여하는 노드다. 세트 II의 배정을 유지한다."
+    },
+    {
+      "id": "jewel_slot1956"
+    },
+    {
+      "id": "strength19",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "strength73",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems53",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems49"
+    },
+    {
+      "id": "melee25"
+    },
+    {
+      "id": "AscendancyWarrior2Start"
+    },
+    {
+      "id": "melee46"
+    },
+    {
+      "id": "jagged_ground1",
+      "weapon_set": 1
+    },
+    {
+      "id": "melee55"
+    },
+    {
+      "id": "melee18"
+    },
+    {
+      "id": "strength15",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "melee44"
+    },
+    {
+      "id": "attributes32",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "melee54"
+    },
+    {
+      "id": "jagged_ground5",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems15",
+      "weapon_set": 2
+    },
+    {
+      "id": "melee19"
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefault2HMace",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{철퇴 타격 · 세트 II}\n마나가 부족할 때 쓰는 기본 공격이다.\n<b>{이 스킬 안에 넣을 젬}\n현재 단계 연결 보조 없음.\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemImpactShockwave",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{충돌 충격파}\n연결할 스킬: 뼈 박살 (세트 II)\n이 스킬의 1번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{범위 확대 I}\n연결할 스킬: 뼈 박살 (세트 II)\n이 스킬의 2번째 보조 위치에 넣는다."
+        }
+      ],
+      "additional_text": "<b>{뼈 박살 · 세트 II}\n기절 준비 표시가 뜬 적에게 사용한 뒤 방패 세트 I로 복귀한다.\n<b>{이 스킬 안에 넣을 젬}\n1. 충돌 충격파\n2. 범위 확대 I\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemOverpower",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{기절 I}\n연결할 스킬: 몰려오는 강타 (세트 I)\n이 스킬의 1번째 보조 위치에 넣는다."
+        }
+      ],
+      "additional_text": "<b>{몰려오는 강타 · 세트 I}\n첫 타격으로 기절을 준비한다. 뼈 박살과 함께 쓴다.\n<b>{이 스킬 안에 넣을 젬}\n1. 기절 I\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+      "level_interval": [
+        7,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemOverabundance",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{과잉 I}\n연결할 스킬: 충격파 토템 (세트 II)\n이 스킬의 1번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutality",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{포악함 I}\n연결할 스킬: 충격파 토템 (세트 II)\n이 스킬의 2번째 보조 위치에 넣는다."
+        }
+      ],
+      "additional_text": "<b>{충격파 토템 · 세트 II}\n적 앞에 설치하고 방패 I로 돌아온다. 지진의 요철 지대를 함께 이용한다.\n미가공 스킬 젬 3레벨부터 제작. 캐릭터 6레벨·힘 14면 사용한다. 보조를 다 모으기 전에도 추가한다.\n<b>{이 스킬 안에 넣을 젬}\n1. 과잉 I\n2. 포악함 I\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEarthquake",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistence",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{지속시간 연장 I}\n연결할 스킬: 지진 (세트 I)\n이 스킬의 1번째 보조 위치에 넣는다."
+        }
+      ],
+      "additional_text": "<b>{지진 · 세트 I}\n요철 지대를 만드는 보조 스킬이다. 충격파 토템을 먼저 놓는다.\n<b>{이 스킬 안에 넣을 젬}\n1. 지속시간 연장 I\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+      "level_interval": [
+        7,
+        100
+      ],
+      "additional_text": "<b>{지옥불 함성 · 세트 I}\n안전할 때 강한 적에게 보조로 사용한다. 충격파 토템을 먼저 확보한다.\n<b>{이 스킬 안에 넣을 젬}\n현재 단계 연결 보조 없음.\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+      "level_interval": [
+        11,
+        100
+      ],
+      "additional_text": "<b>{마그마 장벽 · 세트 I}\n정신력 30을 확보한 뒤 켠다. 아직 없으면 공격·토템만 사용한다.\n<b>{이 스킬 안에 넣을 젬}\n현재 단계 연결 보조 없음.\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{방패 들기 · 세트 I}\n방패 세트 I에서 사용한다.\n<b>{이 스킬 안에 넣을 젬}\n현재 단계 연결 보조 없음.\nG의 무기 세트 체크는 직접 지정한다."
+    }
+  ],
+  "description": "무기·스킬셋\nG에서 세트 I 목록은 I만, 세트 II 목록은 II만 체크한다. 아래는 권장 배정이며 자동 설정되지 않는다.\n\n세트 I · 한손 철퇴 + 방어도 방패\n몰려오는 강타 → 기절 I\n지진 → 지속시간 연장 I\n지옥불 함성 → 연결 보조 없음\n마그마 장벽 [버프] → 연결 보조 없음\n방패 들기 → 연결 보조 없음\n\n세트 II · 양손 철퇴\n철퇴 타격 [기본 공격] → 연결 보조 없음\n뼈 박살 → 충돌 충격파 + 범위 확대 I\n충격파 토템 → 과잉 I + 포악함 I\n\n세트 II를 한손 철퇴+공유 방패로 바꾸려면 토템 피해를 비교한 뒤 대체한다. 양손 철퇴를 쓰는 동안 보조 무기 II는 비운다.\n\n사용 순서\n충격파 토템(II) 설치 → 지진(I)으로 지대 생성 → 이동. 기절 준비된 적은 뼈 박살(II)로 마무리하고 I로 복귀.\n\n지금 할 일\n1. 충격파 토템을 세트 II에 지정하고 적 앞에 설치한다.\n2. 과잉 I → 포악함 I 순서로 확보해 토템에 넣는다. 보조가 없어도 토템부터 쓸 수 있다.\n3. 기존 근접 스킬을 함께 쓴다. 일반 25점은 앞으로 찍을 트리 목표이며 진입 조건이 아니다.\n\nI: 한손 철퇴+방어도 방패 / II: 양손 철퇴 또는 피해를 확인한 한손 철퇴\n다음: 1차 전직과 토템 보조 3칸 → 03\n패시브 목표: 일반 25점 / 무기 특화 I 4점·II 4점."
+}

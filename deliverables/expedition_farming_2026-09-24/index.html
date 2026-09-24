@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>탐험 파밍 가이드</title>
+<style>
+  :root {
+    --color-bg: rgb(0, 0, 0);
+    --color-surface: rgb(18, 18, 18);
+    --color-line: rgb(44, 44, 44);
+    --color-fg: rgb(255, 255, 255);
+    --color-dim: rgb(160, 160, 160);
+    --color-accent: rgb(10, 132, 255);
+    --font-sans: 'Pretendard', 'Inter', system-ui, sans-serif;
+    --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-6: 24px; --space-8: 32px;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-sans); line-height: 1.6; }
+  a { color: var(--color-accent); }
+  .wrap { max-width: 920px; margin: 0 auto; padding: var(--space-6) var(--space-4) var(--space-8); }
+  header h1 { font-size: 26px; margin: 0 0 var(--space-1); }
+  header p { margin: 0; color: var(--color-dim); font-size: 14px; }
+  .who { margin-top: var(--space-4); display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: var(--space-2); }
+  .stat { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius); padding: var(--space-2) var(--space-3); }
+  .stat b { display: block; font-size: 18px; }
+  .stat span { font-size: 12px; color: var(--color-dim); }
+  nav { position: sticky; top: 0; background: var(--color-bg); padding: var(--space-4) 0 var(--space-2); display: flex; flex-wrap: wrap; gap: var(--space-2); border-bottom: 1px solid var(--color-line); z-index: 2; }
+  nav button { font: inherit; font-size: 14px; color: var(--color-fg); background: var(--color-surface); border: 1px solid var(--color-line); border-radius: 999px; padding: var(--space-1) var(--space-3); cursor: pointer; }
+  nav button[aria-selected="true"] { background: var(--color-accent); border-color: var(--color-accent); }
+  section { display: none; padding-top: var(--space-6); }
+  section.on { display: block; }
+  .band { border-left: 4px solid var(--color-accent); padding-left: var(--space-3); margin: 0 0 var(--space-4); }
+  .band h2 { margin: 0; font-size: 21px; }
+  .band p { margin: 0; color: var(--color-dim); font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: var(--space-2) 0 var(--space-4); }
+  th, td { text-align: left; padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--color-line); vertical-align: top; }
+  th { color: var(--color-dim); font-weight: 600; font-size: 13px; }
+  ol, ul { padding-left: 22px; margin: var(--space-2) 0 var(--space-4); }
+  li { margin-bottom: var(--space-2); }
+  .card { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius); padding: var(--space-4); margin-bottom: var(--space-4); }
+  .card h3 { margin: 0 0 var(--space-2); font-size: 16px; }
+  .key { border-color: var(--color-accent); }
+  .tag { display: inline-block; font-size: 12px; border: 1px solid var(--color-line); border-radius: 999px; padding: 0 var(--space-2); margin-right: var(--space-1); color: var(--color-dim); }
+  .tag.a { border-color: var(--color-accent); color: var(--color-fg); }
+  .tiers { display: grid; gap: var(--space-2); margin: var(--space-2) 0 var(--space-4); }
+  .tier { display: grid; grid-template-columns: 64px 1fr; align-items: center; background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius); padding: var(--space-2) var(--space-3); }
+  .tier b { color: var(--color-accent); }
+  .tier.top { border-color: var(--color-accent); }
+  .note { font-size: 13px; color: var(--color-dim); }
+  .step-nav { display: flex; justify-content: space-between; margin-top: var(--space-6); }
+  .step-nav button { font: inherit; background: none; border: 1px solid var(--color-line); color: var(--color-fg); border-radius: var(--radius); padding: var(--space-2) var(--space-4); cursor: pointer; }
+  .step-nav button:disabled { opacity: 0.3; cursor: default; }
+  @media (max-width: 560px) { th, td { padding: var(--space-2); font-size: 14px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>탐험 파밍 가이드 — 0.5.5 금단의 의식</h1>
+    <p>원본: EasyBabi 「돈이 벌릴 수밖에 없는 탐험 파밍」 (2026-09-10) ·
+      <a href="https://www.youtube.com/watch?v=5iRqieKF8S8" target="_blank" rel="noopener">영상</a> ·
+      기준 캐릭터 BurgerTaseYou (2026-09-24 poe.ninja)</p>
+    <div class="who">
+      <div class="stat"><b>Lv 59</b><span>젬링 · 아크 토템</span></div>
+      <div class="stat"><b>2,944</b><span>마나 (Ky 3.5k 권장)</span></div>
+      <div class="stat"><b>75 / 75 / 75</b><span>원소 저항 · 카오스 18</span></div>
+      <div class="stat"><b>8.2k</b><span>유효 체력</span></div>
+      <div class="stat"><b>9.0k</b><span>Arc DPS (ninja)</span></div>
+    </div>
+  </header>
+
+  <nav role="tablist" id="tabs"></nav>
+
+  <section data-title="0 내 캐릭터 점검">
+    <div class="band"><h2>시작 전에 이것만 확인</h2><p>여기서 막히면 뒤 단계가 의미 없습니다</p></div>
+    <div class="card key">
+      <h3>탐험 아틀라스 서브트리 — 게임에서 직접 확인</h3>
+      poe.ninja 는 아틀라스를 보여주지 않습니다. 아틀라스 창에서 <b>탐험 서브트리가 다 찍혔는지</b>(영상 전제),
+      본 트리가 어디까지인지 확인하세요. 신성의 중재자까지 끝났으면 효율이 더 오릅니다.
+    </div>
+    <table>
+      <tr><th>항목</th><th>지금</th><th>판단</th></tr>
+      <tr><td>마나</td><td>2,944</td><td>Ky 설명대로 <b>원거리로 플레이</b>. 4.2k~4.5k 부터 편해짐</td></tr>
+      <tr><td>원소 저항</td><td>75 / 75 / 75</td><td>충분</td></tr>
+      <tr><td>카오스 저항</td><td>18%</td><td>낮음. 방사능·타락 맵에서 카오스 피해 주의</td></tr>
+      <tr><td>대가</td><td>—</td><td>자도 <b>1-2-1-2</b> (영상 기준)</td></tr>
+    </table>
+    <div class="card">
+      <h3>추천 — 맵 강도는 단계적으로</h3>
+      서판·타락·8모드는 모두 몬스터를 강하게 만듭니다. 처음 몇 판은 <b>서판 1~2장</b>으로 버티는지 보고,
+      죽지 않으면 3장으로 올리세요. (이 부분은 영상이 아니라 현재 캐릭터 수치를 보고 한 제안입니다)
+    </div>
+  </section>
+
+  <section data-title="1 준비물">
+    <div class="band"><h2>준비물</h2><p>서판 링크는 영상 설명란의 검색 조건 그대로 (즉시구매 = 골드 수수료 있음)</p></div>
+    <table>
+      <tr><th>항목</th><th>용도</th></tr>
+      <tr><td>탐험 일지</td><td>바다 한 지역에 일반 탐험·대탐험·보스맵·고유맵 생성</td></tr>
+      <tr><td>액체 베리시움</td><td>페로우에게 구매. 파란 룬 리롤 도박용</td></tr>
+      <tr><td>영웅담 (선택)</td><td>우트레드 = 체스한 캐스트 · 올로스 = 혈통 젬 확률</td></tr>
+      <tr><td><b>환영 서판 × 3</b></td><td>일반 탐험 맵 ·
+        <a target="_blank" rel="noopener" href="https://poe.kakaogames.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22implicit.stat_3879011313%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%2C%7B%22type%22%3A%22count%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2065500219%22%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%7D%2C%7B%22id%22%3A%22explicit.stat_3793155082%22%7D%5D%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22type%22%3A%22count%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3962960008%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22explicit.stat_551040294%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%5D%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D">검색</a><br>
+        <span class="note">거울 사용 10+ · (몬스터 효율 / 아이템 희귀도 / 희귀 몬스터 수) 중 1 · (환영 고유 보스 20%+ / 균열 거울 20%+) 중 1</span></td></tr>
+      <tr><td><b>방사능 노출 서판 × 3</b></td><td>대탐험 맵 · 개당 약 8카오스 ·
+        <a target="_blank" rel="noopener" href="https://poe.kakaogames.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22implicit.stat_4041853756%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%2C%7B%22type%22%3A%22count%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2306002879%22%7D%5D%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22type%22%3A%22count%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2065500219%22%7D%2C%7B%22id%22%3A%22explicit.stat_4142653832%22%7D%2C%7B%22id%22%3A%22explicit.stat_3793155082%22%7D%5D%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D">검색</a><br>
+        <span class="note">지도 아이템 희귀도 필수 · (몬스터 효율 / 몬스터 희귀도 / 희귀 몬스터 수) 중 1</span></td></tr>
+      <tr><td>T15 <b>타락</b> 6모드+ 경로석</td><td>맵 한 판에 하나. 타락이어야 뜻밖의 임무로 속성이 추가됨</td></tr>
+    </table>
+  </section>
+
+  <section data-title="2 일지 고르기">
+    <div class="band"><h2>일지 고르기 — 섬의 소문</h2><p>소문으로 그 지역 대탐험 맵을 미리 알 수 있다</p></div>
+    <ul>
+      <li>소문이 <b>3개 이상</b>인 일지만 쓴다.</li>
+      <li>인벤토리 아이템을 옮기면 <b>가려진 소문이 보인다</b>(리롤 아님). 몇 번 옮겨 보고, 별로면 다른 쪽 일지.</li>
+    </ul>
+    <div class="tiers">
+      <div class="tier top"><b>최상</b><div>떨어지는 별 → <b>무너진 하늘의 황야</b> — 뜨면 무조건 한다</div></div>
+      <div class="tier"><b>상</b><div>얼음장처럼 추운 곳 · 흡수할 것이 없다</div></div>
+      <div class="tier"><b>중</b><div>아왕사념 · 끝없는 계곡</div></div>
+    </div>
+    <p class="note">지도 아이콘: 아무것도 없음 = 일반 탐험 · 탐험 아이콘에 테두리 = 대탐험 · 빨간 보스 아이콘 = 탐험 보스</p>
+  </section>
+
+  <section data-title="3 일반 탐험">
+    <div class="band"><h2>일반 탐험 맵 — 대탐험으로 가는 통로</h2><p>보상은 낮다. 빨리 지나가며 환영 조각만 챙긴다</p></div>
+    <ol>
+      <li>T15 타락 경로석 + <b>환영 서판 3장</b>.</li>
+      <li>들어가자마자 <b>환영 거울</b>을 깬다. 가는 길의 거울도 깬다 (초록 = 매직 · 보라 = 레어 · 주황 = 고유 몬스터 → 조각 대량).</li>
+      <li>맵을 싹 다 돌 필요는 없다.</li>
+      <li>탐험은 좋은 게 없으면 <b>폭발물 하나만 터뜨리고 떠난다</b>. 옵션이 전부 파랑이면 액체 베리시움으로 한 번 도박해 봐도 된다.</li>
+      <li>보스를 잡고 <b>인카운터 완료</b>는 꼭 (보통 80~120개).</li>
+    </ol>
+    <p class="note">영상 04:12 부터 시연</p>
+  </section>
+
+  <section data-title="4 대탐험">
+    <div class="band"><h2>대탐험 맵 — 수익의 대부분</h2><p>영상 09:16 부터 시연</p></div>
+    <table>
+      <tr><th>항목</th><th>설정</th></tr>
+      <tr><td>서판</td><td><b>방사능 노출 3장</b> (알드루의 영웅담을 쓰면 지도 속성 추가 2개짜리 3장이 좋지만 비용이 크다)</td></tr>
+      <tr><td>경로석 옵션</td><td><span class="tag a">1 몬스터 효율</span><span class="tag">2 몬스터 희귀도</span><span class="tag">3 아이템 희귀도</span><br><span class="note">무리 규모는 의미 없음</span></td></tr>
+      <tr><td>경로석 등급</td><td>T15 8모드 최선 · 타락 T15 6모드도 체감 차이 작음 (영상 기준)</td></tr>
+    </table>
+    <div class="card key">
+      <h3>들어가면 먼저 한 바퀴 스캔</h3>
+      룬 많은 칸, 풍요 룬, <b>알드루의 유산</b>(약 50딥)이 어디 있는지 본다 → 그걸로 <b>마지막 칸</b>을 정한다.
+      그다음 룬 스태킹 탭 순서대로.
+    </div>
+    <ul>
+      <li>맵 특성 표시(X 마크) 확인 — <b>룸 몬스터 복제 토템</b>은 가치가 높다.</li>
+      <li>미니맵에서 <b>빛나는 화폐 상자 = 내용물 2배</b>, 빛나는 장비 상자 = 특출 아이템 가능.</li>
+    </ul>
+  </section>
+
+  <section data-title="5 룬 스태킹">
+    <div class="band"><h2>룬 스태킹</h2><p>노란 칸 = "이 칸의 룬 속성이 이후 발굴되는 모든 몬스터에게 추가됨"</p></div>
+    <ol>
+      <li>스캔으로 <b>마지막 칸</b>을 정한다.</li>
+      <li>마지막 칸을 향해 이어 가며 <b>보라·노랑 룬</b>을 최대한 쌓는다. 노랑이 특히 중요하다.</li>
+      <li>파란 칸은 <b>액체 베리시움으로 리롤</b>(도박). 리롤 후에는 선택을 바꿀 수 없다.</li>
+      <li>다 잇고 나서 터뜨린다.</li>
+    </ol>
+    <div class="tiers">
+      <div class="tier top"><b>0티어</b><div><b>풍요</b> — 희귀도 증가. 있을 때와 없을 때 보상 체감이 가장 크다</div></div>
+      <div class="tier"><b>1티어</b><div>유대 · 죽음 · 시간</div></div>
+      <div class="tier"><b>2티어</b><div>권능</div></div>
+      <div class="tier"><b>3티어</b><div>서약 · 영혼 · 생명</div></div>
+      <div class="tier"><b>기타</b><div>지혜 = 경험치라 보상엔 도움 적음 · 파랑 = 가치 낮음(없진 않음)</div></div>
+    </div>
+    <p class="note">3티어 이하는 순서보다 "종류별로 하나씩 쌓아 넘기기"가 핵심 (영상 설명)</p>
+  </section>
+
+  <section data-title="6 부수입">
+    <div class="band"><h2>놓치기 쉬운 부수입</h2><p>파밍 중 나오는 것들</p></div>
+    <ul>
+      <li><b>영토 파편</b> → 복제된 영토를 만들어 판매.</li>
+      <li>경로석 제작 중 나온 <b>T16</b>은 판매 (100~130엑잘+).</li>
+      <li><b>등급·특출 베이스</b> — 감정해 볼 만함. 접두가 빈 육척봉에 옵션을 붙여 100딥에 판 사례(영상).</li>
+      <li>디바인은 기본으로 떨어진다.</li>
+    </ul>
+    <div class="card key">
+      <h3>목표 — 이 캐릭터 기준</h3>
+      마법봉 재제작(주문+번개+마나 3접두 바탕 → <b>우측</b> 결정화 징조 우클릭 활성화 → 완벽한 마술의 에센스) ·
+      마나 4.2k+ 로 가는 장비 교체 · 80레벨 투구·장갑·신발 교체 (골드 약 5만).
+    </div>
+  </section>
+
+  <div class="step-nav"><button id="prev">← 이전</button><button id="next">다음 →</button></div>
+</div>
+<script>
+  const sections = [...document.querySelectorAll('section')];
+  const nav = document.getElementById('tabs');
+  let current = 0;
+  try { current = Math.min(sections.length - 1, Number(localStorage.getItem('exp-step')) || 0); } catch (e) { current = 0; }
+  sections.forEach((s, i) => {
+    const b = document.createElement('button');
+    b.textContent = s.dataset.title;
+    b.setAttribute('role', 'tab');
+    b.addEventListener('click', () => show(i));
+    nav.appendChild(b);
+  });
+  function show(i) {
+    current = i;
+    sections.forEach((s, k) => s.classList.toggle('on', k === i));
+    [...nav.children].forEach((b, k) => b.setAttribute('aria-selected', String(k === i)));
+    document.getElementById('prev').disabled = i === 0;
+    document.getElementById('next').disabled = i === sections.length - 1;
+    try { localStorage.setItem('exp-step', String(i)); } catch (e) { /* 저장 불가 환경 */ }
+    window.scrollTo({ top: 0 });
+  }
+  document.getElementById('prev').onclick = () => show(Math.max(0, current - 1));
+  document.getElementById('next').onclick = () => show(Math.min(sections.length - 1, current + 1));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') show(Math.min(sections.length - 1, current + 1));
+    if (e.key === 'ArrowLeft') show(Math.max(0, current - 1));
+  });
+  show(current);
+</script>
+</body>
+</html>

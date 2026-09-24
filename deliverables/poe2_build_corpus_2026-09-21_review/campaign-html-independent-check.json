@@ -1,0 +1,32 @@
+{
+  "old_design_not_overwritten": true,
+  "cancel_preserves_edits": true,
+  "explicit_load_backup_reload_restore": true,
+  "campaign_render_and_download": [
+    {
+      "stage": "campaign-act1",
+      "visible_target_nodes": 18,
+      "actual_download_sha256": "28ba3790f4ec899e4d6262007b77c337ed807152f648f651812ae7bd89a9e8f0"
+    },
+    {
+      "stage": "campaign-act2",
+      "visible_target_nodes": 26
+    },
+    {
+      "stage": "campaign-act3",
+      "visible_target_nodes": 37
+    },
+    {
+      "stage": "campaign-act4",
+      "visible_target_nodes": 47
+    },
+    {
+      "stage": "campaign-interlude",
+      "visible_target_nodes": 56,
+      "actual_download_sha256": "df09bd282cea6bc0c3764763310a887870a49f54e3adadb63090d294eb13ee82"
+    }
+  ],
+  "mobile_no_overflow": true,
+  "latest_set_counts_preserved": true,
+  "js_errors": []
+}

@@ -1,0 +1,113 @@
+{
+  "source": "https://mobalytics.gg/poe-2/guides/0-5-campaign-checklist-stats-rewards-skillpoints-and-more",
+  "author": "Mordarim",
+  "updated": "2026-06-02",
+  "checked": "2026-09-21",
+  "kind": "authored guide, not guaranteed character reward state",
+  "rewards": [
+    {
+      "stage": "act1",
+      "objective": "Crowbell",
+      "area": "Hunting Grounds",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "act1",
+      "objective": "Una lute delivery",
+      "area": "Ogham Farmlands",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "act2",
+      "objective": "Kabala",
+      "area": "Keth",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "act2",
+      "objective": "Final Letter delivery",
+      "area": "Deshar",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "act3",
+      "objective": "Mighty Silverfist",
+      "area": "Jungle Ruins",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "act3",
+      "objective": "Sacrificial Heart altar",
+      "area": "Aggorat",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "act4",
+      "objective": "Dark Mists / Omniphobia",
+      "area": "Journey End",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "act4",
+      "objective": "Yama",
+      "area": "Trail of Ancestors",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "interlude",
+      "objective": "Akthi and Anundr",
+      "area": "Khari Crossing",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "interlude",
+      "objective": "Abominable Yeti",
+      "area": "Howling Caves",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "interlude",
+      "objective": "Oswin",
+      "area": "Wolvenhold",
+      "points": 2,
+      "claimed": false
+    },
+    {
+      "stage": "post_interludes",
+      "objective": "Return to Hooded One",
+      "area": "Kingsmarch",
+      "points": 2,
+      "claimed": false
+    }
+  ],
+  "maximum_total": 24,
+  "ordinary_available_formula": "character_level - 1 + actually_claimed_reward_points",
+  "examples_all_rewards_claimed": {
+    "40": 63,
+    "62": 85,
+    "63": 86,
+    "64": 87
+  },
+  "constraints": [
+    "Do not assume all24 have been claimed atLv40",
+    "Weapon specialization capacity is not additional ordinary points",
+    "Ascendancy points remain separate",
+    "Interlude entries are independent reward checklist, not mandatory content sequence",
+    "Area level is not character level",
+    "Local QuestRewards Unknown columns cannot establish quest mapping or total"
+  ],
+  "official_partial_crosscheck": {
+    "url": "https://www.pathofexile.com/forum/view-thread/3883495",
+    "fact": "0.4 moved two-point tome reward from Blind Beast to Dark Mists; current0.5 guide corroborates"
+  }
+}

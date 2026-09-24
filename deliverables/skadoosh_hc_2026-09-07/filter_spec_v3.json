@@ -1,0 +1,1208 @@
+{
+  "_meta": {
+    "build": "Skadoosh HC Corrupting Cry / Totems — progression, not character level",
+    "game": "poe2",
+    "patch": "0.5.5",
+    "base_filter": "NeverSink 0.10.4",
+    "progression": {
+      "campaign": "캠페인 완료 전. 캐릭터 65+ 포함",
+      "maps": "캠페인 완료, 초반 지도 및 장비 보강",
+      "endgame": "지도 진행과 장비가 안정되고 드롭 정리가 필요할 때"
+    },
+    "palette": "기존 Warbringer 역할별 진홍/로즈 계열 시각 토큰 유지",
+    "notes": [
+      "추가 Hide 없음. 미일치 아이템은 각 NeverSink 원본으로 처리.",
+      "AreaLevel은 몬스터 지역 레벨. 캐릭터 레벨에 따른 자동 전환 없음.",
+      "미감정 장비의 생명력/저항/이동속도를 필터가 판별하지 못함.",
+      "신규 리그 코어, 유니크 가치, 미가공 젬 티어 규칙은 최신 원본 유지.",
+      "v3 방송 대조: 한손 철퇴+방패 경로. 양손 철퇴 전용 추가 강조 7개를 제거하고 해당 아이템은 NeverSink 원본으로 처리."
+    ]
+  },
+  "styles": {
+    "weapon_core": {
+      "comment": "weapon_core — 기존 Warbringer 시각/소리 토큰",
+      "text": [
+        255,
+        255,
+        255
+      ],
+      "border": [
+        255,
+        255,
+        255
+      ],
+      "background": [
+        151,
+        7,
+        7
+      ],
+      "font": 45,
+      "sound": [
+        1,
+        300
+      ],
+      "beam": "Red",
+      "icon": [
+        0,
+        "Red",
+        "Kite"
+      ]
+    },
+    "charm_endgame": {
+      "comment": "charm_endgame — 기존 Warbringer 시각/소리 토큰",
+      "text": [
+        245,
+        175,
+        180
+      ],
+      "border": [
+        215,
+        110,
+        120
+      ],
+      "background": [
+        72,
+        24,
+        30
+      ],
+      "font": 42,
+      "sound": [
+        3,
+        300
+      ],
+      "beam": "Orange Temp",
+      "icon": [
+        1,
+        "Orange",
+        "Raindrop"
+      ]
+    },
+    "augment_endgame": {
+      "comment": "augment_endgame — 기존 Warbringer 시각/소리 토큰",
+      "text": [
+        245,
+        125,
+        95
+      ],
+      "border": [
+        215,
+        65,
+        50
+      ],
+      "background": [
+        58,
+        4,
+        7
+      ],
+      "font": 42,
+      "sound": [
+        3,
+        300
+      ],
+      "beam": "Red Temp",
+      "icon": [
+        1,
+        "Red",
+        "Circle"
+      ]
+    },
+    "weapon_gear": {
+      "comment": "weapon_gear — 기존 Warbringer 시각/소리 토큰",
+      "text": [
+        235,
+        150,
+        130
+      ],
+      "border": [
+        200,
+        75,
+        55
+      ],
+      "background": [
+        62,
+        14,
+        10
+      ],
+      "font": 42,
+      "sound": null,
+      "beam": "Red Temp",
+      "icon": [
+        2,
+        "Red",
+        "Kite"
+      ]
+    },
+    "armour_gear": {
+      "comment": "armour_gear — 기존 Warbringer 시각/소리 토큰",
+      "text": [
+        225,
+        160,
+        140
+      ],
+      "border": [
+        175,
+        80,
+        65
+      ],
+      "background": [
+        42,
+        3,
+        5
+      ],
+      "font": 42,
+      "sound": null,
+      "beam": null,
+      "icon": [
+        2,
+        "Red",
+        "Kite"
+      ]
+    },
+    "jewellery_gear": {
+      "comment": "jewellery_gear — 기존 Warbringer 시각/소리 토큰",
+      "text": [
+        230,
+        180,
+        120
+      ],
+      "border": [
+        185,
+        120,
+        55
+      ],
+      "background": [
+        52,
+        26,
+        8
+      ],
+      "font": 42,
+      "sound": null,
+      "beam": null,
+      "icon": [
+        2,
+        "Orange",
+        "Kite"
+      ]
+    },
+    "augment_craft": {
+      "comment": "augment_craft — 기존 Warbringer 시각/소리 토큰",
+      "text": [
+        170,
+        110,
+        100
+      ],
+      "border": [
+        120,
+        45,
+        40
+      ],
+      "background": [
+        18,
+        10,
+        11
+      ],
+      "font": 38,
+      "sound": null,
+      "beam": null,
+      "icon": null
+    }
+  },
+  "rules": [
+    {
+      "name": "[정신력 준비] Shrine Sceptre — 최종 양 세트 후보",
+      "base_types": [
+        "Shrine Sceptre"
+      ],
+      "class": [
+        "Sceptres"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "style": "weapon_gear",
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ],
+      "note": "레벨 65+ 캠페인에서도 유지. 슬롯과 접미/접두 옵션을 감정해서 선택."
+    },
+    {
+      "name": "[정신력 준비] 그 외 셉터 — 정신력 옵션 감정",
+      "base_types": [
+        "Aromatic Sceptre",
+        "Clasped Sceptre",
+        "Devotional Sceptre",
+        "Devouring Sceptre",
+        "Hallowed Sceptre",
+        "Lupine Sceptre",
+        "Ochre Sceptre",
+        "Omen Sceptre",
+        "Pious Sceptre",
+        "Rattling Sceptre",
+        "Shrine Sceptre",
+        "Stoic Sceptre",
+        "Wrath Sceptre"
+      ],
+      "class": [
+        "Sceptres"
+      ],
+      "rarity": [
+        "Magic",
+        "Rare"
+      ],
+      "style": "weapon_gear",
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ],
+      "note": "레벨 65+ 캠페인에서도 유지. 슬롯과 접미/접두 옵션을 감정해서 선택."
+    },
+    {
+      "name": "[정신력 준비] Solar Amulet",
+      "base_types": [
+        "Solar Amulet"
+      ],
+      "class": [
+        "Amulets"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "style": "jewellery_gear",
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ],
+      "note": "레벨 65+ 캠페인에서도 유지. 슬롯과 접미/접두 옵션을 감정해서 선택."
+    },
+    {
+      "name": "[캠페인 제작] 소켓 있는 후반 철퇴",
+      "base_types": [
+        "Aberrant Sledge",
+        "Akoyan Club",
+        "Anvil Maul",
+        "Bandit Mace",
+        "Battle Pick",
+        "Blacksmith Maul",
+        "Brigand Mace",
+        "Calescent Hammer",
+        "Construct Hammer",
+        "Crown Mace",
+        "Crumbling Maul",
+        "Cultist Greathammer",
+        "Disintegrating Maul",
+        "Execratus Hammer",
+        "Fanatic Greathammer",
+        "Felled Greatclub",
+        "Flanged Mace",
+        "Flared Mace",
+        "Forge Maul",
+        "Fortified Hammer",
+        "Giant Maul",
+        "Greatmace",
+        "Heavy Greathammer",
+        "Ironwood Greathammer",
+        "Jade Club",
+        "Kalguuran Forgehammer",
+        "Leaden Greathammer",
+        "Lumen Mace",
+        "Marauding Mace",
+        "Marching Mace",
+        "Massive Greathammer",
+        "Molten Hammer",
+        "Morning Star",
+        "Oak Greathammer",
+        "Plated Mace",
+        "Pointed Maul",
+        "Precise Greathammer",
+        "Ruination Maul",
+        "Sacred Maul",
+        "Slim Mace",
+        "Smithing Hammer",
+        "Snakewood Greathammer",
+        "Solemn Maul",
+        "Spiked Club",
+        "Strife Pick",
+        "Structured Hammer",
+        "Studded Greatclub",
+        "Tawhoan Greatclub",
+        "Temple Maul",
+        "Torment Club",
+        "Totemic Greatclub",
+        "Warpick",
+        "Wooden Club",
+        "Zealot Greathammer"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "sockets_min": 1,
+      "style": "weapon_gear",
+      "stages": [
+        "campaign",
+        "maps"
+      ],
+      "note": "레벨 65+ 캠페인에서도 유지. 슬롯과 접미/접두 옵션을 감정해서 선택."
+    },
+    {
+      "style": "weapon_gear",
+      "name": "[한손 철퇴] 드롭 1~4",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "One Hand Maces"
+      ],
+      "base_types": [
+        "Smithing Hammer",
+        "Wooden Club"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 20,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "weapon_gear",
+      "name": "[한손 철퇴] 드롭 10~16",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "One Hand Maces"
+      ],
+      "base_types": [
+        "Slim Mace",
+        "Spiked Club"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 30,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "weapon_gear",
+      "name": "[한손 철퇴] 드롭 22~26",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "One Hand Maces"
+      ],
+      "base_types": [
+        "Plated Mace",
+        "Warpick"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 40,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "weapon_gear",
+      "name": "[한손 철퇴] 드롭 33~36",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "One Hand Maces"
+      ],
+      "base_types": [
+        "Brigand Mace",
+        "Construct Hammer"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 50,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "weapon_gear",
+      "name": "[한손 철퇴] 드롭 45~48",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "One Hand Maces"
+      ],
+      "base_types": [
+        "Calescent Hammer",
+        "Flared Mace",
+        "Kalguuran Forgehammer",
+        "Morning Star"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "area_level_max": 60,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "weapon_gear",
+      "name": "[한손 철퇴] 드롭 49~55",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "One Hand Maces"
+      ],
+      "base_types": [
+        "Battle Pick",
+        "Execratus Hammer",
+        "Jade Club",
+        "Lumen Mace",
+        "Marching Mace"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "area_level_max": 70,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "weapon_gear",
+      "name": "[한손 철퇴] 드롭 59~79",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "One Hand Maces"
+      ],
+      "base_types": [
+        "Akoyan Club",
+        "Bandit Mace",
+        "Crown Mace",
+        "Flanged Mace",
+        "Fortified Hammer",
+        "Marauding Mace",
+        "Molten Hammer",
+        "Strife Pick",
+        "Structured Hammer",
+        "Torment Club"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "armour_gear",
+      "name": "[힘 방어구] 드롭 1~6",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Fur Plate",
+        "Painted Tower Shield",
+        "Ringmail Gauntlets",
+        "Rough Greaves",
+        "Rusted Cuirass",
+        "Rusted Greathelm",
+        "Splintered Tower Shield",
+        "Stocky Mitts"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 20,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "armour_gear",
+      "name": "[힘 방어구] 드롭 10~16",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Barricade Tower Shield",
+        "Braced Tower Shield",
+        "Bronze Greaves",
+        "Horned Crown",
+        "Iron Cuirass",
+        "Iron Greaves",
+        "Raider Plate",
+        "Riveted Mitts",
+        "Soldier Greathelm",
+        "Tempered Mitts",
+        "Threaded Shoes",
+        "Wrapped Greathelm"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 30,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "armour_gear",
+      "name": "[힘 방어구] 드롭 20~28",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Bolstered Mitts",
+        "Effigial Tower Shield",
+        "Maraketh Cuirass",
+        "Rampart Tower Shield",
+        "Spired Greathelm",
+        "Steel Plate",
+        "Trimmed Greaves"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 40,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "armour_gear",
+      "name": "[힘 방어구] 드롭 33~37",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Elite Greathelm",
+        "Full Plate",
+        "Heraldric Tower Shield",
+        "Moulded Mitts",
+        "Stone Greaves",
+        "Stone Tower Shield",
+        "Vaal Cuirass",
+        "Warrior Greathelm"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 50,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "armour_gear",
+      "name": "[힘 방어구] 드롭 45~48",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Aged Tower Shield",
+        "Barbarian Plate",
+        "Commander Greathelm",
+        "Corroded Greathelm",
+        "Crucible Tower Shield",
+        "Detailed Mitts",
+        "Juggernaut Plate",
+        "Mercenary Greathelm",
+        "Metalworked Tower Shield",
+        "Plated Greaves",
+        "Plated Mitts",
+        "Reefsteel Greaves",
+        "Rugged Cuirass"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "area_level_max": 60,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "armour_gear",
+      "name": "[힘 방어구] 드롭 50~58",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Ancestor Tower Shield",
+        "Ancient Mitts",
+        "Bulwark Tower Shield",
+        "Champion Cuirass",
+        "Chieftain Cuirass",
+        "Colosseum Plate",
+        "Cultist Tower Shield",
+        "Defiant Tower Shield",
+        "Elegant Greathelm",
+        "Elegant Greaves",
+        "Elegant Mitts",
+        "Elegant Plate",
+        "Fierce Greathelm",
+        "Goliath Greathelm",
+        "Homeguard Greathelm",
+        "Lionheart Greaves",
+        "Monument Greaves",
+        "Phalanx Tower Shield",
+        "Sandsworn Cuirass",
+        "Sentinel Greathelm",
+        "Titan Mitts"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "area_level_max": 70,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "armour_gear",
+      "name": "[힘 방어구] 드롭 59~80",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Abyssal Cuirass",
+        "Blacksteel Tower Shield",
+        "Bulwark Greaves",
+        "Carved Greaves",
+        "Conqueror Plate",
+        "Feathered Mitts",
+        "Fortress Tower Shield",
+        "Glacial Fortress",
+        "Glorious Plate",
+        "Goldworked Tower Shield",
+        "Grand Mitts",
+        "Guardian Greathelm",
+        "Heavy Plate",
+        "Imperial Greathelm",
+        "Knightly Mitts",
+        "Masked Greathelm",
+        "Massive Mitts",
+        "Noble Greathelm",
+        "Noble Tower Shield",
+        "Ornate Greaves",
+        "Ornate Mitts",
+        "Ornate Plate",
+        "Paragon Greathelm",
+        "Royal Tower Shield",
+        "Soldier Cuirass",
+        "Stone Cuirass",
+        "Tasalian Greaves",
+        "Tawhoan Tower Shield",
+        "Totemic Greaves",
+        "Utzaal Cuirass",
+        "Vaal Greaves",
+        "Vaal Mitts",
+        "Vaal Tower Shield",
+        "Warlord Cuirass",
+        "Warmonger Greathelm"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "jewellery_gear",
+      "name": "[장신구·허리띠] 드롭 1~8",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Amber Amulet",
+        "Jade Amulet",
+        "Rawhide Belt",
+        "Ruby Ring"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 20,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "jewellery_gear",
+      "name": "[장신구·허리띠] 드롭 12~18",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Bloodstone Amulet",
+        "Sapphire Ring",
+        "Topaz Ring"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 30,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "jewellery_gear",
+      "name": "[장신구·허리띠] 드롭 20~25",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Amethyst Ring",
+        "Stellar Amulet"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 40,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "jewellery_gear",
+      "name": "[장신구·허리띠] 드롭 50",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "base_types": [
+        "Heavy Belt"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "area_level_max": 70,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[호신부] 드롭 5~8",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Charms"
+      ],
+      "base_types": [
+        "Ruby Charm",
+        "Sapphire Charm",
+        "Stone Charm"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[호신부] 드롭 12",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Charms"
+      ],
+      "base_types": [
+        "Thawing Charm"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[호신부] 드롭 40",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Charms"
+      ],
+      "base_types": [
+        "Amethyst Charm"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[플라스크] Lesser — 1막 시작 — 첫 플라스크",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Life Flasks",
+        "Mana Flasks"
+      ],
+      "base_types": [
+        "Lesser Life Flask",
+        "Lesser Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "area_level_max": 14,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[플라스크] Medium — 1막",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Life Flasks",
+        "Mana Flasks"
+      ],
+      "base_types": [
+        "Medium Life Flask",
+        "Medium Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "area_level_max": 14,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[플라스크] Greater — 1막 후반~2막",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Life Flasks",
+        "Mana Flasks"
+      ],
+      "base_types": [
+        "Greater Life Flask",
+        "Greater Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "area_level_max": 29,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[플라스크] Grand — 2막",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Life Flasks",
+        "Mana Flasks"
+      ],
+      "base_types": [
+        "Grand Life Flask",
+        "Grand Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "area_level_max": 29,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[플라스크] Giant — 3막",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Life Flasks",
+        "Mana Flasks"
+      ],
+      "base_types": [
+        "Giant Life Flask",
+        "Giant Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "area_level_max": 41,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[플라스크] Colossal — 3막 후반",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Life Flasks",
+        "Mana Flasks"
+      ],
+      "base_types": [
+        "Colossal Life Flask",
+        "Colossal Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "area_level_max": 41,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[플라스크] Gargantuan — 4막",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Life Flasks",
+        "Mana Flasks"
+      ],
+      "base_types": [
+        "Gargantuan Life Flask",
+        "Gargantuan Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "area_level_max": 51,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[플라스크] Transcendent — 후반 캠페인~",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Life Flasks",
+        "Mana Flasks"
+      ],
+      "base_types": [
+        "Transcendent Life Flask",
+        "Transcendent Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "charm_endgame",
+      "name": "[플라스크] Ultimate — 엔드게임",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Life Flasks",
+        "Mana Flasks"
+      ],
+      "base_types": [
+        "Ultimate Life Flask",
+        "Ultimate Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "augment_endgame",
+      "name": "[전 구간] 0.5.5 소울 코어 — 함성/토템/강타 +1 · Vorana's Carnage",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Augment"
+      ],
+      "base_types": [
+        "Jiquani's Soul Core of Rallying",
+        "Jiquani's Soul Core of Automation",
+        "Jiquani's Soul Core of Quaking",
+        "Vorana's Carnage"
+      ],
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "augment_endgame",
+      "name": "[전 구간] 루비 주얼 — 실캐릭 착용",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Jewels"
+      ],
+      "base_types": [
+        "Ruby",
+        "Time-Lost Ruby"
+      ],
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ]
+    },
+    {
+      "style": "augment_endgame",
+      "name": "[액트~맵 초반] 주얼러 오브 — 함성·AWT 링크 준비",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Stackable Currency"
+      ],
+      "base_types": [
+        "Lesser Jeweller's Orb",
+        "Greater Jeweller's Orb"
+      ],
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "augment_craft",
+      "name": "[룬] 드롭 11",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Augment"
+      ],
+      "base_types": [
+        "Lesser Body Rune"
+      ],
+      "area_level_max": 30,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "augment_craft",
+      "name": "[룬] 드롭 37",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Augment"
+      ],
+      "base_types": [
+        "Body Rune"
+      ],
+      "area_level_max": 50,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    },
+    {
+      "style": "augment_craft",
+      "name": "[룬] 드롭 52~57",
+      "note": "지역 레벨에 맞는 후보. 감정 후 옵션 비교; 장착 필수 아님.",
+      "class": [
+        "Augment"
+      ],
+      "base_types": [
+        "Greater Body Rune",
+        "Greater Desert Rune",
+        "Greater Glacial Rune",
+        "Greater Iron Rune",
+        "Greater Storm Rune"
+      ],
+      "area_level_max": 70,
+      "stages": [
+        "campaign",
+        "maps",
+        "endgame"
+      ]
+    }
+  ]
+}

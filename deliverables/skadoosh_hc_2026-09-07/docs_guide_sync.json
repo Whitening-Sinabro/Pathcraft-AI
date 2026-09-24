@@ -1,0 +1,658 @@
+{
+  "updated_utc": "2026-09-07T10:23:05.429833+00:00",
+  "markdown": "D:\\Pathcraft-AI\\Docs\\2026-09-05_SKADOOSH_CORRUPTING_CRY_TOTEM_WARBRINGER_0_5_5_RESEARCH.md",
+  "html": "D:\\Pathcraft-AI\\Docs\\2026-09-05_SKADOOSH_CORRUPTING_CRY_TOTEM_WARBRINGER_0_5_5_GUIDE_DOC.html",
+  "archive": "D:\\Pathcraft-AI\\Docs\\archive\\2026-09-05_SKADOOSH_CORRUPTING_CRY_TOTEM_WARBRINGER_0_5_5_RESEARCH_before_2026-09-07_v3.md",
+  "archive_sha256": "04e4157a143843eb263a43732346dd40fa6cade60f51a70f9f315768d9590181",
+  "planner_count": 7,
+  "stages": [
+    {
+      "stage": "01",
+      "file": "01 시작-근접 기초.build",
+      "name": "01 시작 - 근접과 방패",
+      "sha256": "942ba3dde8f5da746004801cd07b8fdc889492bd1b32b1768b75ab2ca6c8f00e",
+      "skills": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+          "name": "몰려오는 강타",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gem/SupportGemBrink"
+          ],
+          "display_links": "목전 I"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+          "name": "뼈 박살",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemImpactShockwave"
+          ],
+          "display_links": "충돌 충격파"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemPlayerDefault2HMace",
+          "name": "철퇴 타격",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "지옥불 함성",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "name": "방패 들기",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        }
+      ],
+      "gear_slots": 15
+    },
+    {
+      "stage": "02",
+      "file": "02 충격파 토템 - 1차 전직까지.build",
+      "name": "02 충격파 토템 - 1차 전직까지",
+      "sha256": "2617794d1252b2bd1c136c95b873b5834d840d234b14bf4b3148f8628be18ce8",
+      "skills": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "name": "충격파 토템",
+          "role": "세트 II",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemMartialTempo",
+            "Metadata/Items/Gem/SupportGemAncestralUrgency",
+            "Metadata/Items/Gems/SupportGemBrutalityTwo"
+          ],
+          "display_links": "빠른 공격 I + 긴급한 토템 I + 포악함 II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthquake",
+          "name": "지진",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gem/SupportGemSuffuse",
+            "Metadata/Items/Gem/SupportGemDomain"
+          ],
+          "display_links": "잠식하는 지대 + 유지되는 대지 I"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+          "name": "뼈 박살",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemImpactShockwave"
+          ],
+          "display_links": "충돌 충격파"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "name": "선대의 혼백",
+          "role": "자동 부여",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "name": "방패 들기",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "name": "공명하는 방패",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemRage"
+          ],
+          "display_links": "격노 I"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemVolcanicFissure",
+          "name": "화산 균열",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemJaggedGround"
+          ],
+          "display_links": "요철 지대 I"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+          "name": "몰려오는 강타",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gem/SupportGemBrink"
+          ],
+          "display_links": "목전 I"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "name": "마그마 장벽",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "지옥불 함성",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        }
+      ],
+      "gear_slots": 15
+    },
+    {
+      "stage": "03",
+      "file": "03 토템과 망치 - 2차 전직까지.build",
+      "name": "03 토템과 망치 - 2차 전직까지",
+      "sha256": "750e1c429cae0a8183380c3c2252e2101f57ebf22485cfc504abb6cfd024ab3e",
+      "skills": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "name": "충격파 토템",
+          "role": "세트 II",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemMartialTempo",
+            "Metadata/Items/Gem/SupportGemAncestralUrgency",
+            "Metadata/Items/Gems/SupportGemBrutalityTwo"
+          ],
+          "display_links": "빠른 공격 I + 긴급한 토템 I + 포악함 II"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemForgeHammer",
+          "name": "대장간 망치",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemJaggedGround",
+            "Metadata/Items/Gem/SupportGemDomain",
+            "Metadata/Items/Gems/SupportGemFistOfWarTwo"
+          ],
+          "display_links": "요철 지대 I + 유지되는 대지 I + 전쟁의 주먹 II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthquake",
+          "name": "지진",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gem/SupportGemSuffuse"
+          ],
+          "display_links": "잠식하는 지대"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "name": "선대의 혼백",
+          "role": "자동 부여",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "name": "방패 들기",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "지옥불 함성",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "name": "공명하는 방패",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemRage",
+            "Metadata/Items/Gems/SupportGemDemolisher"
+          ],
+          "display_links": "격노 I + 방어구 철거자 I"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemVolcanicFissure",
+          "name": "화산 균열",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+          "name": "뼈 박살",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemImpactShockwave"
+          ],
+          "display_links": "충돌 충격파"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "name": "마그마 장벽",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemVitality"
+          ],
+          "display_links": "활력 I"
+        }
+      ],
+      "gear_slots": 15
+    },
+    {
+      "stage": "04",
+      "file": "04 타락 함성 - 마나 사용.build",
+      "name": "04 타락 함성 - 마나 사용",
+      "sha256": "18b826536f6fd5fff54fc49559e0f58209012f29b2fc96c1c95af66a67bfee8c",
+      "skills": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "name": "보강하는 함성",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemCorruptingCry",
+            "Metadata/Items/Gems/SupportGemBrutalityTwo",
+            "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo",
+            "Metadata/Items/Gems/SupportGemInspirationTwo"
+          ],
+          "display_links": "타락시키는 비명 I + 포악함 II + 고통 격화 II + 효율 II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "name": "충격파 토템",
+          "role": "세트 II",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemMartialTempo",
+            "Metadata/Items/Gem/SupportGemAncestralUrgency",
+            "Metadata/Items/Gems/SupportGemBrutalityTwo"
+          ],
+          "display_links": "빠른 공격 I + 긴급한 토템 I + 포악함 II"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "name": "선대의 혼백",
+          "role": "자동 부여",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "name": "방패 들기",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "name": "공명하는 방패",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemRage",
+            "Metadata/Items/Gems/SupportGemDemolisher"
+          ],
+          "display_links": "격노 I + 방어구 철거자 I"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemVolcanicFissure",
+          "name": "화산 균열",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemForgeHammer",
+          "name": "대장간 망치",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemJaggedGround",
+            "Metadata/Items/Gem/SupportGemDomain",
+            "Metadata/Items/Gems/SupportGemFistOfWarTwo"
+          ],
+          "display_links": "요철 지대 I + 유지되는 대지 I + 전쟁의 주먹 II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthquake",
+          "name": "지진",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gem/SupportGemSuffuse",
+            "Metadata/Items/Gem/SupportGemDomainTwo"
+          ],
+          "display_links": "잠식하는 지대 + 유지되는 대지 II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+          "name": "뼈 박살",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemImpactShockwave",
+            "Metadata/Items/Gems/SupportGemInspiration"
+          ],
+          "display_links": "충돌 충격파 + 효율 I"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "name": "마그마 장벽",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemVitality",
+            "Metadata/Items/Gems/SupportGemClarityTwo"
+          ],
+          "display_links": "활력 I + 명상 II"
+        }
+      ],
+      "gear_slots": 15
+    },
+    {
+      "stage": "05",
+      "file": "05 전사 토템 - 혈마법 전환.build",
+      "name": "05 전사 토템 - 혈마법 전환",
+      "sha256": "7de0bbd333f7dec35e6f4f31bc9ccc4ece3489cca7f76c71d068d5c14bb62e40",
+      "skills": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
+          "name": "선대의 전사 토템",
+          "role": "세트 II",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemBrutalityTwo",
+            "Metadata/Items/Gem/SupportGemBranchingFissures"
+          ],
+          "display_links": "지면 분쇄 [내부 액티브 젬] + 포악함 II + 파생하는 균열 I"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "name": "보강하는 함성",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemCorruptingCry",
+            "Metadata/Items/Gems/SupportGemBrutalityTwo",
+            "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo",
+            "Metadata/Items/Gems/SupportGemInspirationTwo"
+          ],
+          "display_links": "타락시키는 비명 I + 포악함 II + 고통 격화 II + 효율 II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "name": "지면 분쇄",
+          "role": "전사 토템 내부",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "name": "선대의 혼백",
+          "role": "자동 부여",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "name": "불의 순수함",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemVitalityTwo",
+            "Metadata/Items/Gems/SupportGemCannibalismTwo"
+          ],
+          "display_links": "활력 II + 식인 II"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "name": "방패 들기",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "name": "불의 순수함",
+          "role": "세트 II",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemVitality"
+          ],
+          "display_links": "활력 I"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "name": "공명하는 방패",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemRage",
+            "Metadata/Items/Gems/SupportGemDemolisher"
+          ],
+          "display_links": "격노 I + 방어구 철거자 I"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "name": "마그마 장벽",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        }
+      ],
+      "gear_slots": 14
+    },
+    {
+      "stage": "06",
+      "file": "06 파콰테 - 두 함성 운영.build",
+      "name": "06 파콰테 - 두 함성 운영",
+      "sha256": "ffeed4bfa88e58e73e340a80773a467f053147e066daade662be66b23d73cf47",
+      "skills": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
+          "name": "선대의 전사 토템",
+          "role": "세트 II",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemBrutalityTwo",
+            "Metadata/Items/Gem/SupportGemBranchingFissures"
+          ],
+          "display_links": "지면 분쇄 [내부 액티브 젬] + 포악함 II + 파생하는 균열 I"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "name": "보강하는 함성",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemCorruptingCryThree",
+            "Metadata/Items/Gems/SupportGemEchoingCry",
+            "Metadata/Items/Gems/SupportGemBrutalityTwo",
+            "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo"
+          ],
+          "display_links": "파콰테의 맹약 + 메아리치는 함성 + 포악함 II + 고통 격화 II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSeismicCry",
+          "name": "지진 함성",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gem/SupportGemAstralProjection",
+            "Metadata/Items/Gems/SupportGemInspirationTwo",
+            "Metadata/Items/Gem/SupportGemRagingCry"
+          ],
+          "display_links": "우주의 영사 + 효율 II + 격노하는 함성"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "name": "지면 분쇄",
+          "role": "전사 토템 내부",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "name": "선대의 혼백",
+          "role": "자동 부여",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "name": "불의 순수함",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemVitalityTwo",
+            "Metadata/Items/Gems/SupportGemCannibalismTwo"
+          ],
+          "display_links": "활력 II + 식인 II"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "name": "방패 들기",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "name": "불의 순수함",
+          "role": "세트 II",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemVitality"
+          ],
+          "display_links": "활력 I"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "name": "공명하는 방패",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemRage",
+            "Metadata/Items/Gems/SupportGemDemolisher"
+          ],
+          "display_links": "격노 I + 방어구 철거자 I"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "name": "마그마 장벽",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        }
+      ],
+      "gear_slots": 14
+    },
+    {
+      "stage": "07",
+      "file": "07 지도 성장 - 후기 목표.build",
+      "name": "07 지도 성장 - 후기 목표",
+      "sha256": "9a565431344a9f68695f6606721bfead7e3ee3ad2866ca287c982c3d393de567",
+      "skills": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
+          "name": "선대의 전사 토템",
+          "role": "세트 II",
+          "support_ids": [
+            "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+            "Metadata/Items/Gem/SupportGemBranchingFissures",
+            "Metadata/Items/Gems/SupportGemBrutalityThree"
+          ],
+          "display_links": "지면 분쇄 [내부 액티브 젬] + 긴급한 토템 III + 파생하는 균열 I + 포악함 III"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "name": "보강하는 함성",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemCorruptingCryThree",
+            "Metadata/Items/Gems/SupportGemEchoingCry",
+            "Metadata/Items/Gems/SupportGemBrutalityTwo",
+            "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo"
+          ],
+          "display_links": "파콰테의 맹약 + 메아리치는 함성 + 포악함 II + 고통 격화 II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSeismicCry",
+          "name": "지진 함성",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gem/SupportGemAstralProjection",
+            "Metadata/Items/Gems/SupportGemInspirationTwo",
+            "Metadata/Items/Gem/SupportGemRagingCry"
+          ],
+          "display_links": "우주의 영사 + 효율 II + 격노하는 함성"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "name": "지면 분쇄",
+          "role": "전사 토템 내부",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+          "name": "선대의 혼백",
+          "role": "자동 부여",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "name": "불의 순수함",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemVitalityTwo",
+            "Metadata/Items/Gems/SupportGemCannibalismTwo",
+            "Metadata/Items/Gem/SupportGemWarmBlooded"
+          ],
+          "display_links": "활력 II + 식인 II + 따뜻한 피"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+          "name": "방패 들기",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHarbingerOfMadness",
+          "name": "광기의 선구자",
+          "role": "자동 부여",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+          "name": "불의 순수함",
+          "role": "세트 II",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemVitality",
+            "Metadata/Items/Gems/SupportGemPrecisionTwo"
+          ],
+          "display_links": "활력 I + 정밀함 II"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "name": "공명하는 방패",
+          "role": "세트 I",
+          "support_ids": [
+            "Metadata/Items/Gems/SupportGemRage",
+            "Metadata/Items/Gems/SupportGemDemolisher"
+          ],
+          "display_links": "격노 I + 방어구 철거자 I"
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "name": "마그마 장벽",
+          "role": "세트 I",
+          "support_ids": [],
+          "display_links": "연결 보조 없음"
+        }
+      ],
+      "gear_slots": 14
+    }
+  ],
+  "installed_files_unchanged": true,
+  "markdown_sha256": "d3e5a0a321a2662c93167e53628f405e728ff1c5170dd010a8b82cdfb0929451",
+  "html_sha256": "29fe252158a9de55404c0a5cef5daf7b1931d1e271fa50e5d39553d5e0a0ffdf",
+  "browser_verified": true,
+  "serialized_skill_and_support_rows_matched": 65,
+  "serialized_equipment_rows_matched": 102,
+  "local_links_checked": 37,
+  "details_open_close_checked": 7,
+  "responsive_no_horizontal_overflow": true,
+  "browser_errors": []
+}

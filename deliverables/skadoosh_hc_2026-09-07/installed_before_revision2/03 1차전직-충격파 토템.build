@@ -1,0 +1,426 @@
+{
+  "author": "Skadoosh / Pathcraft",
+  "link": "https://poe.ninja/poe2/builds/forbiddenriteshc/character/ITheCon-2183/SkadooshShoutedHard",
+  "ascendancy": "Warrior2",
+  "inventory_slots": [
+    {
+      "additional_text": "가시 박힌 곤봉 (Spiked Club)\n1. 물리 피해 101% 증가\n2. 물리 피해 5~11 추가\n3. 정확도 +16\n4. 치명타 확률 +1.78%\n\n[세트1 무기]\n물리 피해 좋은 한손 철퇴 + 방어도 방패\n아래 세트1 스킬을 G에서 I에만 체크. 세트2 공격 뒤 방패가 필요하면 방패 들기 또는 세트1 함성으로 복귀.\n\n[세트1 스킬과 그 안에 꽂을 보조]\n방패 들기 (Raise Shield) → 연결 보조 없음\n공명하는 방패 (Resonating Shield) → 격노 I (Rage I)\n화산 균열 (Volcanic Fissure) → 요철 지대 I (Jagged Ground I)\n지진 (Earthquake) → 잠식하는 지대 (Encroaching Ground) + 유지되는 대지 I (Persistent Ground I)\n몰려오는 강타 (Rolling Slam) → 목전 I (Brink I)\n마그마 장벽 (Magma Barrier) → 연결 보조 없음\n지옥불 함성 (Infernal Cry) → 연결 보조 없음",
+      "inventory_id": "Weapon1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "죔쇠 거대 방패 (Braced Tower Shield)\n1. 방어도 11% 증가\n2. 최대 생명력 +23\n3. 힘 +14\n4. 냉기 저항 +12%\n5. 기절 한계치 +9\n6. 물리 가시 피해 7~9",
+      "inventory_id": "Offhand1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Helm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "unique_name": "Bronzebeard",
+      "additional_text": "\n\n[자동으로 부여되는 스킬 — 따로 제작하지 않음]\n선대의 혼백 (Ancestral Spirits) → 연결 보조 없음"
+    },
+    {
+      "additional_text": "마라케스 흉갑 (Maraketh Cuirass)\n1. 최대 생명력 +17\n2. 화염 저항 +17%\n3. 냉기 저항 +14%\n4. 번개 저항 +12%\n5. 물리 가시 피해 1~3\n\n[전환 조건]\n응답받은 부름 1차 전직과 충격파 토템 링크 확보. 한손 철퇴+방패를 공유하는 권장 구성으로 전환한다.\n\n[스킬 운영]\n토템(2) 설치 → 지진(1)으로 요철 지대 → 이동. 망치가 있으면 안전할 때 대장간 망치(1) → 지옥불 함성(1)으로 폭발. 충전이 없으면 요철 지대 I 보조는 지대를 만들지 못하므로 지진을 사용. 공명하는 방패는 필요할 때만.\n\n[하드코어 진행]\n65레벨 이후라도 캠페인 중이면 01-Campaign 필터 유지. 장비는 최대 생명력·현재 지역 저항·방어도, 장화 이동 속도, 생명력 플라스크 우선. 출처 장비의 낮은 방어 수치를 그대로 복사하지 않는다.",
+      "inventory_id": "BodyArmour1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "고리 갑옷 건틀릿 (Ringmail Gauntlets)\n1. 방어도 및 회피 6% 증가\n2. 최대 생명력 +32\n3. 공격 속도 5% 증가\n4. 화염 저항 +7%\n5. 공격으로 적 명중 시 생명력 2 획득\n\n[보조 젬을 넣는 곳]\nG 스킬창에서 해당 큰 스킬 젬을 선택하고 그 스킬의 작은 보조 소켓에 연결. 아래 각 스킬의 연결 목록을 그대로 따른다. 무기 룬 소켓이 아니다.\n선대의 전사 토템 안의 지면 분쇄는 예외적으로 연결하는 액티브 젬이다. 별도 지면 분쇄 스킬칸만 만들면 토템 연결이 완성되지 않는다.\n보조 소켓이 부족하면 주얼러 오브로 확장. 무조건 오른쪽부터 모든 보조를 갖출 필요는 없으며 주력 토템/함성의 핵심 보조부터 확보.",
+      "inventory_id": "Gloves1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "실타래 신발 (Threaded Shoes)\n1. 이동 속도 15% 증가\n2. 민첩 +14\n3. 냉기 저항 +11%\n4. 생명력 초당 3.5 재생",
+      "inventory_id": "Boots1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Amulet1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "unique_name": "Surefooted Sigil"
+    },
+    {
+      "additional_text": "생가죽 허리띠 (Rawhide Belt)\n1. 방어도 +12\n2. 최대 생명력 +24\n3. 플라스크 생명력 회복 속도 11% 증가\n4. 화염 저항 +14%\n5. 기절 한계치 +6",
+      "inventory_id": "Belt1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "토파즈 반지 (Topaz Ring)\n1. 회피 +21\n2. 발견하는 아이템 희귀도 10% 증가\n3. 생명력 초당 1 재생\n4. 마나 재생 속도 14% 증가\n5. 시야 반경 10% 증가",
+      "inventory_id": "Ring1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "자수정 반지 (Amethyst Ring)\n1. 공격 시 냉기 피해 3~5 추가\n2. 최대 생명력 +14\n3. 최대 마나 +27\n4. 지능 +7\n5. 화염 저항 +17%\n6. 생명력 초당 3.3 재생",
+      "inventory_id": "Ring2",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "거대 생명력 플라스크 (Grand Life Flask)\n1. 회복 속도 44% 증가\n2. 사용 시 소모 충전 19% 감소",
+      "inventory_id": "Flask1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "거대 마나 플라스크 (Grand Mana Flask)",
+      "inventory_id": "Flask1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 1,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "사파이어 호신부 (Sapphire Charm)",
+      "inventory_id": "Charm1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Weapon2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "\n\n[세트2 무기]\n같은 한손 철퇴와 방패를 양 세트 공유\n아래 세트2 스킬을 G에서 II에만 체크. 설치/공격 뒤 위험 구간에서는 세트1 복귀.\n\n[세트2 스킬과 그 안에 꽂을 보조]\n충격파 토템 (Shockwave Totem) → 빠른 공격 I (Rapid Attacks I) + 긴급한 토템 I (Urgent Totems I) + 포악함 II (Brutality II)\n뼈 박살 (Boneshatter) → 충돌 충격파 (Impact Shockwave)"
+    },
+    {
+      "inventory_id": "Offhand2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "\n\n[공유 장비 설정]\n인벤토리에서 무기 세트 아이콘을 우클릭해 한손 철퇴와 방패를 양 세트에 공유. 같은 아이템을 두 벌 살 필요 없음. 이 배포본은 03 이후 양손 철퇴를 필수로 잡지 않음."
+    }
+  ],
+  "name": "03 1차전직-충격파 토템",
+  "passives": [
+    {
+      "id": "jagged_ground26",
+      "weapon_set": 1
+    },
+    {
+      "id": "melee17"
+    },
+    {
+      "id": "marauder_brute_notable1"
+    },
+    {
+      "id": "attributes82"
+    },
+    {
+      "id": "jagged_ground4",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems51",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength21"
+    },
+    {
+      "id": "totems12_"
+    },
+    {
+      "id": "jagged_ground25",
+      "weapon_set": 1
+    },
+    {
+      "id": "slow_attacks2_",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems34"
+    },
+    {
+      "id": "melee56"
+    },
+    {
+      "id": "attributes58"
+    },
+    {
+      "id": "totems14",
+      "weapon_set": 2
+    },
+    {
+      "id": "jewel_slot1956"
+    },
+    {
+      "id": "strength19"
+    },
+    {
+      "id": "strength73"
+    },
+    {
+      "id": "totems53",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems49"
+    },
+    {
+      "id": "melee25"
+    },
+    {
+      "id": "AscendancyWarrior2Start"
+    },
+    {
+      "id": "slow_attacks3",
+      "weapon_set": 2
+    },
+    {
+      "id": "block25_",
+      "weapon_set": 1
+    },
+    {
+      "id": "AscendancyWarrior2Small6"
+    },
+    {
+      "id": "AscendancyWarrior2Notable6"
+    },
+    {
+      "id": "melee46"
+    },
+    {
+      "id": "jagged_ground1",
+      "weapon_set": 1
+    },
+    {
+      "id": "melee55"
+    },
+    {
+      "id": "melee18"
+    },
+    {
+      "id": "strength58"
+    },
+    {
+      "id": "strength15"
+    },
+    {
+      "id": "melee44"
+    },
+    {
+      "id": "attributes32"
+    },
+    {
+      "id": "melee54"
+    },
+    {
+      "id": "jagged_ground5",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems15",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength68"
+    },
+    {
+      "id": "melee19"
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+      "level_interval": [
+        1,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+      "level_interval": [
+        1,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+      "level_interval": [
+        7,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemAncestralUrgency",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutalityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+      "level_interval": [
+        15,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemRage",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemVolcanicFissure",
+      "level_interval": [
+        23,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemJaggedGround",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEarthquake",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemSuffuse",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDomain",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemBrink",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+      "level_interval": [
+        11,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+      "level_interval": [
+        7,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemImpactShockwave",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    }
+  ]
+}

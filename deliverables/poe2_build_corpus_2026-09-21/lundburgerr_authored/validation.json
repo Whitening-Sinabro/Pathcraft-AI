@@ -1,0 +1,4296 @@
+{
+  "source": {
+    "url": "https://mobalytics.gg/poe-2/builds/warrior-league-start-lundburgerr",
+    "updated_at": "2026-09-14T06:57:46Z",
+    "document_sha256": "7fc29fb6f87f5b057ecb476c5a290af4174348a0022ab43bab0edd90873de61c",
+    "raw_zip_sha256": "ce5d379cebd846037a87c2150f676a1c814221bea39c4780d01eee19b432bd5a"
+  },
+  "variants": [
+    {
+      "variant_id": "default-variant",
+      "title": "Act 1 - Rolling slam/Boneshatter",
+      "budgets": {
+        "ordinary_common": 17,
+        "weapon_set_1": 0,
+        "weapon_set_2": 0,
+        "active_1_ordinary": 17,
+        "active_2_ordinary": 17,
+        "ordinary_points_required": 17,
+        "weapon_specialization_capacity_required": 0,
+        "ascendancy_points_required": 0,
+        "free_ascendancy_nodes": 0,
+        "free_class_start": 1
+      },
+      "raw_native_rows": 20,
+      "selected_unique_rows": 17,
+      "duplicate_rows": 3,
+      "unselected_attribute_rows": [],
+      "normalization_authority": "Actual selectedSlugs main/set1/set2/ascendancy groups; extra attribute serialization tail is annotation-only, never a second common allocation",
+      "raw_skill_range_vs_current_table": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemPerfectStrike",
+          "source": [
+            14,
+            100
+          ],
+          "current_min": 15
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        }
+      ],
+      "selected_ids_exact": true,
+      "both_active_trees_connected": true,
+      "ascendancy_connected": true,
+      "all_gem_ids_valid": true,
+      "raw_native_file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\lundburgerr_authored\\raw_native\\Act 1 - Rolling slamBoneshatter - Lundb.build",
+      "raw_native_sha256": "142f606628eb27a3b710864dccdae4e90af5494ae658987a29a44e7c0678ef89"
+    },
+    {
+      "variant_id": "3",
+      "title": "Act 2 Before lvl 22 - Rolling slam/Boneshatter",
+      "budgets": {
+        "ordinary_common": 24,
+        "weapon_set_1": 0,
+        "weapon_set_2": 0,
+        "active_1_ordinary": 24,
+        "active_2_ordinary": 24,
+        "ordinary_points_required": 24,
+        "weapon_specialization_capacity_required": 0,
+        "ascendancy_points_required": 0,
+        "free_ascendancy_nodes": 0,
+        "free_class_start": 1
+      },
+      "raw_native_rows": 29,
+      "selected_unique_rows": 24,
+      "duplicate_rows": 4,
+      "unselected_attribute_rows": [
+        [
+          "strength58",
+          0
+        ]
+      ],
+      "normalization_authority": "Actual selectedSlugs main/set1/set2/ascendancy groups; extra attribute serialization tail is annotation-only, never a second common allocation",
+      "raw_skill_range_vs_current_table": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemPerfectStrike",
+          "source": [
+            14,
+            100
+          ],
+          "current_min": 15
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        }
+      ],
+      "selected_ids_exact": true,
+      "both_active_trees_connected": true,
+      "ascendancy_connected": true,
+      "all_gem_ids_valid": true,
+      "raw_native_file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\lundburgerr_authored\\raw_native\\Act 2 Before lvl 22 - Rolling slamBones.build",
+      "raw_native_sha256": "7597fb250a44351a02ea827e9ae9bed331a07729009cd1b5ef5b96eb8693d66b"
+    },
+    {
+      "variant_id": "2",
+      "title": "Act 2 - Shield Wall Swap",
+      "budgets": {
+        "ordinary_common": 32,
+        "weapon_set_1": 4,
+        "weapon_set_2": 4,
+        "active_1_ordinary": 36,
+        "active_2_ordinary": 36,
+        "ordinary_points_required": 36,
+        "weapon_specialization_capacity_required": 4,
+        "ascendancy_points_required": 2,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "raw_native_rows": 52,
+      "selected_unique_rows": 44,
+      "duplicate_rows": 8,
+      "unselected_attribute_rows": [],
+      "normalization_authority": "Actual selectedSlugs main/set1/set2/ascendancy groups; extra attribute serialization tail is annotation-only, never a second common allocation",
+      "raw_skill_range_vs_current_table": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemFreezingMark",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemLeapSlam",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        }
+      ],
+      "selected_ids_exact": true,
+      "both_active_trees_connected": true,
+      "ascendancy_connected": true,
+      "all_gem_ids_valid": true,
+      "raw_native_file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\lundburgerr_authored\\raw_native\\Act 2 - Shield Wall Swap - Lundburgerr's.build",
+      "raw_native_sha256": "6c46f509ec0cc39045569f014f847996b50327946a1e987ebd033f33376bf945"
+    },
+    {
+      "variant_id": "4",
+      "title": "Act 3",
+      "budgets": {
+        "ordinary_common": 35,
+        "weapon_set_1": 9,
+        "weapon_set_2": 9,
+        "active_1_ordinary": 44,
+        "active_2_ordinary": 44,
+        "ordinary_points_required": 44,
+        "weapon_specialization_capacity_required": 9,
+        "ascendancy_points_required": 4,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "raw_native_rows": 70,
+      "selected_unique_rows": 59,
+      "duplicate_rows": 11,
+      "unselected_attribute_rows": [],
+      "normalization_authority": "Actual selectedSlugs main/set1/set2/ascendancy groups; extra attribute serialization tail is annotation-only, never a second common allocation",
+      "raw_skill_range_vs_current_table": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "source": [
+            31,
+            100
+          ],
+          "current_min": 32
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSunder",
+          "source": [
+            31,
+            100
+          ],
+          "current_min": 32
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAttrition",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemFreezingMark",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemLeapSlam",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        }
+      ],
+      "selected_ids_exact": true,
+      "both_active_trees_connected": true,
+      "ascendancy_connected": true,
+      "all_gem_ids_valid": true,
+      "raw_native_file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\lundburgerr_authored\\raw_native\\Act 3 - Lundburgerr's 0.5 Shield Wall Sm.build",
+      "raw_native_sha256": "a498520583bca90b37fdc7963bef4d4bfa79d130ff89a8ad2eefa12038331c57"
+    },
+    {
+      "variant_id": "5",
+      "title": "Act 4",
+      "budgets": {
+        "ordinary_common": 50,
+        "weapon_set_1": 13,
+        "weapon_set_2": 13,
+        "active_1_ordinary": 63,
+        "active_2_ordinary": 63,
+        "ordinary_points_required": 63,
+        "weapon_specialization_capacity_required": 13,
+        "ascendancy_points_required": 4,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "raw_native_rows": 100,
+      "selected_unique_rows": 82,
+      "duplicate_rows": 18,
+      "unselected_attribute_rows": [],
+      "normalization_authority": "Actual selectedSlugs main/set1/set2/ascendancy groups; extra attribute serialization tail is annotation-only, never a second common allocation",
+      "raw_skill_range_vs_current_table": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "source": [
+            31,
+            100
+          ],
+          "current_min": 32
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSunder",
+          "source": [
+            31,
+            100
+          ],
+          "current_min": 32
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAttrition",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemLeapSlam",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        }
+      ],
+      "selected_ids_exact": true,
+      "both_active_trees_connected": true,
+      "ascendancy_connected": true,
+      "all_gem_ids_valid": true,
+      "raw_native_file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\lundburgerr_authored\\raw_native\\Act 4 - Lundburgerr's 0.5 Shield Wall Sm.build",
+      "raw_native_sha256": "d8749151418cbc16424796b5e56dff0922a9e483cb4a935fde5fd0c8bbc9efc4"
+    },
+    {
+      "variant_id": "6",
+      "title": "Interludes",
+      "budgets": {
+        "ordinary_common": 68,
+        "weapon_set_1": 17,
+        "weapon_set_2": 17,
+        "active_1_ordinary": 85,
+        "active_2_ordinary": 85,
+        "ordinary_points_required": 85,
+        "weapon_specialization_capacity_required": 17,
+        "ascendancy_points_required": 4,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "raw_native_rows": 133,
+      "selected_unique_rows": 108,
+      "duplicate_rows": 23,
+      "unselected_attribute_rows": [
+        [
+          "strength64",
+          0
+        ],
+        [
+          "strength65_",
+          0
+        ]
+      ],
+      "normalization_authority": "Actual selectedSlugs main/set1/set2/ascendancy groups; extra attribute serialization tail is annotation-only, never a second common allocation",
+      "raw_skill_range_vs_current_table": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "source": [
+            31,
+            100
+          ],
+          "current_min": 32
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSunder",
+          "source": [
+            31,
+            100
+          ],
+          "current_min": 32
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAttrition",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemLeapSlam",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        }
+      ],
+      "selected_ids_exact": true,
+      "both_active_trees_connected": true,
+      "ascendancy_connected": true,
+      "all_gem_ids_valid": true,
+      "raw_native_file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\lundburgerr_authored\\raw_native\\Interludes - Lundburgerr's 0.5 Shield Wa.build",
+      "raw_native_sha256": "3afb0f6e19ff886e9c3f93bc556cac83f09486f489b6d9136a6e366011e14449"
+    },
+    {
+      "variant_id": "7",
+      "title": "Maps",
+      "budgets": {
+        "ordinary_common": 92,
+        "weapon_set_1": 16,
+        "weapon_set_2": 17,
+        "active_1_ordinary": 108,
+        "active_2_ordinary": 109,
+        "ordinary_points_required": 109,
+        "weapon_specialization_capacity_required": 17,
+        "ascendancy_points_required": 6,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "raw_native_rows": 158,
+      "selected_unique_rows": 133,
+      "duplicate_rows": 23,
+      "unselected_attribute_rows": [
+        [
+          "strength64",
+          0
+        ],
+        [
+          "strength65_",
+          0
+        ]
+      ],
+      "normalization_authority": "Actual selectedSlugs main/set1/set2/ascendancy groups; extra attribute serialization tail is annotation-only, never a second common allocation",
+      "raw_skill_range_vs_current_table": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "source": [
+            31,
+            100
+          ],
+          "current_min": 32
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemAhnsCitadel",
+          "source": [
+            1,
+            100
+          ],
+          "current_min": 65
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSunder",
+          "source": [
+            31,
+            100
+          ],
+          "current_min": 32
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAttrition",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        }
+      ],
+      "selected_ids_exact": true,
+      "both_active_trees_connected": true,
+      "ascendancy_connected": true,
+      "all_gem_ids_valid": true,
+      "raw_native_file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\lundburgerr_authored\\raw_native\\Maps - Lundburgerr's 0.5 Shield Wall Smi.build",
+      "raw_native_sha256": "237aaec59134c77076a1d44d598954f1d0f2f8c255b1fcd223cca3390163e6be"
+    },
+    {
+      "variant_id": "8",
+      "title": "Giga Endgame",
+      "budgets": {
+        "ordinary_common": 98,
+        "weapon_set_1": 19,
+        "weapon_set_2": 20,
+        "active_1_ordinary": 117,
+        "active_2_ordinary": 118,
+        "ordinary_points_required": 118,
+        "weapon_specialization_capacity_required": 20,
+        "ascendancy_points_required": 8,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "raw_native_rows": 156,
+      "selected_unique_rows": 147,
+      "duplicate_rows": 7,
+      "unselected_attribute_rows": [
+        [
+          "attributes8_",
+          0
+        ],
+        [
+          "dexterity77",
+          0
+        ]
+      ],
+      "normalization_authority": "Actual selectedSlugs main/set1/set2/ascendancy groups; extra attribute serialization tail is annotation-only, never a second common allocation",
+      "raw_skill_range_vs_current_table": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "source": [
+            31,
+            100
+          ],
+          "current_min": 32
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "source": [
+            22,
+            100
+          ],
+          "current_min": 23
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemAhnsCitadel",
+          "source": [
+            1,
+            100
+          ],
+          "current_min": 65
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "source": [
+            10,
+            100
+          ],
+          "current_min": 11
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSunder",
+          "source": [
+            31,
+            100
+          ],
+          "current_min": 32
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "source": [
+            6,
+            100
+          ],
+          "current_min": 7
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemBerserk",
+          "source": [
+            58,
+            100
+          ],
+          "current_min": 59
+        }
+      ],
+      "selected_ids_exact": true,
+      "both_active_trees_connected": true,
+      "ascendancy_connected": true,
+      "all_gem_ids_valid": true,
+      "raw_native_file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\lundburgerr_authored\\raw_native\\Giga Endgame - Lundburgerr's 0.5 Shield.build",
+      "raw_native_sha256": "78b6f472ba774b2c42396eaa6f4a8c95c08fafd33f8409a232f8ee28070d2e8e"
+    }
+  ],
+  "all8_normal_and_ascendancy_graphs_connected": true,
+  "display_normalization": "passives/skills/supports [1,100]; common0 explicit; source acquisition/item gates retained separately",
+  "old_pack_metadata_preserved_except_authorized_campaign_replacement_and_genuine_graph_extension": true,
+  "tree_added_nodes": 72,
+  "tree_added_edges": 85,
+  "segments": [
+    {
+      "id": "start-to-lund-act1",
+      "from_budget": {
+        "ordinary_common": 0,
+        "weapon_set_1": 0,
+        "weapon_set_2": 0,
+        "active_1_ordinary": 0,
+        "active_2_ordinary": 0,
+        "ordinary_points_required": 0,
+        "weapon_specialization_capacity_required": 0,
+        "ascendancy_points_required": 0,
+        "free_ascendancy_nodes": 0,
+        "free_class_start": 1
+      },
+      "to_budget": {
+        "ordinary_common": 17,
+        "weapon_set_1": 0,
+        "weapon_set_2": 0,
+        "active_1_ordinary": 17,
+        "active_2_ordinary": 17,
+        "ordinary_points_required": 17,
+        "weapon_specialization_capacity_required": 0,
+        "ascendancy_points_required": 0,
+        "free_ascendancy_nodes": 0,
+        "free_class_start": 1
+      },
+      "ordinary_peak": 17,
+      "weapon_capacity_peak": 0,
+      "refund_count": 0,
+      "add_count": 17,
+      "temporary_refunds": 0,
+      "no_repeated_refund_or_add": true,
+      "gates": [
+        "Match the stated starting tree; actual current character allocation is not known",
+        "Actual ordinary and specialization points",
+        "Refund in town with actual gold available; amount not estimated",
+        "Check attributes, jewels, gear and both weapon sets after every operation"
+      ],
+      "order_attribution": "Pathcraft graph-valid witness restricted to actual author endpoint IDs; not observed author click order",
+      "from_stage": "start",
+      "to_stage": "lund-act1",
+      "ascendancy_order": "Separate earned-ascendancy steps follow the ordinary segment; endpoint budget includes them",
+      "ascendancy_steps": [],
+      "skill_setup_before": [],
+      "skill_setup_after": [
+        {
+          "active": "Boneshatter",
+          "actives": [
+            "Boneshatter"
+          ],
+          "supports": [
+            "Impact Shockwave",
+            "Magnified Area I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemBoneshatter",
+            "Metadata/Items/Gems/SupportGemImpactShockwave",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Mace Strike",
+          "actives": [
+            "Mace Strike"
+          ],
+          "supports": [
+            "Concentrated Area",
+            "Fire Attunement"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemPlayerDefault2HMace",
+            "Metadata/Items/Gems/SupportGemConcentratedEffect",
+            "Metadata/Items/Gems/SupportGemFireInfusion"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Rolling Slam",
+          "actives": [
+            "Rolling Slam"
+          ],
+          "supports": [
+            "Rapid Attacks I",
+            "Brink I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemRollingSlam",
+            "Metadata/Items/Gems/SupportGemMartialTempo",
+            "Metadata/Items/Gem/SupportGemBrink"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Frost Bomb",
+          "actives": [
+            "Frost Bomb"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemFrostBomb"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Perfect Strike",
+          "actives": [
+            "Perfect Strike"
+          ],
+          "supports": [
+            "Window of Opportunity I",
+            "Concentrated Area"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemPerfectStrike",
+            "Metadata/Items/Gems/SupportGemWindowOfOpportunity",
+            "Metadata/Items/Gems/SupportGemConcentratedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_change_gate": "Use actual author notes and actual gem acquisition, socket, attribute, spirit and resource requirements; [1,100] only controls display. Act3 warcry-set2 assignment is an explicit recommendation for other variants, not proof of per-variant author assignments.",
+      "operation_range": [
+        1,
+        17
+      ]
+    },
+    {
+      "id": "lund-act1-to-lund-act2-before22",
+      "from_budget": {
+        "ordinary_common": 17,
+        "weapon_set_1": 0,
+        "weapon_set_2": 0,
+        "active_1_ordinary": 17,
+        "active_2_ordinary": 17,
+        "ordinary_points_required": 17,
+        "weapon_specialization_capacity_required": 0,
+        "ascendancy_points_required": 0,
+        "free_ascendancy_nodes": 0,
+        "free_class_start": 1
+      },
+      "to_budget": {
+        "ordinary_common": 24,
+        "weapon_set_1": 0,
+        "weapon_set_2": 0,
+        "active_1_ordinary": 24,
+        "active_2_ordinary": 24,
+        "ordinary_points_required": 24,
+        "weapon_specialization_capacity_required": 0,
+        "ascendancy_points_required": 0,
+        "free_ascendancy_nodes": 0,
+        "free_class_start": 1
+      },
+      "ordinary_peak": 24,
+      "weapon_capacity_peak": 0,
+      "refund_count": 0,
+      "add_count": 7,
+      "temporary_refunds": 0,
+      "no_repeated_refund_or_add": true,
+      "gates": [
+        "Match the stated starting tree; actual current character allocation is not known",
+        "Actual ordinary and specialization points",
+        "Refund in town with actual gold available; amount not estimated",
+        "Check attributes, jewels, gear and both weapon sets after every operation"
+      ],
+      "order_attribution": "Pathcraft graph-valid witness restricted to actual author endpoint IDs; not observed author click order",
+      "from_stage": "lund-act1",
+      "to_stage": "lund-act2-before22",
+      "ascendancy_order": "Separate earned-ascendancy steps follow the ordinary segment; endpoint budget includes them",
+      "ascendancy_steps": [],
+      "skill_setup_before": [
+        {
+          "active": "Boneshatter",
+          "actives": [
+            "Boneshatter"
+          ],
+          "supports": [
+            "Impact Shockwave",
+            "Magnified Area I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemBoneshatter",
+            "Metadata/Items/Gems/SupportGemImpactShockwave",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Mace Strike",
+          "actives": [
+            "Mace Strike"
+          ],
+          "supports": [
+            "Concentrated Area",
+            "Fire Attunement"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemPlayerDefault2HMace",
+            "Metadata/Items/Gems/SupportGemConcentratedEffect",
+            "Metadata/Items/Gems/SupportGemFireInfusion"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Rolling Slam",
+          "actives": [
+            "Rolling Slam"
+          ],
+          "supports": [
+            "Rapid Attacks I",
+            "Brink I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemRollingSlam",
+            "Metadata/Items/Gems/SupportGemMartialTempo",
+            "Metadata/Items/Gem/SupportGemBrink"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Frost Bomb",
+          "actives": [
+            "Frost Bomb"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemFrostBomb"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Perfect Strike",
+          "actives": [
+            "Perfect Strike"
+          ],
+          "supports": [
+            "Window of Opportunity I",
+            "Concentrated Area"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemPerfectStrike",
+            "Metadata/Items/Gems/SupportGemWindowOfOpportunity",
+            "Metadata/Items/Gems/SupportGemConcentratedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_setup_after": [
+        {
+          "active": "Rolling Slam",
+          "actives": [
+            "Rolling Slam"
+          ],
+          "supports": [
+            "Brink I",
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemRollingSlam",
+            "Metadata/Items/Gem/SupportGemBrink",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Boneshatter",
+          "actives": [
+            "Boneshatter"
+          ],
+          "supports": [
+            "Impact Shockwave",
+            "Magnified Area I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemBoneshatter",
+            "Metadata/Items/Gems/SupportGemImpactShockwave",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Frost Bomb",
+          "actives": [
+            "Frost Bomb"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemFrostBomb"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Perfect Strike",
+          "actives": [
+            "Perfect Strike"
+          ],
+          "supports": [
+            "Window of Opportunity I",
+            "Concentrated Area"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemPerfectStrike",
+            "Metadata/Items/Gems/SupportGemWindowOfOpportunity",
+            "Metadata/Items/Gems/SupportGemConcentratedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgency"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_change_gate": "Use actual author notes and actual gem acquisition, socket, attribute, spirit and resource requirements; [1,100] only controls display. Act3 warcry-set2 assignment is an explicit recommendation for other variants, not proof of per-variant author assignments.",
+      "operation_range": [
+        18,
+        24
+      ]
+    },
+    {
+      "id": "lund-act2-before22-to-lund-shield-swap",
+      "from_budget": {
+        "ordinary_common": 24,
+        "weapon_set_1": 0,
+        "weapon_set_2": 0,
+        "active_1_ordinary": 24,
+        "active_2_ordinary": 24,
+        "ordinary_points_required": 24,
+        "weapon_specialization_capacity_required": 0,
+        "ascendancy_points_required": 0,
+        "free_ascendancy_nodes": 0,
+        "free_class_start": 1
+      },
+      "to_budget": {
+        "ordinary_common": 32,
+        "weapon_set_1": 4,
+        "weapon_set_2": 4,
+        "active_1_ordinary": 36,
+        "active_2_ordinary": 36,
+        "ordinary_points_required": 36,
+        "weapon_specialization_capacity_required": 4,
+        "ascendancy_points_required": 2,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "ordinary_peak": 36,
+      "weapon_capacity_peak": 4,
+      "refund_count": 5,
+      "add_count": 21,
+      "temporary_refunds": 0,
+      "no_repeated_refund_or_add": true,
+      "gates": [
+        "Match the stated starting tree; actual current character allocation is not known",
+        "Actual ordinary and specialization points",
+        "Refund in town with actual gold available; amount not estimated",
+        "Check attributes, jewels, gear and both weapon sets after every operation"
+      ],
+      "order_attribution": "Pathcraft graph-valid witness restricted to actual author endpoint IDs; not observed author click order",
+      "from_stage": "lund-act2-before22",
+      "to_stage": "lund-shield-swap",
+      "ascendancy_order": "Separate earned-ascendancy steps follow the ordinary segment; endpoint budget includes them",
+      "ascendancy_steps": [
+        {
+          "number": 1,
+          "action": "add",
+          "numeric_id": 9988,
+          "string_id": "AscendancyWarrior3Notable6_0",
+          "name": "Smith's Masterwork",
+          "paid": false,
+          "paid_ascendancy_after": 0,
+          "connected": true
+        },
+        {
+          "number": 2,
+          "action": "add",
+          "numeric_id": 9997,
+          "string_id": "AscendancyWarrior3Notable6_9",
+          "name": "Molten Symbol",
+          "paid": true,
+          "paid_ascendancy_after": 1,
+          "connected": true
+        },
+        {
+          "number": 3,
+          "action": "add",
+          "numeric_id": 13772,
+          "string_id": "AscendancyWarrior3Notable6_8",
+          "name": "Flowing Metal",
+          "paid": true,
+          "paid_ascendancy_after": 2,
+          "connected": true
+        }
+      ],
+      "skill_setup_before": [
+        {
+          "active": "Rolling Slam",
+          "actives": [
+            "Rolling Slam"
+          ],
+          "supports": [
+            "Brink I",
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemRollingSlam",
+            "Metadata/Items/Gem/SupportGemBrink",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Boneshatter",
+          "actives": [
+            "Boneshatter"
+          ],
+          "supports": [
+            "Impact Shockwave",
+            "Magnified Area I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemBoneshatter",
+            "Metadata/Items/Gems/SupportGemImpactShockwave",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Frost Bomb",
+          "actives": [
+            "Frost Bomb"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemFrostBomb"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Perfect Strike",
+          "actives": [
+            "Perfect Strike"
+          ],
+          "supports": [
+            "Window of Opportunity I",
+            "Concentrated Area"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemPerfectStrike",
+            "Metadata/Items/Gems/SupportGemWindowOfOpportunity",
+            "Metadata/Items/Gems/SupportGemConcentratedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgency"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_setup_after": [
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Rapid Attacks I",
+            "Magnified Area I",
+            "Fire Attunement"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemMartialTempo",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+            "Metadata/Items/Gems/SupportGemFireInfusion"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Freezing Mark",
+          "actives": [
+            "Freezing Mark"
+          ],
+          "supports": [
+            "Mark for Death",
+            "Mark of Siphoning"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFreezingMark",
+            "Metadata/Items/Gem/SupportGemSingleOut",
+            "Metadata/Items/Gems/SupportGemMarkOfSiphoning"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems I",
+            "Hardy Totems I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgency",
+            "Metadata/Items/Gem/SupportGemHardyTotems"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Leap Slam",
+          "actives": [
+            "Leap Slam"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemLeapSlam",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Charge",
+          "actives": [
+            "Shield Charge"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShieldCharge",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_change_gate": "Use actual author notes and actual gem acquisition, socket, attribute, spirit and resource requirements; [1,100] only controls display. Act3 warcry-set2 assignment is an explicit recommendation for other variants, not proof of per-variant author assignments.",
+      "operation_range": [
+        25,
+        50
+      ]
+    },
+    {
+      "id": "lund-shield-swap-to-lund-act3",
+      "from_budget": {
+        "ordinary_common": 32,
+        "weapon_set_1": 4,
+        "weapon_set_2": 4,
+        "active_1_ordinary": 36,
+        "active_2_ordinary": 36,
+        "ordinary_points_required": 36,
+        "weapon_specialization_capacity_required": 4,
+        "ascendancy_points_required": 2,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "to_budget": {
+        "ordinary_common": 35,
+        "weapon_set_1": 9,
+        "weapon_set_2": 9,
+        "active_1_ordinary": 44,
+        "active_2_ordinary": 44,
+        "ordinary_points_required": 44,
+        "weapon_specialization_capacity_required": 9,
+        "ascendancy_points_required": 4,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "ordinary_peak": 44,
+      "weapon_capacity_peak": 9,
+      "refund_count": 0,
+      "add_count": 13,
+      "temporary_refunds": 0,
+      "no_repeated_refund_or_add": true,
+      "gates": [
+        "Match the stated starting tree; actual current character allocation is not known",
+        "Actual ordinary and specialization points",
+        "Refund in town with actual gold available; amount not estimated",
+        "Check attributes, jewels, gear and both weapon sets after every operation"
+      ],
+      "order_attribution": "Pathcraft graph-valid witness restricted to actual author endpoint IDs; not observed author click order",
+      "from_stage": "lund-shield-swap",
+      "to_stage": "lund-act3",
+      "ascendancy_order": "Separate earned-ascendancy steps follow the ordinary segment; endpoint budget includes them",
+      "ascendancy_steps": [
+        {
+          "number": 1,
+          "action": "add",
+          "numeric_id": 60913,
+          "string_id": "AscendancyWarrior3Notable6_5",
+          "name": "Kitavan Engraving",
+          "paid": true,
+          "paid_ascendancy_after": 3,
+          "connected": true
+        },
+        {
+          "number": 2,
+          "action": "add",
+          "numeric_id": 61039,
+          "string_id": "AscendancyWarrior3Notable6_1",
+          "name": "Tantalum Alloy",
+          "paid": true,
+          "paid_ascendancy_after": 4,
+          "connected": true
+        }
+      ],
+      "skill_setup_before": [
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Rapid Attacks I",
+            "Magnified Area I",
+            "Fire Attunement"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemMartialTempo",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+            "Metadata/Items/Gems/SupportGemFireInfusion"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Freezing Mark",
+          "actives": [
+            "Freezing Mark"
+          ],
+          "supports": [
+            "Mark for Death",
+            "Mark of Siphoning"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFreezingMark",
+            "Metadata/Items/Gem/SupportGemSingleOut",
+            "Metadata/Items/Gems/SupportGemMarkOfSiphoning"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems I",
+            "Hardy Totems I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgency",
+            "Metadata/Items/Gem/SupportGemHardyTotems"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Leap Slam",
+          "actives": [
+            "Leap Slam"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemLeapSlam",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Charge",
+          "actives": [
+            "Shield Charge"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShieldCharge",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_setup_after": [
+        {
+          "active": "Fortifying Cry",
+          "actives": [
+            "Fortifying Cry"
+          ],
+          "supports": [
+            "Raging Cry",
+            "Fire Attunement",
+            "Close Combat I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFortifyingCry",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemFireInfusion",
+            "Metadata/Items/Gems/SupportGemCloseCombat"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Rapid Attacks I",
+            "Magnified Area II",
+            "Fire Attunement"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemMartialTempo",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemFireInfusion"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Sunder",
+          "actives": [
+            "Sunder"
+          ],
+          "supports": [
+            "Prolonged Duration II",
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemSunder",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems I",
+            "Hardy Totems I",
+            "Font of Mana"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgency",
+            "Metadata/Items/Gem/SupportGemHardyTotems",
+            "Metadata/Items/Gems/SupportGemFontofMana"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Attrition",
+          "actives": [
+            "Attrition"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemAttrition"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Freezing Mark",
+          "actives": [
+            "Freezing Mark"
+          ],
+          "supports": [
+            "Mark for Death",
+            "Mark of Siphoning"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFreezingMark",
+            "Metadata/Items/Gem/SupportGemSingleOut",
+            "Metadata/Items/Gems/SupportGemMarkOfSiphoning"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Charge",
+          "actives": [
+            "Shield Charge"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShieldCharge",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Leap Slam",
+          "actives": [
+            "Leap Slam"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemLeapSlam",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_change_gate": "Use actual author notes and actual gem acquisition, socket, attribute, spirit and resource requirements; [1,100] only controls display. Act3 warcry-set2 assignment is an explicit recommendation for other variants, not proof of per-variant author assignments.",
+      "operation_range": [
+        51,
+        63
+      ]
+    },
+    {
+      "id": "lund-act3-to-lund-act4",
+      "from_budget": {
+        "ordinary_common": 35,
+        "weapon_set_1": 9,
+        "weapon_set_2": 9,
+        "active_1_ordinary": 44,
+        "active_2_ordinary": 44,
+        "ordinary_points_required": 44,
+        "weapon_specialization_capacity_required": 9,
+        "ascendancy_points_required": 4,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "to_budget": {
+        "ordinary_common": 50,
+        "weapon_set_1": 13,
+        "weapon_set_2": 13,
+        "active_1_ordinary": 63,
+        "active_2_ordinary": 63,
+        "ordinary_points_required": 63,
+        "weapon_specialization_capacity_required": 13,
+        "ascendancy_points_required": 4,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "ordinary_peak": 63,
+      "weapon_capacity_peak": 13,
+      "refund_count": 0,
+      "add_count": 23,
+      "temporary_refunds": 0,
+      "no_repeated_refund_or_add": true,
+      "gates": [
+        "Match the stated starting tree; actual current character allocation is not known",
+        "Actual ordinary and specialization points",
+        "Refund in town with actual gold available; amount not estimated",
+        "Check attributes, jewels, gear and both weapon sets after every operation"
+      ],
+      "order_attribution": "Pathcraft graph-valid witness restricted to actual author endpoint IDs; not observed author click order",
+      "from_stage": "lund-act3",
+      "to_stage": "lund-act4",
+      "ascendancy_order": "Separate earned-ascendancy steps follow the ordinary segment; endpoint budget includes them",
+      "ascendancy_steps": [],
+      "skill_setup_before": [
+        {
+          "active": "Fortifying Cry",
+          "actives": [
+            "Fortifying Cry"
+          ],
+          "supports": [
+            "Raging Cry",
+            "Fire Attunement",
+            "Close Combat I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFortifyingCry",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemFireInfusion",
+            "Metadata/Items/Gems/SupportGemCloseCombat"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Rapid Attacks I",
+            "Magnified Area II",
+            "Fire Attunement"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemMartialTempo",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemFireInfusion"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Sunder",
+          "actives": [
+            "Sunder"
+          ],
+          "supports": [
+            "Prolonged Duration II",
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemSunder",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems I",
+            "Hardy Totems I",
+            "Font of Mana"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgency",
+            "Metadata/Items/Gem/SupportGemHardyTotems",
+            "Metadata/Items/Gems/SupportGemFontofMana"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Attrition",
+          "actives": [
+            "Attrition"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemAttrition"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Freezing Mark",
+          "actives": [
+            "Freezing Mark"
+          ],
+          "supports": [
+            "Mark for Death",
+            "Mark of Siphoning"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFreezingMark",
+            "Metadata/Items/Gem/SupportGemSingleOut",
+            "Metadata/Items/Gems/SupportGemMarkOfSiphoning"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Charge",
+          "actives": [
+            "Shield Charge"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShieldCharge",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Leap Slam",
+          "actives": [
+            "Leap Slam"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemLeapSlam",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_setup_after": [
+        {
+          "active": "Fortifying Cry",
+          "actives": [
+            "Fortifying Cry"
+          ],
+          "supports": [
+            "Raging Cry",
+            "Fire Attunement",
+            "Enraged Warcry I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFortifyingCry",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemFireInfusion",
+            "Metadata/Items/Gems/SupportGemEnragedWarcry"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Rapid Attacks II",
+            "Magnified Area II",
+            "Armour Break III",
+            "Impale"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemSplinterThree",
+            "Metadata/Items/Gem/SupportGemImpale"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Sunder",
+          "actives": [
+            "Sunder"
+          ],
+          "supports": [
+            "Prolonged Duration II",
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemSunder",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems III",
+            "Hardy Totems II",
+            "Font of Mana"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+            "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+            "Metadata/Items/Gems/SupportGemFontofMana"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Attrition",
+          "actives": [
+            "Attrition"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemAttrition"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry",
+            "Cooldown Recovery II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemIngenuityTwo"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Charge",
+          "actives": [
+            "Shield Charge"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShieldCharge",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Leap Slam",
+          "actives": [
+            "Leap Slam"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemLeapSlam",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_change_gate": "Use actual author notes and actual gem acquisition, socket, attribute, spirit and resource requirements; [1,100] only controls display. Act3 warcry-set2 assignment is an explicit recommendation for other variants, not proof of per-variant author assignments.",
+      "operation_range": [
+        64,
+        86
+      ]
+    },
+    {
+      "id": "lund-act4-to-lund-interludes",
+      "from_budget": {
+        "ordinary_common": 50,
+        "weapon_set_1": 13,
+        "weapon_set_2": 13,
+        "active_1_ordinary": 63,
+        "active_2_ordinary": 63,
+        "ordinary_points_required": 63,
+        "weapon_specialization_capacity_required": 13,
+        "ascendancy_points_required": 4,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "to_budget": {
+        "ordinary_common": 68,
+        "weapon_set_1": 17,
+        "weapon_set_2": 17,
+        "active_1_ordinary": 85,
+        "active_2_ordinary": 85,
+        "ordinary_points_required": 85,
+        "weapon_specialization_capacity_required": 17,
+        "ascendancy_points_required": 4,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "ordinary_peak": 85,
+      "weapon_capacity_peak": 17,
+      "refund_count": 5,
+      "add_count": 31,
+      "temporary_refunds": 4,
+      "no_repeated_refund_or_add": true,
+      "gates": [
+        "Match the stated starting tree; actual current character allocation is not known",
+        "Actual ordinary and specialization points",
+        "Refund in town with actual gold available; amount not estimated",
+        "Check attributes, jewels, gear and both weapon sets after every operation"
+      ],
+      "order_attribution": "Pathcraft graph-valid witness restricted to actual author endpoint IDs; not observed author click order",
+      "from_stage": "lund-act4",
+      "to_stage": "lund-interludes",
+      "ascendancy_order": "Separate earned-ascendancy steps follow the ordinary segment; endpoint budget includes them",
+      "ascendancy_steps": [],
+      "skill_setup_before": [
+        {
+          "active": "Fortifying Cry",
+          "actives": [
+            "Fortifying Cry"
+          ],
+          "supports": [
+            "Raging Cry",
+            "Fire Attunement",
+            "Enraged Warcry I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFortifyingCry",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemFireInfusion",
+            "Metadata/Items/Gems/SupportGemEnragedWarcry"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Rapid Attacks II",
+            "Magnified Area II",
+            "Armour Break III",
+            "Impale"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemSplinterThree",
+            "Metadata/Items/Gem/SupportGemImpale"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Sunder",
+          "actives": [
+            "Sunder"
+          ],
+          "supports": [
+            "Prolonged Duration II",
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemSunder",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems III",
+            "Hardy Totems II",
+            "Font of Mana"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+            "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+            "Metadata/Items/Gems/SupportGemFontofMana"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Attrition",
+          "actives": [
+            "Attrition"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemAttrition"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry",
+            "Cooldown Recovery II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemIngenuityTwo"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Charge",
+          "actives": [
+            "Shield Charge"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShieldCharge",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Leap Slam",
+          "actives": [
+            "Leap Slam"
+          ],
+          "supports": [
+            "Rapid Attacks I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemLeapSlam",
+            "Metadata/Items/Gems/SupportGemMartialTempo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_setup_after": [
+        {
+          "active": "Fortifying Cry",
+          "actives": [
+            "Fortifying Cry"
+          ],
+          "supports": [
+            "Raging Cry",
+            "Heavy Swing",
+            "Enraged Warcry II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFortifyingCry",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemHeavySwing",
+            "Metadata/Items/Gems/SupportGemEnragedWarcryTwo"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Rapid Attacks II",
+            "Magnified Area II",
+            "Armour Break III",
+            "Impale"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemSplinterThree",
+            "Metadata/Items/Gem/SupportGemImpale"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area II",
+            "Precision I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemPrecision"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems III",
+            "Hardy Totems II",
+            "Font of Mana"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+            "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+            "Metadata/Items/Gems/SupportGemFontofMana"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Sunder",
+          "actives": [
+            "Sunder"
+          ],
+          "supports": [
+            "Prolonged Duration II",
+            "Rapid Attacks III",
+            "Rage III"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemSunder",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gems/SupportGemMartialTempoThree",
+            "Metadata/Items/Gems/SupportGemRageThree"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Attrition",
+          "actives": [
+            "Attrition"
+          ],
+          "supports": [
+            "Cannibalism II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemAttrition",
+            "Metadata/Items/Gems/SupportGemCannibalismTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry",
+            "Cooldown Recovery II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemIngenuityTwo"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Leap Slam",
+          "actives": [
+            "Leap Slam"
+          ],
+          "supports": [
+            "Rapid Attacks III",
+            "Rage III"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemLeapSlam",
+            "Metadata/Items/Gems/SupportGemMartialTempoThree",
+            "Metadata/Items/Gems/SupportGemRageThree"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Charge",
+          "actives": [
+            "Shield Charge"
+          ],
+          "supports": [
+            "Rapid Attacks III",
+            "Rage III"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShieldCharge",
+            "Metadata/Items/Gems/SupportGemMartialTempoThree",
+            "Metadata/Items/Gems/SupportGemRageThree"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_change_gate": "Use actual author notes and actual gem acquisition, socket, attribute, spirit and resource requirements; [1,100] only controls display. Act3 warcry-set2 assignment is an explicit recommendation for other variants, not proof of per-variant author assignments.",
+      "operation_range": [
+        87,
+        122
+      ]
+    },
+    {
+      "id": "lund-interludes-to-lund-maps",
+      "from_budget": {
+        "ordinary_common": 68,
+        "weapon_set_1": 17,
+        "weapon_set_2": 17,
+        "active_1_ordinary": 85,
+        "active_2_ordinary": 85,
+        "ordinary_points_required": 85,
+        "weapon_specialization_capacity_required": 17,
+        "ascendancy_points_required": 4,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "to_budget": {
+        "ordinary_common": 92,
+        "weapon_set_1": 16,
+        "weapon_set_2": 17,
+        "active_1_ordinary": 108,
+        "active_2_ordinary": 109,
+        "ordinary_points_required": 109,
+        "weapon_specialization_capacity_required": 17,
+        "ascendancy_points_required": 6,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "ordinary_peak": 109,
+      "weapon_capacity_peak": 17,
+      "refund_count": 4,
+      "add_count": 27,
+      "temporary_refunds": 0,
+      "no_repeated_refund_or_add": true,
+      "gates": [
+        "Match the stated starting tree; actual current character allocation is not known",
+        "Actual ordinary and specialization points",
+        "Refund in town with actual gold available; amount not estimated",
+        "Check attributes, jewels, gear and both weapon sets after every operation"
+      ],
+      "order_attribution": "Pathcraft graph-valid witness restricted to actual author endpoint IDs; not observed author click order",
+      "from_stage": "lund-interludes",
+      "to_stage": "lund-maps",
+      "ascendancy_order": "Separate earned-ascendancy steps follow the ordinary segment; endpoint budget includes them",
+      "ascendancy_steps": [
+        {
+          "number": 1,
+          "action": "add",
+          "numeric_id": 14960,
+          "string_id": "AscendancyWarrior3Small4",
+          "name": "Fire Resistance",
+          "paid": true,
+          "paid_ascendancy_after": 5,
+          "connected": true
+        },
+        {
+          "number": 2,
+          "action": "add",
+          "numeric_id": 57959,
+          "string_id": "AscendancyWarrior3Notable4",
+          "name": "Coal Stoker",
+          "paid": true,
+          "paid_ascendancy_after": 6,
+          "connected": true
+        }
+      ],
+      "skill_setup_before": [
+        {
+          "active": "Fortifying Cry",
+          "actives": [
+            "Fortifying Cry"
+          ],
+          "supports": [
+            "Raging Cry",
+            "Heavy Swing",
+            "Enraged Warcry II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFortifyingCry",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemHeavySwing",
+            "Metadata/Items/Gems/SupportGemEnragedWarcryTwo"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Rapid Attacks II",
+            "Magnified Area II",
+            "Armour Break III",
+            "Impale"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemSplinterThree",
+            "Metadata/Items/Gem/SupportGemImpale"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area II",
+            "Precision I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemPrecision"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems III",
+            "Hardy Totems II",
+            "Font of Mana"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+            "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+            "Metadata/Items/Gems/SupportGemFontofMana"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Sunder",
+          "actives": [
+            "Sunder"
+          ],
+          "supports": [
+            "Prolonged Duration II",
+            "Rapid Attacks III",
+            "Rage III"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemSunder",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gems/SupportGemMartialTempoThree",
+            "Metadata/Items/Gems/SupportGemRageThree"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Attrition",
+          "actives": [
+            "Attrition"
+          ],
+          "supports": [
+            "Cannibalism II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemAttrition",
+            "Metadata/Items/Gems/SupportGemCannibalismTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry",
+            "Cooldown Recovery II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemIngenuityTwo"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Leap Slam",
+          "actives": [
+            "Leap Slam"
+          ],
+          "supports": [
+            "Rapid Attacks III",
+            "Rage III"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemLeapSlam",
+            "Metadata/Items/Gems/SupportGemMartialTempoThree",
+            "Metadata/Items/Gems/SupportGemRageThree"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Charge",
+          "actives": [
+            "Shield Charge"
+          ],
+          "supports": [
+            "Rapid Attacks III",
+            "Rage III"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShieldCharge",
+            "Metadata/Items/Gems/SupportGemMartialTempoThree",
+            "Metadata/Items/Gems/SupportGemRageThree"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_setup_after": [
+        {
+          "active": "Fortifying Cry",
+          "actives": [
+            "Fortifying Cry"
+          ],
+          "supports": [
+            "Raging Cry",
+            "Heavy Swing",
+            "Enraged Warcry II",
+            "Heft"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFortifyingCry",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemHeavySwing",
+            "Metadata/Items/Gems/SupportGemEnragedWarcryTwo",
+            "Metadata/Items/Gem/SupportGemHeft"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Rapid Attacks II",
+            "Magnified Area II",
+            "Ahn's Citadel",
+            "Kaom's Madness",
+            "Impale"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemAhnsCitadel",
+            "Metadata/Items/Gem/SupportGemKaomsMadness",
+            "Metadata/Items/Gem/SupportGemImpale"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Scavenged Plating",
+          "actives": [
+            "Scavenged Plating"
+          ],
+          "supports": [
+            "Prolonged Duration II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemScavengedPlating",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area II",
+            "Precision I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemPrecision"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems III",
+            "Hardy Totems II",
+            "Reinforced Totems II",
+            "Prolonged Duration II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+            "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+            "Metadata/Items/Gem/SupportGemIronwoodTwo",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Sunder",
+          "actives": [
+            "Sunder"
+          ],
+          "supports": [
+            "Prolonged Duration II",
+            "Rapid Attacks III",
+            "Rage III"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemSunder",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gems/SupportGemMartialTempoThree",
+            "Metadata/Items/Gems/SupportGemRageThree"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Attrition",
+          "actives": [
+            "Attrition"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemAttrition"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry",
+            "Cooldown Recovery II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemIngenuityTwo"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Charge",
+          "actives": [
+            "Shield Charge"
+          ],
+          "supports": [
+            "Rapid Attacks III",
+            "Rage III",
+            "Efficiency II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShieldCharge",
+            "Metadata/Items/Gems/SupportGemMartialTempoThree",
+            "Metadata/Items/Gems/SupportGemRageThree",
+            "Metadata/Items/Gems/SupportGemInspirationTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_change_gate": "Use actual author notes and actual gem acquisition, socket, attribute, spirit and resource requirements; [1,100] only controls display. Act3 warcry-set2 assignment is an explicit recommendation for other variants, not proof of per-variant author assignments.",
+      "operation_range": [
+        123,
+        153
+      ]
+    },
+    {
+      "id": "lund-maps-to-kitava-29d39",
+      "from_budget": {
+        "ordinary_common": 92,
+        "weapon_set_1": 16,
+        "weapon_set_2": 17,
+        "active_1_ordinary": 108,
+        "active_2_ordinary": 109,
+        "ordinary_points_required": 109,
+        "weapon_specialization_capacity_required": 17,
+        "ascendancy_points_required": 6,
+        "free_ascendancy_nodes": 2,
+        "free_class_start": 1
+      },
+      "to_budget": {
+        "ordinary_common": 94,
+        "weapon_set_1": 24,
+        "weapon_set_2": 23,
+        "active_1_ordinary": 118,
+        "active_2_ordinary": 117,
+        "ordinary_points_required": 118,
+        "weapon_specialization_capacity_required": 24,
+        "ascendancy_points_required": 8,
+        "free_ascendancy_nodes": 1,
+        "free_class_start": 1
+      },
+      "ordinary_peak": 118,
+      "weapon_capacity_peak": 24,
+      "refund_count": 125,
+      "add_count": 141,
+      "temporary_refunds": 50,
+      "no_repeated_refund_or_add": true,
+      "gates": [
+        "Match the stated starting tree; actual current character allocation is not known",
+        "Actual ordinary and specialization points",
+        "Refund in town with actual gold available; amount not estimated",
+        "Check attributes, jewels, gear and both weapon sets after every operation",
+        "Town-only bounded respec: preserve the endpoint-identical rooted core, refund every incompatible/dependent node once, then add every target node once; combat and gear eligibility are not assured during refunds",
+        "Major respec, not a small incremental swap: source Maps removes60 normal IDs and adds76 target IDs before set reassignment costs",
+        "Stay with current full-life author setup until all target gates hold; do not equip a low-life belt prematurely",
+        "Keep normal body armour during Masterwork refunds; remove all dependent Masterwork options and Masterwork itself before Brass Dome",
+        "Cat O Nine Tails plus actual low-life maintenance; flasks can recover above low life; Execute III/Clash gated",
+        "Constricting Command and actual surrounded condition before affected passive cluster",
+        "Sacred Flame, Brass Dome, Defiance of Destiny and actual item level/attribute requirements; observed character97 is not a minimum",
+        "Eternal Rage active plus Raging Cry/Enraged Warcry II and actual resources; no automatic permanent warcry loop",
+        "Final Lifetap applies to its linked curse, not global Blood Magic; actual armour-break source and support-colour thresholds required"
+      ],
+      "order_attribution": "Pathcraft graph-valid witness restricted to actual author endpoint IDs; not observed author click order",
+      "from_stage": "lund-maps",
+      "to_stage": "kitava-29d39",
+      "ascendancy_order": "Ordinary respec in town, then separate ascendancy refund/add witness, then conflicting body-armour swap only after Masterwork removed",
+      "ascendancy_steps": [
+        {
+          "number": 1,
+          "action": "refund",
+          "numeric_id": 9997,
+          "string_id": "AscendancyWarrior3Notable6_9",
+          "name": "Molten Symbol",
+          "paid": true,
+          "paid_ascendancy_after": 5,
+          "connected": true
+        },
+        {
+          "number": 2,
+          "action": "refund",
+          "numeric_id": 13772,
+          "string_id": "AscendancyWarrior3Notable6_8",
+          "name": "Flowing Metal",
+          "paid": true,
+          "paid_ascendancy_after": 4,
+          "connected": true
+        },
+        {
+          "number": 3,
+          "action": "refund",
+          "numeric_id": 60913,
+          "string_id": "AscendancyWarrior3Notable6_5",
+          "name": "Kitavan Engraving",
+          "paid": true,
+          "paid_ascendancy_after": 3,
+          "connected": true
+        },
+        {
+          "number": 4,
+          "action": "refund",
+          "numeric_id": 61039,
+          "string_id": "AscendancyWarrior3Notable6_1",
+          "name": "Tantalum Alloy",
+          "paid": true,
+          "paid_ascendancy_after": 2,
+          "connected": true
+        },
+        {
+          "number": 5,
+          "action": "refund",
+          "numeric_id": 9988,
+          "string_id": "AscendancyWarrior3Notable6_0",
+          "name": "Smith's Masterwork",
+          "paid": false,
+          "paid_ascendancy_after": 2,
+          "connected": true
+        },
+        {
+          "number": 6,
+          "action": "add",
+          "numeric_id": 5386,
+          "string_id": "AscendancyWarrior3Small1",
+          "name": "Fire Damage",
+          "paid": true,
+          "paid_ascendancy_after": 3,
+          "connected": true
+        },
+        {
+          "number": 7,
+          "action": "add",
+          "numeric_id": 20895,
+          "string_id": "AscendancyWarrior3Small2",
+          "name": "Strength",
+          "paid": true,
+          "paid_ascendancy_after": 4,
+          "connected": true
+        },
+        {
+          "number": 8,
+          "action": "add",
+          "numeric_id": 22541,
+          "string_id": "AscendancyWarrior3Notable1",
+          "name": "Heat of the Forge",
+          "paid": true,
+          "paid_ascendancy_after": 5,
+          "connected": true
+        },
+        {
+          "number": 9,
+          "action": "add",
+          "numeric_id": 47236,
+          "string_id": "AscendancyWarrior3Small3",
+          "name": "Melee Damage",
+          "paid": true,
+          "paid_ascendancy_after": 6,
+          "connected": true
+        },
+        {
+          "number": 10,
+          "action": "add",
+          "numeric_id": 63401,
+          "string_id": "AscendancyWarrior3Small5",
+          "name": "Fire Resistance",
+          "paid": true,
+          "paid_ascendancy_after": 7,
+          "connected": true
+        },
+        {
+          "number": 11,
+          "action": "add",
+          "numeric_id": 48537,
+          "string_id": "AscendancyWarrior3Notable5",
+          "name": "Forged in Flame",
+          "paid": true,
+          "paid_ascendancy_after": 8,
+          "connected": true
+        }
+      ],
+      "skill_setup_before": [
+        {
+          "active": "Fortifying Cry",
+          "actives": [
+            "Fortifying Cry"
+          ],
+          "supports": [
+            "Raging Cry",
+            "Heavy Swing",
+            "Enraged Warcry II",
+            "Heft"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFortifyingCry",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemHeavySwing",
+            "Metadata/Items/Gems/SupportGemEnragedWarcryTwo",
+            "Metadata/Items/Gem/SupportGemHeft"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Rapid Attacks II",
+            "Magnified Area II",
+            "Ahn's Citadel",
+            "Kaom's Madness",
+            "Impale"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemAhnsCitadel",
+            "Metadata/Items/Gem/SupportGemKaomsMadness",
+            "Metadata/Items/Gem/SupportGemImpale"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Scavenged Plating",
+          "actives": [
+            "Scavenged Plating"
+          ],
+          "supports": [
+            "Prolonged Duration II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemScavengedPlating",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Herald of Ash",
+          "actives": [
+            "Herald of Ash"
+          ],
+          "supports": [
+            "Magnified Area II",
+            "Precision I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemPrecision"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shockwave Totem",
+          "actives": [
+            "Shockwave Totem"
+          ],
+          "supports": [
+            "Urgent Totems III",
+            "Hardy Totems II",
+            "Reinforced Totems II",
+            "Prolonged Duration II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+            "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+            "Metadata/Items/Gem/SupportGemIronwoodTwo",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Sunder",
+          "actives": [
+            "Sunder"
+          ],
+          "supports": [
+            "Prolonged Duration II",
+            "Rapid Attacks III",
+            "Rage III"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemSunder",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gems/SupportGemMartialTempoThree",
+            "Metadata/Items/Gems/SupportGemRageThree"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Attrition",
+          "actives": [
+            "Attrition"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemAttrition"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Tireless",
+            "Raging Cry",
+            "Cooldown Recovery II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gems/SupportGemIngenuityTwo"
+          ],
+          "weaponSet": "2",
+          "weapon_sets": {},
+          "enabled": true
+        },
+        {
+          "active": "Shield Charge",
+          "actives": [
+            "Shield Charge"
+          ],
+          "supports": [
+            "Rapid Attacks III",
+            "Rage III",
+            "Efficiency II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemShieldCharge",
+            "Metadata/Items/Gems/SupportGemMartialTempoThree",
+            "Metadata/Items/Gems/SupportGemRageThree",
+            "Metadata/Items/Gems/SupportGemInspirationTwo"
+          ],
+          "weaponSet": "1",
+          "weapon_sets": {},
+          "enabled": true
+        }
+      ],
+      "skill_setup_after": [
+        {
+          "active": "Fire Spell on Hit + Detonate Dead",
+          "actives": [
+            "Fire Spell on Hit",
+            "Detonate Dead"
+          ],
+          "supports": [
+            "Energy Retention",
+            "Fire Mastery",
+            "Gorge",
+            "Boundless Energy II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemAscendancyFireSpellOnHit",
+            "Metadata/Items/Gems/SkillGemDetonateDead",
+            "Metadata/Items/Gem/SupportGemEnergyRetention",
+            "Metadata/Items/Gems/SupportGemFireMastery",
+            "Metadata/Items/Gems/SupportGemGorge",
+            "Metadata/Items/Gem/SupportGemImpetusTwo"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Fire Spell on Hit",
+              "Detonate Dead",
+              "Energy Retention",
+              "Fire Mastery",
+              "Gorge",
+              "Boundless Energy II"
+            ],
+            "2": [
+              "Fire Spell on Hit",
+              "Detonate Dead",
+              "Energy Retention",
+              "Fire Mastery",
+              "Gorge",
+              "Boundless Energy II"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "Purity of Fire",
+          "actives": [
+            "Purity of Fire"
+          ],
+          "supports": [
+            "Direstrike II",
+            "Warm Blooded",
+            "Cool Headed",
+            "Vitality II",
+            "Cannibalism II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemPurityOfFire",
+            "Metadata/Items/Gem/SupportGemDireStrikeTwo",
+            "Metadata/Items/Gem/SupportGemWarmBlooded",
+            "Metadata/Items/Gem/SupportGemCoolHeaded",
+            "Metadata/Items/Gems/SupportGemVitalityTwo",
+            "Metadata/Items/Gems/SupportGemCannibalismTwo"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Purity of Fire",
+              "Direstrike II",
+              "Warm Blooded",
+              "Cool Headed",
+              "Vitality II",
+              "Cannibalism II"
+            ],
+            "2": [
+              "Purity of Fire",
+              "Direstrike II",
+              "Warm Blooded",
+              "Cool Headed",
+              "Vitality II",
+              "Cannibalism II"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "Raise Shield",
+          "actives": [
+            "Raise Shield"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldBlock"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Raise Shield"
+            ],
+            "2": [
+              "Raise Shield"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "Eternal Rage",
+          "actives": [
+            "Eternal Rage"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemEternalRage"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Eternal Rage"
+            ],
+            "2": [
+              "Eternal Rage"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "War Banner",
+          "actives": [
+            "War Banner"
+          ],
+          "supports": [
+            "Daresso's Passion",
+            "Prolonged Duration II",
+            "Direstrike I"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemWarBanner",
+            "Metadata/Items/Gem/SupportGemDaressosPassion",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gem/SupportGemDireStrike"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "War Banner",
+              "Daresso's Passion",
+              "Prolonged Duration II",
+              "Direstrike I"
+            ],
+            "2": [
+              "War Banner",
+              "Daresso's Passion",
+              "Prolonged Duration II",
+              "Direstrike I"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "Scavenged Plating",
+          "actives": [
+            "Scavenged Plating"
+          ],
+          "supports": [
+            "Prolonged Duration II",
+            "Physical Mastery"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemScavengedPlating",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gems/SupportGemPhysicalMastery"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Scavenged Plating",
+              "Prolonged Duration II",
+              "Physical Mastery"
+            ],
+            "2": [
+              "Scavenged Plating",
+              "Prolonged Duration II",
+              "Physical Mastery"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "Elemental Weakness",
+          "actives": [
+            "Elemental Weakness"
+          ],
+          "supports": [
+            "Lifetap",
+            "Magnified Area II",
+            "Heightened Curse",
+            "Impending Doom",
+            "Focused Curse"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemElementalWeakness",
+            "Metadata/Items/Gems/SupportGemLifetap",
+            "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+            "Metadata/Items/Gems/SupportGemHeightenedCurse",
+            "Metadata/Items/Gems/SupportGemImpendingDoom",
+            "Metadata/Items/Gem/SupportGemFocusedCurse"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Elemental Weakness",
+              "Lifetap",
+              "Magnified Area II",
+              "Heightened Curse",
+              "Impending Doom",
+              "Focused Curse"
+            ],
+            "2": [
+              "Elemental Weakness",
+              "Lifetap",
+              "Magnified Area II",
+              "Heightened Curse",
+              "Impending Doom",
+              "Focused Curse"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "Remnants of Kalguur",
+          "actives": [
+            "Remnants of Kalguur"
+          ],
+          "supports": [
+            "Harmonic Remnants II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemRemnantsOfKalguur",
+            "Metadata/Items/Gem/SupportGemDissipateTwo"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Remnants of Kalguur",
+              "Harmonic Remnants II"
+            ],
+            "2": [
+              "Remnants of Kalguur",
+              "Harmonic Remnants II"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "Shield Wall",
+          "actives": [
+            "Shield Wall"
+          ],
+          "supports": [
+            "Execute III",
+            "Clash",
+            "Rapid Attacks II",
+            "Ahn's Citadel",
+            "Kaom's Madness"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldWall",
+            "Metadata/Items/Gems/SupportGemExecuteThree",
+            "Metadata/Items/Gem/SupportGemClash",
+            "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+            "Metadata/Items/Gems/SupportGemAhnsCitadel",
+            "Metadata/Items/Gem/SupportGemKaomsMadness"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Shield Wall",
+              "Execute III",
+              "Clash",
+              "Rapid Attacks II",
+              "Ahn's Citadel",
+              "Kaom's Madness"
+            ],
+            "2": [
+              "Shield Wall",
+              "Execute III",
+              "Clash",
+              "Rapid Attacks II",
+              "Ahn's Citadel",
+              "Kaom's Madness"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "Infernal Cry",
+          "actives": [
+            "Infernal Cry"
+          ],
+          "supports": [
+            "Raging Cry",
+            "Tireless",
+            "Enraged Warcry II",
+            "Uhtred's Rite"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemInfernalCry",
+            "Metadata/Items/Gem/SupportGemRagingCry",
+            "Metadata/Items/Gem/SupportGemTireless",
+            "Metadata/Items/Gems/SupportGemEnragedWarcryTwo",
+            "Metadata/Items/Gem/SupportGemUhtredsRite"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Infernal Cry",
+              "Raging Cry",
+              "Tireless",
+              "Enraged Warcry II",
+              "Uhtred's Rite"
+            ],
+            "2": [
+              "Infernal Cry",
+              "Raging Cry",
+              "Tireless",
+              "Enraged Warcry II",
+              "Uhtred's Rite"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "Freezing Mark",
+          "actives": [
+            "Freezing Mark"
+          ],
+          "supports": [
+            "Mark for Death II",
+            "Mark of Siphoning II"
+          ],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemFreezingMark",
+            "Metadata/Items/Gem/SupportGemSingleOutTwo",
+            "Metadata/Items/Gems/SupportGemMarkOfSiphoningTwo"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Freezing Mark",
+              "Mark for Death II",
+              "Mark of Siphoning II"
+            ],
+            "2": [
+              "Freezing Mark",
+              "Mark for Death II",
+              "Mark of Siphoning II"
+            ]
+          },
+          "enabled": true
+        },
+        {
+          "active": "Fire Spell on Hit",
+          "actives": [
+            "Fire Spell on Hit"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemAscendancyFireSpellOnHit"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Fire Spell on Hit"
+            ],
+            "2": []
+          },
+          "enabled": true
+        },
+        {
+          "active": "Purity of Fire",
+          "actives": [
+            "Purity of Fire"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gems/SkillGemPurityOfFire"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Purity of Fire"
+            ],
+            "2": []
+          },
+          "enabled": true
+        },
+        {
+          "active": "Raise Shield",
+          "actives": [
+            "Raise Shield"
+          ],
+          "supports": [],
+          "gem_ids": [
+            "Metadata/Items/Gem/SkillGemShieldBlock"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [
+              "Raise Shield"
+            ],
+            "2": []
+          },
+          "enabled": true
+        },
+        {
+          "active": "",
+          "actives": [
+            ""
+          ],
+          "supports": [],
+          "gem_ids": [
+            "ThornsPlayer"
+          ],
+          "weaponSet": "XML 개별 젬 플래그",
+          "weapon_sets": {
+            "1": [],
+            "2": []
+          },
+          "enabled": true
+        }
+      ],
+      "skill_changes": {
+        "removed_groups": [
+          "Attrition",
+          "Fortifying Cry",
+          "Herald of Ash",
+          "Shield Charge",
+          "Shockwave Totem",
+          "Sunder"
+        ],
+        "added_groups": [
+          "",
+          "Elemental Weakness",
+          "Eternal Rage",
+          "Fire Spell on Hit",
+          "Fire Spell on Hit + Detonate Dead",
+          "Freezing Mark",
+          "Purity of Fire",
+          "Raise Shield",
+          "Remnants of Kalguur",
+          "War Banner"
+        ],
+        "retained_group_changes": [
+          {
+            "active": "Infernal Cry",
+            "before": {
+              "active": "Infernal Cry",
+              "actives": [
+                "Infernal Cry"
+              ],
+              "supports": [
+                "Tireless",
+                "Raging Cry",
+                "Cooldown Recovery II"
+              ],
+              "gem_ids": [
+                "Metadata/Items/Gems/SkillGemInfernalCry",
+                "Metadata/Items/Gem/SupportGemTireless",
+                "Metadata/Items/Gem/SupportGemRagingCry",
+                "Metadata/Items/Gems/SupportGemIngenuityTwo"
+              ],
+              "weaponSet": "2",
+              "weapon_sets": {},
+              "enabled": true
+            },
+            "after": {
+              "active": "Infernal Cry",
+              "actives": [
+                "Infernal Cry"
+              ],
+              "supports": [
+                "Raging Cry",
+                "Tireless",
+                "Enraged Warcry II",
+                "Uhtred's Rite"
+              ],
+              "gem_ids": [
+                "Metadata/Items/Gems/SkillGemInfernalCry",
+                "Metadata/Items/Gem/SupportGemRagingCry",
+                "Metadata/Items/Gem/SupportGemTireless",
+                "Metadata/Items/Gems/SupportGemEnragedWarcryTwo",
+                "Metadata/Items/Gem/SupportGemUhtredsRite"
+              ],
+              "weaponSet": "XML 개별 젬 플래그",
+              "weapon_sets": {
+                "1": [
+                  "Infernal Cry",
+                  "Raging Cry",
+                  "Tireless",
+                  "Enraged Warcry II",
+                  "Uhtred's Rite"
+                ],
+                "2": [
+                  "Infernal Cry",
+                  "Raging Cry",
+                  "Tireless",
+                  "Enraged Warcry II",
+                  "Uhtred's Rite"
+                ]
+              },
+              "enabled": true
+            }
+          },
+          {
+            "active": "Scavenged Plating",
+            "before": {
+              "active": "Scavenged Plating",
+              "actives": [
+                "Scavenged Plating"
+              ],
+              "supports": [
+                "Prolonged Duration II"
+              ],
+              "gem_ids": [
+                "Metadata/Items/Gem/SkillGemScavengedPlating",
+                "Metadata/Items/Gems/SupportGemPersistenceTwo"
+              ],
+              "weaponSet": "1",
+              "weapon_sets": {},
+              "enabled": true
+            },
+            "after": {
+              "active": "Scavenged Plating",
+              "actives": [
+                "Scavenged Plating"
+              ],
+              "supports": [
+                "Prolonged Duration II",
+                "Physical Mastery"
+              ],
+              "gem_ids": [
+                "Metadata/Items/Gem/SkillGemScavengedPlating",
+                "Metadata/Items/Gems/SupportGemPersistenceTwo",
+                "Metadata/Items/Gems/SupportGemPhysicalMastery"
+              ],
+              "weaponSet": "XML 개별 젬 플래그",
+              "weapon_sets": {
+                "1": [
+                  "Scavenged Plating",
+                  "Prolonged Duration II",
+                  "Physical Mastery"
+                ],
+                "2": [
+                  "Scavenged Plating",
+                  "Prolonged Duration II",
+                  "Physical Mastery"
+                ]
+              },
+              "enabled": true
+            }
+          },
+          {
+            "active": "Shield Wall",
+            "before": {
+              "active": "Shield Wall",
+              "actives": [
+                "Shield Wall"
+              ],
+              "supports": [
+                "Rapid Attacks II",
+                "Magnified Area II",
+                "Ahn's Citadel",
+                "Kaom's Madness",
+                "Impale"
+              ],
+              "gem_ids": [
+                "Metadata/Items/Gem/SkillGemShieldWall",
+                "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+                "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+                "Metadata/Items/Gems/SupportGemAhnsCitadel",
+                "Metadata/Items/Gem/SupportGemKaomsMadness",
+                "Metadata/Items/Gem/SupportGemImpale"
+              ],
+              "weaponSet": "1",
+              "weapon_sets": {},
+              "enabled": true
+            },
+            "after": {
+              "active": "Shield Wall",
+              "actives": [
+                "Shield Wall"
+              ],
+              "supports": [
+                "Execute III",
+                "Clash",
+                "Rapid Attacks II",
+                "Ahn's Citadel",
+                "Kaom's Madness"
+              ],
+              "gem_ids": [
+                "Metadata/Items/Gem/SkillGemShieldWall",
+                "Metadata/Items/Gems/SupportGemExecuteThree",
+                "Metadata/Items/Gem/SupportGemClash",
+                "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+                "Metadata/Items/Gems/SupportGemAhnsCitadel",
+                "Metadata/Items/Gem/SupportGemKaomsMadness"
+              ],
+              "weaponSet": "XML 개별 젬 플래그",
+              "weapon_sets": {
+                "1": [
+                  "Shield Wall",
+                  "Execute III",
+                  "Clash",
+                  "Rapid Attacks II",
+                  "Ahn's Citadel",
+                  "Kaom's Madness"
+                ],
+                "2": [
+                  "Shield Wall",
+                  "Execute III",
+                  "Clash",
+                  "Rapid Attacks II",
+                  "Ahn's Citadel",
+                  "Kaom's Madness"
+                ]
+              },
+              "enabled": true
+            }
+          }
+        ],
+        "set_assignment_authority": "Source Maps uses explicit Pathcraft recommendation from author Act3 notes; latest retains exact XML per-gem enableGlobal1/2 flags, not an invented universal warcry assignment"
+      },
+      "target_equipment_requirements": [
+        {
+          "slot": "Flask 2",
+          "name": "Uhtred's Chalice",
+          "base": "Transcendent Mana Flask",
+          "observed_item_requirement_level": "50",
+          "mods": [
+            "248% increased Amount Recovered",
+            "70% reduced Recovery rate",
+            "60% reduced Charges",
+            "Lose 5% Life per second while you have no Runic Ward during Effect",
+            "Mana Recovery from Flasks can Overflow maximum Mana during Effect"
+          ]
+        },
+        {
+          "slot": "Weapon 1",
+          "name": "Sacred Flame",
+          "base": "Shrine Sceptre",
+          "observed_item_requirement_level": "90",
+          "mods": [
+            "{enchant}{rune}15% increased Spirit",
+            "{enchant}{rune}Bonded: Minions have 30% increased Cooldown Recovery Rate for Command Skills",
+            "Grants Skill: Level 20 Purity of Fire",
+            "Gain 56% of Damage as Extra Fire Damage",
+            "Allies in your Presence Regenerate 2.2% of their Maximum Life per second",
+            "Allies in your Presence Gain 21% of Damage as Extra Fire Damage",
+            "Enemies in your Presence Resist Elemental Damage based on their Lowest Resistance"
+          ]
+        },
+        {
+          "slot": "Charm 3",
+          "name": "For Utopia",
+          "base": "Stone Charm",
+          "observed_item_requirement_level": "8",
+          "mods": [
+            "Used when you become Stunned",
+            "Defend with 200% of Armour during effect",
+            "Corrupted"
+          ]
+        },
+        {
+          "slot": "Charm 2",
+          "name": "Rite of Passage",
+          "base": "Golden Charm",
+          "observed_item_requirement_level": "50",
+          "mods": [
+            "Used when you kill a Rare or Unique enemy",
+            "Possessed by Spirit Of The Wolf for 20 seconds on use"
+          ]
+        },
+        {
+          "slot": "Belt",
+          "name": "Cat O' Nine Tails",
+          "base": "Utility Belt",
+          "observed_item_requirement_level": "55",
+          "mods": [
+            "Has 3 Charm Slots",
+            "20% of Flask Recovery applied Instantly",
+            "+200 to maximum Life",
+            "Regenerate 5% of maximum Life per second if you have been Hit Recently",
+            "37% increased Life Recovery rate",
+            "Life Recovery other than Flasks cannot Recover Life to above Low Life",
+            "Gain Physical Thorns damage equal to 8% - 12% of maximum Life"
+          ]
+        },
+        {
+          "slot": "Charm 1",
+          "name": "The Fall of the Axe",
+          "base": "Silver Charm",
+          "observed_item_requirement_level": "10",
+          "mods": [
+            "Used when you are affected by a Slow",
+            "Grants Onslaught during effect"
+          ]
+        },
+        {
+          "slot": "Ring 2",
+          "name": "Soul Finger",
+          "base": "Ruby Ring",
+          "observed_item_requirement_level": "8",
+          "mods": [
+            "+25% to Fire Resistance",
+            "Adds 9 to 15 Fire damage to Attacks",
+            "+95 to maximum Life",
+            "+45% to Fire Resistance",
+            "+16% to Fire and Chaos Resistances"
+          ]
+        },
+        {
+          "slot": "Weapon 2",
+          "name": "Corpse Guard",
+          "base": "Tawhoan Tower Shield",
+          "observed_item_requirement_level": "80",
+          "mods": [
+            "{enchant}{rune}40% increased Armour, Evasion and Energy Shield",
+            "{enchant}{rune}Bonded: +40 to maximum Life",
+            "{enchant}{rune}Bonded: +40 to maximum Mana",
+            "Grants Skill: Raise Shield",
+            "+275 to Armour",
+            "39% increased Armour",
+            "8% additional Physical Damage Reduction",
+            "+2% to Maximum Fire Resistance",
+            "+39% to Fire Resistance",
+            "+106 to Stun Threshold",
+            "107% increased Armour",
+            "Corrupted"
+          ]
+        },
+        {
+          "slot": "Amulet",
+          "name": "Defiance of Destiny",
+          "base": "Jade Amulet",
+          "observed_item_requirement_level": "56",
+          "mods": [
+            "{enchant}Allocates Spiked Shield",
+            "+14 to Dexterity",
+            "13% increased maximum Life",
+            "+18 to Strength",
+            "27% increased Mana Regeneration Rate",
+            "Recover 39% of Missing Life before being Hit by an Enemy"
+          ]
+        },
+        {
+          "slot": "Helmet",
+          "name": "Constricting Command",
+          "base": "Viper Cap",
+          "observed_item_requirement_level": "38",
+          "mods": [
+            "+89 to maximum Life",
+            "+10 to all Attributes",
+            "8.9 Life Regeneration per second",
+            "Require 4 fewer enemies to be Surrounded"
+          ]
+        },
+        {
+          "slot": "Body Armour",
+          "name": "The Brass Dome",
+          "base": "Runeforged Champion Cuirass",
+          "observed_item_requirement_level": "58",
+          "mods": [
+            "{enchant}{rune}60% increased Runic Ward",
+            "{enchant}{rune}Bonded: Gain 6% of maximum Life as Extra maximum Runic Ward",
+            "+892 to maximum Runic Ward",
+            "552% increased Armour",
+            "-1% to all Maximum Elemental Resistances",
+            "+288 to Stun Threshold",
+            "Take no Extra Damage from Critical Hits",
+            "Corrupted"
+          ]
+        },
+        {
+          "slot": "Gloves",
+          "name": "Bramble Mitts",
+          "base": "Vaal Mitts",
+          "observed_item_requirement_level": "75",
+          "mods": [
+            "{enchant}{rune}8% increased Attack Speed",
+            "{enchant}{rune}Bonded: 20% reduced Slowing Potency of Debuffs on You",
+            "+133 to Armour",
+            "86% increased Armour",
+            "Adds 1 to 61 Lightning damage to Attacks",
+            "18% increased Rarity of Items found",
+            "+2 to Level of all Melee Skills",
+            "Leech 7.59% of Physical Attack Damage as Mana"
+          ]
+        },
+        {
+          "slot": "Boots",
+          "name": "Domination Dash",
+          "base": "Vaal Greaves",
+          "observed_item_requirement_level": "75",
+          "mods": [
+            "{enchant}{rune}+11% to Chaos Resistance",
+            "35% increased Movement Speed",
+            "33% increased Armour",
+            "+24 to Strength",
+            "+75 to Stun Threshold",
+            "46% reduced Freeze Duration on you",
+            "+24% to Chaos Resistance"
+          ]
+        },
+        {
+          "slot": "Ring 1",
+          "name": "Maelstrom Spiral",
+          "base": "Ruby Ring",
+          "observed_item_requirement_level": "8",
+          "mods": [
+            "+31% to Fire Resistance",
+            "Adds 5 to 11 Physical Damage to Attacks",
+            "Adds 11 to 18 Fire damage to Attacks",
+            "22% increased Lightning Damage",
+            "+30% to Fire Resistance",
+            "+15% to Fire and Chaos Resistances"
+          ]
+        }
+      ],
+      "respec_method": "Bounded full rebuild, not minimum refunds: endpoint-identical rooted core is empty. Refund125 unique source normal nodes once, then allocate141 unique target normal nodes once. Fifty unchanged-category retained nodes are restored once; fifteen shared IDs change category. Stay in town throughout and retain normal body until Masterwork removal.",
+      "operation_range": [
+        154,
+        419
+      ]
+    }
+  ],
+  "real_game_tested": false
+}

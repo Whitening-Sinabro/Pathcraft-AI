@@ -1,0 +1,1454 @@
+{
+  "status": "passed",
+  "protected_files_checked": 73,
+  "source_hashes_unchanged": true,
+  "deterministic_outputs_checked": 15,
+  "native_payloads_parsed": 9,
+  "checks": [
+    "strict native schema shape",
+    "real node/gem IDs",
+    "both-set rooted graph",
+    "ascendancy graph and free/paid counts",
+    "source memberships and exact set categories",
+    "every recommended transition intermediate connected",
+    "source-supported waiting branch55/61",
+    "core gem minimums and support types",
+    "conditional absence of lowlife/surround groups",
+    "no mandatory fifth socket",
+    "planner JSON/JS parity",
+    "byte-for-byte deterministic rebuild"
+  ],
+  "stages": [
+    {
+      "id": "taengjung-current40",
+      "native_file": "taengjung_progression/native/대안_40조기전환_탱정_일반갑옷준비.build",
+      "native_sha256": "067f31db340926ea290897fe1713992405dbeb7c647b2ddb9a0cd0a25f871cc7",
+      "ordinary": 37,
+      "specialization": 0,
+      "paid_ascendancy": 4,
+      "both_sets_connected": true,
+      "ascendancy_connected": true,
+      "native_rows": 42,
+      "core_max_gem_min_character_level": 32,
+      "support_attribute_floor": {
+        "Strength": 25,
+        "Dexterity": 5,
+        "Intelligence": 0,
+        "interpretation": "Conservative sum of all selected core support colours at5 each, across both sets; actual active-gem/item requirements may be higher. Local PoB CalcSetup.lua:2138-2140; no claim actual player meets these."
+      },
+      "stage_diff": {
+        "ordinary_additions": 37,
+        "ordinary_refunds": 0,
+        "set_reassignments": 0,
+        "ascendancy_paid_refunds": 0,
+        "ascendancy_paid_additions": 4,
+        "free_ascendancy_removed": [],
+        "operations": [
+          {
+            "action": "allocate",
+            "numeric_id": 38646,
+            "stringId": "armour6",
+            "name": "Armour",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 23570,
+            "stringId": "strength26",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 41031,
+            "stringId": "strength25",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 54232,
+            "stringId": "strength24_",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 7721,
+            "stringId": "marauder_brute_notable2",
+            "name": "Relentless",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 16168,
+            "stringId": "strength27",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 25374,
+            "stringId": "strength86",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 53589,
+            "stringId": "attributes64",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 48670,
+            "stringId": "strength40_",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 51299,
+            "stringId": "strength50",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 46475,
+            "stringId": "armour_and_evasion20_",
+            "name": "Armour and Evasion",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 6626,
+            "stringId": "armour_and_evasion10",
+            "name": "Armour and Evasion",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 32354,
+            "stringId": "armour_and_evasion12",
+            "name": "Defiance",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 34433,
+            "stringId": "armour_and_evasion18",
+            "name": "Armour and Evasion",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 24009,
+            "stringId": "armour_and_evasion19",
+            "name": "Armour and Evasion",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 21755,
+            "stringId": "dexterity13",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 54127,
+            "stringId": "jewel_slot1975",
+            "name": "Jewel Socket",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 54282,
+            "stringId": "strength82",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 52125,
+            "stringId": "dexterity79",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 2847,
+            "stringId": "strength81",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 54099,
+            "stringId": "strength83",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 8493,
+            "stringId": "attributes7",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 55478,
+            "stringId": "area_attacks22",
+            "name": "Attack Area Damage and Area",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 48006,
+            "stringId": "area_attacks28",
+            "name": "Devastation",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 64471,
+            "stringId": "strength84",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 28175,
+            "stringId": "strength85",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 2491,
+            "stringId": "jewel_slot1974",
+            "name": "Jewel Socket",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 28304,
+            "stringId": "attributes17_",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 20350,
+            "stringId": "armour_break11",
+            "name": "Armour Break",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 47006,
+            "stringId": "armour_break12",
+            "name": "Armour Break Effect",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 43174,
+            "stringId": "armour_break13",
+            "name": "Armour Break Effect",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 28542,
+            "stringId": "armour_break16_",
+            "name": "The Molten One's Gift",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 51561,
+            "stringId": "strength71",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 7716,
+            "stringId": "armour47",
+            "name": "Armour",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 11786,
+            "stringId": "armour46",
+            "name": "Armour",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 29447,
+            "stringId": "armour48",
+            "name": "Armour",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 18157,
+            "stringId": "armour49",
+            "name": "Tempered Defences",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          }
+        ],
+        "ascendancy_operations": [
+          {
+            "action": "allocate",
+            "numeric_id": 5852,
+            "name": "Smith of Kitava",
+            "paid": false
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 9988,
+            "name": "Smith's Masterwork",
+            "paid": false
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 9997,
+            "name": "Molten Symbol",
+            "paid": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 14960,
+            "name": "Fire Resistance",
+            "paid": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 57959,
+            "name": "Coal Stoker",
+            "paid": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 61039,
+            "name": "Tantalum Alloy",
+            "paid": true
+          }
+        ],
+        "interpretation": "Recommended-stage diff only; actual current player tree unknown. No gold refund price invented."
+      }
+    },
+    {
+      "id": "taengjung-normal-growth",
+      "native_file": "taengjung_progression/native/03_탱정_1일차_흰갑옷_맵진입.build",
+      "native_sha256": "c507f3af8dc0e402f860d564b93eac8644fdcd86c3db54fb644e227775691605",
+      "ordinary": 61,
+      "specialization": 4,
+      "paid_ascendancy": 6,
+      "both_sets_connected": true,
+      "ascendancy_connected": true,
+      "native_rows": 68,
+      "core_max_gem_min_character_level": 32,
+      "support_attribute_floor": {
+        "Strength": 35,
+        "Dexterity": 10,
+        "Intelligence": 5,
+        "interpretation": "Conservative sum of all selected core support colours at5 each, across both sets; actual active-gem/item requirements may be higher. Local PoB CalcSetup.lua:2138-2140; no claim actual player meets these."
+      },
+      "stage_diff": {
+        "ordinary_additions": 24,
+        "ordinary_refunds": 0,
+        "set_reassignments": 0,
+        "ascendancy_paid_refunds": 0,
+        "ascendancy_paid_additions": 2,
+        "free_ascendancy_removed": [],
+        "operations": [
+          {
+            "action": "allocate",
+            "numeric_id": 62498,
+            "stringId": "attributes6",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 3446,
+            "stringId": "strength70",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 27082,
+            "stringId": "strength69",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 53719,
+            "stringId": "attributes71",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 59777,
+            "stringId": "strength65_",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 27296,
+            "stringId": "strength64",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 59785,
+            "stringId": "attributes5",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 33452,
+            "stringId": "block1",
+            "name": "Block",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 52796,
+            "stringId": "shield24",
+            "name": "Shield Damage",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 30371,
+            "stringId": "shield3",
+            "name": "Shield Damage",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 27687,
+            "stringId": "shield9",
+            "name": "Greatest Defence",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 1200,
+            "stringId": "attributes70",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 55190,
+            "stringId": "jewel_slot1971",
+            "name": "Jewel Socket",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 28982,
+            "stringId": "strength48",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 32845,
+            "stringId": "ignite_mitigation1",
+            "name": "Fire Damage",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 31746,
+            "stringId": "ignite_mitigation3",
+            "name": "Fire Penetration",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 41012,
+            "stringId": "fire49_",
+            "name": "Fire Damage and Armour ",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 11392,
+            "stringId": "ignite_mitigation8",
+            "name": "Molten Being",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 21387,
+            "stringId": "strength67",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 42111,
+            "stringId": "armour_break10",
+            "name": "Armour Break",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 26437,
+            "stringId": "armour_break4",
+            "name": "Armour Break",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 51129,
+            "stringId": "armour_break35",
+            "name": "Pile On",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 15892,
+            "stringId": "armour_break8",
+            "name": "Damage vs Armour Broken Enemies",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 13482,
+            "stringId": "armour_break39",
+            "name": "Punctured Lung",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          }
+        ],
+        "ascendancy_operations": [
+          {
+            "action": "allocate",
+            "numeric_id": 25438,
+            "name": "Heatproofing",
+            "paid": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 64962,
+            "name": "Dedication to Kitava",
+            "paid": true
+          }
+        ],
+        "interpretation": "Recommended-stage diff only; actual current player tree unknown. No gold refund price invented."
+      }
+    },
+    {
+      "id": "taengjung-defensive-entry",
+      "native_file": "taengjung_progression/native/04_탱정_운명의저항_황동철갑.build",
+      "native_sha256": "a4a0135986e29095d8e3e9dd06edd344a0329d8ebdff927235d0e4a8724be1d3",
+      "ordinary": 61,
+      "specialization": 4,
+      "paid_ascendancy": 6,
+      "both_sets_connected": true,
+      "ascendancy_connected": true,
+      "native_rows": 67,
+      "core_max_gem_min_character_level": 65,
+      "support_attribute_floor": {
+        "Strength": 35,
+        "Dexterity": 5,
+        "Intelligence": 5,
+        "interpretation": "Conservative sum of all selected core support colours at5 each, across both sets; actual active-gem/item requirements may be higher. Local PoB CalcSetup.lua:2138-2140; no claim actual player meets these."
+      },
+      "stage_diff": {
+        "ordinary_additions": 0,
+        "ordinary_refunds": 0,
+        "set_reassignments": 0,
+        "ascendancy_paid_refunds": 4,
+        "ascendancy_paid_additions": 4,
+        "free_ascendancy_removed": [
+          9988
+        ],
+        "operations": [],
+        "ascendancy_operations": [
+          {
+            "action": "refund",
+            "numeric_id": 9997,
+            "name": "Molten Symbol",
+            "paid": true
+          },
+          {
+            "action": "refund",
+            "numeric_id": 25438,
+            "name": "Heatproofing",
+            "paid": true
+          },
+          {
+            "action": "refund",
+            "numeric_id": 61039,
+            "name": "Tantalum Alloy",
+            "paid": true
+          },
+          {
+            "action": "refund",
+            "numeric_id": 64962,
+            "name": "Dedication to Kitava",
+            "paid": true
+          },
+          {
+            "action": "refund",
+            "numeric_id": 9988,
+            "name": "Smith's Masterwork",
+            "paid": false
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 5386,
+            "name": "Fire Damage",
+            "paid": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 22541,
+            "name": "Heat of the Forge",
+            "paid": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 63401,
+            "name": "Fire Resistance",
+            "paid": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 48537,
+            "name": "Forged in Flame",
+            "paid": true
+          }
+        ],
+        "interpretation": "Recommended-stage diff only; actual current player tree unknown. No gold refund price invented."
+      }
+    },
+    {
+      "id": "taengjung-lowlife-entry",
+      "native_file": "taengjung_progression/native/05_탱정_아홉꼬리_저생명력묶음.build",
+      "native_sha256": "6a75b4b42286a10a170d8a594eeead92b34be99c827ade0b85aa15546eca382a",
+      "ordinary": 61,
+      "specialization": 4,
+      "paid_ascendancy": 6,
+      "both_sets_connected": true,
+      "ascendancy_connected": true,
+      "native_rows": 67,
+      "core_max_gem_min_character_level": 65,
+      "support_attribute_floor": {
+        "Strength": 50,
+        "Dexterity": 5,
+        "Intelligence": 15,
+        "interpretation": "Conservative sum of all selected core support colours at5 each, across both sets; actual active-gem/item requirements may be higher. Local PoB CalcSetup.lua:2138-2140; no claim actual player meets these."
+      },
+      "stage_diff": {
+        "ordinary_additions": 0,
+        "ordinary_refunds": 0,
+        "set_reassignments": 0,
+        "ascendancy_paid_refunds": 0,
+        "ascendancy_paid_additions": 0,
+        "free_ascendancy_removed": [],
+        "operations": [],
+        "ascendancy_operations": [],
+        "interpretation": "Recommended-stage diff only; actual current player tree unknown. No gold refund price invented."
+      }
+    },
+    {
+      "id": "taengjung-conditional-growth",
+      "native_file": "taengjung_progression/native/06_탱정_목죄이는명령_원형노드.build",
+      "native_sha256": "65283746e578d02f3b76e0710ae02073eeebd4dd5ac2d1548daba6934a87b99f",
+      "ordinary": 70,
+      "specialization": 4,
+      "paid_ascendancy": 6,
+      "both_sets_connected": true,
+      "ascendancy_connected": true,
+      "native_rows": 76,
+      "core_max_gem_min_character_level": 65,
+      "support_attribute_floor": {
+        "Strength": 50,
+        "Dexterity": 5,
+        "Intelligence": 15,
+        "interpretation": "Conservative sum of all selected core support colours at5 each, across both sets; actual active-gem/item requirements may be higher. Local PoB CalcSetup.lua:2138-2140; no claim actual player meets these."
+      },
+      "stage_diff": {
+        "ordinary_additions": 9,
+        "ordinary_refunds": 0,
+        "set_reassignments": 0,
+        "ascendancy_paid_refunds": 0,
+        "ascendancy_paid_additions": 0,
+        "free_ascendancy_removed": [],
+        "operations": [
+          {
+            "action": "allocate",
+            "numeric_id": 15182,
+            "stringId": "attributes45",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 46931,
+            "stringId": "being_surrounded15",
+            "name": "Attack Damage while Surrounded",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 23036,
+            "stringId": "being_surrounded14",
+            "name": "Attack Damage while Surrounded",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 54818,
+            "stringId": "strength80",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 31566,
+            "stringId": "being_surrounded2",
+            "name": "Armour while Surrounded",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 24766,
+            "stringId": "being_surrounded22",
+            "name": "Paranoia",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 58038,
+            "stringId": "being_surrounded7",
+            "name": "Attack Damage while Surrounded",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 25711,
+            "stringId": "being_surrounded10",
+            "name": "Thrill of Battle",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 59208,
+            "stringId": "being_surrounded24",
+            "name": "Frantic Fighter",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          }
+        ],
+        "ascendancy_operations": [],
+        "interpretation": "Recommended-stage diff only; actual current player tree unknown. No gold refund price invented."
+      }
+    },
+    {
+      "id": "taengjung-lowbudget-complete",
+      "native_file": "taengjung_progression/native/07_탱정_저자본완성_29d39.build",
+      "native_sha256": "d0f3e21eba8fb7162b66fbaf6894fcbc6dde8d1cfd2caba155ef1c46cb5ec73c",
+      "ordinary": 118,
+      "specialization": 24,
+      "paid_ascendancy": 8,
+      "both_sets_connected": true,
+      "ascendancy_connected": true,
+      "native_rows": 149,
+      "core_max_gem_min_character_level": 65,
+      "support_attribute_floor": {
+        "Strength": 50,
+        "Dexterity": 5,
+        "Intelligence": 15,
+        "interpretation": "Conservative sum of all selected core support colours at5 each, across both sets; actual active-gem/item requirements may be higher. Local PoB CalcSetup.lua:2138-2140; no claim actual player meets these."
+      },
+      "stage_diff": {
+        "ordinary_additions": 71,
+        "ordinary_refunds": 0,
+        "set_reassignments": 0,
+        "ascendancy_paid_refunds": 0,
+        "ascendancy_paid_additions": 2,
+        "free_ascendancy_removed": [],
+        "operations": [
+          {
+            "action": "allocate",
+            "numeric_id": 3339,
+            "stringId": "being_surrounded13",
+            "name": "Attack Damage while Surrounded",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 3949,
+            "stringId": "warcries38",
+            "name": "Empowered Attack Damage and Power Counted",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 3988,
+            "stringId": "warcries9",
+            "name": "Empowered Attack Damage",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 10271,
+            "stringId": "being_surrounded6",
+            "name": "Attack Damage while Surrounded",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 12418,
+            "stringId": "warcries7_",
+            "name": "Empowered Attack Damage",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 15247,
+            "stringId": "warcries48",
+            "name": "Empowered Attack Damage",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 16111,
+            "stringId": "attack38_",
+            "name": "Attack Damage while Surrounded",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 2397,
+            "stringId": "attack21",
+            "name": "Last Stand",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 17825,
+            "stringId": "being_surrounded21",
+            "name": "Tactical Retreat",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 17999,
+            "stringId": "warcries29",
+            "name": "Warcry Cooldown and Speed",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 21716,
+            "stringId": "life_leech25",
+            "name": "Life Leech",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 9583,
+            "stringId": "life_leech28_",
+            "name": "Life Leech and Physical Damage",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 24646,
+            "stringId": "strength103",
+            "name": "Strength",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 34813,
+            "stringId": "attributes108",
+            "name": "All Attributes",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 472,
+            "stringId": "attributes113",
+            "name": "Dexterity",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 3744,
+            "stringId": "attributes114",
+            "name": "Dexterity",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 5332,
+            "stringId": "attributes115",
+            "name": "Crystallised Immunities",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 37258,
+            "stringId": "attributes18",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 26568,
+            "stringId": "duration_spells7",
+            "name": "Slow Effect on You and Attack Speed",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 31903,
+            "stringId": "strength76",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 39598,
+            "stringId": "warcries36",
+            "name": "Empowered Attack Damage and Power Counted",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 28613,
+            "stringId": "warcries39",
+            "name": "Roaring Cries",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 41363,
+            "stringId": "maximum_resistances9",
+            "name": "Lightning Resistance",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 42026,
+            "stringId": "warcries35",
+            "name": "Warcry Speed",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 45969,
+            "stringId": "strength31",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 24880,
+            "stringId": "attack_speed4",
+            "name": "Attack Speed",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 38501,
+            "stringId": "attack_speed29",
+            "name": "Attack Speed",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 46683,
+            "stringId": "warcries49",
+            "name": "Inherited Strength ",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 47316,
+            "stringId": "life_leech16",
+            "name": "Goring",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 47796,
+            "stringId": "attack_speed13_",
+            "name": "Attack Speed",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 27108,
+            "stringId": "attack_speed33",
+            "name": "Mass Hysteria",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 49231,
+            "stringId": "attack_speed9",
+            "name": "Attack Speed",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 5049,
+            "stringId": "attack_speed22",
+            "name": "Attack Speed and Dexterity",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 11153,
+            "stringId": "attack_speed24",
+            "name": "Attack Speed and Accuracy",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 42177,
+            "stringId": "attack_speed20",
+            "name": "Blurred Motion",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 43183,
+            "stringId": "attack_speed23",
+            "name": "Attack Speed and Accuracy",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 50561,
+            "stringId": "warcries8",
+            "name": "Empowered Attack Damage",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 31373,
+            "stringId": "warcries12",
+            "name": "Vocal Empowerment",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 51732,
+            "stringId": "duration_spells8",
+            "name": "Attack Speed",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 35863,
+            "stringId": "duration_spells9",
+            "name": "Attack Speed",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 10774,
+            "stringId": "duration_spells11",
+            "name": "Unyielding",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 51832,
+            "stringId": "warcries10",
+            "name": "Warcry Damage",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 47722,
+            "stringId": "warcries25",
+            "name": "Warcry Damage",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 6514,
+            "stringId": "warcries11",
+            "name": "Cacophony",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 52556,
+            "stringId": "rage3",
+            "name": "Maximum Rage",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 16347,
+            "stringId": "rage2",
+            "name": "Maximum Rage",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 52373,
+            "stringId": "rage1",
+            "name": "Maximum Rage",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 37276,
+            "stringId": "rage6",
+            "name": "Battle Trance",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 54437,
+            "stringId": "attack37",
+            "name": "Attack Damage on Low Life",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 56342,
+            "stringId": "rage4",
+            "name": "Rage when Hit",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 7341,
+            "stringId": "rage5",
+            "name": "Ignore Pain",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 62518,
+            "stringId": "maximum_resistances1",
+            "name": "Fire Resistance",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 41414,
+            "stringId": "maximum_resistances5",
+            "name": "Cold Resistance",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 4547,
+            "stringId": "maximum_resistances20",
+            "name": "Unnatural Resilience",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 62640,
+            "stringId": "attack_speed28",
+            "name": "Attack Speed",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 63114,
+            "stringId": "strength68",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 18073,
+            "stringId": "slow_attacks2_",
+            "name": "Attack Damage",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 26725,
+            "stringId": "jewel_slot1956",
+            "name": "Jewel Socket",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 36027,
+            "stringId": "slow_attacks3",
+            "name": "Attack Damage",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 45090,
+            "stringId": "slow_attacks5",
+            "name": "Attack Damage",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 18505,
+            "stringId": "slow_attacks10",
+            "name": "Crushing Verdict",
+            "weapon_set": 1,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 57703,
+            "stringId": "attributes32",
+            "name": "Attribute",
+            "weapon_set": 0,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 38130,
+            "stringId": "warcries19_",
+            "name": "Warcry Cooldown Speed",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 53194,
+            "stringId": "warcries20",
+            "name": "Warcry Cooldown Speed",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 35876,
+            "stringId": "warcries21",
+            "name": "Admonisher",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 27540,
+            "stringId": "warcries22",
+            "name": "Warcry Power Counted",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 62216,
+            "stringId": "warcries23",
+            "name": "Empowered Attack Damage",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 26070,
+            "stringId": "warcries24",
+            "name": "Bolstering Yell",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 62973,
+            "stringId": "warcries28",
+            "name": "Warcry Power Counted",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 63813,
+            "stringId": "warcries37",
+            "name": "Warcry Speed",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 1169,
+            "stringId": "warcries34",
+            "name": "Urgent Call",
+            "weapon_set": 2,
+            "both_sets_connected": true
+          }
+        ],
+        "ascendancy_operations": [
+          {
+            "action": "allocate",
+            "numeric_id": 20895,
+            "name": "Strength",
+            "paid": true
+          },
+          {
+            "action": "allocate",
+            "numeric_id": 47236,
+            "name": "Melee Damage",
+            "paid": true
+          }
+        ],
+        "interpretation": "Recommended-stage diff only; actual current player tree unknown. No gold refund price invented."
+      }
+    }
+  ],
+  "limits": [
+    "No actual player export: attribute totals, actual gem levels, spirit, gear, quest points and paid ascendancy remain unknown.",
+    "No live gameplay/DPS/HC claim; condition bundles require actual character confirmation.",
+    "Full optional latest and historical Lund sources remain untouched; no install performed."
+  ]
+}

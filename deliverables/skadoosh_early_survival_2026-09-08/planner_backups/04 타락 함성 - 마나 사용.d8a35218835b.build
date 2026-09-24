@@ -1,0 +1,760 @@
+{
+  "author": "Skadoosh / Pathcraft 한국어 방송 대조 v3",
+  "link": "https://poe.ninja/poe2/builds/forbiddenriteshc/character/ITheCon-2183/SkadooshShoutedHard",
+  "ascendancy": "Warrior2",
+  "inventory_slots": [
+    {
+      "inventory_id": "Weapon1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{무기 세트 I 설정}\n한손 철퇴 + 방어도 방패 · 보강하는 함성\n충격파 토템(II) → 보강하는 함성(I). 지진·망치·방패 스킬도 I에 지정한다.\n\n<b>{세트 I · 한손 철퇴 + 방어도 방패}\n사용 스킬 → 연결 젬\n방패 들기 → 연결 보조 없음\n보강하는 함성 → 타락시키는 비명 I + 포악함 II + 고통 격화 II + 효율 II\n공명하는 방패 → 격노 I + 방어구 철거자 I\n화산 균열 → 연결 보조 없음\n대장간 망치 → 요철 지대 I + 유지되는 대지 I + 전쟁의 주먹 II\n지진 → 잠식하는 지대 + 유지되는 대지 II\n뼈 박살 → 충돌 충격파 + 효율 I\n마그마 장벽 → 활력 I + 명상 II\n\n<b>{세트 I · 한손 철퇴}\n추천 옵션\n1. 모든 근접 스킬 레벨 +\n2. 물리 피해\n3. 공격 속도\n셉터로 전환하면 이 철퇴의 근접 젬 레벨이 사라진다. 함성의 실제 유효 레벨을 전환 전후 비교한다."
+    },
+    {
+      "inventory_id": "Weapon2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{무기 세트 II 설정}\n한손 철퇴 + 공유 방패 · 충격파 토템\n충격파 토템(II) → 보강하는 함성(I). 지진·망치·방패 스킬도 I에 지정한다.\n\n<b>{세트 II · 한손 철퇴 + 공유 방패}\n사용 스킬 → 연결 젬\n충격파 토템 → 빠른 공격 I + 긴급한 토템 I + 포악함 II\n\n<b>{세트 II · 한손 철퇴}\n추천 옵션\n1. 무기에 표시된 물리 피해와 공격 속도\n2. 모든 근접 스킬 레벨 +\n3. 명중률 / 필요한 능력치\n이번 하코 경로는 한손 철퇴를 사용한다. 양손 철퇴로 바꾸는 필수 단계는 없다."
+    },
+    {
+      "inventory_id": "Offhand1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{세트 I · 방어도 방패}\n추천 옵션\n1. 방패 방어도\n2. 최대 생명력\n3. 부족한 원소 저항\n4. 막기 확률\n보강하는 함성은 방어도 방패가 필요하다. 셉터 전환 뒤에도 방패는 I에 유지한다."
+    },
+    {
+      "inventory_id": "Offhand2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{세트 II · 공유 방패}\n추천 옵션\n1. I의 방패 공유 또는 별도 방어도 방패\n2. 최대 생명력·부족한 저항"
+    },
+    {
+      "inventory_id": "Helm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{초반 우선 확보 · 황동의 턱수염}\nBronzebeard · 최대 생명력 +100. 10레벨·힘 10·지능 10부터 착용.\n이동 속도 10% 감소가 있으므로 이속 신발도 함께 챙긴다. 구할 수 있으면 우선 사용한다.\n<b>{없을 때 추천 옵션}\n1. 최대 생명력\n2. 부족한 화염·냉기·번개 저항\n3. 방어도\n획득하려고 자꾸 죽는 보스 의식 연전을 반복하지 않는다.",
+      "unique_name": "Bronzebeard"
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{갑옷}\n추천 옵션\n1. 최대 생명력\n2. 현재 부족한 화염·냉기·번개 저항\n3. 초당 생명력 재생\n4. 방어도\n빈 룬 소켓이 있으면 현재 부족한 저항을 보완한다.\nSturdy Metal은 이 갑옷에서 얻는 방어도를 강화한다. 갑옷의 방어도도 함께 갱신한다."
+    },
+    {
+      "inventory_id": "Gloves1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{장갑}\n추천 옵션\n1. 모든 근접 스킬 레벨 +\n2. 최대 생명력\n3. 현재 부족한 화염·냉기·번개 저항\n4. 초당 생명력 재생\n5. 방어도\n6. 공격 속도"
+    },
+    {
+      "inventory_id": "Boots1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{장화 · 이동 속도 우선}\n추천 옵션\n1. 이동 속도 10~15%부터 확보할 후보로 찾는다.\n2. 최대 생명력\n3. 부족한 화염·냉기·번개 저항\n4. 방어도 / 생명력 재생\n황동의 턱수염을 쓰면 이속을 함께 확인한다. 위 수치는 권장 후보이며 필수 통과 수치가 아니다."
+    },
+    {
+      "inventory_id": "Amulet1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{목걸이}\n추천 옵션\n1. 최대 생명력\n2. 초당 생명력 재생\n3. 부족한 저항\n4. 모든 근접 스킬 레벨 + / 필요한 민첩·지능"
+    },
+    {
+      "inventory_id": "Belt1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{허리띠}\n추천 옵션\n1. 최대 생명력\n2. 부족한 저항\n3. 생명력 플라스크 회복 관련 옵션\n4. 호신부 관련 옵션"
+    },
+    {
+      "inventory_id": "Ring1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{반지 1}\n추천 옵션\n1. 최대 생명력\n2. 현재 부족한 화염·냉기·번개 저항\n3. 초당 생명력 재생\n4. 필요한 민첩·지능"
+    },
+    {
+      "inventory_id": "Ring2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{반지 2}\n추천 옵션\n1. 최대 생명력\n2. 현재 부족한 화염·냉기·번개 저항\n3. 초당 생명력 재생\n4. 필요한 민첩·지능"
+    },
+    {
+      "inventory_id": "Flask1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{생명력 플라스크 · 자주 갱신}\n추천 옵션\n1. 현재 레벨에 맞는 베이스와 충분한 회복량\n2. 회복 속도\n3. 사용 충전 감소 / 충전 획득\n새 베이스를 얻으면 기존 회복량·시간·충전과 비교한다. 보스 전에 충전을 채운다."
+    },
+    {
+      "inventory_id": "Charm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{호신부 · 현재 위험에 맞춰 선택}\n추천 옵션\n1. 현재 지역의 원소 피해·상태 이상 대응\n2. 효과 지속시간\n3. 충전 관련 옵션\n연속 기절에는 Stone Charm을 후보로 검토한다. 기절 후 발동하는 효과이며 상시 면역은 아니다. 벨트의 활성 슬롯과 충전을 확인한다."
+    },
+    {
+      "inventory_id": "Flask1",
+      "slot_x": 1,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{마나 플라스크}\n추천 옵션\n1. 현재 단계에서 충분한 회복량\n2. 회복 속도\n3. 충전 유지"
+    }
+  ],
+  "name": "04 타락 함성 - 마나 사용",
+  "passives": [
+    {
+      "id": "warcries34",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다.\n직접 함성 사용 시 최대 생명력·마나의 2% 회복. 메아리 회복의 정량 검증은 미완료이므로 추가 비용을 전부 상쇄한다고 계산하지 않는다."
+    },
+    {
+      "id": "AscendancyWarrior2Small5"
+    },
+    {
+      "id": "strength70",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "melee17"
+    },
+    {
+      "id": "warcries9",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "attributes51",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems1",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "totems9",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다.\nRecoup 5% of damage taken by your Totems as Life / Each Totem applies 2% increased Damage taken to Enemies in their Presence"
+    },
+    {
+      "id": "marauder_brute_notable1"
+    },
+    {
+      "id": "warcries11",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다.\n40% increased Damage with Warcries / Warcry Skills have 25% increased Area of Effect"
+    },
+    {
+      "id": "armour5"
+    },
+    {
+      "id": "strength38",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "marauder_brute_notable2",
+      "additional_text": "방어도 15% 증가, 최대 생명력 0.5% 초당 재생, 힘 +10. 현재 경로에서 도달하면 장비 방어도·생명력과 함께 확인한다."
+    },
+    {
+      "id": "attack_speed54"
+    },
+    {
+      "id": "reduced_attack_cost4",
+      "additional_text": "마나 비용 일부가 생명력으로 바뀐다. 혈마법 전에도 생명력과 마나가 함께 줄어들 수 있다. 두 자원의 회복을 확인한다."
+    },
+    {
+      "id": "life_regeneration25"
+    },
+    {
+      "id": "strength41",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "armour_break28"
+    },
+    {
+      "id": "life_costs3",
+      "additional_text": "마나 비용 일부가 생명력으로 바뀐다. 혈마법 전에도 생명력과 마나가 함께 줄어들 수 있다. 두 자원의 회복을 확인한다."
+    },
+    {
+      "id": "strength21",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "warcries29",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "slow_attacks2_",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "totems34",
+      "additional_text": "토템이 있을 때 플레이어 최대 생명력의 1%를 초당 재생한다. 다른 재생 보정 전 생명력 400이면 이 효과는 초당 4인 보조 회복이다. 맞으며 버티는 운영의 근거로 삼지 않는다. 토템의 3% 재생은 토템 자신에게 적용되며 토템이 모두 사라지면 플레이어의 조건부 재생도 끊긴다."
+    },
+    {
+      "id": "slow_attacks10",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다.\n5% reduced Attack Speed / 30% increased Stun Buildup / 50% increased Attack Damage"
+    },
+    {
+      "id": "melee56"
+    },
+    {
+      "id": "strength67",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems45"
+    },
+    {
+      "id": "armour_break29"
+    },
+    {
+      "id": "totems44",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "totems43"
+    },
+    {
+      "id": "warcries24",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다.\nEmpowered Attacks deal 30% increased Damage / Warcry Skills have 30% increased Area of Effect"
+    },
+    {
+      "id": "totems14",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다.\nMelee Attack Skills have +1 to maximum number of Summoned Totems / 20% increased Totem Placement range"
+    },
+    {
+      "id": "jewel_slot1956"
+    },
+    {
+      "id": "attack_speed53"
+    },
+    {
+      "id": "strength69",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength19",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "armour14"
+    },
+    {
+      "id": "strength36",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "armour35",
+      "additional_text": "착용한 갑옷에서 얻는 방어도 80% 증가. 모든 부위의 방어도에 80%가 붙는 효과는 아니다. 갑옷의 실제 방어도·생명력·저항을 함께 갱신한다."
+    },
+    {
+      "id": "shield15",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "melee25"
+    },
+    {
+      "id": "AscendancyWarrior2Start"
+    },
+    {
+      "id": "slow_attacks3",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "strength22",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "warcries19_",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "totems26",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "attack_speed55",
+      "additional_text": "스킬 속도 6% 증가. 스킬 마나 비용의 6%가 생명력 비용으로 바뀐다. 최대 생명력의 6%를 쓰는 효과가 아니다. 혈마법 전에도 생명력·마나 회복을 함께 확인한다."
+    },
+    {
+      "id": "AscendancyWarrior2Small6"
+    },
+    {
+      "id": "AscendancyWarrior2Notable6"
+    },
+    {
+      "id": "totems38",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "strength39_",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "warcries35",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "totems11",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "armour_break37"
+    },
+    {
+      "id": "melee46"
+    },
+    {
+      "id": "shield1",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "slow_attacks5",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "melee55"
+    },
+    {
+      "id": "shield5",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다.\n1% increased Damage per 1% Chance to Block"
+    },
+    {
+      "id": "melee18"
+    },
+    {
+      "id": "AscendancyWarrior2Notable4_"
+    },
+    {
+      "id": "warcries25",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "strength40_",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "life_costs2",
+      "additional_text": "마나 비용 일부가 생명력으로 바뀐다. 혈마법 전에도 생명력과 마나가 함께 줄어들 수 있다. 두 자원의 회복을 확인한다."
+    },
+    {
+      "id": "life_regeneration17_",
+      "additional_text": "플라스크 생명력 회복 속도 40% 증가, 최대 생명력 0.75% 초당 재생. 총 회복량 40% 증가로 읽지 않는다. 생명력 플라스크 베이스도 현재 레벨에 맞게 갱신한다."
+    },
+    {
+      "id": "strength71",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "warcries10",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "strength42",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength61_",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems8",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다.\n20% increased Totem Damage / 6% increased Attack and Cast Speed if you've summoned a Totem Recently"
+    },
+    {
+      "id": "strength58",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "attributes71",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "shield16",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "strength15",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "melee44"
+    },
+    {
+      "id": "attributes32",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems39",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "melee54"
+    },
+    {
+      "id": "totems25",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "warcries23",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "attributes6",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems15",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다.\nAttacks used by Totems have 4% increased Attack Speed per Summoned Totem"
+    },
+    {
+      "id": "warcries28",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "strength68",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "life_costs1",
+      "additional_text": "마나 비용 일부가 생명력으로 바뀐다. 혈마법 전에도 생명력과 마나가 함께 줄어들 수 있다. 두 자원의 회복을 확인한다."
+    },
+    {
+      "id": "warcries37",
+      "weapon_set": 1,
+      "additional_text": "무기 세트 I 특화에 배정. 해당 세트로 스킬을 사용한다."
+    },
+    {
+      "id": "melee19"
+    },
+    {
+      "id": "totems48_",
+      "weapon_set": 2,
+      "additional_text": "무기 세트 II 특화에 배정. 해당 세트로 스킬을 사용한다."
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{선대의 혼백 · 자동 부여}\n자동 부여 효과. 별도 무기 세트 체크 대상으로 만들지 않는다.\n전직에서 자동 부여. 별도 젬을 만들지 않는다. 토템이 부르는 선조는 주로 보조 효과다.\n<b>{이 스킬 안에 넣을 젬}\n현재 연결 보조 없음."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{방패 들기 · 세트 I}\nG 무기 세트 체크: I만. 플래너 파일이 실제 체크 상태를 자동 변경하지는 않는다.\n방패 세트에서 막기. 토템 설치 후 이 세트로 복귀한다.\n<b>{이 스킬 안에 넣을 젬}\n현재 연결 보조 없음."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+      "level_interval": [
+        32,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemCorruptingCry",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{타락시키는 비명 I}\n연결할 스킬: 보강하는 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutalityTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{포악함 II}\n연결할 스킬: 보강하는 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{고통 격화 II}\n연결할 스킬: 보강하는 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{효율 II}\n연결할 스킬: 보강하는 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{보강하는 함성 · 세트 I}\nG 무기 세트 체크: I만. 플래너 파일이 실제 체크 상태를 자동 변경하지는 않는다.\n방어도 방패가 있는 I에서 사용한다. 토템 설치 뒤 I로 돌아오는 함성이다.\n<b>{전투에서 누르는 때}\n실제 타락 함성 버튼. 잡몹에 사용 후 이동, 보스에는 토템을 유지하며 타락한 피를 갱신한다. 마나가 줄면 사용 빈도와 플라스크를 확인한다.\n<b>{이 스킬 안에 넣을 젬}\n타락시키는 비명 I + 포악함 II + 고통 격화 II + 효율 II"
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+      "level_interval": [
+        15,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemRage",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{격노 I}\n연결할 스킬: 공명하는 방패 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemDemolisher",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{방어구 철거자 I}\n연결할 스킬: 공명하는 방패 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{공명하는 방패 · 세트 I}\nG 무기 세트 체크: I만. 플래너 파일이 실제 체크 상태를 자동 변경하지는 않는다.\n필요할 때 쓰는 방패 보조 공격. 주력 토템/함성보다 먼저 연타할 필요는 없다.\n<b>{이 스킬 안에 넣을 젬}\n격노 I + 방어구 철거자 I"
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemVolcanicFissure",
+      "level_interval": [
+        23,
+        100
+      ],
+      "additional_text": "<b>{화산 균열 · 세트 I}\nG 무기 세트 체크: I만. 플래너 파일이 실제 체크 상태를 자동 변경하지는 않는다.\n<b>{쓰는 때 · 희귀/보스 추가 딜, 선택 보조}\n충격파 토템(II)을 설치한 뒤, 안전할 때 화산 균열(I)을 보스 발밑과 토템 강타가 닿는 곳에 한 번 깔고 이동한다. 토템의 강타가 균열을 건드리면 화산 균열의 여진이 발생한다.\n기본은 토템 + 지진의 요철 지대. 균열은 여유가 있을 때 추가하고 적이 벗어나거나 균열이 끝나면 갱신한다. 매 토템 설치마다 필수로 쓰거나 제자리에서 연타하는 주력 스킬로 바꾸지 않는다. 플래너의 습득 표시가 즉시 필수 전환을 뜻하지는 않는다.\n<b>{이 스킬 안에 넣을 젬}\n현재 연결 보조 없음."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemForgeHammer",
+      "level_interval": [
+        32,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemJaggedGround",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{요철 지대 I}\n연결할 스킬: 대장간 망치 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDomain",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{유지되는 대지 I}\n연결할 스킬: 대장간 망치 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFistOfWarTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{전쟁의 주먹 II}\n연결할 스킬: 대장간 망치 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{대장간 망치 · 세트 I}\nG 무기 세트 체크: I만. 플래너 파일이 실제 체크 상태를 자동 변경하지는 않는다.\n안전할 때 보조로 사용한다. 요철 지대 I 보조는 인내 충전을 소비하므로 충전 없이 지대가 생긴다고 가정하지 않는다.\n<b>{전투에서 누르는 때}\n토템·함성이 유지되고 보스 패턴에 빈틈이 있을 때 보조 타격. 매 함성마다 반드시 끼워 넣는 순서는 아니다.\n<b>{이 스킬 안에 넣을 젬}\n요철 지대 I + 유지되는 대지 I + 전쟁의 주먹 II"
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEarthquake",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemSuffuse",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{잠식하는 지대}\n연결할 스킬: 지진 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDomainTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{유지되는 대지 II}\n연결할 스킬: 지진 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{지진 · 세트 I}\nG 무기 세트 체크: I만. 플래너 파일이 실제 체크 상태를 자동 변경하지는 않는다.\n토템을 보조할 요철 지대를 만든다. 방송에서 지대가 나타나지 않는 문제가 있었으므로 실제 바닥 표시를 확인한다.\n<b>{전투에서 누르는 때}\n보스가 머무는 곳에 안전할 때 요철 지대를 보탠다. 토템 설치·함성 갱신·패턴 회피 사이에 쓰는 보조 동작이다.\n<b>{이 스킬 안에 넣을 젬}\n잠식하는 지대 + 유지되는 대지 II\n지대가 실제로 생성되지 않을 때 젬·세트와 지역 변경·재접속을 점검한다. 현재도 항상 발생하는 버그라고 단정하지 않는다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemImpactShockwave",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{충돌 충격파}\n연결할 스킬: 뼈 박살 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspiration",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{효율 I}\n연결할 스킬: 뼈 박살 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{뼈 박살 · 세트 I}\nG 무기 세트 체크: I만. 플래너 파일이 실제 체크 상태를 자동 변경하지는 않는다.\n기절 준비 표시가 뜬 적에게 사용한다.\n<b>{이 스킬 안에 넣을 젬}\n충돌 충격파 + 효율 I"
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+      "level_interval": [
+        11,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitality",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{활력 I}\n연결할 스킬: 마그마 장벽 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemClarityTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{명상 II}\n연결할 스킬: 마그마 장벽 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다.\n정신력 합계 70이 부족하면 이 보조를 끈다."
+        }
+      ],
+      "additional_text": "<b>{마그마 장벽 · 세트 I}\nG 무기 세트 체크: I만. 플래너 파일이 실제 체크 상태를 자동 변경하지는 않는다.\n정신력 버프. 버프와 연결 보조의 예약량을 합산한다.\n활력 I까지 합계 정신력 50, 명상 II까지 연결한 04는 70. 부족하면 명상 II부터 끈다.\n<b>{이 스킬 안에 넣을 젬}\n활력 I + 명상 II"
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+      "level_interval": [
+        7,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{빠른 공격 I}\n연결할 스킬: 충격파 토템 (세트 II).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemAncestralUrgency",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{긴급한 토템 I}\n연결할 스킬: 충격파 토템 (세트 II).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutalityTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{포악함 II}\n연결할 스킬: 충격파 토템 (세트 II).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{충격파 토템 · 세트 II}\nG 무기 세트 체크: II만. 플래너 파일이 실제 체크 상태를 자동 변경하지는 않는다.\n적 앞에 설치한 뒤 이동한다. 지진의 요철 지대와 함께 사용한다.\n<b>{전투에서 누르는 때}\n희귀·보스 앞에서 먼저 설치 → 보강하는 함성으로 I 복귀. 살아서 공격 중이면 함성·회피를 우선하고 죽거나 만료·적이 범위를 벗어나면 보충한다.\n<b>{이 스킬 안에 넣을 젬}\n빠른 공격 I + 긴급한 토템 I + 포악함 II\n토템이 남아 있는지 확인하고 필요한 만큼 갱신한다. 적에게 둘러싸인 뒤 재설치를 연타하지 않는다."
+    }
+  ],
+  "description": "실전 사용 순서 · 잡몹 / 보스\n누르는 버튼은 보강하는 함성. 타락시키는 비명(Corrupting Cry)은 그 안의 보조 젬이다.\n기본 이동: 보강하는 함성(I)을 쓰며 전진하고 타락한 피·전직의 시체 폭발로 정리한다. 밀집 무리·희귀에는 충격파 토템(II)을 추가한 뒤 함성(I)으로 복귀한다.\n희귀/보스: 충격파 토템(II) 설치 → 보강하는 함성(I) → 이동하며 함성 재사용. 안전할 때 지진(I)의 요철 지대를 보태고 대장간 망치를 사용한다.\n반복: 토템이 때리는 동안 함성 범위에 적을 넣어 타락한 피를 갱신한다. 마나·플라스크를 확인하고 토템은 죽거나 만료·적이 벗어나면 보충한다.\n이 단계는 충격파 토템이다. 지면 분쇄 가시를 함성으로 터뜨리는 운영은 05부터다.\n\n무기 세트 설정\nI: 한손 철퇴 + 방어도 방패 · 보강하는 함성\nII: 한손 철퇴 + 공유 방패 · 충격파 토템\n충격파 토템(II) → 보강하는 함성(I). 지진·망치·방패 스킬도 I에 지정한다.\n특화 목표 I 16점 / II 16점. 보유 특화 포인트 안에서 배정한다.\n\n초반 생존 준비\n황동의 턱수염은 생명력 +100의 우선 확보 후보다. 10레벨·힘 10·지능 10부터 착용하며 이속 신발을 함께 챙긴다. 생명력 플라스크를 갱신하고 필요한 원소 저항을 보완한다. 이벤트 보스 의식 연전은 미루되 프레이쏜의 정신력 +30 영구 보상은 챙긴다. 전투 중 질주를 줄이고 설치할 때 퇴로를 남긴다. 보스 패턴 대응을 우선한다.\n\n지금 할 일\n방어도 방패·보강하는 함성·타락시키는 비명 I·보조 소켓을 먼저 준비한다. 03 트리에서 지옥불 함성 대신 새 함성을 넣고 토템과 함께 시험한 뒤 패시브전환 문서대로 46레벨 실측 경유 트리와 이 52레벨 목표로 진행한다. 네 번째 소켓/효율 II는 나중에 추가해도 된다. 마나 플라스크를 유지한다. 65레벨 이상 캠페인에서도 준비가 안 됐으면 이 단계를 유지한다. 이 트리에는 마나 비용 일부를 생명력으로 바꾸는 노드도 있으므로 혈마법 전이라도 생명력이 소모된다. 마나와 생명력을 함께 확인한다.\n\n무기·스킬셋\n\n세트 I · 한손 철퇴 + 방어도 방패\n방패 들기 → 연결 보조 없음\n보강하는 함성 → 타락시키는 비명 I + 포악함 II + 고통 격화 II + 효율 II\n공명하는 방패 → 격노 I + 방어구 철거자 I\n화산 균열 → 연결 보조 없음\n대장간 망치 → 요철 지대 I + 유지되는 대지 I + 전쟁의 주먹 II\n지진 → 잠식하는 지대 + 유지되는 대지 II\n뼈 박살 → 충돌 충격파 + 효율 I\n마그마 장벽 → 활력 I + 명상 II\n\n세트 II · 한손 철퇴 + 공유 방패\n충격파 토템 → 빠른 공격 I + 긴급한 토템 I + 포악함 II\n\n자동 부여\n선대의 혼백 → 연결 보조 없음\n화산 균열(선택): 희귀·보스에 토템을 놓고 안전할 때 발밑에 한 번 깐다. 토템 강타가 균열 여진을 일으킨다. 기본 토템·지진 운영에 추가하는 보조이며 필수 연타 스킬은 아니다.\n\n다음: 정신력·장비·회복 준비 → 05\n패시브 목표: 일반 67점 / 특화 I 16점·II 16점 / 전직 4점.\n보유한 퀘스트 포인트와 전직만 사용한다. 65레벨 이상 캠페인에서도 준비가 안 됐으면 이전 단계를 유지한다.\n\n이번 리그 제작자 52레벨 공개 스냅샷의 트리·연결. 첫 함성 전환은 46레벨 실측 트리를 경유하도록 환불 순서에 넣었다."
+}

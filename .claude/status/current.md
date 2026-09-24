@@ -1,10 +1,11 @@
-**지금**: 주 진행 = **Ky 아크 토템 젬링 SC 새 캐릭**(2026-09-23~). 플래너 17 · 필터 `PathcraftAI_ArcTotem_1~3` 게임 설치(새 빌더로 재생성해도 바이트 일치). 전환은 2단계 — 70 에 6부위, 80 에 투구·장갑·신발. 70 때움 장비 실측 완료(2026-09-24, `deliverables/trade_probe/ky_lvl70_fill_*.json`): 요구 70↓ 로 플래너 06 동급(마나·Local ES·ES%/이속) 투구 928 · 장갑 335 · 신발 1,000건, 바탕 = Sorcerous Tiara · Opulent Gloves · Luxurious Slippers(모두 요구 70).
+**지금**: 주 진행 = **Ky 아크 토템 젬링 SC 캐릭**(계정·캐릭터 이름은 로컬 기억 `user_poe2_account_characters.md`). 2026-09-24 **Lv59 에 전환 완료** — poe.ninja 기준 마나 2,944 · 저항 75/75/75/카오스 18 · 유효 체력 8.2k · Arc 9.0k. 요구 63 이하 바탕으로 샀다(투구 Jungle Tiara · 갑옷 Ceremonial Robe · 장갑 Gold Gloves · 신발 Dunerunner Sandals, 링크·수수료 `deliverables/trade_probe/ky_shop63_*.json`). 골드는 SC 리그 공유 — 리스펙 완료로 거의 소진. 지금은 **EasyBabi 탐험 파밍**으로 골드·커런시 모으는 중(가이드 `deliverables/expedition_farming_2026-09-24/index.html`).
 
-**다음**: ① SSF 화염파·대재난 스펙의 `custom_sound`(mp3, POE2 무음) → 내장 소리로 교체 후 재빌드 ② 사용자 전환 시점(70)에 쇼핑 링크 정리 — 무기·셉터·의복·목걸이·반지는 `req_filters.lvl.max` 70 ③ 임성빈/HC 여정 DB 쪽 대기 항목은 `.claude/status/poe2_hc_gemling.md` · `hc_creator_sourcing.md` (허락 E/F/G 대기, `annotate_poe2_planner_notes.py` 이름 맵 어긋남)
+**다음**: ① 마법봉 재제작 — 주문·번개·마나 접두 3줄 + 접미 1줄 바탕(`deliverables/trade_probe/ky_wand_rebuild_20260924.json`) → **우측** 결정화 징조 우클릭 활성화 → 완벽한 마술의 에센스 ② 80레벨에 투구·장갑·신발을 원래 바탕(Ancestral Tiara · Sirenscale · Sekhema)으로 교체 ③ SSF 화염파·대재난 스펙의 `custom_sound`(mp3, POE2 무음) → 내장 소리로 교체 후 재빌드 ④ 임성빈/HC 여정 DB 대기 항목은 `.claude/status/poe2_hc_gemling.md` · `hc_creator_sourcing.md`
 
-**블로커**: 없음. `AGENTS.md`·`CLAUDE.md` 의 MCP 연결 규칙 추가분은 외부(사용자/코덱스) 편집이라 미커밋으로 둠.
+**블로커**: 없음.
 
 **포인터**:
+- 종료 스냅샷(2026-09-25) 포함·제외 목록 → `~/.claude/projects/D--Pathcraft-AI/snapshot_2026-09-25/`(MANIFEST.md · include.txt · exclude.tsv). 제외분(영상·프레임·자막·코퍼스 렌더·벤더 라이브러리·카페 스크랩 등 5,443개)은 디스크에만 있고 git 에 없다
 - 젬링·아틀라스 재구성(9/21) → `.claude/status/poe2_hc_gemling.md`
 - 필터 디자인·빌더 문법 → `.claude/status/poe2_filter_design.md`
 - HC 여정 DB 소싱 → `.claude/status/hc_creator_sourcing.md` · 하코 명부 → `poe2_hardcore_sources.md`

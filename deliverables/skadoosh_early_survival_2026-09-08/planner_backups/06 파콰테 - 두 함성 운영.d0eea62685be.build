@@ -1,0 +1,695 @@
+{
+  "author": "Skadoosh / Pathcraft 한국어 방송 대조 v3",
+  "link": "https://poe.ninja/poe2/builds/forbiddenriteshc/character/ITheCon-2183/SkadooshShoutedHard",
+  "ascendancy": "Warrior2",
+  "inventory_slots": [
+    {
+      "inventory_id": "Weapon1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{세트 I · 성소 셉터 + 방어도 방패}\n사용 스킬 → 연결 젬\n불의 순수함 → 활력 II + 식인 II\n방패 들기 → 연결 보조 없음\n공명하는 방패 → 격노 I + 방어구 철거자 I\n마그마 장벽 → 연결 보조 없음\n보강하는 함성 → 파콰테의 맹약 + 메아리치는 함성 + 포악함 II + 고통 격화 II\n지진 함성 → 우주의 영사 + 효율 II + 격노하는 함성\n\n<b>{세트 I · 성소 셉터}\n추천 옵션\n1. 최종 정신력 수치\n2. 불의 순수함을 부여하는 성소 셉터\n버프를 켜고 토템 설치 전 I·II 각각 정신력 300 이상이 4기 목표다. 한쪽만 충분하면 교체 중 토템이 사라질 수 있다."
+    },
+    {
+      "inventory_id": "Weapon2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{세트 II · 한손 철퇴 + 성소 셉터}\n사용 스킬 → 연결 젬\n불의 순수함 → 활력 I\n선대의 전사 토템 → 지면 분쇄 [내부 액티브 젬] + 포악함 II + 파생하는 균열 I\n\n<b>{세트 II · 한손 철퇴}\n추천 옵션\n1. 무기에 표시된 물리 피해와 공격 속도\n2. 모든 근접 스킬 레벨 +\n3. 명중률 / 필요한 능력치\n이번 하코 경로는 한손 철퇴를 사용한다. 양손 철퇴로 바꾸는 필수 단계는 없다."
+    },
+    {
+      "inventory_id": "Offhand1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{세트 I · 방어도 방패}\n추천 옵션\n1. 방패 방어도\n2. 최대 생명력\n3. 부족한 원소 저항\n4. 막기 확률\n보강하는 함성은 방어도 방패가 필요하다. 셉터 전환 뒤에도 방패는 I에 유지한다."
+    },
+    {
+      "inventory_id": "Offhand2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{세트 II · 성소 셉터}\n추천 옵션\n1. 최종 정신력 수치\n2. 불의 순수함을 부여하는 성소 셉터\n버프를 켜고 토템 설치 전 I·II 각각 정신력 300 이상이 4기 목표다. 한쪽만 충분하면 교체 중 토템이 사라질 수 있다."
+    },
+    {
+      "inventory_id": "Helm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{투구}\n추천 옵션\n1. 최대 생명력\n2. 현재 부족한 화염·냉기·번개 저항\n3. 초당 생명력 재생\n4. 방어도"
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{갑옷}\n추천 옵션\n1. 정신력 + (예약 부족분부터)\n2. 최대 생명력\n3. 현재 부족한 화염·냉기·번개 저항\n4. 초당 생명력 재생\n5. 방어도\n6. 방어도가 원소 피해에도 적용되는 옵션\n하코 전환 전 양 세트 저항·생명력·회복을 비교한다. 제작자의 54레벨 번개 저항 35%를 목표로 복사하지 않는다."
+    },
+    {
+      "inventory_id": "Gloves1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{장갑}\n추천 옵션\n1. 모든 근접 스킬 레벨 +\n2. 최대 생명력\n3. 현재 부족한 화염·냉기·번개 저항\n4. 초당 생명력 재생\n5. 방어도\n6. 공격 속도\n양 세트에서 적용되는 근접 스킬 레벨은 함성과 토템의 젬 레벨을 보충한다."
+    },
+    {
+      "inventory_id": "Boots1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{장화}\n추천 옵션\n1. 이동 속도\n2. 최대 생명력\n3. 현재 부족한 화염·냉기·번개 저항\n4. 초당 생명력 재생\n5. 방어도"
+    },
+    {
+      "inventory_id": "Amulet1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{목걸이}\n추천 옵션\n1. 정신력 + (예약 부족분부터)\n2. 최대 생명력\n3. 초당 생명력 재생\n4. 부족한 저항\n5. 모든 근접 스킬 레벨 + / 필요한 민첩·지능"
+    },
+    {
+      "inventory_id": "Belt1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{허리띠}\n추천 옵션\n1. 최대 생명력\n2. 부족한 저항\n3. 생명력 플라스크 회복 관련 옵션\n4. 호신부 관련 옵션"
+    },
+    {
+      "inventory_id": "Ring1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{반지 1}\n추천 옵션\n1. 최대 생명력\n2. 현재 부족한 화염·냉기·번개 저항\n3. 초당 생명력 재생\n4. 필요한 민첩·지능"
+    },
+    {
+      "inventory_id": "Ring2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{반지 2}\n추천 옵션\n1. 최대 생명력\n2. 현재 부족한 화염·냉기·번개 저항\n3. 초당 생명력 재생\n4. 필요한 민첩·지능"
+    },
+    {
+      "inventory_id": "Flask1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{생명력 플라스크}\n추천 옵션\n1. 착용 가능한 높은 회복량\n2. 회복 속도 / 즉시 회복 부분\n3. 충전 유지 관련 옵션"
+    },
+    {
+      "inventory_id": "Charm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{호신부}\n추천 옵션\n1. 현재 구간의 기절·동결 대응\n2. 효과 지속시간\n3. 충전 유지 관련 옵션"
+    }
+  ],
+  "name": "06 파콰테 - 두 함성 운영",
+  "passives": [
+    {
+      "id": "warcries34",
+      "weapon_set": 1,
+      "additional_text": "직접 함성 사용 시 최대 생명력·마나의 2% 회복. 메아리 회복의 정량 검증은 미완료이므로 추가 비용을 전부 상쇄한다고 계산하지 않는다."
+    },
+    {
+      "id": "attributes70",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "AscendancyWarrior2Small5"
+    },
+    {
+      "id": "physical28"
+    },
+    {
+      "id": "strength70",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "warcries38",
+      "weapon_set": 1
+    },
+    {
+      "id": "warcries9",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes3",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems1",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems9",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems36",
+      "weapon_set": 2
+    },
+    {
+      "id": "marauder_brute_notable2",
+      "additional_text": "방어도 15% 증가, 최대 생명력 0.5% 초당 재생, 힘 +10. 현재 경로에서 도달하면 장비 방어도·생명력과 함께 확인한다."
+    },
+    {
+      "id": "wolf12",
+      "weapon_set": 1
+    },
+    {
+      "id": "intelligence74",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength41",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems37",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength21",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "warcries29",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems34",
+      "additional_text": "토템이 있을 때 플레이어 최대 생명력의 1%를 초당 재생한다. 다른 재생 보정 전 생명력 400이면 이 효과는 초당 4인 보조 회복이다. 맞으며 버티는 운영의 근거로 삼지 않는다. 토템의 3% 재생은 토템 자신에게 적용되며 토템이 모두 사라지면 플레이어의 조건부 재생도 끊긴다."
+    },
+    {
+      "id": "attributes16",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "attributes80",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength67",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength26",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems45"
+    },
+    {
+      "id": "totems44",
+      "weapon_set": 2
+    },
+    {
+      "id": "criticals93_"
+    },
+    {
+      "id": "totems43"
+    },
+    {
+      "id": "jewel_slot1977"
+    },
+    {
+      "id": "totems14",
+      "weapon_set": 2
+    },
+    {
+      "id": "jewel_slot1956"
+    },
+    {
+      "id": "strength69",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength64",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "armour14"
+    },
+    {
+      "id": "warcries3"
+    },
+    {
+      "id": "warcries39",
+      "weapon_set": 1
+    },
+    {
+      "id": "warcries18",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes15",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "wolf14",
+      "weapon_set": 1
+    },
+    {
+      "id": "armour35",
+      "additional_text": "착용한 갑옷에서 얻는 방어도 80% 증가. 모든 부위의 방어도에 80%가 붙는 효과는 아니다. 갑옷의 실제 방어도·생명력·저항을 함께 갱신한다."
+    },
+    {
+      "id": "intelligence72",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "AscendancyWarrior2Start"
+    },
+    {
+      "id": "strength22",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "wolf13_",
+      "weapon_set": 1
+    },
+    {
+      "id": "warcries17"
+    },
+    {
+      "id": "totems26",
+      "weapon_set": 2
+    },
+    {
+      "id": "armour6"
+    },
+    {
+      "id": "strength53",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength44",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "AscendancyWarrior2Small6"
+    },
+    {
+      "id": "AscendancyWarrior2Notable6"
+    },
+    {
+      "id": "warcries36",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes54_",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "warcries1",
+      "weapon_set": 1
+    },
+    {
+      "id": "strength25",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems38",
+      "weapon_set": 2
+    },
+    {
+      "id": "warcries35",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems11",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength23",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "passive_keystone_ancestral_bond",
+      "additional_text": "05 전환 때 추가. 토템당 정신력 75 예약. 4기는 버프 후 양 세트 각각 300이 필요하다. 별도의 설치 비용은 남는다."
+    },
+    {
+      "id": "AscendancyWarrior2Notable4_"
+    },
+    {
+      "id": "strength54",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "intelligence8",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength40_",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "attributes55",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength71",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "passive_keystone_blood_magic",
+      "additional_text": "05 전환의 마지막에 찍는다. 마나 비용이 생명력으로 바뀐다. 설치/함성 뒤 회복이 부족하면 이 1점을 되돌리고 전투를 멈춘다."
+    },
+    {
+      "id": "strength51",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "warcries10",
+      "weapon_set": 1
+    },
+    {
+      "id": "strength42",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems8",
+      "weapon_set": 2
+    },
+    {
+      "id": "attributes71",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "physical29"
+    },
+    {
+      "id": "strength24_",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength15",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "jewel_slot1971"
+    },
+    {
+      "id": "attributes32",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems39",
+      "weapon_set": 2
+    },
+    {
+      "id": "intelligence71",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "strength65_",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "attributes5",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "physical26"
+    },
+    {
+      "id": "totems25",
+      "weapon_set": 2
+    },
+    {
+      "id": "attributes6",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "totems15",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength68",
+      "additional_text": "기본은 힘. 현재 장비·젬에 부족한 민첩·지능을 양 세트에서 만족하도록 선택한다."
+    },
+    {
+      "id": "warcries37",
+      "weapon_set": 1
+    },
+    {
+      "id": "physical37"
+    },
+    {
+      "id": "totems48_",
+      "weapon_set": 2
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [],
+      "additional_text": "<b>{선대의 혼백 · 자동 부여}\n전직에서 자동 부여. 별도 젬을 만들지 않는다. 토템이 부르는 선조는 주로 보조 효과다.\n<b>{이 스킬 안에 넣을 젬}\n현재 연결 보조 없음."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitalityTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{활력 II}\n연결할 스킬: 불의 순수함 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemCannibalismTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{식인 II}\n연결할 스킬: 불의 순수함 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{불의 순수함 · 세트 I}\n성소 셉터가 부여한다. 해당 세트의 셉터 스킬에 보조를 연결한다.\n<b>{이 스킬 안에 넣을 젬}\n활력 II + 식인 II\nG 무기 세트에서 I만 체크한다. 파일이 체크박스를 자동 설정하지 않는다."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [],
+      "additional_text": "<b>{방패 들기 · 세트 I}\n방패 세트에서 막기. 토템 설치 후 이 세트로 복귀한다.\n<b>{이 스킬 안에 넣을 젬}\n현재 연결 보조 없음.\nG 무기 세트에서 I만 체크한다. 파일이 체크박스를 자동 설정하지 않는다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitality",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{활력 I}\n연결할 스킬: 불의 순수함 (세트 II).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{불의 순수함 · 세트 II}\n성소 셉터가 부여한다. 해당 세트의 셉터 스킬에 보조를 연결한다.\n<b>{이 스킬 안에 넣을 젬}\n활력 I\nG 무기 세트에서 II만 체크한다. 파일이 체크박스를 자동 설정하지 않는다."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemRage",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{격노 I}\n연결할 스킬: 공명하는 방패 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemDemolisher",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{방어구 철거자 I}\n연결할 스킬: 공명하는 방패 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{공명하는 방패 · 세트 I}\n필요할 때 쓰는 방패 보조 공격. 주력 토템/함성보다 먼저 연타할 필요는 없다.\n<b>{이 스킬 안에 넣을 젬}\n격노 I + 방어구 철거자 I\nG 무기 세트에서 I만 체크한다. 파일이 체크박스를 자동 설정하지 않는다."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [],
+      "additional_text": "<b>{마그마 장벽 · 세트 I}\n정신력 버프. 버프와 연결 보조의 예약량을 합산한다.\n후기 정신력 300 확보가 우선이다. 양 세트의 토템 예약량이 모자라면 이 버프를 먼저 끈다.\n<b>{이 스킬 안에 넣을 젬}\n현재 연결 보조 없음.\nG 무기 세트에서 I만 체크한다. 파일이 체크박스를 자동 설정하지 않는다."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemCorruptingCryThree",
+          "level_interval": [
+            65,
+            100
+          ],
+          "additional_text": "<b>{파콰테의 맹약}\n연결할 스킬: 보강하는 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다.\n캐릭터 65레벨 필요. 타락시키는 비명 I와 같은 함성에 함께 넣지 않는다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemEchoingCry",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{메아리치는 함성}\n연결할 스킬: 보강하는 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutalityTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{포악함 II}\n연결할 스킬: 보강하는 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{고통 격화 II}\n연결할 스킬: 보강하는 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{보강하는 함성 · 세트 I}\n방어도 방패가 있는 I에서 사용한다. 토템 설치 뒤 I로 돌아오는 함성이다.\n파콰테 함성은 한 번 누른 뒤 이동. 메아리는 1.3초 간격 2회, 다음 직접 사용 전에 10미터 이동이 필요하다. 최대 생명력 추가 비용을 기본 비용과 따로 확인한다. 반복까지 회복으로 모두 상쇄된다고 가정하지 않는다.\n<b>{이 스킬 안에 넣을 젬}\n파콰테의 맹약 + 메아리치는 함성 + 포악함 II + 고통 격화 II\nG 무기 세트에서 I만 체크한다. 파일이 체크박스를 자동 설정하지 않는다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
+      "level_interval": [
+        52,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutalityTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{포악함 II}\n연결할 스킬: 선대의 전사 토템 (세트 II).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemBranchingFissures",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{파생하는 균열 I}\n연결할 스킬: 선대의 전사 토템 (세트 II).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{선대의 전사 토템 · 세트 II}\n지면 분쇄 액티브 젬을 반드시 이 토템의 내부 소켓에 넣는다. 아래 일반 보조도 같은 토템에 넣는다. 설치는 II만 체크하고 사용 직후 I로 복귀한다.\n<b>{이 스킬 안에 넣을 젬}\n지면 분쇄 [내부 액티브 젬] + 포악함 II + 파생하는 균열 I\nG 무기 세트에서 II만 체크한다. 파일이 체크박스를 자동 설정하지 않는다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+      "level_interval": [
+        23,
+        100
+      ],
+      "support_skills": [],
+      "additional_text": "<b>{지면 분쇄 · 전사 토템 내부}\n획득한 뒤 선대의 전사 토템 안에 넣을 액티브 젬. 별도 수동 공격 버튼으로 사용하지 않는다. 공식 플래너의 메타 젬 미지원 때문에 획득 항목을 따로 표시했다.\n<b>{이 스킬 안에 넣을 젬}\n현재 연결 보조 없음."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSeismicCry",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemAstralProjection",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{우주의 영사}\n연결할 스킬: 지진 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{효율 II}\n연결할 스킬: 지진 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRagingCry",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{격노하는 함성}\n연결할 스킬: 지진 함성 (세트 I).\n해당 스킬의 보조 소켓에 넣는다. 무기의 룬 소켓이 아니다."
+        }
+      ],
+      "additional_text": "<b>{지진 함성 · 세트 I}\n토템이 만든 지면 분쇄 가시를 직접 터뜨리는 함성. 파콰테를 이쪽에 옮기지 않는다.\n우주의 영사·효율 II·격노하는 함성을 연결한다. 지진 함성 비용도 생명력 유지 계산에 포함한다.\n<b>{이 스킬 안에 넣을 젬}\n우주의 영사 + 효율 II + 격노하는 함성\nG 무기 세트에서 I만 체크한다. 파일이 체크박스를 자동 설정하지 않는다."
+    }
+  ],
+  "description": "지금 할 일\n캐릭터 65레벨과 파콰테·메아리치는 함성·두 함성의 소켓을 확보한 뒤에만 시험한다. 보강하는 함성의 타락시키는 비명 I를 파콰테로, 효율 II를 메아리치는 함성으로 바꾼다. 지진 함성에 우주의 영사·효율 II·격노하는 함성을 넣는다. 05 트리를 그대로 쓰며 97점 완성은 필요하지 않다. 파콰테 함성은 한 번 쓰고 이동하며 반복을 기다린다. 비용이 누적되거나 플라스크 의존이 커지면 즉시 05 연결로 돌아간다.\n\n무기·스킬셋\n\n세트 I · 성소 셉터 + 방어도 방패\n불의 순수함 → 활력 II + 식인 II\n방패 들기 → 연결 보조 없음\n공명하는 방패 → 격노 I + 방어구 철거자 I\n마그마 장벽 → 연결 보조 없음\n보강하는 함성 → 파콰테의 맹약 + 메아리치는 함성 + 포악함 II + 고통 격화 II\n지진 함성 → 우주의 영사 + 효율 II + 격노하는 함성\n\n세트 II · 한손 철퇴 + 성소 셉터\n불의 순수함 → 활력 I\n선대의 전사 토템 → 지면 분쇄 [내부 액티브 젬] + 포악함 II + 파생하는 균열 I\n\n토템 안에 넣을 액티브 젬\n지면 분쇄 → 연결 보조 없음\n\n자동 부여\n선대의 혼백 → 연결 보조 없음\n\n사용 순서\n전사 토템(II) 설치 → 보강하는 함성(I) 한 번 → 이동하며 메아리 2회 기다리기. 사이에 지진 함성(I)으로 토템의 지면 분쇄 가시를 폭발시키고 격노를 얻는다. 파콰테를 넣은 보강하는 함성을 지진 함성처럼 연타하지 않는다.\n\n다음: 두 함성 운영이 안정되면 → 07\n패시브 목표: 일반 69점 / 특화 I 14점·II 14점 / 전직 4점.\n보유한 퀘스트 포인트와 전직만 사용한다. 65레벨 이상 캠페인에서도 준비가 안 됐으면 이전 단계를 유지한다.\n\n방송에서 확인한 65레벨 파콰테·두 함성 운영을 05의 동일 트리에 적용한 Pathcraft 전환안. 65레벨 당시 전체 트리 실측본은 아니다."
+}

@@ -1,0 +1,127 @@
+{
+  "filters": [
+    {
+      "file": "Pathcraft-Skadoosh-HC-01-Campaign.filter",
+      "sweep_regressions": 0,
+      "overlay_unmodelled_conditions": {},
+      "upstream_unmodelled_conditions": {
+        "TwiceCorrupted": 5,
+        "Width": 12,
+        "Height": 12,
+        "AlwaysShow": 1,
+        "GemLevel": 15,
+        "WaystoneTier": 41,
+        "HasVaalUniqueMod": 1,
+        "IsVaalUnique": 1,
+        "BaseEnergyShield": 12,
+        "BaseEvasion": 12,
+        "BaseArmour": 12
+      },
+      "progression_samples": 32,
+      "unique_controls_equal": 12
+    },
+    {
+      "file": "Pathcraft-Skadoosh-HC-02-EarlyMaps.filter",
+      "sweep_regressions": 0,
+      "overlay_unmodelled_conditions": {},
+      "upstream_unmodelled_conditions": {
+        "TwiceCorrupted": 5,
+        "Width": 12,
+        "Height": 12,
+        "AlwaysShow": 1,
+        "GemLevel": 15,
+        "WaystoneTier": 41,
+        "HasVaalUniqueMod": 1,
+        "IsVaalUnique": 1,
+        "BaseEnergyShield": 12,
+        "BaseEvasion": 12,
+        "BaseArmour": 12
+      },
+      "progression_samples": 32,
+      "unique_controls_equal": 12
+    },
+    {
+      "file": "Pathcraft-Skadoosh-HC-03-SettledMaps.filter",
+      "sweep_regressions": 0,
+      "overlay_unmodelled_conditions": {},
+      "upstream_unmodelled_conditions": {
+        "TwiceCorrupted": 5,
+        "Width": 8,
+        "Height": 8,
+        "AlwaysShow": 1,
+        "GemLevel": 15,
+        "WaystoneTier": 41,
+        "HasVaalUniqueMod": 1,
+        "IsVaalUnique": 1,
+        "BaseEnergyShield": 12,
+        "BaseEvasion": 12,
+        "BaseArmour": 12
+      },
+      "progression_samples": 32,
+      "unique_controls_equal": 12
+    }
+  ],
+  "planners": [
+    {
+      "file": "01 시작-근접 기초",
+      "native_export_shape": true,
+      "known_gem_entries": 6,
+      "upper_level_100": true
+    },
+    {
+      "file": "02 초반-토템 도입",
+      "native_export_shape": true,
+      "known_gem_entries": 13,
+      "upper_level_100": true
+    },
+    {
+      "file": "03 1차전직-충격파 토템",
+      "native_export_shape": true,
+      "known_gem_entries": 19,
+      "upper_level_100": true
+    },
+    {
+      "file": "04 캠페인-대장간 망치 추가",
+      "native_export_shape": true,
+      "known_gem_entries": 19,
+      "upper_level_100": true
+    },
+    {
+      "file": "05 2차전직-함성 전환 준비",
+      "native_export_shape": true,
+      "known_gem_entries": 21,
+      "upper_level_100": true
+    },
+    {
+      "file": "06 타락 함성-첫 전환",
+      "native_export_shape": true,
+      "known_gem_entries": 25,
+      "upper_level_100": true
+    },
+    {
+      "file": "07 타락 함성-캠페인 유지",
+      "native_export_shape": true,
+      "known_gem_entries": 28,
+      "upper_level_100": true
+    },
+    {
+      "file": "08 함성 유지-추가 방어 투자",
+      "native_export_shape": true,
+      "known_gem_entries": 28,
+      "upper_level_100": true
+    },
+    {
+      "file": "09 준비완료-AWT와 파콰테",
+      "native_export_shape": true,
+      "known_gem_entries": 28,
+      "upper_level_100": true
+    }
+  ],
+  "limits": [
+    "게임 클라이언트 로딩/실전 플레이 미검증",
+    "미가공 젬 GemLevel 등 기존 평가기가 모델링하지 않는 조건은 원본 보존으로 보호; 해당 조건의 시뮬레이션 통과를 주장하지 않음"
+  ],
+  "AWT_nested_active_matches_creator_export": true,
+  "two_distinct_sceptre_Purity_groups_preserved": true,
+  "six_observed_stages_explicit_socket_groups_equal": true
+}

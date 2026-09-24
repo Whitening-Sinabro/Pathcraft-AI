@@ -1,5 +1,14 @@
 # Pathcraft-AI agent instructions
 
+## Shared MCP/browser connection checks
+
+Before reporting a requested MCP or authenticated browser unavailable, read
+`C:/Users/User/.agents/MCP_BROWSER_CONNECTION_RULES.md` and check both Codex and
+Claude global/project server configurations. Reuse the supported configured
+connection and verify it with a real tool call. Do not stop at saying the server
+is configured in the other client. Keep configuration, MCP connectivity,
+browser profile/login, and successful playback as separate verified facts.
+
 ## POE1 item filters
 
 Before creating, recolouring, or modifying any POE1 `.filter` file, read

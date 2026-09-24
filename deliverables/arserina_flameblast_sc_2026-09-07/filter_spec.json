@@ -1,0 +1,986 @@
+{
+  "_meta": {
+    "build": "Arserina Flameblast Gemling SC — Pathcraft map extensions",
+    "patch": "0.5.5 Forbidden Rites",
+    "source_pob": "https://poe.ninja/poe2/pob/27e13",
+    "creator_filter": "https://pathofexile2.com/item-filter/qOlkq0TV",
+    "creator_video": "https://youtu.be/SoGq3nb2O0I",
+    "base_version": "0.10.4",
+    "campaign": "Unmodified Arserina POE2 Act; generated map filters are Pathcraft additions, not creator releases.",
+    "stages": [
+      {
+        "stage": "maps",
+        "base": "regular",
+        "file": "Pathcraft-Arserina-SC-02-EarlyMaps.filter"
+      },
+      {
+        "stage": "endgame",
+        "base": "strict",
+        "file": "Pathcraft-Arserina-SC-03-SettledMaps.filter"
+      }
+    ],
+    "notes": [
+      "Added rules only Show; the selected NeverSink base still has Hide rules.",
+      "Uncut gems and valuable non-target items keep the original NeverSink rules.",
+      "Manual progression is based on campaign completion, equipment and drop clutter, not character level alone.",
+      "All exact original PoB gear bases are examples unless a skill or unique requires the base."
+    ]
+  },
+  "styles": {
+    "weapon_core": {
+      "comment": "주요 지팡이: 기존 진홍 무기 표시 유지",
+      "text": [
+        255,
+        255,
+        255
+      ],
+      "border": [
+        255,
+        255,
+        255
+      ],
+      "background": [
+        151,
+        7,
+        7
+      ],
+      "font": 45,
+      "sound": [
+        1,
+        300
+      ],
+      "beam": "Red",
+      "icon": [
+        0,
+        "Red",
+        "Kite"
+      ]
+    },
+    "weapon_gear": {
+      "comment": "석궁과 임시 무기: 기본 무기 색 구분",
+      "text": [
+        235,
+        150,
+        130
+      ],
+      "border": [
+        200,
+        75,
+        55
+      ],
+      "background": [
+        62,
+        14,
+        10
+      ],
+      "font": 42,
+      "sound": null,
+      "beam": "Red Temp",
+      "icon": [
+        2,
+        "Red",
+        "Kite"
+      ]
+    },
+    "armour_gear": {
+      "comment": "방어구 후보: 색 표시, 기본 경보 수준 유지",
+      "text": [
+        225,
+        160,
+        140
+      ],
+      "border": [
+        175,
+        80,
+        65
+      ],
+      "background": [
+        42,
+        3,
+        5
+      ],
+      "font": 42,
+      "sound": null,
+      "beam": null,
+      "icon": [
+        2,
+        "Red",
+        "Kite"
+      ]
+    },
+    "jewellery_gear": {
+      "comment": "장신구 후보: 기존 구리색 표시",
+      "text": [
+        230,
+        180,
+        120
+      ],
+      "border": [
+        185,
+        120,
+        55
+      ],
+      "background": [
+        52,
+        26,
+        8
+      ],
+      "font": 42,
+      "sound": null,
+      "beam": null,
+      "icon": [
+        2,
+        "Orange",
+        "Kite"
+      ]
+    },
+    "augment_endgame": {
+      "comment": "후기 제작 재료: 기존 룬 색 표시",
+      "text": [
+        245,
+        125,
+        95
+      ],
+      "border": [
+        215,
+        65,
+        50
+      ],
+      "background": [
+        58,
+        4,
+        7
+      ],
+      "font": 42,
+      "sound": [
+        3,
+        300
+      ],
+      "beam": "Red Temp",
+      "icon": [
+        1,
+        "Red",
+        "Circle"
+      ]
+    },
+    "augment_craft": {
+      "comment": "일반 제작 재료: 기본 경보 수준 유지",
+      "text": [
+        170,
+        110,
+        100
+      ],
+      "border": [
+        120,
+        45,
+        40
+      ],
+      "background": [
+        18,
+        10,
+        11
+      ],
+      "font": 38,
+      "sound": null,
+      "beam": null,
+      "icon": null
+    },
+    "charm_endgame": {
+      "comment": "플라스크·호신부 표시",
+      "text": [
+        245,
+        175,
+        180
+      ],
+      "border": [
+        215,
+        110,
+        120
+      ],
+      "background": [
+        72,
+        24,
+        30
+      ],
+      "font": 42,
+      "sound": [
+        3,
+        300
+      ],
+      "beam": "Orange Temp",
+      "icon": [
+        1,
+        "Orange",
+        "Raindrop"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "name": "화염파 주무기 — 차임벨 지팡이",
+      "style": "weapon_core",
+      "base_types": [
+        "Chiming Staff"
+      ],
+      "class": [
+        "Staves"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 PoB 03 Swap/04/05 공통. 힘의 부적을 제공하는 원본 베이스. 드롭만으로 좋은 옵션을 보장하지 않으며 주문 스킬 레벨·주문 피해를 확인한다."
+    },
+    {
+      "name": "초기 지도 임시 지팡이 — 재 지팡이",
+      "style": "weapon_gear",
+      "base_types": [
+        "Ashen Staff"
+      ],
+      "class": [
+        "Staves"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "stages": [
+        "maps"
+      ],
+      "note": "기존 젬링 필터의 화염 지팡이 예비 후보를 초기 지도까지 보존하는 Pathcraft 보완. 아르세리나 원본은 Chiming Staff이며 Ashen Staff에는 힘의 부적이 없다."
+    },
+    {
+      "name": "기름 유탄 무기 — 폭격·포격 석궁",
+      "style": "weapon_gear",
+      "base_types": [
+        "Bombard Crossbow",
+        "Cannonade Crossbow"
+      ],
+      "class": [
+        "Crossbows"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 03 Swap/04는 Bombard, 05는 Cannonade. 유탄 추가 투사체 베이스가 목적이라 후기에도 저등급을 남긴다. 기름 유탄에 약한 점화를 추가할 공격 화염 피해를 피한다."
+    },
+    {
+      "name": "후기 목표 — 카옴의 심장 베이스 고유",
+      "style": "weapon_core",
+      "base_types": [
+        "Conqueror Plate"
+      ],
+      "class": [
+        "Body Armours"
+      ],
+      "rarity": [
+        "Unique"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 05의 목표 고유. 카옴의 심장은 52레벨 전환 필수가 아니다. 필터는 고유 이름이 아니라 희귀도와 베이스로 표시한다."
+    },
+    {
+      "name": "주얼 — 루비",
+      "style": "jewellery_gear",
+      "base_types": [
+        "Ruby"
+      ],
+      "class": [
+        "Jewels"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic",
+        "Rare"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 화염/점화 주얼 후보. 고유 루비 주얼은 NeverSink의 고유 경보를 유지한다."
+    },
+    {
+      "name": "젬 성장 재료 — 품질과 보조 소켓",
+      "style": "augment_endgame",
+      "base_types": [
+        "Gemcutter's Prism",
+        "Greater Jeweller's Orb",
+        "Lesser Jeweller's Orb",
+        "Perfect Jeweller's Orb"
+      ],
+      "class": [
+        "Stackable Currency"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "화염파·기름 유탄의 품질과 보조 소켓 확장. 후기에도 재료를 표시한다. 상위/완벽 주얼러가 52레벨에 모두 필요한 것은 아니다."
+    },
+    {
+      "name": "후기 지팡이 제작 — 완벽한 마법 에센스",
+      "style": "augment_endgame",
+      "base_types": [
+        "Perfect Essence of Sorcery"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 05의 모든 주문 스킬 레벨 +5 제작 목표. 고가 재료를 갖춰야만 전환 가능한 것은 아니다."
+    },
+    {
+      "name": "원본 지팡이·방어구 지정 룬",
+      "style": "augment_endgame",
+      "base_types": [
+        "Courtesan Mannan's Rune of Cruelty",
+        "Greater Desert Rune",
+        "Hedgewitch Assandra's Rune of Wisdom",
+        "Rune of Acrobatics",
+        "Saqawal's Rune of Erosion"
+      ],
+      "class": [
+        "Augment"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 PoB 03 Swap/04/05의 실제 Rune 항목. Greater Desert Rune는 지팡이에 사용하며 기름 유탄 석궁에는 넣지 않는다."
+    },
+    {
+      "name": "원본 후기 석궁 룬",
+      "style": "augment_endgame",
+      "base_types": [
+        "Ancient Rune of Detonation",
+        "Rune of Vitality"
+      ],
+      "class": [
+        "Augment"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 PoB 05의 석궁 Rune 항목. 획득은 선택적인 후기 강화이며 전환 필수가 아니다."
+    },
+    {
+      "name": "기본 장비 제작 재료",
+      "style": "augment_craft",
+      "base_types": [
+        "Armourer's Scrap",
+        "Artificer's Orb",
+        "Blacksmith's Whetstone"
+      ],
+      "class": [
+        "Stackable Currency"
+      ],
+      "stages": [
+        "maps"
+      ],
+      "note": "초기 지도에서 장비 홈과 품질 보완. 후기 표시 수준은 NeverSink STRICT에 맡긴다."
+    },
+    {
+      "name": "초기 지도 생명력 룬",
+      "style": "augment_craft",
+      "base_types": [
+        "Body Rune",
+        "Greater Body Rune",
+        "Lesser Body Rune"
+      ],
+      "class": [
+        "Augment"
+      ],
+      "stages": [
+        "maps"
+      ],
+      "note": "초기 장비의 생명력 보완용. 원본 후기 지정 룬과 별도 선택이다."
+    },
+    {
+      "name": "원본 플라스크 최종 베이스",
+      "style": "charm_endgame",
+      "base_types": [
+        "Ultimate Life Flask",
+        "Ultimate Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 03/04/05 플라스크 베이스. 회복량·접두/접미는 주운 뒤 확인하며 52레벨 필수품으로 취급하지 않는다."
+    },
+    {
+      "name": "초기 지도 임시 플라스크",
+      "style": "charm_endgame",
+      "base_types": [
+        "Gargantuan Life Flask",
+        "Gargantuan Mana Flask",
+        "Transcendent Life Flask",
+        "Transcendent Mana Flask"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "maps"
+      ],
+      "note": "최종 플라스크를 구하기 전 사용할 수 있는 후보."
+    },
+    {
+      "name": "원본 호신부",
+      "style": "charm_endgame",
+      "base_types": [
+        "Silver Charm",
+        "Stone Charm",
+        "Thawing Charm"
+      ],
+      "class": [
+        "Charms"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 PoB 03/04/05의 세 호신부. 실제 호신부 슬롯 수와 필요한 상태이상 대응을 확인한다."
+    },
+    {
+      "name": "후기 목걸이 성유 재료",
+      "style": "augment_endgame",
+      "base_types": [
+        "Diluted Liquid Guilt",
+        "Liquid Despair",
+        "Potent Liquid Ferocity"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "기존 아르세리나 가이드의 Pyromancer 성유 재료. 거래소 가치와 별도로 빌드 강화 재료로 남긴다."
+    },
+    {
+      "name": "희귀 Rings — 옵션을 확인할 후보",
+      "style": "jewellery_gear",
+      "base_types": [
+        "Abyssal Signet",
+        "Amethyst Ring",
+        "Biostatic Ring",
+        "Breach Ring",
+        "Dusk Ring",
+        "Emerald Ring",
+        "Gloam Ring",
+        "Gold Ring",
+        "Golden Hoop",
+        "Grasping Ring",
+        "Iron Ring",
+        "Kinetic Ring",
+        "Lazuli Ring",
+        "Mnemonic Ring",
+        "Oneiric Ring",
+        "Pearl Ring",
+        "Penumbra Ring",
+        "Prismatic Ring",
+        "Refined Breach Ring",
+        "Ring",
+        "Ruby Ring",
+        "Sapphire Ring",
+        "Tenebrous Ring",
+        "Topaz Ring",
+        "Two-Stone Ring",
+        "Unset Ring",
+        "Vitalic Ring"
+      ],
+      "class": [
+        "Rings"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 반지는 베이스 미지정, 목걸이 Gold/허리띠 Utility도 예시다. 생명력·저항·주문 레벨 등 옵션으로 고르도록 희귀 베이스를 넓게 남긴다."
+    },
+    {
+      "name": "희귀 Amulets — 옵션을 확인할 후보",
+      "style": "jewellery_gear",
+      "base_types": [
+        "Absent Amulet",
+        "Amber Amulet",
+        "Azure Amulet",
+        "Bloodstone Amulet",
+        "Corona Amulet",
+        "Crimson Amulet",
+        "Distorted Amulet",
+        "Dusk Amulet",
+        "Gloam Amulet",
+        "Gold Amulet",
+        "Jade Amulet",
+        "Lament Amulet",
+        "Lapis Amulet",
+        "Lunar Amulet",
+        "Pearlescent Amulet",
+        "Penumbra Amulet",
+        "Portent Amulet",
+        "Runemastered Veridical Chain",
+        "Solar Amulet",
+        "Stellar Amulet",
+        "Tenebrous Amulet",
+        "Twisted Amulet",
+        "Veridical Chain"
+      ],
+      "class": [
+        "Amulets"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 반지는 베이스 미지정, 목걸이 Gold/허리띠 Utility도 예시다. 생명력·저항·주문 레벨 등 옵션으로 고르도록 희귀 베이스를 넓게 남긴다."
+    },
+    {
+      "name": "희귀 Belts — 옵션을 확인할 후보",
+      "style": "jewellery_gear",
+      "base_types": [
+        "Double Belt",
+        "Fine Belt",
+        "Forking Belt",
+        "Golden Obi",
+        "Heavy Belt",
+        "Invoking Belt",
+        "Linen Belt",
+        "Long Belt",
+        "Mail Belt",
+        "Ornate Belt",
+        "Plate Belt",
+        "Rawhide Belt",
+        "Runemastered Heavy Belt",
+        "Sinew Belt",
+        "Stalking Belt",
+        "Utility Belt",
+        "Wide Belt"
+      ],
+      "class": [
+        "Belts"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 반지는 베이스 미지정, 목걸이 Gold/허리띠 Utility도 예시다. 생명력·저항·주문 레벨 등 옵션으로 고르도록 희귀 베이스를 넓게 남긴다."
+    },
+    {
+      "name": "초기 저항·슬롯 반지 제작 후보",
+      "style": "jewellery_gear",
+      "base_types": [
+        "Amethyst Ring",
+        "Prismatic Ring",
+        "Ruby Ring",
+        "Sapphire Ring",
+        "Topaz Ring",
+        "Unset Ring"
+      ],
+      "class": [
+        "Rings"
+      ],
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "maps"
+      ],
+      "note": "저항 또는 스킬 슬롯이 부족할 때 제작할 후보. 무보석 반지는 원본 필수 장비가 아니다."
+    },
+    {
+      "name": "원본 후기 장신구 제작 후보",
+      "style": "jewellery_gear",
+      "base_types": [
+        "Gold Amulet",
+        "Utility Belt"
+      ],
+      "item_level_min": 75,
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "maps",
+        "endgame"
+      ],
+      "note": "원본 05에 근거한 제작 베이스 후보. 해당 베이스와 레벨만으로 완성 옵션을 보장하지 않는다."
+    },
+    {
+      "name": "초기 지도 방어도·회피 Body Armours 후보",
+      "style": "armour_gear",
+      "base_types": [
+        "Ancestral Mail",
+        "Chain Mail",
+        "Cloaked Mail",
+        "Dastard Armour",
+        "Death Mail",
+        "Explorer Armour",
+        "Gladiator Armour",
+        "Golden Mail",
+        "Heroic Armour",
+        "Knight Armour",
+        "Lamellar Mail",
+        "Mantled Mail",
+        "Ring Mail",
+        "Rogue Armour",
+        "Runeforged Ancestral Mail",
+        "Runeforged Chain Mail",
+        "Runeforged Cloaked Mail",
+        "Runeforged Dastard Armour",
+        "Runeforged Death Mail",
+        "Runeforged Explorer Armour",
+        "Runeforged Gladiator Armour",
+        "Runeforged Golden Mail",
+        "Runeforged Heroic Armour",
+        "Runeforged Knight Armour",
+        "Runeforged Lamellar Mail",
+        "Runeforged Mantled Mail",
+        "Runeforged Rogue Armour",
+        "Runeforged Scale Mail",
+        "Runeforged Shrouded Mail",
+        "Runeforged Slayer Armour",
+        "Runeforged Thane Mail",
+        "Runeforged Tournament Mail",
+        "Runeforged Trailblazer Armour",
+        "Runeforged Vagabond Armour",
+        "Runemastered Ancestral Mail",
+        "Runemastered Chain Mail",
+        "Runemastered Cloaked Mail",
+        "Runemastered Explorer Armour",
+        "Runemastered Heroic Armour",
+        "Runemastered Knight Armour",
+        "Runemastered Rogue Armour",
+        "Runemastered Scale Mail",
+        "Runemastered Vagabond Armour",
+        "Scale Mail",
+        "Scoundrel Armour",
+        "Shrouded Mail",
+        "Slayer Armour",
+        "Thane Mail",
+        "Tournament Mail",
+        "Trailblazer Armour",
+        "Vagabond Armour",
+        "Wanderer Armour"
+      ],
+      "class": [
+        "Body Armours"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "maps"
+      ],
+      "note": "원본 04의 방어도·회피 기반 장비와 대체 가능한 희귀 베이스. 원본 장비 이름과 같아야 하는 것은 아니다. 생명력·저항, 투구/장갑의 원소 피해에 적용되는 방어도 옵션 등을 확인한다."
+    },
+    {
+      "name": "초기 지도 방어도·회피 Helmets 후보",
+      "style": "armour_gear",
+      "base_types": [
+        "Brimmed Helm",
+        "Cabalist Helm",
+        "Cassis Helm",
+        "Champion Helm",
+        "Closed Helm",
+        "Cowled Helm",
+        "Cryptic Helm",
+        "Decorated Helm",
+        "Domed Helm",
+        "Engraved Helm",
+        "Gallant Helm",
+        "Gladiatorial Helm",
+        "Guarded Helm",
+        "Runeforged Brimmed Helm",
+        "Runeforged Cabalist Helm",
+        "Runeforged Champion Helm",
+        "Runeforged Closed Helm",
+        "Runeforged Cowled Helm",
+        "Runeforged Cryptic Helm",
+        "Runeforged Decorated Helm",
+        "Runeforged Gallant Helm",
+        "Runeforged Gladiatorial Helm",
+        "Runeforged Guarded Helm",
+        "Runeforged Shielded Helm",
+        "Runeforged Visored Helm",
+        "Runeforged Warded Helm",
+        "Runemastered Brimmed Helm",
+        "Runemastered Cowled Helm",
+        "Runemastered Decorated Helm",
+        "Runemastered Guarded Helm",
+        "Runemastered Shielded Helm",
+        "Runemastered Visored Helm",
+        "Shielded Helm",
+        "Soldier Helm",
+        "Visored Helm",
+        "Warded Helm"
+      ],
+      "class": [
+        "Helmets"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "maps"
+      ],
+      "note": "원본 04의 방어도·회피 기반 장비와 대체 가능한 희귀 베이스. 원본 장비 이름과 같아야 하는 것은 아니다. 생명력·저항, 투구/장갑의 원소 피해에 적용되는 방어도 옵션 등을 확인한다."
+    },
+    {
+      "name": "후기 방어도·회피 Helmets 후보",
+      "style": "armour_gear",
+      "base_types": [
+        "Champion Helm",
+        "Cryptic Helm",
+        "Gallant Helm",
+        "Gladiatorial Helm",
+        "Runeforged Champion Helm",
+        "Runeforged Cryptic Helm",
+        "Runeforged Gallant Helm",
+        "Runeforged Gladiatorial Helm",
+        "Runeforged Warded Helm",
+        "Runemastered Decorated Helm",
+        "Warded Helm"
+      ],
+      "item_level_min": 75,
+      "class": [
+        "Helmets"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "endgame"
+      ],
+      "note": "후기는 높은 기본 방어 수치의 장비 후보를 남긴다. 아이템 레벨 75는 필터의 후보 축소 기준이며 옵션 보장이 아니다."
+    },
+    {
+      "name": "초기 지도 방어도·회피 Gloves 후보",
+      "style": "armour_gear",
+      "base_types": [
+        "Blacksteel Gauntlets",
+        "Burnished Gauntlets",
+        "Captain Gauntlets",
+        "Commander Gauntlets",
+        "Cultist Gauntlets",
+        "Doubled Gauntlets",
+        "Ironmail Gauntlets",
+        "Layered Gauntlets",
+        "Ornate Gauntlets",
+        "Plate Gauntlets",
+        "Ringmail Gauntlets",
+        "Runeforged Blacksteel Gauntlets",
+        "Runeforged Burnished Gauntlets",
+        "Runeforged Commander Gauntlets",
+        "Runeforged Cultist Gauntlets",
+        "Runeforged Doubled Gauntlets",
+        "Runeforged Layered Gauntlets",
+        "Runeforged Ornate Gauntlets",
+        "Runeforged Plate Gauntlets",
+        "Runeforged Ringmail Gauntlets",
+        "Runeforged Steelmail Gauntlets",
+        "Runeforged Zealot Gauntlets",
+        "Runemastered Burnished Gauntlets",
+        "Runemastered Doubled Gauntlets",
+        "Runemastered Layered Gauntlets",
+        "Runemastered Plate Gauntlets",
+        "Runemastered Ringmail Gauntlets",
+        "Steelmail Gauntlets",
+        "Zealot Gauntlets"
+      ],
+      "class": [
+        "Gloves"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "maps"
+      ],
+      "note": "원본 04의 방어도·회피 기반 장비와 대체 가능한 희귀 베이스. 원본 장비 이름과 같아야 하는 것은 아니다. 생명력·저항, 투구/장갑의 원소 피해에 적용되는 방어도 옵션 등을 확인한다."
+    },
+    {
+      "name": "후기 방어도·회피 Gloves 후보",
+      "style": "armour_gear",
+      "base_types": [
+        "Blacksteel Gauntlets",
+        "Commander Gauntlets",
+        "Cultist Gauntlets",
+        "Ornate Gauntlets",
+        "Runeforged Blacksteel Gauntlets",
+        "Runeforged Commander Gauntlets",
+        "Runeforged Cultist Gauntlets",
+        "Runeforged Ornate Gauntlets",
+        "Runeforged Steelmail Gauntlets",
+        "Steelmail Gauntlets"
+      ],
+      "item_level_min": 75,
+      "class": [
+        "Gloves"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "endgame"
+      ],
+      "note": "후기는 높은 기본 방어 수치의 장비 후보를 남긴다. 아이템 레벨 75는 필터의 후보 축소 기준이며 옵션 보장이 아니다."
+    },
+    {
+      "name": "초기 지도 방어도·회피 Boots 후보",
+      "style": "armour_gear",
+      "base_types": [
+        "Bastion Sabatons",
+        "Blacksteel Sabatons",
+        "Bold Sabatons",
+        "Braced Sabatons",
+        "Covered Sabatons",
+        "Flexile Sabatons",
+        "Fortress Sabatons",
+        "Goldwork Sabatons",
+        "Mail Sabatons",
+        "Noble Sabatons",
+        "Runeforged Bastion Sabatons",
+        "Runeforged Blacksteel Sabatons",
+        "Runeforged Bold Sabatons",
+        "Runeforged Braced Sabatons",
+        "Runeforged Covered Sabatons",
+        "Runeforged Flexile Sabatons",
+        "Runeforged Fortress Sabatons",
+        "Runeforged Mail Sabatons",
+        "Runeforged Noble Sabatons",
+        "Runeforged Stacked Sabatons",
+        "Runeforged Veteran Sabatons",
+        "Runemastered Braced Sabatons",
+        "Runemastered Covered Sabatons",
+        "Runemastered Mail Sabatons",
+        "Runemastered Stacked Sabatons",
+        "Soldiering Sabatons",
+        "Stacked Sabatons",
+        "Veteran Sabatons"
+      ],
+      "class": [
+        "Boots"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "maps"
+      ],
+      "note": "원본 04의 방어도·회피 기반 장비와 대체 가능한 희귀 베이스. 원본 장비 이름과 같아야 하는 것은 아니다. 생명력·저항, 투구/장갑의 원소 피해에 적용되는 방어도 옵션 등을 확인한다."
+    },
+    {
+      "name": "후기 방어도·회피 Boots 후보",
+      "style": "armour_gear",
+      "base_types": [
+        "Blacksteel Sabatons",
+        "Bold Sabatons",
+        "Fortress Sabatons",
+        "Noble Sabatons",
+        "Runeforged Blacksteel Sabatons",
+        "Runeforged Bold Sabatons",
+        "Runeforged Fortress Sabatons",
+        "Runeforged Noble Sabatons",
+        "Runeforged Veteran Sabatons",
+        "Veteran Sabatons"
+      ],
+      "item_level_min": 75,
+      "class": [
+        "Boots"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "endgame"
+      ],
+      "note": "후기는 높은 기본 방어 수치의 장비 후보를 남긴다. 아이템 레벨 75는 필터의 후보 축소 기준이며 옵션 보장이 아니다."
+    },
+    {
+      "name": "카옴 이전 후기 희귀 갑옷 대안",
+      "style": "armour_gear",
+      "base_types": [
+        "Dastard Armour",
+        "Death Mail",
+        "Heroic Armour",
+        "Runeforged Dastard Armour",
+        "Runeforged Death Mail",
+        "Runeforged Heroic Armour",
+        "Runeforged Shrouded Mail",
+        "Runeforged Slayer Armour",
+        "Runeforged Thane Mail",
+        "Runeforged Tournament Mail",
+        "Runemastered Ancestral Mail",
+        "Runemastered Heroic Armour",
+        "Shrouded Mail",
+        "Slayer Armour",
+        "Thane Mail",
+        "Tournament Mail"
+      ],
+      "item_level_min": 75,
+      "class": [
+        "Body Armours"
+      ],
+      "rarity": [
+        "Rare"
+      ],
+      "stages": [
+        "endgame"
+      ],
+      "note": "카옴을 아직 구하지 못했거나 희귀 갑옷을 쓰는 경우를 위해 후기에도 남긴다."
+    },
+    {
+      "name": "후기 지정 방어구 제작 후보",
+      "style": "armour_gear",
+      "base_types": [
+        "Champion Helm",
+        "Cultist Gauntlets",
+        "Fortress Sabatons"
+      ],
+      "item_level_min": 82,
+      "rarity": [
+        "Normal",
+        "Magic"
+      ],
+      "stages": [
+        "endgame"
+      ],
+      "note": "원본 05의 제작용 베이스. 82는 고레벨 제작 후보를 좁히는 선택 기준이며 현재 장비 교체의 필수 조건이 아니다."
+    }
+  ]
+}

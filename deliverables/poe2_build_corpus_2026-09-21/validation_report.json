@@ -1,0 +1,41 @@
+{
+  "scope": "local data contract; not gameplay verification",
+  "status": "PASS",
+  "counts": {
+    "records": 34,
+    "distinct_families": 25,
+    "distinct_guide_urls": 33,
+    "detail_extracted_records": 33,
+    "deep_stage_records": 24,
+    "deep_distinct_guide_urls": 24,
+    "sources": 158,
+    "retrieval_status": {
+      "deep_stage_extracted": 24,
+      "detail_extracted": 9,
+      "existing_priority_reviewed": 1
+    },
+    "distinct_persisted_source_urls": 150,
+    "distinct_opened_source_urls": 143,
+    "manager_reviewed_deep_urls": 24
+  },
+  "goals": {
+    "families_20": true,
+    "guide_urls_30": true,
+    "deep_guide_urls_12": true
+  },
+  "issues": [],
+  "warnings": [],
+  "duplicate_urls": [],
+  "source_retrieval": {
+    "deep_stage_extracted": 24,
+    "detail_extracted": 10,
+    "opened": 115,
+    "discovery_only": 7,
+    "blocked": 2
+  },
+  "limits": [
+    "All counted deep gates received manager original-page review; other fields use bounded worker evidence and selected manager checks.",
+    "Unknown fields and source conflicts remain; structural PASS does not approve builds.",
+    "Baseline Seongbin and Skadoosh are separate and excluded from new counts."
+  ]
+}

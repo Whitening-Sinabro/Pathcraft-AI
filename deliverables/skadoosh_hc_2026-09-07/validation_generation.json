@@ -1,0 +1,176 @@
+{
+  "planner_checks": [
+    {
+      "file": "03 1차전직-충격파 토템",
+      "raw_nodes_equal": true,
+      "explicit_skill_groups": 10
+    },
+    {
+      "file": "04 캠페인-대장간 망치 추가",
+      "raw_nodes_equal": true,
+      "explicit_skill_groups": 10
+    },
+    {
+      "file": "05 2차전직-함성 전환 준비",
+      "raw_nodes_equal": true,
+      "explicit_skill_groups": 10
+    },
+    {
+      "file": "06 타락 함성-첫 전환",
+      "raw_nodes_equal": true,
+      "explicit_skill_groups": 10
+    },
+    {
+      "file": "07 타락 함성-캠페인 유지",
+      "raw_nodes_equal": true,
+      "explicit_skill_groups": 10
+    },
+    {
+      "file": "09 준비완료-AWT와 파콰테",
+      "raw_nodes_equal": true,
+      "explicit_skill_groups": 10
+    }
+  ],
+  "filter_checks": [
+    {
+      "file": "Pathcraft-Skadoosh-HC-01-Campaign.filter",
+      "overlay_blocks": 119,
+      "upstream_sha256": "02d6a6f1e6f23895c7af54746db8a6038d300525346e75be55e86d5d5bd8dbce",
+      "base_tail_unchanged": true,
+      "additional_hide_blocks": 0,
+      "loudness_adjustments": 15,
+      "conditional_shadow_pairs": 5822
+    },
+    {
+      "file": "Pathcraft-Skadoosh-HC-02-EarlyMaps.filter",
+      "overlay_blocks": 119,
+      "upstream_sha256": "cf9efb47ed2ff41216e35a67742b8c0d786534654b03d48862e71d928e9e337c",
+      "base_tail_unchanged": true,
+      "additional_hide_blocks": 0,
+      "loudness_adjustments": 15,
+      "conditional_shadow_pairs": 5822
+    },
+    {
+      "file": "Pathcraft-Skadoosh-HC-03-SettledMaps.filter",
+      "overlay_blocks": 111,
+      "upstream_sha256": "2fa89e0099611ed156b4dcf14cc1017047209d06d65b016a7f8e8d33aae40cd7",
+      "base_tail_unchanged": true,
+      "additional_hide_blocks": 0,
+      "loudness_adjustments": 14,
+      "conditional_shadow_pairs": 4723
+    }
+  ],
+  "extension": [
+    {
+      "id": "armour47",
+      "name": "Armour",
+      "stats": [
+        "10% increased Armour",
+        "+5% of Armour also applies to Elemental Damage"
+      ]
+    },
+    {
+      "id": "armour46",
+      "name": "Armour",
+      "stats": [
+        "10% increased Armour",
+        "+5% of Armour also applies to Elemental Damage"
+      ]
+    },
+    {
+      "id": "armour48",
+      "name": "Armour",
+      "stats": [
+        "10% increased Armour",
+        "+5% of Armour also applies to Elemental Damage"
+      ]
+    },
+    {
+      "id": "armour49",
+      "name": "Tempered Defences",
+      "stats": [
+        "25% increased Armour",
+        "+15% of Armour also applies to Elemental Damage"
+      ]
+    },
+    {
+      "id": "life_regeneration24",
+      "name": "Life Regeneration",
+      "stats": [
+        "Regenerate 0.2% of maximum Life per second"
+      ]
+    },
+    {
+      "id": "duelist_mercenary_notable1",
+      "name": "Battle-hardened",
+      "stats": [
+        "Hits against you have 20% reduced Critical Damage Bonus",
+        "20% increased Armour and Evasion Rating",
+        "+5 to Strength and Dexterity"
+      ]
+    },
+    {
+      "id": "stun_threshold7",
+      "name": "Stun Threshold",
+      "stats": [
+        "12% increased Stun Threshold"
+      ]
+    },
+    {
+      "id": "stun_threshold11",
+      "name": "Titan's Determination",
+      "stats": [
+        "25% increased Stun Threshold",
+        "20% increased Life Regeneration Rate while moving"
+      ]
+    },
+    {
+      "id": "stun_threshold25",
+      "name": "Stun Threshold and Strength",
+      "stats": [
+        "10% increased Stun Threshold",
+        "+5 to Strength"
+      ]
+    },
+    {
+      "id": "stun_threshold27",
+      "name": "Stun Threshold and Strength",
+      "stats": [
+        "10% increased Stun Threshold",
+        "+5 to Strength"
+      ]
+    },
+    {
+      "id": "stun_threshold31",
+      "name": "Unbending",
+      "stats": [
+        "3% increased maximum Life",
+        "10% increased Stun Threshold for each time you've been Hit by an Enemy Recently, up to 100%"
+      ]
+    },
+    {
+      "id": "mercenary10",
+      "name": "Curse Effect on you and Life Regeneration Rate",
+      "stats": [
+        "5% increased Life Regeneration rate",
+        "5% reduced effect of Curses on you"
+      ]
+    },
+    {
+      "id": "mercenary8",
+      "name": "Life Regeneration Rate",
+      "stats": [
+        "10% increased Life Regeneration rate"
+      ]
+    },
+    {
+      "id": "mercenary9",
+      "name": "Necromantic Ward",
+      "stats": [
+        "20% increased Life Regeneration rate",
+        "30% reduced effect of Curses on you",
+        "30% increased damage against Undead Enemies"
+      ]
+    }
+  ]
+}

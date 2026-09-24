@@ -1,0 +1,1796 @@
+[
+  {
+    "id": "w1_oil",
+    "family_id": "flameblast_oil",
+    "family_name": "Flameblast Oil Grenade",
+    "variant": "lvl 52 Swap",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": {
+        "source_id": "w1_mob_01",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "current_site_label"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Fubgun",
+    "url": "https://mobalytics.gg/poe-2/builds/fubgun-flameblast-oil-grenade",
+    "published_at": null,
+    "updated_at": "2026-09-12",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 1300,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_01"
+    },
+    "class": "Mercenary",
+    "ascendancy": "Gemling Legionnaire",
+    "main_skills": [
+      "Flameblast",
+      "Oil Grenade"
+    ],
+    "damage_structure": "Ignite via weapon-swapped spell/grenade interaction.",
+    "defense_structure": "Armour/life during campaign.",
+    "skills": [
+      {
+        "name": "Explosive Grenade",
+        "supports": [
+          "Multishot I",
+          "Elemental Armament I"
+        ],
+        "source_id": "w1_mob_01",
+        "locator": "Skill Gems > Early support order L341-344"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Dousing Charm",
+        "role": "required",
+        "condition": "Prevent self-ignite overriding grenade ignite",
+        "source_id": "w1_mob_01",
+        "locator": "Build Overview; Equipment; How it Works"
+      }
+    ],
+    "resource_constraints": [
+      "No flat/extra fire outside staff; avoid Headhunter."
+    ],
+    "stages": [
+      {
+        "name": "Level 52 swap",
+        "conditions": [
+          "Level 52",
+          "about 30000 gold",
+          "saved GCP and skill/support gems"
+        ],
+        "skills": [
+          "Flameblast",
+          "Oil Grenade"
+        ],
+        "gear": [],
+        "transition": "Grenades until gem level requirement; then respec.",
+        "source_id": "w1_mob_01",
+        "locator": "Build Overview; Equipment; How it Works"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Listing showed 1.4K favorites; opened guide showed 1.3K.",
+      "Only first campaign skill panel rendered; endgame supports not resolved.",
+      "Full item rolls/support panels and game performance not validated."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_oil_mechanism",
+        "text": "Ignite via weapon-swapped spell/grenade interaction.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_01",
+        "locator": "Build Overview; Equipment; How it Works"
+      },
+      {
+        "id": "w1_oil_patch",
+        "text": "Title patch 0.5.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_01",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_01"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_plants",
+    "family_id": "plant_coc",
+    "family_name": "Plant Cast on Critical",
+    "variant": "Early Endgame",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": {
+        "source_id": "w1_mob_02",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "current_site_label"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Scorpius",
+    "url": "https://mobalytics.gg/poe-2/builds/scorps-plants-coc-endgame-guide-scorpius",
+    "published_at": null,
+    "updated_at": "2026-09-16",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 238,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_02"
+    },
+    "class": "Druid",
+    "ascendancy": "Oracle",
+    "main_skills": [
+      "Entangle",
+      "Thunderstorm",
+      "Thrashing Vines",
+      "Cast on Critical",
+      "Bone Cage"
+    ],
+    "damage_structure": "Physical plant spells plus triggered Bone Cage.",
+    "defense_structure": "Capped resists; armour/ES hybrid.",
+    "skills": [],
+    "equipment": [
+      {
+        "name": "Nightscale",
+        "role": "alternative",
+        "condition": "Optional mana efficiency; rare gloves suffice",
+        "source_id": "w1_mob_02",
+        "locator": "Build Overview; Early Endgame; Equipment"
+      }
+    ],
+    "resource_constraints": [
+      "Comet requires substantially higher mana, trigger energy and investment."
+    ],
+    "stages": [
+      {
+        "name": "Early Endgame",
+        "conditions": [
+          "Tier 1-7 maps"
+        ],
+        "skills": [
+          "Entangle",
+          "Bone Cage"
+        ],
+        "gear": [],
+        "transition": "Move to mid at comfortable T7 and T8/9 entry.",
+        "source_id": "w1_mob_02",
+        "locator": "Build Overview; Early Endgame; Equipment"
+      },
+      {
+        "name": "Mid Endgame",
+        "conditions": [
+          "More mana sustain"
+        ],
+        "skills": [
+          "Bone Cage",
+          "Thunderstorm"
+        ],
+        "gear": [],
+        "transition": "Add Thunderstorm; later Vines for dense maps.",
+        "source_id": "w1_mob_02",
+        "locator": "Build Overview; Early Endgame; Equipment"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Listing showed 275 favorites versus guide 238; cache/snapshot divergence.",
+      "Mid/Late/Uber descriptions read; alternate skill panels not selected.",
+      "Full item rolls/support panels and game performance not validated.",
+      "Support names not confidently extracted from image-only labels."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_plants_mechanism",
+        "text": "Physical plant spells plus triggered Bone Cage.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_02",
+        "locator": "Build Overview; Early Endgame; Equipment"
+      },
+      {
+        "id": "w1_plants_patch",
+        "text": "Title patch 0.5.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_02",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_02"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_ice",
+    "family_id": "ice_shot",
+    "family_name": "Ice Shot Deadeye",
+    "variant": "Early",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": {
+        "source_id": "w1_mob_03",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "current_site_label"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Fubgun",
+    "url": "https://mobalytics.gg/poe-2/builds/ice-shot-deadeye",
+    "published_at": null,
+    "updated_at": "2026-09-12",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 7100,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_03"
+    },
+    "class": "Ranger",
+    "ascendancy": "Deadeye",
+    "main_skills": [
+      "Ice Shot",
+      "Snipe",
+      "Freezing Mark"
+    ],
+    "damage_structure": "Cold bow clearing; Snipe boss burst.",
+    "defense_structure": "Life/evasion progressing to ES hybrid.",
+    "skills": [
+      {
+        "name": "Freezing Mark",
+        "supports": [
+          "Mark of Siphoning II",
+          "Eternal Mark"
+        ],
+        "source_id": "w1_mob_03",
+        "locator": "Equipment L245"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Obliterator Bow",
+        "role": "example",
+        "condition": "Use highest affordable DPS bow",
+        "source_id": "w1_mob_03",
+        "locator": "Equipment; How it Plays > Gear Progression"
+      },
+      {
+        "name": "Headhunter",
+        "role": "alternative",
+        "condition": "Late low-priority upgrade",
+        "source_id": "w1_mob_03",
+        "locator": "Equipment; How it Plays > Gear Progression"
+      }
+    ],
+    "resource_constraints": [
+      "30 Spirit amulet; mana-on-kill jewel; boss mark sustain."
+    ],
+    "stages": [
+      {
+        "name": "Crit transition",
+        "conditions": [
+          "Good critical bow and quiver, or Cadiro's Gambit"
+        ],
+        "skills": [
+          "Ice Shot",
+          "Snipe"
+        ],
+        "gear": [],
+        "transition": "Finish noncrit setup before crit.",
+        "source_id": "w1_mob_03",
+        "locator": "Equipment; How it Plays > Gear Progression"
+      },
+      {
+        "name": "Hybrid transition",
+        "conditions": [
+          "Approximately 450 ES helmet"
+        ],
+        "skills": [
+          "Ice Shot"
+        ],
+        "gear": [],
+        "transition": "Add ES hybrid defenses.",
+        "source_id": "w1_mob_03",
+        "locator": "Equipment; How it Plays > Gear Progression"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Early gear described as SSF obtainable or little trading; actual economy not exclusive.",
+      "Full item rolls/support panels and game performance not validated."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_ice_mechanism",
+        "text": "Cold bow clearing; Snipe boss burst.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_03",
+        "locator": "Equipment; How it Plays > Gear Progression"
+      },
+      {
+        "id": "w1_ice_patch",
+        "text": "Title patch 0.5.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_03",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_03"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_rue",
+    "family_id": "buff_crossbow",
+    "family_name": "Buff-stacking Crossbow",
+    "variant": "crit endgame (three-step overview)",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": {
+        "source_id": "w1_mob_04",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "0.5_base_label_with_0.5.5_badge; contemporaneity_uncertain"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Ruetoo",
+    "url": "https://mobalytics.gg/poe-2/builds/ruetoo-tactician-mirage",
+    "published_at": null,
+    "updated_at": "2026-07-21",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 1800,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_04"
+    },
+    "class": "Mercenary",
+    "ascendancy": "Tactician",
+    "main_skills": [
+      "Galvanic Shards",
+      "Stormblast Bolts",
+      "Mirage Archer",
+      "Gemini Surge"
+    ],
+    "damage_structure": "Automated detonator with persistent damage buffs.",
+    "defense_structure": "Blind/evasion; defenses need investment.",
+    "skills": [],
+    "equipment": [
+      {
+        "name": "Double Vision",
+        "role": "required",
+        "condition": "Crit redesign: Gemini Surge level 18/19 and bottom rolls at least 4/4",
+        "source_id": "w1_mob_04",
+        "locator": "Build Overview; crit redesign notes L153-163"
+      },
+      {
+        "name": "Painter's Servant",
+        "role": "required",
+        "condition": "Earlier Trinity damage balancing",
+        "source_id": "w1_mob_04",
+        "locator": "Build Overview; crit redesign notes L153-163"
+      }
+    ],
+    "resource_constraints": [
+      "About 200 Spirit via A Solid Plan; Vitality I/II offset Berserk."
+    ],
+    "stages": [
+      {
+        "name": "Crit redesign",
+        "conditions": [
+          "15-20 Divine budget",
+          "Runeforged Double Vision"
+        ],
+        "skills": [
+          "Gemini Surge",
+          "Galvanic Shards"
+        ],
+        "gear": [],
+        "transition": "Replace earlier setup after Olroth's Resolve nerf.",
+        "source_id": "w1_mob_04",
+        "locator": "Build Overview; crit redesign notes L153-163"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Title says 0.5, badge 0.5.5 FR, linked trade URL says Runes of Aldur; league conflict.",
+      "Full item rolls/support panels and game performance not validated.",
+      "Support names not confidently extracted from image-only labels."
+    ],
+    "patch_sensitive_dependencies": [
+      "Olroth's Resolve nerf; reservation and Mirage Archer behavior."
+    ],
+    "claims": [
+      {
+        "id": "w1_rue_mechanism",
+        "text": "Automated detonator with persistent damage buffs.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_04",
+        "locator": "Build Overview; crit redesign notes L153-163"
+      },
+      {
+        "id": "w1_rue_patch",
+        "text": "Title patch 0.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_04",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_04"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_beast",
+    "family_id": "unique_companion",
+    "family_name": "Unique Beast Companion",
+    "variant": "Act 3 SWAP",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": {
+        "source_id": "w1_mob_05",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "0.5_base_label_with_0.5.5_badge; contemporaneity_uncertain"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "CaptainLance9",
+    "url": "https://mobalytics.gg/poe-2/builds/spirit-walker-beast-master",
+    "published_at": null,
+    "updated_at": "2026-09-15",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "unknown",
+      "value": null,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_05"
+    },
+    "class": "Huntress",
+    "ascendancy": "Spirit Walker",
+    "main_skills": [
+      "Tame Beast",
+      "Twister",
+      "Whirling Slash"
+    ],
+    "damage_structure": "Unique companion attacks; Mighty Silverfist preferred.",
+    "defense_structure": "Loyalty damage redirection; life/evasion/ES.",
+    "skills": [
+      {
+        "name": "Tame Beast",
+        "supports": [
+          "Loyalty"
+        ],
+        "source_id": "w1_mob_05",
+        "locator": "Defence L119"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Sylvan's Effigy",
+        "role": "alternative",
+        "condition": "Later loyalty defense swap from rare sceptre",
+        "source_id": "w1_mob_05",
+        "locator": "Build Overview > Early Leveling; Defence"
+      }
+    ],
+    "resource_constraints": [
+      "Reserve gold rather than gambling."
+    ],
+    "stages": [
+      {
+        "name": "Companion swap",
+        "conditions": [
+          "Act 3 after second lab",
+          "level-7 gem access",
+          "about 20000 gold"
+        ],
+        "skills": [
+          "Tame Beast"
+        ],
+        "gear": [],
+        "transition": "Respec Twister tree after sufficient useful companion passives.",
+        "source_id": "w1_mob_05",
+        "locator": "Build Overview > Early Leveling; Defence"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Future 1.0 buylist promise excluded; not evidence of current 1.0.",
+      "Full item rolls/support panels and game performance not validated."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_beast_mechanism",
+        "text": "Unique companion attacks; Mighty Silverfist preferred.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_05",
+        "locator": "Build Overview > Early Leveling; Defence"
+      },
+      {
+        "id": "w1_beast_patch",
+        "text": "Title patch 0.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_05",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_05"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_grim",
+    "family_id": "grim_pillar_totem",
+    "family_name": "Grim Pillar Spell Totems",
+    "variant": "Progressing maps",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": {
+        "source_id": "w1_mob_06",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "0.5_base_label_with_0.5.5_badge; contemporaneity_uncertain"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "SC",
+      "economy": "Trade"
+    },
+    "creator": "imexile",
+    "url": "https://mobalytics.gg/poe-2/builds/grim-totem-oracle-imexile",
+    "published_at": null,
+    "updated_at": "2026-06-14",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 302,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_06"
+    },
+    "class": "Druid",
+    "ascendancy": "Oracle",
+    "main_skills": [
+      "Spell Totem",
+      "Grim Pillars",
+      "Entangle",
+      "Archmage"
+    ],
+    "damage_structure": "Totem crystals detonated by Entangle.",
+    "defense_structure": "Mana pool with Harmony Within.",
+    "skills": [],
+    "equipment": [
+      {
+        "name": "Soul Mantle",
+        "role": "example",
+        "condition": "Requires Warding Fetish and warding rune when equipped",
+        "source_id": "w1_mob_06",
+        "locator": "Build Overview; Build Variants L136-141"
+      },
+      {
+        "name": "Craiceann's Rune of Warding",
+        "role": "required",
+        "condition": "With Soul Mantle",
+        "source_id": "w1_mob_06",
+        "locator": "Build Overview; Build Variants L136-141"
+      }
+    ],
+    "resource_constraints": [
+      "Mana management; pillar collision."
+    ],
+    "stages": [
+      {
+        "name": "Map progression",
+        "conditions": [
+          "Level 60+",
+          ">1500 mana before Archmage",
+          "roughly 2500 mana before EB"
+        ],
+        "skills": [
+          "Spell Totem",
+          "Archmage"
+        ],
+        "gear": [],
+        "transition": "Aim 395 Spirit for four totems plus Archmage.",
+        "source_id": "w1_mob_06",
+        "locator": "Build Overview; Build Variants L136-141"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Full item rolls/support panels and game performance not validated.",
+      "Support names not confidently extracted from image-only labels."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_grim_mechanism",
+        "text": "Totem crystals detonated by Entangle.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_06",
+        "locator": "Build Overview; Build Variants L136-141"
+      },
+      {
+        "id": "w1_grim_patch",
+        "text": "Title patch 0.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_06",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_06"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_spark_totem",
+    "family_id": "spark_totem",
+    "family_name": "Spark Spell Totems",
+    "variant": "Min-Max endgame",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": {
+        "source_id": "w1_mob_07",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "0.5_base_label_with_0.5.5_badge; contemporaneity_uncertain"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "SSF"
+    },
+    "creator": "Waggle",
+    "url": "https://mobalytics.gg/poe-2/builds/waggle-spell-totem-shaman",
+    "published_at": null,
+    "updated_at": "2026-06-27",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 201,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_07"
+    },
+    "class": "Druid",
+    "ascendancy": "Shaman",
+    "main_skills": [
+      "Spell Totem",
+      "Spark",
+      "Flame Wall",
+      "Archmage"
+    ],
+    "damage_structure": "Persistent lightning projectile totems.",
+    "defense_structure": "Mana investment; augment defense tradeoffs.",
+    "skills": [],
+    "equipment": [
+      {
+        "name": "Darkness Enthroned",
+        "role": "example",
+        "condition": "100%+ roll doubles Jiquani's Thesis",
+        "source_id": "w1_mob_07",
+        "locator": "Build Overview; Equipment L226-233"
+      },
+      {
+        "name": "Morior Invictus",
+        "role": "alternative",
+        "condition": "Five sockets; mana/Spirit/resists",
+        "source_id": "w1_mob_07",
+        "locator": "Build Overview; Equipment L226-233"
+      }
+    ],
+    "resource_constraints": [
+      "Generic skill levels must support level-23 Spell Totem."
+    ],
+    "stages": [
+      {
+        "name": "Early totem experiment",
+        "conditions": [
+          "End Act 2",
+          "three charm slots",
+          "Sacred Flow yields 120 Spirit"
+        ],
+        "skills": [
+          "Spell Totem",
+          "Spark"
+        ],
+        "gear": [],
+        "transition": "Author intends early swap; alternative wait level 55-60 for four totems.",
+        "source_id": "w1_mob_07",
+        "locator": "Build Overview; Equipment L226-233"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Early swap is author's experiment, not a verified recommendation.",
+      "Full item rolls/support panels and game performance not validated.",
+      "Support names not confidently extracted from image-only labels."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_spark_totem_mechanism",
+        "text": "Persistent lightning projectile totems.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_07",
+        "locator": "Build Overview; Equipment L226-233"
+      },
+      {
+        "id": "w1_spark_totem_patch",
+        "text": "Title patch 0.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_07",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_07"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_cold",
+    "family_id": "cold_trigger",
+    "family_name": "Cold Trigger Chronomancer",
+    "variant": "Leveling",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": {
+        "source_id": "w1_mob_08",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "current_site_label"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "PaintMasterPoE",
+    "url": "https://mobalytics.gg/poe-2/builds/cold-cast-on-crit-archmage-paintmaster",
+    "published_at": null,
+    "updated_at": "2026-09-17",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 2600,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_08"
+    },
+    "class": "Sorceress",
+    "ascendancy": "Chronomancer",
+    "main_skills": [
+      "Ice Nova",
+      "Frost Darts",
+      "Eye of Winter",
+      "Comet",
+      "Temporal Rift"
+    ],
+    "damage_structure": "Cold casting progresses to triggered Comet.",
+    "defense_structure": "Freeze; Temporal Rift; ES later.",
+    "skills": [
+      {
+        "name": "Eye of Winter",
+        "supports": [
+          "Deliberation",
+          "Considered Casting",
+          "Inevitable Critical"
+        ],
+        "source_id": "w1_mob_08",
+        "locator": "Leveling L158"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Scold's Bridle",
+        "role": "alternative",
+        "condition": "Optional expensive recoup setup",
+        "source_id": "w1_mob_08",
+        "locator": "Build Overview; Leveling L149-168"
+      }
+    ],
+    "resource_constraints": [
+      "Phased Form reduces self-hit recoup; less-recovery maps conflict."
+    ],
+    "stages": [
+      {
+        "name": "Caster progression",
+        "conditions": [
+          "Eye of Winter becomes available"
+        ],
+        "skills": [
+          "Eye of Winter"
+        ],
+        "gear": [],
+        "transition": "Replace Frost Darts; use Deliberation, Considered Casting, Inevitable Critical.",
+        "source_id": "w1_mob_08",
+        "locator": "Build Overview; Leveling L149-168"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "SSF site tag describes suitability; optional costly recoup differs.",
+      "Main CoC equipment panel not selected.",
+      "Full item rolls/support panels and game performance not validated."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_cold_mechanism",
+        "text": "Cold casting progresses to triggered Comet.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_08",
+        "locator": "Build Overview; Leveling L149-168"
+      },
+      {
+        "id": "w1_cold_patch",
+        "text": "Title patch 0.5.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_08",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_08"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_slow",
+    "family_id": "slow_support",
+    "family_name": "Slow-cap Party Support",
+    "variant": "single displayed support setup",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": {
+        "source_id": "w1_mob_09",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "current_site_label"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "PaintMasterPoE",
+    "url": "https://mobalytics.gg/poe-2/builds/paintmasters-timefreeze-support",
+    "published_at": null,
+    "updated_at": "2026-09-02",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "detail_extracted",
+    "popularity": {
+      "type": "unknown",
+      "value": null,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_09"
+    },
+    "class": "Sorceress",
+    "ascendancy": "Chronomancer",
+    "main_skills": [
+      "Temporal Chains",
+      "Time Freeze",
+      "Frost Bomb",
+      "Elemental Weakness"
+    ],
+    "damage_structure": "Party exposure, curses and culling.",
+    "defense_structure": "Shield block; ES; Convalescence.",
+    "skills": [
+      {
+        "name": "Frost Bomb",
+        "supports": [
+          "Potent Exposure"
+        ],
+        "source_id": "w1_mob_09",
+        "locator": "Build Overview L140"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Alpha's Howl",
+        "role": "example",
+        "condition": "Spirit and presence area",
+        "source_id": "w1_mob_09",
+        "locator": "Build Overview; About Gear; Skill Gems"
+      },
+      {
+        "name": "The Deepest Tower",
+        "role": "alternative",
+        "condition": "Carry uses low-life passives",
+        "source_id": "w1_mob_09",
+        "locator": "Build Overview; About Gear; Skill Gems"
+      }
+    ],
+    "resource_constraints": [
+      "Spirit for Blasphemy; curse/aura magnitude."
+    ],
+    "stages": [],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Curse arithmetic contains inconsistent intermediate values; do not reuse as validated calculations.",
+      "No concrete progression gate; not counted deep.",
+      "Full item rolls/support panels and game performance not validated."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_slow_mechanism",
+        "text": "Party exposure, curses and culling.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_09",
+        "locator": "Build Overview; About Gear; Skill Gems"
+      },
+      {
+        "id": "w1_slow_patch",
+        "text": "Title patch 0.5.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_09",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_09"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_flame",
+    "family_id": "flameblast_cooldown",
+    "family_name": "Cooldown Flameblast Frostflame Nova",
+    "variant": "single displayed endgame setup",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": {
+        "source_id": "w1_mob_10",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "0.5_base_label_with_0.5.5_badge; contemporaneity_uncertain"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Lazy Exile",
+    "url": "https://mobalytics.gg/poe-2/builds/flameblast-frostflame-nova-all-content-blaster",
+    "published_at": null,
+    "updated_at": "2026-07-05",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "detail_extracted",
+    "popularity": {
+      "type": "unknown",
+      "value": null,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_10"
+    },
+    "class": "Sorceress",
+    "ascendancy": "Chronomancer",
+    "main_skills": [
+      "Flameblast",
+      "Frostflame Nova",
+      "Blink"
+    ],
+    "damage_structure": "Cooldown-enabled Flameblast with ignite proliferation.",
+    "defense_structure": "Recovery; curse support.",
+    "skills": [],
+    "equipment": [],
+    "resource_constraints": [
+      "Drop Heightened Curse if Spirit insufficient."
+    ],
+    "stages": [],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "No concrete progression gate extracted; not counted deep.",
+      "Full item rolls/support panels and game performance not validated.",
+      "Support names not confidently extracted from image-only labels."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_flame_mechanism",
+        "text": "Cooldown-enabled Flameblast with ignite proliferation.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_10",
+        "locator": "Build Overview; Skill Gems L398-427; Spirit L533-537"
+      },
+      {
+        "id": "w1_flame_patch",
+        "text": "Title patch 0.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_10",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_10"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_shrine",
+    "family_id": "shrine_mace",
+    "family_name": "Shrine-stacking Maces",
+    "variant": "Leveling",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": {
+        "source_id": "w1_mob_11",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "current_site_label"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "PaintMasterPoE",
+    "url": "https://mobalytics.gg/poe-2/profile/paintmaster/builds/melee-chronomancer",
+    "published_at": null,
+    "updated_at": "2026-09-02",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 75,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_11"
+    },
+    "class": "Sorceress",
+    "ascendancy": "Chronomancer",
+    "main_skills": [
+      "Sunder",
+      "Mace Strike",
+      "Hammer of the Gods",
+      "Temporal Chains"
+    ],
+    "damage_structure": "Dual shrine maces; self-curse prolongs buffs.",
+    "defense_structure": "ES; modified Soul Tether leech.",
+    "skills": [
+      {
+        "name": "Perfect Strike",
+        "supports": [
+          "Rapid Attacks I",
+          "Elemental Armament I"
+        ],
+        "source_id": "w1_mob_11",
+        "locator": "Leveling L226"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "The Hammer of Faith",
+        "role": "required",
+        "condition": "Two maces for shrine engine",
+        "source_id": "w1_mob_11",
+        "locator": "Build Overview; Leveling L191-228"
+      },
+      {
+        "name": "Wanderlust",
+        "role": "required",
+        "condition": "Negate reflected Temporal Chains slow",
+        "source_id": "w1_mob_11",
+        "locator": "Build Overview; Leveling L191-228"
+      },
+      {
+        "name": "Soul Tether",
+        "role": "required",
+        "condition": "ES-drain modifier removed; retain leech",
+        "source_id": "w1_mob_11",
+        "locator": "Build Overview; Leveling L191-228"
+      }
+    ],
+    "resource_constraints": [
+      "Weapon swap removes shrine buffs; Temporal Chains maps overwrite curse."
+    ],
+    "stages": [
+      {
+        "name": "Mace swap",
+        "conditions": [
+          "After first Act 2 boss, roughly level 18",
+          "save three supports and level-5 skill gem"
+        ],
+        "skills": [
+          "Perfect Strike",
+          "Boneshatter",
+          "Rolling Slam"
+        ],
+        "gear": [],
+        "transition": "Respec caster passives into mace nodes.",
+        "source_id": "w1_mob_11",
+        "locator": "Build Overview; Leveling L191-228"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Canonical page says September 2; discovery/listings say September 17.",
+      "Query alias returned older 0.5 title and subsequent internal error; not another guide.",
+      "Full item rolls/support panels and game performance not validated."
+    ],
+    "patch_sensitive_dependencies": [
+      "Curse reflection, shrine expiry and modified belt interactions."
+    ],
+    "claims": [
+      {
+        "id": "w1_shrine_mechanism",
+        "text": "Dual shrine maces; self-curse prolongs buffs.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_11",
+        "locator": "Build Overview; Leveling L191-228"
+      },
+      {
+        "id": "w1_shrine_patch",
+        "text": "Title patch 0.5.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_11",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_11"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_afk",
+    "family_id": "frostbolt_loop",
+    "family_name": "Frostbolt Recoup Loop",
+    "variant": "AFK Simulacrum & Mapping",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": {
+        "source_id": "w1_mob_12",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "0.5_base_label_with_0.5.5_badge; contemporaneity_uncertain"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Lazy Exile",
+    "url": "https://mobalytics.gg/poe-2/builds/afk-simulacrum-immortal-ritualist-lazyexile",
+    "published_at": null,
+    "updated_at": "2026-09-19",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 184,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_12"
+    },
+    "class": "Huntress",
+    "ascendancy": "Ritualist",
+    "main_skills": [
+      "Frostbolt",
+      "Frost Wall",
+      "Mirror of Refraction"
+    ],
+    "damage_structure": "Refraction looping with Atziri's Rule.",
+    "defense_structure": "Triple recoup; mana before life.",
+    "skills": [],
+    "equipment": [
+      {
+        "name": "Atziri's Rule",
+        "role": "required",
+        "condition": "Loop weapon set",
+        "source_id": "w1_mob_12",
+        "locator": "Minimum Stats L141-151; Starting the Loop L597-601"
+      },
+      {
+        "name": "Widowhail",
+        "role": "required",
+        "condition": "Frostbolt weapon set",
+        "source_id": "w1_mob_12",
+        "locator": "Minimum Stats L141-151; Starting the Loop L597-601"
+      }
+    ],
+    "resource_constraints": [
+      "80% life recoup; 20% elemental and physical recoup; 45% mana-before-life."
+    ],
+    "stages": [
+      {
+        "name": "AFK entry",
+        "conditions": [
+          "3000 life",
+          "6000 ES",
+          "600 mana",
+          "90% elemental and 75% chaos resistance"
+        ],
+        "skills": [
+          "Frostbolt",
+          "Frost Wall"
+        ],
+        "gear": [],
+        "transition": "Establish wall/bolt/refraction loop using assigned weapon sets.",
+        "source_id": "w1_mob_12",
+        "locator": "Minimum Stats L141-151; Starting the Loop L597-601"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Changelog labels September 18 update 0.3 despite 0.5 title/0.5.5 badge.",
+      "Immortality is a creator claim, not tested.",
+      "Full item rolls/support panels and game performance not validated.",
+      "Support names not confidently extracted from image-only labels."
+    ],
+    "patch_sensitive_dependencies": [
+      "Atziri's Rule/refraction loop and recoup behavior."
+    ],
+    "claims": [
+      {
+        "id": "w1_afk_mechanism",
+        "text": "Refraction looping with Atziri's Rule.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_12",
+        "locator": "Minimum Stats L141-151; Starting the Loop L597-601"
+      },
+      {
+        "id": "w1_afk_patch",
+        "text": "Title patch 0.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_12",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_12"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_lich",
+    "family_id": "twisted_mana",
+    "family_name": "Twisted Empyrean Mana Maces",
+    "variant": "Default",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": {
+        "source_id": "w1_mob_13",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "current_site_label"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "PaintMasterPoE",
+    "url": "https://mobalytics.gg/poe-2/builds/twisted-empyrean-lich",
+    "published_at": "2026-05-08",
+    "updated_at": "2026-09-17",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "detail_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 37,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_13"
+    },
+    "class": "Witch",
+    "ascendancy": "Lich",
+    "main_skills": [
+      "Mace Strike",
+      "Stampede",
+      "Hammer of the Gods"
+    ],
+    "damage_structure": "Mana scales added cold; spell damage scales attacks.",
+    "defense_structure": "Mana-before-life stacking; recoup.",
+    "skills": [],
+    "equipment": [
+      {
+        "name": "Twisted Empyrean",
+        "role": "required",
+        "condition": "Core mana-scaling weapon",
+        "source_id": "w1_mob_13",
+        "locator": "Build Overview; Skill Gems L293-359"
+      },
+      {
+        "name": "Rathpith Globe",
+        "role": "required",
+        "condition": "Spell damage engine",
+        "source_id": "w1_mob_13",
+        "locator": "Build Overview; Skill Gems L293-359"
+      },
+      {
+        "name": "Crown of Eyes",
+        "role": "required",
+        "condition": "Apply spell scaling to attacks",
+        "source_id": "w1_mob_13",
+        "locator": "Build Overview; Skill Gems L293-359"
+      }
+    ],
+    "resource_constraints": [
+      "Mana and attribute requirements; exact equip-level uncertain in author's text."
+    ],
+    "stages": [],
+    "alternatives": [],
+    "similarities_differences": [
+      "Shared Twisted Empyrean/Rathpith/Crown core; Lich and Titan differ in ascendancy and skill emphasis."
+    ],
+    "gaps_conflicts": [
+      "Author uncertain about mace level-78 equip requirement; not a counted transition.",
+      "SSF tag is site categorization, not proof of acquisition.",
+      "Full item rolls/support panels and game performance not validated.",
+      "Support names not confidently extracted from image-only labels."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_lich_mechanism",
+        "text": "Mana scales added cold; spell damage scales attacks.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_13",
+        "locator": "Build Overview; Skill Gems L293-359"
+      },
+      {
+        "id": "w1_lich_patch",
+        "text": "Title patch 0.5.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_13",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_13"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_titan",
+    "family_id": "twisted_mana",
+    "family_name": "Twisted Empyrean Mana Maces",
+    "variant": "Endgame",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5",
+      "provenance": {
+        "source_id": "w1_mob_14",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "0.5_base_label_with_0.5.5_badge; contemporaneity_uncertain"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Peuget2",
+    "url": "https://mobalytics.gg/poe-2/builds/twisted-empyrean-mana-stacking-titan",
+    "published_at": null,
+    "updated_at": "2026-08-27",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "detail_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 15,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_14"
+    },
+    "class": "Warrior",
+    "ascendancy": "Titan",
+    "main_skills": [
+      "Leap Slam",
+      "Forge Hammer",
+      "Hammer of the Gods",
+      "Orb of Storms"
+    ],
+    "damage_structure": "Mana-derived cold slams; spell-to-attack scaling.",
+    "defense_structure": "Damage taken from mana before life.",
+    "skills": [],
+    "equipment": [
+      {
+        "name": "Twisted Empyrean",
+        "role": "required",
+        "condition": "Core weapon",
+        "source_id": "w1_mob_14",
+        "locator": "Build Overview; How it Plays L657-669"
+      },
+      {
+        "name": "Rathpith Globe",
+        "role": "required",
+        "condition": "Spell damage",
+        "source_id": "w1_mob_14",
+        "locator": "Build Overview; How it Plays L657-669"
+      },
+      {
+        "name": "Crown of Eyes",
+        "role": "required",
+        "condition": "Spell-to-attack conversion",
+        "source_id": "w1_mob_14",
+        "locator": "Build Overview; How it Plays L657-669"
+      }
+    ],
+    "resource_constraints": [
+      "Stack mana; exact sustain threshold not extracted."
+    ],
+    "stages": [],
+    "alternatives": [],
+    "similarities_differences": [
+      "Shared Twisted Empyrean/Rathpith/Crown core; Lich and Titan differ in ascendancy and skill emphasis."
+    ],
+    "gaps_conflicts": [
+      "Same core family as Lich; ascendancy variant is not another family.",
+      "Full item rolls/support panels and game performance not validated.",
+      "Support names not confidently extracted from image-only labels."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_titan_mechanism",
+        "text": "Mana-derived cold slams; spell-to-attack scaling.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_14",
+        "locator": "Build Overview; How it Plays L657-669"
+      },
+      {
+        "id": "w1_titan_patch",
+        "text": "Title patch 0.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_14",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_14"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_twister",
+    "family_id": "twister",
+    "family_name": "Twister Martial Artist",
+    "variant": "Final Variant - Giga Investment",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": {
+        "source_id": "w1_mob_15",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "current_site_label"
+      }
+    },
+    "league": null,
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "FGKorbyn21",
+    "url": "https://mobalytics.gg/poe-2/profile/fgkorbyn21/builds/0-5-full-screen-twister-martial-artist-endgame-build-guide",
+    "published_at": null,
+    "updated_at": "2026-09-15",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "deep_stage_extracted",
+    "popularity": {
+      "type": "guide_favorites",
+      "value": 213,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_15"
+    },
+    "class": "Monk",
+    "ascendancy": "Martial Artist",
+    "main_skills": [
+      "Twister",
+      "Whirling Slash",
+      "Barrage"
+    ],
+    "damage_structure": "Elemental projectile combo.",
+    "defense_structure": "EV/ES/deflection; companion mitigation.",
+    "skills": [
+      {
+        "name": "Barrage",
+        "supports": [
+          "Olroth's Conviction"
+        ],
+        "source_id": "w1_mob_15",
+        "locator": "Build Overview L124"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "The Taming",
+        "role": "required",
+        "condition": "Ground-effect enhancement",
+        "source_id": "w1_mob_15",
+        "locator": "Build Overview L121-154; Equipment L310-325,372"
+      },
+      {
+        "name": "Mageblood",
+        "role": "alternative",
+        "condition": "High investment, explicitly unnecessary",
+        "source_id": "w1_mob_15",
+        "locator": "Build Overview L121-154; Equipment L310-325,372"
+      }
+    ],
+    "resource_constraints": [
+      "Olroth's Conviction needs Runeforged glove Ward; Medved's Felling needs life regeneration."
+    ],
+    "stages": [
+      {
+        "name": "Movement upgrade",
+        "conditions": [
+          "Rigwald's Ferocity acquired"
+        ],
+        "skills": [
+          "Whirling Slash"
+        ],
+        "gear": [],
+        "transition": "Movement tech overtakes sprinting after this support.",
+        "source_id": "w1_mob_15",
+        "locator": "Build Overview L121-154; Equipment L310-325,372"
+      }
+    ],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Work in progress; high-investment gear explicitly optional.",
+      "Intro mentions leveling variants but selector says early/leveling coming soon.",
+      "Full item rolls/support panels and game performance not validated."
+    ],
+    "patch_sensitive_dependencies": [
+      "Ground enhancement and runeforged Ward interactions."
+    ],
+    "claims": [
+      {
+        "id": "w1_twister_mechanism",
+        "text": "Elemental projectile combo.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_15",
+        "locator": "Build Overview L121-154; Equipment L310-325,372"
+      },
+      {
+        "id": "w1_twister_patch",
+        "text": "Title patch 0.5.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_15",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_15"
+    ],
+    "approval_status": "collected_not_game_validated"
+  },
+  {
+    "id": "w1_ballista",
+    "family_id": "cluster_ballista",
+    "family_name": "Cluster Grenade Ballista",
+    "variant": "A1",
+    "game": "Path of Exile 2",
+    "patch": {
+      "value": "0.5.5",
+      "provenance": {
+        "source_id": "w1_mob_16",
+        "locator": "Guide title and header patch badge",
+        "raw_title_patch": "0.5.5",
+        "raw_badge": "0.5.5 FR",
+        "classification": "current_site_label"
+      }
+    },
+    "league": "Forbidden Rites",
+    "mode": {
+      "death": "unknown",
+      "economy": "unknown"
+    },
+    "creator": "Lazy Exile",
+    "url": "https://mobalytics.gg/poe-2/builds/1-button-ballista-totem-cluster-grenade-lazy-exile",
+    "published_at": null,
+    "updated_at": "2026-09-15",
+    "accessed_at": "2026-09-21",
+    "retrieval_status": "detail_extracted",
+    "popularity": {
+      "type": "unknown",
+      "value": null,
+      "rank": null,
+      "scope": "This Mobalytics guide only; rounded K displays converted approximately; not player usage",
+      "observed_at": "2026-09-21",
+      "source_id": "w1_mob_16"
+    },
+    "class": "Mercenary",
+    "ascendancy": "Gemling Legionnaire",
+    "main_skills": [
+      "Ballista Totem",
+      "Cluster Grenade",
+      "Permafrost Bolts",
+      "Fragmentation Rounds"
+    ],
+    "damage_structure": "Totem grenade endgame; cold ammunition campaign.",
+    "defense_structure": "Creator claims high recovery; mechanism not extracted.",
+    "skills": [],
+    "equipment": [
+      {
+        "name": "Sturdy Crossbow",
+        "role": "example",
+        "condition": "Level 10 campaign upgrade",
+        "source_id": "w1_mob_16",
+        "locator": "Build Overview; A1; Weapon Breakpoint"
+      }
+    ],
+    "resource_constraints": [
+      "Advanced Thaumaturgy alternate quality enables extra totem."
+    ],
+    "stages": [],
+    "alternatives": [],
+    "similarities_differences": [],
+    "gaps_conflicts": [
+      "Current overview and displayed A1 extracted; later panels not selected.",
+      "Comments raise endgame sustain issues; not treated as validated facts.",
+      "Full item rolls/support panels and game performance not validated.",
+      "Support names not confidently extracted from image-only labels."
+    ],
+    "patch_sensitive_dependencies": [
+      "Skill, item and ascendancy interactions require patch revalidation."
+    ],
+    "claims": [
+      {
+        "id": "w1_ballista_mechanism",
+        "text": "Totem grenade endgame; cold ammunition campaign.",
+        "kind": "creator_claim",
+        "source_id": "w1_mob_16",
+        "locator": "Build Overview; A1; Weapon Breakpoint"
+      },
+      {
+        "id": "w1_ballista_patch",
+        "text": "Title patch 0.5.5; header badge 0.5.5 FR.",
+        "kind": "direct_page_fact",
+        "source_id": "w1_mob_16",
+        "locator": "Title/header"
+      }
+    ],
+    "source_ids": [
+      "w1_mob_16"
+    ],
+    "approval_status": "collected_not_game_validated"
+  }
+]
+

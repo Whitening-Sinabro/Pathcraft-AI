@@ -1,0 +1,138 @@
+{
+  "task": "task_e64c6e6fbb31",
+  "dispatch": "ctx_243a3913f780",
+  "terminal": "term_41ff194c-9c85-4bbd-ba4f-08a0c0992b24",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "start_receipt": "42b590c1-ba76-4847-a5a9-1e79f33a97e7",
+  "canonical_v2_backup": "planner_versions/canonical_v2_before_readability",
+  "expected_unchanged": [
+    {
+      "path": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\planner\\planner-data.js",
+      "sha256": "3c86bf8c7b4859a142c9a4ffe697481e744a1605e0c139dfc85cfed2265fde41"
+    },
+    {
+      "path": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\planner_data\\build_data.json",
+      "sha256": "f935ad195337116eedeed8db1125b904e08a1a1950c5cee9483ff65f4852b1dd"
+    },
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\archive-28509.build",
+      "sha256": "62abaf7a9a9d794a568299c70343d7cfdb5556317783bb4a179771ee658316fc"
+    },
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\archive-285e2.build",
+      "sha256": "bfa528b1013e42c10d67a37a5e54a69512de6c79ccf329826582ca764720a7d7"
+    },
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\archive-28604.build",
+      "sha256": "42714a0254a0dc2d964f1f1921e9c7c38cdec5cca2d97b56cf805edf664df5b0"
+    },
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\archive-28695.build",
+      "sha256": "696509f805ff2594dcaf26e0cd14d99342de3d34cb59bb4c114aadef44733382"
+    },
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\campaign-act1.build",
+      "sha256": "e619e2be271ff530ad8b3445e1193e4cb1872a8538fed9ddce0ba88e0352f400"
+    },
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\campaign-act2.build",
+      "sha256": "90879f37e5f291d797b9819669a0fba90899e0efaf59311ce2d9bd3d849ab0e5"
+    },
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\campaign-act3.build",
+      "sha256": "d0c08fb1b6ec8926051e443a7bc5277eed25578fc926921dc4bf3364fb7ff8bd"
+    },
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\campaign-act4.build",
+      "sha256": "2d7e6c095ce3e55b8bad9c876a7c0fb836d6b5739a3b09b09e9943571aca4cea"
+    },
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\campaign-interlude.build",
+      "sha256": "cf2a265d894d7dead8902a44dedd816935af20bef5b441aaeed94e9af4079bd8"
+    },
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\current-kitava-29d39.build",
+      "sha256": "2f94a19b6e7b854be5d7151fd6ef81e76e326d41da8ef0933cfa9bf2bd171ff5"
+    }
+  ],
+  "status": "completed",
+  "followup": {
+    "task": "task_920fc7e8b574",
+    "dispatch": "ctx_664dfa03298b",
+    "terminal": "term_41ff194c-9c85-4bbd-ba4f-08a0c0992b24",
+    "receipt": "449c447c-c815-4cd1-907f-0ad4ba44cf5a",
+    "same_process_incarnation": "1778c687-d0dc-4293-a3a1-83ee6752d6f7",
+    "scope": [
+      "mobile passive stage labels",
+      "real allocated edges emphasis"
+    ],
+    "worker_done": "msg_e770bd59ed54",
+    "retention_receipt": "d5283243-a16a-44aa-a89f-872fba74d4a3"
+  },
+  "manager_screen_review": {
+    "reviewed": [
+      "readability-index-desktop.png",
+      "readability-passives-desktop.png",
+      "readability-skills-desktop.png",
+      "readability-equipment-mobile.png"
+    ],
+    "finding": "Larger readable Korean text and neutral spacing; tree begins y315.94; final two root corrections in progress."
+  },
+  "runtime_copy_utc": "2026-09-21T14:47:01.609805+00:00",
+  "copied": [
+    {
+      "path": "planner/workbench.css",
+      "sha256": "7f05c5fdfe804d0499ac25545e2f5427382074534af9ab77fe3c5523a852699b",
+      "bytes": 17533
+    },
+    {
+      "path": "planner/workbench.js",
+      "sha256": "278ac16f4831bc2758f956a0f056ac43c3465cfe3d5aedfc2cac01fce432cbcd",
+      "bytes": 43632
+    },
+    {
+      "path": "planner/readability-passives-desktop.png",
+      "sha256": "43d2f442649c878f539a90d38ea8c149a0f905b2d5f519434f216f5233316982",
+      "bytes": 177674
+    },
+    {
+      "path": "planner/readability-passives-mobile.png",
+      "sha256": "b58b0185419a5f7e9d37068badd5c8ac8498b2f8aea3dd363f56748970a14e93",
+      "bytes": 95585
+    },
+    {
+      "path": "planner/readability-index-desktop.png",
+      "sha256": "f14ea284ca763c058f77ad0b6d87830a40ecf17bf550e80d2a3599b434c85455",
+      "bytes": 52385
+    },
+    {
+      "path": "planner/readability-index-mobile.png",
+      "sha256": "91f837da5c94d32b17610e4dd2cd03baa347d3e08bf28433adda259ff9b72bb8",
+      "bytes": 38583
+    },
+    {
+      "path": "planner/readability-skills-desktop.png",
+      "sha256": "325372772d6fe66cb400751696f1025790acd2dc4d5d3f96c6de1feac6518fb4",
+      "bytes": 49187
+    },
+    {
+      "path": "planner/readability-skills-mobile.png",
+      "sha256": "45a4900481bf46c3eda1eb57e92ead1bd06d504f3fd61fd8c838725c376e5731",
+      "bytes": 31315
+    },
+    {
+      "path": "planner/readability-equipment-desktop.png",
+      "sha256": "74d80492777b432be93d63286db609fe984153978219d77b822aff5f30efad2c",
+      "bytes": 48371
+    },
+    {
+      "path": "planner/readability-equipment-mobile.png",
+      "sha256": "e4f3cfa5acfc22280ac87eec8a6de3b5463df460641bdaea6548da1a2e4172b4",
+      "bytes": 39386
+    }
+  ],
+  "unchanged_data_native_verified": true,
+  "independent_root_evidence": "D:/Pathcraft-AI/deliverables/poe2_build_corpus_2026-09-21_review/readability-independent-check.json",
+  "native_game_status": "separate unresolved display diagnosis; no game PASS"
+}

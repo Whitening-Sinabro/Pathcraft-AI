@@ -1,0 +1,68 @@
+{
+  "checks": [
+    {
+      "file": "아르세리나 01 38-51 젬링 이어가기.build",
+      "source_gems_match": true,
+      "source_tree_match_or_explicit_bridge": true,
+      "all_ids_valid": true,
+      "both_weapon_sets_connected": true,
+      "ordinary_points": 60,
+      "sha256": "43b8d2a894c41d62b0b3972aa8de94d8d0a8ef3eddc151e1d000c893f762f4f0"
+    },
+    {
+      "file": "아르세리나 02 52이상 화염파 전환.build",
+      "source_gems_match": true,
+      "source_tree_match_or_explicit_bridge": true,
+      "all_ids_valid": true,
+      "both_weapon_sets_connected": true,
+      "ordinary_points": 67,
+      "sha256": "4c90b060d601a9506555606fa476e5c93539f0f6398bf7efda153dd9aa4a9173"
+    },
+    {
+      "file": "아르세리나 03 지도 성장 목표.build",
+      "source_gems_match": true,
+      "source_tree_match_or_explicit_bridge": true,
+      "all_ids_valid": true,
+      "both_weapon_sets_connected": true,
+      "ordinary_points": 106,
+      "sha256": "6161b957f1b0c0cd7227e3d3ab853aaaab608b9f60d830dbb4337010471f606a"
+    },
+    {
+      "file": "아르세리나 04 후기 장비 목표.build",
+      "source_gems_match": true,
+      "source_tree_match_or_explicit_bridge": true,
+      "all_ids_valid": true,
+      "both_weapon_sets_connected": true,
+      "ordinary_points": 118,
+      "sha256": "22a264ebd7ad9e7706c77012650118b59599b87677d5c22099a276bd5e30c17c"
+    }
+  ],
+  "transitions": [
+    {
+      "from": 1,
+      "to": 2,
+      "operations": 102,
+      "refunds": 39,
+      "peak_ordinary": 67,
+      "every_step_connected": true
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "operations": 62,
+      "refunds": 6,
+      "peak_ordinary": 106,
+      "every_step_connected": true
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "operations": 38,
+      "refunds": 13,
+      "peak_ordinary": 118,
+      "every_step_connected": true
+    }
+  ],
+  "game_runtime_verified": false,
+  "invalid_node_rejected": true
+}

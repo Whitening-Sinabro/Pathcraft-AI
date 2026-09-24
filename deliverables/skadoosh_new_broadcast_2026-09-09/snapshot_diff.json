@@ -1,0 +1,560 @@
+{
+  "old_level": 80,
+  "new_level": 84,
+  "passives": {
+    "passiveSelection": {
+      "added": [
+        {
+          "id": 6127,
+          "name": "Jade Heritage",
+          "stats": [
+            "Gain a stack of Jade every second",
+            "Grants Skill: Encase in Jade"
+          ]
+        },
+        {
+          "id": 18585,
+          "name": "Armour",
+          "stats": [
+            "20% increased Armour"
+          ]
+        },
+        {
+          "id": 26437,
+          "name": "Armour Break",
+          "stats": [
+            "Break 20% increased Armour"
+          ]
+        },
+        {
+          "id": 42111,
+          "name": "Armour Break",
+          "stats": [
+            "Break 20% increased Armour"
+          ]
+        },
+        {
+          "id": 44787,
+          "name": "Totem Placement Speed",
+          "stats": [
+            "20% increased Totem Placement speed"
+          ]
+        },
+        {
+          "id": 53527,
+          "name": "Shattering Blow",
+          "stats": [
+            "Break 50% of Armour on Heavy Stunning an Enemy"
+          ]
+        },
+        {
+          "id": 60404,
+          "name": "Perfect Opportunity",
+          "stats": [
+            "30% increased Stun Buildup",
+            "Damage with Hits is Lucky against Heavy Stunned Enemies"
+          ]
+        }
+      ],
+      "removed": []
+    },
+    "passiveSelectionSet1": {
+      "added": [],
+      "removed": []
+    },
+    "passiveSelectionSet2": {
+      "added": [
+        {
+          "id": 51683,
+          "name": "Totem Damage",
+          "stats": [
+            "15% increased Totem Damage"
+          ]
+        }
+      ],
+      "removed": [
+        {
+          "id": 44787,
+          "name": "Totem Placement Speed"
+        }
+      ]
+    }
+  },
+  "items": {
+    "Offhand": {
+      "runeMods": {
+        "old": [
+          "+18% to [Resistances|Fire Resistance]",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Mana"
+        ],
+        "new": [
+          "15% increased [Block] chance",
+          "[ShamanOnlyMods|Bonded]: 15% chance for Damage of Enemies [Hit|Hitting] you to be [Unlucky]"
+        ]
+      },
+      "properties": {
+        "old": [
+          {
+            "name": "[Shield]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Quality]",
+            "values": [
+              [
+                "+1%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 6
+          },
+          {
+            "name": "[Block] chance",
+            "values": [
+              [
+                "26%",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 15
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "641",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ],
+        "new": [
+          {
+            "name": "[Shield]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Quality]",
+            "values": [
+              [
+                "+1%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 6
+          },
+          {
+            "name": "[Block] chance",
+            "values": [
+              [
+                "29%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 15
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "641",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ]
+      }
+    },
+    "Boots": {
+      "runeMods": {
+        "old": [
+          "+18% to [Resistances|Lightning Resistance]",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Mana"
+        ],
+        "new": [
+          "+18% to [Resistances|Cold Resistance]",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Mana"
+        ]
+      }
+    },
+    "Amulet": {
+      "name": {
+        "old": "Damnation Torc",
+        "new": "Demon Idol"
+      },
+      "id": {
+        "old": "4f9f56eb23134a9a7565cf24433d20ede452d4b122be2e3f43b04f0ab0e4c0e6",
+        "new": "dbfe08df3b9e17d9bb12deddcbe930b90a8f0dfa10a7fd2f74014c0b64e7fecf"
+      },
+      "implicitMods": {
+        "old": [
+          "+15 to [Spirit|Spirit]"
+        ],
+        "new": [
+          "+11 to [Spirit|Spirit]"
+        ]
+      },
+      "explicitMods": {
+        "old": [
+          "+44 to maximum Mana",
+          "+36 to [Spirit|Spirit]",
+          "+25% to [Resistances|Fire Resistance]",
+          "+25% to [Resistances|Cold Resistance]",
+          "12.1 Life Regeneration per second"
+        ],
+        "new": [
+          "47% increased maximum [EnergyShield|Energy Shield]",
+          "+47 to maximum Mana",
+          "+34 to [Spirit|Spirit]",
+          "+2 to Level of all [Melee|Melee] Skills",
+          "+29% to [Resistances|Fire Resistance]"
+        ]
+      },
+      "enchantMods": {
+        "old": [],
+        "new": [
+          "Allocates [stun17|Shattering Blow]"
+        ]
+      },
+      "desecratedMods": {
+        "old": [
+          "+40 to maximum Life"
+        ],
+        "new": [
+          "+15% to Lightning and Chaos Resistances"
+        ]
+      }
+    },
+    "BodyArmour": {
+      "runeMods": {
+        "old": [
+          "+32% to [Resistances|Lightning Resistance]",
+          "[ShamanOnlyMods|Bonded]: +40 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +40 to maximum Mana"
+        ],
+        "new": [
+          "+36% to [Resistances|Fire Resistance]",
+          "[ShamanOnlyMods|Bonded]: +40 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +40 to maximum Mana"
+        ]
+      }
+    },
+    "Helm": {
+      "name": {
+        "old": "Gloom Visage",
+        "new": "Bramble Shelter"
+      },
+      "id": {
+        "old": "27dc58bc017e5453ed20b3e50fa0a672577f257ffd6af13edf243b347ec215b1",
+        "new": "2939362be8c13d542d3b815f9708eb896a0cd1e0bbd2dba1d38cf841dd4b33ea"
+      },
+      "explicitMods": {
+        "old": [
+          "73% increased [Armour|Armour]",
+          "18% increased [ItemRarity|Rarity of Items] found",
+          "19% increased [Critical|Critical Hit] Chance",
+          "+23% to [Resistances|Cold Resistance]"
+        ],
+        "new": [
+          "32% increased [Armour|Armour]",
+          "+202 to maximum Life",
+          "+32 to [Intelligence|Intelligence]",
+          "+31% to [Resistances|Cold Resistance]",
+          "+33% to [Resistances|Lightning Resistance]"
+        ]
+      },
+      "runeMods": {
+        "old": [
+          "+18% to [Resistances|Fire Resistance]",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Mana"
+        ],
+        "new": [
+          "10% increased Area of Effect",
+          "[ShamanOnlyMods|Bonded]: 12% increased [Reservation] [Efficiency] of [Companion] Skills"
+        ]
+      },
+      "desecratedMods": {
+        "old": [],
+        "new": [
+          "55% increased [Armour|Armour]"
+        ]
+      },
+      "qualityProperty": {
+        "old": 11,
+        "new": null
+      },
+      "properties": {
+        "old": [
+          {
+            "name": "Helmet",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Quality]",
+            "values": [
+              [
+                "+11%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 6
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "570",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ],
+        "new": [
+          {
+            "name": "Helmet",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "555",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ]
+      }
+    }
+  },
+  "old_updated_utc": "2026-09-07T21:26:55.200023Z",
+  "new_updated_utc": "2026-09-08T20:48:50.009245Z",
+  "old_skill_groups": [
+    [
+      "Fortifying Cry",
+      "Paquate's Pact",
+      "Echoing Cry",
+      "Brutality II",
+      "Swift Affliction II",
+      "Physical Mastery"
+    ],
+    [
+      "Ancestral Warrior Totem",
+      "Earthshatter",
+      "Urgent Totems III",
+      "Branching Fissures II",
+      "Brutality III"
+    ],
+    [
+      "Seismic Cry",
+      "Astral Projection",
+      "Efficiency II",
+      "Raging Cry",
+      "Mobility"
+    ],
+    [
+      "Purity of Lightning",
+      "Vitality II",
+      "Cannibalism II",
+      "Warm Blooded"
+    ],
+    [
+      "Ancestral Spirits",
+      "Meat Shield II",
+      "Maim"
+    ],
+    [
+      "Purity of Lightning",
+      "Vitality I",
+      "Precision II"
+    ],
+    [
+      "Harbinger of Madness",
+      "Magnified Area II"
+    ],
+    [
+      "Raise Shield"
+    ],
+    [
+      "Magma Barrier"
+    ],
+    [
+      "Scavenged Plating"
+    ],
+    [
+      "Leap Slam"
+    ]
+  ],
+  "new_skill_groups": [
+    [
+      "Fortifying Cry",
+      "Paquate's Pact",
+      "Echoing Cry",
+      "Brutality II",
+      "Swift Affliction II",
+      "Physical Mastery"
+    ],
+    [
+      "Ancestral Warrior Totem",
+      "Earthshatter",
+      "Urgent Totems III",
+      "Branching Fissures II",
+      "Brutality III"
+    ],
+    [
+      "Seismic Cry",
+      "Astral Projection",
+      "Efficiency II",
+      "Raging Cry",
+      "Mobility"
+    ],
+    [
+      "Purity of Lightning",
+      "Vitality II",
+      "Cannibalism II",
+      "Warm Blooded"
+    ],
+    [
+      "Ancestral Spirits",
+      "Meat Shield II",
+      "Maim"
+    ],
+    [
+      "Purity of Lightning",
+      "Vitality I",
+      "Precision II"
+    ],
+    [
+      "Harbinger of Madness",
+      "Magnified Area II"
+    ],
+    [
+      "Sunder",
+      "Bleed IV"
+    ],
+    [
+      "Encase in Jade"
+    ],
+    [
+      "Raise Shield"
+    ],
+    [
+      "Magma Barrier"
+    ],
+    [
+      "Leap Slam"
+    ],
+    [
+      "Scavenged Plating"
+    ]
+  ],
+  "old_jewels": [
+    {
+      "name": "Foe Prism",
+      "id": "b781d839e63622e23b44f1f18788d2b9324eab915974cc5ee378f451483c196f",
+      "explicitMods": [
+        "19% increased [Warcry|Warcry] Speed",
+        "Gain 1 [Rage|Rage] on [Melee] [Hit]",
+        "9% increased Damage with [Plant|Plant] Skills",
+        "25% increased [Armour], [Evasion] and [EnergyShield|Energy Shield] from Equipped [Shield]"
+      ]
+    },
+    {
+      "name": "Entropy Joy",
+      "id": "7962b8a8fd9310f35c198d57a7d87ecb958ad9653e873ccf1a44083fd13941a8",
+      "explicitMods": [
+        "13% increased [Stun] Buildup",
+        "14% increased [Totem|Totem] Damage",
+        "8% increased [BuffMagnitude|Magnitude] of [Bleeding|Bleeding] you inflict",
+        "Gain 2 [Rage] when [Hit] by an Enemy"
+      ]
+    },
+    {
+      "name": "Hypnotic Glisten",
+      "id": "04fc9bdcbc44a94c13545f5d60bd0689823a4d3953c511acc1b32f120b94568b",
+      "explicitMods": [
+        "+1% to [MaximumResistances|Maximum Fire Resistance]",
+        "13% increased Global [Physical] Damage",
+        "15% increased [StunThreshold|Stun Threshold]",
+        "20% increased Damage with [Warcry|Warcries]"
+      ]
+    },
+    {
+      "name": "Phoenix Joy",
+      "id": "cd5ce1b16c4a3c5e7abec13c73dbca7eb24adba7cc26a20a978998f430c95f15",
+      "explicitMods": [
+        "4% increased [Block] chance",
+        "12% increased [Totem|Totem] Damage",
+        "9% increased [Warcry|Warcry] Cooldown Recovery Rate",
+        "Gain 1 [Rage|Rage] on [Melee] [Hit]"
+      ]
+    }
+  ],
+  "new_jewels": [
+    {
+      "name": "Phoenix Essence",
+      "id": "4e7e8d762b3057fd62146c10526bc617cb68aa0782da655c30ab34efb22030dd",
+      "explicitMods": [
+        "15% increased [Armour]",
+        "17% increased [Totem|Totem] Placement speed",
+        "11% increased [StunThreshold|Stun Threshold]",
+        "[ArmourBreak|Break] 11% increased [Armour|Armour]"
+      ]
+    },
+    {
+      "name": "Entropy Joy",
+      "id": "7962b8a8fd9310f35c198d57a7d87ecb958ad9653e873ccf1a44083fd13941a8",
+      "explicitMods": [
+        "13% increased [Stun] Buildup",
+        "14% increased [Totem|Totem] Damage",
+        "8% increased [BuffMagnitude|Magnitude] of [Bleeding|Bleeding] you inflict",
+        "Gain 2 [Rage] when [Hit] by an Enemy"
+      ]
+    },
+    {
+      "name": "Hypnotic Glisten",
+      "id": "04fc9bdcbc44a94c13545f5d60bd0689823a4d3953c511acc1b32f120b94568b",
+      "explicitMods": [
+        "+1% to [MaximumResistances|Maximum Fire Resistance]",
+        "13% increased Global [Physical] Damage",
+        "15% increased [StunThreshold|Stun Threshold]",
+        "20% increased Damage with [Warcry|Warcries]"
+      ]
+    },
+    {
+      "name": "Phoenix Joy",
+      "id": "cd5ce1b16c4a3c5e7abec13c73dbca7eb24adba7cc26a20a978998f430c95f15",
+      "explicitMods": [
+        "4% increased [Block] chance",
+        "12% increased [Totem|Totem] Damage",
+        "9% increased [Warcry|Warcry] Cooldown Recovery Rate",
+        "Gain 1 [Rage|Rage] on [Melee] [Hit]"
+      ]
+    }
+  ]
+}

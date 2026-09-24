@@ -1,0 +1,331 @@
+{
+  "installed_at_utc": "2026-09-08T12:52:00.324166+00:00",
+  "installed_count": 7,
+  "files": [
+    {
+      "file": "01 시작-근접 기초.build",
+      "display_name": "01 시작 - 근접과 방패",
+      "source_sha256": "942ba3dde8f5da746004801cd07b8fdc889492bd1b32b1768b75ab2ca6c8f00e",
+      "sha256": "17a0c35aa13401c4bab66a1eb511d3cfdeae5276ff43a0c8c2e9455789c5bc6f",
+      "passives_and_gem_links_preserved": true,
+      "survival_hints": true,
+      "early_damage_priority": true,
+      "combat_rotation_at_top": false,
+      "volcanic_fissure_timing_and_charge_condition": false,
+      "verified_skill_requirement_corrections": [],
+      "later_transition_notes": false,
+      "later_skill_requirement_corrections": [],
+      "shockwave_support_priority_reordered": false,
+      "weapon_set_validation": {
+        "sets": [
+          0,
+          0
+        ],
+        "both_sets_connected": true
+      },
+      "unique_target": "Bronzebeard",
+      "installed": "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\01 시작-근접 기초.build"
+    },
+    {
+      "file": "02 충격파 토템 - 1차 전직까지.build",
+      "display_name": "02 충격파 토템 - 1차 전직까지",
+      "source_sha256": "2617794d1252b2bd1c136c95b873b5834d840d234b14bf4b3148f8628be18ce8",
+      "sha256": "875212255d1e6eaec6aeebf46839d99561e58abf7cfa4a10ed9fbdb68b2572c8",
+      "passives_and_gem_links_preserved": true,
+      "survival_hints": true,
+      "early_damage_priority": true,
+      "combat_rotation_at_top": true,
+      "volcanic_fissure_timing_and_charge_condition": true,
+      "verified_skill_requirement_corrections": [
+        {
+          "skill": "SkillGemVolcanicFissure",
+          "previous_minimum": 23,
+          "corrected_minimum": 22
+        }
+      ],
+      "later_transition_notes": false,
+      "later_skill_requirement_corrections": [],
+      "shockwave_support_priority_reordered": true,
+      "weapon_set_validation": {
+        "sets": [
+          6,
+          6
+        ],
+        "both_sets_connected": true
+      },
+      "unique_target": "Bronzebeard",
+      "installed": "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\02 충격파 토템 - 1차 전직까지.build"
+    },
+    {
+      "file": "03 토템과 망치 - 2차 전직까지.build",
+      "display_name": "03 토템과 망치 - 2차 전직까지",
+      "source_sha256": "750e1c429cae0a8183380c3c2252e2101f57ebf22485cfc504abb6cfd024ab3e",
+      "sha256": "8922768f880f80acad0ef4c2c1f731575381eded4a6a8a32e98cbcd3515707ef",
+      "passives_and_gem_links_preserved": true,
+      "survival_hints": true,
+      "early_damage_priority": true,
+      "combat_rotation_at_top": true,
+      "volcanic_fissure_timing_and_charge_condition": true,
+      "verified_skill_requirement_corrections": [
+        {
+          "skill": "SkillGemVolcanicFissure",
+          "previous_minimum": 23,
+          "corrected_minimum": 22
+        },
+        {
+          "skill": "SkillGemForgeHammer",
+          "previous_minimum": 32,
+          "corrected_minimum": 31
+        }
+      ],
+      "later_transition_notes": true,
+      "later_skill_requirement_corrections": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "from": 7,
+          "to": 6
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "from": 15,
+          "to": 14
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "from": 11,
+          "to": 10
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "from": 7,
+          "to": 6
+        }
+      ],
+      "shockwave_support_priority_reordered": true,
+      "weapon_set_validation": {
+        "sets": [
+          12,
+          12
+        ],
+        "both_sets_connected": true
+      },
+      "unique_target": "Bronzebeard",
+      "installed": "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\03 토템과 망치 - 2차 전직까지.build"
+    },
+    {
+      "file": "04 타락 함성 - 마나 사용.build",
+      "display_name": "04 타락 함성 - 마나 사용",
+      "source_sha256": "18b826536f6fd5fff54fc49559e0f58209012f29b2fc96c1c95af66a67bfee8c",
+      "sha256": "c75f20f4f039e5af28fbec51963ebdfaf7b3c6d9850b3b99fe9789a969658046",
+      "passives_and_gem_links_preserved": true,
+      "survival_hints": true,
+      "early_damage_priority": false,
+      "combat_rotation_at_top": true,
+      "volcanic_fissure_timing_and_charge_condition": true,
+      "verified_skill_requirement_corrections": [
+        {
+          "skill": "SkillGemVolcanicFissure",
+          "previous_minimum": 23,
+          "corrected_minimum": 22
+        },
+        {
+          "skill": "SkillGemForgeHammer",
+          "previous_minimum": 32,
+          "corrected_minimum": 31
+        }
+      ],
+      "later_transition_notes": true,
+      "later_skill_requirement_corrections": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "from": 32,
+          "to": 31
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "from": 15,
+          "to": 14
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "from": 11,
+          "to": 10
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "from": 7,
+          "to": 6
+        }
+      ],
+      "shockwave_support_priority_reordered": false,
+      "weapon_set_validation": {
+        "sets": [
+          16,
+          16
+        ],
+        "both_sets_connected": true
+      },
+      "unique_target": "Bronzebeard",
+      "installed": "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\04 타락 함성 - 마나 사용.build"
+    },
+    {
+      "file": "05 전사 토템 - 혈마법 전환.build",
+      "display_name": "05 전사 토템 - 혈마법 전환",
+      "source_sha256": "7de0bbd333f7dec35e6f4f31bc9ccc4ece3489cca7f76c71d068d5c14bb62e40",
+      "sha256": "a18b7ea12bbcf0ea481975786e5acc442358a681c40cbd3f43a8552995d04968",
+      "passives_and_gem_links_preserved": false,
+      "survival_hints": false,
+      "early_damage_priority": false,
+      "combat_rotation_at_top": false,
+      "volcanic_fissure_timing_and_charge_condition": false,
+      "verified_skill_requirement_corrections": [],
+      "later_transition_notes": true,
+      "later_skill_requirement_corrections": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "from": 23,
+          "to": 22
+        }
+      ],
+      "shockwave_support_priority_reordered": false,
+      "weapon_set_validation": {
+        "sets": [
+          14,
+          14
+        ],
+        "both_sets_connected": true
+      },
+      "unique_target": null,
+      "installed": "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\05 전사 토템 - 혈마법 전환.build",
+      "passives_preserved": false,
+      "stage_05_06_progression_validation": "stage_05_06_audit/planner_validation.json",
+      "full_historical_passive_tree_verified": false,
+      "vod_passive_reconstruction_checked": true,
+      "contemporaneous_api_export": false,
+      "stage_05_06_passive_validation": "stage_05_06_audit/remaining_audit/planner_validation.json"
+    },
+    {
+      "file": "06 파콰테 - 두 함성 운영.build",
+      "display_name": "06 파콰테 - 두 함성 운영",
+      "source_sha256": "ffeed4bfa88e58e73e340a80773a467f053147e066daade662be66b23d73cf47",
+      "sha256": "622691af878a96a9b5d42f2b6c6e5434a77c7d9e017cb410984ffff93c934805",
+      "passives_and_gem_links_preserved": false,
+      "survival_hints": false,
+      "early_damage_priority": false,
+      "combat_rotation_at_top": false,
+      "volcanic_fissure_timing_and_charge_condition": false,
+      "verified_skill_requirement_corrections": [],
+      "later_transition_notes": true,
+      "later_skill_requirement_corrections": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "from": 23,
+          "to": 22
+        }
+      ],
+      "shockwave_support_priority_reordered": false,
+      "weapon_set_validation": {
+        "sets": [
+          22,
+          22
+        ],
+        "both_sets_connected": true
+      },
+      "unique_target": null,
+      "installed": "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\06 파콰테 - 두 함성 운영.build",
+      "passives_preserved": false,
+      "stage_05_06_progression_validation": "stage_05_06_audit/planner_validation.json",
+      "full_historical_passive_tree_verified": false,
+      "vod_passive_reconstruction_checked": true,
+      "contemporaneous_api_export": false,
+      "stage_05_06_passive_validation": "stage_05_06_audit/remaining_audit/planner_validation.json"
+    },
+    {
+      "file": "07 지도 성장 - 후기 목표.build",
+      "display_name": "07 지도 성장 - 후기 목표",
+      "source_sha256": "9a565431344a9f68695f6606721bfead7e3ee3ad2866ca287c982c3d393de567",
+      "sha256": "7789feee49d0a65fad1a7e9de49003f03e47afedf494d1a20c60a019f2944843",
+      "passives_and_gem_links_preserved": true,
+      "survival_hints": false,
+      "early_damage_priority": false,
+      "combat_rotation_at_top": true,
+      "volcanic_fissure_timing_and_charge_condition": false,
+      "verified_skill_requirement_corrections": [],
+      "later_transition_notes": true,
+      "later_skill_requirement_corrections": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+          "from": 15,
+          "to": 14
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+          "from": 11,
+          "to": 10
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "from": 32,
+          "to": 31
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSeismicCry",
+          "from": 42,
+          "to": 41
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "from": 23,
+          "to": 22
+        }
+      ],
+      "shockwave_support_priority_reordered": false,
+      "weapon_set_validation": {
+        "sets": [
+          22,
+          22
+        ],
+        "both_sets_connected": true
+      },
+      "unique_target": null,
+      "installed": "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\07 지도 성장 - 후기 목표.build"
+    }
+  ],
+  "unrelated_hashes_preserved": {
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\Act 1 - 0.5.5 POISON SHIELD WALL Gemling.build": "abfa2151521975c3b71dffb959788c03a17bdc5e06a6f5a77f28a8ff567a5935",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\Act 2 - 0.5.5 POISON SHIELD WALL Gemling.build": "7375c48947d958fc987ad6bdefa339fa2f0d0f069b36226e4fa6383e3984116d",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\Act 3 - 0.5.5 POISON SHIELD WALL Gemling.build": "c83d93665ad374bc3157888bf56802271fc4419c15e6c647188a1d27b4ae9daa",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\Act 4 - 0.5.5 POISON SHIELD WALL Gemling.build": "dd9e7532d043fca728b117e6d2961c21cf021f81c53b6a8aace7102bc3e5cb5a",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\Endgame Setup - 0.5.5 POISON SHIELD WALL.build": "5e1b595e38c6b65b7b7d0f89e55d602f7d97f6217bac258da2f7190eb9140fe5",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\Update 1 - Early Maps - 0.5.5 POISON SHI.build": "fbf9c6630b9cc992ee3ce79e90e9215d3f7cb4db32f983007c88bd5d9772caf3",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\아르세리나 01 38-51 젬링 이어가기.build": "43b8d2a894c41d62b0b3972aa8de94d8d0a8ef3eddc151e1d000c893f762f4f0",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\아르세리나 02 52이상 화염파 전환.build": "4c90b060d601a9506555606fa476e5c93539f0f6398bf7efda153dd9aa4a9173",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\아르세리나 03 지도 성장 목표.build": "6161b957f1b0c0cd7227e3d3ab853aaaab608b9f60d830dbb4337010471f606a",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\BuildPlanner\\아르세리나 04 후기 장비 목표.build": "22a264ebd7ad9e7706c77012650118b59599b87677d5c22099a276bd5e30c17c",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\Arserina-01-POE2-Act.filter": "4b91e3bdca590730b48df9c500fafe47e849b384e468b24138a7f878086f3fd0",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\Pathcraft-Arserina-SC-02-EarlyMaps.filter": "0da4416d6ab9cf7971ffc3e9639bb560ae4f3a61717851fac7bc25fc9c97e398",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\Pathcraft-Arserina-SC-03-SettledMaps.filter": "2b12041152e3e97d16d87d3a74e00c2b84182412388e5996276a1989d3028d05",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\Pathcraft-Skadoosh-HC-01-Campaign.filter": "e40d9a1bf6575fead99cfc0a75fc516712133f4d6f9aafd3921a4d1603e5fc44",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\Pathcraft-Skadoosh-HC-02-EarlyMaps.filter": "242523d851a72113569e37db97ec8d205c242e38d1b43d8ae6f9e169f10152d5",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\Pathcraft-Skadoosh-HC-03-SettledMaps.filter": "d3ca999a3004f0b4f66327c5d706a98f8bb14a421cd833f5c60d1d5997abb967",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\PathcraftAI_HC-Gemling_1-Campaign_on_NeverSink-SOFT.filter": "a9938c17a59388f8de361a43d4912818bf778a2a4b9f272b7ccf356badd9761b",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\PathcraftAI_HC-Gemling_2-EarlyMaps_on_NeverSink-REGULAR.filter": "c4bb1429ad40f0d31c558cfb7f6f51a76bb76b5ddf7c38e203d10275da0b554a",
+    "C:\\Users\\User\\Documents\\My Games\\Path of Exile 2\\PathcraftAI_HC-Gemling_3-Endgame_on_NeverSink-STRICT.filter": "4f00bbdd1c1db4aed3aa01e73738e9746041e6d9f24a1b94e0a141f365235efd"
+  },
+  "backups": [
+    "D:\\Pathcraft-AI\\deliverables\\skadoosh_early_survival_2026-09-08\\planner_backups\\03 토템과 망치 - 2차 전직까지.0c001d9ef074.build",
+    "D:\\Pathcraft-AI\\deliverables\\skadoosh_early_survival_2026-09-08\\planner_backups\\04 타락 함성 - 마나 사용.12c0e4272147.build",
+    "D:\\Pathcraft-AI\\deliverables\\skadoosh_early_survival_2026-09-08\\planner_backups\\05 전사 토템 - 혈마법 전환.a37b9db4c024.build",
+    "D:\\Pathcraft-AI\\deliverables\\skadoosh_early_survival_2026-09-08\\planner_backups\\06 파콰테 - 두 함성 운영.8b68c3629ee2.build",
+    "D:\\Pathcraft-AI\\deliverables\\skadoosh_early_survival_2026-09-08\\planner_backups\\07 지도 성장 - 후기 목표.ddb2705d6ec9.build"
+  ],
+  "game_log": "C:\\Program Files (x86)\\Grinding Gear Games\\Path of Exile 2 - poe2_production\\logs\\Client.txt",
+  "game_log_start_offset": 22210124,
+  "game_parser_load_verified": false,
+  "schema_reference": "https://www.pathofexile.com/developer/docs/game#buildplanner",
+  "last_scoped_update_utc": "2026-09-08T14:47:04.369704+00:00",
+  "last_scoped_update_files": [
+    "05 전사 토템 - 혈마법 전환.build",
+    "06 파콰테 - 두 함성 운영.build"
+  ]
+}

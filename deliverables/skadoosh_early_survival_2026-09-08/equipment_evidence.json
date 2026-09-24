@@ -1,0 +1,4158 @@
+[
+  {
+    "source": "D:\\Pathcraft-AI\\deliverables\\skadoosh_hc_2026-09-07\\sources\\ninja_hour18_lv24.json",
+    "source_sha256": "1d01a48eaa38a792c84058baedef012f543718b0db5e7b4d85b64a22427af7e7",
+    "character": "SkadooshShoutedHard",
+    "level_observed": 24,
+    "items": [
+      {
+        "inventoryId": "Belt",
+        "name": "Storm Harness",
+        "baseType": "Rawhide Belt",
+        "implicitMods": [
+          "21% increased Life Recovery from [Flask|Flasks]",
+          "Has 1 [Charm] Slot"
+        ],
+        "explicitMods": [
+          "+12 to [Armour]",
+          "+24 to maximum Life",
+          "11% increased [Flask] Life Recovery rate",
+          "+14% to [Resistances|Fire Resistance]",
+          "+6 to [StunThreshold|Stun Threshold]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Belt",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "12",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Ring2",
+        "name": "Hypnotic Nail",
+        "baseType": "Amethyst Ring",
+        "implicitMods": [
+          "+11% to [Resistances|Chaos Resistance]"
+        ],
+        "explicitMods": [
+          "Adds 3 to 5 [Cold] damage to [Attack|Attacks]",
+          "+14 to maximum Life",
+          "+27 to maximum Mana",
+          "+7 to [Intelligence|Intelligence]",
+          "+17% to [Resistances|Fire Resistance]",
+          "3.3 Life Regeneration per second"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Ring",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "20",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Boots",
+        "name": "Onslaught Spur",
+        "baseType": "Threaded Shoes",
+        "implicitMods": [],
+        "explicitMods": [
+          "15% increased Movement Speed",
+          "+14 to [Dexterity|Dexterity]",
+          "+11% to [Resistances|Cold Resistance]",
+          "3.5 Life Regeneration per second"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Boots",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Evasion|Evasion Rating]",
+            "values": [
+              [
+                "35",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 17
+          },
+          {
+            "name": "[EnergyShield|Energy Shield]",
+            "values": [
+              [
+                "15",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 18
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "17",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Dexterity|Dex]",
+            "values": [
+              [
+                "14",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 64
+          },
+          {
+            "name": "[Intelligence|Int]",
+            "values": [
+              [
+                "14",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 65
+          }
+        ]
+      },
+      {
+        "inventoryId": "Weapon",
+        "name": "Cataclysm Roar",
+        "baseType": "Spiked Club",
+        "implicitMods": [],
+        "explicitMods": [
+          "101% increased [Physical] Damage",
+          "Adds 5 to 11 [Physical|Physical] Damage",
+          "+16 to [Accuracy|Accuracy] Rating",
+          "+1.78% to [Critical|Critical Hit] Chance"
+        ],
+        "runeMods": [
+          "14% increased [Physical] Damage",
+          "[ShamanOnlyMods|Bonded]: 20% increased effect of [ArmourBreak|Fully Broken Armour]"
+        ],
+        "properties": [
+          {
+            "name": "[Mace|One Hand Mace]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Quality]",
+            "values": [
+              [
+                "+20%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 6
+          },
+          {
+            "name": "[Physical] Damage",
+            "values": [
+              [
+                "52-90",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 9
+          },
+          {
+            "name": "[Critical|Critical Hit] Chance",
+            "values": [
+              [
+                "6.78%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 12
+          },
+          {
+            "name": "Attacks per Second",
+            "values": [
+              [
+                "1.45",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 13
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "16",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "31",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "Amulet",
+        "name": "Surefooted Sigil",
+        "baseType": "Jade Amulet",
+        "implicitMods": [
+          "+13 to [Dexterity|Dexterity]"
+        ],
+        "explicitMods": [
+          "+41 to maximum Life",
+          "+13 to [Dexterity|Dexterity]",
+          "+1 metre to Dodge Roll distance",
+          "50% increased [Evasion|Evasion Rating] if you've Dodge Rolled [Recently]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Amulet",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "8",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Helm",
+        "name": "Bronzebeard",
+        "baseType": "Horned Crown",
+        "implicitMods": [],
+        "explicitMods": [
+          "10% reduced Movement Speed",
+          "84% increased [Armour|Armour] and [EnergyShield|Energy Shield]",
+          "+100 to maximum Life",
+          "42% reduced Effect of [Chill|Chill] on you",
+          "35% reduced [BuffMagnitude|Magnitude] of [Ignite|Ignite] on you",
+          "49% reduced [BuffEffect|effect] of [Shock|Shock] on you"
+        ],
+        "runeMods": [
+          "+10% to [Resistances|Lightning Resistance]",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Mana"
+        ],
+        "properties": [
+          {
+            "name": "Helmet",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "72",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          },
+          {
+            "name": "[EnergyShield|Energy Shield]",
+            "values": [
+              [
+                "29",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 18
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "10",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "10",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          },
+          {
+            "name": "[Intelligence|Int]",
+            "values": [
+              [
+                "10",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 65
+          }
+        ]
+      },
+      {
+        "inventoryId": "Ring",
+        "name": "Sorrow Grip",
+        "baseType": "Topaz Ring",
+        "implicitMods": [
+          "+22% to [Resistances|Lightning Resistance]"
+        ],
+        "explicitMods": [
+          "+21 to [Evasion] Rating",
+          "10% increased [ItemRarity|Rarity of Items] found",
+          "1 Life Regeneration per second",
+          "14% increased Mana Regeneration Rate",
+          "10% increased [LightRadius|Light Radius]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Ring",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "16",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Gloves",
+        "name": "Behemoth Caress",
+        "baseType": "Ringmail Gauntlets",
+        "implicitMods": [],
+        "explicitMods": [
+          "6% increased [Armour|Armour] and [Evasion|Evasion]",
+          "+32 to maximum Life",
+          "5% increased [Attack] Speed",
+          "+7% to [Resistances|Fire Resistance]",
+          "Gain 2 Life per Enemy Hit with [Attack|Attacks]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Gloves",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "15",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          },
+          {
+            "name": "[Evasion|Evasion Rating]",
+            "values": [
+              [
+                "12",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 17
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "6",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "BodyArmour",
+        "name": "Beast Cloak",
+        "baseType": "Maraketh Cuirass",
+        "implicitMods": [],
+        "explicitMods": [
+          "+17 to maximum Life",
+          "+17% to [Resistances|Fire Resistance]",
+          "+14% to [Resistances|Cold Resistance]",
+          "+12% to [Resistances|Lightning Resistance]",
+          "1 to 3 [Physical|Physical] [Thorns|Thorns] damage"
+        ],
+        "runeMods": [
+          "+20% to [Resistances|Lightning Resistance]",
+          "[ShamanOnlyMods|Bonded]: +40 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +40 to maximum Mana"
+        ],
+        "properties": [
+          {
+            "name": "Body Armour",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "178",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "20",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "34",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "Offhand",
+        "name": "Eagle Refuge",
+        "baseType": "Braced Tower Shield",
+        "implicitMods": [],
+        "explicitMods": [
+          "11% increased [Armour|Armour]",
+          "+23 to maximum Life",
+          "+14 to [Strength|Strength]",
+          "+12% to [Resistances|Cold Resistance]",
+          "+9 to [StunThreshold|Stun Threshold]",
+          "7 to 9 [Physical|Physical] [Thorns|Thorns] damage"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "[Shield]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Block] chance",
+            "values": [
+              [
+                "26%",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 15
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "56",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "17",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "19",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Grand Mana Flask",
+        "implicitMods": [],
+        "explicitMods": [],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "[Flask]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Recovers {0} Mana over {1} Seconds",
+            "values": [
+              [
+                "110",
+                0
+              ],
+              [
+                "2.50",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "10",
+                0
+              ],
+              [
+                "75",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "75",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "16",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Sapphire Charm",
+        "implicitMods": [
+          "Used when you take [Cold] damage from a [Hit]"
+        ],
+        "explicitMods": [],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Charm",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Lasts {0} Seconds",
+            "values": [
+              [
+                "4",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "20",
+                0
+              ],
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "5",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Grand Life Flask",
+        "implicitMods": [],
+        "explicitMods": [
+          "44% increased Recovery rate",
+          "19% reduced Charges per use"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "[Flask]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Recovers {0} Life over {1} Seconds",
+            "values": [
+              [
+                "260",
+                0
+              ],
+              [
+                "3.50",
+                1
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "8",
+                1
+              ],
+              [
+                "75",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "75",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "16",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "name": "Shockwave Totem",
+        "level": 7,
+        "supports": [
+          "Rapid Attacks I",
+          "Urgent Totems I",
+          "Brutality II"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Totem",
+            "pages": [
+              {
+                "skillName": "Totem",
+                "stats": [
+                  "[Totem] duration is 12 seconds",
+                  "[Limit] 1 [Totem]"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Slam",
+            "pages": [
+              {
+                "skillName": "Slam",
+                "properties": [
+                  {
+                    "name": "Attack Speed",
+                    "values": [
+                      [
+                        "50% of base",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  },
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "40%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "Shockwave radius is 3 metres"
+                ]
+              },
+              {
+                "skillName": "Jagged Ground Eruption",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "144%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Earthquake",
+        "level": 1,
+        "supports": [
+          "Encroaching Ground",
+          "Persistent Ground I"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Impact",
+            "pages": [
+              {
+                "skillName": "Impact",
+                "stats": [
+                  "100% increased [BuffMagnitude|Magnitude] of [JaggedGround|Jagged Ground] you create",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Impact radius is 1.8 metres",
+                  "[JaggedGround|Jagged Ground] radius is 1.8 metres",
+                  "[Limit] 2 [JaggedGround|Jagged Ground] patches",
+                  "[JaggedGround|Jagged Ground] duration is 4 seconds"
+                ]
+              },
+              {
+                "skillName": "Aftershock",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "184%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "Aftershock radius is 2.4 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Resonating Shield",
+        "level": 7,
+        "supports": [
+          "Rage I"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Resonating Shield",
+            "pages": [
+              {
+                "skillName": "Resonating Shield",
+                "stats": [
+                  "Hits [ArmourBreak|Break] 31 [Armour|Armour]",
+                  "26 to 38 Base Off Hand [Physical|Physical] Damage",
+                  "5 to 7 Added [Physical|Physical] Damage per 15 [Armour|Armour] on [Shield|Shield]",
+                  "Modifers to [Attack] speed also affect this skill's cost",
+                  "Cannot be [Empowered] by [Warcry|Warcries]",
+                  "Shockwave radius is 2.3 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Volcanic Fissure",
+        "level": 7,
+        "supports": [
+          "Jagged Ground I"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Volcanic Fissure",
+            "pages": [
+              {
+                "skillName": "Volcanic Fissure",
+                "stats": [
+                  "[Conversion|Converts] 80% of [Physical|Physical] damage to [Fire|Fire] damage",
+                  "While [DualWield|Dual Wielding], both weapons hit with\n30% less attack speed",
+                  "Fissures branch 2 times",
+                  "Fissure duration is 12 seconds",
+                  "[Limit] 8 Fissures"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rolling Slam",
+        "level": 6,
+        "supports": [
+          "Brink I"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Rolling Slam",
+            "pages": [
+              {
+                "skillName": "Rolling Slam",
+                "stats": [
+                  "+1 second to [TotalPlus|Total] [Attack] Time",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage"
+                ]
+              },
+              {
+                "skillName": "First Slam",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "116%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "50% more [Stun] buildup",
+                  "Impact radius is 1.4 metres"
+                ]
+              },
+              {
+                "skillName": "Second Slam",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "232%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "50% more Damage against [HeavyStun|Heavy Stunned] Enemies",
+                  "Impact radius is 1.8 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Boneshatter",
+        "level": 6,
+        "supports": [
+          "Impact Shockwave"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Initial Strike",
+            "pages": [
+              {
+                "skillName": "Initial Strike",
+                "stats": [
+                  "+0.2 metres to [Melee] [Strike] Range",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Cannot cause [Stun] buildup"
+                ]
+              },
+              {
+                "skillName": "Shockwave",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "309%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Shockwave radius is 2 metres",
+                  "50% more damage with [Hit|Hits] for Shockwaves originating\nfrom a [Rarity|Unique] enemy"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ancestral Spirits",
+        "level": 7,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Ancestral Spirits",
+            "pages": [
+              {
+                "skillName": "Ancestral Spirits",
+                "stats": [
+                  "Minions from this skill have 1% increased [Attack] Speed\nper 3 of your [Dexterity]",
+                  "Modifiers to [Totem] Life also affects [Minion|Minions] from this Skill",
+                  "[Minion|Minions] from this skill have 1% increased Damage\nper 1 of your [Strength]"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Raise Shield",
+        "level": 0,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Raise Shield",
+            "pages": [
+              {
+                "skillName": "Raise Shield",
+                "stats": [
+                  "Shield Bash causes 600% more [HeavyStun|Heavy Stun] buildup",
+                  "Shield Bash always [LightStun|Light Stuns]\nShield Bash [Daze|Dazes] if holding a Tower Shield",
+                  "Shield Bash can't be [Evasion|Evaded]",
+                  "Shield Bash deals 3 to 4 [Physical|Physical] Damage per 5 [Armour|Armour] on [Shield|Shield]"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Magma Barrier",
+        "level": 4,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Buff",
+            "pages": [
+              {
+                "skillName": "Buff",
+                "stats": [
+                  "Fully imbues [Shield] in 8 seconds",
+                  "Grants 25% increased [Block] chance"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Magma Spray",
+            "pages": [
+              {
+                "skillName": "Magma Spray",
+                "properties": [
+                  {
+                    "name": "[Critical|Critical Hit] Chance",
+                    "values": [
+                      [
+                        "5.00%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  },
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "227%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "5 to 7 Added [Fire|Fire] damage per 15 [Armour|Armour] on [Shield|Shield]",
+                  "5 to 7 Added [Fire|Fire] damage per 15 [Evasion] on [Shield|Shield]",
+                  "13 to 20 Base Off Hand [Fire|Fire] Damage",
+                  "Magma Spray radius is 2.8 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Infernal Cry",
+        "level": 3,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Infernal Cry",
+            "pages": [
+              {
+                "skillName": "Infernal Cry",
+                "stats": [
+                  "[Empowered|Empowers] one [Attack] per 10 enemy [Power] in\nrange, counting up to 50 [Power]",
+                  "[Empowered] [Attack|Attacks] [Gain] 32% of damage as extra [Fire] damage",
+                  "Warcry radius is 4 metres",
+                  "Destabilises Enemies for 8 seconds"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Combust",
+            "pages": [
+              {
+                "skillName": "Combust",
+                "description": "The enemy's [Corpse|Corpse] violently explodes, dealing [Fire|Fire] damage in an area around it.",
+                "properties": [
+                  {
+                    "name": "[Critical|Critical Hit] Chance",
+                    "values": [
+                      [
+                        "7.00%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "Deals 6 to 9 [Fire|Fire] Damage",
+                  "Deals 10% more [Fire] Damage per 1 [Power] of exploding [Corpse]",
+                  "Explosion radius is 1.6 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "passives": [
+      {
+        "allocation": "passiveSelection",
+        "name": "Brutal",
+        "id": "marauder_brute_notable1",
+        "stats": [
+          "10% increased Stun Buildup",
+          "16% increased Melee Damage",
+          "+10 to Strength"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Ancestral Mending",
+        "id": "totems34",
+        "stats": [
+          "Regenerate 1% of maximum Life per second while you have a Totem",
+          "Totems Regenerate 3% of maximum Life per second"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Warbringer",
+        "id": "AscendancyWarrior2Start",
+        "stats": []
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Totem Life",
+        "id": "AscendancyWarrior2Small6",
+        "stats": [
+          "20% increased Totem Life"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Answered Call",
+        "id": "AscendancyWarrior2Notable6",
+        "stats": [
+          "+1 to maximum number of Summoned Totems",
+          "Trigger Ancestral Spirits when you Summon a Totem",
+          "Grants Skill: Ancestral Spirits"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Smash",
+        "id": "melee55",
+        "stats": [
+          "20% increased Melee Damage",
+          "40% increased Melee Damage against Heavy Stunned enemies"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet1",
+        "name": "Spike Pit",
+        "id": "jagged_ground26",
+        "stats": [
+          "Enemies in Jagged Ground you create take 10% increased Damage"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet1",
+        "name": "Perforation",
+        "id": "jagged_ground25",
+        "stats": [
+          "20% chance for Bleeding to be Aggravated when Inflicted against Enemies on Jagged Ground",
+          "40% increased Jagged Ground Duration"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet2",
+        "name": "Ancestral Artifice",
+        "id": "totems14",
+        "stats": [
+          "Melee Attack Skills have +1 to maximum number of Summoned Totems",
+          "20% increased Totem Placement range"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet2",
+        "name": "Ancestral Unity",
+        "id": "totems15",
+        "stats": [
+          "Attacks used by Totems have 4% increased Attack Speed per Summoned Totem"
+        ]
+      }
+    ],
+    "resistance_caveat": "Raw defensiveStats have a -60 base elemental resistance term; not treated as campaign UI values.",
+    "bonded_caveat": "ShamanOnlyMods/Bonded lines retained for provenance, not counted as active Warbringer stats."
+  },
+  {
+    "source": "D:\\Pathcraft-AI\\deliverables\\skadoosh_hc_2026-09-07\\sources\\lv34_0906_0320.json",
+    "source_sha256": "abe3b7540d828bf90358affed019931bc3acceadff170793fa689edb872f1422",
+    "character": "SkadooshShoutedHard",
+    "level_observed": 34,
+    "items": [
+      {
+        "inventoryId": "Belt",
+        "name": "Storm Harness",
+        "baseType": "Rawhide Belt",
+        "implicitMods": [
+          "21% increased Life Recovery from [Flask|Flasks]",
+          "Has 1 [Charm] Slot"
+        ],
+        "explicitMods": [
+          "+12 to [Armour]",
+          "+24 to maximum Life",
+          "11% increased [Flask] Life Recovery rate",
+          "+14% to [Resistances|Fire Resistance]",
+          "+6 to [StunThreshold|Stun Threshold]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Belt",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "12",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Ring2",
+        "name": "Hypnotic Nail",
+        "baseType": "Amethyst Ring",
+        "implicitMods": [
+          "+11% to [Resistances|Chaos Resistance]"
+        ],
+        "explicitMods": [
+          "Adds 3 to 5 [Cold] damage to [Attack|Attacks]",
+          "+14 to maximum Life",
+          "+27 to maximum Mana",
+          "+7 to [Intelligence|Intelligence]",
+          "+17% to [Resistances|Fire Resistance]",
+          "3.3 Life Regeneration per second"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Ring",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "20",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Weapon",
+        "name": "Cataclysm Roar",
+        "baseType": "Spiked Club",
+        "implicitMods": [],
+        "explicitMods": [
+          "101% increased [Physical] Damage",
+          "Adds 5 to 11 [Physical|Physical] Damage",
+          "+16 to [Accuracy|Accuracy] Rating",
+          "+1.78% to [Critical|Critical Hit] Chance"
+        ],
+        "runeMods": [
+          "14% increased [Physical] Damage",
+          "[ShamanOnlyMods|Bonded]: 20% increased effect of [ArmourBreak|Fully Broken Armour]"
+        ],
+        "properties": [
+          {
+            "name": "[Mace|One Hand Mace]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Quality]",
+            "values": [
+              [
+                "+20%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 6
+          },
+          {
+            "name": "[Physical] Damage",
+            "values": [
+              [
+                "52-90",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 9
+          },
+          {
+            "name": "[Critical|Critical Hit] Chance",
+            "values": [
+              [
+                "6.78%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 12
+          },
+          {
+            "name": "Attacks per Second",
+            "values": [
+              [
+                "1.45",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 13
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "16",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "31",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "Amulet",
+        "name": "Surefooted Sigil",
+        "baseType": "Jade Amulet",
+        "implicitMods": [
+          "+13 to [Dexterity|Dexterity]"
+        ],
+        "explicitMods": [
+          "+41 to maximum Life",
+          "+13 to [Dexterity|Dexterity]",
+          "+1 metre to Dodge Roll distance",
+          "50% increased [Evasion|Evasion Rating] if you've Dodge Rolled [Recently]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Amulet",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "8",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Helm",
+        "name": "Bronzebeard",
+        "baseType": "Horned Crown",
+        "implicitMods": [],
+        "explicitMods": [
+          "10% reduced Movement Speed",
+          "84% increased [Armour|Armour] and [EnergyShield|Energy Shield]",
+          "+100 to maximum Life",
+          "42% reduced Effect of [Chill|Chill] on you",
+          "35% reduced [BuffMagnitude|Magnitude] of [Ignite|Ignite] on you",
+          "49% reduced [BuffEffect|effect] of [Shock|Shock] on you"
+        ],
+        "runeMods": [
+          "+10% to [Resistances|Lightning Resistance]",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Mana"
+        ],
+        "properties": [
+          {
+            "name": "Helmet",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "72",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          },
+          {
+            "name": "[EnergyShield|Energy Shield]",
+            "values": [
+              [
+                "29",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 18
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "10",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "10",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          },
+          {
+            "name": "[Intelligence|Int]",
+            "values": [
+              [
+                "10",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 65
+          }
+        ]
+      },
+      {
+        "inventoryId": "Ring",
+        "name": "Sorrow Grip",
+        "baseType": "Topaz Ring",
+        "implicitMods": [
+          "+22% to [Resistances|Lightning Resistance]"
+        ],
+        "explicitMods": [
+          "+21 to [Evasion] Rating",
+          "10% increased [ItemRarity|Rarity of Items] found",
+          "1 Life Regeneration per second",
+          "14% increased Mana Regeneration Rate",
+          "10% increased [LightRadius|Light Radius]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Ring",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "16",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Gloves",
+        "name": "Behemoth Caress",
+        "baseType": "Ringmail Gauntlets",
+        "implicitMods": [],
+        "explicitMods": [
+          "6% increased [Armour|Armour] and [Evasion|Evasion]",
+          "+32 to maximum Life",
+          "5% increased [Attack] Speed",
+          "+7% to [Resistances|Fire Resistance]",
+          "Gain 2 Life per Enemy Hit with [Attack|Attacks]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Gloves",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "15",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          },
+          {
+            "name": "[Evasion|Evasion Rating]",
+            "values": [
+              [
+                "12",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 17
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "6",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "BodyArmour",
+        "name": "Beast Cloak",
+        "baseType": "Maraketh Cuirass",
+        "implicitMods": [],
+        "explicitMods": [
+          "+17 to maximum Life",
+          "+17% to [Resistances|Fire Resistance]",
+          "+14% to [Resistances|Cold Resistance]",
+          "+12% to [Resistances|Lightning Resistance]",
+          "1 to 3 [Physical|Physical] [Thorns|Thorns] damage"
+        ],
+        "runeMods": [
+          "+20% to [Resistances|Lightning Resistance]",
+          "[ShamanOnlyMods|Bonded]: +40 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +40 to maximum Mana"
+        ],
+        "properties": [
+          {
+            "name": "Body Armour",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "178",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "20",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "34",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "Offhand",
+        "name": "Eagle Refuge",
+        "baseType": "Braced Tower Shield",
+        "implicitMods": [],
+        "explicitMods": [
+          "11% increased [Armour|Armour]",
+          "+23 to maximum Life",
+          "+14 to [Strength|Strength]",
+          "+12% to [Resistances|Cold Resistance]",
+          "+9 to [StunThreshold|Stun Threshold]",
+          "7 to 9 [Physical|Physical] [Thorns|Thorns] damage"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "[Shield]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Block] chance",
+            "values": [
+              [
+                "26%",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 15
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "56",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "17",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "19",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "Boots",
+        "name": "Victory Trail",
+        "baseType": "Bronze Greaves",
+        "implicitMods": [],
+        "explicitMods": [
+          "15% increased Movement Speed",
+          "+19% to [Resistances|Cold Resistance]",
+          "3.9 Life Regeneration per second",
+          "+10 to [StunThreshold|Stun Threshold]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Boots",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "74",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "20",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "23",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Sapphire Charm",
+        "implicitMods": [
+          "Used when you take [Cold] damage from a [Hit]"
+        ],
+        "explicitMods": [],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Charm",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Lasts {0} Seconds",
+            "values": [
+              [
+                "4",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "20",
+                0
+              ],
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "5",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Colossal Life Flask",
+        "implicitMods": [],
+        "explicitMods": [
+          "Grants 57% of Life Recovery to Minions",
+          "27% increased Charges"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "[Flask]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Recovers {0} Life over {1} Seconds",
+            "values": [
+              [
+                "450",
+                0
+              ],
+              [
+                "4",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "10",
+                0
+              ],
+              [
+                "95",
+                1
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "95",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "30",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Colossal Mana Flask",
+        "implicitMods": [],
+        "explicitMods": [],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "[Flask]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Recovers {0} Mana over {1} Seconds",
+            "values": [
+              [
+                "165",
+                0
+              ],
+              [
+                "2.50",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "10",
+                0
+              ],
+              [
+                "75",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "75",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "30",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Stone Charm",
+        "implicitMods": [
+          "Used when you become [Stun|Stunned]"
+        ],
+        "explicitMods": [
+          "Gains 0.15 Charges per Second"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Charm",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Lasts {0} Seconds",
+            "values": [
+              [
+                "3",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "20",
+                0
+              ],
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "8",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "name": "Shockwave Totem",
+        "level": 9,
+        "supports": [
+          "Rapid Attacks I",
+          "Urgent Totems I",
+          "Brutality II"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Totem",
+            "pages": [
+              {
+                "skillName": "Totem",
+                "stats": [
+                  "[Totem] duration is 12 seconds",
+                  "[Limit] 1 [Totem]"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Slam",
+            "pages": [
+              {
+                "skillName": "Slam",
+                "properties": [
+                  {
+                    "name": "Attack Speed",
+                    "values": [
+                      [
+                        "50% of base",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  },
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "44%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "Shockwave radius is 3 metres"
+                ]
+              },
+              {
+                "skillName": "Jagged Ground Eruption",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "158%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Resonating Shield",
+        "level": 9,
+        "supports": [
+          "Rage I",
+          "Armour Demolisher I"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Resonating Shield",
+            "pages": [
+              {
+                "skillName": "Resonating Shield",
+                "stats": [
+                  "Hits [ArmourBreak|Break] 63 [Armour|Armour]",
+                  "35 to 53 Base Off Hand [Physical|Physical] Damage",
+                  "5 to 7 Added [Physical|Physical] Damage per 15 [Armour|Armour] on [Shield|Shield]",
+                  "Modifers to [Attack] speed also affect this skill's cost",
+                  "Cannot be [Empowered] by [Warcry|Warcries]",
+                  "Shockwave radius is 2.3 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Forge Hammer",
+        "level": 9,
+        "supports": [
+          "Jagged Ground I",
+          "Persistent Ground I"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Impact",
+            "pages": [
+              {
+                "skillName": "Impact",
+                "stats": [
+                  "[Conversion|Converts] 30% of [Physical|Physical] damage to [Fire|Fire] damage",
+                  "Creates 5 fissures",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Impact radius is 1.8 metres",
+                  "Hammer duration is 12 seconds",
+                  "Cooldown does not recover while the hammer is lodged"
+                ]
+              },
+              {
+                "skillName": "Fissures",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "132%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "[Conversion|Converts] 100% of [Physical|Physical] damage to [Fire|Fire] damage",
+                  "Creates 5 fissures",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Cooldown does not recover during Buff effect",
+                  "Fissure duration is 8 seconds",
+                  "[Limit] 10 Fissures"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Boneshatter",
+        "level": 6,
+        "supports": [
+          "Impact Shockwave"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Initial Strike",
+            "pages": [
+              {
+                "skillName": "Initial Strike",
+                "stats": [
+                  "+0.2 metres to [Melee] [Strike] Range",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Cannot cause [Stun] buildup"
+                ]
+              },
+              {
+                "skillName": "Shockwave",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "309%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Shockwave radius is 2 metres",
+                  "50% more damage with [Hit|Hits] for Shockwaves originating\nfrom a [Rarity|Unique] enemy"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Earthquake",
+        "level": 1,
+        "supports": [
+          "Encroaching Ground"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Impact",
+            "pages": [
+              {
+                "skillName": "Impact",
+                "stats": [
+                  "100% increased [BuffMagnitude|Magnitude] of [JaggedGround|Jagged Ground] you create",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Impact radius is 1.8 metres",
+                  "[JaggedGround|Jagged Ground] radius is 1.8 metres",
+                  "[Limit] 2 [JaggedGround|Jagged Ground] patches",
+                  "[JaggedGround|Jagged Ground] duration is 4 seconds"
+                ]
+              },
+              {
+                "skillName": "Aftershock",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "184%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "Aftershock radius is 2.4 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ancestral Spirits",
+        "level": 9,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Ancestral Spirits",
+            "pages": [
+              {
+                "skillName": "Ancestral Spirits",
+                "stats": [
+                  "Minions from this skill have 1% increased [Attack] Speed\nper 3 of your [Dexterity]",
+                  "Modifiers to [Totem] Life also affects [Minion|Minions] from this Skill",
+                  "[Minion|Minions] from this skill have 1% increased Damage\nper 1 of your [Strength]"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Raise Shield",
+        "level": 0,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Raise Shield",
+            "pages": [
+              {
+                "skillName": "Raise Shield",
+                "stats": [
+                  "Shield Bash causes 600% more [HeavyStun|Heavy Stun] buildup",
+                  "Shield Bash always [LightStun|Light Stuns]\nShield Bash [Daze|Dazes] if holding a Tower Shield",
+                  "Shield Bash can't be [Evasion|Evaded]",
+                  "Shield Bash deals 3 to 4 [Physical|Physical] Damage per 5 [Armour|Armour] on [Shield|Shield]"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Volcanic Fissure",
+        "level": 7,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Volcanic Fissure",
+            "pages": [
+              {
+                "skillName": "Volcanic Fissure",
+                "stats": [
+                  "[Conversion|Converts] 80% of [Physical|Physical] damage to [Fire|Fire] damage",
+                  "While [DualWield|Dual Wielding], both weapons hit with\n30% less attack speed",
+                  "Fissures branch 2 times",
+                  "Fissure duration is 12 seconds",
+                  "[Limit] 8 Fissures"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Infernal Cry",
+        "level": 3,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Infernal Cry",
+            "pages": [
+              {
+                "skillName": "Infernal Cry",
+                "stats": [
+                  "[Empowered|Empowers] one [Attack] per 10 enemy [Power] in\nrange, counting up to 50 [Power]",
+                  "[Empowered] [Attack|Attacks] [Gain] 32% of damage as extra [Fire] damage",
+                  "Warcry radius is 4 metres",
+                  "Destabilises Enemies for 8 seconds"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Combust",
+            "pages": [
+              {
+                "skillName": "Combust",
+                "description": "The enemy's [Corpse|Corpse] violently explodes, dealing [Fire|Fire] damage in an area around it.",
+                "properties": [
+                  {
+                    "name": "[Critical|Critical Hit] Chance",
+                    "values": [
+                      [
+                        "7.00%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "Deals 6 to 9 [Fire|Fire] Damage",
+                  "Deals 10% more [Fire] Damage per 1 [Power] of exploding [Corpse]",
+                  "Explosion radius is 1.6 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Magma Barrier",
+        "level": 4,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Buff",
+            "pages": [
+              {
+                "skillName": "Buff",
+                "stats": [
+                  "Fully imbues [Shield] in 8 seconds",
+                  "Grants 25% increased [Block] chance"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Magma Spray",
+            "pages": [
+              {
+                "skillName": "Magma Spray",
+                "properties": [
+                  {
+                    "name": "[Critical|Critical Hit] Chance",
+                    "values": [
+                      [
+                        "5.00%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  },
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "227%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "5 to 7 Added [Fire|Fire] damage per 15 [Armour|Armour] on [Shield|Shield]",
+                  "5 to 7 Added [Fire|Fire] damage per 15 [Evasion] on [Shield|Shield]",
+                  "13 to 20 Base Off Hand [Fire|Fire] Damage",
+                  "Magma Spray radius is 2.8 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "passives": [
+      {
+        "allocation": "passiveSelection",
+        "name": "Brutal",
+        "id": "marauder_brute_notable1",
+        "stats": [
+          "10% increased Stun Buildup",
+          "16% increased Melee Damage",
+          "+10 to Strength"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Relentless",
+        "id": "marauder_brute_notable2",
+        "stats": [
+          "15% increased Armour",
+          "Regenerate 0.5% of maximum Life per second",
+          "+10 to Strength"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Ancestral Mending",
+        "id": "totems34",
+        "stats": [
+          "Regenerate 1% of maximum Life per second while you have a Totem",
+          "Totems Regenerate 3% of maximum Life per second"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Sturdy Metal",
+        "id": "armour35",
+        "stats": [
+          "80% increased Armour from Equipped Body Armour"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Warbringer",
+        "id": "AscendancyWarrior2Start",
+        "stats": []
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Blood Rush",
+        "id": "attack_speed55",
+        "stats": [
+          "6% increased Skill Speed",
+          "6% of Skill Mana Costs Converted to Life Costs"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Totem Life",
+        "id": "AscendancyWarrior2Small6",
+        "stats": [
+          "20% increased Totem Life"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Answered Call",
+        "id": "AscendancyWarrior2Notable6",
+        "stats": [
+          "+1 to maximum number of Summoned Totems",
+          "Trigger Ancestral Spirits when you Summon a Totem",
+          "Grants Skill: Ancestral Spirits"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Smash",
+        "id": "melee55",
+        "stats": [
+          "20% increased Melee Damage",
+          "40% increased Melee Damage against Heavy Stunned enemies"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet1",
+        "name": "Spike Pit",
+        "id": "jagged_ground26",
+        "stats": [
+          "Enemies in Jagged Ground you create take 10% increased Damage"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet1",
+        "name": "Perforation",
+        "id": "jagged_ground25",
+        "stats": [
+          "20% chance for Bleeding to be Aggravated when Inflicted against Enemies on Jagged Ground",
+          "40% increased Jagged Ground Duration"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet1",
+        "name": "Unstoppable Barrier",
+        "id": "block12",
+        "stats": [
+          "10% increased Block chance",
+          "15% reduced Slowing Potency of Debuffs on You"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet2",
+        "name": "Crushing Verdict",
+        "id": "slow_attacks10",
+        "stats": [
+          "5% reduced Attack Speed",
+          "30% increased Stun Buildup",
+          "50% increased Attack Damage"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet2",
+        "name": "Ancestral Artifice",
+        "id": "totems14",
+        "stats": [
+          "Melee Attack Skills have +1 to maximum number of Summoned Totems",
+          "20% increased Totem Placement range"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet2",
+        "name": "Ancestral Unity",
+        "id": "totems15",
+        "stats": [
+          "Attacks used by Totems have 4% increased Attack Speed per Summoned Totem"
+        ]
+      }
+    ],
+    "resistance_caveat": "Raw defensiveStats have a -60 base elemental resistance term; not treated as campaign UI values.",
+    "bonded_caveat": "ShamanOnlyMods/Bonded lines retained for provenance, not counted as active Warbringer stats."
+  },
+  {
+    "source": "D:\\Pathcraft-AI\\deliverables\\skadoosh_hc_2026-09-07\\sources\\lv43_0906_0523.json",
+    "source_sha256": "a82fb7fa96bf7810d14b73262ed58c7cc29eaed072a012acc4d226a4a580ef6e",
+    "character": "SkadooshShoutedHard",
+    "level_observed": 43,
+    "items": [
+      {
+        "inventoryId": "Ring2",
+        "name": "Hypnotic Nail",
+        "baseType": "Amethyst Ring",
+        "implicitMods": [
+          "+11% to [Resistances|Chaos Resistance]"
+        ],
+        "explicitMods": [
+          "Adds 3 to 5 [Cold] damage to [Attack|Attacks]",
+          "+14 to maximum Life",
+          "+27 to maximum Mana",
+          "+7 to [Intelligence|Intelligence]",
+          "+17% to [Resistances|Fire Resistance]",
+          "3.3 Life Regeneration per second"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Ring",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "20",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Weapon",
+        "name": "Cataclysm Roar",
+        "baseType": "Spiked Club",
+        "implicitMods": [],
+        "explicitMods": [
+          "101% increased [Physical] Damage",
+          "Adds 5 to 11 [Physical|Physical] Damage",
+          "+16 to [Accuracy|Accuracy] Rating",
+          "+1.78% to [Critical|Critical Hit] Chance"
+        ],
+        "runeMods": [
+          "14% increased [Physical] Damage",
+          "[ShamanOnlyMods|Bonded]: 20% increased effect of [ArmourBreak|Fully Broken Armour]"
+        ],
+        "properties": [
+          {
+            "name": "[Mace|One Hand Mace]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Quality]",
+            "values": [
+              [
+                "+20%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 6
+          },
+          {
+            "name": "[Physical] Damage",
+            "values": [
+              [
+                "52-90",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 9
+          },
+          {
+            "name": "[Critical|Critical Hit] Chance",
+            "values": [
+              [
+                "6.78%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 12
+          },
+          {
+            "name": "Attacks per Second",
+            "values": [
+              [
+                "1.45",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 13
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "16",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "31",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "BodyArmour",
+        "name": "Agony Coat",
+        "baseType": "Vaal Cuirass",
+        "implicitMods": [],
+        "explicitMods": [
+          "+120 to [Armour|Armour]",
+          "15% increased [Armour|Armour]",
+          "+42 to maximum Life",
+          "+23% to [Resistances|Fire Resistance]",
+          "+7% to [Resistances|Lightning Resistance]",
+          "1.5 Life Regeneration per second"
+        ],
+        "runeMods": [
+          "+10% to [Resistances|Cold Resistance]",
+          "+14% to [Resistances|Lightning Resistance]",
+          "[ShamanOnlyMods|Bonded]: +40 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +40 to maximum Mana"
+        ],
+        "properties": [
+          {
+            "name": "Body Armour",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Quality]",
+            "values": [
+              [
+                "+2%",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 6
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "490",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "37",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "60",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "Amulet",
+        "name": "Surefooted Sigil",
+        "baseType": "Jade Amulet",
+        "implicitMods": [
+          "+13 to [Dexterity|Dexterity]"
+        ],
+        "explicitMods": [
+          "+41 to maximum Life",
+          "+13 to [Dexterity|Dexterity]",
+          "+1 metre to Dodge Roll distance",
+          "50% increased [Evasion|Evasion Rating] if you've Dodge Rolled [Recently]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Amulet",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "8",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Helm",
+        "name": "Bronzebeard",
+        "baseType": "Horned Crown",
+        "implicitMods": [],
+        "explicitMods": [
+          "10% reduced Movement Speed",
+          "84% increased [Armour|Armour] and [EnergyShield|Energy Shield]",
+          "+100 to maximum Life",
+          "42% reduced Effect of [Chill|Chill] on you",
+          "35% reduced [BuffMagnitude|Magnitude] of [Ignite|Ignite] on you",
+          "49% reduced [BuffEffect|effect] of [Shock|Shock] on you"
+        ],
+        "runeMods": [
+          "+10% to [Resistances|Lightning Resistance]",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Mana"
+        ],
+        "properties": [
+          {
+            "name": "Helmet",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "72",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          },
+          {
+            "name": "[EnergyShield|Energy Shield]",
+            "values": [
+              [
+                "29",
+                1
+              ]
+            ],
+            "displayMode": 0,
+            "type": 18
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "10",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "10",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          },
+          {
+            "name": "[Intelligence|Int]",
+            "values": [
+              [
+                "10",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 65
+          }
+        ]
+      },
+      {
+        "inventoryId": "Ring",
+        "name": "Grim Hold",
+        "baseType": "Ruby Ring",
+        "implicitMods": [
+          "+26% to [Resistances|Fire Resistance]"
+        ],
+        "explicitMods": [
+          "+82 to maximum Life",
+          "+33 to maximum Mana",
+          "+14% to [Resistances|Cold Resistance]",
+          "+16% to [Resistances|Lightning Resistance]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Ring",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "30",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Belt",
+        "name": "Nemesis Strap",
+        "baseType": "Rawhide Belt",
+        "implicitMods": [
+          "25% increased Life Recovery from [Flask|Flasks]",
+          "Has 1 [Charm] Slot"
+        ],
+        "explicitMods": [
+          "+21 to [Armour]",
+          "+59 to maximum Mana",
+          "+12% to [Resistances|Cold Resistance]",
+          "+16% to [Resistances|Lightning Resistance]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Belt",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "26",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Gloves",
+        "name": "Skull Nails",
+        "baseType": "Doubled Gauntlets",
+        "implicitMods": [],
+        "explicitMods": [
+          "Adds 4 to 5 [Physical|Physical] Damage to [Attack|Attacks]",
+          "+93 to [Accuracy|Accuracy] Rating",
+          "+54 to maximum Life",
+          "6% increased [Attack] Speed",
+          "+9 to [Dexterity|Dexterity]",
+          "+11% to [Resistances|Lightning Resistance]"
+        ],
+        "runeMods": [
+          "+14% to [Resistances|Fire Resistance]",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Mana"
+        ],
+        "properties": [
+          {
+            "name": "Gloves",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "49",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          },
+          {
+            "name": "[Evasion|Evasion Rating]",
+            "values": [
+              [
+                "43",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 17
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "33",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "24",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          },
+          {
+            "name": "[Dexterity|Dex]",
+            "values": [
+              [
+                "24",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 64
+          }
+        ]
+      },
+      {
+        "inventoryId": "Offhand",
+        "name": "Tempest Aegis",
+        "baseType": "Stone Tower Shield",
+        "implicitMods": [],
+        "explicitMods": [
+          "+29 to maximum Life",
+          "4% additional [Physical] Damage Reduction",
+          "+22% to [Resistances|Fire Resistance]",
+          "+6% to [Resistances|Chaos Resistance]"
+        ],
+        "runeMods": [
+          "+10% to [Resistances|Cold Resistance]",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Life",
+          "[ShamanOnlyMods|Bonded]: +20 to maximum Mana"
+        ],
+        "properties": [
+          {
+            "name": "[Shield]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Block] chance",
+            "values": [
+              [
+                "26%",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 15
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "119",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "36",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "52",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "Boots",
+        "name": "Victory Trail",
+        "baseType": "Bronze Greaves",
+        "implicitMods": [],
+        "explicitMods": [
+          "15% increased Movement Speed",
+          "+19% to [Resistances|Cold Resistance]",
+          "3.9 Life Regeneration per second",
+          "+10 to [StunThreshold|Stun Threshold]"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Boots",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Armour]",
+            "values": [
+              [
+                "74",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 16
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "20",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [
+              [
+                "23",
+                0
+              ]
+            ],
+            "displayMode": 1,
+            "type": 63
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Gargantuan Mana Flask",
+        "implicitMods": [],
+        "explicitMods": [
+          "Gains 0.15 Charges per Second",
+          "43% increased Amount Recovered"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "[Flask]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Recovers {0} Mana over {1} Seconds",
+            "values": [
+              [
+                "265",
+                1
+              ],
+              [
+                "2",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "10",
+                0
+              ],
+              [
+                "75",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "75",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Sapphire Charm",
+        "implicitMods": [
+          "Used when you take [Cold] damage from a [Hit]"
+        ],
+        "explicitMods": [],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Charm",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Lasts {0} Seconds",
+            "values": [
+              [
+                "4",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "20",
+                0
+              ],
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "5",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Antidote Charm",
+        "implicitMods": [
+          "Used when you become [Poison|Poisoned]"
+        ],
+        "explicitMods": [
+          "15% reduced Charges per use"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "Charm",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Lasts {0} Seconds",
+            "values": [
+              [
+                "3",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "17",
+                1
+              ],
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "24",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      },
+      {
+        "inventoryId": "Flask",
+        "name": "",
+        "baseType": "Gargantuan Life Flask",
+        "implicitMods": [],
+        "explicitMods": [
+          "53% increased Amount Recovered",
+          "43% increased Charges gained"
+        ],
+        "runeMods": [],
+        "properties": [
+          {
+            "name": "[Flask]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "Recovers {0} Life over {1} Seconds",
+            "values": [
+              [
+                "1086",
+                1
+              ],
+              [
+                "5",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              [
+                "10",
+                0
+              ],
+              [
+                "75",
+                0
+              ]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [
+              [
+                "75",
+                0
+              ]
+            ],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [
+              [
+                "40",
+                0
+              ]
+            ],
+            "displayMode": 0,
+            "type": 62
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "name": "Forge Hammer",
+        "level": 10,
+        "supports": [
+          "Jagged Ground I",
+          "Persistent Ground I",
+          "Fist of War II"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Impact",
+            "pages": [
+              {
+                "skillName": "Impact",
+                "stats": [
+                  "[Conversion|Converts] 30% of [Physical|Physical] damage to [Fire|Fire] damage",
+                  "Creates 5 fissures",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Impact radius is 1.8 metres",
+                  "Hammer duration is 12 seconds",
+                  "Cooldown does not recover while the hammer is lodged"
+                ]
+              },
+              {
+                "skillName": "Fissures",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "138%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "[Conversion|Converts] 100% of [Physical|Physical] damage to [Fire|Fire] damage",
+                  "Creates 5 fissures",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Cooldown does not recover during Buff effect",
+                  "Fissure duration is 8 seconds",
+                  "[Limit] 10 Fissures"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Shockwave Totem",
+        "level": 11,
+        "supports": [
+          "Rapid Attacks I",
+          "Urgent Totems I",
+          "Brutality II"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Totem",
+            "pages": [
+              {
+                "skillName": "Totem",
+                "stats": [
+                  "[Totem] duration is 12 seconds",
+                  "[Limit] 1 [Totem]"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Slam",
+            "pages": [
+              {
+                "skillName": "Slam",
+                "properties": [
+                  {
+                    "name": "Attack Speed",
+                    "values": [
+                      [
+                        "50% of base",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  },
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "48%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "Shockwave radius is 3 metres"
+                ]
+              },
+              {
+                "skillName": "Jagged Ground Eruption",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "172%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Resonating Shield",
+        "level": 11,
+        "supports": [
+          "Rage I",
+          "Armour Demolisher I"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Resonating Shield",
+            "pages": [
+              {
+                "skillName": "Resonating Shield",
+                "stats": [
+                  "Hits [ArmourBreak|Break] 128 [Armour|Armour]",
+                  "45 to 68 Base Off Hand [Physical|Physical] Damage",
+                  "5 to 7 Added [Physical|Physical] Damage per 15 [Armour|Armour] on [Shield|Shield]",
+                  "Modifers to [Attack] speed also affect this skill's cost",
+                  "Cannot be [Empowered] by [Warcry|Warcries]",
+                  "Shockwave radius is 2.3 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Earthquake",
+        "level": 1,
+        "supports": [
+          "Encroaching Ground"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Impact",
+            "pages": [
+              {
+                "skillName": "Impact",
+                "stats": [
+                  "100% increased [BuffMagnitude|Magnitude] of [JaggedGround|Jagged Ground] you create",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Impact radius is 1.8 metres",
+                  "[JaggedGround|Jagged Ground] radius is 1.8 metres",
+                  "[Limit] 2 [JaggedGround|Jagged Ground] patches",
+                  "[JaggedGround|Jagged Ground] duration is 4 seconds"
+                ]
+              },
+              {
+                "skillName": "Aftershock",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "184%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "Aftershock radius is 2.4 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Boneshatter",
+        "level": 6,
+        "supports": [
+          "Impact Shockwave"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Initial Strike",
+            "pages": [
+              {
+                "skillName": "Initial Strike",
+                "stats": [
+                  "+0.2 metres to [Melee] [Strike] Range",
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Cannot cause [Stun] buildup"
+                ]
+              },
+              {
+                "skillName": "Shockwave",
+                "properties": [
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "309%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "While [DualWield|Dual Wielding], both weapons hit with 30% less damage",
+                  "Shockwave radius is 2 metres",
+                  "50% more damage with [Hit|Hits] for Shockwaves originating\nfrom a [Rarity|Unique] enemy"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Magma Barrier",
+        "level": 4,
+        "supports": [
+          "Vitality I"
+        ],
+        "gem_tabs": [
+          {
+            "name": "Buff",
+            "pages": [
+              {
+                "skillName": "Buff",
+                "stats": [
+                  "Fully imbues [Shield] in 8 seconds",
+                  "Grants 25% increased [Block] chance"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Magma Spray",
+            "pages": [
+              {
+                "skillName": "Magma Spray",
+                "properties": [
+                  {
+                    "name": "[Critical|Critical Hit] Chance",
+                    "values": [
+                      [
+                        "5.00%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  },
+                  {
+                    "name": "Attack Damage",
+                    "values": [
+                      [
+                        "227%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "5 to 7 Added [Fire|Fire] damage per 15 [Armour|Armour] on [Shield|Shield]",
+                  "5 to 7 Added [Fire|Fire] damage per 15 [Evasion] on [Shield|Shield]",
+                  "13 to 20 Base Off Hand [Fire|Fire] Damage",
+                  "Magma Spray radius is 2.8 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ancestral Spirits",
+        "level": 11,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Ancestral Spirits",
+            "pages": [
+              {
+                "skillName": "Ancestral Spirits",
+                "stats": [
+                  "Minions from this skill have 1% increased [Attack] Speed\nper 3 of your [Dexterity]",
+                  "Modifiers to [Totem] Life also affects [Minion|Minions] from this Skill",
+                  "[Minion|Minions] from this skill have 1% increased Damage\nper 1 of your [Strength]"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Raise Shield",
+        "level": 0,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Raise Shield",
+            "pages": [
+              {
+                "skillName": "Raise Shield",
+                "stats": [
+                  "Shield Bash causes 600% more [HeavyStun|Heavy Stun] buildup",
+                  "Shield Bash always [LightStun|Light Stuns]\nShield Bash [Daze|Dazes] if holding a Tower Shield",
+                  "Shield Bash can't be [Evasion|Evaded]",
+                  "Shield Bash deals 3 to 4 [Physical|Physical] Damage per 5 [Armour|Armour] on [Shield|Shield]"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Infernal Cry",
+        "level": 3,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Infernal Cry",
+            "pages": [
+              {
+                "skillName": "Infernal Cry",
+                "stats": [
+                  "[Empowered|Empowers] one [Attack] per 10 enemy [Power] in\nrange, counting up to 50 [Power]",
+                  "[Empowered] [Attack|Attacks] [Gain] 32% of damage as extra [Fire] damage",
+                  "Warcry radius is 4 metres",
+                  "Destabilises Enemies for 8 seconds"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Combust",
+            "pages": [
+              {
+                "skillName": "Combust",
+                "description": "The enemy's [Corpse|Corpse] violently explodes, dealing [Fire|Fire] damage in an area around it.",
+                "properties": [
+                  {
+                    "name": "[Critical|Critical Hit] Chance",
+                    "values": [
+                      [
+                        "7.00%",
+                        0
+                      ]
+                    ],
+                    "displayMode": 0
+                  }
+                ],
+                "stats": [
+                  "Deals 6 to 9 [Fire|Fire] Damage",
+                  "Deals 10% more [Fire] Damage per 1 [Power] of exploding [Corpse]",
+                  "Explosion radius is 1.6 metres"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Volcanic Fissure",
+        "level": 7,
+        "supports": [],
+        "gem_tabs": [
+          {
+            "name": "Volcanic Fissure",
+            "pages": [
+              {
+                "skillName": "Volcanic Fissure",
+                "stats": [
+                  "[Conversion|Converts] 80% of [Physical|Physical] damage to [Fire|Fire] damage",
+                  "While [DualWield|Dual Wielding], both weapons hit with\n30% less attack speed",
+                  "Fissures branch 2 times",
+                  "Fissure duration is 12 seconds",
+                  "[Limit] 8 Fissures"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "passives": [
+      {
+        "allocation": "passiveSelection",
+        "name": "Warcry Speed",
+        "id": "AscendancyWarrior2Small5",
+        "stats": [
+          "20% increased Warcry Speed"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Brutal",
+        "id": "marauder_brute_notable1",
+        "stats": [
+          "10% increased Stun Buildup",
+          "16% increased Melee Damage",
+          "+10 to Strength"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Relentless",
+        "id": "marauder_brute_notable2",
+        "stats": [
+          "15% increased Armour",
+          "Regenerate 0.5% of maximum Life per second",
+          "+10 to Strength"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Ancestral Mending",
+        "id": "totems34",
+        "stats": [
+          "Regenerate 1% of maximum Life per second while you have a Totem",
+          "Totems Regenerate 3% of maximum Life per second"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Sturdy Metal",
+        "id": "armour35",
+        "stats": [
+          "80% increased Armour from Equipped Body Armour"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Warbringer",
+        "id": "AscendancyWarrior2Start",
+        "stats": []
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Blood Rush",
+        "id": "attack_speed55",
+        "stats": [
+          "6% increased Skill Speed",
+          "6% of Skill Mana Costs Converted to Life Costs"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Totem Life",
+        "id": "AscendancyWarrior2Small6",
+        "stats": [
+          "20% increased Totem Life"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Answered Call",
+        "id": "AscendancyWarrior2Notable6",
+        "stats": [
+          "+1 to maximum number of Summoned Totems",
+          "Trigger Ancestral Spirits when you Summon a Totem",
+          "Grants Skill: Ancestral Spirits"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Cruel Methods",
+        "id": "armour_break37",
+        "stats": [
+          "Break 40% increased Armour",
+          "25% increased Physical Damage"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Smash",
+        "id": "melee55",
+        "stats": [
+          "20% increased Melee Damage",
+          "40% increased Melee Damage against Heavy Stunned enemies"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Warcaller's Bellow",
+        "id": "AscendancyWarrior2Notable4_",
+        "stats": [
+          "Warcries Explode Corpses dealing 25% of their Life as Physical Damage",
+          "Ignore Warcry Cooldowns"
+        ]
+      },
+      {
+        "allocation": "passiveSelection",
+        "name": "Hard to Kill",
+        "id": "life_regeneration17_",
+        "stats": [
+          "40% increased Flask Life Recovery rate",
+          "Regenerate 0.75% of maximum Life per second"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet1",
+        "name": "Spike Pit",
+        "id": "jagged_ground26",
+        "stats": [
+          "Enemies in Jagged Ground you create take 10% increased Damage"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet1",
+        "name": "Perforation",
+        "id": "jagged_ground25",
+        "stats": [
+          "20% chance for Bleeding to be Aggravated when Inflicted against Enemies on Jagged Ground",
+          "40% increased Jagged Ground Duration"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet1",
+        "name": "Unstoppable Barrier",
+        "id": "block12",
+        "stats": [
+          "10% increased Block chance",
+          "15% reduced Slowing Potency of Debuffs on You"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet1",
+        "name": "Lay Siege",
+        "id": "shield5",
+        "stats": [
+          "1% increased Damage per 1% Chance to Block"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet2",
+        "name": "Crushing Verdict",
+        "id": "slow_attacks10",
+        "stats": [
+          "5% reduced Attack Speed",
+          "30% increased Stun Buildup",
+          "50% increased Attack Damage"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet2",
+        "name": "Ancestral Artifice",
+        "id": "totems14",
+        "stats": [
+          "Melee Attack Skills have +1 to maximum number of Summoned Totems",
+          "20% increased Totem Placement range"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet2",
+        "name": "Carved Earth",
+        "id": "totems8",
+        "stats": [
+          "20% increased Totem Damage",
+          "6% increased Attack and Cast Speed if you've summoned a Totem Recently"
+        ]
+      },
+      {
+        "allocation": "passiveSelectionSet2",
+        "name": "Ancestral Unity",
+        "id": "totems15",
+        "stats": [
+          "Attacks used by Totems have 4% increased Attack Speed per Summoned Totem"
+        ]
+      }
+    ],
+    "resistance_caveat": "Raw defensiveStats have a -60 base elemental resistance term; not treated as campaign UI values.",
+    "bonded_caveat": "ShamanOnlyMods/Bonded lines retained for provenance, not counted as active Warbringer stats."
+  }
+]

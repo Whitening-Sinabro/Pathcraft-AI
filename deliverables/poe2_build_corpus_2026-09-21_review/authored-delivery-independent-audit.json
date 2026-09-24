@@ -1,0 +1,146 @@
+{
+  "status": "passed",
+  "corpus": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21",
+  "pack_sha256": "5a149b814770f6fbc4671539c2afd4e500cf4cacfd69e905fc505e133084d898",
+  "segments": [
+    {
+      "segment": "start-to-lund-act1",
+      "refunds": 0,
+      "adds": 17,
+      "ordinary_peak": 17,
+      "specialization_peak": 0,
+      "paid_ascendancy": 0,
+      "repeated_actions": 0,
+      "replay_connected": true
+    },
+    {
+      "segment": "lund-act1-to-lund-act2-before22",
+      "refunds": 0,
+      "adds": 7,
+      "ordinary_peak": 24,
+      "specialization_peak": 0,
+      "paid_ascendancy": 0,
+      "repeated_actions": 0,
+      "replay_connected": true
+    },
+    {
+      "segment": "lund-act2-before22-to-lund-shield-swap",
+      "refunds": 5,
+      "adds": 21,
+      "ordinary_peak": 36,
+      "specialization_peak": 4,
+      "paid_ascendancy": 2,
+      "repeated_actions": 0,
+      "replay_connected": true
+    },
+    {
+      "segment": "lund-shield-swap-to-lund-act3",
+      "refunds": 0,
+      "adds": 13,
+      "ordinary_peak": 44,
+      "specialization_peak": 9,
+      "paid_ascendancy": 4,
+      "repeated_actions": 0,
+      "replay_connected": true
+    },
+    {
+      "segment": "lund-act3-to-lund-act4",
+      "refunds": 0,
+      "adds": 23,
+      "ordinary_peak": 63,
+      "specialization_peak": 13,
+      "paid_ascendancy": 4,
+      "repeated_actions": 0,
+      "replay_connected": true
+    },
+    {
+      "segment": "lund-act4-to-lund-interludes",
+      "refunds": 5,
+      "adds": 31,
+      "ordinary_peak": 85,
+      "specialization_peak": 17,
+      "paid_ascendancy": 4,
+      "repeated_actions": 0,
+      "replay_connected": true
+    },
+    {
+      "segment": "lund-interludes-to-lund-maps",
+      "refunds": 4,
+      "adds": 27,
+      "ordinary_peak": 109,
+      "specialization_peak": 17,
+      "paid_ascendancy": 6,
+      "repeated_actions": 0,
+      "replay_connected": true
+    },
+    {
+      "segment": "lund-maps-to-kitava-29d39",
+      "refunds": 125,
+      "adds": 141,
+      "ordinary_peak": 118,
+      "specialization_peak": 24,
+      "paid_ascendancy": 8,
+      "repeated_actions": 0,
+      "replay_connected": true
+    }
+  ],
+  "native": [
+    {
+      "file": "campaign-act1.build",
+      "sha256": "f60d12b141ddec2a4dd8326d5e0c87fd7e40d013649bacb5e745675d1c145dd5",
+      "skills": 7,
+      "passives": 17,
+      "ordinary": 17
+    },
+    {
+      "file": "campaign-act2.build",
+      "sha256": "8f72924ea4fe9f0fe029e47111fddc32bfb34cda1eddc6603cb464072fd78af7",
+      "skills": 7,
+      "passives": 44,
+      "ordinary": 36
+    },
+    {
+      "file": "campaign-act3.build",
+      "sha256": "f2dc5dccaf7497aafd13f9cefedca88b2ab7125258db1fba82667e4ba105b4ac",
+      "skills": 10,
+      "passives": 59,
+      "ordinary": 44
+    },
+    {
+      "file": "campaign-act4.build",
+      "sha256": "4c70e36f9581bce6744397a1711abd028798a84847f3a33ec6c8a529caa70fdc",
+      "skills": 9,
+      "passives": 82,
+      "ordinary": 63
+    },
+    {
+      "file": "campaign-interlude.build",
+      "sha256": "39db0788bf573cd3a8224f6b826d5d1533c117b51b82d7ac8050ac26d60e7d8e",
+      "skills": 9,
+      "passives": 108,
+      "ordinary": 85
+    },
+    {
+      "file": "current-lv40-lund-smith.build",
+      "sha256": "4d413790bf35d5d97bcada5cce070a8cf7bf2b75ccd16d32697d67cd125fe877",
+      "skills": 9,
+      "passives": 59,
+      "ordinary": 44
+    },
+    {
+      "file": "lund-maps.build",
+      "sha256": "155afc7a6e31ac25730fa08ce9dff69dbb1c178b713f374bfb6b4f5f4e1d35e8",
+      "skills": 9,
+      "passives": 133,
+      "ordinary": 109
+    },
+    {
+      "file": "campaign-act2-before22-lund.build",
+      "sha256": "87c6de8543b312283d39e6f0eefce445c105e4b9cfba588516ec96765409479b",
+      "skills": 7,
+      "passives": 24,
+      "ordinary": 24
+    }
+  ],
+  "limits": "Static replay, graph, metadata and point accounting; no observed gameplay survival, actual user allocation, or trade prices."
+}

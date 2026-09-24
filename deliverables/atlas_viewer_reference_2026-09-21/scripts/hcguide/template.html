@@ -1,0 +1,311 @@
+<title>하코 아틀라스 초반 순서</title>
+<style>
+:root{--color-bg:#FFFFFF;--color-fg:#000000;--color-accent:#0A84FF;--color-black:#000000;--color-white:#FFFFFF}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--color-bg:#000000;--color-fg:#FFFFFF}}
+:root[data-theme="dark"]{--color-bg:#000000;--color-fg:#FFFFFF}
+*{box-sizing:border-box}
+body{background:var(--color-bg);color:var(--color-fg);font:15px/1.65 "Pretendard",system-ui,sans-serif;padding-inline:16px;padding-block:28px 64px}
+main{max-width:940px;margin:0 auto;display:grid;gap:40px}
+h1,h2{margin:0;text-wrap:balance;font-weight:800}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.2}
+h2{font-size:22px}
+.lede,.src,.meta,th,.legend{opacity:.72}
+.lede{max-width:68ch;margin:10px 0 0}
+.meta{font:600 12px monospace;letter-spacing:.04em;text-transform:uppercase}
+.bluf{border:1px solid var(--color-fg);border-radius:8px;padding:16px 18px}
+.bluf ul,section ul{margin:6px 0 0;padding-left:20px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--color-fg);vertical-align:top}
+th{font-weight:600;font-size:12.5px}
+td.n{font-family:monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+b.dg,.dg{color:var(--color-accent);font-weight:800}
+.cu{color:var(--color-accent)}
+.treebox{background:var(--color-fg);border-radius:8px;padding:8px;overflow-x:auto}
+.treebox svg{display:block;width:100%;min-width:560px;height:auto}
+.r-off{stroke:var(--color-bg);stroke-opacity:.18;stroke-width:1.5}
+.r-on{stroke:var(--color-bg);stroke-width:4}
+.rn{stroke-width:2}
+.rn.off{fill:var(--color-fg);stroke:var(--color-bg);stroke-opacity:.3}
+.rn.sf{fill:var(--color-bg);stroke:var(--color-bg)}
+.rn.ch{fill:var(--color-accent);stroke:var(--color-bg)}
+.rn.cu{fill:var(--color-fg);stroke:var(--color-accent);stroke-width:3}
+.rn.dg{fill:var(--color-accent);stroke:var(--color-accent);stroke-width:6}
+.rn:hover{stroke-width:4}
+.tg{fill:var(--color-bg);stroke:var(--color-fg);stroke-width:2}
+/* design-exception: 사용자가 단계 구분을 초록·파랑·노랑·주황·빨강 5색으로 직접 요청(2026-09-21). 색이 곧 찍는 순서 데이터라 흑백으로 대체 불가 */
+.stagemap{--st-g:#34C759;--st-b:#0A84FF;--st-y:#FFD60A;--st-o:#FF9F0A;--st-r:#FF453A}
+.fl{stroke:var(--color-bg);stroke-opacity:.22;stroke-width:1.5}
+.fn{stroke:var(--color-fg);stroke-width:1.5}
+.fn.root{fill:var(--color-bg)}
+.fn.g{fill:var(--st-g)}
+.fn.b{fill:var(--st-b)}
+.fn.y{fill:var(--st-y)}
+.fn.o{fill:var(--st-o)}
+.fn.r{fill:var(--st-r)}
+.fn:hover{stroke:var(--color-bg);stroke-width:4}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin:12px 0}
+.chip{border:1px solid var(--color-fg);border-radius:8px;padding:8px 10px;font:inherit;font-size:13.5px;line-height:1.45;text-align:left;background:var(--color-bg);color:var(--color-fg);cursor:pointer}
+.chip[aria-pressed="true"]{outline:3px solid var(--color-accent);outline-offset:1px}
+.chip:focus-visible{outline:3px solid var(--color-accent)}
+#stagesvg .fn.done{fill:var(--color-white)}
+#stagesvg .fn.wait{opacity:.35}
+#stagesvg .nl{display:none;fill:var(--color-white);stroke:var(--color-black);stroke-width:3px;paint-order:stroke;font:700 15px monospace;text-anchor:middle;pointer-events:none}
+#stagesvg .nl.show{display:block}
+@keyframes pop{0%{transform:scale(2.6)}60%{transform:scale(.85)}100%{transform:scale(1)}}
+#stagesvg .fn.pop{transform-box:fill-box;transform-origin:center;animation:pop .35s ease-out}
+@media (prefers-reduced-motion: reduce){#stagesvg .fn.pop{animation:none}}
+#cursor{fill:none;stroke:var(--color-white);stroke-width:4;pointer-events:none}
+.stepper{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:10px 0}
+.stepper button{font:inherit;padding:6px 12px;border:1px solid var(--color-fg);border-radius:8px;background:var(--color-bg);color:var(--color-fg);cursor:pointer}
+.stepper button:focus-visible{outline:3px solid var(--color-accent)}
+.stepper input{flex:1;min-width:160px;accent-color:var(--color-accent)}
+.stepper output{font:600 14px monospace;min-width:14ch}
+#stagelist tr.now{outline:2px solid var(--color-accent)}
+#stagelist tr{cursor:pointer}
+#stagesvg .dim{opacity:.14}
+.stagemap .treebox{background:var(--color-black)}
+.stagemap .fl{stroke:var(--color-white)}
+.stagemap .fn{stroke:var(--color-black)}
+.stagemap .fn.root{fill:var(--color-white)}
+.listbox{max-height:420px;overflow:auto;border:1px solid var(--color-fg);border-radius:8px}
+.listbox thead th{position:sticky;top:0;background:var(--color-bg);opacity:1}
+#stagesvg line.hi{stroke-opacity:.9;stroke-width:3}
+.chip i{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:6px;vertical-align:-2px}
+.chip b{display:block}
+.tn{font:700 12px monospace;text-anchor:middle;fill:var(--color-fg);pointer-events:none}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;margin-top:10px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:2px solid var(--color-fg)}
+a{color:var(--color-accent)}
+a:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}
+</style>
+<main>
+<header>
+  <div class="meta">POE2 0.5.5 · 하드코어 · 빌드 무관</div>
+  <h1>하코 아틀라스 초반 순서</h1>
+  <p class="lede">본 트리 336개는 결국 다 찍는다. 그래서 갈리는 건 세 가지다. <b>순서</b>(포인트가 적을 때 무엇으로 돈을 버나), <b>선택형 노드의 옵션</b>, <b>어느 콘텐츠로 파밍하나</b>. 공개된 초반 트리(ds lily · allie · scorpius · 천주)가 노리는 목표는 그대로 두고, 몬스터를 세게 만드는 노드를 최대한 피해 가는 경로를 계산했다.</p>
+</header>
+
+<section class="bluf">
+  <b>0.4 에서 쉬다 돌아왔다면 — 먼저 이것만</b>
+  <ul>
+    <li><b>아틀라스 트리가 통째로 새로 생겼고, 찍은 건 되돌릴 수 없다.</b> 예외는 선택형 노드의 옵션뿐(은신처에서 언제든 변경).</li>
+    <li><b>포인트는 도리아니 퀘스트로 받는다.</b> 선도자 탑 → 요새(Fortress)가 열리고, 요새 안 맵 하나마다 1포인트.</li>
+    <li><b>신성의 중재자를 잡으면 몰아 받는다.</b> 요새 구역 하나를 한 번에 완료(zap). 이후 한 방향으로 가며 가부장·가모장 조각 → 중재자 반복(한 번에 약 40포인트, ds lily).</li>
+    <li><b>서브트리(의식·탐험 등) 포인트는 따로</b> — 그 콘텐츠 지역 맵·보스에서. 끝까지 채울 수 있다.</li>
+    <li><b>아틀라스 대가</b>(도리아니 · 자도 · 힐다)가 있다. 대부분 자도.</li>
+    <li><b>맵 등급은 강력한 지도 보스로 올린다</b> — 한 등급 높은 경로석을 준다.</li>
+    <li>하코 첫 순서: 성벽 전 <b>힐다 첫 야수 퀘스트</b> → 리그 메커니즘은 건드리지 말고 <b>요새부터</b> → 아래 <b>초록 구간(1~58)</b> 순서대로 → 선택형은 <b>Effectiveness 피하기</b>.</li>
+    <li class="src">확인 안 됨: 총 포인트가 0.5.0~0.5.4 글은 311, 0.5.5 방송 화면은 본 트리 336/336 이다. 0.5.5 에서 늘었을 수 있다.</li>
+  </ul>
+</section>
+
+<section class="bluf">
+  <b>결론</b>
+  <ul>
+    <li><b>58포인트에 목표 11개를 다 찍는다</b>: 에센스, 성소, 서판 드롭·강화·슬롯, 경로석 유지, 균열의 오브. 지나가는 몬스터 강화 노드는 <b>3개</b>다. 비슷한 구간에서 ds lily 초반 트리는 63포인트에 12개, allie 는 127포인트에 25개다.</li>
+    <li>마지막 목표(Eons of Domination, 감독관 서판 → 강력한 지도 보스)를 미루면 <b>48포인트, 강화 노드 2개</b>로 줄어든다. 보스 몰이가 부담되면 이것부터 미뤄라.</li>
+    <li>선택형 노드의 옵션은 은신처에서 <b>언제든 바꿀 수 있다</b>(allie 원문). 처음엔 안전한 옵션으로 두고, 빌드가 단단해지면 바꾸면 된다. 되돌릴 수 없는 건 일반 노드뿐이다.</li>
+  </ul>
+</section>
+
+<section class="stagemap">
+  <h2>색으로 보는 전체 순서</h2>
+  <p class="lede">칩으로 단계를 고르고 <b>▶ 재생</b>을 누르면 찍는 순서대로 하나씩 켜진다(<b>▶▶ 처음부터 전부</b> = 초록부터 빨강까지 이어서). 한 칸씩 보려면 <b>다음 ▶</b>. 흰 동그라미 = 지금 찍을 노드, <b>흰색으로 채운 노드 = 앞 단계에서 이미 찍은 것</b>(여기서 이어 나간다), 숫자 = 순번. 본 트리는 시작점(아래쪽 부채꼴 가운데)에서 위로 뻗어 가고, 서브트리는 각자의 가운데 시작점에서 바깥으로 뻗는다.</p>
+  <div class="chips" role="group" aria-label="단계 선택">
+    <button type="button" class="chip" data-pick="g" aria-pressed="true"><i style="background:var(--st-g)"></i><b>초록 · 1~58</b>초반 돈 버는 핵심 + 서브트리 안전 구간</button>
+    <button type="button" class="chip" data-pick="b" aria-pressed="false"><i style="background:var(--st-b)"></i><b>파랑 · 59~205</b>보상·유지 위주, 강화 없음</button>
+    <button type="button" class="chip" data-pick="y" aria-pressed="false"><i style="background:var(--st-y)"></i><b>노랑 · 206~265</b>길목 강화 노드 7개 섞임</button>
+    <button type="button" class="chip" data-pick="o" aria-pressed="false"><i style="background:var(--st-o)"></i><b>주황 · 266~299</b>몬스터 수만 증가</button>
+    <button type="button" class="chip" data-pick="r" aria-pressed="false"><i style="background:var(--st-r)"></i><b>빨강 · 300~336</b>몬스터 강화, 맨 마지막 + 서브트리 미룰 노드</button>
+    <button type="button" class="chip" data-pick="all" aria-pressed="false"><b>전체 보기</b>다섯 단계 한꺼번에</button>
+  </div>
+  <div class="stepper" id="stepper">
+    <button type="button" id="play">▶ 재생</button>
+    <button type="button" id="playall">▶▶ 처음부터 전부</button>
+    <button type="button" id="prev">◀ 이전</button>
+    <button type="button" id="next">다음 ▶</button>
+    <input type="range" id="step" min="1" max="1" value="1" aria-label="몇 번째까지 보기">
+    <output id="stepout"></output>
+  </div>
+  <div class="treebox">{{FULLSVG}}</div>
+  <p class="src" id="stagecount"></p>
+  <div class="tbl listbox"><table><thead><tr><th>트리</th><th>순번</th><th>노드 (영문)</th><th>분류</th></tr></thead><tbody id="stagelist"></tbody></table></div>
+</section>
+
+<section>
+  <h2>찍는 순서</h2>
+  <p class="lede" style="margin-bottom:12px">포인트는 그 목표까지 누적한 수다. "지나감"은 목표에 닿으려고 어쩔 수 없이 찍는 노드다. <span class="dg">위험</span> = 몬스터 속성·효과 강화, <span class="cu">주의</span> = 몬스터 수 증가.</p>
+  <div class="tbl"><table><thead><tr><th>포인트</th><th>목표</th><th>얻는 것 (노드 원문 요약)</th><th>지나감</th></tr></thead><tbody>
+{{ROWS}}
+  </tbody></table></div>
+  <p class="src">선택받은 길과 방사능 서판(Eons of Contamination)은 다른 목표로 가는 길에 이미 들어 있다.</p>
+</section>
+
+<section>
+  <h2>경로 그림</h2>
+  <p class="lede">흰 동그라미 번호가 목표 순서다. 노드에 마우스를 올리면 영문 이름, 분류, 효과 원문이 뜬다.</p>
+  <div class="treebox">{{SVG}}</div>
+  <div class="legend"><span><i style="background:var(--color-bg)"></i>안전 (보상·유지) — 흰 점</span><span><i style="background:var(--color-fg);border-color:var(--color-accent)"></i>주의 (몬스터 수 증가) — 파란 테두리</span><span><i style="background:var(--color-accent);border-color:var(--color-accent);width:15px;height:15px"></i>위험 (몬스터 강화) — 큰 파란 점</span><span><i style="background:var(--color-accent)"></i>선택형 — 파란 점</span><span><i style="background:var(--color-fg);opacity:.4"></i>안 찍음 — 흐린 점</span></div>
+</section>
+
+<section>
+  <h2>58 다음 — 본 트리 끝까지</h2>
+  <p class="lede" style="margin-bottom:12px">원칙은 하나다. 지금 찍을 수 있는 노드 중 안전 → 선택형 → 주의 → 위험 순으로 고르고, 위험 노드 뒤에 안전 노드가 막혀 있을 때만 그 위험을 먼저 뚫는다. 이렇게 하면 몬스터 강화 노드를 달고 다니는 기간이 가장 짧다.</p>
+  <div class="tbl"><table><thead><tr><th>구간</th><th>무엇을 찍나</th><th>위험 노드</th><th>언제</th></tr></thead><tbody>
+    <tr><td class="n">59~205</td><td>안전 99 · 주의 33 · 선택형 15. 주의는 적대 유배자·아즈메리 혼백·마법 무리 확률 정도</td><td class="n">0</td><td>중재자 이후 한 방향으로 밀면서</td></tr>
+    <tr><td class="n">206~265</td><td>안전 39 · 주의 7 · 선택형 7 (부상하는 숙적·풀 숙련 등)</td><td class="n">7</td><td>길목이라 지나가야 하는 것만</td></tr>
+    <tr><td class="n">266~299</td><td>주의 34 — 마법·희귀 무리 수 증가만</td><td class="n">0</td><td>빌드가 맵을 편하게 밀 때</td></tr>
+    <tr><td class="n">300~336</td><td>위험 35 — 희귀 몬스터 속성 확률, 오염 지역, 몬스터 효과 전환(Survival of the Fittest 포함)</td><td class="n">35</td><td>빌드가 완성된 뒤 맨 마지막</td></tr>
+  </tbody></table></div>
+  <p class="src">함정 노드도 결국 336 안에 들어 있다. 다 찍을 거라면 피할 수는 없고 미룰 수만 있다. 그래서 맨 마지막 구간에 몰았다.</p>
+
+  <h2 style="margin-top:28px">서브트리 — 콘텐츠별로 따로</h2>
+  <p class="lede" style="margin-bottom:12px">서브트리 포인트는 본 트리와 따로 나온다. 파밍할 콘텐츠의 서브트리만 올리면 된다. 표의 "안전 구간"까지는 걱정 없이 찍고, 오른쪽 노드는 맨 뒤로 미룬다. <b>상한이 있는 게 아니라 끝까지 채울 수 있다</b> — 임성빈은 9/11 에 탐험 24/24 · 의식 36/36 · 심연 35/35 를 다 채웠다(방송 화면).</p>
+  <div class="tbl"><table><thead><tr><th>포인트 얻는 법</th><th>얼마나</th><th>하코</th><th>출처</th></tr></thead><tbody>
+    <tr><td>그 메커니즘 지역 주변 맵 완료 (의식 = 서쪽 끝 Caer Tarth 주변, 균열 = 시작점 남서쪽 수도원 주변 …)</td><td class="n">맵당 1</td><td>가장 안전</td><td><a href="https://game8.co/games/Path-of-Exile-2/archives/603556">game8</a> (0.5)</td></tr>
+    <tr><td>신성의 중재자 처치 후 탑 중계 — 주변 맵 자동 완료</td><td>걸린 포인트 전부</td><td>안전 (싸우지 않고 받음)</td><td>game8</td></tr>
+    <tr><td>그 메커니즘의 정점 보스 (퀘스트 버전 포함)</td><td class="n">6</td><td>빌드 준비 후</td><td>game8</td></tr>
+    <tr><td>탐험: 대탐험 퀘스트 보스마다 (T10+ 맵 탐험 일지 → 다닉)</td><td>보스마다</td><td>빌드 준비 후</td><td><a href="https://timesaver.gg/blog/poe2-expedition-atlas-passive-tree-guide">timesaver</a> · 0.5.4 패치노트 인용</td></tr>
+  </tbody></table></div>
+  <p class="src">"메커니즘마다 최대 8포인트"라는 글이 검색에 나오지만 서브트리가 작던 옛 버전 설명이다. 탐험 트리 24칸 중 12개가 핵심(Notable) 노드다.</p>
+  <div class="tbl"><table><thead><tr><th>서브트리</th><th>안전 구간</th><th>뒤로 미룰 노드 (효과 원문)</th><th>선택형</th></tr></thead><tbody>
+{{SUBROWS}}
+  </tbody></table></div>
+  <p class="src">탐험을 먼저 추천하는 이유: 실측 수익이 가장 높고(scorpius 0.5), 24개 중 위험 1 · 주의 2 뿐이다. 심연은 실측 수익이 손해였고, 위험 노드가 2개로 환영과 함께 가장 많다.</p>
+
+</section>
+
+<section>
+  <h2>선택형 노드 — 하코 추천</h2>
+  <div class="tbl"><table><thead><tr><th>노드</th><th>하코 선택</th><th>피할 옵션 (원문)</th><th>근거</th></tr></thead><tbody>
+    <tr><td>The Journey Ahead · 앞으로의 여정</td><td>Pack Size 또는 Rarity</td><td>Effectiveness: "15% increased Effectiveness of Monsters in your Maps"</td><td>ds lily: "빌드가 약하면 몬스터 효과 노드는 찍지 마라". 천주와 scorpius 는 효율을 골랐다(하코 근거 없음)</td></tr>
+    <tr><td>Divined Blessing · 점쳐진 축복</td><td>Seeking Shrine (깨우침의 성소)</td><td>—</td><td>scorpius · fubgun · 천주 셋 다</td></tr>
+    <tr><td>Essence Dowsing</td><td>만들 장비에 맞는 에센스</td><td>—</td><td>scorpius</td></tr>
+    <tr><td>The Chosen Path · 선택받은 길</td><td>초반엔 Essences (또는 성소)</td><td>Rogue Exiles (적대 유배자 = 강한 적)</td><td>scorpius: 초반 에센스 · 천주: 성소</td></tr>
+    <tr><td>Forest Mastery</td><td>Lineage Gems</td><td>Rare Monsters: "15% increased Rare Monsters"</td><td>fubgun 리니지 변형</td></tr>
+    <tr><td>Nemesis Rising · 부상하는 숙적 (나중)</td><td>Additional Rare Monster</td><td>Effectiveness (희귀 +15%) · Monster Modifiers (+30%)</td><td>임성빈(하코) 방송 화면 · 천주 3번</td></tr>
+    <tr><td>Desert · Grass Mastery (나중)</td><td>Effectiveness 가 아닌 옵션</td><td>Effectiveness: "15% increased Effectiveness of Monsters"</td><td>옵션 원문</td></tr>
+  </tbody></table></div>
+  <p class="src">아틀라스 대가는 Jado 가 가장 많이 쓰인다(scorpius). 하코는 Jado 를 쓰라는 글도 있다(timesaver).</p>
+</section>
+
+<section>
+  <h2>진행 방식 (소스 공통)</h2>
+  <ul>
+    <li>초반엔 리그 메커니즘을 키우지 말고 도리아니 퀘스트로 <b>요새부터 민다</b>(ds lily · 천주). 요새 안 맵마다 포인트가 1씩 나온다.</li>
+    <li>성벽에 들어가기 전에 <b>힐다 첫 야수 퀘스트</b>로 강력한 보스 노드를 먼저 받는다(ds lily · 천주).</li>
+    <li>강력한 지도 보스는 한 등급 높은 경로석을 준다. 보스 맵을 잇는 길로 가면 등급이 끊기지 않는다(ds lily · 천주).</li>
+    <li>신성의 중재자를 잡은 뒤엔 요새 구역 하나를 한 번에 완료(zap)해서 포인트를 몰아 받는다(allie). 그다음엔 <b>한 방향으로만</b> 가면서 가부장·가모장을 찾아 중재자를 반복한다(ds lily · 천주).</li>
+  </ul>
+</section>
+
+<section>
+  <h2>포인트가 모인 뒤 — 무엇으로 벌까</h2>
+  <div class="tbl"><table><thead><tr><th>메커니즘</th><th>투자</th><th>회수</th><th>ROI</th></tr></thead><tbody>
+    <tr><td>탐험</td><td class="n">102.6</td><td class="n">949.4</td><td class="n">825%</td></tr>
+    <tr><td>의식</td><td class="n">316.0</td><td class="n">484.6</td><td class="n">53%</td></tr>
+    <tr><td>균열</td><td class="n">94.0</td><td class="n">136.5</td><td class="n">45%</td></tr>
+    <tr><td>사원</td><td class="n">0</td><td class="n">87.1</td><td class="n">—</td></tr>
+    <tr><td>심연</td><td class="n">145.0</td><td class="n">79.6</td><td class="n">−45%</td></tr>
+  </tbody></table></div>
+  <p class="src">scorpius 실측 시트(<a href="https://docs.google.com/spreadsheets/d/13HGhdzedg1X4Vm9uz4G9H6nD82Wk5sWIYyrpHgCyiNk/edit">Map Tech Calculations</a>)의 0.5 대시보드다. 단위는 시트에 적혀 있지 않다. 0.5 기준이라 0.5.5 에서 달라졌을 수 있다. 0.5.5 에서는 디넬의 <a href="https://www.youtube.com/watch?v=aJLa0D-C-RE">대탐험 가이드</a>(9/19)와 임성빈의 탐험 완주가 같은 방향이다.</p>
+</section>
+
+<section class="bluf">
+  <b>되돌릴 수 없는 함정 노드</b> (timesaver). 이 경로에는 없다.
+  <ul><li>Reactive Hiveseeding (균열) · Man Trap (에센스 몬스터가 유배자로) · Survival of the Fittest (사막 희귀를 몬스터 효과로 전환 — allie 트리에는 들어 있다)</li></ul>
+</section>
+
+<section>
+  <h2>한계</h2>
+  <ul class="src">
+    <li>위험도 분류는 poe.ninja 노드 데이터의 효과 ID 로 했다. 독립 검증에서 오분류 5건이 나와서 고쳤다(마법 몬스터 추가 속성, 맵 모드 효과, 유배자 추가 등).</li>
+    <li>경로는 목표 순서 1,500가지를 돌려서 찾은 최선이다. 수학적 최소라는 증명은 없다.</li>
+    <li>일부 노드는 툴팁에 "70·75레벨 이상 지역에 적용"이라고 적혀 있다(방송 화면). 트리 데이터엔 이 조건이 없어서 경로 계산에 반영하지 못했다. 낮은 등급 맵에선 그 노드가 아직 효과가 없을 수 있다.</li>
+    <li>노드 이름은 영문이다. 게임 화면에서 확인한 것만 한글을 붙였다.</li>
+  </ul>
+  <p class="src">소스: <a href="https://mobalytics.gg/poe-2/atlas-trees/dslily-early-atlas-tree-progression">ds lily</a> · <a href="https://mobalytics.gg/poe-2/profile/allie/atlas-trees/0-5-allie-s-leaguestart-atlas-tree-progression-guide">allie</a> · <a href="https://mobalytics.gg/poe-2/profile/scorpius/atlas-trees/all-mechanics-farming-strategy">scorpius</a> · <a href="https://mobalytics.gg/poe-2/atlas-trees/fubgun-atlas-tree-strats">fubgun</a> · <a href="https://docs.google.com/spreadsheets/d/1OQI8kn3Swk_eqpQGwCYVXJUi5D8IGNvsYqYDrqKeo0Q/edit#gid=68135205">천주 시트</a> · <a href="https://timesaver.gg/blog/poe2-atlas-soft-brick-nodes-0-5-5">timesaver</a> · <a href="https://poe.ninja/poe2/atlas-skill-tree">poe.ninja 트리 데이터</a> · <a href="https://claude.ai/artifact/BVgzCheQnde5hotYHnmDMp">임성빈 젬링 아틀라스</a></p>
+</section>
+</main>
+<script>
+const STAGES = {{STAGEJSON}};
+const ORDER = ['g', 'b', 'y', 'o', 'r'];
+const LABEL = {g:'초록', b:'파랑', y:'노랑', o:'주황', r:'빨강'};
+let cur = 'g', step = 1, popNext = false, timer = null, playAll = false;
+const svg = document.getElementById('stagesvg');
+const nodeEl = k => svg.querySelector(`circle[data-k="${k}"]`);
+function paint() {
+  const all = cur === 'all';
+  const ci = ORDER.indexOf(cur);
+  const rows = all ? [] : STAGES[cur];
+  const rank = new Map(rows.map((r, j) => [r.k, j + 1]));
+  svg.querySelectorAll('circle.fn').forEach(el => {
+    const si = ORDER.indexOf(el.dataset.s);
+    const mine = !all && el.dataset.s === cur;
+    el.classList.toggle('done', !all && si >= 0 && si < ci);
+    el.classList.toggle('dim', !all && si > ci);
+    el.classList.toggle('wait', mine && rank.get(el.dataset.k) > step);
+  });
+  svg.querySelectorAll('line.fl').forEach(el => {
+    const si = ORDER.indexOf(el.dataset.s);
+    el.classList.toggle('dim', !all && (si > ci || el.dataset.s === 'mix'));
+  });
+  svg.querySelectorAll('text.nl').forEach(el => {
+    const r = rank.get(el.dataset.k);
+    el.classList.toggle('show', !all && r !== undefined && r <= step);
+  });
+  const cursor = document.getElementById('cursor');
+  const now = rows[step - 1];
+  if (now && popNext) { const c = nodeEl(now.k); c.classList.remove('pop'); void c.getBBox(); c.classList.add('pop'); }
+  popNext = false;
+  if (now) { const c = nodeEl(now.k); cursor.setAttribute('cx', c.getAttribute('cx')); cursor.setAttribute('cy', c.getAttribute('cy')); }
+  else { cursor.setAttribute('cx', -100); }
+  const range = document.getElementById('step');
+  range.max = Math.max(rows.length, 1); range.value = step;
+  document.getElementById('stepper').hidden = all;
+  document.getElementById('stepout').textContent = now ? `${step}/${rows.length} · ${now.t} ${now.i}번` : '';
+  document.getElementById('stagecount').textContent = all
+    ? '단계를 고르면 그 단계 노드 목록과 순서 넘기기가 나온다.'
+    : `${LABEL[cur]} ${rows.length}개. 순번 = 본 트리는 전체 순번, 서브트리는 그 서브트리 안에서의 순번. 행을 누르면 그 노드로 이동.`;
+  const tb = document.getElementById('stagelist');
+  if (tb.dataset.stage !== cur) {
+    tb.innerHTML = rows.map((r, j) => `<tr data-j="${j + 1}"><td>${r.t}</td><td class="n">${r.i}</td><td>${r.n}</td><td>${r.c}</td></tr>`).join('');
+    tb.dataset.stage = cur;
+  }
+  tb.querySelectorAll('tr').forEach(tr => tr.classList.toggle('now', Number(tr.dataset.j) === step));
+}
+function pick(stage, keepPlaying) {
+  if (!keepPlaying) stop();
+  if (stage === 'all') { cur = 'all'; step = 1; } else { cur = stage; step = 1; popNext = true; }
+  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.pick === stage)));
+  paint();
+}
+document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => pick(c.dataset.pick)));
+document.getElementById('next').addEventListener('click', stop);
+document.getElementById('prev').addEventListener('click', stop);
+function stop() { clearInterval(timer); timer = null; playAll = false;
+  document.getElementById('play').textContent = '▶ 재생'; document.getElementById('playall').textContent = '▶▶ 처음부터 전부'; }
+function tick() {
+  if (step < STAGES[cur].length) { step += 1; popNext = true; paint(); return; }
+  const ni = ORDER.indexOf(cur) + 1;
+  if (playAll && ni < ORDER.length) { pick(ORDER[ni], true); return; }
+  stop();
+}
+function start(all) {
+  if (timer) { stop(); return; }
+  playAll = all;
+  if (all) pick('g', true); else if (step >= STAGES[cur].length) { step = 0; }
+  if (!all && step === 0) { step = 1; popNext = true; paint(); }
+  const speed = STAGES[cur].length > 100 ? 60 : 110;
+  timer = setInterval(tick, speed);
+  document.getElementById(all ? 'playall' : 'play').textContent = '■ 멈춤';
+}
+document.getElementById('play').addEventListener('click', () => start(false));
+document.getElementById('playall').addEventListener('click', () => start(true));
+document.getElementById('next').addEventListener('click', () => { step = Math.min(step + 1, STAGES[cur].length); popNext = true; paint(); });
+document.getElementById('prev').addEventListener('click', () => { step = Math.max(step - 1, 1); paint(); });
+document.getElementById('step').addEventListener('input', e => { step = Number(e.target.value); paint(); });
+document.getElementById('stagelist').addEventListener('click', e => { const tr = e.target.closest('tr'); if (tr) { step = Number(tr.dataset.j); paint(); } });
+pick('g');
+</script>

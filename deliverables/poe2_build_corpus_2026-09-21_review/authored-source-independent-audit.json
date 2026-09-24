@@ -1,0 +1,1405 @@
+{
+  "source": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\lundburgerr_authored",
+  "tree_sha256": "6449fe534c0265b21f59f8213254bd3f37a445887582c40aab04ad11cede3e95",
+  "scope": "Independent static verification of original author exports. Graph connectivity and metadata do not prove combat safety, affordability, current earned points, or exact author allocation order.",
+  "variants": [
+    {
+      "file": "Act 1 - Rolling slamBoneshatter - Lundb.build",
+      "sha256": "142f606628eb27a3b710864dccdae4e90af5494ae658987a29a44e7c0678ef89",
+      "raw_rows": 20,
+      "unique_allocations": 17,
+      "common_ordinary": 17,
+      "active_sets": {
+        "1": {
+          "ordinary_points": 17,
+          "specialized_points": 0,
+          "disconnected": []
+        },
+        "2": {
+          "ordinary_points": 17,
+          "specialized_points": 0,
+          "disconnected": []
+        }
+      },
+      "paid_ascendancy": 0,
+      "free_ids": [],
+      "ascendancy_disconnected": [],
+      "skills": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+          "name": "Boneshatter",
+          "minimum_character_level": 1,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemImpactShockwave",
+              "name": "Impact Shockwave",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+              "name": "Magnified Area I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemPlayerDefault2HMace",
+          "name": "Mace Strike",
+          "minimum_character_level": 1,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
+              "name": "Concentrated Area",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemFireInfusion",
+              "name": "Fire Attunement",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+          "name": "Rolling Slam",
+          "minimum_character_level": 1,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemBrink",
+              "name": "Brink I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemFrostBomb",
+          "name": "Frost Bomb",
+          "minimum_character_level": 1,
+          "supports": []
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "Infernal Cry",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemTireless",
+              "name": "Tireless",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemPerfectStrike",
+          "name": "Perfect Strike",
+          "minimum_character_level": 15,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemWindowOfOpportunity",
+              "name": "Window of Opportunity I",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
+              "name": "Concentrated Area",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "name": "Herald of Ash",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+              "name": "Magnified Area I",
+              "metadata_exists": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Act 2 - Shield Wall Swap - Lundburgerr's.build",
+      "sha256": "6c46f509ec0cc39045569f014f847996b50327946a1e987ebd033f33376bf945",
+      "raw_rows": 52,
+      "unique_allocations": 44,
+      "common_ordinary": 32,
+      "active_sets": {
+        "1": {
+          "ordinary_points": 36,
+          "specialized_points": 4,
+          "disconnected": []
+        },
+        "2": {
+          "ordinary_points": 36,
+          "specialized_points": 4,
+          "disconnected": []
+        }
+      },
+      "paid_ascendancy": 2,
+      "free_ids": [
+        "AscendancyWarrior3Notable6_0",
+        "AscendancyWarrior3Start"
+      ],
+      "ascendancy_disconnected": [],
+      "skills": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "name": "Shield Wall",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+              "name": "Magnified Area I",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemFireInfusion",
+              "name": "Fire Attunement",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "Infernal Cry",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemTireless",
+              "name": "Tireless",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemFreezingMark",
+          "name": "Freezing Mark",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemSingleOut",
+              "name": "Mark for Death",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMarkOfSiphoning",
+              "name": "Mark of Siphoning",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "name": "Shockwave Totem",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemAncestralUrgency",
+              "name": "Urgent Totems I",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemHardyTotems",
+              "name": "Hardy Totems I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemLeapSlam",
+          "name": "Leap Slam",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "name": "Herald of Ash",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+              "name": "Magnified Area I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "name": "Shield Charge",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Act 2 Before lvl 22 - Rolling slamBones.build",
+      "sha256": "7597fb250a44351a02ea827e9ae9bed331a07729009cd1b5ef5b96eb8693d66b",
+      "raw_rows": 29,
+      "unique_allocations": 25,
+      "common_ordinary": 25,
+      "active_sets": {
+        "1": {
+          "ordinary_points": 25,
+          "specialized_points": 0,
+          "disconnected": []
+        },
+        "2": {
+          "ordinary_points": 25,
+          "specialized_points": 0,
+          "disconnected": []
+        }
+      },
+      "paid_ascendancy": 0,
+      "free_ids": [],
+      "ascendancy_disconnected": [],
+      "skills": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+          "name": "Rolling Slam",
+          "minimum_character_level": 1,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemBrink",
+              "name": "Brink I",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+          "name": "Boneshatter",
+          "minimum_character_level": 1,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemImpactShockwave",
+              "name": "Impact Shockwave",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+              "name": "Magnified Area I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemFrostBomb",
+          "name": "Frost Bomb",
+          "minimum_character_level": 1,
+          "supports": []
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "Infernal Cry",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemTireless",
+              "name": "Tireless",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemPerfectStrike",
+          "name": "Perfect Strike",
+          "minimum_character_level": 15,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemWindowOfOpportunity",
+              "name": "Window of Opportunity I",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
+              "name": "Concentrated Area",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "name": "Herald of Ash",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+              "name": "Magnified Area I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "name": "Shockwave Totem",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemAncestralUrgency",
+              "name": "Urgent Totems I",
+              "metadata_exists": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Act 3 - Lundburgerr's 0.5 Shield Wall Sm.build",
+      "sha256": "a498520583bca90b37fdc7963bef4d4bfa79d130ff89a8ad2eefa12038331c57",
+      "raw_rows": 70,
+      "unique_allocations": 59,
+      "common_ordinary": 35,
+      "active_sets": {
+        "1": {
+          "ordinary_points": 44,
+          "specialized_points": 9,
+          "disconnected": []
+        },
+        "2": {
+          "ordinary_points": 44,
+          "specialized_points": 9,
+          "disconnected": []
+        }
+      },
+      "paid_ascendancy": 4,
+      "free_ids": [
+        "AscendancyWarrior3Notable6_0",
+        "AscendancyWarrior3Start"
+      ],
+      "ascendancy_disconnected": [],
+      "skills": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "name": "Fortifying Cry",
+          "minimum_character_level": 32,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemFireInfusion",
+              "name": "Fire Attunement",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemCloseCombat",
+              "name": "Close Combat I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "name": "Shield Wall",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+              "name": "Magnified Area II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemFireInfusion",
+              "name": "Fire Attunement",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "name": "Herald of Ash",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+              "name": "Magnified Area II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSunder",
+          "name": "Sunder",
+          "minimum_character_level": 32,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+              "name": "Prolonged Duration II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "name": "Shockwave Totem",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemAncestralUrgency",
+              "name": "Urgent Totems I",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemHardyTotems",
+              "name": "Hardy Totems I",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemFontofMana",
+              "name": "Font of Mana",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAttrition",
+          "name": "Attrition",
+          "minimum_character_level": 11,
+          "supports": []
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "Infernal Cry",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemTireless",
+              "name": "Tireless",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemFreezingMark",
+          "name": "Freezing Mark",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemSingleOut",
+              "name": "Mark for Death",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMarkOfSiphoning",
+              "name": "Mark of Siphoning",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "name": "Shield Charge",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemLeapSlam",
+          "name": "Leap Slam",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Act 4 - Lundburgerr's 0.5 Shield Wall Sm.build",
+      "sha256": "d8749151418cbc16424796b5e56dff0922a9e483cb4a935fde5fd0c8bbc9efc4",
+      "raw_rows": 100,
+      "unique_allocations": 82,
+      "common_ordinary": 50,
+      "active_sets": {
+        "1": {
+          "ordinary_points": 63,
+          "specialized_points": 13,
+          "disconnected": []
+        },
+        "2": {
+          "ordinary_points": 63,
+          "specialized_points": 13,
+          "disconnected": []
+        }
+      },
+      "paid_ascendancy": 4,
+      "free_ids": [
+        "AscendancyWarrior3Notable6_0",
+        "AscendancyWarrior3Start"
+      ],
+      "ascendancy_disconnected": [],
+      "skills": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "name": "Fortifying Cry",
+          "minimum_character_level": 32,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemFireInfusion",
+              "name": "Fire Attunement",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemEnragedWarcry",
+              "name": "Enraged Warcry I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "name": "Shield Wall",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+              "name": "Rapid Attacks II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+              "name": "Magnified Area II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemSplinterThree",
+              "name": "Armour Break III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemImpale",
+              "name": "Impale",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "name": "Herald of Ash",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+              "name": "Magnified Area II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSunder",
+          "name": "Sunder",
+          "minimum_character_level": 32,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+              "name": "Prolonged Duration II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "name": "Shockwave Totem",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+              "name": "Urgent Totems III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+              "name": "Hardy Totems II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemFontofMana",
+              "name": "Font of Mana",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAttrition",
+          "name": "Attrition",
+          "minimum_character_level": 11,
+          "supports": []
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "Infernal Cry",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemTireless",
+              "name": "Tireless",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+              "name": "Cooldown Recovery II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "name": "Shield Charge",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemLeapSlam",
+          "name": "Leap Slam",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+              "name": "Rapid Attacks I",
+              "metadata_exists": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Giga Endgame - Lundburgerr's 0.5 Shield.build",
+      "sha256": "78b6f472ba774b2c42396eaa6f4a8c95c08fafd33f8409a232f8ee28070d2e8e",
+      "raw_rows": 156,
+      "unique_allocations": 149,
+      "common_ordinary": 100,
+      "active_sets": {
+        "1": {
+          "ordinary_points": 117,
+          "specialized_points": 19,
+          "disconnected": []
+        },
+        "2": {
+          "ordinary_points": 120,
+          "specialized_points": 20,
+          "disconnected": []
+        }
+      },
+      "paid_ascendancy": 8,
+      "free_ids": [
+        "AscendancyWarrior3Notable6_0",
+        "AscendancyWarrior3Start"
+      ],
+      "ascendancy_disconnected": [],
+      "skills": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "name": "Fortifying Cry",
+          "minimum_character_level": 32,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemHeavySwing",
+              "name": "Heavy Swing",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemEnragedWarcryTwo",
+              "name": "Enraged Warcry II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemHeft",
+              "name": "Heft",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
+              "name": "Concentrated Area",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "name": "Shield Wall",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+              "name": "Rapid Attacks II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemVoranasSiege",
+              "name": "Vorana's Siege",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemAhnsCitadel",
+              "name": "Ahn's Citadel",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemKaomsMadness",
+              "name": "Kaom's Madness",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemUulNetolsEmbrace",
+              "name": "Uul-Netol's Embrace",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
+          "name": "Scavenged Plating",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+              "name": "Prolonged Duration II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "name": "Herald of Ash",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+              "name": "Magnified Area II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemPrecision",
+              "name": "Precision I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "name": "Shockwave Totem",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+              "name": "Urgent Totems III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+              "name": "Hardy Totems II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+              "name": "Prolonged Duration II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemIronwoodTwo",
+              "name": "Reinforced Totems II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+              "name": "Efficiency II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSunder",
+          "name": "Sunder",
+          "minimum_character_level": 32,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+              "name": "Prolonged Duration II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
+              "name": "Rapid Attacks III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemRageThree",
+              "name": "Rage III",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "Infernal Cry",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemTireless",
+              "name": "Tireless",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+              "name": "Cooldown Recovery II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+              "name": "Efficiency II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "name": "Shield Charge",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
+              "name": "Rapid Attacks III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemRageThree",
+              "name": "Rage III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+              "name": "Efficiency II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemRigwaldsFerocity",
+              "name": "Rigwald's Ferocity",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemBerserk",
+          "name": "Berserk",
+          "minimum_character_level": 59,
+          "supports": []
+        }
+      ]
+    },
+    {
+      "file": "Interludes - Lundburgerr's 0.5 Shield Wa.build",
+      "sha256": "3afb0f6e19ff886e9c3f93bc556cac83f09486f489b6d9136a6e366011e14449",
+      "raw_rows": 133,
+      "unique_allocations": 110,
+      "common_ordinary": 70,
+      "active_sets": {
+        "1": {
+          "ordinary_points": 87,
+          "specialized_points": 17,
+          "disconnected": []
+        },
+        "2": {
+          "ordinary_points": 85,
+          "specialized_points": 17,
+          "disconnected": []
+        }
+      },
+      "paid_ascendancy": 4,
+      "free_ids": [
+        "AscendancyWarrior3Notable6_0",
+        "AscendancyWarrior3Start"
+      ],
+      "ascendancy_disconnected": [],
+      "skills": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "name": "Fortifying Cry",
+          "minimum_character_level": 32,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemHeavySwing",
+              "name": "Heavy Swing",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemEnragedWarcryTwo",
+              "name": "Enraged Warcry II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "name": "Shield Wall",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+              "name": "Rapid Attacks II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+              "name": "Magnified Area II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemSplinterThree",
+              "name": "Armour Break III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemImpale",
+              "name": "Impale",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "name": "Herald of Ash",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+              "name": "Magnified Area II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemPrecision",
+              "name": "Precision I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "name": "Shockwave Totem",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+              "name": "Urgent Totems III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+              "name": "Hardy Totems II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemFontofMana",
+              "name": "Font of Mana",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSunder",
+          "name": "Sunder",
+          "minimum_character_level": 32,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+              "name": "Prolonged Duration II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
+              "name": "Rapid Attacks III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemRageThree",
+              "name": "Rage III",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAttrition",
+          "name": "Attrition",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemCannibalismTwo",
+              "name": "Cannibalism II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "Infernal Cry",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemTireless",
+              "name": "Tireless",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+              "name": "Cooldown Recovery II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemLeapSlam",
+          "name": "Leap Slam",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
+              "name": "Rapid Attacks III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemRageThree",
+              "name": "Rage III",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "name": "Shield Charge",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
+              "name": "Rapid Attacks III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemRageThree",
+              "name": "Rage III",
+              "metadata_exists": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Maps - Lundburgerr's 0.5 Shield Wall Smi.build",
+      "sha256": "237aaec59134c77076a1d44d598954f1d0f2f8c255b1fcd223cca3390163e6be",
+      "raw_rows": 158,
+      "unique_allocations": 135,
+      "common_ordinary": 94,
+      "active_sets": {
+        "1": {
+          "ordinary_points": 110,
+          "specialized_points": 16,
+          "disconnected": []
+        },
+        "2": {
+          "ordinary_points": 109,
+          "specialized_points": 17,
+          "disconnected": []
+        }
+      },
+      "paid_ascendancy": 6,
+      "free_ids": [
+        "AscendancyWarrior3Notable6_0",
+        "AscendancyWarrior3Start"
+      ],
+      "ascendancy_disconnected": [],
+      "skills": [
+        {
+          "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+          "name": "Fortifying Cry",
+          "minimum_character_level": 32,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemHeavySwing",
+              "name": "Heavy Swing",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemEnragedWarcryTwo",
+              "name": "Enraged Warcry II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemHeft",
+              "name": "Heft",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemShieldWall",
+          "name": "Shield Wall",
+          "minimum_character_level": 23,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+              "name": "Rapid Attacks II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+              "name": "Magnified Area II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemAhnsCitadel",
+              "name": "Ahn's Citadel",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemKaomsMadness",
+              "name": "Kaom's Madness",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemImpale",
+              "name": "Impale",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
+          "name": "Scavenged Plating",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+              "name": "Prolonged Duration II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "name": "Herald of Ash",
+          "minimum_character_level": 11,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+              "name": "Magnified Area II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemPrecision",
+              "name": "Precision I",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "name": "Shockwave Totem",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+              "name": "Urgent Totems III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+              "name": "Hardy Totems II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemIronwoodTwo",
+              "name": "Reinforced Totems II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+              "name": "Prolonged Duration II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemSunder",
+          "name": "Sunder",
+          "minimum_character_level": 32,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+              "name": "Prolonged Duration II",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
+              "name": "Rapid Attacks III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemRageThree",
+              "name": "Rage III",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SkillGemAttrition",
+          "name": "Attrition",
+          "minimum_character_level": 11,
+          "supports": []
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+          "name": "Infernal Cry",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gem/SupportGemTireless",
+              "name": "Tireless",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gem/SupportGemRagingCry",
+              "name": "Raging Cry",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+              "name": "Cooldown Recovery II",
+              "metadata_exists": true
+            }
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+          "name": "Shield Charge",
+          "minimum_character_level": 7,
+          "supports": [
+            {
+              "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
+              "name": "Rapid Attacks III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemRageThree",
+              "name": "Rage III",
+              "metadata_exists": true
+            },
+            {
+              "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+              "name": "Efficiency II",
+              "metadata_exists": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

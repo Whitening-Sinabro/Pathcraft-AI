@@ -1,0 +1,79 @@
+{
+  "name": "캠페인 참조 액트 3 · 방패벽 유지",
+  "author": "별이슬골짜기 가이드 / 탱정 보정 / Pathcraft 정리",
+  "link": "https://www.youtube.com/watch?v=dcSWTFyF9TQ",
+  "description": "별이슬골짜기 캠페인 가이드와 탱정 보정의 제한적 스킬 안내. 탱정의 실제 액트 스냅샷이 아닙니다. 키타바 패시브 클릭 순서는 근거가 없어 생략했습니다. 다른 저자의 워브링어/타이탄 전직·패시브도 가져오지 않았습니다.\n각 젬의 실제 사용 요구조건을 충족한 뒤 연결합니다.\n탱정의 액트별 Kitava 패시브 스냅샷은 미확인입니다. 타 전직 트리를 자동 적용하지 않습니다.\n\n방패벽 전환은 레벨7 스킬젬과 방어도 방패 준비 후이며, 7은 캐릭터 레벨이 아닙니다. 0.5 영상 + 0.5.5 업데이트 참고; 실게임 로드 미검증.\n최신 연결 XML의 Freezing Mark 조합은 실제 요구조건 충족 후 사용하며 옛 화면의 Pounce+징표 보조를 현재 조합으로 권하지 않습니다.\n탱정 보정: 키타바는 액트2 묻힌 성소 불 선택; 액트4 번개 골렘 다음 화염 골렘.\n업데이트: https://www.youtube.com/watch?v=zaft1U-7klQ",
+  "passives": [],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldWall",
+      "additional_text": "Shield Wall · 보스에서는 Magnified Area I → Concentrated Area. 최신 Swap에는 Fire Attunement도 있지만 모든 전환 시점의 필수 보조로 고정하지 않습니다. 실제 젬과 요구 능력치·정신력을 확보한 뒤 사용. 자료 권장 무기 세트1; 게임에서 직접 확인·배정. ",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+          "additional_text": "Rapid Attacks I"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+          "additional_text": "Magnified Area I"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+      "additional_text": "Shockwave Totem ·  실제 젬과 요구 능력치·정신력을 확보한 뒤 사용. "
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+      "additional_text": "Infernal Cry ·  실제 젬과 요구 능력치·정신력을 확보한 뒤 사용. 자료 권장 무기 세트2; 게임에서 직접 확인·배정. "
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+      "additional_text": "Shield Charge ·  실제 젬과 요구 능력치·정신력을 확보한 뒤 사용. ",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+          "additional_text": "Rapid Attacks I"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+      "additional_text": "Herald of Ash ·  실제 젬과 요구 능력치·정신력을 확보한 뒤 사용. 프레이손 정신력 보상 이후 안내."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFreezingMark",
+      "additional_text": "Freezing Mark · Pounce에 징표 보조를 연결하지 않습니다. 실제 젬 요구조건을 만족할 때 사용합니다. 실제 젬과 요구 능력치·정신력을 확보한 뒤 사용. ",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMarkOfSiphoning",
+          "additional_text": "Mark of Siphoning"
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSingleOut",
+          "additional_text": "Mark for Death"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+      "additional_text": "Magma Barrier · 정신력 확보 후 사용합니다. 실제 젬과 요구 능력치·정신력을 확보한 뒤 사용. "
+    }
+  ],
+  "inventory_slots": [
+    {
+      "inventory_id": "Weapon1",
+      "slot_x": 0,
+      "additional_text": "Mace · 철퇴 유형 목표; 참조 영상 · 개별 장비 옵션 미확인; 관측 옵션·고유 장비 구매 필수 목록이 아닙니다."
+    },
+    {
+      "inventory_id": "Offhand1",
+      "slot_x": 0,
+      "additional_text": "Armour Shield · 방어도 방패 유형 목표; 방패벽 전환 영상 · 방어도 수치 최소값 미확인; 관측 옵션·고유 장비 구매 필수 목록이 아닙니다."
+    },
+    {
+      "inventory_id": "Boots1",
+      "additional_text": "이동 속도 장화를 확인하고 진행 중 방어·저항과 장비 요구 능력치를 보완하세요."
+    }
+  ]
+}

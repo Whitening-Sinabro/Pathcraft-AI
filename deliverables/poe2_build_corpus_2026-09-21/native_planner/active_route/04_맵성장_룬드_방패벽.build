@@ -1,0 +1,1598 @@
+{
+  "author": "Lundburgerr · 원본 / Pathcraft 표시·조건 주석",
+  "link": "https://mobalytics.gg/poe-2/builds/warrior-league-start-lundburgerr",
+  "ascendancy": "Warrior3",
+  "inventory_slots": [
+    {
+      "additional_text": "Warpick\n1. +11 to Accuracy Rating\n2. +28 to Strength\n3. Adds 1 to 4 Lightning Damage\n4. +3 to Level of all Melee Skills\n5. Break Armour equal to 2% of Physical Damage dealt\n6. Gain 21% of Damage as Extra Physical Damage\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다.",
+      "inventory_id": "Weapon1",
+      "level_interval": [
+        22,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "Vaal Tower Shield\n1. +278 to Armour\n2. +26% to Fire Resistance\n3. 68% increased Armour\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다.",
+      "inventory_id": "Offhand1",
+      "level_interval": [
+        75,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Helm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "unique_name": "Thrillsteel",
+      "additional_text": "\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다."
+    },
+    {
+      "additional_text": "Warlord Cuirass\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다.",
+      "inventory_id": "BodyArmour1",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "Massive Mitts\n1. +150 to maximum Life\n2. 15% increased Rarity of Items found\n3. 5% increased Attack Speed\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다.",
+      "inventory_id": "Gloves1",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "Vaal Greaves\n1. 15% increased Rarity of Items found\n2. +31% to Fire Resistance\n3. 30% increased Movement Speed\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다.",
+      "inventory_id": "Boots1",
+      "level_interval": [
+        75,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "Gold Amulet\n1. 15% increased Rarity of Items found\n2. +31% to Fire Resistance\n3. +2 to Level of all Melee Skills\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다.",
+      "inventory_id": "Amulet1",
+      "level_interval": [
+        35,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "Rawhide Belt\n1. +120 to maximum Life\n2. +31% to Fire Resistance\n3. +16% to Chaos Resistance\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다.",
+      "inventory_id": "Belt1",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "Ruby Ring\n1. 15% increased Rarity of Items found\n2. Leech 8% of Physical Attack Damage as Life\n3. Leech 7% of Physical Attack Damage as Mana\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다.",
+      "inventory_id": "Ring1",
+      "level_interval": [
+        8,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "Ruby Ring\n1. Adds 1 to 33 Lightning damage to Attacks\n2. 15% increased Rarity of Items found\n3. +31% to Fire Resistance\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다.",
+      "inventory_id": "Ring2",
+      "level_interval": [
+        8,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Charm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "unique_name": "Ngamahu's Chosen",
+      "additional_text": "\n원본 예시입니다. 모든 옵션 필수 구매 아님; 실제 아이템 요구 레벨·능력치·등급을 확인합니다."
+    }
+  ],
+  "name": "04_맵성장_룬드_방패벽",
+  "passives": [
+    {
+      "id": "melee17",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "melee18",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "melee25",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "melee44",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "melee46",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "marauder_brute_notable1",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "melee54",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "melee55",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "melee56",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "melee19",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "strength19",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "strength21",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "strength58",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "attack_speed53",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "attack_speed54",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "attack_speed55",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 마나 비용6%가 생명력으로 전환되므로 실제 회복 여유를 확인합니다."
+    },
+    {
+      "id": "fire10",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "fire16",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "fire38",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "strength15",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "attributes32",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "jewel_slot1956",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "strength68",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "strength67",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "strength61_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "warcries9",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries7_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries8",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "attributes51",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "attributes81",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength59_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "area_attacks24",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks32",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slam_area1",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slam_area4",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slam_area5",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "attributes71",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength69",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength70",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "attributes6",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength71",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "jewel_slot1974",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "attributes17_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "armour_break11",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour_break12",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour_break13",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour_break16_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "attributes18",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength105",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "strength102",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "strength85",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength84",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "attributes7",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength83",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "area_attacks15",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks11",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks14",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "attributes72",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "slow_mitigation5",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slow_mitigation3",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slow_mitigation4_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slow_mitigation8",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slow_mitigation1",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slow_mitigation2",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slow_mitigation7_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries19_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries23",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries24",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "rage3",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "rage2",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "rage1",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "rage6",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour47",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour46",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour48",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour49",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "strength80",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "attributes45",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "jewel_slot1975",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "dexterity73",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "attributes46",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "movement_speed6",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "movement_speed11",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "movement_speed8_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour18",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour10",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour11",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour12",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slow_attacks2_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slow_attacks3",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slow_attacks5",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "slow_attacks10",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks8",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks7",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks29",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks13",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks27",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "duration_spells7",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "duration_spells8",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "duration_spells9",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "duration_spells11",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks18",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks31",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks19",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "area_attacks30",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour_break10",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour_break4",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "armour_break35",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries12",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries10",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries25",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries11",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries29",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries35",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries37",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries34",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "strength65_",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength64",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "warcries38",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries36",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries39",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries20",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries21",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries22",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "warcries28",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "AscendancyWarrior3Start",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "AscendancyWarrior3Notable6_0",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다. 무료 분기; 일반(흰색) 갑옷만 사용 가능합니다."
+    },
+    {
+      "id": "AscendancyWarrior3Notable6_8",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "AscendancyWarrior3Notable6_9",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "AscendancyWarrior3Notable6_1",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "AscendancyWarrior3Notable6_5",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "AscendancyWarrior3Small4",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    },
+    {
+      "id": "AscendancyWarrior3Notable4",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Lundburgerr 원본 선택 노드. 실제 포인트·능력치 조건 충족 후 연결 순서 안내를 확인합니다."
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Fortifying Cry · 권장 세트2. 실제 젬 레벨·능력치·정신력·마나/생명력 비용을 확인합니다.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemRagingCry",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Raging Cry · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemHeavySwing",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Heavy Swing · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemEnragedWarcryTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Enraged Warcry II · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemHeft",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Heft · 실제 획득·속성/슬롯 조건 확인."
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldWall",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Shield Wall · 권장 세트1. 실제 젬 레벨·능력치·정신력·마나/생명력 비용을 확인합니다.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Rapid Attacks II · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Magnified Area II · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemAhnsCitadel",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Ahn's Citadel · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemKaomsMadness",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Kaom's Madness · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemImpale",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Impale · 실제 획득·속성/슬롯 조건 확인."
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Scavenged Plating · 권장 세트1. 실제 젬 레벨·능력치·정신력·마나/생명력 비용을 확인합니다.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Prolonged Duration II · 실제 획득·속성/슬롯 조건 확인."
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Herald of Ash · 권장 세트1. 실제 젬 레벨·능력치·정신력·마나/생명력 비용을 확인합니다.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Magnified Area II · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrecision",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Precision I · 실제 획득·속성/슬롯 조건 확인."
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Shockwave Totem · 권장 세트1. 실제 젬 레벨·능력치·정신력·마나/생명력 비용을 확인합니다.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Urgent Totems III · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemHardyTotemsTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Hardy Totems II · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemIronwoodTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Reinforced Totems II · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Prolonged Duration II · 실제 획득·속성/슬롯 조건 확인."
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSunder",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Sunder · 권장 세트1. 실제 젬 레벨·능력치·정신력·마나/생명력 비용을 확인합니다.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Prolonged Duration II · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Rapid Attacks III · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemRageThree",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Rage III · 실제 획득·속성/슬롯 조건 확인."
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAttrition",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Attrition · 권장 세트1. 실제 젬 레벨·능력치·정신력·마나/생명력 비용을 확인합니다. 실제 정신력 보상 후 Attrition 또는 War Banner 선택. 모든 점유 동시 사용을 가정하지 않습니다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Infernal Cry · 권장 세트2. 실제 젬 레벨·능력치·정신력·마나/생명력 비용을 확인합니다.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemTireless",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Tireless · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRagingCry",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Raging Cry · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Cooldown Recovery II · 실제 획득·속성/슬롯 조건 확인."
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "Shield Charge · 권장 세트1. 실제 젬 레벨·능력치·정신력·마나/생명력 비용을 확인합니다.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Rapid Attacks III · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemRageThree",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Rage III · 실제 획득·속성/슬롯 조건 확인."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Efficiency II · 실제 획득·속성/슬롯 조건 확인."
+        }
+      ]
+    }
+  ],
+  "description": "저자 Maps 전체는109 일반점 목표로 첫 맵 진입85점과 다릅니다. Interludes85에서 검증된 추가/환불 prefix를 따라 실제 포인트만큼 진행합니다.\n실제 일반 109점 / 특화 한도 17 / 유료 전직 6점 조건.\nLundburgerr 실제 저자 변형을 보존한 표시본입니다. Pathcraft가 임의 패시브를 추가하지 않았습니다.\n일반 포인트와 무기 특화 한도, 전직 포인트를 따로 확인합니다. 무기 특화 한도를 일반 포인트에 중복 더하지 않습니다.\n표시 범위 [1,100]은 획득·배분·사용 가능 레벨이 아닙니다. 실제 젬·장비 요구 레벨과 능력치·정신력·비용을 확인합니다.\nSmith’s Masterwork는 무료 분기이며 일반(흰색) 갑옷만 착용 가능합니다. 그 아래 선택한 옵션은 실제 전직 포인트가 필요합니다.\nBlood Rush가 있으면 마나 비용 일부가 생명력으로 전환됩니다. 생명력/마나 회복을 모두 확인하고 HC 안전이나 무한 회복을 가정하지 않습니다.\n저자 0.5.5 가이드이며 일부 트리 설명은0.4 경로를 유지합니다. 선택되지 않은 Vaal Pact 실험은 추가하지 않습니다.\n현재 데이터 기준 Molten Symbol은 물리 명중 피해25%를 화염으로 받는 효과입니다. 저자 설명의 반대 방향 표현을 수정하며 실제 배분·일반 갑옷 조건이 필요합니다.\n현재 데이터 최소 캐릭터 요구: 방패벽/도약 강타/동결 징표23, 보강 함성/지면 분쇄32, 재의 전령/Attrition11, 방패 돌진/지옥불 함성/충격파 토템7. 원본 내보내기의22/31 등은 오래된 값입니다.\n새 표시본의 실게임·DPS·HC 생존 검증은 없습니다. 예시 희귀 옵션을 전부 필수 구매로 해석하지 않습니다.\n원본 변형 7 · 2026-09-14T06:57:46Z"
+}

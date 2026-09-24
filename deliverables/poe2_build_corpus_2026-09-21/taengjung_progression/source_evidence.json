@@ -1,0 +1,122 @@
+{
+  "claims": [
+    {
+      "id": "normal-asc",
+      "source": "priority_taengjeong_kitava_shield_wall.md:66-70",
+      "url": "https://www.youtube.com/watch?v=QcSeQ0OOENI&t=225s",
+      "scope": "03:45–07:33 Coal Stoker first 2 points; then Masterwork NORMAL body. Branch priority fire resistance, physical taken as fire, armour to chaos, damaging ailments, crit, life. XML28509 resolves branch IDs."
+    },
+    {
+      "id": "weapon-alternatives",
+      "source": "priority_taengjeong_kitava_shield_wall.md:79",
+      "url": "https://www.youtube.com/watch?v=QcSeQ0OOENI&t=575s",
+      "scope": "09:35–10:13 rare mace, cheaper sceptre, then Sacred Flame; Sacred Flame is optional, unnamed cheaper unique not fabricated."
+    },
+    {
+      "id": "helmet-gate",
+      "source": "priority_taengjeong_kitava_shield_wall.md:80",
+      "url": "https://www.youtube.com/watch?v=QcSeQ0OOENI&t=614s",
+      "scope": "10:14–10:40 do not preallocate surround nodes before helmet. Acquired is not equipped; actual conditions and accuracy matter."
+    },
+    {
+      "id": "defense-order",
+      "source": "priority_taengjeong_kitava_shield_wall.md:83",
+      "url": "https://www.youtube.com/watch?v=QcSeQ0OOENI&t=728s",
+      "scope": "12:08–12:55 Defiance of Destiny then Brass Dome then Olroth; change normal-body ascendancy with body. Olroth is an optional later upgrade."
+    },
+    {
+      "id": "pre-lowlife-supports",
+      "source": "priority_taengjeong_kitava_shield_wall.md / cafe_playwright saved article208",
+      "url": "https://cafe.naver.com/f-e/cafes/31644155/articles/208",
+      "scope": "Creator 2026-09-17: Rapid Attacks II / Fire Attunement / Armour Break III before functioning lowlife mechanism; check campaign rewards."
+    },
+    {
+      "id": "latest-bundle",
+      "source": "priority_taengjeong_kitava_shield_wall.md:5-11; priority_29d39.xml",
+      "url": "https://cafe.naver.com/f-e/cafes/31644155/articles/224",
+      "scope": "Creator 2026-09-21: Cat O Nine Tails AND skills/passives change together. Eternal Rage enabled, Raging Cry and Enraged Warcry II, Shield Wall set1 / cry set2. Flask recovery exception remains."
+    },
+    {
+      "id": "prefix-adaptation",
+      "source": "priority_29d39.xml / tree_0_5.json",
+      "scope": "Pathcraft deterministic unions of rooted source paths, not Taengjung act-tree or tested character. Select useful destinations; no point padding."
+    },
+    {
+      "id": "gem-minimums",
+      "source": "D:/Pathcraft-AI/data/game_data_poe2/SkillGems.json + BaseItemTypes.json",
+      "scope": "MinLevelReq is character eligibility; CraftingLevel is gem crafting tier. Neither saved XML gem level nor native [1,100] is an acquisition gate."
+    },
+    {
+      "id": "manual-rage",
+      "source": "xml-28509; D:/Pathcraft-AI/.tmp/skadoosh-simulation/pob2/src/Data/Skills/sup_str.lua:2983,5930",
+      "scope": "Source has Infernal Cry + Raging Cry + Tireless + Enraged Warcry I without Eternal Rage. Local effect data: Raging Cry grants4 rage per5 counted monster Power; Enraged I bypass costs20 rage. This is conditional, not perpetual rage: wait normal cooldown or use Fortifying Cry/totem when insufficient."
+    }
+  ],
+  "sources": [
+    {
+      "id": "xml-28509",
+      "file": "D:\\Pathcraft-AI\\deliverables\\tangjung_0_5_5_research_2026-09-07\\sources\\pob_28509.xml",
+      "local_copy": "sources/pob_28509.xml",
+      "sha256": "4e99a6f0cf55af4dfb40b378734f0a3a5a65ac66abb46029451f064b71404aa1",
+      "url": "https://poe.ninja/poe2/pob/28509"
+    },
+    {
+      "id": "xml-285e2",
+      "file": "D:\\Pathcraft-AI\\deliverables\\tangjung_0_5_5_research_2026-09-07\\sources\\pob_285e2.xml",
+      "local_copy": "sources/pob_285e2.xml",
+      "sha256": "472b327c2a0171fad2a9e5315fdcb7f98a09de160f71cca33c22c26fc8ba9c8e",
+      "url": "https://poe.ninja/poe2/pob/285e2"
+    },
+    {
+      "id": "xml-28604",
+      "file": "D:\\Pathcraft-AI\\deliverables\\tangjung_0_5_5_research_2026-09-07\\sources\\pob_28604.xml",
+      "local_copy": "sources/pob_28604.xml",
+      "sha256": "35eafdd651d10a4899fff6631429e80712b88a48ebd5ec51d7ec4b039a87daad",
+      "url": "https://poe.ninja/poe2/pob/28604"
+    },
+    {
+      "id": "xml-28695",
+      "file": "D:\\Pathcraft-AI\\deliverables\\tangjung_0_5_5_research_2026-09-07\\sources\\pob_28695.xml",
+      "local_copy": "sources/pob_28695.xml",
+      "sha256": "885ca6a7d4d6f163bedc4c7f0a5578a0e189903dde7dae870a09b99f19e16916",
+      "url": "https://poe.ninja/poe2/pob/28695"
+    },
+    {
+      "id": "xml-29d39",
+      "file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\priority_29d39.xml",
+      "local_copy": "sources/pob_29d39.xml",
+      "sha256": "29f57e9ebd6d7060ef3f6aa155c6121e4cb489da8a2c94c709c672c4e1c0a6ac",
+      "url": "https://poe.ninja/poe2/pob/29d39"
+    },
+    {
+      "id": "tree_0_5",
+      "file": "D:\\Pathcraft-AI\\deliverables\\skadoosh_hc_2026-09-07\\sources\\tree_0_5.json",
+      "sha256": "6449fe534c0265b21f59f8213254bd3f37a445887582c40aab04ad11cede3e95"
+    },
+    {
+      "id": "SkillGems",
+      "file": "D:\\Pathcraft-AI\\data\\game_data_poe2\\SkillGems.json",
+      "sha256": "f5a47c04cebf650c638581e929810869848bc389f93ed86efcf2bd1575129c76"
+    },
+    {
+      "id": "BaseItemTypes",
+      "file": "D:\\Pathcraft-AI\\data\\game_data_poe2\\BaseItemTypes.json",
+      "sha256": "16aeb187d913dee98a67f08a9312ce163ea349f1ac641dc425b2243c02a2f18e"
+    },
+    {
+      "id": "AttributeRequirements",
+      "file": "D:\\Pathcraft-AI\\data\\game_data_poe2\\AttributeRequirements.json",
+      "sha256": "401141c0aa746c74e6f917dd66308601de36d287a5ef252cb8c18338d5ffa707"
+    },
+    {
+      "id": "CalcSetup",
+      "file": "D:\\Pathcraft-AI\\.tmp\\skadoosh-simulation\\pob2\\src\\Modules\\CalcSetup.lua",
+      "sha256": "fc178fae4d1ffe59c7d3de9c59a55ffeae0580490a1d3bbea42e22b552b9227f"
+    },
+    {
+      "id": "sup_str",
+      "file": "D:\\Pathcraft-AI\\.tmp\\skadoosh-simulation\\pob2\\src\\Data\\Skills\\sup_str.lua",
+      "sha256": "7a7567b3e3647ab720d8c86729dffb2e29e53786d298e8fb87e1887eb77c9833"
+    }
+  ]
+}

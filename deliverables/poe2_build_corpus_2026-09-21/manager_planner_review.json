@@ -1,0 +1,99 @@
+{
+  "native_static_review": "PASS",
+  "files": [
+    {
+      "file": "archive-28509.build",
+      "sha256": "62abaf7a9a9d794a568299c70343d7cfdb5556317783bb4a179771ee658316fc",
+      "exact_passive_id_and_weapon_set_match": true,
+      "passives": 124,
+      "gem_ids_exist": true
+    },
+    {
+      "file": "archive-285e2.build",
+      "sha256": "bfa528b1013e42c10d67a37a5e54a69512de6c79ccf329826582ca764720a7d7",
+      "exact_passive_id_and_weapon_set_match": true,
+      "passives": 125,
+      "gem_ids_exist": true
+    },
+    {
+      "file": "archive-28604.build",
+      "sha256": "42714a0254a0dc2d964f1f1921e9c7c38cdec5cca2d97b56cf805edf664df5b0",
+      "exact_passive_id_and_weapon_set_match": true,
+      "passives": 126,
+      "gem_ids_exist": true
+    },
+    {
+      "file": "archive-28695.build",
+      "sha256": "696509f805ff2594dcaf26e0cd14d99342de3d34cb59bb4c114aadef44733382",
+      "exact_passive_id_and_weapon_set_match": true,
+      "passives": 127,
+      "gem_ids_exist": true
+    },
+    {
+      "file": "current-kitava-29d39.build",
+      "sha256": "2f94a19b6e7b854be5d7151fd6ef81e76e326d41da8ef0933cfa9bf2bd171ff5",
+      "exact_passive_id_and_weapon_set_match": true,
+      "passives": 151,
+      "gem_ids_exist": true
+    },
+    {
+      "file": "campaign-act1.build",
+      "sha256": "e619e2be271ff530ad8b3445e1193e4cb1872a8538fed9ddce0ba88e0352f400",
+      "no_other_ascendancy_or_invented_tree": true,
+      "gem_ids_exist": true
+    },
+    {
+      "file": "campaign-act2.build",
+      "sha256": "90879f37e5f291d797b9819669a0fba90899e0efaf59311ce2d9bd3d849ab0e5",
+      "no_other_ascendancy_or_invented_tree": true,
+      "gem_ids_exist": true
+    },
+    {
+      "file": "campaign-act3.build",
+      "sha256": "d0c08fb1b6ec8926051e443a7bc5277eed25578fc926921dc4bf3364fb7ff8bd",
+      "no_other_ascendancy_or_invented_tree": true,
+      "gem_ids_exist": true
+    },
+    {
+      "file": "campaign-act4.build",
+      "sha256": "2d7e6c095ce3e55b8bad9c876a7c0fb836d6b5739a3b09b09e9943571aca4cea",
+      "no_other_ascendancy_or_invented_tree": true,
+      "gem_ids_exist": true
+    },
+    {
+      "file": "campaign-interlude.build",
+      "sha256": "cf2a265d894d7dead8902a44dedd816935af20bef5b441aaeed94e9af4079bd8",
+      "no_other_ascendancy_or_invented_tree": true,
+      "gem_ids_exist": true
+    }
+  ],
+  "common_pack_sha256": "f935ad195337116eedeed8db1125b904e08a1a1950c5cee9483ff65f4852b1dd",
+  "game_load_verified": false,
+  "html_review": "PASS: final worker checks and HQ independent browser acceptance msg_2ae081430185",
+  "cafe_remaining_articles": [
+    160,
+    158,
+    149,
+    135,
+    131,
+    129,
+    121,
+    120,
+    112
+  ],
+  "html_data_review": "PASS: 10-stage exact source hash/passives/weapon set/equipment; granted groups separated",
+  "native_tooltip_review": "PASS: runtime flags absent from 10 game files; preserved in validation; source-structure equality receipt reviewed",
+  "html_native_embedded_bytes_match": true,
+  "coordinate_missing_neighbor_ids": [
+    "16732",
+    "51916",
+    "54579"
+  ],
+  "coordinate_missing_allocated_overlap": [],
+  "hq_native_acceptance": "msg_03c20a811a38",
+  "hq_html_acceptance": "msg_2ae081430185",
+  "html_worker_checks": 13,
+  "html_worker_all_pass": true,
+  "historical_receipt_note": "Earlier version evidence preserved; current authoritative files/hashes and installation are in campaign_delivery_receipt.json",
+  "superseded_by": "campaign_delivery_receipt.json"
+}

@@ -1,0 +1,177 @@
+{
+  "created_at_utc": "2026-09-08T12:15:55.314931+00:00",
+  "full_broadcasts_reviewed_continuously": false,
+  "keystroke_log_available": false,
+  "dense_review_seconds": 144,
+  "dense_frames_reviewed": 288,
+  "context_review": {
+    "first_day_start": 14880,
+    "duration": 960,
+    "step": 10,
+    "frames_reviewed": 96
+  },
+  "source_time_alignment": {
+    "method": "Frame image comparison with locally saved full 360p VOD",
+    "first_day_720p_offsets_checked": [
+      90,
+      380,
+      780
+    ],
+    "best_offset_seconds": [
+      0,
+      0,
+      0
+    ],
+    "reported_timestamp_tolerance_seconds": 1
+  },
+  "user_snapshot": {
+    "file": "user_lookup_114946.json",
+    "name": "HCFB_CCTBurger",
+    "updated_utc": "2026-09-08T11:22:16.428554Z",
+    "level": 23
+  },
+  "clips": [
+    {
+      "name": "before_vf",
+      "file": "day1_040800_960s.mp4",
+      "file_start": 14880,
+      "scene_start": 14886,
+      "duration": 32,
+      "step": 0.5,
+      "clip": "before_vf_replay.mp4",
+      "poster": "before_vf_poster.jpg",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "codec_type": "audio"
+          }
+        ],
+        "format": {
+          "duration": "32.000000"
+        }
+      },
+      "sha256": "c6647d07c53d3fd3b432ca5bdf98aa6509bb66f22db416cc988f1669d265c8d4"
+    },
+    {
+      "name": "vf_clear",
+      "file": "day1_040800_960s.mp4",
+      "file_start": 14880,
+      "scene_start": 15446,
+      "duration": 32,
+      "step": 0.5,
+      "clip": "vf_clear_replay.mp4",
+      "poster": "vf_clear_poster.jpg",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "codec_type": "audio"
+          }
+        ],
+        "format": {
+          "duration": "32.000000"
+        }
+      },
+      "sha256": "9077e0997287dd0cdd520b7e3cf0d35bee0166aff53da641de82626486305a37"
+    },
+    {
+      "name": "vf_boss",
+      "file": "day1_040800_960s.mp4",
+      "file_start": 14880,
+      "scene_start": 15670,
+      "duration": 32,
+      "step": 0.5,
+      "clip": "vf_boss_replay.mp4",
+      "poster": "vf_boss_poster.jpg",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "codec_type": "audio"
+          }
+        ],
+        "format": {
+          "duration": "32.000000"
+        }
+      },
+      "sha256": "c924c2f5de0b54c77f489d38af5f8e1e5e6c5c2132ba2b3162b8e380d875a20c"
+    },
+    {
+      "name": "vf_bind",
+      "file": "day1_040800_960s.mp4",
+      "file_start": 14880,
+      "scene_start": 15236,
+      "duration": 24,
+      "step": 0.5,
+      "clip": "vf_bind_replay.mp4",
+      "poster": "vf_bind_poster.jpg",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "codec_type": "audio"
+          }
+        ],
+        "format": {
+          "duration": "24.000000"
+        }
+      },
+      "sha256": "4b40bad409e35968de00bb9b3ca8288e50afe2f22dd77d39d2b92de83d8ea317"
+    },
+    {
+      "name": "forge_bind",
+      "file": "day2_010130_300s.mp4",
+      "file_start": 3690,
+      "scene_start": 3860,
+      "duration": 24,
+      "step": 0.5,
+      "clip": "forge_bind_replay.mp4",
+      "poster": "forge_bind_poster.jpg",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "codec_type": "audio"
+          }
+        ],
+        "format": {
+          "duration": "24.000000"
+        }
+      },
+      "sha256": "fe1d0ffe98256adb1182e6d62ca6313e9e9fac20f5968d951b1158a0fc51df44"
+    }
+  ],
+  "browser_playback_verified": true,
+  "browser_validation_file": "review_page_validation.json"
+}

@@ -1,0 +1,838 @@
+{
+  "author": "Skadoosh / Pathcraft",
+  "link": "https://poe.ninja/poe2/builds/forbiddenriteshc/character/ITheCon-2183/SkadooshShoutedHard",
+  "ascendancy": "Warrior2",
+  "inventory_slots": [
+    {
+      "inventory_id": "Weapon1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{세트 I · 성소 셉터 + 방어도 방패}\nG에서 I만 체크.\n<b>{사용 스킬 → 연결 젬}\n불의 순수함 [셉터 부여] → 활력 II + 식인 II + 따뜻한 피\n방패 들기 → 연결 보조 없음\n공명하는 방패 → 격노 I + 방어구 철거자 I\n마그마 장벽 [버프] → 연결 보조 없음\n보강하는 함성 → 타락시키는 비명 I + 포악함 II + 고통 격화 II + 효율 II\n지진 함성 → 우주의 영사 + 효율 II + 격노하는 함성\n\n<b>{추천 옵션 · 세트 I · 성소 셉터}\n1. 정신력 % 증가 → 무기에 표시된 최종 정신력 비교\n2. 불의 순수함을 부여하는 성소 셉터 베이스\n\n핵심은 양 세트의 예약량 확보다. 다른 셉터는 이 파일의 불의 순수함 연결을 그대로 쓰지 못한다."
+    },
+    {
+      "inventory_id": "Weapon2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{세트 II · 한손 철퇴 + 성소 셉터}\nG에서 II만 체크.\n<b>{사용 스킬 → 연결 젬}\n불의 순수함 [셉터 부여] → 활력 I + 정밀함 II\n선대의 전사 토템 → 지면 분쇄 [토템 내부 공격] + 긴급한 토템 I + 포악함 II\n\n<b>{추천 옵션 · 세트 II · 한손 철퇴}\n1. 물리 피해 추가\n2. 물리 피해 % 증가\n3. 공격 속도 증가\n4. 명중률 / 모든 근접 스킬 레벨\n\n선대의 전사 토템용. 반대 손에 성소 셉터를 들어야 하므로 양손 철퇴는 사용하지 않는다. 원본 고유는 선택 예시이며 대체 무기는 토템 피해를 다시 비교한다.\n표시된 고유는 원본 예시다. 희귀 장비로 대체할 때는 위 옵션을 비교한다.",
+      "unique_name": "Sadist's Mercy"
+    },
+    {
+      "inventory_id": "Offhand1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 세트 I · 방어도 방패}\n1. 최대 생명력\n2. 부족한 원소 저항\n3. 방어도 / 막기 확률\n4. 초당 생명력 재생\n\n보강하는 함성에는 방어도 방패가 필요하다."
+    },
+    {
+      "inventory_id": "Offhand2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 세트 II · 성소 셉터}\n1. 정신력 % 증가 → 무기에 표시된 최종 정신력 비교\n2. 불의 순수함을 부여하는 성소 셉터 베이스\n\n핵심은 양 세트의 예약량 확보다. 다른 셉터는 이 파일의 불의 순수함 연결을 그대로 쓰지 못한다."
+    },
+    {
+      "inventory_id": "Helm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 투구 · 방어도 장비}\n1. 최대 생명력\n2. 부족한 화염·냉기·번개 저항\n3. 방어도\n4. 초당 생명력 재생"
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 갑옷 · 방어도 장비}\n1. 정신력 + (토템 예약량이 부족할 때)\n2. 최대 생명력\n3. 부족한 원소 저항\n4. 초당 생명력 재생 / 방어도\n5. 방어도의 일부를 원소 피해에도 적용"
+    },
+    {
+      "inventory_id": "Gloves1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 장갑}\n1. 모든 근접 스킬 레벨 +\n2. 최대 생명력\n3. 부족한 원소 저항\n4. 공격 속도 / 방어도\n\n함성 단계의 핵심 딜 옵션이다. 원본 장갑은 모든 근접 스킬 레벨 +2를 사용했다."
+    },
+    {
+      "inventory_id": "Boots1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 장화}\n1. 이동 속도 증가\n2. 최대 생명력\n3. 부족한 원소 저항\n4. 초당 생명력 재생 / 방어도"
+    },
+    {
+      "inventory_id": "Amulet1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 목걸이}\n1. 정신력 + (예약량이 부족할 때)\n2. 최대 생명력 / 초당 생명력 재생\n3. 부족한 원소 저항\n4. 모든 근접 스킬 레벨 + / 필요한 민첩·지능\n\n후기 토템 4기라면 모든 버프 후 I와 II 각각 정신력 300 이상이 필요하다."
+    },
+    {
+      "inventory_id": "Belt1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 허리띠}\n1. 최대 생명력\n2. 부족한 원소 저항\n3. 플라스크 생명력 회복량 / 회복 속도\n4. 호신부 효과 지속시간\n\n사용할 수 있는 호신부 칸 수를 확인한다."
+    },
+    {
+      "inventory_id": "Flask1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 생명력 플라스크}\n1. 현재 착용 가능한 높은 회복량\n2. 회복 속도 / 즉시 회복 부분\n3. 충전 유지에 도움이 되는 옵션\n\n플라스크를 사용한 회복은 장비의 초당 생명력 재생과 별개다."
+    },
+    {
+      "inventory_id": "Charm1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 호신부}\n1. 기절 대응용 호신부 우선 검토\n2. 동결이 문제인 구간에는 동결 대응용\n3. 효과 지속시간 / 충전 유지\n\n열린 호신부 칸 수와 지금 마주치는 위험에 맞춰 고른다."
+    },
+    {
+      "inventory_id": "Ring1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 반지}\n1. 최대 생명력\n2. 부족한 화염·냉기·번개 저항\n3. 초당 생명력 재생\n4. 필요한 민첩·지능\n\n공격 시 원소 피해 추가는 타락한 피의 우선 딜 옵션이 아니다."
+    },
+    {
+      "inventory_id": "Ring2",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{추천 옵션 · 반지}\n1. 최대 생명력\n2. 부족한 화염·냉기·번개 저항\n3. 초당 생명력 재생\n4. 필요한 민첩·지능\n\n공격 시 원소 피해 추가는 타락한 피의 우선 딜 옵션이 아니다."
+    }
+  ],
+  "name": "08C 혈마법-회복 확인 후",
+  "passives": [
+    {
+      "id": "warcries34",
+      "weapon_set": 1,
+      "additional_text": "직접 함성 사용 시 최대 생명력·마나의 2% 회복. 반복 사용의 비용까지 전부 해결한다고 가정하지 않는다."
+    },
+    {
+      "id": "attributes70",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "AscendancyWarrior2Small5"
+    },
+    {
+      "id": "jewel_slot1974"
+    },
+    {
+      "id": "physical28"
+    },
+    {
+      "id": "strength70",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "warcries38",
+      "weapon_set": 1
+    },
+    {
+      "id": "warcries9",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes3",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems1",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems9",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems36",
+      "weapon_set": 2
+    },
+    {
+      "id": "warcries11",
+      "weapon_set": 1
+    },
+    {
+      "id": "strength38",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "armour47"
+    },
+    {
+      "id": "marauder_brute_notable2"
+    },
+    {
+      "id": "criticals33"
+    },
+    {
+      "id": "wolf12",
+      "weapon_set": 1
+    },
+    {
+      "id": "intelligence74"
+    },
+    {
+      "id": "armour46"
+    },
+    {
+      "id": "life_regeneration25"
+    },
+    {
+      "id": "strength41",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "armour_break28"
+    },
+    {
+      "id": "totems37",
+      "weapon_set": 2
+    },
+    {
+      "id": "life_regeneration24"
+    },
+    {
+      "id": "strength21",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "criticals101",
+      "weapon_set": 2
+    },
+    {
+      "id": "warcries29",
+      "weapon_set": 1
+    },
+    {
+      "id": "armour49"
+    },
+    {
+      "id": "totems34"
+    },
+    {
+      "id": "attributes16",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "block7_",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals95",
+      "weapon_set": 2
+    },
+    {
+      "id": "attributes80",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "strength67",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "strength26",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems45"
+    },
+    {
+      "id": "armour_break29"
+    },
+    {
+      "id": "totems44",
+      "weapon_set": 2
+    },
+    {
+      "id": "criticals93_"
+    },
+    {
+      "id": "totems43"
+    },
+    {
+      "id": "jewel_slot1977"
+    },
+    {
+      "id": "totems14",
+      "weapon_set": 2,
+      "additional_text": "토템 한도에 관여하는 노드다. 세트 II의 배정을 유지한다."
+    },
+    {
+      "id": "jewel_slot1956"
+    },
+    {
+      "id": "strength69",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "strength64",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "armour14"
+    },
+    {
+      "id": "criticals40"
+    },
+    {
+      "id": "strength36",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "warcries3"
+    },
+    {
+      "id": "warcries39",
+      "weapon_set": 1
+    },
+    {
+      "id": "armour48"
+    },
+    {
+      "id": "warcries18",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes15",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "wolf14",
+      "weapon_set": 1
+    },
+    {
+      "id": "armour35"
+    },
+    {
+      "id": "shield15",
+      "weapon_set": 1
+    },
+    {
+      "id": "intelligence72"
+    },
+    {
+      "id": "AscendancyWarrior2Start"
+    },
+    {
+      "id": "criticals94",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems19",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength22",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "wolf13_",
+      "weapon_set": 1
+    },
+    {
+      "id": "warcries17"
+    },
+    {
+      "id": "totems35",
+      "weapon_set": 2
+    },
+    {
+      "id": "totems26",
+      "weapon_set": 2
+    },
+    {
+      "id": "armour6"
+    },
+    {
+      "id": "strength53",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "strength44",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "AscendancyWarrior2Small6"
+    },
+    {
+      "id": "AscendancyWarrior2Notable6"
+    },
+    {
+      "id": "warcries36",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes54_",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "warcries1",
+      "weapon_set": 1
+    },
+    {
+      "id": "strength25",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems38",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength39_",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "warcries35",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems11",
+      "weapon_set": 2
+    },
+    {
+      "id": "armour_break37"
+    },
+    {
+      "id": "strength23",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "shield1",
+      "weapon_set": 1
+    },
+    {
+      "id": "shield5",
+      "weapon_set": 1
+    },
+    {
+      "id": "AscendancyWarrior2Notable4_"
+    },
+    {
+      "id": "strength54",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "warcries25",
+      "weapon_set": 1
+    },
+    {
+      "id": "intelligence8"
+    },
+    {
+      "id": "strength40_",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems6",
+      "weapon_set": 2
+    },
+    {
+      "id": "attributes55",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "life_regeneration17_"
+    },
+    {
+      "id": "totems21",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength71",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems33_",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength51",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "warcries10",
+      "weapon_set": 1
+    },
+    {
+      "id": "strength42",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems8",
+      "weapon_set": 2
+    },
+    {
+      "id": "attributes71",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "physical29"
+    },
+    {
+      "id": "strength24_",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "shield16",
+      "weapon_set": 1
+    },
+    {
+      "id": "strength15",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "jewel_slot1971"
+    },
+    {
+      "id": "criticals35"
+    },
+    {
+      "id": "duelist_mercenary_notable1"
+    },
+    {
+      "id": "attributes32",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems39",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength45_",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "criticals31"
+    },
+    {
+      "id": "intelligence71"
+    },
+    {
+      "id": "strength65_",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "attributes5",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "physical26"
+    },
+    {
+      "id": "totems25",
+      "weapon_set": 2
+    },
+    {
+      "id": "attributes6",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "totems15",
+      "weapon_set": 2
+    },
+    {
+      "id": "strength68",
+      "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+    },
+    {
+      "id": "warcries37",
+      "weapon_set": 1
+    },
+    {
+      "id": "physical37"
+    },
+    {
+      "id": "block15",
+      "weapon_set": 1
+    },
+    {
+      "id": "totems48_",
+      "weapon_set": 2
+    },
+    {
+      "id": "passive_keystone_ancestral_bond",
+      "additional_text": "08B에서 추가. 토템당 정신력 75 예약. 모든 버프 후 I·II 각각 예약량을 확인한다. 설치 마나/생명력 비용은 남는다."
+    },
+    {
+      "id": "passive_keystone_blood_magic",
+      "additional_text": "08C에서 회복 확인 후 추가. 스킬 마나 비용이 생명력으로 바뀐다. 유지가 안 되면 이 1점을 되돌린다."
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyAncestralSpirits",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{선대의 혼백 · 자동 부여}\n전직에서 자동으로 부여한다. 별도 젬을 제작하지 않는다.\n<b>{이 스킬 안에 넣을 젬}\n현재 단계 연결 보조 없음."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitalityTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{활력 II}\n연결할 스킬: 불의 순수함 (세트 I)\n이 스킬의 1번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemCannibalismTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{식인 II}\n연결할 스킬: 불의 순수함 (세트 I)\n이 스킬의 2번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemWarmBlooded",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{따뜻한 피}\n연결할 스킬: 불의 순수함 (세트 I)\n이 스킬의 3번째 보조 위치에 넣는다."
+        }
+      ],
+      "additional_text": "<b>{불의 순수함 · 세트 I}\n성소 셉터가 부여하는 스킬이다. 해당 무기 세트에서 연결한 버프를 유지한다.\n<b>{이 스킬 안에 넣을 젬}\n1. 활력 II\n2. 식인 II\n3. 따뜻한 피\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{방패 들기 · 세트 I}\n방패 세트 I에서 사용한다.\n<b>{이 스킬 안에 넣을 젬}\n현재 단계 연결 보조 없음.\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHarbingerOfMadness",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "<b>{광기의 선구자 · 자동 부여}\n원본 고유 철퇴가 부여한다. 대체 무기에 없으면 별도 젬으로 제작하지 않는다.\n<b>{이 스킬 안에 넣을 젬}\n현재 단계 연결 보조 없음."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitality",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{활력 I}\n연결할 스킬: 불의 순수함 (세트 II)\n이 스킬의 1번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrecisionTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{정밀함 II}\n연결할 스킬: 불의 순수함 (세트 II)\n이 스킬의 2번째 보조 위치에 넣는다."
+        }
+      ],
+      "additional_text": "<b>{불의 순수함 · 세트 II}\n성소 셉터가 부여하는 스킬이다. 해당 무기 세트에서 연결한 버프를 유지한다.\n<b>{이 스킬 안에 넣을 젬}\n1. 활력 I\n2. 정밀함 II\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemResonatingShield",
+      "level_interval": [
+        15,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemRage",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{격노 I}\n연결할 스킬: 공명하는 방패 (세트 I)\n이 스킬의 1번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemDemolisher",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{방어구 철거자 I}\n연결할 스킬: 공명하는 방패 (세트 I)\n이 스킬의 2번째 보조 위치에 넣는다."
+        }
+      ],
+      "additional_text": "<b>{공명하는 방패 · 세트 I}\n안전할 때 쓰는 방패 보조 공격이다. 주력 함성·토템보다 우선하지 않는다.\n<b>{이 스킬 안에 넣을 젬}\n1. 격노 I\n2. 방어구 철거자 I\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+      "level_interval": [
+        11,
+        100
+      ],
+      "additional_text": "<b>{마그마 장벽 · 세트 I}\n정신력이 허용될 때 켠다. 연결한 활력·명상도 정신력을 예약한다.\n<b>{이 스킬 안에 넣을 젬}\n현재 단계 연결 보조 없음.\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+      "level_interval": [
+        32,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemCorruptingCry",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{타락시키는 비명 I}\n연결할 스킬: 보강하는 함성 (세트 I)\n이 스킬의 1번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutalityTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{포악함 II}\n연결할 스킬: 보강하는 함성 (세트 I)\n이 스킬의 2번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{고통 격화 II}\n연결할 스킬: 보강하는 함성 (세트 I)\n이 스킬의 3번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{효율 II}\n연결할 스킬: 보강하는 함성 (세트 I)\n이 스킬의 4번째 보조 위치에 넣는다."
+        }
+      ],
+      "additional_text": "<b>{보강하는 함성 · 세트 I}\n방어도 방패를 들고 쓴다. 토템을 놓은 뒤 I로 복귀하는 주력 함성이다.\n<b>{이 스킬 안에 넣을 젬}\n1. 타락시키는 비명 I\n2. 포악함 II\n3. 고통 격화 II\n4. 효율 II\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAncestralWarriorTotem",
+      "level_interval": [
+        53,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SkillGemEarthshatter",
+          "level_interval": [
+            23,
+            100
+          ],
+          "additional_text": "<b>{지면 분쇄}\n연결할 스킬: 선대의 전사 토템 (세트 II)\n이 스킬의 1번째 보조 위치에 넣는다.\n선대의 전사 토템 내부에 넣는 공격 젬이다. 별도 수동 공격 버튼으로 쓰지 않는다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemAncestralUrgency",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{긴급한 토템 I}\n연결할 스킬: 선대의 전사 토템 (세트 II)\n이 스킬의 2번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBrutalityTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{포악함 II}\n연결할 스킬: 선대의 전사 토템 (세트 II)\n이 스킬의 3번째 보조 위치에 넣는다."
+        }
+      ],
+      "additional_text": "<b>{선대의 전사 토템 · 세트 II}\n선대의 전사 토템 안에 지면 분쇄를 넣는다. 토템이 대신 공격한다. 설치 뒤 방패 I로 복귀한다.\n<b>{이 스킬 안에 넣을 젬}\n1. 지면 분쇄\n2. 긴급한 토템 I\n3. 포악함 II\nG의 무기 세트 체크는 직접 지정한다."
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSeismicCry",
+      "level_interval": [
+        42,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemAstralProjection",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{우주의 영사}\n연결할 스킬: 지진 함성 (세트 I)\n이 스킬의 1번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{효율 II}\n연결할 스킬: 지진 함성 (세트 I)\n이 스킬의 2번째 보조 위치에 넣는다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRagingCry",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "<b>{격노하는 함성}\n연결할 스킬: 지진 함성 (세트 I)\n이 스킬의 3번째 보조 위치에 넣는다."
+        }
+      ],
+      "additional_text": "<b>{지진 함성 · 세트 I}\n지면 분쇄 가시를 터뜨리는 보조 함성이다. 추가 비용까지 확인하며 사용한다.\n<b>{이 스킬 안에 넣을 젬}\n1. 우주의 영사\n2. 효율 II\n3. 격노하는 함성\nG의 무기 세트 체크는 직접 지정한다."
+    }
+  ],
+  "description": "무기·스킬셋\nG에서 세트 I 목록은 I만, 세트 II 목록은 II만 체크한다. 아래는 권장 배정이며 자동 설정되지 않는다.\n\n세트 I · 성소 셉터 + 방어도 방패\n불의 순수함 [셉터 부여] → 활력 II + 식인 II + 따뜻한 피\n방패 들기 → 연결 보조 없음\n공명하는 방패 → 격노 I + 방어구 철거자 I\n마그마 장벽 [버프] → 연결 보조 없음\n보강하는 함성 → 타락시키는 비명 I + 포악함 II + 고통 격화 II + 효율 II\n지진 함성 → 우주의 영사 + 효율 II + 격노하는 함성\n\n세트 II · 한손 철퇴 + 성소 셉터\n불의 순수함 [셉터 부여] → 활력 I + 정밀함 II\n선대의 전사 토템 → 지면 분쇄 [토템 내부 공격] + 긴급한 토템 I + 포악함 II\n\n자동 부여 · 별도 젬 제작 불필요\n선대의 혼백 → 연결 보조 없음\n광기의 선구자 → 연결 보조 없음\n광기의 선구자는 원본 고유 철퇴를 사용할 때만 부여된다.\n\n사용 순서\n선대의 전사 토템(II) 설치 → 보강하는 함성(I)으로 방패 복귀·가시 폭발 → 이동. 지진 함성(I)은 보조.\n\n지금 할 일\n1. 08B가 작동하면 혈마법 1점만 추가한다. 파콰테는 아직 넣지 않는다.\n2. 토템과 함성의 비용이 생명력으로 바뀐다. 설치·함성 뒤 회복이 따라오는지 확인한다.\n3. 회복이 부족하면 혈마법 1점을 되돌리고 08B로 돌아간다. 제작자 장비로 한 계산이 자기 장비에도 그대로 적용되지는 않는다.\n\nI: 성소 셉터+방어도 방패 / II: 한손 철퇴+성소 셉터\n다음: 파콰테 실제 비용 확인 전까지 유지\n패시브 목표: 일반 97점 / 무기 특화 I 22점·II 22점."
+}

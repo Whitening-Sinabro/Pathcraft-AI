@@ -1,0 +1,946 @@
+{
+ "_meta": {
+  "build": "푸들멈머 타이탄 대재난 Ver.4 (SC 금단의 의식) — 석궁 → 선회 → 65레벨 대재난",
+  "game": "poe2",
+  "patch": "0.5.5 Forbidden Rites (소프트코어 거래)",
+  "base_filter": "NeverSink's filter 2 (0.10.3) -- SOFT / REGULAR / STRICT, one per stage",
+  "generated_by": "scripts/build_poe2_build_overlay.py via scripts/build_all_filters.py",
+  "sources": "푸들멈머 0.5.5 타이탄 대재난 Ver.4 시트(1Nund2t…) · 맨땅 레벨업 시트(1iEo-Ee…) · poe.ninja 대재난푸들(week-2, 95레벨) PoB · 유니크 바탕은 pathofexile.com trade2 data/items",
+  "palette": "빌드 유니크 = 주황, 빌드 핵심 재화 = 진홍 배경 + 흰 글자, 혈통 = 청록. 흰 배경+빨강 글자(T0)와 보라(유니크 채널)는 쓰지 않는다.",
+  "notes": [
+   "숨김 룰 1개: 이 빌드가 못 쓰는 무기·방패의 흰색만(지역 12부터, 타락 제외). NeverSink 희귀 바탕은 바로 앞 보호 룰이 먼저 띄운다. 나머지는 NeverSink 규칙대로 흐른다.",
+   "무음 장비 룰은 흰색·파란색 + UnidentifiedItemTier <= 2 로만 잡는다 — NeverSink 의 지역 65+ 미감정 티어 3·4 경보(음량 300)를 덮지 않게(SSF 필터 2차 적대검증 교훈, 2026-09-22).",
+   "커스텀 소리는 게임 폴더의 mp3(SSF 필터와 같은 파일). 빌더가 존재를 검사한다."
+  ],
+  "outputs": [
+   {
+    "stage": "campaign",
+    "file": "PathcraftAI_Calamity_1-Campaign_on_NeverSink-SOFT.filter",
+    "base": "neversink_poe2_soft.filter",
+    "why": "액트. 석궁 → 41레벨 육척봉. 레벨업 유니크 4종을 띄운다."
+   },
+   {
+    "stage": "maps",
+    "file": "PathcraftAI_Calamity_2-Maps_on_NeverSink-REGULAR.filter",
+    "base": "neversink_poe2_regular.filter",
+    "why": "맵 초입 선회 → 65레벨 대재난 전환. ES·마나 바탕과 대재난 유니크."
+   },
+   {
+    "stage": "endgame",
+    "file": "PathcraftAI_Calamity_3-Endgame_on_NeverSink-STRICT.filter",
+    "base": "neversink_poe2_strict.filter",
+    "why": "대재난 중급 이후. 혈통 젬 · 지팡이 5소켓 재료 · 상급 유니크."
+   }
+  ],
+  "bases": [
+   {
+    "file": "neversink_poe2_soft.filter",
+    "upstream": "NeverSink's filter 2 - 0-SOFT.filter",
+    "used_for": "campaign",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%200-SOFT.filter",
+    "sha256": "4982d9531e17313c0d26e58ce39e636e4a870035d4e91702a051fd5263cc961d",
+    "bytes": 252540
+   },
+   {
+    "file": "neversink_poe2_regular.filter",
+    "upstream": "NeverSink's filter 2 - 1-REGULAR.filter",
+    "used_for": "maps",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%201-REGULAR.filter",
+    "sha256": "16a0333e07d0bce8a4886dc2ab0d34d6190e652a58a9d784ff06616853606572",
+    "bytes": 252572
+   },
+   {
+    "file": "neversink_poe2_strict.filter",
+    "upstream": "NeverSink's filter 2 - 3-STRICT.filter",
+    "used_for": "endgame",
+    "url": "https://raw.githubusercontent.com/NeverSinkDev/NeverSink-Filter-for-PoE2/master/NeverSink%27s%20filter%202%20-%203-STRICT.filter",
+    "sha256": "efd5631032846353a15d8cfe0165296ab124bd6057c15f7d66b8f4bdfa1e9fd8",
+    "bytes": 252655
+   }
+  ]
+ },
+ "styles": {
+  "cal_unique": {
+   "comment": "대재난 빌드 유니크(시트 초급·중급·상급 + 95레벨 PoB). 주황 · 커스텀 소리 3uniques.mp3",
+   "text": [
+    255,
+    200,
+    140
+   ],
+   "border": [
+    255,
+    200,
+    140
+   ],
+   "background": [
+    90,
+    30,
+    5
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Orange",
+   "icon": [
+    0,
+    "Orange",
+    "Star"
+   ],
+   "custom_sound": [
+    "3uniques.mp3",
+    300
+   ]
+  },
+  "cal_core": {
+   "comment": "빌드 핵심 바탕·재화(지팡이 소켓·치명타 시 시전 퀄리티). 진홍 배경 + 흰 글자 · 커스텀 소리 POE2 Whetstones.mp3",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    255,
+    255
+   ],
+   "background": [
+    151,
+    7,
+    7
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Kite"
+   ],
+   "custom_sound": [
+    "POE2 Whetstones.mp3",
+    300
+   ]
+  },
+  "cal_jewellers": {
+   "comment": "쥬얼러 오브(보조 젬 칸). 제작 핵심과 같은 색 · 커스텀 소리 POE2 Greater Jewellers.mp3(아르세리나 필터와 같은 음성)",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    120,
+    110
+   ],
+   "background": [
+    110,
+    6,
+    8
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Red Temp",
+   "icon": [
+    1,
+    "Red",
+    "Circle"
+   ],
+   "custom_sound": [
+    "POE2 Greater Jewellers.mp3",
+    300
+   ]
+  },
+  "cal_gear": {
+   "comment": "장비 바탕(ES 방어구·마나 반지·목걸이·2번 세트 차임벨 지팡이). 소리·빔 없음",
+   "text": [
+    225,
+    160,
+    140
+   ],
+   "border": [
+    175,
+    80,
+    65
+   ],
+   "background": [
+    42,
+    3,
+    5
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    2,
+    "Red",
+    "Kite"
+   ]
+  },
+  "lv_gear": {
+   "comment": "레벨업 무기(석궁 → 육척봉). 소리·빔 없음 · 글자 42 — NeverSink 레벨링 분해 바탕(퀄 10+, 글자 40)보다 작으면 회귀(스윕 2,149건)",
+   "text": [
+    225,
+    160,
+    140
+   ],
+   "border": [
+    175,
+    80,
+    65
+   ],
+   "background": [
+    42,
+    3,
+    5
+   ],
+   "font": 42,
+   "sound": null,
+   "beam": null,
+   "icon": [
+    2,
+    "Red",
+    "Kite"
+   ]
+  },
+  "lineage_core": {
+   "comment": "이 빌드가 끼는 혈통 젬 11종. 청록 배경 + 흰 글자 · 커스텀 소리 illbeyouridol.mp3",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    0,
+    255,
+    200
+   ],
+   "background": [
+    0,
+    70,
+    60
+   ],
+   "font": 45,
+   "sound": [
+    6,
+    300
+   ],
+   "beam": "Cyan",
+   "icon": [
+    0,
+    "Cyan",
+    "Star"
+   ],
+   "custom_sound": [
+    "illbeyouridol.mp3",
+    300
+   ]
+  },
+  "keep_exotic": {
+   "comment": "NeverSink super exotic 블록과 같은 모양·소리(청록 글자 + 짙은 초록 배경, 소리 3 · 300, 파랑 빔)",
+   "text": [
+    0,
+    240,
+    190
+   ],
+   "border": [
+    0,
+    240,
+    190
+   ],
+   "background": [
+    0,
+    75,
+    30
+   ],
+   "font": 42,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Blue",
+   "icon": null
+  },
+  "keep_craft_group1t1": {
+   "comment": "NeverSink normalcraft economy group1t1 와 같은 모양·소리",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    65,
+    0,
+    0
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Diamond"
+   ]
+  },
+  "keep_craft_group1t2": {
+   "comment": "NeverSink normalcraft economy group1t2 와 같은 모양·소리",
+   "text": [
+    200,
+    200,
+    200
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    20,
+    20,
+    0
+   ],
+   "font": 40,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Yellow",
+   "icon": [
+    1,
+    "Yellow",
+    "Diamond"
+   ]
+  },
+  "keep_craft_group2t1": {
+   "comment": "NeverSink normalcraft economy group2t1 와 같은 모양·소리",
+   "text": [
+    255,
+    255,
+    255
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    65,
+    0,
+    0
+   ],
+   "font": 45,
+   "sound": [
+    1,
+    300
+   ],
+   "beam": "Red",
+   "icon": [
+    0,
+    "Red",
+    "Diamond"
+   ]
+  },
+  "keep_craft_group2t2": {
+   "comment": "NeverSink normalcraft economy group2t2 와 같은 모양·소리",
+   "text": [
+    200,
+    200,
+    200
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    20,
+    20,
+    0
+   ],
+   "font": 40,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Yellow",
+   "icon": [
+    1,
+    "Yellow",
+    "Diamond"
+   ]
+  },
+  "keep_craft_group3t2": {
+   "comment": "NeverSink normalcraft economy group3t2 와 같은 모양·소리",
+   "text": [
+    200,
+    200,
+    200
+   ],
+   "border": [
+    255,
+    127,
+    127
+   ],
+   "background": [
+    20,
+    20,
+    0
+   ],
+   "font": 40,
+   "sound": [
+    3,
+    300
+   ],
+   "beam": "Yellow",
+   "icon": [
+    1,
+    "Yellow",
+    "Diamond"
+   ]
+  },
+  "lineage_all": {
+   "comment": "나머지 혈통 젬. SC 거래에서 값이 크다 — 전부 크게 · 커스텀 소리 donedonedone.mp3",
+   "text": [
+    0,
+    0,
+    0
+   ],
+   "border": [
+    0,
+    120,
+    100
+   ],
+   "background": [
+    150,
+    255,
+    230
+   ],
+   "font": 45,
+   "sound": [
+    2,
+    300
+   ],
+   "beam": "Cyan",
+   "icon": [
+    0,
+    "Cyan",
+    "Star"
+   ],
+   "custom_sound": [
+    "donedonedone.mp3",
+    300
+   ]
+  }
+ },
+ "rules": [
+  {
+   "style": "lineage_core",
+   "name": "[혈통 · 대재난 핵심] 이 빌드가 끼는 혈통 젬 11종",
+   "note": "시트 스킬 트리 탭 + 95레벨 PoB: 치명타 시 시전(시온의 성미·아탈루이의 사혈), 마나 폭풍(모르가나의 폭풍), 대재난 상급(라키아타의 흐름·에쉬의 광휘), 폭발성 변형(에쉬의 기량·보라나의 공성·중재자의 점화), 신성 모독 낮은 생명력(앗지리의 성찬식·고위 천사의 심장), 광폭 커스텀(디알라의 갈망).",
+   "class": [
+    "Skill Gems",
+    "Support Gems"
+   ],
+   "base_types": [
+    "Sione's Temper",
+    "Atalui's Bloodletting",
+    "Morgana's Tempest",
+    "Rakiata's Flow",
+    "Esh's Radiance",
+    "Esh's Prowess",
+    "Vorana's Siege",
+    "Arbiter's Ignition",
+    "Atziri's Communion",
+    "Seraph's Heart",
+    "Dialla's Desire"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "lineage_all",
+   "name": "[혈통] 나머지 혈통 젬 전부",
+   "note": "SSF 필터와 같은 목록(GGPK SkillGems ∪ poe2db Lineage)에서 위 11종을 뺀 것.",
+   "class": [
+    "Skill Gems",
+    "Support Gems"
+   ],
+   "base_types": [
+    "Ahn's Citadel",
+    "Ailith's Chimes",
+    "Amanamu's Tithe",
+    "Arakaali's Lust",
+    "Arbiter's Reach",
+    "Arjun's Medal",
+    "Atziri's Allure",
+    "Atziri's Call",
+    "Atziri's Impatience",
+    "Bhatair's Vengeance",
+    "Breachlord's Amalgam",
+    "Breachlord's Rift",
+    "Brutus' Brain",
+    "Catha's Brilliance",
+    "Cirel's Cultivation",
+    "Daresso's Passion",
+    "Doedre's Undoing",
+    "Dominus' Grasp",
+    "Dreamer's Knell",
+    "Einhar's Beastrite",
+    "Eonyr's Thunder",
+    "Garukhan's Resolve",
+    "Guatelitzi's Ablation",
+    "Hayoxi's Fulmination",
+    "Helbrym's Hide",
+    "Her Declaration",
+    "Ixchel's Torment",
+    "Kalisa's Crescendo",
+    "Kaom's Madness",
+    "Khatal's Rejuvenation",
+    "Kulemak's Dominion",
+    "Kurgal's Leash",
+    "Medved's Felling",
+    "Mórrigan's Insight",
+    "Oisín's Oath",
+    "Olroth's Conviction",
+    "Olroth's Hubris",
+    "Paquate's Pact",
+    "Prototype Seventeen",
+    "Ratha's Assault",
+    "Rigwald's Ferocity",
+    "Romira's Requital",
+    "Styrn's Ferocity",
+    "Styrn's Mountain",
+    "Tacati's Ire",
+    "Tangmazu's Thurible",
+    "Tasalio's Rhythm",
+    "Tawhoa's Tending",
+    "Tecrod's Revenge",
+    "Trickster's Shard",
+    "Tul's Avalanche",
+    "Tul's Stillness",
+    "Uhtred's Augury",
+    "Uhtred's Constellation",
+    "Uhtred's Exodus",
+    "Uhtred's Omen",
+    "Uhtred's Rite",
+    "Uruk's Smelting",
+    "Uul-Netol's Embrace",
+    "Varashta's Blessing",
+    "Vilenta's Propulsion",
+    "Vruun's Aftermath",
+    "Vruun's Inevitability",
+    "Xibaqua's Rending",
+    "Xoph's Pyre",
+    "Zarokh's Refrain",
+    "Zerphi's Infamy"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "cal_jewellers",
+   "name": "[지팡이 5소켓] 완벽한 쥬얼러 오브",
+   "note": "시트 지팡이 구매 탭: 18·19레벨 태어나지 않은 리치에 '완벽한 쥬얼러 오브'를 바르면 5소켓. 타락된 지팡이에는 못 바른다.",
+   "base_types": [
+    "Perfect Jeweller's Orb",
+    "Greater Jeweller's Orb"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "cal_core",
+   "name": "[치명타 시 시전 퀄리티 20] 세공사의 프리즘",
+   "note": "시트 스킬 트리 탭: '치명타 시 시전 정신력 91은 퀄리티 20 기준 — 세공사의 프리즘 바르면 퀄리티가 오른다'.",
+   "base_types": [
+    "Gemcutter's Prism"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "cal_unique",
+   "name": "[대재난 유니크] 태어나지 않은 리치 · 기발함 · 칼란드라의 손길 · 모리오르 · 호신부 3종 · 우물의 심장",
+   "note": "초급: 태어나지 않은 리치(Ravenous Staff) · 기발함(Utility Belt) · 모리오르 인빅투스(Grand Regalia, 선택). 중급: 칼란드라의 손길(Ring) · 태동하는 희망(Thawing Charm) · 도끼의 추락(Silver Charm) · 통과의례(Golden Charm) · 우물의 심장(Diamond). 상급: 헤드헌터(Heavy Belt) · 목소리(Sapphire) · 허무의 산물(Diamond). 바탕은 공식 거래소 목록 기준. Utility Belt 는 마법사의 피와 같은 바탕이다.",
+   "rarity": [
+    "Unique"
+   ],
+   "base_types": [
+    "Ravenous Staff",
+    "Utility Belt",
+    "Ring",
+    "Grand Regalia",
+    "Runemastered Grand Regalia",
+    "Thawing Charm",
+    "Silver Charm",
+    "Golden Charm",
+    "Diamond",
+    "Heavy Belt",
+    "Sapphire"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "cal_unique",
+   "name": "[레벨업 유니크] 성벽 랩터 · 나지르의 심판 · 목 죄이는 명령 · 황동 철갑",
+   "note": "레벨업 시트: '고유 성벽 랩터 석궁 나오면 그냥 쓰세요. 무적입니다' · '40레벨에 나지르의 심판 룬벼림 강철침 육척봉'. 선회 시트: 목 죄이는 명령(독사 모자) 최우선 · 황동 철갑.",
+   "rarity": [
+    "Unique"
+   ],
+   "base_types": [
+    "Tense Crossbow",
+    "Runeforged Tense Crossbow",
+    "Runemastered Tense Crossbow",
+    "Steelpoint Quarterstaff",
+    "Runeforged Steelpoint Quarterstaff",
+    "Viper Cap",
+    "Runemastered Viper Cap",
+    "Champion Cuirass",
+    "Runeforged Champion Cuirass"
+   ],
+   "stages": [
+    "campaign",
+    "maps"
+   ]
+  },
+  {
+   "style": "cal_gear",
+   "name": "[2번 무기 세트] 차임벨 지팡이",
+   "note": "시트 초급자 탭: 2번 무기 세트 차임벨 지팡이 — 모든 주문 스킬 레벨 +4 이상(스킬 25렙 맞추기). 힘의 부적이 이 지팡이에서 나온다.",
+   "base_types": [
+    "Chiming Staff"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "unid_tier_max": 2,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "cal_gear",
+   "name": "[ES · 마나 장비 바탕] 푸들멈머 실착 바탕",
+   "note": "95레벨 PoB 실착: Ancestral Tiara(투구) · Vile Robe(갑옷) · Vaal Gloves(장갑) · Sekhema Sandals(장화, 시트 추천) · Mnemonic Ring(기억 반지) · Absent Amulet(부재 목걸이, 상급자만) · Solar Amulet(태양의 목걸이 — 시트 정신력 부위). 흰색·파란색만 — 레어는 NeverSink 미감정 티어 경보에 맡긴다.",
+   "base_types": [
+    "Ancestral Tiara",
+    "Vile Robe",
+    "Vaal Gloves",
+    "Sekhema Sandals",
+    "Runeforged Sekhema Sandals",
+    "Mnemonic Ring",
+    "Absent Amulet",
+    "Solar Amulet"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "unid_tier_max": 2,
+   "item_level_min": 65,
+   "stages": [
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "lv_gear",
+   "name": "[1~40렙] 석궁 — 20렙부터 이중 석궁",
+   "note": "레벨업 시트: '20레벨이 넘으면 꼭 이중 석궁 사용'. 1~19 영구 결빙 볼트 + 폭발 유탄, 22 폭발성 사격.",
+   "class": [
+    "Crossbows"
+   ],
+   "base_types": [
+    "Alloy Crossbow",
+    "Blackfire Crossbow",
+    "Bleak Crossbow",
+    "Bombard Crossbow",
+    "Cannonade Crossbow",
+    "Construct Crossbow",
+    "Cumbrous Crossbow",
+    "Dedalian Crossbow",
+    "Desolate Crossbow",
+    "Dyad Crossbow",
+    "Elegant Crossbow",
+    "Engraved Crossbow",
+    "Esoteric Crossbow",
+    "Flexed Crossbow",
+    "Gemini Crossbow",
+    "Makeshift Crossbow",
+    "Painted Crossbow",
+    "Piercing Crossbow",
+    "Robust Crossbow",
+    "Runeforged Bombard Crossbow",
+    "Runeforged Dyad Crossbow",
+    "Runeforged Makeshift Crossbow",
+    "Runeforged Sturdy Crossbow",
+    "Runeforged Tense Crossbow",
+    "Runemastered Dyad Crossbow",
+    "Runemastered Tense Crossbow",
+    "Siege Crossbow",
+    "Stout Crossbow",
+    "Sturdy Crossbow",
+    "Taut Crossbow",
+    "Tense Crossbow",
+    "Trarthan Cannon",
+    "Twin Crossbow",
+    "Varnished Crossbow"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "unid_tier_max": 2,
+   "stages": [
+    "campaign"
+   ]
+  },
+  {
+   "style": "lv_gear",
+   "name": "[41~65렙] 육척봉 — 선회 공격",
+   "note": "레벨업 시트: '41레벨이 되면 선회 공격으로 변경' · 무기는 물리 피해 % 높은 것. 65레벨에 대재난으로 넘어간다.",
+   "class": [
+    "Quarterstaves"
+   ],
+   "base_types": [
+    "Aegis Quarterstaff",
+    "Anima Quarterstaff",
+    "Arcing Quarterstaff",
+    "Barbarous Quarterstaff",
+    "Barrier Quarterstaff",
+    "Bladed Quarterstaff",
+    "Bolting Quarterstaff",
+    "Crackling Quarterstaff",
+    "Crescent Quarterstaff",
+    "Dreaming Quarterstaff",
+    "Gothic Quarterstaff",
+    "Graceful Quarterstaff",
+    "Guardian Quarterstaff",
+    "Hefty Quarterstaff",
+    "Long Quarterstaff",
+    "Lunar Quarterstaff",
+    "Razor Quarterstaff",
+    "Reaching Quarterstaff",
+    "Runeforged Crescent Quarterstaff",
+    "Runeforged Gothic Quarterstaff",
+    "Runeforged Long Quarterstaff",
+    "Runeforged Steelpoint Quarterstaff",
+    "Runeforged Wrapped Quarterstaff",
+    "Runemastered Gothic Quarterstaff",
+    "Runemastered Long Quarterstaff",
+    "Runemastered Warding Quarterstaff",
+    "Sinister Quarterstaff",
+    "Skullcrusher Quarterstaff",
+    "Slicing Quarterstaff",
+    "Smooth Quarterstaff",
+    "Steelpoint Quarterstaff",
+    "Striking Quarterstaff",
+    "Warding Quarterstaff",
+    "Waxing Quarterstaff",
+    "Wrapped Quarterstaff",
+    "Wyrm Quarterstaff"
+   ],
+   "rarity": [
+    "Normal",
+    "Magic"
+   ],
+   "unid_tier_max": 2,
+   "stages": [
+    "campaign",
+    "maps"
+   ]
+  },
+  {
+   "style": "keep_exotic",
+   "name": "[숨김 보호] NeverSink 희귀 바탕 그대로",
+   "note": "NeverSink [[0200]] super exotic 바탕(음량 300)이 아래 숨김 룰에 가려지지 않게 먼저 띄운다 — 적대검증이 흰 Heartwood Shortbow 같은 244 상태를 잡았다(2026-09-22). 목록은 NeverSink 원본 블록에서 읽는다.",
+   "rarity": [
+    "Normal",
+    "Magic",
+    "Rare"
+   ],
+   "base_types": [
+    "Aberrant Sledge",
+    "Abyssal Signet",
+    "Ancient Gauntlets",
+    "Ancient Leggings",
+    "Ancient Mail",
+    "Ancient Visor",
+    "Diamond",
+    "Glacial Fortress",
+    "Heartwood Shortbow",
+    "Ornate Ringmail",
+    "Pearlescent Amulet",
+    "Perching Staff",
+    "Primal Markings",
+    "Reflecting Staff",
+    "Runic Fork",
+    "Sacrificial Regalia",
+    "Tenebrous Crown",
+    "Time-Lost Diamond",
+    "Twisted Wand",
+    "Two-Stone Ring",
+    "Venerable Defender",
+    "Veridical Chain",
+    "Warding Quarterstaff"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "keep_craft_group1t1",
+   "name": "[숨김 보호] NeverSink 고가 제작 바탕 group1t1 (ilvl 82+)",
+   "note": "적대검증 후 남은 경보 숨김 12건(흰 Obliterator Bow · Sacred Focus · Tawhoan Tower Shield 등). 목록·조건·모양은 NeverSink 원본 블록 그대로.",
+   "rarity": [
+    "Normal"
+   ],
+   "item_level_min": 82,
+   "base_types": [
+    "Obliterator Bow",
+    "Sacred Focus",
+    "Tasalian Focus",
+    "Warmonger Bow"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "keep_craft_group1t2",
+   "name": "[숨김 보호] NeverSink 고가 제작 바탕 group1t2 (ilvl 82+)",
+   "note": "적대검증 후 남은 경보 숨김 12건(흰 Obliterator Bow · Sacred Focus · Tawhoan Tower Shield 등). 목록·조건·모양은 NeverSink 원본 블록 그대로.",
+   "rarity": [
+    "Normal"
+   ],
+   "item_level_min": 82,
+   "base_types": [
+    "Tawhoan Tower Shield"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "keep_craft_group2t1",
+   "name": "[숨김 보호] NeverSink 고가 제작 바탕 group2t1 (ilvl 81+)",
+   "note": "적대검증 후 남은 경보 숨김 12건(흰 Obliterator Bow · Sacred Focus · Tawhoan Tower Shield 등). 목록·조건·모양은 NeverSink 원본 블록 그대로.",
+   "rarity": [
+    "Normal"
+   ],
+   "item_level_min": 81,
+   "base_types": [
+    "Sacred Focus"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "keep_craft_group2t2",
+   "name": "[숨김 보호] NeverSink 고가 제작 바탕 group2t2 (ilvl 81+)",
+   "note": "적대검증 후 남은 경보 숨김 12건(흰 Obliterator Bow · Sacred Focus · Tawhoan Tower Shield 등). 목록·조건·모양은 NeverSink 원본 블록 그대로.",
+   "rarity": [
+    "Normal"
+   ],
+   "item_level_min": 81,
+   "base_types": [
+    "Tasalian Focus"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "style": "keep_craft_group3t2",
+   "name": "[숨김 보호] NeverSink 고가 제작 바탕 group3t2 (ilvl 79+)",
+   "note": "적대검증 후 남은 경보 숨김 12건(흰 Obliterator Bow · Sacred Focus · Tawhoan Tower Shield 등). 목록·조건·모양은 NeverSink 원본 블록 그대로.",
+   "rarity": [
+    "Normal"
+   ],
+   "item_level_min": 79,
+   "base_types": [
+    "Sacred Focus",
+    "Tasalian Focus"
+   ],
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  },
+  {
+   "kind": "hide",
+   "name": "[정리] 이 빌드가 못 쓰는 무기 · 방패",
+   "note": "이 빌드는 석궁(1~40) → 육척봉(41~65) → 지팡이(65~)만 쓴다. 나머지 무기와 방패는 흰색만 숨긴다(파란색·레어·유니크·타락은 숨기지 않는다). 지역 레벨 12부터.",
+   "class": [
+    "Bows",
+    "Quivers",
+    "Spears",
+    "Sceptres",
+    "Wands",
+    "One Hand Maces",
+    "Two Hand Maces",
+    "Talismans",
+    "Bucklers",
+    "Shields",
+    "Foci"
+   ],
+   "rarity": [
+    "Normal"
+   ],
+   "area_level_min": 12,
+   "unid_tier_max": 2,
+   "stages": [
+    "campaign",
+    "maps",
+    "endgame"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,325 @@
+{
+  "planners": [
+    {
+      "file": "01 시작-근접 기초.build",
+      "usage": {
+        "ordinary": 10,
+        "sets": [
+          0,
+          0
+        ],
+        "ascendancy": 0
+      },
+      "schema_and_Korean_hints": true,
+      "both_sets_connected": true,
+      "sha256": "942ba3dde8f5da746004801cd07b8fdc889492bd1b32b1768b75ab2ca6c8f00e"
+    },
+    {
+      "file": "02 충격파 토템 - 1차 전직까지.build",
+      "usage": {
+        "ordinary": 29,
+        "sets": [
+          6,
+          6
+        ],
+        "ascendancy": 2
+      },
+      "schema_and_Korean_hints": true,
+      "both_sets_connected": true,
+      "sha256": "2617794d1252b2bd1c136c95b873b5834d840d234b14bf4b3148f8628be18ce8"
+    },
+    {
+      "file": "03 토템과 망치 - 2차 전직까지.build",
+      "usage": {
+        "ordinary": 54,
+        "sets": [
+          12,
+          12
+        ],
+        "ascendancy": 4
+      },
+      "schema_and_Korean_hints": true,
+      "both_sets_connected": true,
+      "sha256": "750e1c429cae0a8183380c3c2252e2101f57ebf22485cfc504abb6cfd024ab3e"
+    },
+    {
+      "file": "04 타락 함성 - 마나 사용.build",
+      "usage": {
+        "ordinary": 67,
+        "sets": [
+          16,
+          16
+        ],
+        "ascendancy": 4
+      },
+      "schema_and_Korean_hints": true,
+      "both_sets_connected": true,
+      "sha256": "18b826536f6fd5fff54fc49559e0f58209012f29b2fc96c1c95af66a67bfee8c"
+    },
+    {
+      "file": "05 전사 토템 - 혈마법 전환.build",
+      "usage": {
+        "ordinary": 69,
+        "sets": [
+          14,
+          14
+        ],
+        "ascendancy": 4
+      },
+      "schema_and_Korean_hints": true,
+      "both_sets_connected": true,
+      "sha256": "7de0bbd333f7dec35e6f4f31bc9ccc4ece3489cca7f76c71d068d5c14bb62e40"
+    },
+    {
+      "file": "06 파콰테 - 두 함성 운영.build",
+      "usage": {
+        "ordinary": 69,
+        "sets": [
+          14,
+          14
+        ],
+        "ascendancy": 4
+      },
+      "schema_and_Korean_hints": true,
+      "both_sets_connected": true,
+      "sha256": "ffeed4bfa88e58e73e340a80773a467f053147e066daade662be66b23d73cf47"
+    },
+    {
+      "file": "07 지도 성장 - 후기 목표.build",
+      "usage": {
+        "ordinary": 97,
+        "sets": [
+          22,
+          22
+        ],
+        "ascendancy": 6
+      },
+      "schema_and_Korean_hints": true,
+      "both_sets_connected": true,
+      "sha256": "9a565431344a9f68695f6606721bfead7e3ee3ad2866ca287c982c3d393de567"
+    }
+  ],
+  "source_comparisons": [
+    {
+      "stage": "02",
+      "source": "ninja_hour18_lv24.json",
+      "passives_exact": true,
+      "gem_groups_exact_after_documented_meta_display_adaptation": true
+    },
+    {
+      "stage": "03",
+      "source": "lv43_0906_0523.json",
+      "passives_exact": true,
+      "gem_groups_exact_after_documented_meta_display_adaptation": true
+    },
+    {
+      "stage": "04",
+      "source": "lv52_0906_0744.json",
+      "passives_exact": true,
+      "gem_groups_exact_after_documented_meta_display_adaptation": true
+    },
+    {
+      "stage": "07",
+      "source": "ninja_latest_74.json",
+      "passives_exact": true,
+      "gem_groups_exact_after_documented_meta_display_adaptation": true
+    }
+  ],
+  "transitions": [
+    {
+      "from": "01 시작 - 근접과 방패",
+      "to": "02 충격파 토템 - 1차 전직까지",
+      "operations": 27,
+      "refunds": 0,
+      "pool": {
+        "ordinary": 29,
+        "sets": [
+          6,
+          6
+        ]
+      },
+      "every_step_connected": true
+    },
+    {
+      "from": "02 충격파 토템 - 1차 전직까지",
+      "to": "03 토템과 망치 - 2차 전직까지",
+      "operations": 33,
+      "refunds": 0,
+      "pool": {
+        "ordinary": 54,
+        "sets": [
+          12,
+          12
+        ]
+      },
+      "every_step_connected": true
+    },
+    {
+      "from": "03 토템과 망치 - 2차 전직까지",
+      "to": "04 내부 경유 - 46레벨 실측",
+      "operations": 25,
+      "refunds": 16,
+      "pool": {
+        "ordinary": 60,
+        "sets": [
+          12,
+          14
+        ]
+      },
+      "every_step_connected": true
+    },
+    {
+      "from": "04 내부 경유 - 46레벨 실측",
+      "to": "04 타락 함성 - 마나 사용",
+      "operations": 25,
+      "refunds": 0,
+      "pool": {
+        "ordinary": 67,
+        "sets": [
+          16,
+          16
+        ]
+      },
+      "every_step_connected": true
+    },
+    {
+      "from": "04 타락 함성 - 마나 사용",
+      "to": "05 전사 토템 - 혈마법 전환",
+      "operations": 88,
+      "refunds": 44,
+      "pool": {
+        "ordinary": 69,
+        "sets": [
+          16,
+          16
+        ]
+      },
+      "every_step_connected": true
+    },
+    {
+      "from": "05 전사 토템 - 혈마법 전환",
+      "to": "06 파콰테 - 두 함성 운영",
+      "operations": 0,
+      "refunds": 0,
+      "pool": {
+        "ordinary": 69,
+        "sets": [
+          14,
+          14
+        ]
+      },
+      "every_step_connected": true
+    },
+    {
+      "from": "06 파콰테 - 두 함성 운영",
+      "to": "07 지도 성장 - 후기 목표",
+      "operations": 38,
+      "refunds": 0,
+      "pool": {
+        "ordinary": 97,
+        "sets": [
+          22,
+          22
+        ]
+      },
+      "every_step_connected": true
+    }
+  ],
+  "negative_disconnected_node_rejected": true,
+  "filters": [
+    {
+      "file": "Pathcraft-Skadoosh-HC-01-Campaign.filter",
+      "sha256": "16ca49639c55436c708b9fde219a5200c67f0894709f55e7451247bf508a385d",
+      "base_tail_exact": true,
+      "new_hide_rules": 0,
+      "sweep_regressions": 0,
+      "progression_samples": 25,
+      "unique_controls": 9,
+      "removed_two_hand_priority_rules": 7,
+      "unmodelled_base_conditions": {
+        "TwiceCorrupted": 5,
+        "Height": 12,
+        "Width": 12,
+        "AlwaysShow": 1,
+        "GemLevel": 15,
+        "WaystoneTier": 41,
+        "HasVaalUniqueMod": 1,
+        "IsVaalUnique": 1,
+        "BaseArmour": 12,
+        "BaseEnergyShield": 12,
+        "BaseEvasion": 12
+      }
+    },
+    {
+      "file": "Pathcraft-Skadoosh-HC-02-EarlyMaps.filter",
+      "sha256": "de90ceedbfcfb1a7d5fe24211bc9cf6f31d53598bb1d736958e5aae1ee706c56",
+      "base_tail_exact": true,
+      "new_hide_rules": 0,
+      "sweep_regressions": 0,
+      "progression_samples": 25,
+      "unique_controls": 9,
+      "removed_two_hand_priority_rules": 7,
+      "unmodelled_base_conditions": {
+        "TwiceCorrupted": 5,
+        "Height": 12,
+        "Width": 12,
+        "AlwaysShow": 1,
+        "GemLevel": 15,
+        "WaystoneTier": 41,
+        "HasVaalUniqueMod": 1,
+        "IsVaalUnique": 1,
+        "BaseArmour": 12,
+        "BaseEnergyShield": 12,
+        "BaseEvasion": 12
+      }
+    },
+    {
+      "file": "Pathcraft-Skadoosh-HC-03-SettledMaps.filter",
+      "sha256": "217130a2cca3564ea16d97bf8457d212578a5f8d1787bf5a6441b47548f5c9e8",
+      "base_tail_exact": true,
+      "new_hide_rules": 0,
+      "sweep_regressions": 0,
+      "progression_samples": 25,
+      "unique_controls": 9,
+      "removed_two_hand_priority_rules": 7,
+      "unmodelled_base_conditions": {
+        "TwiceCorrupted": 5,
+        "Height": 8,
+        "Width": 8,
+        "AlwaysShow": 1,
+        "GemLevel": 15,
+        "WaystoneTier": 41,
+        "HasVaalUniqueMod": 1,
+        "IsVaalUnique": 1,
+        "BaseArmour": 12,
+        "BaseEnergyShield": 12,
+        "BaseEvasion": 12
+      }
+    }
+  ],
+  "simulation": {
+    "pob_cases": 10,
+    "resource_cases": 45,
+    "echo_cost_confirmed": false,
+    "live_combat_verified": false
+  },
+  "audit": {
+    "duration": 67974,
+    "key_findings": 32,
+    "two_full_asr_comparisons": true,
+    "scan_frames": 2301
+  },
+  "defence_extension": {
+    "ordinary": 80,
+    "sets": [
+      14,
+      14
+    ],
+    "ascendancy": 4
+  },
+  "new_game_UI_load_verified": true,
+  "game_UI_verified_stage": "02",
+  "game_parser_loaded_planners": 7,
+  "selected_path_restored": true,
+  "planner_payload_unchanged_by_path_repair": true
+}

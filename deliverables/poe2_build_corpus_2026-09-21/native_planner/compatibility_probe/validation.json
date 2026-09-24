@@ -1,0 +1,1104 @@
+{
+  "task": "task_5703453be1d9",
+  "dispatch": "ctx_53a6582bf8e1",
+  "authorization": "msg_53cd139178db",
+  "hypotheses_only": true,
+  "actual_game_tested": false,
+  "installed": false,
+  "source_sha256": "2f94a19b6e7b854be5d7151fd6ef81e76e326d41da8ef0933cfa9bf2bd171ff5",
+  "source_unchanged": true,
+  "both_passives": 151,
+  "both_skills": 7,
+  "range_is_display_probe_not_acquisition_or_transition_level": true,
+  "probes": [
+    {
+      "label": "A",
+      "file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\compatibility_probe\\current-kitava-29d39-omit-common-weapon-set.build",
+      "name": "탱정 표시확인 A 공통패시브",
+      "sha256": "a092524253af6c21e4dfae1d29d049d7f3cc0bdda67203fedb7d5afdb3aebd16",
+      "change_count": 105,
+      "diff": [
+        {
+          "path": "/name",
+          "operation": "replace",
+          "before": "탱정 키타바 최신 저자본 2026-09-21",
+          "after": "탱정 표시확인 A 공통패시브"
+        },
+        {
+          "path": "/passives/1/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/3/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/4/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/5/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/6/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/8/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/9/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/12/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/14/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/16/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/18/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/19/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/22/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/23/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/25/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/27/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/28/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/30/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/31/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/32/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/33/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/35/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/36/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/37/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/38/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/41/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/42/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/43/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/44/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/45/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/46/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/47/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/48/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/49/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/50/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/52/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/54/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/55/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/56/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/57/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/62/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/63/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/64/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/65/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/66/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/67/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/69/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/71/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/73/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/74/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/75/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/76/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/77/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/78/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/79/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/80/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/81/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/84/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/85/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/87/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/89/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/90/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/91/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/95/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/96/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/98/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/99/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/100/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/102/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/106/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/107/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/109/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/110/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/111/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/112/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/113/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/114/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/115/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/117/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/118/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/119/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/120/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/121/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/122/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/123/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/125/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/126/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/128/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/129/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/131/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/133/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/134/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/135/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/136/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/137/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/138/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/139/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/141/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/142/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/145/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/146/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/147/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/149/weapon_set",
+          "operation": "remove",
+          "value": 0
+        },
+        {
+          "path": "/passives/150/weapon_set",
+          "operation": "remove",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "label": "B",
+      "file": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\native_planner\\compatibility_probe\\current-kitava-29d39-explicit-skill-range.build",
+      "name": "탱정 표시확인 B 스킬",
+      "sha256": "1767a9f9f3289104eb4b90ede0569d1932cf921cbf7321f196b018abc31366db",
+      "change_count": 29,
+      "diff": [
+        {
+          "path": "/name",
+          "operation": "replace",
+          "before": "탱정 키타바 최신 저자본 2026-09-21",
+          "after": "탱정 표시확인 B 스킬"
+        },
+        {
+          "path": "/skills/0/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/1/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/1/support_skills/0/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/1/support_skills/1/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/1/support_skills/2/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/2/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/2/support_skills/0/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/2/support_skills/1/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/3/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/3/support_skills/0/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/3/support_skills/1/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/3/support_skills/2/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/3/support_skills/3/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/3/support_skills/4/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/4/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/4/support_skills/0/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/4/support_skills/1/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/4/support_skills/2/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/4/support_skills/3/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/4/support_skills/4/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/5/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/5/support_skills/0/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/5/support_skills/1/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/5/support_skills/2/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/5/support_skills/3/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/6/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/6/support_skills/0/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        },
+        {
+          "path": "/skills/6/support_skills/1/level_interval",
+          "operation": "add",
+          "value": [
+            1,
+            100
+          ]
+        }
+      ]
+    }
+  ],
+  "comparators": [
+    {
+      "file": "01 시작-근접 기초.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "description",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Warrior2",
+      "passive_fields": {
+        "id": 11
+      },
+      "skill_fields": {
+        "id": 5,
+        "level_interval": 5,
+        "additional_text": 5,
+        "support_skills": 2
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "02 충격파 토템 - 1차 전직까지.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "description",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Warrior2",
+      "passive_fields": {
+        "id": 38,
+        "weapon_set": 12,
+        "additional_text": 22
+      },
+      "skill_fields": {
+        "id": 9,
+        "level_interval": 9,
+        "additional_text": 9,
+        "support_skills": 5
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "03 토템과 망치 - 2차 전직까지.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "description",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Warrior2",
+      "passive_fields": {
+        "id": 71,
+        "weapon_set": 24,
+        "additional_text": 45
+      },
+      "skill_fields": {
+        "id": 9,
+        "level_interval": 9,
+        "additional_text": 9,
+        "support_skills": 5
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "04 타락 함성 - 마나 사용.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "description",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Warrior2",
+      "passive_fields": {
+        "id": 88,
+        "weapon_set": 32,
+        "additional_text": 62
+      },
+      "skill_fields": {
+        "id": 9,
+        "level_interval": 9,
+        "additional_text": 9,
+        "support_skills": 6
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "05 전사 토템 - 혈마법 전환.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "description",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Warrior2",
+      "passive_fields": {
+        "id": 90,
+        "weapon_set": 28,
+        "additional_text": 69
+      },
+      "skill_fields": {
+        "id": 9,
+        "level_interval": 9,
+        "support_skills": 9,
+        "additional_text": 9
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "06 파콰테 - 두 함성 운영.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "description",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Warrior2",
+      "passive_fields": {
+        "id": 114,
+        "additional_text": 85,
+        "weapon_set": 44
+      },
+      "skill_fields": {
+        "id": 9,
+        "level_interval": 9,
+        "support_skills": 9,
+        "additional_text": 9
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "07 지도 성장 - 후기 목표.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "description",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Warrior2",
+      "passive_fields": {
+        "id": 126,
+        "additional_text": 91,
+        "weapon_set": 44
+      },
+      "skill_fields": {
+        "id": 14,
+        "level_interval": 14,
+        "additional_text": 8,
+        "support_skills": 4
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "ACT 1 - [0.5.5 Hardcore] 젬링 리그 �.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Mercenary3",
+      "passive_fields": {
+        "id": 22
+      },
+      "skill_fields": {
+        "id": 4,
+        "level_interval": 4,
+        "support_skills": 4
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "ACT 2 - [0.5.5 Hardcore] 젬링 리그 �.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Mercenary3",
+      "passive_fields": {
+        "id": 48
+      },
+      "skill_fields": {
+        "id": 5,
+        "level_interval": 5,
+        "support_skills": 4
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "ACT 34 - [0.5.5 Hardcore] 젬링 리그.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Mercenary3",
+      "passive_fields": {
+        "id": 87
+      },
+      "skill_fields": {
+        "id": 7,
+        "level_interval": 7,
+        "support_skills": 5
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "Gemling Legionnaire - Level 86 - _____ - poe.ninja.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Mercenary3",
+      "passive_fields": {
+        "id": 138,
+        "weapon_set": 48
+      },
+      "skill_fields": {
+        "id": 12,
+        "support_skills": 8
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "HC 5 실캐릭 엔드게임 - 임성빈.build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Mercenary3",
+      "passive_fields": {
+        "id": 154,
+        "weapon_set": 46
+      },
+      "skill_fields": {
+        "id": 16,
+        "level_interval": 16,
+        "support_skills": 15
+      },
+      "common_explicit_zero": 0
+    },
+    {
+      "file": "Interludes  End Game - [0.5.5 Hardcore].build",
+      "top_keys": [
+        "ascendancy",
+        "author",
+        "inventory_slots",
+        "link",
+        "name",
+        "passives",
+        "skills"
+      ],
+      "ascendancy": "Mercenary3",
+      "passive_fields": {
+        "id": 203,
+        "weapon_set": 48
+      },
+      "skill_fields": {
+        "id": 12,
+        "level_interval": 12,
+        "support_skills": 5
+      },
+      "common_explicit_zero": 0
+    }
+  ],
+  "comparator_limit": "Existing files work per user collectively; the specific no-level-interval poe.ninja comparator was not individually confirmed visible."
+}

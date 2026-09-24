@@ -1,0 +1,858 @@
+{
+  "name": "탱정 표시확인 A 공통패시브",
+  "author": "탱정-탱커의정석",
+  "link": "https://poe.ninja/poe2/pob/29d39",
+  "description": "탱정-탱커의정석 / Smith of Kitava / 최신 저자본 2026-09-21\n조건: Cat O' Nine Tails와 스킬·패시브를 함께 변경한 최신 저자본. 저생명력 유지와 플라스크 예외를 확인하고 Eternal Rage 활성 및 Raging Cry·Enraged Warcry II 운용 확인.\n관측 캐릭터 Lv97는 최소 전환 레벨이 아닙니다. 0.5.5 관련 가이드 자료.\n패시브는 목표 배분이며 클릭 순서가 아닙니다. 특수 보조는 별도로 확보하세요.\n메타젬·장비/전직 부여 스킬은 자동 안내를 지원하지 않습니다. 해당 스킬을 얻은 뒤 게임에서 직접 연결하세요.\n스킬: Fire Spell on Hit → Detonate Dead / 보조: Energy Retention, Fire Mastery, Gorge, Boundless Energy II\n스킬: Purity of Fire / 보조: Direstrike II, Warm Blooded, Cool Headed, Vitality II, Cannibalism II\n스킬: Raise Shield\n스킬: Remnants of Kalguur / 보조: Harmonic Remnants II",
+  "ascendancy": "Warrior3",
+  "passives": [
+    {
+      "id": "attack_speed22",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour_and_evasion20_",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "duration_spells8",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes18",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "rage5",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "being_surrounded10",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour46",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries8",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "jewel_slot1956",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "maximum_resistances1",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries25",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attack_speed24",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes32",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "shield3",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "AscendancyWarrior3Notable4",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries24",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength69",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "attack_speed13_",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength76",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "armour_and_evasion10",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attack_speed9",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "slow_attacks2_",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes17_",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "AscendancyWarrior3Small5",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "duration_spells9",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "being_surrounded13",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attack_speed23",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "rage1",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "area_attacks28",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "shield24",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength67",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "armour_and_evasion19",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes114",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour47",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries22",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength83",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "strength86",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "dexterity79",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "attributes71",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "warcries36",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries35",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength25",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "armour_break12",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour_break4",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength50",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "AscendancyWarrior3Small1",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "life_leech16",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength27",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "armour_break11",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour_break13",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "rage3",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attack_speed29",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes70",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "slow_attacks5",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour_break35",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "being_surrounded2",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength64",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength81",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "slow_attacks3",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries39",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries48",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attack_speed33",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "being_surrounded15",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "jewel_slot1975",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다.\n원본 장착 주얼 예시(필수 구매 목록 아님):\nRarity: UNIQUE\nHeart of the Well\nDiamond\nLimited to: 1\nGain 13% of Damage as Extra Fire Damage\nGain 14% of Damage as Extra Lightning Damage\n+1% to Maximum Fire Resistance\nRecover 2% of maximum Life on Kill"
+    },
+    {
+      "id": "marauder594",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength31",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "AscendancyWarrior3Small4",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "AscendancyWarrior3Small2",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries21",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "being_surrounded24",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attack_speed4",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength70",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "warcries49",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "maximum_resistances5",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes108",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength24_",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "marauder_brute_notable2",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "rage4",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "being_surrounded6",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour_and_evasion18",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "rage6",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "being_surrounded14",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries34",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries9",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength85",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "attack38_",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "block1",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "maximum_resistances20",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries38",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength68",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "armour48",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength84",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "warcries37",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries28",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attack_speed28",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "ignite_mitigation8",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "life_leech28_",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries23",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "AscendancyWarrior3Small3",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes5",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength65_",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "warcries10",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "being_surrounded7",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attack_speed20",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "shield9",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries19_",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "jewel_slot1971",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength80",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "attack37",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour6",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength82",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "being_surrounded22",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes64",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "armour49",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes115",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes45",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "attack21",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "AscendancyWarrior3Notable5",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour_break10",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "life_leech25",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes7",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 민첩."
+    },
+    {
+      "id": "rage2",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength26",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "strength103",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries7_",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "jewel_slot1974",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다.\n원본 장착 주얼 예시(필수 구매 목록 아님):\nRarity: UNIQUE\nAgainst the Darkness\nTime-Lost Diamond\nRadius: Small\nLimited to: 1\nNotable Passive Skills in Radius also grant Gain 4% of Damage as Extra Fire Damage\nNotable Passive Skills in Radius also grant +1% to Maximum Fire Resistance"
+    },
+    {
+      "id": "AscendancyWarrior3Notable1",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries29",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "being_surrounded21",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes6",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "warcries11",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "area_attacks22",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "warcries20",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "ignite_mitigation3",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour_and_evasion12",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour_break16_",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "ignite_mitigation1",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour_break39",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "AscendancyWarrior3Start",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "armour_break8",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "duration_spells7",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength71",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "strength48",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    },
+    {
+      "id": "warcries12",
+      "weapon_set": 2,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "duration_spells11",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "maximum_resistances9",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "attributes113",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "dexterity13",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 지능."
+    },
+    {
+      "id": "slow_attacks10",
+      "weapon_set": 1,
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "fire49_",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다."
+    },
+    {
+      "id": "strength40_",
+      "additional_text": "원본 목표 트리. 배열 순서는 클릭·획득 순서가 아닙니다. 원본 능력치 선택: 힘."
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gems/SkillGemEternalRage",
+      "additional_text": "함성 운용 전에 활성 상태와 격노를 확인하세요."
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWarBanner",
+      "additional_text": "War Banner · 젬 요구치와 필요한 자원을 갖춘 뒤 사용.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDaressosPassion",
+          "additional_text": "Daresso's Passion"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "additional_text": "Prolonged Duration II"
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDireStrike",
+          "additional_text": "Direstrike I"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
+      "additional_text": "Scavenged Plating · 젬 요구치와 필요한 자원을 갖춘 뒤 사용.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "additional_text": "Prolonged Duration II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPhysicalMastery",
+          "additional_text": "Physical Mastery"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemElementalWeakness",
+      "additional_text": "Elemental Weakness · 젬 요구치와 필요한 자원을 갖춘 뒤 사용.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemLifetap",
+          "additional_text": "Lifetap"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "additional_text": "Magnified Area II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemHeightenedCurse",
+          "additional_text": "Heightened Curse"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemImpendingDoom",
+          "additional_text": "Impending Doom"
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemFocusedCurse",
+          "additional_text": "Focused Curse"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldWall",
+      "additional_text": "방어도 방패와 젬 요구치를 충족한 뒤 사용. 권장: 방패벽 세트1 / 함성 세트2.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemExecuteThree",
+          "additional_text": "Execute III · 아홉꼬리 장착 후 저생명력 유지가 실제로 되는지 확인한 뒤 사용. 플라스크 회복은 예외입니다."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemClash",
+          "additional_text": "Clash · 아홉꼬리 장착 후 저생명력 유지가 실제로 되는지 확인한 뒤 사용. 플라스크 회복은 예외입니다."
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+          "additional_text": "Rapid Attacks II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemAhnsCitadel",
+          "additional_text": "Ahn's Citadel"
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemKaomsMadness",
+          "additional_text": "Kaom's Madness"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+      "additional_text": "권장 세트2. Eternal Rage를 켜고 Raging Cry·Enraged Warcry II 보조를 빠뜨리지 마세요.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemRagingCry",
+          "additional_text": "Raging Cry · 함성에 연결하고 격노 상태를 확인하세요."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemTireless",
+          "additional_text": "Tireless"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemEnragedWarcryTwo",
+          "additional_text": "Enraged Warcry II · 함성에 연결하고 격노 상태를 확인하세요."
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemUhtredsRite",
+          "additional_text": "Uhtred's Rite"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFreezingMark",
+      "additional_text": "Freezing Mark · 젬 요구치와 필요한 자원을 갖춘 뒤 사용.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemSingleOutTwo",
+          "additional_text": "Mark for Death II"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMarkOfSiphoningTwo",
+          "additional_text": "Mark of Siphoning II"
+        }
+      ]
+    }
+  ],
+  "inventory_slots": [
+    {
+      "inventory_id": "Flask1",
+      "slot_x": 1,
+      "additional_text": "원본 관측 장비 예시 · Flask 2 · 필수 구매 목록 아님\nRarity: UNIQUE\nUhtred's Chalice\nTranscendent Mana Flask\n248% increased Amount Recovered\n70% reduced Recovery rate\n60% reduced Charges\nLose 5% Life per second while you have no Runic Ward during Effect\nMana Recovery from Flasks can Overflow maximum Mana during Effect"
+    },
+    {
+      "inventory_id": "Weapon1",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Weapon 1 · 필수 구매 목록 아님\nRarity: UNIQUE\nSacred Flame\nShrine Sceptre\nSpirit: 115\nSockets: S\nRune: Rabbit Idol\n15% increased Spirit\nBonded: Minions have 30% increased Cooldown Recovery Rate for Command Skills\nGrants Skill: Level 20 Purity of Fire\nGain 56% of Damage as Extra Fire Damage\nAllies in your Presence Regenerate 2.2% of their Maximum Life per second\nAllies in your Presence Gain 21% of Damage as Extra Fire Damage\nEnemies in your Presence Resist Elemental Damage based on their Lowest Resistance"
+    },
+    {
+      "inventory_id": "Charm1",
+      "slot_x": 2,
+      "additional_text": "원본 관측 장비 예시 · Charm 3 · 필수 구매 목록 아님\nRarity: UNIQUE\nFor Utopia\nStone Charm\nUsed when you become Stunned\nDefend with 200% of Armour during effect\nCorrupted"
+    },
+    {
+      "inventory_id": "Charm1",
+      "slot_x": 1,
+      "additional_text": "원본 관측 장비 예시 · Charm 2 · 필수 구매 목록 아님\nRarity: UNIQUE\nRite of Passage\nGolden Charm\nUsed when you kill a Rare or Unique enemy\nPossessed by Spirit Of The Wolf for 20 seconds on use"
+    },
+    {
+      "inventory_id": "Belt1",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Belt · 필수 구매 목록 아님\nRarity: UNIQUE\nCat O' Nine Tails\nUtility Belt\nCharm Slots: 3\nHas 3 Charm Slots\n20% of Flask Recovery applied Instantly\n+200 to maximum Life\nRegenerate 5% of maximum Life per second if you have been Hit Recently\n37% increased Life Recovery rate\nLife Recovery other than Flasks cannot Recover Life to above Low Life\nGain Physical Thorns damage equal to 8% - 12% of maximum Life"
+    },
+    {
+      "inventory_id": "Charm1",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Charm 1 · 필수 구매 목록 아님\nRarity: UNIQUE\nThe Fall of the Axe\nSilver Charm\nUsed when you are affected by a Slow\nGrants Onslaught during effect"
+    },
+    {
+      "inventory_id": "Ring2",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Ring 2 · 필수 구매 목록 아님\nRarity: RARE\nSoul Finger\nRuby Ring\n+25% to Fire Resistance\nAdds 9 to 15 Fire damage to Attacks\n+95 to maximum Life\n+45% to Fire Resistance\n+16% to Fire and Chaos Resistances"
+    },
+    {
+      "inventory_id": "Offhand1",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Weapon 2 · 필수 구매 목록 아님\nRarity: RARE\nCorpse Guard\nTawhoan Tower Shield\nArmour: 1896\nSockets: S S\nRune: Perfect Iron Rune\nRune: Perfect Iron Rune\n40% increased Armour, Evasion and Energy Shield\nBonded: +40 to maximum Life\nBonded: +40 to maximum Mana\nGrants Skill: Raise Shield\n+275 to Armour\n39% increased Armour\n8% additional Physical Damage Reduction\n+2% to Maximum Fire Resistance\n+39% to Fire Resistance\n+106 to Stun Threshold\n107% increased Armour\nCorrupted"
+    },
+    {
+      "inventory_id": "Amulet1",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Amulet · 필수 구매 목록 아님\nRarity: UNIQUE\nDefiance of Destiny\nJade Amulet\nAllocates Spiked Shield\n+14 to Dexterity\n13% increased maximum Life\n+18 to Strength\n27% increased Mana Regeneration Rate\nRecover 39% of Missing Life before being Hit by an Enemy"
+    },
+    {
+      "inventory_id": "Helm1",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Helmet · 필수 구매 목록 아님\nRarity: UNIQUE\nConstricting Command\nViper Cap\nEvasion: 179\nSockets: S\nRune: None\n+89 to maximum Life\n+10 to all Attributes\n8.9 Life Regeneration per second\nRequire 4 fewer enemies to be Surrounded"
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Body Armour · 필수 구매 목록 아님\nRarity: UNIQUE\nThe Brass Dome\nRuneforged Champion Cuirass\nSockets: S S S\nRune: Warding Rune of Reinforcement\nRune: Warding Rune of Reinforcement\nRune: Warding Rune of Reinforcement\n60% increased Runic Ward\nBonded: Gain 6% of maximum Life as Extra maximum Runic Ward\n+892 to maximum Runic Ward\n552% increased Armour\n-1% to all Maximum Elemental Resistances\n+288 to Stun Threshold\nTake no Extra Damage from Critical Hits\nCorrupted"
+    },
+    {
+      "inventory_id": "Gloves1",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Gloves · 필수 구매 목록 아님\nRarity: RARE\nBramble Mitts\nVaal Mitts\nArmour: 696\nSockets: S\nRune: Idol of Sirrius\n8% increased Attack Speed\nBonded: 20% reduced Slowing Potency of Debuffs on You\n+133 to Armour\n86% increased Armour\nAdds 1 to 61 Lightning damage to Attacks\n18% increased Rarity of Items found\n+2 to Level of all Melee Skills\nLeech 7.59% of Physical Attack Damage as Mana"
+    },
+    {
+      "inventory_id": "Boots1",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Boots · 필수 구매 목록 아님\nRarity: RARE\nDomination Dash\nVaal Greaves\nArmour: 356\nSockets: S\nRune: Soul Core of Tacati\n+11% to Chaos Resistance\n35% increased Movement Speed\n33% increased Armour\n+24 to Strength\n+75 to Stun Threshold\n46% reduced Freeze Duration on you\n+24% to Chaos Resistance"
+    },
+    {
+      "inventory_id": "Ring1",
+      "slot_x": 0,
+      "additional_text": "원본 관측 장비 예시 · Ring 1 · 필수 구매 목록 아님\nRarity: RARE\nMaelstrom Spiral\nRuby Ring\n+31% to Fire Resistance\nAdds 5 to 11 Physical Damage to Attacks\nAdds 11 to 18 Fire damage to Attacks\n22% increased Lightning Damage\n+30% to Fire Resistance\n+15% to Fire and Chaos Resistances"
+    }
+  ]
+}

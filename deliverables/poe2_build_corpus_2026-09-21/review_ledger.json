@@ -1,0 +1,349 @@
+{
+  "reviewer": "manager gpt-6-astra medium",
+  "as_of": "2026-09-21",
+  "checks": [
+    {
+      "record_id": "w1_oil",
+      "url": "https://mobalytics.gg/poe-2/builds/fubgun-flameblast-oil-grenade",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Build Overview L109-131; Equipment L232-234",
+      "page_facts": [
+        "52-level swap; reserve roughly30k gold and GCP/skill/support gems."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w1_plants",
+      "url": "https://mobalytics.gg/poe-2/builds/scorps-plants-coc-endgame-guide-scorpius",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Overview L122-134; Early Endgame L161-171",
+      "page_facts": [
+        "T1-7 early; comfortable T7 to T8/9; mana sustain governs Thunderstorm/Comet changes."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w1_ice",
+      "url": "https://mobalytics.gg/poe-2/builds/ice-shot-deadeye",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "How it Plays / Gear Progression L688-699",
+      "page_facts": [
+        "Crit bow/quiver before crit; about450ES helmet for hybrid."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w1_rue",
+      "url": "https://mobalytics.gg/poe-2/builds/ruetoo-tactician-mirage",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Overview / crit redesign L153-163",
+      "page_facts": [
+        "15-20div entry claim; Runeforged Double Vision; old flask strategy changed."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w1_beast",
+      "url": "https://mobalytics.gg/poe-2/builds/spirit-walker-beast-master",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Build Overview / Early Leveling",
+      "page_facts": [
+        "Level7 gem unlock differs from recommended Act3 after second lab; ~20k gold respec."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w1_grim",
+      "url": "https://mobalytics.gg/poe-2/builds/grim-totem-oracle-imexile",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Overview and Variants L136-141",
+      "page_facts": [
+        "Guide60+; Archmage above1500mana, EB around2500mana;395spirit target."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w1_spark_totem",
+      "url": "https://mobalytics.gg/poe-2/builds/waggle-spell-totem-shaman",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Overview L113-115; Equipment L226-233",
+      "page_facts": [
+        "Prospective Act2-end120spirit via3charm slots; alternative wait55-60."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w1_cold",
+      "url": "https://mobalytics.gg/poe-2/builds/cold-cast-on-crit-archmage-paintmaster",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Leveling L149-168",
+      "page_facts": [
+        "Acquire Eye of Winter, replace Frost Darts; three supports stated."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w1_shrine",
+      "url": "https://mobalytics.gg/poe-2/profile/paintmaster/builds/melee-chronomancer",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Leveling / Respec to Mace L191-228",
+      "page_facts": [
+        "First Act2 boss around18; reserve gems; caster-to-mace passive changes."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w1_afk",
+      "url": "https://mobalytics.gg/poe-2/builds/afk-simulacrum-immortal-ritualist-lazyexile",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Minimum Stats L141-151; Starting Loop L597-601",
+      "page_facts": [
+        "All nine minimum thresholds preserved; wall/bolt setup uses explicit weapon sets."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w1_twister",
+      "url": "https://mobalytics.gg/poe-2/profile/fgkorbyn21/builds/0-5-full-screen-twister-martial-artist-endgame-build-guide",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Overview L121-148; Movement Tech L958-964",
+      "page_facts": [
+        "Rigwald support gates faster-than-sprint movement; early-leveling tab still coming soon."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-ice",
+      "url": "https://mobalytics.gg/poe-2/profile/fubgun/builds/0-5-ice-shot-deadeye-leveling-guide",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Overview L113-117",
+      "page_facts": [
+        "Lightning Arrow/Rod until Ice Shot unlock31; linked endgame separate URL."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-arc",
+      "url": "https://mobalytics.gg/poe-2/profile/spud-the-king-nksem3/builds/sorceress-leveling-0-5-league-starter",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "How it Plays L514-522",
+      "page_facts": [
+        "Act2 Arc replaces ED/Contagion; elemental utility remains."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-grenade",
+      "url": "https://mobalytics.gg/poe-2/profile/guythatdies/builds/0-4-mercenary-grenades-leaguestarter",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Gem Priority L272-286; How it Plays L445-448",
+      "page_facts": [
+        "Gas Grenade14; Multishot and Elemental Armament; explosive detonation."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-glacial",
+      "url": "https://mobalytics.gg/poe-2/builds/hollow-palm-levelling",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Equipment L190-203; Passive Tree L346",
+      "page_facts": [
+        "Hollow Palm obtained: no weapon; no numeric unlock invented."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-varashta",
+      "url": "https://mobalytics.gg/poe-2/builds/varashta-levelling",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Overview; Variants L121-133; Equipment L214-226",
+      "page_facts": [
+        "Act2 ascendancy switch with level19 variant; +minion skill upgrade advice."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-minions",
+      "url": "https://mobalytics.gg/poe-2/builds/witch-minions-leveling",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Gem Priority L302-320; How it Plays L481-489",
+      "page_facts": [
+        "Mud Burrow Sniper/Multishot; Freythorn Spirits replace ED; supports extracted."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-edc",
+      "url": "https://mobalytics.gg/poe-2/builds/bone-storm-leaguestarter",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Variants L119-129; Equipment L177-190",
+      "page_facts": [
+        "ED6; chaos set1/physical set2 from14; generic spell levels can serve both."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-slam",
+      "url": "https://mobalytics.gg/poe-2/builds/warrior-leveling-woolie",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Skill Rotation L150-176; Equipment L252-259",
+      "page_facts": [
+        "Before/after Perfect Strike changes boss rotation; Mace Strike remains alternative."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-twister-far",
+      "url": "https://mobalytics.gg/poe-2/builds/xthefarmerx-s-gemling-twister-league-starter",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Variants L154-158; Equipment L195-204",
+      "page_facts": [
+        "Optional Fangs of Frost6/firstlevel3gem; FrostBomb+IceNova remains alternative."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-plants",
+      "url": "https://mobalytics.gg/poe-2/builds/plant-oracle-druid?_lang=en_us",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Act1 checklist L144-160",
+      "page_facts": [
+        "Spiritgem4 RavenousSwarm+Corrosion; skillgem5 Bonestorm; not characterlevel4/5."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-shield",
+      "url": "https://mobalytics.gg/poe-2/builds/warrior-league-start-lundburgerr",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Overview and Variants L114-150",
+      "page_facts": [
+        "ShieldWall22 replaces early slam; PerfectStrike14; VaalPact theory not tested."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-wyvern-gtd",
+      "url": "https://mobalytics.gg/poe-2/builds/wyvern-druid-leveling",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "How it Plays L410-435",
+      "page_facts": [
+        "OilBarrage31; LingeringIllusion36 changes power-charge source."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-wyvern-peu",
+      "url": "https://mobalytics.gg/poe-2/builds/0-4-hellfire-wyvern-league-starter",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Overview L111-143; Variants L170-184",
+      "page_facts": [
+        "OilBarrage31 boss; tier4supports clear; work-in-progress/prospective ascendancy."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-twister-ap",
+      "url": "https://mobalytics.gg/poe-2/profile/animeprincess/builds/0-5-5-twister-gemling-comprehensive-leveling-guide",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Equipment / Weapon Sets L264-267",
+      "page_facts": [
+        "Filled missing equipment; spear set1 empty offhand, set2 shield to sceptre afterAct1."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-spark-ap",
+      "url": "https://mobalytics.gg/poe-2/builds/animeprincess-stormweaver-sorc-league-starter",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Equipment L275-305; FAQ L663-665",
+      "page_facts": [
+        "Filled staff priorities/defense and optional mana fixes; no numeric CI gate invented."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-snipe",
+      "url": "https://mobalytics.gg/poe-2/profile/siahz/builds/siahz-s-instant-snipe-gemling-league-starter",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Equipment L123-234",
+      "page_facts": [
+        "No textual item names in retrieved equipment panel; gap retained."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    },
+    {
+      "record_id": "w2-spark-big",
+      "url": "https://mobalytics.gg/poe-2/builds/lightning-caster-leveling",
+      "opened_at": "2026-09-21",
+      "method": "manager web.run original-page open/find",
+      "locator": "Equipment L194-267",
+      "page_facts": [
+        "No textual item names in retrieved equipment panel; gap retained."
+      ],
+      "record_comparison": "accepted_after_bounded_repairs",
+      "review_scope": "Concrete stage/transition and selected factual fields; not exhaustive mechanics/UI/game validation."
+    }
+  ],
+  "statistics_review": {
+    "reviewer": "HQ independent Playwright original-page read",
+    "message_id": "msg_3bbdecf9df70",
+    "url": "https://poe.ninja/poe2/builds",
+    "observed_at": "2026-09-21T12:25:14.544Z",
+    "outcome": "Worker cohort counts and top-three class shares match; not build-share data."
+  }
+}

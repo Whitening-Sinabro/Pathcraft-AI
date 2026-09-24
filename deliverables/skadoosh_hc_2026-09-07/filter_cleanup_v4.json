@@ -1,0 +1,25 @@
+{
+  "revision": 4,
+  "source_revision": "revision3/Filters",
+  "purpose": "지역 진행에 뒤처진 일반·마법 베이스를 실제로 숨긴다. 기존 빌드 강조와 NeverSink 본문은 그대로 보존한다.",
+  "threshold_source": "sources/neversink_0.10.4_soft.filter 의 leveling->progressivehide 조건",
+  "equipment_classes": ["Body Armours", "Boots", "Bows", "Bucklers", "Crossbows", "Foci", "Gloves", "Helmets", "One Hand Maces", "Quarterstaves", "Shields", "Spears", "Talismans", "Two Hand Maces"],
+  "magic_boots_keep_through_area": 32,
+  "equipment_thresholds": [
+    {"area_min": 22, "drop_below": 8},
+    {"area_min": 30, "drop_below": 16},
+    {"area_min": 40, "drop_below": 24},
+    {"area_min": 48, "drop_below": 32},
+    {"area_min": 56, "drop_below": 40},
+    {"area_min": 60, "drop_below": 44}
+  ],
+  "flask_thresholds": [
+    {"area_min": 15, "bases": ["Lesser Life Flask", "Lesser Mana Flask", "Medium Life Flask", "Medium Mana Flask"]},
+    {"area_min": 30, "bases": ["Greater Life Flask", "Greater Mana Flask", "Grand Life Flask", "Grand Mana Flask"]},
+    {"area_min": 42, "bases": ["Giant Life Flask", "Giant Mana Flask", "Colossal Life Flask", "Colossal Mana Flask"]},
+    {"area_min": 52, "bases": ["Gargantuan Life Flask", "Gargantuan Mana Flask"]}
+  ],
+  "guards": {"rarities": ["Normal", "Magic"], "quality": 0, "sockets": 0, "unidentified_item_tier": 0, "always_show": false},
+  "preserved": ["희귀·고유", "소켓 또는 퀄리티가 있는 분해/제작 후보", "게임이 AlwaysShow로 지정한 특수 아이템", "미감정 티어가 있는 아이템", "반지·목걸이·허리띠·호신부", "셉터·완드·시전자 지팡이", "주얼·화폐·젬·룬·코어·퀘스트 아이템"],
+  "stages": ["01-Campaign", "02-EarlyMaps", "03-SettledMaps"]
+}

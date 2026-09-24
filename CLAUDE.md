@@ -1,5 +1,13 @@
 # PathcraftAI — Claude Code Rules
 
+## 공통 MCP·로그인 브라우저 확인
+
+MCP나 로그인 브라우저를 사용할 수 없다고 말하기 전에
+`C:/Users/User/.agents/MCP_BROWSER_CONNECTION_RULES.md`를 읽고 Codex와 Claude
+양쪽 글로벌·프로젝트 설정을 확인한다. 지원되는 실제 연결을 시도하고 도구
+호출 결과로 검증한다. “다른 클라이언트에 등록돼 있어서 못 봤다”에서 멈추지
+않는다. 설정 존재·MCP 연결·프로필/로그인·영상 재생을 별개로 확인한다.
+
 > POE1 빌드 검색/분석 도구. Tauri로 리빌드 예정. 백엔드 언어 미확정.
 
 ## 데이터 소스

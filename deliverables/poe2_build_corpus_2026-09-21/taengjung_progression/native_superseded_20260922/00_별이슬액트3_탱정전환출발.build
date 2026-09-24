@@ -1,0 +1,726 @@
+{
+  "name": "00 별이슬 액트3 · 지금 트리 → 01로 전환 · 탱정",
+  "author": "별이슬골짜기 원본 트리 / Pathcraft 전환 안내",
+  "link": "https://pobb.in/5vFvXihk9x0q",
+  "ascendancy": "Warrior3",
+  "description": "탱정이 액트 과정으로 추천한 별이슬골짜기 0.5.5 액트 가이드의 액트3 트리입니다(PoB 5vFvXihk9x0q, 트리 이름 3).\n일반 36 · 무기 세트 1 10 · 무기 세트 2 10. 게임 화면의 무기 세트 포인트 10/10과 같아 지금 트리로 추정했지만 확인은 안 됐습니다.\n별이슬 원본 전직은 워브링어입니다. 탱정 보정대로 키타바를 골랐다는 전제이며, 이 파일에는 전직 노드를 넣지 않았습니다.\n01로 전환: 마을에서 환불 55 → 추가 36. 겹치는 노드는 1개뿐이라 사실상 재분배입니다. 번호 순서는 HTML \"00 → 01 전환\"에 있습니다.\n스킬은 별이슬 액트3 구성입니다. 01에서는 방패의 벽·지옥불 함성·보강하는 함성·충격파 토템으로 이어집니다.\n1~100은 표시 호환 범위이며 습득 레벨이 아닙니다.",
+  "passives": [
+    {
+      "id": "melee17",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Melee Damage. 01 전환 때 환불(순서 51)."
+    },
+    {
+      "id": "warcries9",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Empowered Attack Damage. 01 전환 때 환불(순서 25)."
+    },
+    {
+      "id": "warcries5",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Warcry Cooldown. 01 전환 때 환불(순서 10)."
+    },
+    {
+      "id": "marauder_brute_notable1",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Brutal. 01 전환 때 환불(순서 56)."
+    },
+    {
+      "id": "warcries11",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Cacophony. 01 전환 때 환불(순서 1)."
+    },
+    {
+      "id": "armour5",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Armour. 01 전환 때 환불(순서 57)."
+    },
+    {
+      "id": "fire38",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Burning Strikes. 01 전환 때 환불(순서 2)."
+    },
+    {
+      "id": "marauder_brute_notable2",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Relentless. 01에서도 유지."
+    },
+    {
+      "id": "attributes82",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 34)."
+    },
+    {
+      "id": "warcries53",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Escalation. 01 전환 때 환불(순서 3)."
+    },
+    {
+      "id": "attack_speed54",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Skill Speed. 01 전환 때 환불(순서 12)."
+    },
+    {
+      "id": "duration_spells11",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Unyielding. 01 전환 때 환불(순서 4)."
+    },
+    {
+      "id": "strength21",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 41)."
+    },
+    {
+      "id": "slow_attacks2_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attack Damage. 01 전환 때 환불(순서 16)."
+    },
+    {
+      "id": "slow_attacks10",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Crushing Verdict. 01 전환 때 환불(순서 5)."
+    },
+    {
+      "id": "melee56",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Melee Damage. 01 전환 때 환불(순서 44)."
+    },
+    {
+      "id": "strength67",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 26)."
+    },
+    {
+      "id": "attributes58",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 36)."
+    },
+    {
+      "id": "strength102",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Beef. 01 전환 때 환불(순서 6)."
+    },
+    {
+      "id": "duration_spells7",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Slow Effect on You and Attack Speed. 01 전환 때 환불(순서 20)."
+    },
+    {
+      "id": "jewel_slot1956",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Jewel Socket. 01 전환 때 환불(순서 38)."
+    },
+    {
+      "id": "attack_speed53",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Skill Speed. 01 전환 때 환불(순서 13)."
+    },
+    {
+      "id": "strength19",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 42)."
+    },
+    {
+      "id": "strength73",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 35)."
+    },
+    {
+      "id": "armour14",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Armour. 01 전환 때 환불(순서 59)."
+    },
+    {
+      "id": "strength76",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 22)."
+    },
+    {
+      "id": "armour35",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Sturdy Metal. 01 전환 때 환불(순서 58)."
+    },
+    {
+      "id": "melee25",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Melee Damage. 01 전환 때 환불(순서 53)."
+    },
+    {
+      "id": "duration_spells9",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attack Speed. 01 전환 때 환불(순서 7)."
+    },
+    {
+      "id": "warcries21",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Admonisher. 01 전환 때 환불(순서 8)."
+    },
+    {
+      "id": "slow_attacks3",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attack Damage. 01 전환 때 환불(순서 15)."
+    },
+    {
+      "id": "warcries30",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Warcry Speed. 01 전환 때 환불(순서 9)."
+    },
+    {
+      "id": "attributes18",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 21)."
+    },
+    {
+      "id": "warcries19_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Warcry Cooldown Speed. 01 전환 때 환불(순서 28)."
+    },
+    {
+      "id": "attributes59_",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 23)."
+    },
+    {
+      "id": "attack_speed55",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Blood Rush. 01 전환 때 환불(순서 11)."
+    },
+    {
+      "id": "melee46",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Melee Damage. 01 전환 때 환불(순서 55)."
+    },
+    {
+      "id": "slow_attacks5",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attack Damage. 01 전환 때 환불(순서 14)."
+    },
+    {
+      "id": "melee55",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Smash. 01 전환 때 환불(순서 45)."
+    },
+    {
+      "id": "melee18",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Melee Damage. 01 전환 때 환불(순서 52)."
+    },
+    {
+      "id": "warcries52",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Warcry Cooldown. 01 전환 때 환불(순서 17)."
+    },
+    {
+      "id": "warcries25",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Warcry Damage. 01 전환 때 환불(순서 18)."
+    },
+    {
+      "id": "fire10",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Damage against Burning Enemies. 01 전환 때 환불(순서 32)."
+    },
+    {
+      "id": "duration_spells8",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attack Speed. 01 전환 때 환불(순서 19)."
+    },
+    {
+      "id": "warcries10",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Warcry Damage. 01 전환 때 환불(순서 24)."
+    },
+    {
+      "id": "warcries20",
+      "weapon_set": 2,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Warcry Cooldown Speed. 01 전환 때 환불(순서 27)."
+    },
+    {
+      "id": "strength58",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 29)."
+    },
+    {
+      "id": "strength105",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Strength. 01 전환 때 환불(순서 30)."
+    },
+    {
+      "id": "strength15",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 40)."
+    },
+    {
+      "id": "melee44",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Melee Damage. 01 전환 때 환불(순서 54)."
+    },
+    {
+      "id": "fire16",
+      "weapon_set": 1,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Damage against Burning Enemies. 01 전환 때 환불(순서 31)."
+    },
+    {
+      "id": "attributes32",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 39)."
+    },
+    {
+      "id": "melee54",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Melee Damage. 01 전환 때 환불(순서 46)."
+    },
+    {
+      "id": "strength75",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 33)."
+    },
+    {
+      "id": "strength68",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Attribute. 01 전환 때 환불(순서 37)."
+    },
+    {
+      "id": "melee19",
+      "weapon_set": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트3 노드 · Melee Damage. 01 전환 때 환불(순서 43)."
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트 구성 그대로.",
+      "support_skills": []
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemShieldCharge",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트 구성 그대로.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Rapid Attacks I"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트 구성 그대로.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Concentrated Area"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldWall",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트 구성 그대로.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Magnified Area I"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Rapid Attacks I"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFireInfusion",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Fire Attunement"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트 구성 그대로.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemRagingCry",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Raging Cry"
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemTireless",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Tireless"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemLeapSlam",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트 구성 그대로.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMartialTempo",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Rapid Attacks I"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFreezingMark",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트 구성 그대로.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMarkOfSiphoning",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Mark of Siphoning"
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSingleOut",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Mark for Death"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트 구성 그대로.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Magnified Area I"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemFortifyingCry",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트 구성 그대로.",
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemRagingCry",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Raging Cry"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemConduction",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Shock"
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemLightningInfusion",
+          "level_interval": [
+            1,
+            100
+          ],
+          "additional_text": "Lightning Attunement"
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMagmaBarrier",
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "별이슬 액트 구성 그대로.",
+      "support_skills": []
+    }
+  ],
+  "inventory_slots": []
+}

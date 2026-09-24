@@ -1,0 +1,110 @@
+{
+  "checked_utc": "2026-09-09T12:30:48.053514+00:00",
+  "video_id": "2868822161",
+  "interval": [
+    2220,
+    3120
+  ],
+  "clips": [
+    {
+      "label": "purchase_37_42",
+      "interval": [
+        2220,
+        2520
+      ],
+      "duration": 300,
+      "sha256": "8dc8872c59c2cbc84ca6e56525f57e8bd8053cda8c5fa10cfaac81122e14618c",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "codec_type": "audio"
+        }
+      ]
+    },
+    {
+      "label": "purchase_42_47",
+      "interval": [
+        2520,
+        2820
+      ],
+      "duration": 300,
+      "sha256": "59ebee06b5776965479ad82a7878cade91657b61a7a2aaf5c01fd2b87c455b8c",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "codec_type": "audio"
+        }
+      ]
+    },
+    {
+      "label": "purchase_47_52",
+      "interval": [
+        2820,
+        3120
+      ],
+      "duration": 300,
+      "sha256": "9494294f1f2a517d543676a8567ed6c467d06f66d4bc45be66bfe5b692645b24",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "codec_type": "audio"
+        }
+      ]
+    }
+  ],
+  "clip_seconds": 900,
+  "missing_local_links": [],
+  "asr_automatic": true,
+  "visual_method": "10-second survey and 1-3-second targeted purchase/craft/instil frames; not continuous frame-by-frame viewing",
+  "continuous_full_video_viewing": false,
+  "native_planners_modified_this_audit": false,
+  "remaining_uncertainties": [
+    "Ruby search results at 40:10 do not establish jewel purchase",
+    "Exact currency grade used for the final prefix was not read from a tooltip",
+    "Abyssal Echoes consumption does not itself establish a reroll button press"
+  ],
+  "browser": {
+    "checkedUtc": "2026-09-09T12:31:13.656Z",
+    "replays": [
+      {
+        "src": "purchase_37_42.mp4",
+        "width": 1280,
+        "duration": 300,
+        "time": 2.5,
+        "speed": 0.5
+      },
+      {
+        "src": "purchase_42_47.mp4",
+        "width": 1280,
+        "duration": 300,
+        "time": 2.5,
+        "speed": 0.5
+      },
+      {
+        "src": "purchase_47_52.mp4",
+        "width": 1280,
+        "duration": 300,
+        "time": 2.5,
+        "speed": 0.5
+      }
+    ],
+    "mobile": {
+      "viewport": 390,
+      "page": 390
+    },
+    "pageErrors": [],
+    "allImagesLoaded": true
+  }
+}

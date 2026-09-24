@@ -1,0 +1,5749 @@
+{
+  "schema_version": 1,
+  "task": "task_1cf1e68c4497",
+  "dispatch": "ctx_856e8b405bae",
+  "status": "structurally_validated_review_candidates_not_game_verified",
+  "sources": [
+    {
+      "path": "D:\\Pathcraft-AI\\deliverables\\skadoosh_hc_2026-09-07\\sources\\tree_0_5.json",
+      "sha256": "6449fe534c0265b21f59f8213254bd3f37a445887582c40aab04ad11cede3e95"
+    },
+    {
+      "path": "C:\\Users\\User\\orca\\workspaces\\Pathcraft-AI\\readiness-audit-20260921\\deliverables\\poe2_build_corpus_2026-09-21\\linked_update_pob.xml",
+      "sha256": "6a5f3885c4c4ea7b479912a0f8329fd49d897b280beb654e48e28f4bad4d4e9e"
+    }
+  ],
+  "start": {
+    "numeric_id": 47175,
+    "string_id": "marauder594",
+    "classes": [
+      "Marauder",
+      "Warrior"
+    ]
+  },
+  "composition_policy": "Deterministic source-pool shortest paths to explicitly chosen targets; numeric Spec titles never mapped to acts; all allocations common",
+  "notable_effect_review": {
+    "Brutal": "Melee damage and stun buildup support the early mace hit/stun plan; no claim that every Shield Wall damage component is melee. Strength is a fixed stat.",
+    "Smash": "Melee damage supports mace melee hits; the larger bonus requires the enemy to be Heavy Stunned. Shield Wall component scaling remains unverified.",
+    "Singular Purpose": "Only the two-handed mace checkpoint; reduced attack speed is a real downside. Refund before one-handed mace plus shield.",
+    "Beef": "Fixed Strength supports requirements only after actual equipment/gem comparison; does not certify sufficient attributes.",
+    "Relentless": "Armour and life regeneration are generic defensive effects, independent of Warbringer. No survivability guarantee.",
+    "Sturdy Metal": "Increases armour from body armour, not armour from the shield. Requires actual body armour with armour; never label as direct shield damage scaling.",
+    "Crushing Verdict": "Generic attack damage and stun buildup target attack hits; reduced attack speed is a downside. Does not establish wall detonation/minion damage scaling or cry damage.",
+    "Unyielding": "Attack speed is conditional on having been hit recently; slow mitigation is separate. No permanent attack-speed or warcry-speed assumption.",
+    "Momentum": "Armour movement penalties and slowing debuffs only; not damage, not all movement penalties.",
+    "Admonisher": "Warcry speed and cooldown recovery support Infernal Cry subject to real cooldown. Does not grant Warbringer cooldown-ignore or corpse explosion.",
+    "Light on your Feet": "Movement speed plus Hinder/Maim immunity; not general immunity to every slow.",
+    "Adrenaline Rush": "Attack/movement bonuses require a recent kill; not reliable on an isolated boss."
+  },
+  "insufficient_points_policy": "Retain previous checkpoint AND its weapon setup; act arrival is not an instruction to spend unavailable points. If swapping to shield early, use only validated bridge after affordable refunds, then connected prefixes of the act2 witness.",
+  "shield_bridge": {
+    "ordinary_points": 13,
+    "ids_including_start_for_graph": [
+      3936,
+      5710,
+      16725,
+      19011,
+      27373,
+      33556,
+      43164,
+      45363,
+      46325,
+      47175,
+      54811,
+      55473,
+      58528,
+      64284
+    ],
+    "native_candidate_ids_excluding_start": [
+      "melee17",
+      "marauder_brute_notable1",
+      "strength21",
+      "melee56",
+      "strength19",
+      "melee25",
+      "melee46",
+      "melee55",
+      "melee18",
+      "strength15",
+      "melee44",
+      "melee54",
+      "melee19"
+    ],
+    "common": true,
+    "connected": true,
+    "foreign_ascendancy": false,
+    "note": "Fallback, not a sixth act checkpoint or a damage/attribute guarantee"
+  },
+  "assumptions": [
+    "Budgets are Pathcraft design choices and eligibility gates, not sourced act rewards or levels",
+    "Passive edges are treated as undirected as in the saved connection graph",
+    "Class start costs zero and is a graph anchor, not an exported spendable passive",
+    "Empty jewel sockets can be paid travel nodes; no jewel is required or assumed",
+    "Ascendancy and attribute choices remain separate from this common-tree candidate"
+  ],
+  "selected_source_edges": [
+    [
+      2864,
+      13279
+    ],
+    [
+      2864,
+      32564
+    ],
+    [
+      2864,
+      54818
+    ],
+    [
+      3936,
+      46325
+    ],
+    [
+      3936,
+      47175
+    ],
+    [
+      5710,
+      6529
+    ],
+    [
+      5710,
+      43164
+    ],
+    [
+      5710,
+      58528
+    ],
+    [
+      6529,
+      32416
+    ],
+    [
+      7721,
+      27726
+    ],
+    [
+      8600,
+      27439
+    ],
+    [
+      8600,
+      61490
+    ],
+    [
+      10774,
+      35863
+    ],
+    [
+      13279,
+      37612
+    ],
+    [
+      15182,
+      54127
+    ],
+    [
+      15182,
+      54818
+    ],
+    [
+      16725,
+      27373
+    ],
+    [
+      16725,
+      54811
+    ],
+    [
+      17045,
+      37519
+    ],
+    [
+      17045,
+      55131
+    ],
+    [
+      17340,
+      62051
+    ],
+    [
+      18073,
+      36027
+    ],
+    [
+      18073,
+      63114
+    ],
+    [
+      18505,
+      45090
+    ],
+    [
+      19011,
+      45363
+    ],
+    [
+      19011,
+      64284
+    ],
+    [
+      21755,
+      54127
+    ],
+    [
+      21755,
+      62051
+    ],
+    [
+      22975,
+      26725
+    ],
+    [
+      22975,
+      27439
+    ],
+    [
+      25482,
+      54485
+    ],
+    [
+      26092,
+      30123
+    ],
+    [
+      26092,
+      52392
+    ],
+    [
+      26568,
+      37258
+    ],
+    [
+      26568,
+      51732
+    ],
+    [
+      26725,
+      57703
+    ],
+    [
+      26725,
+      63114
+    ],
+    [
+      27373,
+      64284
+    ],
+    [
+      27726,
+      32416
+    ],
+    [
+      30123,
+      64939
+    ],
+    [
+      31903,
+      37258
+    ],
+    [
+      31903,
+      37612
+    ],
+    [
+      31903,
+      38876
+    ],
+    [
+      32564,
+      37519
+    ],
+    [
+      32564,
+      39207
+    ],
+    [
+      33518,
+      39207
+    ],
+    [
+      33518,
+      63579
+    ],
+    [
+      33556,
+      46325
+    ],
+    [
+      33556,
+      55473
+    ],
+    [
+      34210,
+      54811
+    ],
+    [
+      34210,
+      64939
+    ],
+    [
+      35863,
+      51732
+    ],
+    [
+      35876,
+      53194
+    ],
+    [
+      36027,
+      45090
+    ],
+    [
+      38130,
+      53194
+    ],
+    [
+      38130,
+      57703
+    ],
+    [
+      38876,
+      61490
+    ],
+    [
+      43164,
+      55473
+    ],
+    [
+      45363,
+      58528
+    ],
+    [
+      54485,
+      57703
+    ],
+    [
+      54811,
+      57703
+    ]
+  ],
+  "shield_exclusions": [
+    {
+      "numeric_id": 1994,
+      "string_id": "AscendancyWarrior2Small5",
+      "name": "Warcry Speed",
+      "reason": "foreign_ascendancy"
+    },
+    {
+      "numeric_id": 6544,
+      "string_id": "fire38",
+      "name": "Burning Strikes",
+      "reason": "burning_uptime_not_established_for_branch"
+    },
+    {
+      "numeric_id": 15892,
+      "string_id": "armour_break8",
+      "name": "Damage vs Armour Broken Enemies",
+      "reason": "armour_break_source_not_established_without_warbringer"
+    },
+    {
+      "numeric_id": 26092,
+      "string_id": "two_handed4",
+      "name": "Two Handed Damage",
+      "reason": "two_handed_incompatible_with_selected_one_hand_plus_shield"
+    },
+    {
+      "numeric_id": 26437,
+      "string_id": "armour_break4",
+      "name": "Armour Break",
+      "reason": "armour_break_source_not_established_without_warbringer"
+    },
+    {
+      "numeric_id": 30123,
+      "string_id": "two_handed3",
+      "name": "Two Handed Damage",
+      "reason": "two_handed_incompatible_with_selected_one_hand_plus_shield"
+    },
+    {
+      "numeric_id": 32976,
+      "string_id": "attributes100_",
+      "name": "Gem Enthusiast",
+      "reason": "support_colour_threshold_not_established"
+    },
+    {
+      "numeric_id": 33812,
+      "string_id": "AscendancyWarrior2Start",
+      "name": "Warbringer",
+      "reason": "foreign_ascendancy"
+    },
+    {
+      "numeric_id": 34210,
+      "string_id": "two_handed1",
+      "name": "Two Handed Damage",
+      "reason": "two_handed_incompatible_with_selected_one_hand_plus_shield"
+    },
+    {
+      "numeric_id": 38769,
+      "string_id": "AscendancyWarrior2Small1",
+      "name": "Armour Break",
+      "reason": "foreign_ascendancy"
+    },
+    {
+      "numeric_id": 39083,
+      "string_id": "attack_speed55",
+      "name": "Blood Rush",
+      "reason": "life_cost_conversion_not_assumed"
+    },
+    {
+      "numeric_id": 42111,
+      "string_id": "armour_break10",
+      "name": "Armour Break",
+      "reason": "armour_break_source_not_established_without_warbringer"
+    },
+    {
+      "numeric_id": 47097,
+      "string_id": "AscendancyWarrior2Notable4_",
+      "name": "Warcaller's Bellow",
+      "reason": "foreign_ascendancy"
+    },
+    {
+      "numeric_id": 51129,
+      "string_id": "armour_break35",
+      "name": "Pile On",
+      "reason": "armour_break_source_not_established_without_warbringer"
+    },
+    {
+      "numeric_id": 51369,
+      "string_id": "fire10",
+      "name": "Damage against Burning Enemies",
+      "reason": "burning_uptime_not_established_for_branch"
+    },
+    {
+      "numeric_id": 52392,
+      "string_id": "two_handed8",
+      "name": "Singular Purpose",
+      "reason": "two_handed_incompatible_with_selected_one_hand_plus_shield"
+    },
+    {
+      "numeric_id": 56061,
+      "string_id": "fire16",
+      "name": "Damage against Burning Enemies",
+      "reason": "burning_uptime_not_established_for_branch"
+    },
+    {
+      "numeric_id": 58704,
+      "string_id": "AscendancyWarrior2Notable1",
+      "name": "Anvil's Weight",
+      "reason": "foreign_ascendancy"
+    },
+    {
+      "numeric_id": 59767,
+      "string_id": "area_attacks32",
+      "name": "Reverberating Impact",
+      "reason": "armour_break_source_not_established_without_warbringer"
+    },
+    {
+      "numeric_id": 64939,
+      "string_id": "two_handed2",
+      "name": "Two Handed Damage",
+      "reason": "two_handed_incompatible_with_selected_one_hand_plus_shield"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "act1",
+      "label": "Act 1 late two-handed mace checkpoint",
+      "classification": "Pathcraft composition, not author stage restoration",
+      "point_budget": {
+        "common_spent": 18,
+        "weapon_set_1_extra": 0,
+        "weapon_set_2_extra": 0,
+        "active_tree_set_1_total": 18,
+        "active_tree_set_2_total": 18,
+        "ascendancy_spent": 0,
+        "class_start_cost": 0,
+        "gate": "Actual available ordinary passive budget >= common_spent; no act completion, character level, quest points or weapon-set points assumed"
+      },
+      "weapon_condition": "two-handed mace equipped; no shield phase yet",
+      "skill_condition": "Rolling Slam/Boneshatter with melee heavy-stun play; use Perfect Strike only after actual gem requirements",
+      "ids_including_start_for_graph": [
+        3936,
+        5710,
+        16725,
+        19011,
+        26092,
+        27373,
+        30123,
+        33556,
+        34210,
+        43164,
+        45363,
+        46325,
+        47175,
+        52392,
+        54811,
+        55473,
+        58528,
+        64284,
+        64939
+      ],
+      "nodes": [
+        {
+          "numeric_id": 3936,
+          "string_id": "melee17",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 5710,
+          "string_id": "marauder_brute_notable1",
+          "name": "Brutal",
+          "stats": [
+            "10% increased Stun Buildup",
+            "16% increased Melee Damage",
+            "+10 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 16725,
+          "string_id": "strength21",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 19011,
+          "string_id": "melee56",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 26092,
+          "string_id": "two_handed4",
+          "name": "Two Handed Damage",
+          "stats": [
+            "10% increased Damage with Two Handed Weapons"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 27373,
+          "string_id": "strength19",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 30123,
+          "string_id": "two_handed3",
+          "name": "Two Handed Damage",
+          "stats": [
+            "10% increased Damage with Two Handed Weapons"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 33556,
+          "string_id": "melee25",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 34210,
+          "string_id": "two_handed1",
+          "name": "Two Handed Damage",
+          "stats": [
+            "10% increased Damage with Two Handed Weapons"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 43164,
+          "string_id": "melee46",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 45363,
+          "string_id": "melee55",
+          "name": "Smash",
+          "stats": [
+            "20% increased Melee Damage",
+            "40% increased Melee Damage against Heavy Stunned enemies"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 46325,
+          "string_id": "melee18",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 52392,
+          "string_id": "two_handed8",
+          "name": "Singular Purpose",
+          "stats": [
+            "5% reduced Attack Speed",
+            "20% increased Stun Buildup",
+            "40% increased Damage with Two Handed Weapons"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 54811,
+          "string_id": "strength15",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 55473,
+          "string_id": "melee44",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 58528,
+          "string_id": "melee54",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 64284,
+          "string_id": "melee19",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 64939,
+          "string_id": "two_handed2",
+          "name": "Two Handed Damage",
+          "stats": [
+            "10% increased Damage with Two Handed Weapons"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        }
+      ],
+      "native_candidate_ids_excluding_start": [
+        "melee17",
+        "marauder_brute_notable1",
+        "strength21",
+        "melee56",
+        "two_handed4",
+        "strength19",
+        "two_handed3",
+        "melee25",
+        "two_handed1",
+        "melee46",
+        "melee55",
+        "melee18",
+        "two_handed8",
+        "strength15",
+        "melee44",
+        "melee54",
+        "melee19",
+        "two_handed2"
+      ],
+      "path_witnesses": [
+        {
+          "target": "Brutal",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710
+          ]
+        },
+        {
+          "target": "Smash",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363
+          ]
+        },
+        {
+          "target": "Singular Purpose",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            34210,
+            64939,
+            30123,
+            26092,
+            52392
+          ]
+        }
+      ],
+      "allocation_witness_not_author_click_order": [
+        3936,
+        46325,
+        33556,
+        55473,
+        43164,
+        5710,
+        58528,
+        45363,
+        19011,
+        64284,
+        27373,
+        16725,
+        54811,
+        34210,
+        64939,
+        30123,
+        26092,
+        52392
+      ],
+      "transition_from_previous": {
+        "refund_numeric_ids_in_safe_order": [],
+        "refund_count": 0,
+        "add_numeric_ids_in_safe_order": [
+          3936,
+          46325,
+          33556,
+          55473,
+          43164,
+          5710,
+          58528,
+          45363,
+          19011,
+          64284,
+          27373,
+          16725,
+          54811,
+          34210,
+          64939,
+          30123,
+          26092,
+          52392
+        ],
+        "add_count": 18,
+        "net_extra_points": 18,
+        "currency_cost": "not derived; verify actual refund affordability before changing weapon"
+      },
+      "validation": {
+        "connected_from_warrior_start": true,
+        "all_steps_connected": true,
+        "all_ids_from_saved_specs": true,
+        "all_path_edges_from_saved_tree": true,
+        "no_foreign_ascendancy": true,
+        "no_shield_twohand_conflict": true,
+        "both_weapon_sets_connected": true,
+        "no_extra_weapon_set_budget_required": true
+      }
+    },
+    {
+      "id": "act2",
+      "label": "Act 2 shield transition checkpoint",
+      "classification": "Pathcraft composition, not author stage restoration",
+      "point_budget": {
+        "common_spent": 26,
+        "weapon_set_1_extra": 0,
+        "weapon_set_2_extra": 0,
+        "active_tree_set_1_total": 26,
+        "active_tree_set_2_total": 26,
+        "ascendancy_spent": 0,
+        "class_start_cost": 0,
+        "gate": "Actual available ordinary passive budget >= common_spent; no act completion, character level, quest points or weapon-set points assumed"
+      },
+      "weapon_condition": "one-handed mace plus armour shield; maintain actual requirements on both sets",
+      "skill_condition": "Shield Wall gem obtained and usable; Shockwave Totem and/or Shield Charge for wall breaking, Infernal Cry subject to real cooldown, no Warbringer cooldown-ignore assumed",
+      "ids_including_start_for_graph": [
+        3936,
+        5710,
+        6529,
+        7721,
+        16725,
+        18073,
+        18505,
+        19011,
+        25482,
+        26725,
+        27373,
+        27726,
+        32416,
+        33556,
+        36027,
+        43164,
+        45090,
+        45363,
+        46325,
+        47175,
+        54485,
+        54811,
+        55473,
+        57703,
+        58528,
+        63114,
+        64284
+      ],
+      "nodes": [
+        {
+          "numeric_id": 3936,
+          "string_id": "melee17",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 5710,
+          "string_id": "marauder_brute_notable1",
+          "name": "Brutal",
+          "stats": [
+            "10% increased Stun Buildup",
+            "16% increased Melee Damage",
+            "+10 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 6529,
+          "string_id": "armour5",
+          "name": "Armour",
+          "stats": [
+            "15% increased Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 7721,
+          "string_id": "marauder_brute_notable2",
+          "name": "Relentless",
+          "stats": [
+            "15% increased Armour",
+            "Regenerate 0.5% of maximum Life per second",
+            "+10 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 16725,
+          "string_id": "strength21",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 18073,
+          "string_id": "slow_attacks2_",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 18505,
+          "string_id": "slow_attacks10",
+          "name": "Crushing Verdict",
+          "stats": [
+            "5% reduced Attack Speed",
+            "30% increased Stun Buildup",
+            "50% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 19011,
+          "string_id": "melee56",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 25482,
+          "string_id": "strength102",
+          "name": "Beef",
+          "stats": [
+            "+25 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 26725,
+          "string_id": "jewel_slot1956",
+          "name": "Jewel Socket",
+          "stats": [],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": true
+        },
+        {
+          "numeric_id": 27373,
+          "string_id": "strength19",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 27726,
+          "string_id": "armour14",
+          "name": "Armour",
+          "stats": [
+            "15% increased Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 32416,
+          "string_id": "armour35",
+          "name": "Sturdy Metal",
+          "stats": [
+            "80% increased Armour from Equipped Body Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 33556,
+          "string_id": "melee25",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 36027,
+          "string_id": "slow_attacks3",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 43164,
+          "string_id": "melee46",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 45090,
+          "string_id": "slow_attacks5",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 45363,
+          "string_id": "melee55",
+          "name": "Smash",
+          "stats": [
+            "20% increased Melee Damage",
+            "40% increased Melee Damage against Heavy Stunned enemies"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 46325,
+          "string_id": "melee18",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 54485,
+          "string_id": "strength105",
+          "name": "Strength",
+          "stats": [
+            "+8 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 54811,
+          "string_id": "strength15",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 55473,
+          "string_id": "melee44",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 57703,
+          "string_id": "attributes32",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 58528,
+          "string_id": "melee54",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 63114,
+          "string_id": "strength68",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 64284,
+          "string_id": "melee19",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        }
+      ],
+      "native_candidate_ids_excluding_start": [
+        "melee17",
+        "marauder_brute_notable1",
+        "armour5",
+        "marauder_brute_notable2",
+        "strength21",
+        "slow_attacks2_",
+        "slow_attacks10",
+        "melee56",
+        "strength102",
+        "jewel_slot1956",
+        "strength19",
+        "armour14",
+        "armour35",
+        "melee25",
+        "slow_attacks3",
+        "melee46",
+        "slow_attacks5",
+        "melee55",
+        "melee18",
+        "strength105",
+        "strength15",
+        "melee44",
+        "attributes32",
+        "melee54",
+        "strength68",
+        "melee19"
+      ],
+      "path_witnesses": [
+        {
+          "target": "Brutal",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710
+          ]
+        },
+        {
+          "target": "Smash",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363
+          ]
+        },
+        {
+          "target": "Beef",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            54485,
+            25482
+          ]
+        },
+        {
+          "target": "Relentless",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            6529,
+            32416,
+            27726,
+            7721
+          ]
+        },
+        {
+          "target": "Crushing Verdict",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            63114,
+            18073,
+            36027,
+            45090,
+            18505
+          ]
+        }
+      ],
+      "allocation_witness_not_author_click_order": [
+        3936,
+        46325,
+        33556,
+        55473,
+        43164,
+        5710,
+        58528,
+        45363,
+        19011,
+        64284,
+        27373,
+        16725,
+        54811,
+        57703,
+        54485,
+        25482,
+        6529,
+        32416,
+        27726,
+        7721,
+        26725,
+        63114,
+        18073,
+        36027,
+        45090,
+        18505
+      ],
+      "transition_from_previous": {
+        "refund_numeric_ids_in_safe_order": [
+          52392,
+          26092,
+          30123,
+          64939,
+          34210
+        ],
+        "refund_count": 5,
+        "add_numeric_ids_in_safe_order": [
+          57703,
+          54485,
+          25482,
+          6529,
+          32416,
+          27726,
+          7721,
+          26725,
+          63114,
+          18073,
+          36027,
+          45090,
+          18505
+        ],
+        "add_count": 13,
+        "net_extra_points": 8,
+        "currency_cost": "not derived; verify actual refund affordability before changing weapon"
+      },
+      "validation": {
+        "connected_from_warrior_start": true,
+        "all_steps_connected": true,
+        "all_ids_from_saved_specs": true,
+        "all_path_edges_from_saved_tree": true,
+        "no_foreign_ascendancy": true,
+        "no_shield_twohand_conflict": true,
+        "both_weapon_sets_connected": true,
+        "no_extra_weapon_set_budget_required": true
+      }
+    },
+    {
+      "id": "act3",
+      "label": "Act 3 shield sustain checkpoint",
+      "classification": "Pathcraft composition, not author stage restoration",
+      "point_budget": {
+        "common_spent": 37,
+        "weapon_set_1_extra": 0,
+        "weapon_set_2_extra": 0,
+        "active_tree_set_1_total": 37,
+        "active_tree_set_2_total": 37,
+        "ascendancy_spent": 0,
+        "class_start_cost": 0,
+        "gate": "Actual available ordinary passive budget >= common_spent; no act completion, character level, quest points or weapon-set points assumed"
+      },
+      "weapon_condition": "one-handed mace plus armour shield; maintain actual requirements on both sets",
+      "skill_condition": "Shield Wall gem obtained and usable; Shockwave Totem and/or Shield Charge for wall breaking, Infernal Cry subject to real cooldown, no Warbringer cooldown-ignore assumed",
+      "ids_including_start_for_graph": [
+        3936,
+        5710,
+        6529,
+        7721,
+        8600,
+        10774,
+        16725,
+        18073,
+        18505,
+        19011,
+        22975,
+        25482,
+        26568,
+        26725,
+        27373,
+        27439,
+        27726,
+        31903,
+        32416,
+        33556,
+        35863,
+        36027,
+        37258,
+        38876,
+        43164,
+        45090,
+        45363,
+        46325,
+        47175,
+        51732,
+        54485,
+        54811,
+        55473,
+        57703,
+        58528,
+        61490,
+        63114,
+        64284
+      ],
+      "nodes": [
+        {
+          "numeric_id": 3936,
+          "string_id": "melee17",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 5710,
+          "string_id": "marauder_brute_notable1",
+          "name": "Brutal",
+          "stats": [
+            "10% increased Stun Buildup",
+            "16% increased Melee Damage",
+            "+10 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 6529,
+          "string_id": "armour5",
+          "name": "Armour",
+          "stats": [
+            "15% increased Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 7721,
+          "string_id": "marauder_brute_notable2",
+          "name": "Relentless",
+          "stats": [
+            "15% increased Armour",
+            "Regenerate 0.5% of maximum Life per second",
+            "+10 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 8600,
+          "string_id": "attributes82",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 10774,
+          "string_id": "duration_spells11",
+          "name": "Unyielding",
+          "stats": [
+            "15% increased Attack Speed if you've been Hit Recently",
+            "8% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 16725,
+          "string_id": "strength21",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 18073,
+          "string_id": "slow_attacks2_",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 18505,
+          "string_id": "slow_attacks10",
+          "name": "Crushing Verdict",
+          "stats": [
+            "5% reduced Attack Speed",
+            "30% increased Stun Buildup",
+            "50% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 19011,
+          "string_id": "melee56",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 22975,
+          "string_id": "attributes58",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 25482,
+          "string_id": "strength102",
+          "name": "Beef",
+          "stats": [
+            "+25 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 26568,
+          "string_id": "duration_spells7",
+          "name": "Slow Effect on You and Attack Speed",
+          "stats": [
+            "2% increased Attack Speed",
+            "4% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 26725,
+          "string_id": "jewel_slot1956",
+          "name": "Jewel Socket",
+          "stats": [],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": true
+        },
+        {
+          "numeric_id": 27373,
+          "string_id": "strength19",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 27439,
+          "string_id": "strength73",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 27726,
+          "string_id": "armour14",
+          "name": "Armour",
+          "stats": [
+            "15% increased Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 31903,
+          "string_id": "strength76",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 32416,
+          "string_id": "armour35",
+          "name": "Sturdy Metal",
+          "stats": [
+            "80% increased Armour from Equipped Body Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 33556,
+          "string_id": "melee25",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 35863,
+          "string_id": "duration_spells9",
+          "name": "Attack Speed",
+          "stats": [
+            "3% increased Attack Speed"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 36027,
+          "string_id": "slow_attacks3",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 37258,
+          "string_id": "attributes18",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 38876,
+          "string_id": "attributes59_",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 43164,
+          "string_id": "melee46",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 45090,
+          "string_id": "slow_attacks5",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 45363,
+          "string_id": "melee55",
+          "name": "Smash",
+          "stats": [
+            "20% increased Melee Damage",
+            "40% increased Melee Damage against Heavy Stunned enemies"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 46325,
+          "string_id": "melee18",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 51732,
+          "string_id": "duration_spells8",
+          "name": "Attack Speed",
+          "stats": [
+            "3% increased Attack Speed"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 54485,
+          "string_id": "strength105",
+          "name": "Strength",
+          "stats": [
+            "+8 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 54811,
+          "string_id": "strength15",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 55473,
+          "string_id": "melee44",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 57703,
+          "string_id": "attributes32",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 58528,
+          "string_id": "melee54",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 61490,
+          "string_id": "strength75",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 63114,
+          "string_id": "strength68",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 64284,
+          "string_id": "melee19",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        }
+      ],
+      "native_candidate_ids_excluding_start": [
+        "melee17",
+        "marauder_brute_notable1",
+        "armour5",
+        "marauder_brute_notable2",
+        "attributes82",
+        "duration_spells11",
+        "strength21",
+        "slow_attacks2_",
+        "slow_attacks10",
+        "melee56",
+        "attributes58",
+        "strength102",
+        "duration_spells7",
+        "jewel_slot1956",
+        "strength19",
+        "strength73",
+        "armour14",
+        "strength76",
+        "armour35",
+        "melee25",
+        "duration_spells9",
+        "slow_attacks3",
+        "attributes18",
+        "attributes59_",
+        "melee46",
+        "slow_attacks5",
+        "melee55",
+        "melee18",
+        "duration_spells8",
+        "strength105",
+        "strength15",
+        "melee44",
+        "attributes32",
+        "melee54",
+        "strength75",
+        "strength68",
+        "melee19"
+      ],
+      "path_witnesses": [
+        {
+          "target": "Brutal",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710
+          ]
+        },
+        {
+          "target": "Smash",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363
+          ]
+        },
+        {
+          "target": "Beef",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            54485,
+            25482
+          ]
+        },
+        {
+          "target": "Relentless",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            6529,
+            32416,
+            27726,
+            7721
+          ]
+        },
+        {
+          "target": "Crushing Verdict",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            63114,
+            18073,
+            36027,
+            45090,
+            18505
+          ]
+        },
+        {
+          "target": "Unyielding",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            22975,
+            27439,
+            8600,
+            61490,
+            38876,
+            31903,
+            37258,
+            26568,
+            51732,
+            35863,
+            10774
+          ]
+        }
+      ],
+      "allocation_witness_not_author_click_order": [
+        3936,
+        46325,
+        33556,
+        55473,
+        43164,
+        5710,
+        58528,
+        45363,
+        19011,
+        64284,
+        27373,
+        16725,
+        54811,
+        57703,
+        54485,
+        25482,
+        6529,
+        32416,
+        27726,
+        7721,
+        26725,
+        63114,
+        18073,
+        36027,
+        45090,
+        18505,
+        22975,
+        27439,
+        8600,
+        61490,
+        38876,
+        31903,
+        37258,
+        26568,
+        51732,
+        35863,
+        10774
+      ],
+      "transition_from_previous": {
+        "refund_numeric_ids_in_safe_order": [],
+        "refund_count": 0,
+        "add_numeric_ids_in_safe_order": [
+          22975,
+          27439,
+          8600,
+          61490,
+          38876,
+          31903,
+          37258,
+          26568,
+          51732,
+          35863,
+          10774
+        ],
+        "add_count": 11,
+        "net_extra_points": 11,
+        "currency_cost": "not derived; verify actual refund affordability before changing weapon"
+      },
+      "validation": {
+        "connected_from_warrior_start": true,
+        "all_steps_connected": true,
+        "all_ids_from_saved_specs": true,
+        "all_path_edges_from_saved_tree": true,
+        "no_foreign_ascendancy": true,
+        "no_shield_twohand_conflict": true,
+        "both_weapon_sets_connected": true,
+        "no_extra_weapon_set_budget_required": true
+      }
+    },
+    {
+      "id": "act4",
+      "label": "Act 4 mobility and cry recovery checkpoint",
+      "classification": "Pathcraft composition, not author stage restoration",
+      "point_budget": {
+        "common_spent": 47,
+        "weapon_set_1_extra": 0,
+        "weapon_set_2_extra": 0,
+        "active_tree_set_1_total": 47,
+        "active_tree_set_2_total": 47,
+        "ascendancy_spent": 0,
+        "class_start_cost": 0,
+        "gate": "Actual available ordinary passive budget >= common_spent; no act completion, character level, quest points or weapon-set points assumed"
+      },
+      "weapon_condition": "one-handed mace plus armour shield; maintain actual requirements on both sets",
+      "skill_condition": "Shield Wall gem obtained and usable; Shockwave Totem and/or Shield Charge for wall breaking, Infernal Cry subject to real cooldown, no Warbringer cooldown-ignore assumed",
+      "ids_including_start_for_graph": [
+        2864,
+        3936,
+        5710,
+        6529,
+        7721,
+        8600,
+        10774,
+        13279,
+        16725,
+        18073,
+        18505,
+        19011,
+        22975,
+        25482,
+        26568,
+        26725,
+        27373,
+        27439,
+        27726,
+        31903,
+        32416,
+        32564,
+        33518,
+        33556,
+        35863,
+        35876,
+        36027,
+        37258,
+        37612,
+        38130,
+        38876,
+        39207,
+        43164,
+        45090,
+        45363,
+        46325,
+        47175,
+        51732,
+        53194,
+        54485,
+        54811,
+        55473,
+        57703,
+        58528,
+        61490,
+        63114,
+        63579,
+        64284
+      ],
+      "nodes": [
+        {
+          "numeric_id": 2864,
+          "string_id": "attributes72",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 3936,
+          "string_id": "melee17",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 5710,
+          "string_id": "marauder_brute_notable1",
+          "name": "Brutal",
+          "stats": [
+            "10% increased Stun Buildup",
+            "16% increased Melee Damage",
+            "+10 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 6529,
+          "string_id": "armour5",
+          "name": "Armour",
+          "stats": [
+            "15% increased Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 7721,
+          "string_id": "marauder_brute_notable2",
+          "name": "Relentless",
+          "stats": [
+            "15% increased Armour",
+            "Regenerate 0.5% of maximum Life per second",
+            "+10 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 8600,
+          "string_id": "attributes82",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 10774,
+          "string_id": "duration_spells11",
+          "name": "Unyielding",
+          "stats": [
+            "15% increased Attack Speed if you've been Hit Recently",
+            "8% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 13279,
+          "string_id": "strength78_",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 16725,
+          "string_id": "strength21",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 18073,
+          "string_id": "slow_attacks2_",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 18505,
+          "string_id": "slow_attacks10",
+          "name": "Crushing Verdict",
+          "stats": [
+            "5% reduced Attack Speed",
+            "30% increased Stun Buildup",
+            "50% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 19011,
+          "string_id": "melee56",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 22975,
+          "string_id": "attributes58",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 25482,
+          "string_id": "strength102",
+          "name": "Beef",
+          "stats": [
+            "+25 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 26568,
+          "string_id": "duration_spells7",
+          "name": "Slow Effect on You and Attack Speed",
+          "stats": [
+            "2% increased Attack Speed",
+            "4% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 26725,
+          "string_id": "jewel_slot1956",
+          "name": "Jewel Socket",
+          "stats": [],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": true
+        },
+        {
+          "numeric_id": 27373,
+          "string_id": "strength19",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 27439,
+          "string_id": "strength73",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 27726,
+          "string_id": "armour14",
+          "name": "Armour",
+          "stats": [
+            "15% increased Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 31903,
+          "string_id": "strength76",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 32416,
+          "string_id": "armour35",
+          "name": "Sturdy Metal",
+          "stats": [
+            "80% increased Armour from Equipped Body Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 32564,
+          "string_id": "slow_mitigation5",
+          "name": "Movement Speed and Slow Effect on You",
+          "stats": [
+            "1% increased Movement Speed",
+            "4% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 33518,
+          "string_id": "slow_mitigation2",
+          "name": "Slow Effect on You",
+          "stats": [
+            "8% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 33556,
+          "string_id": "melee25",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 35863,
+          "string_id": "duration_spells9",
+          "name": "Attack Speed",
+          "stats": [
+            "3% increased Attack Speed"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 35876,
+          "string_id": "warcries21",
+          "name": "Admonisher",
+          "stats": [
+            "25% increased Warcry Speed",
+            "25% increased Warcry Cooldown Recovery Rate"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 36027,
+          "string_id": "slow_attacks3",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 37258,
+          "string_id": "attributes18",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 37612,
+          "string_id": "attributes44",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 38130,
+          "string_id": "warcries19_",
+          "name": "Warcry Cooldown Speed",
+          "stats": [
+            "10% increased Warcry Cooldown Recovery Rate"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 38876,
+          "string_id": "attributes59_",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 39207,
+          "string_id": "slow_mitigation1",
+          "name": "Slow Effect on You",
+          "stats": [
+            "8% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 43164,
+          "string_id": "melee46",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 45090,
+          "string_id": "slow_attacks5",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 45363,
+          "string_id": "melee55",
+          "name": "Smash",
+          "stats": [
+            "20% increased Melee Damage",
+            "40% increased Melee Damage against Heavy Stunned enemies"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 46325,
+          "string_id": "melee18",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 51732,
+          "string_id": "duration_spells8",
+          "name": "Attack Speed",
+          "stats": [
+            "3% increased Attack Speed"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 53194,
+          "string_id": "warcries20",
+          "name": "Warcry Cooldown Speed",
+          "stats": [
+            "10% increased Warcry Cooldown Recovery Rate"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 54485,
+          "string_id": "strength105",
+          "name": "Strength",
+          "stats": [
+            "+8 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 54811,
+          "string_id": "strength15",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 55473,
+          "string_id": "melee44",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 57703,
+          "string_id": "attributes32",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 58528,
+          "string_id": "melee54",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 61490,
+          "string_id": "strength75",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 63114,
+          "string_id": "strength68",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 63579,
+          "string_id": "slow_mitigation7_",
+          "name": "Momentum",
+          "stats": [
+            "Ignore all Movement Penalties from Armour",
+            "5% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 64284,
+          "string_id": "melee19",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        }
+      ],
+      "native_candidate_ids_excluding_start": [
+        "attributes72",
+        "melee17",
+        "marauder_brute_notable1",
+        "armour5",
+        "marauder_brute_notable2",
+        "attributes82",
+        "duration_spells11",
+        "strength78_",
+        "strength21",
+        "slow_attacks2_",
+        "slow_attacks10",
+        "melee56",
+        "attributes58",
+        "strength102",
+        "duration_spells7",
+        "jewel_slot1956",
+        "strength19",
+        "strength73",
+        "armour14",
+        "strength76",
+        "armour35",
+        "slow_mitigation5",
+        "slow_mitigation2",
+        "melee25",
+        "duration_spells9",
+        "warcries21",
+        "slow_attacks3",
+        "attributes18",
+        "attributes44",
+        "warcries19_",
+        "attributes59_",
+        "slow_mitigation1",
+        "melee46",
+        "slow_attacks5",
+        "melee55",
+        "melee18",
+        "duration_spells8",
+        "warcries20",
+        "strength105",
+        "strength15",
+        "melee44",
+        "attributes32",
+        "melee54",
+        "strength75",
+        "strength68",
+        "slow_mitigation7_",
+        "melee19"
+      ],
+      "path_witnesses": [
+        {
+          "target": "Brutal",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710
+          ]
+        },
+        {
+          "target": "Smash",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363
+          ]
+        },
+        {
+          "target": "Beef",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            54485,
+            25482
+          ]
+        },
+        {
+          "target": "Relentless",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            6529,
+            32416,
+            27726,
+            7721
+          ]
+        },
+        {
+          "target": "Crushing Verdict",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            63114,
+            18073,
+            36027,
+            45090,
+            18505
+          ]
+        },
+        {
+          "target": "Unyielding",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            22975,
+            27439,
+            8600,
+            61490,
+            38876,
+            31903,
+            37258,
+            26568,
+            51732,
+            35863,
+            10774
+          ]
+        },
+        {
+          "target": "Momentum",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            22975,
+            27439,
+            8600,
+            61490,
+            38876,
+            31903,
+            37612,
+            13279,
+            2864,
+            32564,
+            39207,
+            33518,
+            63579
+          ]
+        },
+        {
+          "target": "Admonisher",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            38130,
+            53194,
+            35876
+          ]
+        }
+      ],
+      "allocation_witness_not_author_click_order": [
+        3936,
+        46325,
+        33556,
+        55473,
+        43164,
+        5710,
+        58528,
+        45363,
+        19011,
+        64284,
+        27373,
+        16725,
+        54811,
+        57703,
+        54485,
+        25482,
+        6529,
+        32416,
+        27726,
+        7721,
+        26725,
+        63114,
+        18073,
+        36027,
+        45090,
+        18505,
+        22975,
+        27439,
+        8600,
+        61490,
+        38876,
+        31903,
+        37258,
+        26568,
+        51732,
+        35863,
+        10774,
+        37612,
+        13279,
+        2864,
+        32564,
+        39207,
+        33518,
+        63579,
+        38130,
+        53194,
+        35876
+      ],
+      "transition_from_previous": {
+        "refund_numeric_ids_in_safe_order": [],
+        "refund_count": 0,
+        "add_numeric_ids_in_safe_order": [
+          37612,
+          13279,
+          2864,
+          32564,
+          39207,
+          33518,
+          63579,
+          38130,
+          53194,
+          35876
+        ],
+        "add_count": 10,
+        "net_extra_points": 10,
+        "currency_cost": "not derived; verify actual refund affordability before changing weapon"
+      },
+      "validation": {
+        "connected_from_warrior_start": true,
+        "all_steps_connected": true,
+        "all_ids_from_saved_specs": true,
+        "all_path_edges_from_saved_tree": true,
+        "no_foreign_ascendancy": true,
+        "no_shield_twohand_conflict": true,
+        "both_weapon_sets_connected": true,
+        "no_extra_weapon_set_budget_required": true
+      }
+    },
+    {
+      "id": "interlude",
+      "label": "Interlude mobility checkpoint",
+      "classification": "Pathcraft composition, not author stage restoration",
+      "point_budget": {
+        "common_spent": 56,
+        "weapon_set_1_extra": 0,
+        "weapon_set_2_extra": 0,
+        "active_tree_set_1_total": 56,
+        "active_tree_set_2_total": 56,
+        "ascendancy_spent": 0,
+        "class_start_cost": 0,
+        "gate": "Actual available ordinary passive budget >= common_spent; no act completion, character level, quest points or weapon-set points assumed"
+      },
+      "weapon_condition": "one-handed mace plus armour shield; maintain actual requirements on both sets",
+      "skill_condition": "Shield Wall gem obtained and usable; Shockwave Totem and/or Shield Charge for wall breaking, Infernal Cry subject to real cooldown, no Warbringer cooldown-ignore assumed",
+      "ids_including_start_for_graph": [
+        2864,
+        3936,
+        5710,
+        6529,
+        7721,
+        8600,
+        10774,
+        13279,
+        15182,
+        16725,
+        17045,
+        17340,
+        18073,
+        18505,
+        19011,
+        21755,
+        22975,
+        25482,
+        26568,
+        26725,
+        27373,
+        27439,
+        27726,
+        31903,
+        32416,
+        32564,
+        33518,
+        33556,
+        35863,
+        35876,
+        36027,
+        37258,
+        37519,
+        37612,
+        38130,
+        38876,
+        39207,
+        43164,
+        45090,
+        45363,
+        46325,
+        47175,
+        51732,
+        53194,
+        54127,
+        54485,
+        54811,
+        54818,
+        55131,
+        55473,
+        57703,
+        58528,
+        61490,
+        62051,
+        63114,
+        63579,
+        64284
+      ],
+      "nodes": [
+        {
+          "numeric_id": 2864,
+          "string_id": "attributes72",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 3936,
+          "string_id": "melee17",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 5710,
+          "string_id": "marauder_brute_notable1",
+          "name": "Brutal",
+          "stats": [
+            "10% increased Stun Buildup",
+            "16% increased Melee Damage",
+            "+10 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 6529,
+          "string_id": "armour5",
+          "name": "Armour",
+          "stats": [
+            "15% increased Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 7721,
+          "string_id": "marauder_brute_notable2",
+          "name": "Relentless",
+          "stats": [
+            "15% increased Armour",
+            "Regenerate 0.5% of maximum Life per second",
+            "+10 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 8600,
+          "string_id": "attributes82",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 10774,
+          "string_id": "duration_spells11",
+          "name": "Unyielding",
+          "stats": [
+            "15% increased Attack Speed if you've been Hit Recently",
+            "8% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 13279,
+          "string_id": "strength78_",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 15182,
+          "string_id": "attributes45",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 16725,
+          "string_id": "strength21",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 17045,
+          "string_id": "slow_mitigation4_",
+          "name": "Movement Speed ",
+          "stats": [
+            "2% increased Movement Speed"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 17340,
+          "string_id": "movement_speed11",
+          "name": "Adrenaline Rush",
+          "stats": [
+            "4% increased Movement Speed if you've Killed Recently",
+            "8% increased Attack Speed if you've killed Recently"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 18073,
+          "string_id": "slow_attacks2_",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 18505,
+          "string_id": "slow_attacks10",
+          "name": "Crushing Verdict",
+          "stats": [
+            "5% reduced Attack Speed",
+            "30% increased Stun Buildup",
+            "50% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 19011,
+          "string_id": "melee56",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 21755,
+          "string_id": "dexterity13",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 22975,
+          "string_id": "attributes58",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 25482,
+          "string_id": "strength102",
+          "name": "Beef",
+          "stats": [
+            "+25 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 26568,
+          "string_id": "duration_spells7",
+          "name": "Slow Effect on You and Attack Speed",
+          "stats": [
+            "2% increased Attack Speed",
+            "4% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 26725,
+          "string_id": "jewel_slot1956",
+          "name": "Jewel Socket",
+          "stats": [],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": true
+        },
+        {
+          "numeric_id": 27373,
+          "string_id": "strength19",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 27439,
+          "string_id": "strength73",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 27726,
+          "string_id": "armour14",
+          "name": "Armour",
+          "stats": [
+            "15% increased Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 31903,
+          "string_id": "strength76",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 32416,
+          "string_id": "armour35",
+          "name": "Sturdy Metal",
+          "stats": [
+            "80% increased Armour from Equipped Body Armour"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 32564,
+          "string_id": "slow_mitigation5",
+          "name": "Movement Speed and Slow Effect on You",
+          "stats": [
+            "1% increased Movement Speed",
+            "4% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 33518,
+          "string_id": "slow_mitigation2",
+          "name": "Slow Effect on You",
+          "stats": [
+            "8% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 33556,
+          "string_id": "melee25",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 35863,
+          "string_id": "duration_spells9",
+          "name": "Attack Speed",
+          "stats": [
+            "3% increased Attack Speed"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 35876,
+          "string_id": "warcries21",
+          "name": "Admonisher",
+          "stats": [
+            "25% increased Warcry Speed",
+            "25% increased Warcry Cooldown Recovery Rate"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 36027,
+          "string_id": "slow_attacks3",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 37258,
+          "string_id": "attributes18",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 37519,
+          "string_id": "slow_mitigation3",
+          "name": "Movement Speed ",
+          "stats": [
+            "2% increased Movement Speed"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 37612,
+          "string_id": "attributes44",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 38130,
+          "string_id": "warcries19_",
+          "name": "Warcry Cooldown Speed",
+          "stats": [
+            "10% increased Warcry Cooldown Recovery Rate"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 38876,
+          "string_id": "attributes59_",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 39207,
+          "string_id": "slow_mitigation1",
+          "name": "Slow Effect on You",
+          "stats": [
+            "8% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 43164,
+          "string_id": "melee46",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 45090,
+          "string_id": "slow_attacks5",
+          "name": "Attack Damage",
+          "stats": [
+            "12% increased Attack Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 45363,
+          "string_id": "melee55",
+          "name": "Smash",
+          "stats": [
+            "20% increased Melee Damage",
+            "40% increased Melee Damage against Heavy Stunned enemies"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 46325,
+          "string_id": "melee18",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 51732,
+          "string_id": "duration_spells8",
+          "name": "Attack Speed",
+          "stats": [
+            "3% increased Attack Speed"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 53194,
+          "string_id": "warcries20",
+          "name": "Warcry Cooldown Speed",
+          "stats": [
+            "10% increased Warcry Cooldown Recovery Rate"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 54127,
+          "string_id": "jewel_slot1975",
+          "name": "Jewel Socket",
+          "stats": [],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": true
+        },
+        {
+          "numeric_id": 54485,
+          "string_id": "strength105",
+          "name": "Strength",
+          "stats": [
+            "+8 to Strength"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 54811,
+          "string_id": "strength15",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 54818,
+          "string_id": "strength80",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 55131,
+          "string_id": "slow_mitigation8",
+          "name": "Light on your Feet",
+          "stats": [
+            "3% increased Movement Speed",
+            "Immune to Hinder",
+            "Immune to Maim"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 55473,
+          "string_id": "melee44",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 57703,
+          "string_id": "attributes32",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 58528,
+          "string_id": "melee54",
+          "name": "Melee Damage",
+          "stats": [
+            "10% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 61490,
+          "string_id": "strength75",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 62051,
+          "string_id": "movement_speed8_",
+          "name": "Movement Speed",
+          "stats": [
+            "3% increased Movement Speed if you've Killed Recently"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 63114,
+          "string_id": "strength68",
+          "name": "Attribute",
+          "stats": [
+            "+5 to any Attribute"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": "unresolved: choose against actual gear/gem requirements; no numeric-ID default inferred",
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 63579,
+          "string_id": "slow_mitigation7_",
+          "name": "Momentum",
+          "stats": [
+            "Ignore all Movement Penalties from Armour",
+            "5% reduced Slowing Potency of Debuffs on You"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        },
+        {
+          "numeric_id": 64284,
+          "string_id": "melee19",
+          "name": "Melee Damage",
+          "stats": [
+            "8% increased Melee Damage"
+          ],
+          "allocation": "common",
+          "source": {
+            "file": "linked_update_pob.xml",
+            "spec_titles": [
+              "1",
+              "2",
+              "Swap",
+              "3",
+              "4",
+              "Interlude"
+            ]
+          },
+          "attribute_choice": null,
+          "jewel_socket": false
+        }
+      ],
+      "native_candidate_ids_excluding_start": [
+        "attributes72",
+        "melee17",
+        "marauder_brute_notable1",
+        "armour5",
+        "marauder_brute_notable2",
+        "attributes82",
+        "duration_spells11",
+        "strength78_",
+        "attributes45",
+        "strength21",
+        "slow_mitigation4_",
+        "movement_speed11",
+        "slow_attacks2_",
+        "slow_attacks10",
+        "melee56",
+        "dexterity13",
+        "attributes58",
+        "strength102",
+        "duration_spells7",
+        "jewel_slot1956",
+        "strength19",
+        "strength73",
+        "armour14",
+        "strength76",
+        "armour35",
+        "slow_mitigation5",
+        "slow_mitigation2",
+        "melee25",
+        "duration_spells9",
+        "warcries21",
+        "slow_attacks3",
+        "attributes18",
+        "slow_mitigation3",
+        "attributes44",
+        "warcries19_",
+        "attributes59_",
+        "slow_mitigation1",
+        "melee46",
+        "slow_attacks5",
+        "melee55",
+        "melee18",
+        "duration_spells8",
+        "warcries20",
+        "jewel_slot1975",
+        "strength105",
+        "strength15",
+        "strength80",
+        "slow_mitigation8",
+        "melee44",
+        "attributes32",
+        "melee54",
+        "strength75",
+        "movement_speed8_",
+        "strength68",
+        "slow_mitigation7_",
+        "melee19"
+      ],
+      "path_witnesses": [
+        {
+          "target": "Brutal",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710
+          ]
+        },
+        {
+          "target": "Smash",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363
+          ]
+        },
+        {
+          "target": "Beef",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            54485,
+            25482
+          ]
+        },
+        {
+          "target": "Relentless",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            6529,
+            32416,
+            27726,
+            7721
+          ]
+        },
+        {
+          "target": "Crushing Verdict",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            63114,
+            18073,
+            36027,
+            45090,
+            18505
+          ]
+        },
+        {
+          "target": "Unyielding",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            22975,
+            27439,
+            8600,
+            61490,
+            38876,
+            31903,
+            37258,
+            26568,
+            51732,
+            35863,
+            10774
+          ]
+        },
+        {
+          "target": "Momentum",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            22975,
+            27439,
+            8600,
+            61490,
+            38876,
+            31903,
+            37612,
+            13279,
+            2864,
+            32564,
+            39207,
+            33518,
+            63579
+          ]
+        },
+        {
+          "target": "Admonisher",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            38130,
+            53194,
+            35876
+          ]
+        },
+        {
+          "target": "Light on your Feet",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            22975,
+            27439,
+            8600,
+            61490,
+            38876,
+            31903,
+            37612,
+            13279,
+            2864,
+            32564,
+            37519,
+            17045,
+            55131
+          ]
+        },
+        {
+          "target": "Adrenaline Rush",
+          "numeric_ids": [
+            47175,
+            3936,
+            46325,
+            33556,
+            55473,
+            43164,
+            5710,
+            58528,
+            45363,
+            19011,
+            64284,
+            27373,
+            16725,
+            54811,
+            57703,
+            26725,
+            22975,
+            27439,
+            8600,
+            61490,
+            38876,
+            31903,
+            37612,
+            13279,
+            2864,
+            54818,
+            15182,
+            54127,
+            21755,
+            62051,
+            17340
+          ]
+        }
+      ],
+      "allocation_witness_not_author_click_order": [
+        3936,
+        46325,
+        33556,
+        55473,
+        43164,
+        5710,
+        58528,
+        45363,
+        19011,
+        64284,
+        27373,
+        16725,
+        54811,
+        57703,
+        54485,
+        25482,
+        6529,
+        32416,
+        27726,
+        7721,
+        26725,
+        63114,
+        18073,
+        36027,
+        45090,
+        18505,
+        22975,
+        27439,
+        8600,
+        61490,
+        38876,
+        31903,
+        37258,
+        26568,
+        51732,
+        35863,
+        10774,
+        37612,
+        13279,
+        2864,
+        32564,
+        39207,
+        33518,
+        63579,
+        38130,
+        53194,
+        35876,
+        37519,
+        17045,
+        55131,
+        54818,
+        15182,
+        54127,
+        21755,
+        62051,
+        17340
+      ],
+      "transition_from_previous": {
+        "refund_numeric_ids_in_safe_order": [],
+        "refund_count": 0,
+        "add_numeric_ids_in_safe_order": [
+          37519,
+          17045,
+          55131,
+          54818,
+          15182,
+          54127,
+          21755,
+          62051,
+          17340
+        ],
+        "add_count": 9,
+        "net_extra_points": 9,
+        "currency_cost": "not derived; verify actual refund affordability before changing weapon"
+      },
+      "validation": {
+        "connected_from_warrior_start": true,
+        "all_steps_connected": true,
+        "all_ids_from_saved_specs": true,
+        "all_path_edges_from_saved_tree": true,
+        "no_foreign_ascendancy": true,
+        "no_shield_twohand_conflict": true,
+        "both_weapon_sets_connected": true,
+        "no_extra_weapon_set_budget_required": true
+      }
+    }
+  ],
+  "limits": [
+    "No current-client rendering, damage calculation or live equipment validation",
+    "No claim that melee modifiers scale every Shield Wall component",
+    "Conditional heavy-stun/recent-hit/recent-kill bonuses are not guaranteed uptime",
+    "High-level endgame transition needs a separate diff and refund plan",
+    "Do not spend unavailable points or weapon-specific points as ordinary common points"
+  ]
+}

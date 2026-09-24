@@ -1,0 +1,402 @@
+{
+  "meta": {
+    "sources": [
+      {"part": "P1", "video_id": "cpSnWuxzcRI", "file": "cpSnWuxzcRI.txt", "lines": 3201, "read": "complete"},
+      {"part": "P2", "video_id": "_unshHnr9Mo", "file": "_unshHnr9Mo.txt", "lines": 2077, "read": "complete"}
+    ],
+    "stream_date": "2026-09-20",
+    "caption_type": "Korean YouTube auto-captions (game terms often mis-heard)",
+    "timestamp_format": "part + H:MM:SS (first caption line of the quoted span)",
+    "labels": "clear = directly stated in captions; uncertain = caption garbled or term mapping inferred; pob_crosscheck = NOT captions, taken from scratchpad wK2pk4CyFDe0.xml (the pobb.in link in the video description, labelled '최신 저자본 빌드업')",
+    "description_links_from_info_json": {
+      "285e2": "poe.ninja pob - '3일차 오전10 닌자 공유'",
+      "wK2pk4CyFDe0": "pobb.in - latest low-budget build-up",
+      "29d39": "poe.ninja pob - latest low-budget build-up",
+      "profile_FR_TangJung": "'이중인격 이후' (after Split-Personality-type jewel)"
+    }
+  },
+
+  "term_mapping": [
+    {"caption": "아홉리 / 아우꼬리 / 아웃꼬리 / 아꼬리 / 아홉꼬리 / 아홉 개 꼬리 / 고양이 꼬리 / 아홉 고양이 / 아홉골리 / 아웃골리", "meaning": "Cat O' Nine Tails (belt)", "confidence": "high (P1 3:30:53 '아홉꼬리로 돼 있긴 한데', P2 2:04:30 '고양이 꼬리')"},
+    {"caption": "운명회장 / 운명의장 / 운명의 저항 / 운명의 저 / 우명회장", "meaning": "Defiance of Destiny (amulet)", "confidence": "high"},
+    {"caption": "황동철갑 / 황동철가 / 황동", "meaning": "The Brass Dome", "confidence": "high"},
+    {"caption": "JS, JSM (P1 1:21:50) + '일반 갑옷만 사용 가능'", "meaning": "Smith's Masterwork (normal body armour only)", "confidence": "medium - node name garbled, identified by the restriction he describes"},
+    {"caption": "석탄대기", "meaning": "Coal Stoker (ascendancy node)", "confidence": "medium"},
+    {"caption": "아찌리 / 아찔리 / 아찌르 / 아리 / 아트리 + 성찬식 / 성탄식 / 성찰식 / 상찬식 / 생산식 / 장찰식 / 성창식", "meaning": "an expensive Atziri-named item/effect that gave low life in the old guide; exact English item name NOT determinable from captions", "confidence": "low for the name, high that it is the thing Cat O' Nine Tails replaces"},
+    {"caption": "마피", "meaning": "Mageblood", "confidence": "medium"},
+    {"caption": "영원한 경로 / 영원한 분노 / 경로 (in gem/tree context)", "meaning": "Eternal Rage / Rage (격노 mis-heard as 경로). NOTE: 경로석 = Waystone, a different word", "confidence": "medium"},
+    {"caption": "셉터 / 세터 / 백터; 성소세트", "meaning": "sceptre; possibly 'Shrine Sceptre' (성소 셉터)", "confidence": "high for sceptre, low for Shrine"},
+    {"caption": "토끼 우상", "meaning": "rabbit idol socketed in sceptre for spirit", "confidence": "medium"},
+    {"caption": "방파 / 방어파기 / 방우급 파괴", "meaning": "Armour Break", "confidence": "high"},
+    {"caption": "빠른 궁속 / 공속", "meaning": "Rapid Attacks / attack speed", "confidence": "medium"},
+    {"caption": "화염 조율", "meaning": "Fire Attunement", "confidence": "high"},
+    {"caption": "격돌", "meaning": "Clash", "confidence": "medium"},
+    {"caption": "벽돌라고 처형", "meaning": "Execute (처형); '벽돌라고' unclear", "confidence": "medium for Execute"},
+    {"caption": "동결의 징표 / 동결이 징표 / 징표", "meaning": "Freezing Mark", "confidence": "high"},
+    {"caption": "원소 약화 / 원소 역할 / 원수 약화 / 원소 역한 / 원소 저주", "meaning": "Elemental Weakness curse", "confidence": "high"},
+    {"caption": "카옴의 관계 / 카오의 광기 / 카움", "meaning": "Kaom's Madness (support)", "confidence": "medium"},
+    {"caption": "안의 성체 / 안의 상태 / 아는 상체", "meaning": "Ahn's Citadel (support)", "confidence": "medium"},
+    {"caption": "칼구루 자룡물 / 잔류물 / 잘문 / 잘물 / 칼구루 유산", "meaning": "Remnants of Kalguur (잔류물); '칼구루 유산' may be a different thing", "confidence": "medium"},
+    {"caption": "올로스 / 우트레드", "meaning": "Olroth('s ...) / Uhtred('s ...) - item type not stated in captions", "confidence": "low"},
+    {"caption": "이중인격 (주얼, 섀도우 시작점)", "meaning": "Split-Personality-type jewel letting the tree use the Shadow start", "confidence": "medium"},
+    {"caption": "과대망상", "meaning": "Megalomaniac-type jewel", "confidence": "medium"},
+    {"caption": "우물의 심장 / 우물 심장", "meaning": "Heart of the Well", "confidence": "medium"},
+    {"caption": "어둠 / 어둠 저항 / 어둠 조항 / 어둠정", "meaning": "Against the Darkness (jewel) - inferred", "confidence": "low"},
+    {"caption": "독사 모자 / 고유 독사모자 / 이속켓(2소켓)", "meaning": "Viper Cap; the unique Viper Cap. Captions never say 'Constricting Command' - the PoB file (not captions) has Constricting Command on Viper Cap", "confidence": "medium (with PoB cross-check)"},
+    {"caption": "기회의 진조", "meaning": "an Omen from Ritual ('기회의 징조') that turns a normal 2-socket Viper Cap into the unique", "confidence": "low for exact name"},
+    {"caption": "큰 까마귀의 손길 파편 / 까마귀", "meaning": "unknown socketable ('Great Raven's Touch' shard?) that lets the helmet also 'allocate' (할당)", "confidence": "low"},
+    {"caption": "할당 / 목걸이 할당 / 목일당", "meaning": "'Allocates <notable>' (amulet anoint / allocation)", "confidence": "medium"},
+    {"caption": "사고의 차크라 / 녹아내린 존재 / 촉매 작용 / 가시 박힌 방패 / 녹아내린 선물", "meaning": "passive notables he allocates (English names not verified)", "confidence": "low for English names"},
+    {"caption": "늑대 호신부 / 늑대우신부 / 늑대 홈백; 통과래 / 통과 의뢰", "meaning": "charm(s) used for armour break; '통과의례' = Rite of Passage (PoB has Rite of Passage Golden Charm)", "confidence": "low-medium"},
+    {"caption": "유토피아 / 도끼 추락", "meaning": "For Utopia / The Fall of the Axe (charms; PoB cross-check)", "confidence": "medium"},
+    {"caption": "사막룬", "meaning": "Desert Rune (resist)", "confidence": "medium"},
+    {"caption": "타카티 (영혼핵/영운행)", "meaning": "Soul Core of Tacati (chaos res)", "confidence": "medium"},
+    {"caption": "공어 유정체 / 맹렬한 유동체 / 조동차 / 보존된 밑장별", "meaning": "crafting currencies he applies to rings to add resistances - names garbled", "confidence": "low"},
+    {"caption": "진행 80 / 진행 92", "meaning": "probably 지능 (Intelligence) 80 / 92 (he says '지능이 74' at P1 2:06:50)", "confidence": "medium"},
+    {"caption": "반발", "meaning": "a spirit-costing skill/buff that makes the wall explode more; turned OFF in the Cat setup. English name unknown", "confidence": "low for name"},
+    {"caption": "수호", "meaning": "a defensive buffer he calls 수호 (~3000 for him). Mapping unverified", "confidence": "low"},
+    {"caption": "약초학 / 기유한 시기 / 음유한 시기 / 기요식 / 분간기 / 키마 일곱기 / 보강하는 수훈 / 신성한 꽃", "meaning": "unresolved caption terms (신성한 꽃 might be Sacred Flame; 보강하는 수훈 might be Fortifying Cry) - do not rely on these", "confidence": "very low"}
+  ],
+
+  "build_up_steps": [
+    {
+      "step": 0,
+      "when": "Act campaign",
+      "what": "He does not cover acts; follow 별이슬 골짜기's Shield Wall act guide. Acts 1-21: other slam skills. His own act guide is planned for later.",
+      "evidence": [
+        {"part": "P1", "ts": "0:07:12", "quote": "초반에는 그니까 그 액트에서는 저기 별이슬 골짜기님 방필 액트가 있 먼저 보세요.", "label": "clear"},
+        {"part": "P2", "ts": "1:06:44", "quote": "액트 구간은 방패벽 액트 가이드를 검색해서 보시는게 좋고요. 제 거에는 없어요.", "label": "clear"},
+        {"part": "P1", "ts": "1:15:06", "quote": "액트까진 넘어왔다 생각하고 갈게요.", "label": "clear"}
+      ]
+    },
+    {
+      "step": 1,
+      "when": "Day 1 / entering maps (~level 65, ~69 passive points)",
+      "what": "White (normal) body armour e.g. 전쟁군주 흉갑 with the normal-armour-only ascendancy node (Masterwork). Ascendancy order: 1st Coal Stoker, 2nd fire-res / damaging-ailment node, 3rd a 'chaos' node, 4th crit-damage-reduction + life. Attack-speed nodes go on the weapon-set tree; weapon set 2 has its own nodes. Any shield with ~1000 armour (enough to T15). Resist 75%+, chaos 40% on day 1 (target 60%+). Ruby rings with fire quality from the act (min 10). Chaos res from rings/belt/boots, two Tacati soul cores. Shield Wall with 4 supports incl. Armour Break and Rapid Attacks. Do not use Svalin. Do not trade until act 4. Craft the shield with essences. End day 1 in white items; don't spend time/money gearing on day 1.",
+      "thresholds_his_statement": [
+        "level ~65 at mapping, 69 points (P1 1:18:33)",
+        "shield armour ~1000 is enough up to tier 15 (P1 1:23:04)",
+        "resist 75%+, chaos at least 60% (P1 1:24:14); day 1 chaos 40% is fine (P1 1:25:30)",
+        "ruby ring fire quality min 10 (P1 1:35:55)",
+        "shields rarely exceed 10 div (P1 1:44:09) - price statement at that time",
+        "essence-crafted shield: ~200 armour at level-20 requirement (P1 1:52:25, 1:53:07)",
+        "day-1 spec clears T15 (P1 1:44:42)"
+      ],
+      "evidence": [
+        {"part": "P1", "ts": "1:16:19", "quote": "일단 흰색 갑옷을 입겠죠. 뭐 전쟁군주 흉갑 이런 거 낄 거란 말", "label": "clear"},
+        {"part": "P1", "ts": "1:18:33", "quote": "69포인트. 69포인트면 아직 충분히 남았죠. 매핑 올 때 65.", "label": "clear"},
+        {"part": "P1", "ts": "1:18:48", "quote": "요때는 석탄대기를 1차로 찍고 2차에서 화염저항 피해를 주는 상태 이상 처리. 여기까지 찍어야 돼요. 3차에서 카오스 피를 무조건 챙겨 줍니다.", "label": "uncertain - 1차~4차 read as ascendancy trials; 'Coal Stoker' mapping medium"},
+        {"part": "P1", "ts": "1:19:13", "quote": "원수 피해랑 4차에서 치명타 피해 감소랑 생명력을 챙길 거예요.", "label": "uncertain"},
+        {"part": "P1", "ts": "1:19:44", "quote": "경로 챙겨주고 공속 챙겨 줍니다. 근데 공속을 무기 세트로 합시다.", "label": "clear for weapon-set attack speed; '경로'=격노 uncertain"},
+        {"part": "P1", "ts": "1:20:32", "quote": "무기세트 2는 여기를 챙깁니다.", "label": "clear (screen needed)"},
+        {"part": "P1", "ts": "1:21:47", "quote": "이것 때문입니다, 여러분. 이거 JS, JSM 얘가 일반 갑옷만 사용 가능하거든요.", "label": "uncertain node name"},
+        {"part": "P1", "ts": "1:22:24", "quote": "이것만 하나 껴도 여러분 키타는 저항이 확 올라가요. 이것만 챙겨도 방어도가 40%죠.", "label": "clear (what '이것' is needs frame)"},
+        {"part": "P1", "ts": "1:25:37", "quote": "제가 흰템으로 방어도의 카오스피에 적용을 넣어 놨잖아요. 이걸 넣는 이유가 카오스가 부족할 때를 고려하는 거거든요.", "label": "clear"},
+        {"part": "P1", "ts": "1:23:04", "quote": "방패는 대충 방어도 1천. 한 15 티어까지 돌 때 방어도 1이면 됩니다.", "label": "clear"},
+        {"part": "P1", "ts": "1:24:14", "quote": "그래서 저항을 어 75% 이상 카오스는 적어도 60% 이상을 맞춰 줍니다.", "label": "clear"},
+        {"part": "P1", "ts": "1:24:33", "quote": "방패벽 빌딩은 스발린 안 씁니다.", "label": "clear"},
+        {"part": "P1", "ts": "1:25:16", "quote": "중요한 거는 저는 반지랑 신발이라 생각해요. 중요한 건 반지랑 신발.", "label": "clear"},
+        {"part": "P1", "ts": "1:25:30", "quote": "처음에 한 40%만 맞춰도 돼요. 첫날은 첫날 기준 40%.", "label": "clear"},
+        {"part": "P1", "ts": "1:35:55", "quote": "루비 반지를 10 최소 10으로 잡아요. 최소 10.", "label": "clear"},
+        {"part": "P1", "ts": "1:41:05", "quote": "카오스장이 아쉬워요. 그러면 간단하게 그냥 여기다가 그거 박아요. 타카티 이거 두 개 박아요.", "label": "clear; Tacati soul core mapping medium"},
+        {"part": "P1", "ts": "1:42:29", "quote": "방파랑 빠른 궁속이랑", "label": "clear"},
+        {"part": "P1", "ts": "1:42:46", "quote": "근접 전투랑 뭐 이런 거 쓰겠죠?", "label": "uncertain gem name"},
+        {"part": "P1", "ts": "1:43:01", "quote": "개로 칩시다.네 개.", "label": "clear (4 supports)"},
+        {"part": "P1", "ts": "1:26:11", "quote": "맵 템 세팅을 하는 데가 시간을 다 써 버리거나 돈을 다 써 버리면 추진력이 멈춰요.", "label": "clear"},
+        {"part": "P1", "ts": "1:32:22", "quote": "무조건 1일차에는 흰태으로 끝내요. 1일차에 템 세팅하면 돈만 날아갑니다, 여러분.", "label": "clear"},
+        {"part": "P1", "ts": "1:54:08", "quote": "4장까지는 거래를 하지 않고 달려야 돼요. 여기까지는.", "label": "clear"},
+        {"part": "P1", "ts": "1:51:54", "quote": "이걸 박아요. 그니까 에센스를 박는 거야. 하이 에센스.", "label": "clear"},
+        {"part": "P1", "ts": "1:47:24", "quote": "아 나 세터도 없구나 지금 여러분 이게 없어요. 무기가 없으니까 스킬 레벨도", "label": "clear - day-1 demo had no sceptre/weapon"}
+      ]
+    },
+    {
+      "step": 2,
+      "when": "Day 2",
+      "what": "Defiance of Destiny. His demo copy was 25% and unqualitied. Equipped by itself; he says it removes most deaths. Day-2 DPS shown 19k -> 35k.",
+      "evidence": [
+        {"part": "P1", "ts": "1:48:12", "quote": "자 이제 2일차가 됐다 칩시다. 2일차가 되면 이제 여러분들에게 날개가 달릴 거예요. 운명회장 목고리를 하나 쓰겠죠?", "label": "clear"},
+        {"part": "P1", "ts": "1:48:35", "quote": "25%에다가 퀄리티 안 된 거예요,", "label": "clear"},
+        {"part": "P1", "ts": "1:48:47", "quote": "이제 이것만 껴도 이제 여러분들이 크게 뒤질 일이 없어질 겁니다.", "label": "clear"},
+        {"part": "P1", "ts": "1:59:21", "quote": "데미지가 두 배 올랐으니까 19천에서 35,으로 올라가요.", "label": "clear number; which change caused it needs frame (1:58:48-1:59:39)"}
+      ]
+    },
+    {
+      "step": 3,
+      "when": "Day 2-3 (about 12-24 h of game time)",
+      "what": "Brass Dome. Done together with removing the Masterwork-era nodes and changing the ascendancy, then wearing Brass Dome. Around this time Kaom's Madness can be added; he also notices Fire Attunement is missing. Helmets (독사 모자 = Viper Cap) are cheap at this point. People who already wear Brass Dome should NOT go back to a white body.",
+      "evidence": [
+        {"part": "P1", "ts": "1:56:49", "quote": "그럼 2일차가 됐으면 운명의 저항을 맞출 거고 한 2, 3일차쯤 되면 이제 비로써 황동철갑을 낄 거예요.", "label": "clear"},
+        {"part": "P1", "ts": "1:57:24", "quote": "2, 3일차. 그러니까 게임 시간으로 한 12시간쯤에서 24시간 사이면 살 수 있어요.", "label": "clear"},
+        {"part": "P1", "ts": "1:59:55", "quote": "이걸 다 빼고 이렇게 가요. 어샌던시를 간 다음에 황동철가 물기죠.", "label": "clear (what is removed needs frame)"},
+        {"part": "P1", "ts": "2:00:16", "quote": "그리고 이때쯤이면 카옴의 관계를 낄 수 있습니다, 여러분.", "label": "uncertain name (Kaom's Madness likely)"},
+        {"part": "P1", "ts": "2:00:27", "quote": "아, 화염 조율를 안 꼈구나, 내가.", "label": "clear"},
+        {"part": "P1", "ts": "1:57:04", "quote": "토이투구랑 독사 모자가 진짜 싸.", "label": "uncertain ('토이투구' garbled)"},
+        {"part": "P1", "ts": "1:20:39", "quote": "이렇게 황동을 빼라는 얘기 아니에요. 지금부터 키우는 사람을 위해서 남기는 거예요.", "label": "clear"}
+      ]
+    },
+    {
+      "step": 4,
+      "when": "Day 3",
+      "what": "Sceptre bought once some money comes in. Spirit comes only from the sceptre plus a socketed rabbit idol; he gets no extra spirit elsewhere. Captions never name Sacred Flame here.",
+      "evidence": [
+        {"part": "P1", "ts": "2:00:41", "quote": "살짝 돈이 모이면 세터도 사고 하겠죠.", "label": "clear"},
+        {"part": "P1", "ts": "2:01:01", "quote": "셉터를 3일차에 슬슬 맞추기 시작할 겁니다.", "label": "clear"},
+        {"part": "P1", "ts": "0:11:49", "quote": "정신력은 제가 추가로 확보하지 않습니다.", "label": "clear"},
+        {"part": "P1", "ts": "0:11:56", "quote": "어 셉터에 토끼 우상 닦는 거 요거면 충분해요.", "label": "clear"}
+      ]
+    },
+    {
+      "step": 5,
+      "when": "Right after step 4. Replaces the old Atziri step, which was the price wall.",
+      "what": "Cat O' Nine Tails, done as a package: remove the life flask, rebuild the tree toward low life (Int ~80, invest in one line, physical life leech), fix lost resist with a Desert Rune, add Freezing Mark and Execute, drop a support he no longer needs, and add Elemental Weakness (Int 92). Cast it 4-5 times on map entry or after a checkpoint to fall to low life (35%). Cat blocks non-flask recovery at low life, so life stays low. Turn OFF 반발 and turn ON Eternal Rage. He relies on 수호 and Remnants of Kalguur for stability. Cost: Cat ~15 ex (his confirmation of chat). The whole low-budget kit is 10-15 div. The swap itself costs under 1 div; the downside is inconvenience at checkpoints. Shield reaches ~1500 armour by day 3-4.",
+      "thresholds_his_statement": [
+        "Cat ~15 exalted (P1 2:07:57)",
+        "replacing Atziri costs less than 1 div (P1 0:24:03-0:24:16)",
+        "whole setup ~10-15 div with a high-armour shield (P1 2:27:09)",
+        "shield ~1500 armour at day 3-4 (P1 2:08:26)",
+        "Elemental Weakness needs Int 92 (P1 2:09:10); tree gives Int ~80 (P1 2:03:30)",
+        "low life = 35% (P2 0:17:42)",
+        "resist 76 -> 81 after socketing cheap items (P1 2:17:33)"
+      ],
+      "evidence": [
+        {"part": "P1", "ts": "2:01:19", "quote": "근데 이제 그다음에 아찌리까지 따라온 사람이 있고 못 따라온 사람이 있어서 문제였던 거야.", "label": "clear"},
+        {"part": "P1", "ts": "2:01:49", "quote": "그래서 요번에는 새로운 방법이 생겼습니다. 뭐냐면 아홉리를 쓸 겁니다. 물약을 빼요.", "label": "clear"},
+        {"part": "P1", "ts": "2:02:56", "quote": "사사막 사막룬 박아 줘요. 그럼 다시 저항이 확보됐겠죠?", "label": "clear"},
+        {"part": "P1", "ts": "2:03:11", "quote": "여기서 템 세팅이 바뀝니다.", "label": "clear"},
+        {"part": "P1", "ts": "2:03:24", "quote": "이제 여기로 내려갈 거예요. 진행이를 한 80까지 줍니다.", "label": "uncertain ('진행'=지능 likely)"},
+        {"part": "P1", "ts": "2:04:14", "quote": "요쪽 쪽 라인에 최대한 투자해 주는게 좋습니다.", "label": "clear (which line needs frame)"},
+        {"part": "P1", "ts": "2:04:31", "quote": "이제 물리피의 생명력 흡수를 챙겨 줄 거예요.", "label": "clear"},
+        {"part": "P1", "ts": "2:06:00", "quote": "아홉리에 플라스크를 제외한 다른 방법으로 낮은 생명 상태에서 생력을 회복할 수 없습니다. 이걸 이용하는 거예요.", "label": "clear"},
+        {"part": "P1", "ts": "2:07:33", "quote": "어, 동결이 징표 같은 것도 넣어 줍니다.", "label": "clear"},
+        {"part": "P1", "ts": "2:07:38", "quote": "그다음에 벽돌라고 처형을 넣어 줘요.", "label": "clear for Execute"},
+        {"part": "P1", "ts": "2:07:53", "quote": "이제 이건 필요가 없어요.", "label": "uncertain - removed gem not named (frame needed)"},
+        {"part": "P1", "ts": "2:07:57", "quote": "아우꼬리가 15액짜리라고. 예, 맞아요. 거의 그 정도 합니다.", "label": "clear - price at that time"},
+        {"part": "P1", "ts": "2:08:26", "quote": "슬슬 방패도 이제 3, 4일차쯤 되면 솔직히 방어도 1500까지 올라가요.", "label": "clear"},
+        {"part": "P1", "ts": "2:09:10", "quote": "원소 약화를 하나 챙겨 줍니다.여 원소 약화를 진행 92가 필요해.", "label": "clear curse; '진행'=지능 likely"},
+        {"part": "P1", "ts": "2:09:37", "quote": "들어가자마자 저주를 한 다섯 판 꽂습니다.", "label": "clear"},
+        {"part": "P1", "ts": "2:10:38", "quote": "여러분 우린 수호를 챙겼습니다. 그리고 칼구루 자룡물을 챙겨야 돼요.", "label": "uncertain terms"},
+        {"part": "P1", "ts": "2:14:41", "quote": "중간의 공백이 메꿔진 거예요. 이것 때문에.", "label": "clear"},
+        {"part": "P1", "ts": "2:26:35", "quote": "이게 이제 리얼 저가용 아찌리.", "label": "clear"},
+        {"part": "P1", "ts": "2:27:09", "quote": "이거 거의 한 10, 15딥 안에서 선이 끝낼 수 있어요.", "label": "clear - price at that time"},
+        {"part": "P1", "ts": "0:24:03", "quote": "여러분 이번 변화는 1딥이면 충분한 변화입니다.", "label": "clear"},
+        {"part": "P1", "ts": "0:24:16", "quote": "아찌리를 대체하는데 일디도 안 든다. 단지 귀찮음이 생겼다.이 정도예요.", "label": "clear"},
+        {"part": "P2", "ts": "0:59:49", "quote": "영원한 경로를 쓰기 위해서 그러니까 최신 저자본이 아홉리를 쓰면서 낮은 생명력으로 쓰려고 하다 보니까", "label": "clear (경로=격노)"},
+        {"part": "P2", "ts": "1:00:15", "quote": "그러면여 경로가 없으면 데미지가 쭈니까 얘를 끄고 얘를 켜는 거예요.", "label": "clear"},
+        {"part": "P2", "ts": "2:15:22", "quote": "반발을 빼고 영원한 경로를 킵니다.", "label": "clear"},
+        {"part": "P2", "ts": "2:14:24", "quote": "그래서 원소 약화를 들고 다니는 이유가 뭐냐면 체크포인트에 닿왔을 때 한 세네 번 써서 체크포인트에서 이렇게 피를 깎아 줍니다.", "label": "clear"},
+        {"part": "P2", "ts": "0:17:42", "quote": "낮은 생명력은 여러분 35%입니다.", "label": "clear"}
+      ]
+    },
+    {
+      "step": 6,
+      "when": "Later upgrades (not given as a strict numbered order)",
+      "what": "(a) Raise shield armour first. It is the stated #1 priority for a struggling viewer. (b) Heart of the Well is cheap (~8 div) and part of his '100-div setup'. (c) Against the Darkness (?) in the 7 o'clock socket (~30-34 div, 4% version later). (d) A 2-socket uncorrupted helmet: a unique Viper Cap made with a Ritual Omen (~9-11 div; also 15-16 div quoted). Socketing '큰 까마귀의 손길' shards lets the helmet 'allocate' too. The 'raven' option costs 100+ div. (e) Split-Personality-type jewel (100-150 div): Shadow-start tree version; his PoB/ninja links split 'with / without' it. He says it is NOT the top priority. It is bought first only because Atziri/Mageblood are too expensive. (f) Atziri/Mageblood = high-end.",
+      "evidence": [
+        {"part": "P1", "ts": "5:01:12", "quote": "방패의 방호도부터 다시 올려야 됩니다. 그게 1순이고요. 그다음에 어둠 해서 여기다 꽂으시고요.", "label": "clear (to one viewer)"},
+        {"part": "P1", "ts": "5:01:36", "quote": "이제 마스트로 이제 섀도우 이중기를 꽂아서 여기다 다시 어둠 옮기면 됩니다.", "label": "uncertain wording"},
+        {"part": "P1", "ts": "2:31:25", "quote": "누가 백 세팅으로 물어본다면 딱 이렇게 세팅을 알려 드릴 것 같은데. 우물의 심장이랑 이것까지 다 포함해서", "label": "clear"},
+        {"part": "P1", "ts": "4:56:09", "quote": "우물 심장을 하나 삽시다. 이거 싸거든요. 그래도 이거 싸요.", "label": "clear"},
+        {"part": "P1", "ts": "4:56:27", "quote": "이거 팔디이네요.", "label": "clear - ~8 div at that time"},
+        {"part": "P1", "ts": "4:35:35", "quote": "저자본에서 어둠 조항 여기다 꽂습니다. 여기 추느리 7시 방향", "label": "uncertain item name"},
+        {"part": "P1", "ts": "3:34:16", "quote": "타락 안 된 거 이속해짜리에다가 큰 까마귀의 손길에다 파편이라는 이걸 넣어 줘요.", "label": "uncertain item name"},
+        {"part": "P1", "ts": "3:34:35", "quote": "그러면 투구에도 할당을 할 수 있게 됩니다.", "label": "clear"},
+        {"part": "P1", "ts": "3:35:29", "quote": "기회의 진조라고 있어요. 의식에 보면 기회의 진조. 요거 바르면 무조건 독사모자 이속켓으로 바뀌어요. 고유 독사모자.", "label": "uncertain Omen name"},
+        {"part": "P1", "ts": "4:39:53", "quote": "이속해짜리 투구는 9딥 10 9딥 11밖에 안 해요.", "label": "clear - price at that time"},
+        {"part": "P1", "ts": "4:40:14", "quote": "까마귀는 100 넘는데 나중에 후회 안 하겠어요?", "label": "clear"},
+        {"part": "P1", "ts": "3:53:42", "quote": "이증인격 주얼은 100 150디인가 하거든요.", "label": "clear - price at that time"},
+        {"part": "P1", "ts": "3:53:55", "quote": "있으신 분은 요걸 따라하는게 효율적이다. 근데 없으신 분들은이 전 걸 따라해라.", "label": "clear"},
+        {"part": "P2", "ts": "1:30:35", "quote": "그러니까 아찔리 성찬식이라 마피가 너무 비싸잖아. 그래서 이중 인격을 먼저 간다 느낌이에요.", "label": "clear"},
+        {"part": "P2", "ts": "1:32:51", "quote": "우선 순위냐고 하면 또 그건 아닌 거죠. 그 돈을 모으다가 못 버티겠다 그러면 이중인격 사서 스펙업을 해보는 것도", "label": "clear"}
+      ]
+    }
+  ],
+
+  "gear_swaps_alone_vs_together": [
+    {
+      "item": "Defiance of Destiny",
+      "verdict": "ALONE / one piece at a time",
+      "detail": "Day-2 swap with no tree change mentioned. For viewer Minseo he swaps it first and says to take the setup apart one piece at a time. Later upgrade: a better life roll (10% -> 12%).",
+      "evidence": [
+        {"part": "P1", "ts": "1:48:47", "quote": "이제 이것만 껴도 이제 여러분들이 크게 뒤질 일이 없어질 겁니다.", "label": "clear"},
+        {"part": "P1", "ts": "2:48:02", "quote": "일단 운명의 저랑 바꿉시다. 하나씩 좀 뜯어 칩시다.", "label": "clear"},
+        {"part": "P1", "ts": "4:25:48", "quote": "예. 생명 12로 바꿔요.", "label": "clear"}
+      ]
+    },
+    {
+      "item": "Brass Dome + Masterwork removal",
+      "verdict": "TOGETHER (remove nodes + change ascendancy, then equip)",
+      "detail": "The Masterwork node only allows normal body armour, so the node must go before Brass Dome. 'In town' is not stated. Existing Brass Dome users should not revert.",
+      "evidence": [
+        {"part": "P1", "ts": "1:21:47", "quote": "이것 때문입니다, 여러분. 이거 JS, JSM 얘가 일반 갑옷만 사용 가능하거든요.", "label": "uncertain node name"},
+        {"part": "P1", "ts": "1:59:55", "quote": "이걸 다 빼고 이렇게 가요. 어샌던시를 간 다음에 황동철가 물기죠.", "label": "clear"},
+        {"part": "P1", "ts": "1:20:39", "quote": "이렇게 황동을 빼라는 얘기 아니에요. 지금부터 키우는 사람을 위해서 남기는 거예요.", "label": "clear"}
+      ]
+    },
+    {
+      "item": "Cat O' Nine Tails + low life + Eternal Rage",
+      "verdict": "TOGETHER (belt + tree + gems + flask removal + resist fix)",
+      "detail": "The swap has several parts: tree moves down (Int ~80), one line gets heavy investment, and phys life leech is added. The life flask is removed. A Desert Rune fixes the resist lost with the old belt. Freezing Mark, Execute and Elemental Weakness go in, and one support comes out. 반발 is turned off and Eternal Rage turned on. Viewers are told to change the passive tree when they adopt it; gems and passives were 'almost entirely rebuilt today'. Belt slot means no Mageblood with this setup. If you still run Atziri, Eternal Rage + Atziri + 약초학 costs ~200 max life.",
+      "evidence": [
+        {"part": "P1", "ts": "2:03:11", "quote": "여기서 템 세팅이 바뀝니다.", "label": "clear"},
+        {"part": "P2", "ts": "2:13:02", "quote": "패시브 트리를 바꾸셔야 돼요.", "label": "clear"},
+        {"part": "P2", "ts": "2:13:23", "quote": "그니까 스킬잼이랑 아이 스킬이 그냥 다 패시브랑 다 바뀌었다고 보면 돼요. 거의 사실상 오늘 다 뜯어 고쳤거든요.", "label": "clear"},
+        {"part": "P2", "ts": "2:16:01", "quote": "그래서 패시브 트리를 아리 성찰식을 낀 것처럼 낯빌드로 바꿨어요.", "label": "clear"},
+        {"part": "P1", "ts": "0:42:09", "quote": "아찌르를 팔고 마피를 살 수 있는 건 아니에요. 왜냐면은 허리띠를 써야 돼.", "label": "clear"},
+        {"part": "P1", "ts": "2:52:30", "quote": "영원한 분노에 아찌리가 꽂혀 있는데 약초학이 들어가 있으면은 아찌리 때문에 생명력이 줄어요.", "label": "uncertain ('약초학')"},
+        {"part": "P2", "ts": "2:12:21", "quote": "그러니까 우물을 먹거나 체크포인트에 닿으면 피가 차요. 물약을 먹어도 안 돼요. 물약 빼세요.", "label": "clear 'remove flask'; middle sentence garbled"},
+        {"part": "P2", "ts": "2:14:49", "quote": "물약 빼도 상관없어요. 빼도 되고 안 빼도 돼요. 그러니까 아찌리 성찬식을 대신하는 거예요.", "label": "clear - flask removal optional per this line"}
+      ]
+    },
+    {
+      "item": "Constricting Command + surrounding nodes",
+      "verdict": "NOT stated as a separate ordered step; the item name never appears in the captions",
+      "detail": "He describes a 2-socket uncorrupted unique Viper Cap made via a Ritual Omen. With '큰 까마귀의 손길' shards the helmet can also allocate. Separately, something lets you allocate the ~5 nodes around a circle 'like a controlled-radius jewel'; he calls it good in general when you have no Megalomaniac. Notables he allocates: one of 녹아내린 존재 / 촉매 작용 is mandatory (or physical hits hurt too much), plus 가시 박힌 방패 and 사고의 차크라. This was advice to viewers who already had gear, so its position relative to Cat is unconfirmed. PoB cross-check: the latest PoB helmet is Constricting Command on a Viper Cap.",
+      "evidence": [
+        {"part": "P1", "ts": "3:35:29", "quote": "기회의 진조라고 있어요. 의식에 보면 기회의 진조. 요거 바르면 무조건 독사모자 이속켓으로 바뀌어요. 고유 독사모자.", "label": "uncertain name"},
+        {"part": "P2", "ts": "1:52:11", "quote": "원이 있잖아요. 그럼 그 원 주의를 이렇게 그냥 바로 찍을 수 있어요. 할당하듯이 그냥 찍는 거예.", "label": "clear mechanic; item not named at this moment"},
+        {"part": "P2", "ts": "1:52:30", "quote": "그러니까 하나, 둘, 셋, 넷, 다섯 개를 그냥 찍을 수 있습니다.", "label": "clear"},
+        {"part": "P2", "ts": "1:52:50", "quote": "저거 과대망상 없을 때는 그냥 범용적으로 참 좋은 거 같습니다.", "label": "clear"},
+        {"part": "P2", "ts": "1:59:04", "quote": "그니까 녹아내린 존재나 촉매 작용은 하나 꼭 있어야 돼요.", "label": "clear"},
+        {"part": "P2", "ts": "1:59:20", "quote": "안 그럼 물리피가 너무 아파요.", "label": "clear"},
+        {"part": "P2", "ts": "1:59:59", "quote": "가시 박힌 방패 좋아요. 진짜 좋아. 생존에도 도움되고 다 좋아요. 저도 가시 박힌 방패를 주로 할당합니다.", "label": "clear"}
+      ]
+    },
+    {
+      "item": "Shield upgrades",
+      "verdict": "ALONE (independent upgrade; armour first)",
+      "detail": "Armour ~1000 on day 1, ~1500 by day 3-4, then higher. Craft shields rather than buy them. Budget 10-100 div; 30 div is plenty. A 300+ div shield with good other mods but low armour was a waste. Target: 1st-tier mods, 1800-2100 depending on quality.",
+      "evidence": [
+        {"part": "P1", "ts": "2:37:23", "quote": "사는게 아닙니다. 여러분 방패는 사면 안 돼요.", "label": "clear"},
+        {"part": "P1", "ts": "4:50:48", "quote": "10딥에서 100 사이 안에 다 됩니다.", "label": "clear - price at that time"},
+        {"part": "P1", "ts": "4:51:45", "quote": "이게 30딥 정도 안에 샀으면 유효했어요.", "label": "clear"},
+        {"part": "P1", "ts": "4:52:31", "quote": "그러면 절사를 더 돌려요. 봉팀님 절사를 돌려서 찾아요. 방어도를.", "label": "clear ('절사' currency name garbled)"},
+        {"part": "P2", "ts": "0:50:58", "quote": "그거를 30% 컬 하면 2,100짜리가 나오는 거고", "label": "clear"}
+      ]
+    },
+    {
+      "item": "Rare mace",
+      "verdict": "NOT MENTIONED in either caption file",
+      "detail": "The only weapon discussed is a sceptre (셉터), bought around day 3. The day-1 demo had no weapon. PoB cross-check: Weapon 1 = Sacred Flame (Shrine Sceptre), Weapon 2 = Tawhoan Tower Shield; no mace.",
+      "evidence": [
+        {"part": "P1", "ts": "1:47:24", "quote": "아 나 세터도 없구나 지금 여러분 이게 없어요. 무기가 없으니까 스킬 레벨도", "label": "clear"}
+      ]
+    },
+    {
+      "item": "Sacred Flame (sceptre)",
+      "verdict": "ALONE, when money allows (~day 3); name not clearly spoken",
+      "detail": "Captions say 'sceptre' only. '신성한 꽃' (P2 3:00:04) might be Sacred Flame but the context is a viewer's run, so this is uncertain.",
+      "evidence": [
+        {"part": "P1", "ts": "2:00:41", "quote": "살짝 돈이 모이면 세터도 사고 하겠죠.", "label": "clear"},
+        {"part": "P2", "ts": "3:00:04", "quote": "신성한 꽃이 들어갔어도 밀고 가셨을 거예요.", "label": "uncertain"}
+      ]
+    }
+  ],
+
+  "changes_vs_previous_guide": [
+    {"change": "Old low-budget guide and the 2.0 guide diverged (tree etc.); this stream re-aligns them", "evidence": {"part": "P1", "ts": "0:01:53", "quote": "왜냐면은 저자본 때랑 2.0대랑 계속이 조금씩 차이가 났잖아요. 스킬 트리도 그렇고.", "label": "clear"}},
+    {"change": "Main problem fixed: too hard until Atziri, with a sudden price jump mid-way", "evidence": {"part": "P1", "ts": "0:21:53", "quote": "그 중간 과정이 너무 갑자기 가격이 화고 누른다라는 단점이 있었단 말이에요.", "label": "clear"}},
+    {"change": "Low life without Atziri, discovered the previous night from a viewer tip", "evidence": {"part": "P1", "ts": "0:45:53", "quote": "그거 알려 드릴게. 아찌리 성탄식 없이 로그라이프 가능. 어제 어제 발견됐어.", "label": "clear"}},
+    {"change": "Weapon-set usage: attack speed on the weapon-set tree; Shield Wall on set 1, all warcries on set 2. He claims 2.5-3x for people not using weapon sets", "evidence": {"part": "P2", "ts": "0:29:32", "quote": "무기 세트를 이번에 바꿨어요. 다섯이 세트 무기 세트를 이용해서 함성을 다 2번으로 지정했기 때문에", "label": "clear"}},
+    {"change": "Set 1 / set 2 rule", "evidence": {"part": "P2", "ts": "0:28:31", "quote": "방패벽은 1, 함성은 2. 이렇게만 해야 돼요.", "label": "clear"}},
+    {"change": "Tree rebuilt as a low-life build 'as if wearing Atziri'", "evidence": {"part": "P2", "ts": "2:16:01", "quote": "그래서 패시브 트리를 아리 성찰식을 낀 것처럼 낯빌드로 바꿨어요.", "label": "clear"}},
+    {"change": "Two tree versions: with or without the Split-Personality-type jewel; otherwise identical", "evidence": {"part": "P2", "ts": "0:29:53", "quote": "그니까 이중인격 있고 없고 차이로 넣어나 차이가 바뀌었어요. 그 외에는 똑같아졌습니다.", "label": "clear"}},
+    {"change": "Warcries no longer needed to detonate; the build became one-button. Resonating shield is the 1.0 version", "evidence": {"part": "P2", "ts": "0:33:10", "quote": "공명하는 방패는 1.0 버전이고 그 이상부터는 이제 함성을 안 써도 됩니다.", "label": "clear"}},
+    {"change": "Removing the flask/spirit use improved stability (said to viewer Minseo)", "evidence": {"part": "P1", "ts": "3:37:09", "quote": "아까 그 물약 플라스크 정신력 뺐으니까 안정성은 올랐을 겁니다.", "label": "clear"}},
+    {"change": "Philosophy: low budget gives up convenience", "evidence": {"part": "P2", "ts": "2:17:00", "quote": "저자본의 모터는 편의성을 갖다 버린다.", "label": "clear"}},
+    {"change": "Passive tree changed a lot two days earlier", "evidence": {"part": "P2", "ts": "2:04:55", "quote": "패시브 트리가 많이 바뀌었어요. 이틀 전에", "label": "clear"}},
+    {"change": "Cat price: he said it would never rise, then later on stream said it had risen", "evidence": [
+      {"part": "P1", "ts": "2:18:02", "quote": "아니야. 아꼬리는 절대 가격이 오르지 않습니다.", "label": "clear"},
+      {"part": "P2", "ts": "0:21:28", "quote": "진짜 아우꼬리도 가격이 올랐어.", "label": "clear"}
+    ]}
+  ],
+
+  "mod_priorities": [
+    {"slot": "shield", "priority": "Armour is #1. Other mods are secondary; do not overpay for them.", "evidence": {"part": "P1", "ts": "5:01:12", "quote": "방패의 방호도부터 다시 올려야 됩니다. 그게 1순이고요.", "label": "clear"}},
+    {"slot": "resistances", "priority": "Each res 75%+ and chaos 60%+ (40% on day 1). Overcap on purpose. Get resists from rings and boots; two ruby rings nearly cover elemental.", "evidence": [
+      {"part": "P1", "ts": "2:25:00", "quote": "저항 풀 오버했어. 일부로 오버로 뛰어야 되죠. 저희는", "label": "clear"},
+      {"part": "P1", "ts": "2:21:19", "quote": "그니까 여데서 저항을 챙겨주면 돼요. 반지랑 신발에서. 근데 봤다시피 루비 반지 두 개만 껴도 저항이 되니까.", "label": "clear"}
+    ]},
+    {"slot": "fire resistance stacking", "priority": "Total fire res ~250-260 so Elemental Weakness can't kill you. Tanking comes from the ascendancy, with cold/lightning max tied to fire res. 'Fire damage %' is only half-effective (unclear).", "evidence": [
+      {"part": "P1", "ts": "3:06:21", "quote": "탱킹 요소는 화염 조향 빌 혜택 보는 거 그게 제일 커요.", "label": "uncertain wording"},
+      {"part": "P1", "ts": "3:06:32", "quote": "그니까 화염장에 비리한 냉기 번개랑이 최대치잖아요.", "label": "uncertain ('비리한' = 비례한 likely)"},
+      {"part": "P1", "ts": "3:32:09", "quote": "대충은 260, 250 정도는 맞춰 줘야 원소 약화를 맞았을 때 안 죽어요.", "label": "clear"},
+      {"part": "P2", "ts": "0:07:01", "quote": "화염장을 최소 한 250 정도 당겨 줘야 안전빵이에요.", "label": "clear"},
+      {"part": "P2", "ts": "0:06:50", "quote": "화염피의 퍼센트는 반쪽자리 유효입니다.", "label": "uncertain meaning"}
+    ]},
+    {"slot": "Defiance of Destiny", "priority": "Buy quality 0 with max life >=10 and missing-life >=26, not corrupted/sanctified, then apply catalysts yourself. Upgrade to 12% life later.", "evidence": [
+      {"part": "P1", "ts": "2:56:20", "quote": "운명의 저항 퀄리티 0.", "label": "clear"},
+      {"part": "P1", "ts": "2:56:30", "quote": "최대 생력 10.", "label": "clear"},
+      {"part": "P1", "ts": "2:56:40", "quote": "그다음에 상실한 생명 최소 26.", "label": "clear"},
+      {"part": "P1", "ts": "2:56:50", "quote": "타락 축성 아닌 거 사요.", "label": "clear"},
+      {"part": "P1", "ts": "2:57:46", "quote": "그러니까 퀄리 안 된 거에서 찾아서 최대치를 찾아서 기폭제를 바라진게 훨씬 싸합니다.", "label": "clear"}
+    ]},
+    {"slot": "gloves", "priority": "+melee skill levels are best", "evidence": {"part": "P1", "ts": "1:35:11", "quote": "장갑 같은 거 근접 스킬이 붙어 있수록 제일 좋겠죠.", "label": "clear"}},
+    {"slot": "unclear slot (키마 일곱기)", "priority": "Take all-res 5% instead of armour 15%", "evidence": {"part": "P1", "ts": "3:32:44", "quote": "방어도 15% 하지 말고 모든 저항 5%로 바꿔요. 그게 나아요.", "label": "uncertain which item"}},
+    {"slot": "spirit", "priority": "No extra spirit beyond the sceptre + rabbit idol. ~10 spirit on boots would allow 반발 with Cat.", "evidence": [
+      {"part": "P1", "ts": "0:11:49", "quote": "정신력은 제가 추가로 확보하지 않습니다.", "label": "clear"},
+      {"part": "P2", "ts": "2:45:29", "quote": "정신력을 신발에 챙길 수 있지. 10 정도 챙기면 딱 얼추 가능하긴 하겠네요.", "label": "clear"}
+    ]},
+    {"slot": "weapon-set passive points", "priority": "Don't put stat-granting nodes on set-specific (red) points; you should have 24 weapon-set points, or quests are missing.", "evidence": [
+      {"part": "P1", "ts": "4:35:09", "quote": "근데 중요한 거는 여러분 스탯이 들어간 거는 가급적이면 빨간색으로 찍지 마요.", "label": "clear"},
+      {"part": "P1", "ts": "4:33:44", "quote": "이 스킬 안 지키면 퀘스트이 스킬이 스킬이 안 무기 세트 포인트가 24개가 안 됐으면", "label": "clear number"}
+    ]},
+    {"slot": "armour break uptime", "priority": "The armour-break charm lasts ~13 s; roll it to 18 s+. Use Freezing Mark when the charm is off, e.g. talking bosses.", "evidence": [
+      {"part": "P1", "ts": "4:54:22", "quote": "늑대 오신부가 13초예요. 한 18초 이상으로 디바인 몇 번 돌려 보실래요?", "label": "clear"},
+      {"part": "P2", "ts": "1:04:39", "quote": "예. 그러면이 동결의 징표를 걸면 방파가 돼요. 결론은.", "label": "clear"}
+    ]},
+    {"slot": "+levels / warcry mods", "priority": "No explicit '+level' or warcry mod priority stated beyond gloves melee skill levels.", "evidence": []}
+  ],
+
+  "hc_or_survival_advice": {
+    "explicit_hc_mentions": "none found in either caption file",
+    "survival_points": [
+      {"point": "Resist is the failure condition in the Cat setup", "evidence": {"part": "P2", "ts": "1:10:13", "quote": "저항만 문제 없으면 단 저항이 깎이면 죽을 수 있습니다.", "label": "clear"}},
+      {"point": "Drink a flask at least once vs Count Geonor even in the Cat setup", "evidence": {"part": "P2", "ts": "1:26:25", "quote": "그래서 그냥 지오너를 상대할 때는 물약을 한 번쯤은 먹어 주세요.", "label": "clear"}},
+      {"point": "Geonor's low-HP crimson attack is Corrupted Blood; get immunity (e.g. a jewel mod)", "evidence": {"part": "P2", "ts": "1:43:36", "quote": "타락한피랍니다. 타락한피 면역을 챙깁시다.", "label": "clear"}},
+      {"point": "Low life is immune to 'no recovery above 50%' effects", "evidence": {"part": "P2", "ts": "2:49:27", "quote": "50% 위로 회복불가 이런 애들 만나도 아무이 없어. 어차피 우리 50% 이하거든.", "label": "clear"}},
+      {"point": "Don't go without resists", "evidence": {"part": "P1", "ts": "4:59:33", "quote": "저항은 맞춰야죠. 안 그럼 죽어요.", "label": "clear"}},
+      {"point": "Design goal: avoid deaths that break the farming flow", "evidence": {"part": "P1", "ts": "0:54:39", "quote": "그니까 즐겁게 막 파밍을 하고 있다가 탁 죽었어.", "label": "clear"}}
+    ]
+  },
+
+  "plan_check": [
+    {"plan_item": "01 normal white body + Masterwork", "verdict": "CONSISTENT", "evidence": ["P1 1:16:19", "P1 1:21:47", "P1 1:32:22"], "note": "His day-1 guidance; ascendancy order starts with Coal Stoker (P1 1:18:48, mapping uncertain)."},
+    {"plan_item": "01 rare mace", "verdict": "NOT SUPPORTED (never mentioned)", "evidence": ["P1 1:47:24", "P1 2:01:01"], "note": "Only a sceptre is discussed; day-1 demo had no weapon. PoB cross-check has Sacred Flame + tower shield, no mace."},
+    {"plan_item": "01 armour tower shield", "verdict": "CONSISTENT for armour (~1000 on day 1); 'tower' not spoken", "evidence": ["P1 1:23:04", "P1 2:08:26"], "note": "PoB cross-check: Tawhoan Tower Shield."},
+    {"plan_item": "01 Shield Wall (Rapid Attacks II / Fire Attunement / Armour Break III) set1", "verdict": "PARTIAL", "evidence": ["P1 1:42:29", "P1 1:42:46", "P1 2:00:27", "P1 4:29:33"], "note": "Day 1 = 4 supports incl. Armour Break and Rapid Attacks, plus 근접 전투(?) and 경로(격노?). Fire Attunement is only mentioned at the Brass Dome step. Gem tiers (II/III) never stated."},
+    {"plan_item": "01 Infernal Cry set2", "verdict": "PARTIAL", "evidence": ["P2 0:28:31", "P2 0:29:32"], "note": "He says all warcries go on set 2; Infernal Cry is not named as his gem (지옥불 appears only about a viewer, P2 0:14:41). PoB cross-check has Infernal Cry."},
+    {"plan_item": "03 Defiance then Brass Dome with ascendancy change in town", "verdict": "CONSISTENT (order and ascendancy change); 'in town' not stated", "evidence": ["P1 1:56:49", "P1 1:59:55"], "note": "Also: don't revert if you already wear Brass Dome (P1 1:20:39). Kaom's Madness and Fire Attunement come in around this step."},
+    {"plan_item": "04 Cat + Eternal Rage + Execute III/Clash/Rapid Attacks II + Enraged Warcry II together", "verdict": "LARGELY CONSISTENT, but the plan omits parts of the package", "evidence": ["P1 2:01:49", "P1 2:02:56", "P1 2:03:24", "P1 2:07:33", "P1 2:07:38", "P1 2:09:10", "P2 1:00:15", "P2 2:15:22", "P2 2:57:48"], "note": "Captions add: remove life flask; Desert Rune to restore resist; tree to Int ~80 + phys life leech; Elemental Weakness (Int 92) cast 4-5x to drop life; Freezing Mark; drop 반발. Clash is mentioned (P2 2:57:48). Enraged Warcry is NOT in captions (only in PoB)."},
+    {"plan_item": "05 Constricting Command then surround nodes", "verdict": "NOT CONFIRMED as an ordered step; mechanics described, name not spoken", "evidence": ["P1 3:35:29", "P1 4:39:53", "P2 1:52:11", "P2 1:59:04"], "note": "2-socket unique Viper Cap (~9-11 div) + circle allocation of ~5 nodes; 녹아내린 존재 or 촉매 작용 mandatory. '독사 모자가 진짜 싸' at the day 2-3 point (P1 1:57:04) suggests it could come earlier; the reading is uncertain."},
+    {"plan_item": "stack fire resistance because Coal Stoker converts 50% to cold/lightning", "verdict": "PARTIALLY CONSISTENT - mechanism wording differs", "evidence": ["P1 3:06:21", "P1 3:06:32", "P1 3:32:09", "P2 0:07:01"], "note": "He says cold/lightning max comes 'in proportion to' fire res and gives a fire-res target of ~250-260 (vs Elemental Weakness). Neither '50%' nor 'convert' is in the captions. Verify the exact Coal Stoker text in PoB/GGPK."}
+  ],
+
+  "frame_check_timestamps": [
+    {"part": "P1", "ts": "1:16:19-1:22:42", "why": "Day-1 tree, ascendancy order (1:18:48), the normal-armour node (1:21:47), weapon-set-2 nodes (1:20:32)"},
+    {"part": "P1", "ts": "1:42:04-1:43:13", "why": "Day-1 Shield Wall 4 supports (resolve 근접 전투 / 경로)"},
+    {"part": "P1", "ts": "1:58:48-2:01:09", "why": "What 'this' is at 19k->35k, which nodes are removed for Brass Dome, ascendancy change, Kaom's Madness, Fire Attunement"},
+    {"part": "P1", "ts": "2:02:04-2:10:40", "why": "Cat transition: tree line, Int, which gem is removed ('이건 필요가 없어요' 2:07:53), gem list with Execute/Freezing Mark/Elemental Weakness"},
+    {"part": "P1", "ts": "2:56:17-2:57:29", "why": "Defiance of Destiny trade filters"},
+    {"part": "P1", "ts": "3:33:34-3:36:23", "why": "Amulet anoint, 2-socket unique Viper Cap, raven's touch shard, Omen name"},
+    {"part": "P2", "ts": "1:51:26-2:00:16", "why": "Circle allocation (~5 nodes), notables 녹아내린 존재/촉매 작용/가시 박힌 방패/사고의 차크라"},
+    {"part": "P2", "ts": "2:13:02-2:15:49", "why": "Full new low-budget setup walkthrough for a new viewer (tree link, 반발 off -> Eternal Rage on, curse at checkpoint)"}
+  ],
+
+  "pob_crosscheck_not_captions": {
+    "file": "scratchpad/live/wK2pk4CyFDe0.xml (pobb.in link in video description, labelled latest low-budget build-up)",
+    "equipped": ["Weapon 1: Sacred Flame (Shrine Sceptre)", "Weapon 2: rare Tawhoan Tower Shield, Armour 1896", "Helmet: Constricting Command (Viper Cap)", "Body: The Brass Dome", "Amulet: Defiance of Destiny", "Belt: Cat O' Nine Tails", "Rings: 2 rare Ruby Rings", "Charms: For Utopia, Rite of Passage, The Fall of the Axe", "Flask 2: Uhtred's Chalice (Flask 1 empty)", "Jewels: Heart of the Well, Against the Darkness"],
+    "shield_wall_supports": ["Execute III", "Clash", "Rapid Attacks II", "Ahn's Citadel", "Kaom's Madness"],
+    "infernal_cry_supports": ["Raging Cry", "Tireless", "Enraged Warcry II", "Uhtred's Rite"],
+    "other_groups": ["Eternal Rage", "Elemental Weakness + Lifetap/Magnified Area II/Heightened Curse/Impending Doom/Focused Curse", "Freezing Mark + Mark for Death II/Mark of Siphoning II", "Remnants of Kalguur + Harmonic Remnants II", "Purity of Fire", "War Banner", "Scavenged Plating", "Fire Spell on Hit + Detonate Dead"],
+    "caveat": "This is the end-state low-budget PoB, not the step-by-step order; it is not caption evidence."
+  },
+
+  "open_uncertainties": [
+    "Exact English name of the Atziri item ('아찌리 성찬식') is not recoverable from captions.",
+    "'반발' (the skill turned off for Eternal Rage) is unidentified; it needs spirit and 'makes the wall explode more'.",
+    "Ascendancy slots 2-4 (1:18:48-1:19:16) are garbled; frame check needed.",
+    "Whether Constricting Command belongs before or after Cat in his order is not stated.",
+    "'물약을 먹어도 안 돼요' (P2 2:12:24) conflicts with Cat allowing flask recovery; likely caption error.",
+    "'4짜리를 사는 거예요' (P1 1:57:19) near the helmet/Brass Dome remark: unit unknown."
+  ]
+}

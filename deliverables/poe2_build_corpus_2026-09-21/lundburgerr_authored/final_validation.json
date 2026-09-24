@@ -1,0 +1,150 @@
+{
+  "status": "passed",
+  "pack_sha256": "2743f77499e0179a2e7774879cd67af9df3e5912042afe87f06f8b5b73de5b30",
+  "native13": [
+    {
+      "file": "archive-28509.build",
+      "sha256": "029fbe12d9d06776e49a1c9c0e5a14f2ecc23dc50f52a6aeac59440fda13d278"
+    },
+    {
+      "file": "archive-285e2.build",
+      "sha256": "7f8c27fdc1f55e8e3685b4ecfcb5687360f735947db60cf7276b29e00232f5e1"
+    },
+    {
+      "file": "archive-28604.build",
+      "sha256": "bf51b52418e791ad62b1e010a1c39f71ef2e782edd8d663a944560004c3ba5fb"
+    },
+    {
+      "file": "archive-28695.build",
+      "sha256": "6ba7a598d5639e9803b04df450638d5961ad0a3d65e9c4981eca35bbd69758a2"
+    },
+    {
+      "file": "campaign-act1.build",
+      "sha256": "f60d12b141ddec2a4dd8326d5e0c87fd7e40d013649bacb5e745675d1c145dd5"
+    },
+    {
+      "file": "campaign-act2-before22-lund.build",
+      "sha256": "87c6de8543b312283d39e6f0eefce445c105e4b9cfba588516ec96765409479b"
+    },
+    {
+      "file": "campaign-act2.build",
+      "sha256": "8f72924ea4fe9f0fe029e47111fddc32bfb34cda1eddc6603cb464072fd78af7"
+    },
+    {
+      "file": "campaign-act3.build",
+      "sha256": "f2dc5dccaf7497aafd13f9cefedca88b2ab7125258db1fba82667e4ba105b4ac"
+    },
+    {
+      "file": "campaign-act4.build",
+      "sha256": "47a4da110935b4f6b3572146497acc159f8bec55abb9cdb9c2a737958dafff32"
+    },
+    {
+      "file": "campaign-interlude.build",
+      "sha256": "392b804717fb33ab497340eacea7c986b1dddb37f087107fe7671b36adec2f34"
+    },
+    {
+      "file": "current-kitava-29d39.build",
+      "sha256": "16c7980d87ff85b4543dea2eed377804b0baf07d9fd4580201d628ab97a47735"
+    },
+    {
+      "file": "current-lv40-lund-smith.build",
+      "sha256": "3891df9e7b01f622cccc2e5919163d727886e1606af9c1e9c442ff520cb0cd4a"
+    },
+    {
+      "file": "lund-maps.build",
+      "sha256": "d12f82ee89d641f4755a74e374d3699e1546c8c5855b86cbb6065011060ae45f"
+    }
+  ],
+  "frozen_latest_archive5": {
+    "archive-28509.build": "029fbe12d9d06776e49a1c9c0e5a14f2ecc23dc50f52a6aeac59440fda13d278",
+    "archive-285e2.build": "7f8c27fdc1f55e8e3685b4ecfcb5687360f735947db60cf7276b29e00232f5e1",
+    "archive-28604.build": "bf51b52418e791ad62b1e010a1c39f71ef2e782edd8d663a944560004c3ba5fb",
+    "archive-28695.build": "6ba7a598d5639e9803b04df450638d5961ad0a3d65e9c4981eca35bbd69758a2",
+    "current-kitava-29d39.build": "16c7980d87ff85b4543dea2eed377804b0baf07d9fd4580201d628ab97a47735"
+  },
+  "segments": [
+    {
+      "id": "start-to-lund-act1",
+      "steps": 17,
+      "both_sets_every_step": true,
+      "no_duplicate_action_id": true,
+      "refunds": 0,
+      "adds": 17,
+      "from_asc": 0,
+      "to_asc": 0
+    },
+    {
+      "id": "lund-act1-to-lund-act2-before22",
+      "steps": 7,
+      "both_sets_every_step": true,
+      "no_duplicate_action_id": true,
+      "refunds": 0,
+      "adds": 7,
+      "from_asc": 0,
+      "to_asc": 0
+    },
+    {
+      "id": "lund-act2-before22-to-lund-shield-swap",
+      "steps": 26,
+      "both_sets_every_step": true,
+      "no_duplicate_action_id": true,
+      "refunds": 5,
+      "adds": 21,
+      "from_asc": 0,
+      "to_asc": 2
+    },
+    {
+      "id": "lund-shield-swap-to-lund-act3",
+      "steps": 13,
+      "both_sets_every_step": true,
+      "no_duplicate_action_id": true,
+      "refunds": 0,
+      "adds": 13,
+      "from_asc": 2,
+      "to_asc": 4
+    },
+    {
+      "id": "lund-act3-to-lund-act4",
+      "steps": 23,
+      "both_sets_every_step": true,
+      "no_duplicate_action_id": true,
+      "refunds": 0,
+      "adds": 23,
+      "from_asc": 4,
+      "to_asc": 4
+    },
+    {
+      "id": "lund-act4-to-lund-interludes",
+      "steps": 36,
+      "both_sets_every_step": true,
+      "no_duplicate_action_id": true,
+      "refunds": 5,
+      "adds": 31,
+      "from_asc": 4,
+      "to_asc": 4
+    },
+    {
+      "id": "lund-interludes-to-lund-maps",
+      "steps": 31,
+      "both_sets_every_step": true,
+      "no_duplicate_action_id": true,
+      "refunds": 4,
+      "adds": 27,
+      "from_asc": 4,
+      "to_asc": 6
+    },
+    {
+      "id": "lund-maps-to-kitava-29d39",
+      "steps": 266,
+      "both_sets_every_step": true,
+      "no_duplicate_action_id": true,
+      "refunds": 125,
+      "adds": 141,
+      "from_asc": 6,
+      "to_asc": 8
+    }
+  ],
+  "baseline_metadata_and_tree_prefix_exact": true,
+  "authored_graphs": 8,
+  "game_pass": false
+}

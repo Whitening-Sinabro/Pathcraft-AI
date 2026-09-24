@@ -1,0 +1,156 @@
+{
+  "author": "Skadoosh / Pathcraft",
+  "link": "https://mobalytics.gg/poe-2/builds/skadoosh-warbringer-leveling-41",
+  "ascendancy": "Warrior2",
+  "inventory_slots": [
+    {
+      "additional_text": "대장장이 망치 (Smithing Hammer)\n1. 물리 피해 40% 증가\n\n[세트1 무기]\n한손 철퇴 + 방어도 방패\n아래 세트1 스킬을 G에서 I에만 체크. 세트2 공격 뒤 방패가 필요하면 방패 들기 또는 세트1 함성으로 복귀.\n\n[세트1 스킬과 그 안에 꽂을 보조]\n몰려오는 강타 (Rolling Slam) → 연결 보조 없음\n지옥불 함성 (Infernal Cry) → 연결 보조 없음\n방패 들기 (Raise Shield) → 연결 보조 없음",
+      "inventory_id": "Weapon1",
+      "level_interval": [
+        1,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "참나무 대망치 (Oak Greathammer)\n1. 물리 피해 50% 증가\n\n[세트2 무기]\n양손 철퇴\n아래 세트2 스킬을 G에서 II에만 체크. 설치/공격 뒤 위험 구간에서는 세트1 복귀.\n\n[세트2 스킬과 그 안에 꽂을 보조]\n철퇴 타격 (Mace Strike) → 연결 보조 없음\n뼈 박살 (Boneshatter) → 충돌 충격파 (Impact Shockwave)",
+      "inventory_id": "Weapon2",
+      "level_interval": [
+        4,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "도색된 거대 방패 (Painted Tower Shield)",
+      "inventory_id": "Offhand1",
+      "level_interval": [
+        6,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "중형 생명력 플라스크 (Medium Life Flask)",
+      "inventory_id": "Flask1",
+      "level_interval": [
+        4,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "additional_text": "중형 마나 플라스크 (Medium Mana Flask)",
+      "inventory_id": "Flask1",
+      "level_interval": [
+        4,
+        100
+      ],
+      "slot_x": 1,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "HC 장비 우선: 최대 생명력·현재 지역 원소 저항·방어도, 장화 이동 속도, 최신 생명력 플라스크.\n스냅샷의 낮은 방어 옵션을 그대로 복사하지 말 것. 장비 예시는 구매 필수 목록이 아님.\n캠페인 중이면 캐릭터 65+도 01-Campaign 필터 유지. 전직/정신력/회복 준비를 먼저 확인.\n\n[출처 장비 예시 — 같은 물건을 살 필요 없음]\n\n\n[전환 조건]\n아직 토템 운용 전. 양손 철퇴가 없으면 한손 철퇴로 시작하고, 확보한 뒤 아래 세트 설정을 적용한다.\n\n[스킬 운영]\n잡몹: 몰려오는 강타(1)로 기절 준비 → 뼈 박살(2) → 방패 세트1 복귀. 토템 도입 후 보스: 토템(2) 설치 → 지진(1)으로 요철 지대 → 이동. 지옥불 함성은 단일 대상 보조.\n\n[하드코어 진행]\n65레벨 이후라도 캠페인 중이면 01-Campaign 필터 유지. 장비는 최대 생명력·현재 지역 저항·방어도, 장화 이동 속도, 생명력 플라스크 우선. 출처 장비의 낮은 방어 수치를 그대로 복사하지 않는다."
+    },
+    {
+      "inventory_id": "Gloves1",
+      "slot_x": 0,
+      "slot_y": 0,
+      "level_interval": [
+        1,
+        100
+      ],
+      "additional_text": "\n\n[보조 젬을 넣는 곳]\nG 스킬창에서 해당 큰 스킬 젬을 선택하고 그 스킬의 작은 보조 소켓에 연결. 아래 각 스킬의 연결 목록을 그대로 따른다. 무기 룬 소켓이 아니다.\n선대의 전사 토템 안의 지면 분쇄는 예외적으로 연결하는 액티브 젬이다. 별도 지면 분쇄 스킬칸만 만들면 토템 연결이 완성되지 않는다.\n보조 소켓이 부족하면 주얼러 오브로 확장. 무조건 오른쪽부터 모든 보조를 갖출 필요는 없으며 주력 토템/함성의 핵심 보조부터 확보."
+    }
+  ],
+  "name": "01 시작-근접 기초",
+  "passives": [
+    {
+      "id": "melee18"
+    },
+    {
+      "id": "melee17"
+    },
+    {
+      "id": "marauder_brute_notable1"
+    },
+    {
+      "id": "melee54"
+    },
+    {
+      "id": "melee55"
+    },
+    {
+      "id": "stun4_"
+    },
+    {
+      "id": "stun5"
+    },
+    {
+      "id": "melee56"
+    },
+    {
+      "id": "melee19"
+    },
+    {
+      "id": "AscendancyWarrior2Start"
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemPlayerDefault2HMace",
+      "level_interval": [
+        1,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+      "level_interval": [
+        1,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemImpactShockwave",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRollingSlam",
+      "level_interval": [
+        1,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+      "level_interval": [
+        7,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
+      "level_interval": [
+        1,
+        100
+      ]
+    }
+  ]
+}

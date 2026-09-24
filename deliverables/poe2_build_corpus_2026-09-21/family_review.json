@@ -1,0 +1,179 @@
+{
+  "method": "Manager manual grouping by primary skill/mechanic; early shared leveling skills alone do not merge distinct endpoint builds.",
+  "merges": [
+    "Ice Shot leveling/endgame",
+    "Plants leveling/CoC endgame",
+    "Twister across authors and ascendancies",
+    "Twisted Empyrean Lich/Titan",
+    "Spark self-cast guides",
+    "Oil Barrage Wyvern guides",
+    "Spell Totem Spark/Grim Pillars conservatively one broad family"
+  ],
+  "kept_separate": [
+    "Self-cast Spark vs Spell Totems",
+    "Ignite Oil Grenade Flameblast vs cooldown Flameblast/Frostflame Nova",
+    "Grenade attacks vs grenade Ballista",
+    "Companions vs Djinn vs Witch minions",
+    "Shrine maces vs Twisted Empyrean mana maces vs generic slam leveling vs Shield Wall"
+  ],
+  "families": [
+    {
+      "family_id": "arc-fusillade",
+      "record_ids": [
+        "w2-arc"
+      ]
+    },
+    {
+      "family_id": "buff-crossbow",
+      "record_ids": [
+        "w1_rue"
+      ]
+    },
+    {
+      "family_id": "cluster-ballista",
+      "record_ids": [
+        "w1_ballista"
+      ]
+    },
+    {
+      "family_id": "cold-trigger",
+      "record_ids": [
+        "w1_cold"
+      ]
+    },
+    {
+      "family_id": "djinn",
+      "record_ids": [
+        "w2-varashta"
+      ]
+    },
+    {
+      "family_id": "ed-contagion",
+      "record_ids": [
+        "w2-edc"
+      ]
+    },
+    {
+      "family_id": "flameblast-cooldown",
+      "record_ids": [
+        "w1_flame"
+      ]
+    },
+    {
+      "family_id": "flameblast-oil",
+      "record_ids": [
+        "w1_oil"
+      ]
+    },
+    {
+      "family_id": "frostbolt-loop",
+      "record_ids": [
+        "w1_afk"
+      ]
+    },
+    {
+      "family_id": "glacial-cascade",
+      "record_ids": [
+        "w2-glacial"
+      ]
+    },
+    {
+      "family_id": "grenades",
+      "record_ids": [
+        "w2-grenade"
+      ]
+    },
+    {
+      "family_id": "ice-shot",
+      "record_ids": [
+        "w1_ice",
+        "w2-ice"
+      ]
+    },
+    {
+      "family_id": "oil-barrage-wyvern",
+      "record_ids": [
+        "w2-wyvern-gtd",
+        "w2-wyvern-peu"
+      ]
+    },
+    {
+      "family_id": "plants",
+      "record_ids": [
+        "w1_plants",
+        "w2-plants"
+      ]
+    },
+    {
+      "family_id": "shield-wall",
+      "record_ids": [
+        "w2-shield"
+      ]
+    },
+    {
+      "family_id": "shrine-mace",
+      "record_ids": [
+        "w1_shrine"
+      ]
+    },
+    {
+      "family_id": "slam-boneshatter",
+      "record_ids": [
+        "w2-slam"
+      ]
+    },
+    {
+      "family_id": "slow-support",
+      "record_ids": [
+        "w1_slow"
+      ]
+    },
+    {
+      "family_id": "snipe",
+      "record_ids": [
+        "w2-snipe"
+      ]
+    },
+    {
+      "family_id": "spark",
+      "record_ids": [
+        "w2-spark-big",
+        "w2-spark-ap"
+      ]
+    },
+    {
+      "family_id": "spell-totems",
+      "record_ids": [
+        "w1_grim",
+        "w1_spark_totem"
+      ]
+    },
+    {
+      "family_id": "twisted-mana",
+      "record_ids": [
+        "w1_lich",
+        "w1_titan"
+      ]
+    },
+    {
+      "family_id": "twister",
+      "record_ids": [
+        "w1_twister",
+        "w2-twister-ap",
+        "w2-twister-far"
+      ]
+    },
+    {
+      "family_id": "unique-companion",
+      "record_ids": [
+        "w1_beast"
+      ]
+    },
+    {
+      "family_id": "witch-minion-army",
+      "record_ids": [
+        "w2-minions"
+      ]
+    }
+  ]
+}

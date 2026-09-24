@@ -1,0 +1,57 @@
+{
+  "updatedAt": "2026-09-07T17:25:28.963Z",
+  "objective": "탱정 POE2 0.5.5 영상 검증과 근거별 통합",
+  "runId": "run_c88be12c9470",
+  "taskId": "task_515a4d92a05e",
+  "dispatchId": "ctx_0f8eac28f57f",
+  "coordinatorTerminal": "term_1f865546-a5bd-4647-b521-780db80f48e3",
+  "workerTerminal": "term_d1de49b2-c3de-4f5d-a5df-b986211e1150",
+  "worktreeId": "9ef45250-6a73-4b70-b799-719cc1a2b284::D:/Pathcraft-AI",
+  "workerProvider": "codex",
+  "model": "default; no override",
+  "effort": "default; no override",
+  "depth": 1,
+  "retryCount": 0,
+  "stage": "worker_running",
+  "lastVerifiedCheckpoint": "Worker live; guide subtitles and UI evidence acquired; own tool timeout recovered via saved helper; detailed short gem-transition verification still ongoing",
+  "allowedWorkerEffects": [
+    "worker/ research evidence and reports",
+    "existing shared Playwright MCP research page"
+  ],
+  "forbiddenEffects": [
+    "other project/product/game/Docs edits",
+    "git commits/merges/pushes",
+    "external messages",
+    "additional agents",
+    "process termination"
+  ],
+  "requiredOutputs": [
+    "worker/REVIEW.md",
+    "worker/coverage.json",
+    "worker/events.jsonl"
+  ],
+  "acceptance": "independent source/time/method-backed findings, truthful coverage and explicit gaps; full continuous review cannot be inferred from sampling",
+  "reviewer": "root coordinator",
+  "verdict": "PENDING",
+  "notes": "Merge means research synthesis; sources immutable. Playwright relay is a supporting loopback service in the existing Node REPL; no second browser created.",
+  "scopeRevision": 3,
+  "currentScope": "공식 유튜브 키타바 일반 자료 4편과 0.5.5 라이브 모두",
+  "userCorrection": "라이브, 유튜브 영상 두개다 해야지",
+  "roles": {
+    "worker": "일반 가이드 4편과 0.5.5 라이브 자료 조사 및 영상 검증 전담",
+    "coordinator": "진행 감독, 제출 결과의 근거/coverage 검토, 문서 통합만"
+  },
+  "coordinatorResearchPaused": true,
+  "browserLease": "worker-exclusive",
+  "workerReportedGuideIds": [
+    "ncQUAsv0HsI",
+    "QcSeQ0OOENI",
+    "wbWGFYHEi-E",
+    "kS80oF3VbJI"
+  ],
+  "versionIssue": "Worker reports original guide has weapon-set bug chapter and v2 explicitly removes old interaction for 0.5.5",
+  "recoveryNotes": [
+    "Public part2 audio download HTTP403; own download normally cancelled",
+    "Worker Node REPL timeout reset; existing saved helper reused; no agent replacement"
+  ]
+}

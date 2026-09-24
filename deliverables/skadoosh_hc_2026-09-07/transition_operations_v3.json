@@ -1,0 +1,7066 @@
+[
+  {
+    "from": "01 시작 - 근접과 방패",
+    "to": "02 충격파 토템 - 1차 전직까지",
+    "from_passives": [
+      {
+        "id": "melee17"
+      },
+      {
+        "id": "marauder_brute_notable1"
+      },
+      {
+        "id": "melee56"
+      },
+      {
+        "id": "melee25"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "melee46"
+      },
+      {
+        "id": "melee55"
+      },
+      {
+        "id": "melee18"
+      },
+      {
+        "id": "melee44"
+      },
+      {
+        "id": "melee54"
+      },
+      {
+        "id": "melee19"
+      }
+    ],
+    "to_passives": [
+      {
+        "id": "jagged_ground26",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee17"
+      },
+      {
+        "id": "marauder_brute_notable1"
+      },
+      {
+        "id": "attributes82"
+      },
+      {
+        "id": "jagged_ground4",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems51",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "totems12_"
+      },
+      {
+        "id": "jagged_ground25",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks2_",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "melee56"
+      },
+      {
+        "id": "attributes58"
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "strength19"
+      },
+      {
+        "id": "strength73"
+      },
+      {
+        "id": "totems53",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems49"
+      },
+      {
+        "id": "melee25"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "slow_attacks3",
+        "weapon_set": 2
+      },
+      {
+        "id": "block25_",
+        "weapon_set": 1
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "melee46"
+      },
+      {
+        "id": "jagged_ground1",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee55"
+      },
+      {
+        "id": "melee18"
+      },
+      {
+        "id": "strength58"
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "melee44"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "melee54"
+      },
+      {
+        "id": "jagged_ground5",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "melee19"
+      }
+    ],
+    "required_pool": {
+      "ordinary": 29,
+      "sets": [
+        6,
+        6
+      ]
+    },
+    "refunds": 0,
+    "operations": [
+      {
+        "action": "추가",
+        "id": "strength19",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 11,
+          "sets": [
+            0,
+            0
+          ],
+          "ascendancy": 0
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength21",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 12,
+          "sets": [
+            0,
+            0
+          ],
+          "ascendancy": 0
+        }
+      },
+      {
+        "action": "추가",
+        "id": "block25_",
+        "name": "Block",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 13,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 0
+        }
+      },
+      {
+        "action": "추가",
+        "id": "AscendancyWarrior2Small6",
+        "name": "Totem Life",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 13,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 1
+        }
+      },
+      {
+        "action": "추가",
+        "id": "AscendancyWarrior2Notable6",
+        "name": "Answered Call",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 13,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength58",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 14,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength15",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 15,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes32",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 16,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "jewel_slot1956",
+        "name": "Jewel Socket",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 17,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes58",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 18,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength73",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 19,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes82",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 20,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems49",
+        "name": "Totem Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 21,
+          "sets": [
+            1,
+            0
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems51",
+        "name": "Totem Attack Speed",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 21,
+          "sets": [
+            1,
+            1
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems12_",
+        "name": "Totem Life",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 22,
+          "sets": [
+            1,
+            1
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems34",
+        "name": "Ancestral Mending",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 23,
+          "sets": [
+            1,
+            1
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems53",
+        "name": "Totem Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 24,
+          "sets": [
+            1,
+            2
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems14",
+        "name": "Ancestral Artifice",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 25,
+          "sets": [
+            1,
+            3
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "jagged_ground1",
+        "name": "Bleed Chance",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 25,
+          "sets": [
+            2,
+            3
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "jagged_ground4",
+        "name": "Jagged Ground Effect",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 25,
+          "sets": [
+            3,
+            3
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "jagged_ground5",
+        "name": "Jagged Ground Effect",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 26,
+          "sets": [
+            4,
+            3
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "jagged_ground26",
+        "name": "Spike Pit",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 27,
+          "sets": [
+            5,
+            3
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "jagged_ground25",
+        "name": "Perforation",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 28,
+          "sets": [
+            6,
+            3
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems15",
+        "name": "Ancestral Unity",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 28,
+          "sets": [
+            6,
+            4
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength68",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 29,
+          "sets": [
+            6,
+            4
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "slow_attacks2_",
+        "name": "Attack Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 29,
+          "sets": [
+            6,
+            5
+          ],
+          "ascendancy": 2
+        }
+      },
+      {
+        "action": "추가",
+        "id": "slow_attacks3",
+        "name": "Attack Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 29,
+          "sets": [
+            6,
+            6
+          ],
+          "ascendancy": 2
+        }
+      }
+    ]
+  },
+  {
+    "from": "02 충격파 토템 - 1차 전직까지",
+    "to": "03 토템과 망치 - 2차 전직까지",
+    "from_passives": [
+      {
+        "id": "jagged_ground26",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee17"
+      },
+      {
+        "id": "marauder_brute_notable1"
+      },
+      {
+        "id": "attributes82"
+      },
+      {
+        "id": "jagged_ground4",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems51",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "totems12_"
+      },
+      {
+        "id": "jagged_ground25",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks2_",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "melee56"
+      },
+      {
+        "id": "attributes58"
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "strength19"
+      },
+      {
+        "id": "strength73"
+      },
+      {
+        "id": "totems53",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems49"
+      },
+      {
+        "id": "melee25"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "slow_attacks3",
+        "weapon_set": 2
+      },
+      {
+        "id": "block25_",
+        "weapon_set": 1
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "melee46"
+      },
+      {
+        "id": "jagged_ground1",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee55"
+      },
+      {
+        "id": "melee18"
+      },
+      {
+        "id": "strength58"
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "melee44"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "melee54"
+      },
+      {
+        "id": "jagged_ground5",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "melee19"
+      }
+    ],
+    "to_passives": [
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "jagged_ground26",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee17"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "marauder_brute_notable1"
+      },
+      {
+        "id": "armour5"
+      },
+      {
+        "id": "strength38"
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "attributes82"
+      },
+      {
+        "id": "attack_speed54"
+      },
+      {
+        "id": "life_regeneration25"
+      },
+      {
+        "id": "strength41"
+      },
+      {
+        "id": "armour_break28"
+      },
+      {
+        "id": "jagged_ground4",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems51",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "totems12_"
+      },
+      {
+        "id": "jagged_ground25",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks2_",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "slow_attacks10",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee56"
+      },
+      {
+        "id": "attributes58"
+      },
+      {
+        "id": "armour_break29"
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "attack_speed53"
+      },
+      {
+        "id": "strength19"
+      },
+      {
+        "id": "strength73"
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "strength36"
+      },
+      {
+        "id": "block23",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems53",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems49"
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "shield15",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee25"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "block12",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks3",
+        "weapon_set": 2
+      },
+      {
+        "id": "block25_",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength22"
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "attack_speed55"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "strength39_"
+      },
+      {
+        "id": "armour_break37"
+      },
+      {
+        "id": "melee46"
+      },
+      {
+        "id": "jagged_ground1",
+        "weapon_set": 1
+      },
+      {
+        "id": "shield1",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks5",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee55"
+      },
+      {
+        "id": "shield5",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee18"
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "strength40_"
+      },
+      {
+        "id": "life_regeneration17_"
+      },
+      {
+        "id": "strength42"
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength58"
+      },
+      {
+        "id": "shield16",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "melee44"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "melee54"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "jagged_ground5",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "melee19"
+      }
+    ],
+    "required_pool": {
+      "ordinary": 54,
+      "sets": [
+        12,
+        12
+      ]
+    },
+    "refunds": 0,
+    "operations": [
+      {
+        "action": "추가",
+        "id": "AscendancyWarrior2Small5",
+        "name": "Warcry Speed",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 29,
+          "sets": [
+            6,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour5",
+        "name": "Armour",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 30,
+          "sets": [
+            6,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attack_speed53",
+        "name": "Skill Speed",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 31,
+          "sets": [
+            6,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attack_speed54",
+        "name": "Skill Speed",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 32,
+          "sets": [
+            6,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "block23",
+        "name": "Block",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 33,
+          "sets": [
+            7,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour35",
+        "name": "Sturdy Metal",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 34,
+          "sets": [
+            7,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour14",
+        "name": "Armour",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 35,
+          "sets": [
+            7,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "marauder_brute_notable2",
+        "name": "Relentless",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 36,
+          "sets": [
+            7,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "block12",
+        "name": "Unstoppable Barrier",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 37,
+          "sets": [
+            8,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength22",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 38,
+          "sets": [
+            8,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attack_speed55",
+        "name": "Blood Rush",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 39,
+          "sets": [
+            8,
+            6
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "slow_attacks5",
+        "name": "Attack Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 39,
+          "sets": [
+            8,
+            7
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "slow_attacks10",
+        "name": "Crushing Verdict",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 39,
+          "sets": [
+            8,
+            8
+          ],
+          "ascendancy": 3
+        }
+      },
+      {
+        "action": "추가",
+        "id": "AscendancyWarrior2Notable4_",
+        "name": "Warcaller's Bellow",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 39,
+          "sets": [
+            8,
+            8
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength42",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 40,
+          "sets": [
+            8,
+            8
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems1",
+        "name": "Totem Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 41,
+          "sets": [
+            8,
+            9
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength41",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 42,
+          "sets": [
+            8,
+            9
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems26",
+        "name": "Totem Placement Speed",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 43,
+          "sets": [
+            8,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength40_",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 44,
+          "sets": [
+            8,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength39_",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 45,
+          "sets": [
+            8,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength38",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 46,
+          "sets": [
+            8,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour_break28",
+        "name": "Armour Break and Physical Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 47,
+          "sets": [
+            8,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour_break29",
+        "name": "Physical Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 48,
+          "sets": [
+            8,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength36",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            8,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "life_regeneration25",
+        "name": "Life Regeneration",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 50,
+          "sets": [
+            8,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour_break37",
+        "name": "Cruel Methods",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 51,
+          "sets": [
+            8,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "shield1",
+        "name": "Shield Damage",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 51,
+          "sets": [
+            9,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "life_regeneration17_",
+        "name": "Hard to Kill",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            9,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "shield16",
+        "name": "Shield Block",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            10,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "shield15",
+        "name": "Shield Block",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 53,
+          "sets": [
+            11,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "shield5",
+        "name": "Lay Siege",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 54,
+          "sets": [
+            12,
+            10
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems25",
+        "name": "Totem Placement Speed",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 54,
+          "sets": [
+            12,
+            11
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems8",
+        "name": "Carved Earth",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 54,
+          "sets": [
+            12,
+            12
+          ],
+          "ascendancy": 4
+        }
+      }
+    ]
+  },
+  {
+    "from": "03 토템과 망치 - 2차 전직까지",
+    "to": "04 내부 경유 - 46레벨 실측",
+    "from_passives": [
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "jagged_ground26",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee17"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "marauder_brute_notable1"
+      },
+      {
+        "id": "armour5"
+      },
+      {
+        "id": "strength38"
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "attributes82"
+      },
+      {
+        "id": "attack_speed54"
+      },
+      {
+        "id": "life_regeneration25"
+      },
+      {
+        "id": "strength41"
+      },
+      {
+        "id": "armour_break28"
+      },
+      {
+        "id": "jagged_ground4",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems51",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "totems12_"
+      },
+      {
+        "id": "jagged_ground25",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks2_",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "slow_attacks10",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee56"
+      },
+      {
+        "id": "attributes58"
+      },
+      {
+        "id": "armour_break29"
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "attack_speed53"
+      },
+      {
+        "id": "strength19"
+      },
+      {
+        "id": "strength73"
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "strength36"
+      },
+      {
+        "id": "block23",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems53",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems49"
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "shield15",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee25"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "block12",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks3",
+        "weapon_set": 2
+      },
+      {
+        "id": "block25_",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength22"
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "attack_speed55"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "strength39_"
+      },
+      {
+        "id": "armour_break37"
+      },
+      {
+        "id": "melee46"
+      },
+      {
+        "id": "jagged_ground1",
+        "weapon_set": 1
+      },
+      {
+        "id": "shield1",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks5",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee55"
+      },
+      {
+        "id": "shield5",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee18"
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "strength40_"
+      },
+      {
+        "id": "life_regeneration17_"
+      },
+      {
+        "id": "strength42"
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength58"
+      },
+      {
+        "id": "shield16",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "melee44"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "melee54"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "jagged_ground5",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "melee19"
+      }
+    ],
+    "to_passives": [
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "strength70",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "melee17"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "marauder_brute_notable1"
+      },
+      {
+        "id": "armour5"
+      },
+      {
+        "id": "strength38",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "attack_speed54"
+      },
+      {
+        "id": "life_regeneration25"
+      },
+      {
+        "id": "strength41",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "armour_break28"
+      },
+      {
+        "id": "strength21",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "slow_attacks2_",
+        "weapon_set": 2
+      },
+      {
+        "id": "slow_attacks10",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee56"
+      },
+      {
+        "id": "strength67",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "armour_break29"
+      },
+      {
+        "id": "totems44",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems43",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2,
+        "additional_text": "토템 한도에 관여하는 노드다. 세트 II의 배정을 유지한다."
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "attack_speed53"
+      },
+      {
+        "id": "strength69",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "strength19",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "strength36",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "shield15",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee25"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "slow_attacks3",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength22",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "attack_speed55"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "strength39_",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "armour_break37"
+      },
+      {
+        "id": "melee46"
+      },
+      {
+        "id": "shield1",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks5",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee55"
+      },
+      {
+        "id": "shield5",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee18"
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "strength40_",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "life_regeneration17_"
+      },
+      {
+        "id": "strength71",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "strength42",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength58",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "attributes71",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "shield16",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength15",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "melee44"
+      },
+      {
+        "id": "attributes32",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "melee54"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes6",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "melee19"
+      },
+      {
+        "id": "totems48_",
+        "weapon_set": 2
+      }
+    ],
+    "required_pool": {
+      "ordinary": 60,
+      "sets": [
+        12,
+        14
+      ]
+    },
+    "refunds": 16,
+    "operations": [
+      {
+        "action": "환불",
+        "id": "jagged_ground26",
+        "name": "Spike Pit",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 54,
+          "sets": [
+            11,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "jagged_ground25",
+        "name": "Perforation",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 54,
+          "sets": [
+            10,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "totems34",
+        "name": "Ancestral Mending",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 53,
+          "sets": [
+            10,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "totems12_",
+        "name": "Totem Life",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            10,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "block12",
+        "name": "Unstoppable Barrier",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "block23",
+        "name": "Block",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            8,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "block25_",
+        "name": "Block",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            7,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "jagged_ground5",
+        "name": "Jagged Ground Effect",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "jagged_ground4",
+        "name": "Jagged Ground Effect",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            5,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "jagged_ground1",
+        "name": "Bleed Chance",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            4,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength67",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 53,
+          "sets": [
+            4,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems44",
+        "name": "Totem Attack Speed",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 54,
+          "sets": [
+            4,
+            13
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems43",
+        "name": "Totem Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 55,
+          "sets": [
+            4,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes71",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 56,
+          "sets": [
+            4,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength69",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 57,
+          "sets": [
+            4,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength70",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 58,
+          "sets": [
+            4,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes6",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 59,
+          "sets": [
+            4,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength71",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 60,
+          "sets": [
+            4,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "totems51",
+        "name": "Totem Attack Speed",
+        "from": 2,
+        "to": null,
+        "cost": {
+          "ordinary": 59,
+          "sets": [
+            4,
+            13
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems48_",
+        "name": "Totem Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 60,
+          "sets": [
+            4,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "totems53",
+        "name": "Totem Damage",
+        "from": 2,
+        "to": null,
+        "cost": {
+          "ordinary": 59,
+          "sets": [
+            4,
+            13
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "totems49",
+        "name": "Totem Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 58,
+          "sets": [
+            4,
+            13
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "attributes82",
+        "name": "Attribute",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 57,
+          "sets": [
+            4,
+            13
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "strength73",
+        "name": "Attribute",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 56,
+          "sets": [
+            4,
+            13
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "attributes58",
+        "name": "Attribute",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 55,
+          "sets": [
+            4,
+            13
+          ],
+          "ascendancy": 4
+        }
+      }
+    ]
+  },
+  {
+    "from": "04 내부 경유 - 46레벨 실측",
+    "to": "04 타락 함성 - 마나 사용",
+    "from_passives": [
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "strength70",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "melee17"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "marauder_brute_notable1"
+      },
+      {
+        "id": "armour5"
+      },
+      {
+        "id": "strength38",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "attack_speed54"
+      },
+      {
+        "id": "life_regeneration25"
+      },
+      {
+        "id": "strength41",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "armour_break28"
+      },
+      {
+        "id": "strength21",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "slow_attacks2_",
+        "weapon_set": 2
+      },
+      {
+        "id": "slow_attacks10",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee56"
+      },
+      {
+        "id": "strength67",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "armour_break29"
+      },
+      {
+        "id": "totems44",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems43",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2,
+        "additional_text": "토템 한도에 관여하는 노드다. 세트 II의 배정을 유지한다."
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "attack_speed53"
+      },
+      {
+        "id": "strength69",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "strength19",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "strength36",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "shield15",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee25"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "slow_attacks3",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength22",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "attack_speed55"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "strength39_",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "armour_break37"
+      },
+      {
+        "id": "melee46"
+      },
+      {
+        "id": "shield1",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks5",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee55"
+      },
+      {
+        "id": "shield5",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee18"
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "strength40_",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "life_regeneration17_"
+      },
+      {
+        "id": "strength71",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "strength42",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength58",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "attributes71",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "shield16",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength15",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "melee44"
+      },
+      {
+        "id": "attributes32",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "melee54"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes6",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68",
+        "additional_text": "기본은 힘을 선택한다. 장비·젬에 민첩이나 지능이 부족하면 필요한 만큼 해당 능력치를 선택한다."
+      },
+      {
+        "id": "melee19"
+      },
+      {
+        "id": "totems48_",
+        "weapon_set": 2
+      }
+    ],
+    "to_passives": [
+      {
+        "id": "warcries34",
+        "weapon_set": 1
+      },
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "strength70"
+      },
+      {
+        "id": "melee17"
+      },
+      {
+        "id": "warcries9",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes51"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems9",
+        "weapon_set": 2
+      },
+      {
+        "id": "marauder_brute_notable1"
+      },
+      {
+        "id": "warcries11",
+        "weapon_set": 1
+      },
+      {
+        "id": "armour5"
+      },
+      {
+        "id": "strength38"
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "attack_speed54"
+      },
+      {
+        "id": "reduced_attack_cost4"
+      },
+      {
+        "id": "life_regeneration25"
+      },
+      {
+        "id": "strength41"
+      },
+      {
+        "id": "armour_break28"
+      },
+      {
+        "id": "life_costs3"
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "warcries29",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks2_",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "slow_attacks10",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee56"
+      },
+      {
+        "id": "strength67"
+      },
+      {
+        "id": "totems45"
+      },
+      {
+        "id": "armour_break29"
+      },
+      {
+        "id": "totems44",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems43"
+      },
+      {
+        "id": "warcries24",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "attack_speed53"
+      },
+      {
+        "id": "strength69"
+      },
+      {
+        "id": "strength19"
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "strength36"
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "shield15",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee25"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "slow_attacks3",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength22"
+      },
+      {
+        "id": "warcries19_",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "attack_speed55"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "totems38",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength39_"
+      },
+      {
+        "id": "warcries35",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems11",
+        "weapon_set": 2
+      },
+      {
+        "id": "armour_break37"
+      },
+      {
+        "id": "melee46"
+      },
+      {
+        "id": "shield1",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks5",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee55"
+      },
+      {
+        "id": "shield5",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee18"
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "warcries25",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength40_"
+      },
+      {
+        "id": "life_costs2"
+      },
+      {
+        "id": "life_regeneration17_"
+      },
+      {
+        "id": "strength71"
+      },
+      {
+        "id": "warcries10",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength42"
+      },
+      {
+        "id": "strength61_"
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength58"
+      },
+      {
+        "id": "attributes71"
+      },
+      {
+        "id": "shield16",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "melee44"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "totems39",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee54"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries23",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes6"
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries28",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "life_costs1"
+      },
+      {
+        "id": "warcries37",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee19"
+      },
+      {
+        "id": "totems48_",
+        "weapon_set": 2
+      }
+    ],
+    "required_pool": {
+      "ordinary": 67,
+      "sets": [
+        16,
+        16
+      ]
+    },
+    "refunds": 0,
+    "operations": [
+      {
+        "action": "재배정",
+        "id": "totems43",
+        "name": "Totem Damage",
+        "from": 2,
+        "to": 0,
+        "cost": {
+          "ordinary": 55,
+          "sets": [
+            4,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries9",
+        "name": "Empowered Attack Damage",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 55,
+          "sets": [
+            5,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "life_costs3",
+        "name": "Life Costs",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 56,
+          "sets": [
+            5,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries29",
+        "name": "Warcry Cooldown and Speed",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 56,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems45",
+        "name": "Totem Life",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 57,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems34",
+        "name": "Ancestral Mending",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 58,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries19_",
+        "name": "Warcry Cooldown Speed",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 58,
+          "sets": [
+            7,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries35",
+        "name": "Warcry Speed",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 58,
+          "sets": [
+            8,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "life_costs2",
+        "name": "Life Costs",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 59,
+          "sets": [
+            8,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries10",
+        "name": "Warcry Damage",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 59,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries25",
+        "name": "Warcry Damage",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 59,
+          "sets": [
+            10,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries11",
+        "name": "Cacophony",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 59,
+          "sets": [
+            11,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength61_",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 60,
+          "sets": [
+            11,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes51",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 61,
+          "sets": [
+            11,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems39",
+        "name": "Totem Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 62,
+          "sets": [
+            11,
+            13
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems38",
+        "name": "Totem Placement Speed",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 63,
+          "sets": [
+            11,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems11",
+        "name": "Totem Placement Speed",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 64,
+          "sets": [
+            11,
+            15
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems9",
+        "name": "Watchtowers",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 65,
+          "sets": [
+            11,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries23",
+        "name": "Empowered Attack Damage",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 65,
+          "sets": [
+            12,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries24",
+        "name": "Bolstering Yell",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 65,
+          "sets": [
+            13,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries28",
+        "name": "Warcry Power Counted",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 65,
+          "sets": [
+            14,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "life_costs1",
+        "name": "Life Costs",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 66,
+          "sets": [
+            14,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "reduced_attack_cost4",
+        "name": "Price of Freedom",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 67,
+          "sets": [
+            14,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries37",
+        "name": "Warcry Speed",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 67,
+          "sets": [
+            15,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries34",
+        "name": "Urgent Call",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 67,
+          "sets": [
+            16,
+            16
+          ],
+          "ascendancy": 4
+        }
+      }
+    ]
+  },
+  {
+    "from": "04 타락 함성 - 마나 사용",
+    "to": "05 전사 토템 - 혈마법 전환",
+    "from_passives": [
+      {
+        "id": "warcries34",
+        "weapon_set": 1
+      },
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "strength70"
+      },
+      {
+        "id": "melee17"
+      },
+      {
+        "id": "warcries9",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes51"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems9",
+        "weapon_set": 2
+      },
+      {
+        "id": "marauder_brute_notable1"
+      },
+      {
+        "id": "warcries11",
+        "weapon_set": 1
+      },
+      {
+        "id": "armour5"
+      },
+      {
+        "id": "strength38"
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "attack_speed54"
+      },
+      {
+        "id": "reduced_attack_cost4"
+      },
+      {
+        "id": "life_regeneration25"
+      },
+      {
+        "id": "strength41"
+      },
+      {
+        "id": "armour_break28"
+      },
+      {
+        "id": "life_costs3"
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "warcries29",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks2_",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "slow_attacks10",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee56"
+      },
+      {
+        "id": "strength67"
+      },
+      {
+        "id": "totems45"
+      },
+      {
+        "id": "armour_break29"
+      },
+      {
+        "id": "totems44",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems43"
+      },
+      {
+        "id": "warcries24",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "attack_speed53"
+      },
+      {
+        "id": "strength69"
+      },
+      {
+        "id": "strength19"
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "strength36"
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "shield15",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee25"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "slow_attacks3",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength22"
+      },
+      {
+        "id": "warcries19_",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "attack_speed55"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "totems38",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength39_"
+      },
+      {
+        "id": "warcries35",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems11",
+        "weapon_set": 2
+      },
+      {
+        "id": "armour_break37"
+      },
+      {
+        "id": "melee46"
+      },
+      {
+        "id": "shield1",
+        "weapon_set": 1
+      },
+      {
+        "id": "slow_attacks5",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee55"
+      },
+      {
+        "id": "shield5",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee18"
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "warcries25",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength40_"
+      },
+      {
+        "id": "life_costs2"
+      },
+      {
+        "id": "life_regeneration17_"
+      },
+      {
+        "id": "strength71"
+      },
+      {
+        "id": "warcries10",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength42"
+      },
+      {
+        "id": "strength61_"
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength58"
+      },
+      {
+        "id": "attributes71"
+      },
+      {
+        "id": "shield16",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "melee44"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "totems39",
+        "weapon_set": 2
+      },
+      {
+        "id": "melee54"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries23",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes6"
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries28",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "life_costs1"
+      },
+      {
+        "id": "warcries37",
+        "weapon_set": 1
+      },
+      {
+        "id": "melee19"
+      },
+      {
+        "id": "totems48_",
+        "weapon_set": 2
+      }
+    ],
+    "to_passives": [
+      {
+        "id": "warcries34",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes70"
+      },
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "physical28"
+      },
+      {
+        "id": "strength70"
+      },
+      {
+        "id": "warcries38",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries9",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes3"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems9",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems36",
+        "weapon_set": 2
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "wolf12",
+        "weapon_set": 1
+      },
+      {
+        "id": "intelligence74"
+      },
+      {
+        "id": "strength41"
+      },
+      {
+        "id": "totems37",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "warcries29",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "attributes16"
+      },
+      {
+        "id": "attributes80"
+      },
+      {
+        "id": "strength67"
+      },
+      {
+        "id": "strength26"
+      },
+      {
+        "id": "totems45"
+      },
+      {
+        "id": "totems44",
+        "weapon_set": 2
+      },
+      {
+        "id": "criticals93_"
+      },
+      {
+        "id": "totems43"
+      },
+      {
+        "id": "jewel_slot1977"
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "strength69"
+      },
+      {
+        "id": "strength64"
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "warcries3"
+      },
+      {
+        "id": "warcries39",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries18",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes15"
+      },
+      {
+        "id": "wolf14",
+        "weapon_set": 1
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "intelligence72"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "strength22"
+      },
+      {
+        "id": "wolf13_",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries17"
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "armour6"
+      },
+      {
+        "id": "strength53"
+      },
+      {
+        "id": "strength44"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "warcries36",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes54_"
+      },
+      {
+        "id": "warcries1",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength25"
+      },
+      {
+        "id": "totems38",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries35",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems11",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength23"
+      },
+      {
+        "id": "passive_keystone_ancestral_bond"
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "strength54"
+      },
+      {
+        "id": "intelligence8"
+      },
+      {
+        "id": "strength40_"
+      },
+      {
+        "id": "attributes55"
+      },
+      {
+        "id": "strength71"
+      },
+      {
+        "id": "passive_keystone_blood_magic"
+      },
+      {
+        "id": "strength51"
+      },
+      {
+        "id": "warcries10",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength42"
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes71"
+      },
+      {
+        "id": "physical29"
+      },
+      {
+        "id": "strength24_"
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "jewel_slot1971"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "totems39",
+        "weapon_set": 2
+      },
+      {
+        "id": "intelligence71"
+      },
+      {
+        "id": "strength65_"
+      },
+      {
+        "id": "attributes5"
+      },
+      {
+        "id": "physical26"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes6"
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "warcries37",
+        "weapon_set": 1
+      },
+      {
+        "id": "physical37"
+      },
+      {
+        "id": "totems48_",
+        "weapon_set": 2
+      }
+    ],
+    "required_pool": {
+      "ordinary": 69,
+      "sets": [
+        16,
+        16
+      ]
+    },
+    "refunds": 44,
+    "operations": [
+      {
+        "action": "환불",
+        "id": "attributes51",
+        "name": "Attribute",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 66,
+          "sets": [
+            16,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "warcries11",
+        "name": "Cacophony",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 66,
+          "sets": [
+            15,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "reduced_attack_cost4",
+        "name": "Price of Freedom",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 65,
+          "sets": [
+            15,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "slow_attacks10",
+        "name": "Crushing Verdict",
+        "from": 2,
+        "to": null,
+        "cost": {
+          "ordinary": 64,
+          "sets": [
+            15,
+            15
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "attack_speed55",
+        "name": "Blood Rush",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 63,
+          "sets": [
+            15,
+            15
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "attack_speed54",
+        "name": "Skill Speed",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 62,
+          "sets": [
+            15,
+            15
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "attack_speed53",
+        "name": "Skill Speed",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 61,
+          "sets": [
+            15,
+            15
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "armour_break37",
+        "name": "Cruel Methods",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 60,
+          "sets": [
+            15,
+            15
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "armour_break29",
+        "name": "Physical Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 59,
+          "sets": [
+            15,
+            15
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "armour_break28",
+        "name": "Armour Break and Physical Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 58,
+          "sets": [
+            15,
+            15
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "slow_attacks5",
+        "name": "Attack Damage",
+        "from": 2,
+        "to": null,
+        "cost": {
+          "ordinary": 58,
+          "sets": [
+            15,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "slow_attacks3",
+        "name": "Attack Damage",
+        "from": 2,
+        "to": null,
+        "cost": {
+          "ordinary": 58,
+          "sets": [
+            15,
+            13
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "slow_attacks2_",
+        "name": "Attack Damage",
+        "from": 2,
+        "to": null,
+        "cost": {
+          "ordinary": 58,
+          "sets": [
+            15,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "shield5",
+        "name": "Lay Siege",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 57,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "shield15",
+        "name": "Shield Block",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 56,
+          "sets": [
+            13,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "warcries25",
+        "name": "Warcry Damage",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 55,
+          "sets": [
+            12,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "life_regeneration17_",
+        "name": "Hard to Kill",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 54,
+          "sets": [
+            12,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "life_regeneration25",
+        "name": "Life Regeneration",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 53,
+          "sets": [
+            12,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "strength36",
+        "name": "Attribute",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            12,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "strength61_",
+        "name": "Attribute",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 51,
+          "sets": [
+            12,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "shield16",
+        "name": "Shield Block",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 51,
+          "sets": [
+            11,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "shield1",
+        "name": "Shield Damage",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 51,
+          "sets": [
+            10,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "strength38",
+        "name": "Attribute",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 50,
+          "sets": [
+            10,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "strength39_",
+        "name": "Attribute",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            10,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "warcries28",
+        "name": "Warcry Power Counted",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "warcries24",
+        "name": "Bolstering Yell",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            8,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "warcries23",
+        "name": "Empowered Attack Damage",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            7,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "warcries19_",
+        "name": "Warcry Cooldown Speed",
+        "from": 1,
+        "to": null,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "life_costs1",
+        "name": "Life Costs",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 48,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "life_costs2",
+        "name": "Life Costs",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 47,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "life_costs3",
+        "name": "Life Costs",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 46,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "strength58",
+        "name": "Attribute",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 45,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour6",
+        "name": "Armour",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 46,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength26",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 47,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength25",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 48,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength23",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength24_",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 50,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "melee17",
+        "name": "Melee Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "armour5",
+        "name": "Armour",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 48,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "melee18",
+        "name": "Melee Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 47,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "melee25",
+        "name": "Melee Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 46,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "melee44",
+        "name": "Melee Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 45,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "melee46",
+        "name": "Melee Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 44,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "marauder_brute_notable1",
+        "name": "Brutal",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 43,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "melee54",
+        "name": "Melee Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 42,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "melee55",
+        "name": "Smash",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 41,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "melee56",
+        "name": "Melee Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 40,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "melee19",
+        "name": "Melee Damage",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 39,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "환불",
+        "id": "strength19",
+        "name": "Attribute",
+        "from": 0,
+        "to": null,
+        "cost": {
+          "ordinary": 38,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength65_",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 39,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength64",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 40,
+          "sets": [
+            6,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries38",
+        "name": "Empowered Attack Damage and Power Counted",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 40,
+          "sets": [
+            7,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries36",
+        "name": "Empowered Attack Damage and Power Counted",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 40,
+          "sets": [
+            8,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries39",
+        "name": "Roaring Cries",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 40,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes5",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 41,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes70",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 42,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "jewel_slot1971",
+        "name": "Jewel Socket",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 43,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes15",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 44,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes16",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 45,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength54",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 46,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength53",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 47,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries3",
+        "name": "Warcry Speed",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 48,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries17",
+        "name": "Deafening Cries",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            9,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries1",
+        "name": "Warcry Speed",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            10,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries18",
+        "name": "Guttural Roar",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 49,
+          "sets": [
+            11,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes55",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 50,
+          "sets": [
+            11,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes80",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 51,
+          "sets": [
+            11,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "criticals93_",
+        "name": "Critical Chance",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            11,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "wolf12",
+        "name": "Warcry Speed",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 52,
+          "sets": [
+            12,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "wolf13_",
+        "name": "Warcry Speed",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 53,
+          "sets": [
+            13,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "wolf14",
+        "name": "Howling Beast",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 54,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength51",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 55,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes54_",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 56,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "jewel_slot1977",
+        "name": "Jewel Socket",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 57,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "intelligence74",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 58,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength44",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 59,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "intelligence8",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 60,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "intelligence72",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 61,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "attributes3",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 62,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "intelligence71",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 63,
+          "sets": [
+            14,
+            12
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems37",
+        "name": "Totem Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 63,
+          "sets": [
+            14,
+            13
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems36",
+        "name": "Totem Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 63,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "passive_keystone_ancestral_bond",
+        "name": "Ancestral Bond",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 64,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "physical26",
+        "name": "Physical Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 65,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "physical28",
+        "name": "Physical Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 66,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "physical29",
+        "name": "Physical Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 67,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "physical37",
+        "name": "Battle Fever",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 68,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "passive_keystone_blood_magic",
+        "name": "Blood Magic",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 69,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      }
+    ]
+  },
+  {
+    "from": "05 전사 토템 - 혈마법 전환",
+    "to": "06 파콰테 - 두 함성 운영",
+    "from_passives": [
+      {
+        "id": "warcries34",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes70"
+      },
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "physical28"
+      },
+      {
+        "id": "strength70"
+      },
+      {
+        "id": "warcries38",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries9",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes3"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems9",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems36",
+        "weapon_set": 2
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "wolf12",
+        "weapon_set": 1
+      },
+      {
+        "id": "intelligence74"
+      },
+      {
+        "id": "strength41"
+      },
+      {
+        "id": "totems37",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "warcries29",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "attributes16"
+      },
+      {
+        "id": "attributes80"
+      },
+      {
+        "id": "strength67"
+      },
+      {
+        "id": "strength26"
+      },
+      {
+        "id": "totems45"
+      },
+      {
+        "id": "totems44",
+        "weapon_set": 2
+      },
+      {
+        "id": "criticals93_"
+      },
+      {
+        "id": "totems43"
+      },
+      {
+        "id": "jewel_slot1977"
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "strength69"
+      },
+      {
+        "id": "strength64"
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "warcries3"
+      },
+      {
+        "id": "warcries39",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries18",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes15"
+      },
+      {
+        "id": "wolf14",
+        "weapon_set": 1
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "intelligence72"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "strength22"
+      },
+      {
+        "id": "wolf13_",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries17"
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "armour6"
+      },
+      {
+        "id": "strength53"
+      },
+      {
+        "id": "strength44"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "warcries36",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes54_"
+      },
+      {
+        "id": "warcries1",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength25"
+      },
+      {
+        "id": "totems38",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries35",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems11",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength23"
+      },
+      {
+        "id": "passive_keystone_ancestral_bond"
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "strength54"
+      },
+      {
+        "id": "intelligence8"
+      },
+      {
+        "id": "strength40_"
+      },
+      {
+        "id": "attributes55"
+      },
+      {
+        "id": "strength71"
+      },
+      {
+        "id": "passive_keystone_blood_magic"
+      },
+      {
+        "id": "strength51"
+      },
+      {
+        "id": "warcries10",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength42"
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes71"
+      },
+      {
+        "id": "physical29"
+      },
+      {
+        "id": "strength24_"
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "jewel_slot1971"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "totems39",
+        "weapon_set": 2
+      },
+      {
+        "id": "intelligence71"
+      },
+      {
+        "id": "strength65_"
+      },
+      {
+        "id": "attributes5"
+      },
+      {
+        "id": "physical26"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes6"
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "warcries37",
+        "weapon_set": 1
+      },
+      {
+        "id": "physical37"
+      },
+      {
+        "id": "totems48_",
+        "weapon_set": 2
+      }
+    ],
+    "to_passives": [
+      {
+        "id": "warcries34",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes70"
+      },
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "physical28"
+      },
+      {
+        "id": "strength70"
+      },
+      {
+        "id": "warcries38",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries9",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes3"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems9",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems36",
+        "weapon_set": 2
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "wolf12",
+        "weapon_set": 1
+      },
+      {
+        "id": "intelligence74"
+      },
+      {
+        "id": "strength41"
+      },
+      {
+        "id": "totems37",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "warcries29",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "attributes16"
+      },
+      {
+        "id": "attributes80"
+      },
+      {
+        "id": "strength67"
+      },
+      {
+        "id": "strength26"
+      },
+      {
+        "id": "totems45"
+      },
+      {
+        "id": "totems44",
+        "weapon_set": 2
+      },
+      {
+        "id": "criticals93_"
+      },
+      {
+        "id": "totems43"
+      },
+      {
+        "id": "jewel_slot1977"
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "strength69"
+      },
+      {
+        "id": "strength64"
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "warcries3"
+      },
+      {
+        "id": "warcries39",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries18",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes15"
+      },
+      {
+        "id": "wolf14",
+        "weapon_set": 1
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "intelligence72"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "strength22"
+      },
+      {
+        "id": "wolf13_",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries17"
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "armour6"
+      },
+      {
+        "id": "strength53"
+      },
+      {
+        "id": "strength44"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "warcries36",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes54_"
+      },
+      {
+        "id": "warcries1",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength25"
+      },
+      {
+        "id": "totems38",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries35",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems11",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength23"
+      },
+      {
+        "id": "passive_keystone_ancestral_bond"
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "strength54"
+      },
+      {
+        "id": "intelligence8"
+      },
+      {
+        "id": "strength40_"
+      },
+      {
+        "id": "attributes55"
+      },
+      {
+        "id": "strength71"
+      },
+      {
+        "id": "passive_keystone_blood_magic"
+      },
+      {
+        "id": "strength51"
+      },
+      {
+        "id": "warcries10",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength42"
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes71"
+      },
+      {
+        "id": "physical29"
+      },
+      {
+        "id": "strength24_"
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "jewel_slot1971"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "totems39",
+        "weapon_set": 2
+      },
+      {
+        "id": "intelligence71"
+      },
+      {
+        "id": "strength65_"
+      },
+      {
+        "id": "attributes5"
+      },
+      {
+        "id": "physical26"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes6"
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "warcries37",
+        "weapon_set": 1
+      },
+      {
+        "id": "physical37"
+      },
+      {
+        "id": "totems48_",
+        "weapon_set": 2
+      }
+    ],
+    "required_pool": {
+      "ordinary": 69,
+      "sets": [
+        14,
+        14
+      ]
+    },
+    "refunds": 0,
+    "operations": []
+  },
+  {
+    "from": "06 파콰테 - 두 함성 운영",
+    "to": "07 지도 성장 - 후기 목표",
+    "from_passives": [
+      {
+        "id": "warcries34",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes70"
+      },
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "physical28"
+      },
+      {
+        "id": "strength70"
+      },
+      {
+        "id": "warcries38",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries9",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes3"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems9",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems36",
+        "weapon_set": 2
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "wolf12",
+        "weapon_set": 1
+      },
+      {
+        "id": "intelligence74"
+      },
+      {
+        "id": "strength41"
+      },
+      {
+        "id": "totems37",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "warcries29",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "attributes16"
+      },
+      {
+        "id": "attributes80"
+      },
+      {
+        "id": "strength67"
+      },
+      {
+        "id": "strength26"
+      },
+      {
+        "id": "totems45"
+      },
+      {
+        "id": "totems44",
+        "weapon_set": 2
+      },
+      {
+        "id": "criticals93_"
+      },
+      {
+        "id": "totems43"
+      },
+      {
+        "id": "jewel_slot1977"
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "strength69"
+      },
+      {
+        "id": "strength64"
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "warcries3"
+      },
+      {
+        "id": "warcries39",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries18",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes15"
+      },
+      {
+        "id": "wolf14",
+        "weapon_set": 1
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "intelligence72"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "strength22"
+      },
+      {
+        "id": "wolf13_",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries17"
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "armour6"
+      },
+      {
+        "id": "strength53"
+      },
+      {
+        "id": "strength44"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "warcries36",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes54_"
+      },
+      {
+        "id": "warcries1",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength25"
+      },
+      {
+        "id": "totems38",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries35",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems11",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength23"
+      },
+      {
+        "id": "passive_keystone_ancestral_bond"
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "strength54"
+      },
+      {
+        "id": "intelligence8"
+      },
+      {
+        "id": "strength40_"
+      },
+      {
+        "id": "attributes55"
+      },
+      {
+        "id": "strength71"
+      },
+      {
+        "id": "passive_keystone_blood_magic"
+      },
+      {
+        "id": "strength51"
+      },
+      {
+        "id": "warcries10",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength42"
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes71"
+      },
+      {
+        "id": "physical29"
+      },
+      {
+        "id": "strength24_"
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "jewel_slot1971"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "totems39",
+        "weapon_set": 2
+      },
+      {
+        "id": "intelligence71"
+      },
+      {
+        "id": "strength65_"
+      },
+      {
+        "id": "attributes5"
+      },
+      {
+        "id": "physical26"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes6"
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "warcries37",
+        "weapon_set": 1
+      },
+      {
+        "id": "physical37"
+      },
+      {
+        "id": "totems48_",
+        "weapon_set": 2
+      }
+    ],
+    "to_passives": [
+      {
+        "id": "strength39_"
+      },
+      {
+        "id": "strength38"
+      },
+      {
+        "id": "strength36"
+      },
+      {
+        "id": "life_regeneration25"
+      },
+      {
+        "id": "life_regeneration17_"
+      },
+      {
+        "id": "life_regeneration24"
+      },
+      {
+        "id": "duelist_mercenary_notable1"
+      },
+      {
+        "id": "armour47"
+      },
+      {
+        "id": "armour48"
+      },
+      {
+        "id": "armour46"
+      },
+      {
+        "id": "armour49"
+      },
+      {
+        "id": "warcries34",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes70"
+      },
+      {
+        "id": "AscendancyWarrior2Small5"
+      },
+      {
+        "id": "jewel_slot1974"
+      },
+      {
+        "id": "physical28"
+      },
+      {
+        "id": "strength70"
+      },
+      {
+        "id": "warcries38",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries9",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes3"
+      },
+      {
+        "id": "totems1",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems9",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems36",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries11",
+        "weapon_set": 1
+      },
+      {
+        "id": "marauder_brute_notable2"
+      },
+      {
+        "id": "criticals33"
+      },
+      {
+        "id": "wolf12",
+        "weapon_set": 1
+      },
+      {
+        "id": "intelligence74"
+      },
+      {
+        "id": "strength41"
+      },
+      {
+        "id": "armour_break28"
+      },
+      {
+        "id": "totems37",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength21"
+      },
+      {
+        "id": "criticals101",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries29",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems34"
+      },
+      {
+        "id": "attributes16"
+      },
+      {
+        "id": "block7_",
+        "weapon_set": 1
+      },
+      {
+        "id": "criticals95",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes80"
+      },
+      {
+        "id": "strength67"
+      },
+      {
+        "id": "strength26"
+      },
+      {
+        "id": "totems45"
+      },
+      {
+        "id": "armour_break29"
+      },
+      {
+        "id": "totems44",
+        "weapon_set": 2
+      },
+      {
+        "id": "criticals93_"
+      },
+      {
+        "id": "totems43"
+      },
+      {
+        "id": "jewel_slot1977"
+      },
+      {
+        "id": "totems14",
+        "weapon_set": 2
+      },
+      {
+        "id": "jewel_slot1956"
+      },
+      {
+        "id": "strength69"
+      },
+      {
+        "id": "strength64"
+      },
+      {
+        "id": "armour14"
+      },
+      {
+        "id": "criticals40"
+      },
+      {
+        "id": "warcries3"
+      },
+      {
+        "id": "warcries39",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries18",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes15"
+      },
+      {
+        "id": "wolf14",
+        "weapon_set": 1
+      },
+      {
+        "id": "armour35"
+      },
+      {
+        "id": "shield15",
+        "weapon_set": 1
+      },
+      {
+        "id": "intelligence72"
+      },
+      {
+        "id": "AscendancyWarrior2Start"
+      },
+      {
+        "id": "criticals94",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems19",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength22"
+      },
+      {
+        "id": "wolf13_",
+        "weapon_set": 1
+      },
+      {
+        "id": "warcries17"
+      },
+      {
+        "id": "totems35",
+        "weapon_set": 2
+      },
+      {
+        "id": "totems26",
+        "weapon_set": 2
+      },
+      {
+        "id": "armour6"
+      },
+      {
+        "id": "strength53"
+      },
+      {
+        "id": "strength44"
+      },
+      {
+        "id": "AscendancyWarrior2Small6"
+      },
+      {
+        "id": "AscendancyWarrior2Notable6"
+      },
+      {
+        "id": "warcries36",
+        "weapon_set": 1
+      },
+      {
+        "id": "attributes54_"
+      },
+      {
+        "id": "warcries1",
+        "weapon_set": 1
+      },
+      {
+        "id": "AscendancyWarrior2Notable7"
+      },
+      {
+        "id": "strength25"
+      },
+      {
+        "id": "totems38",
+        "weapon_set": 2
+      },
+      {
+        "id": "warcries35",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems11",
+        "weapon_set": 2
+      },
+      {
+        "id": "armour_break37"
+      },
+      {
+        "id": "strength23"
+      },
+      {
+        "id": "shield1",
+        "weapon_set": 1
+      },
+      {
+        "id": "passive_keystone_ancestral_bond"
+      },
+      {
+        "id": "shield5",
+        "weapon_set": 1
+      },
+      {
+        "id": "AscendancyWarrior2Notable4_"
+      },
+      {
+        "id": "strength54"
+      },
+      {
+        "id": "warcries25",
+        "weapon_set": 1
+      },
+      {
+        "id": "intelligence8"
+      },
+      {
+        "id": "strength40_"
+      },
+      {
+        "id": "AscendancyWarrior2Small7_"
+      },
+      {
+        "id": "totems6",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes55"
+      },
+      {
+        "id": "totems21",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength71"
+      },
+      {
+        "id": "passive_keystone_blood_magic"
+      },
+      {
+        "id": "totems33_",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength51"
+      },
+      {
+        "id": "warcries10",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength42"
+      },
+      {
+        "id": "totems8",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes71"
+      },
+      {
+        "id": "physical29"
+      },
+      {
+        "id": "strength24_"
+      },
+      {
+        "id": "shield16",
+        "weapon_set": 1
+      },
+      {
+        "id": "strength15"
+      },
+      {
+        "id": "jewel_slot1971"
+      },
+      {
+        "id": "criticals35"
+      },
+      {
+        "id": "attributes32"
+      },
+      {
+        "id": "totems39",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength45_"
+      },
+      {
+        "id": "criticals31"
+      },
+      {
+        "id": "intelligence71"
+      },
+      {
+        "id": "strength65_"
+      },
+      {
+        "id": "attributes5"
+      },
+      {
+        "id": "physical26"
+      },
+      {
+        "id": "totems25",
+        "weapon_set": 2
+      },
+      {
+        "id": "attributes6"
+      },
+      {
+        "id": "totems15",
+        "weapon_set": 2
+      },
+      {
+        "id": "strength68"
+      },
+      {
+        "id": "warcries37",
+        "weapon_set": 1
+      },
+      {
+        "id": "physical37"
+      },
+      {
+        "id": "block15",
+        "weapon_set": 1
+      },
+      {
+        "id": "totems48_",
+        "weapon_set": 2
+      }
+    ],
+    "required_pool": {
+      "ordinary": 97,
+      "sets": [
+        22,
+        22
+      ]
+    },
+    "refunds": 0,
+    "operations": [
+      {
+        "action": "추가",
+        "id": "strength39_",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 70,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength38",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 71,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength36",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 72,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "life_regeneration25",
+        "name": "Life Regeneration",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 73,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "life_regeneration17_",
+        "name": "Hard to Kill",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 74,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "life_regeneration24",
+        "name": "Life Regeneration",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 75,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "duelist_mercenary_notable1",
+        "name": "Battle-hardened",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 76,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour47",
+        "name": "Armour",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 77,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour46",
+        "name": "Armour",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 78,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour48",
+        "name": "Armour",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 79,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour49",
+        "name": "Tempered Defences",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 80,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "jewel_slot1974",
+        "name": "Jewel Socket",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 81,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour_break28",
+        "name": "Armour Break and Physical Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 82,
+          "sets": [
+            14,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "block7_",
+        "name": "Block",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 83,
+          "sets": [
+            15,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour_break29",
+        "name": "Physical Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 84,
+          "sets": [
+            15,
+            14
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "criticals94",
+        "name": "Critical Chance",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 84,
+          "sets": [
+            15,
+            15
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "criticals95",
+        "name": "Critical Chance",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 85,
+          "sets": [
+            15,
+            16
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "criticals101",
+        "name": "Bonded Precision",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 86,
+          "sets": [
+            15,
+            17
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems19",
+        "name": "Totem Life",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 87,
+          "sets": [
+            15,
+            18
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems35",
+        "name": "Totem Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 88,
+          "sets": [
+            15,
+            19
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "armour_break37",
+        "name": "Cruel Methods",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 89,
+          "sets": [
+            15,
+            19
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "shield1",
+        "name": "Shield Damage",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 89,
+          "sets": [
+            16,
+            19
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries25",
+        "name": "Warcry Damage",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 89,
+          "sets": [
+            17,
+            19
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "warcries11",
+        "name": "Cacophony",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 89,
+          "sets": [
+            18,
+            19
+          ],
+          "ascendancy": 4
+        }
+      },
+      {
+        "action": "추가",
+        "id": "AscendancyWarrior2Small7_",
+        "name": "Totem Life",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 89,
+          "sets": [
+            18,
+            19
+          ],
+          "ascendancy": 5
+        }
+      },
+      {
+        "action": "추가",
+        "id": "AscendancyWarrior2Notable7",
+        "name": "Wooden Wall",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 89,
+          "sets": [
+            18,
+            19
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems6",
+        "name": "Totem Damage",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 90,
+          "sets": [
+            18,
+            20
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems21",
+        "name": "Spirit Bond",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 91,
+          "sets": [
+            18,
+            21
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "totems33_",
+        "name": "Ancestral Conduits",
+        "from": null,
+        "to": 2,
+        "cost": {
+          "ordinary": 92,
+          "sets": [
+            18,
+            22
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "shield16",
+        "name": "Shield Block",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 92,
+          "sets": [
+            19,
+            22
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "shield15",
+        "name": "Shield Block",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 92,
+          "sets": [
+            20,
+            22
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "shield5",
+        "name": "Lay Siege",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 92,
+          "sets": [
+            21,
+            22
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "criticals35",
+        "name": "Critical Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 93,
+          "sets": [
+            21,
+            22
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "criticals33",
+        "name": "Critical Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 94,
+          "sets": [
+            21,
+            22
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "strength45_",
+        "name": "Attribute",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 95,
+          "sets": [
+            21,
+            22
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "criticals31",
+        "name": "Critical Damage",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 96,
+          "sets": [
+            21,
+            22
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "criticals40",
+        "name": "Desensitisation",
+        "from": null,
+        "to": 0,
+        "cost": {
+          "ordinary": 97,
+          "sets": [
+            21,
+            22
+          ],
+          "ascendancy": 6
+        }
+      },
+      {
+        "action": "추가",
+        "id": "block15",
+        "name": "Defender's Resolve",
+        "from": null,
+        "to": 1,
+        "cost": {
+          "ordinary": 97,
+          "sets": [
+            22,
+            22
+          ],
+          "ascendancy": 6
+        }
+      }
+    ]
+  }
+]

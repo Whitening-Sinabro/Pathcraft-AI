@@ -1,0 +1,1890 @@
+{
+  "source": "https://poe.ninja/poe2/pob/27e13",
+  "character": "https://poe.ninja/poe2/profile/CololadoBurger-7117/forbiddenrites/character/FR_FBBurger",
+  "source_sha256": "3531e511c5c9743c8b2ee3cf327aad6cfb216d85e8b884847f1eb0f6bb3fcedd",
+  "current_sha256": "82484ec8c281c5de769fe61da94ce1da56907dde7f1c245cda1f6b603fb0b55e",
+  "bridge_policy": "현재 젬링 유지, 환불 없이 원본 02 일반 노드 중 연결 가능한 13점을 선택. 아르세리나 원본 육성 경로와 구분.",
+  "planners": [
+    {
+      "file": "아르세리나 01 38-51 젬링 이어가기.build",
+      "cost": {
+        "ordinary": 60,
+        "weapon_sets": [
+          0,
+          0
+        ],
+        "ascendancy": 4
+      },
+      "sha256": "43b8d2a894c41d62b0b3972aa8de94d8d0a8ef3eddc151e1d000c893f762f4f0",
+      "source_spec": "FR_FBBurger + original 02",
+      "expected_skill_groups": [
+        [
+          "Metadata/Items/Gems/SkillGemAscendancyVirtuousBarrier"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "Metadata/Items/Gem/SupportGemSwiftAffliction",
+          "Metadata/Items/Gems/SupportGemMagnifiedEffect"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemFlashGrenade",
+          "Metadata/Items/Gems/SupportGemScattershotTwo",
+          "Metadata/Items/Gems/SupportGemBrutality"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemGasGrenade",
+          "Metadata/Items/Gems/SupportGemScattershotTwo",
+          "Metadata/Items/Gems/SupportGemPrimalArmamentTwo"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemAttrition"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemOilGrenade",
+          "Metadata/Items/Gem/SupportGemDomain",
+          "Metadata/Items/Gem/SupportGemStripAway"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemExplosiveGrenade",
+          "Metadata/Items/Gems/SupportGemScattershotTwo",
+          "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
+          "Metadata/Items/Gems/SupportGemFireInfusion"
+        ]
+      ],
+      "skills": 7,
+      "inventory_slots": 13,
+      "original_passives_preserved": false
+    },
+    {
+      "file": "아르세리나 02 52이상 화염파 전환.build",
+      "cost": {
+        "ordinary": 67,
+        "weapon_sets": [
+          17,
+          17
+        ],
+        "ascendancy": 4
+      },
+      "sha256": "4c90b060d601a9506555606fa476e5c93539f0f6398bf7efda153dd9aa4a9173",
+      "source_spec": "03 Swap",
+      "expected_skill_groups": [
+        [
+          "Metadata/Items/Gems/SkillGemFlameblast",
+          "Metadata/Items/Gems/SupportGemIgnitionThree",
+          "Metadata/Items/Gems/SupportGemSearingFlameTwo",
+          "Metadata/Items/Gem/SupportGemBurgeonTwo",
+          "Metadata/Items/Gem/SupportGemConsideredCasting"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemOilGrenade",
+          "Metadata/Items/Gem/SupportGemExpediteTwo",
+          "Metadata/Items/Gems/SupportGemNovaProjectiles",
+          "Metadata/Items/Gem/SupportGemSuffuse"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemBlasphemy",
+          "Metadata/Items/Gems/SkillGemTemporalChains",
+          "Metadata/Items/Gem/SupportGemRitualisticCurse",
+          "Metadata/Items/Gems/SupportGemEncumbrance"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemElementalWeakness",
+          "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "Metadata/Items/Gems/SupportGemHeightenedCurse",
+          "Metadata/Items/Gem/SupportGemCursedGround"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemTornado",
+          "Metadata/Items/Gems/SupportGemOverabundanceTwo"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemArcticArmour",
+          "Metadata/Items/Gems/SupportGemElementalFocus"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemAscendancyVirtuousBarrier",
+          "Metadata/Items/Gems/SupportGemHerbalism"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemSigilOfPower"
+        ]
+      ],
+      "skills": 9,
+      "inventory_slots": 15,
+      "original_passives_preserved": true
+    },
+    {
+      "file": "아르세리나 03 지도 성장 목표.build",
+      "cost": {
+        "ordinary": 106,
+        "weapon_sets": [
+          23,
+          23
+        ],
+        "ascendancy": 8
+      },
+      "sha256": "6161b957f1b0c0cd7227e3d3ab853aaaab608b9f60d830dbb4337010471f606a",
+      "source_spec": "04",
+      "expected_skill_groups": [
+        [
+          "Metadata/Items/Gems/SkillGemFlameblast",
+          "Metadata/Items/Gems/SupportGemIgnitionThree",
+          "Metadata/Items/Gems/SupportGemSearingFlameTwo",
+          "Metadata/Items/Gem/SupportGemBurgeonTwo",
+          "Metadata/Items/Gem/SupportGemConsideredCasting",
+          "Metadata/Items/Gems/SupportGemConcentratedEffect"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemOilGrenade",
+          "Metadata/Items/Gem/SupportGemExpediteTwo",
+          "Metadata/Items/Gems/SupportGemNovaProjectiles",
+          "Metadata/Items/Gem/SupportGemSuffuse",
+          "Metadata/Items/Gems/SupportGemScattershotTwo"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemBlasphemy",
+          "Metadata/Items/Gems/SkillGemTemporalChains",
+          "Metadata/Items/Gem/SupportGemRitualisticCurse",
+          "Metadata/Items/Gems/SupportGemEncumbrance"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemElementalWeakness",
+          "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "Metadata/Items/Gems/SupportGemHeightenedCurse",
+          "Metadata/Items/Gem/SupportGemCursedGround"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemTornado",
+          "Metadata/Items/Gems/SupportGemOverabundanceTwo",
+          "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemArcticArmour",
+          "Metadata/Items/Gems/SupportGemElementalFocus",
+          "Metadata/Items/Gems/SupportGemBludgeon",
+          "Metadata/Items/Gems/SupportGemBlindTwo"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemAscendancyVirtuousBarrier",
+          "Metadata/Items/Gems/SupportGemHerbalism"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemSigilOfPower",
+          "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "Metadata/Items/Gems/SupportGemPersistenceTwo"
+        ]
+      ],
+      "skills": 9,
+      "inventory_slots": 15,
+      "original_passives_preserved": true
+    },
+    {
+      "file": "아르세리나 04 후기 장비 목표.build",
+      "cost": {
+        "ordinary": 118,
+        "weapon_sets": [
+          23,
+          23
+        ],
+        "ascendancy": 8
+      },
+      "sha256": "22a264ebd7ad9e7706c77012650118b59599b87677d5c22099a276bd5e30c17c",
+      "source_spec": "05",
+      "expected_skill_groups": [
+        [
+          "Metadata/Items/Gem/SkillGemPlayerDefaultGrenadeLauncher",
+          "Metadata/Items/Gems/SupportGemColdInfusion",
+          "Metadata/Items/Gems/SupportGemConcentratedEffect",
+          "Metadata/Items/Gems/SupportGemImmolate",
+          "Metadata/Items/Gems/SupportGemBrutality"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemOilGrenade",
+          "Metadata/Items/Gem/SupportGemExpediteTwo",
+          "Metadata/Items/Gems/SupportGemNovaProjectiles",
+          "Metadata/Items/Gem/SupportGemSuffuse",
+          "Metadata/Items/Gems/SupportGemMobility",
+          "Metadata/Items/Gems/SupportGemPierceThree"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemFlameblast",
+          "Metadata/Items/Gems/SupportGemIgnitionThree",
+          "Metadata/Items/Gems/SupportGemSearingFlameTwo",
+          "Metadata/Items/Gem/SupportGemBurgeonTwo",
+          "Metadata/Items/Gem/SupportGemConsideredCasting",
+          "Metadata/Items/Gems/SupportGemConcentratedEffect"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemElementalWeakness",
+          "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "Metadata/Items/Gems/SupportGemHeightenedCurse",
+          "Metadata/Items/Gem/SupportGemCursedGround",
+          "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemTornado",
+          "Metadata/Items/Gems/SupportGemOverabundanceTwo",
+          "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "Metadata/Items/Gems/SupportGemPersistenceTwo"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemInfernalCry",
+          "Metadata/Items/Gems/SupportGemCorruptingCry",
+          "Metadata/Items/Gems/SupportGemIngenuity"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemShockwaveTotem",
+          "Metadata/Items/Gems/SupportGemBlind",
+          "Metadata/Items/Gems/SupportGemMaim",
+          "Metadata/Items/Gem/SupportGemCullingStrike"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+          "Metadata/Items/Gems/SupportGemHerbalism",
+          "Metadata/Items/Gems/SupportGemPrecision"
+        ],
+        [
+          "Metadata/Items/Gem/SkillGemOverwhelmingPresence",
+          "Metadata/Items/Gems/SupportGemHerbalism",
+          "Metadata/Items/Gems/SupportGemPrecision"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemSeismicCry",
+          "Metadata/Items/Gems/SupportGemCorruptingCry",
+          "Metadata/Items/Gems/SupportGemIngenuity"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemAscendancyVirtuousBarrier"
+        ],
+        [
+          "Metadata/Items/Gems/SkillGemSigilOfPower",
+          "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "Metadata/Items/Gems/SupportGemIngenuityTwo"
+        ]
+      ],
+      "skills": 12,
+      "inventory_slots": 15,
+      "original_passives_preserved": true
+    }
+  ],
+  "bridge_addition_order": [
+    "duelist_mercenary_notable1",
+    "attributes8_",
+    "movement_speed8_",
+    "movement_speed11",
+    "strength83",
+    "area_attacks15",
+    "attributes7",
+    "grenades19",
+    "grenades25",
+    "area_attacks10",
+    "area_attacks16_",
+    "area_attacks31",
+    "area_attacks17"
+  ],
+  "disabled_gems_removed": [
+    [],
+    [],
+    [
+      "Metadata/Items/Gems/SupportGemPierceThree",
+      "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+      "Metadata/Items/Gems/SupportGemIngenuityTwo"
+    ],
+    []
+  ],
+  "runtime_verified": false,
+  "transitions": [
+    {
+      "from_stage": 1,
+      "to_stage": 2,
+      "method": "공통 노드를 유지하며 다른 가지를 환불하고 새 경로를 연결한다. 매 조작 뒤 양 무기 세트 연결을 검증했다. 수학적 최소 골드 경로라고 주장하지 않는다.",
+      "operations": [
+        {
+          "action": "refund",
+          "id": "area_attacks17",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "area_attacks31",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "area_attacks16_",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "area_attacks10",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "area_attacks15",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "cooldowns17",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "crossbow10",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "crossbow9",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "crossbow1",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "grenades10",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "grenades18",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "grenades17",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "grenades16",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "attributes60",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "attributes46",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "dexterity73",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "grenades25",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "grenades19",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "grenades7",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "grenades6",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "grenades2",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "grenades8",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "two_handed14",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "two_handed18",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "two_handed17",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "two_handed20",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "two_handed6",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "two_handed5_",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "two_handed7",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "all_attributes2",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "all_attributes12",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "all_attributes13",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "all_attributes15",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "all_attributes10",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "armour_and_evasion2",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns2",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns20",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "dexterity76",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "dexterity75",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire62",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "area_attacks62",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "area_attacks60",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire61",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "jewel_slot1970",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes20-",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes19",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns16",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns14",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns15",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "dexterity64",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes43",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength32",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength33_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength34",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "armour_and_evasion27",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength35",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "duelist_mercenary_notable2",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "projectiles21_",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "projectiles20",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "projectiles19",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "projectiles18",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "projectiles7",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "projectiles6__",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "projectiles28_",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "projectiles4__",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength84",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength87",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "dexterity65_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "ailments15",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "ailments14",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "ailments16",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "ailments17",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "ailments23",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "ailments25",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "ailments22",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "ailments38",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "area_attacks15",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "area_attacks11",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "area_attacks19",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "area_attacks30",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "crossbow1",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "crossbow9",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "crossbow10",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "fire14",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "fire15",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "fire39",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "fire59",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "fire63_",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "fire60_",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "fire65",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "fire64_",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "fire66",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "grenades19",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "grenades25",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "grenades27",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "grenades8",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "grenades2",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "grenades3",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "grenades11",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "grenades6",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "grenades7",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "grenades10",
+          "weapon_set": 2
+        }
+      ],
+      "refunds": 39,
+      "required_pool": 67,
+      "target_cost": {
+        "ordinary": 67,
+        "weapon_sets": [
+          17,
+          17
+        ],
+        "ascendancy": 4
+      }
+    },
+    {
+      "from_stage": 2,
+      "to_stage": 3,
+      "method": "공통 노드를 유지하며 다른 가지를 환불하고 새 경로를 연결한다. 매 조작 뒤 양 무기 세트 연결을 검증했다. 수학적 최소 골드 경로라고 주장하지 않는다.",
+      "operations": [
+        {
+          "action": "refund",
+          "id": "cooldowns13",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "cooldowns15",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "cooldowns14",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "cooldowns16",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "cooldowns19",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "cooldowns18",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "AscendancyMercenary3Small2",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "AscendancyMercenary3Notable2",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "AscendancyMercenary3Notable2_3_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "AscendancyMercenary3Small7_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "AscendancyMercenary3Notable3",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength38",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength39_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "slowed_enemies28",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "slowed_enemies29",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "slowed_enemies30",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength40_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength50",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire56",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire55",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire57",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength85",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "jewel_slot1974",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength71",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "armour47",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "armour46",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "armour48",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "armour49",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes6",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength70",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength69",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes71",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength65_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength64",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes5",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes70",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire68",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire69",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire70",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire75",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire_penetration21",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire17",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire21_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire40",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire20",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "maximum_resistances2",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "maximum_resistances3_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "maximum_resistances21",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength67",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength68",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "ailments35",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "ailments36",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns16",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns14",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns15",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns18",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns19",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "cooldowns13",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "slow_attacks2_",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "slow_attacks4",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "slow_attacks6_",
+          "weapon_set": 1
+        },
+        {
+          "action": "allocate",
+          "id": "slow_attacks11",
+          "weapon_set": 1
+        }
+      ],
+      "refunds": 6,
+      "required_pool": 106,
+      "target_cost": {
+        "ordinary": 106,
+        "weapon_sets": [
+          23,
+          23
+        ],
+        "ascendancy": 8
+      }
+    },
+    {
+      "from_stage": 3,
+      "to_stage": 4,
+      "method": "공통 노드를 유지하며 다른 가지를 환불하고 새 경로를 연결한다. 매 조작 뒤 양 무기 세트 연결을 검증했다. 수학적 최소 골드 경로라고 주장하지 않는다.",
+      "operations": [
+        {
+          "action": "refund",
+          "id": "armour_and_evasion28",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "armour_and_evasion26",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "cooldowns20",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "cooldowns2",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "crossbow10",
+          "weapon_set": 2
+        },
+        {
+          "action": "refund",
+          "id": "crossbow9",
+          "weapon_set": 2
+        },
+        {
+          "action": "refund",
+          "id": "crossbow1",
+          "weapon_set": 2
+        },
+        {
+          "action": "refund",
+          "id": "dexterity30_",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "fire57",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "fire55",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "fire56",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "strength50",
+          "weapon_set": 0
+        },
+        {
+          "action": "refund",
+          "id": "strength40_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes107",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes106",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes105",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes100_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "jewel_slot1956",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "attributes58",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "jewel_slot1971",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "passive_keystone_iron_reflexes_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength103",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength101",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength104",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength102",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength109",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength108_",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "strength48",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "ignite_mitigation1",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "ignite_mitigation2",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "fire48",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "ignite_mitigation4",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "ignite_mitigation5",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "ignite_mitigation13",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "ignite_mitigation7",
+          "weapon_set": 0
+        },
+        {
+          "action": "allocate",
+          "id": "area_attacks2",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "area_attacks1",
+          "weapon_set": 2
+        },
+        {
+          "action": "allocate",
+          "id": "area_attacks26",
+          "weapon_set": 2
+        }
+      ],
+      "refunds": 13,
+      "required_pool": 118,
+      "target_cost": {
+        "ordinary": 118,
+        "weapon_sets": [
+          23,
+          23
+        ],
+        "ascendancy": 8
+      }
+    }
+  ],
+  "transition": {
+    "from_stage": 1,
+    "to_stage": 2,
+    "method": "공통 노드를 유지하며 다른 가지를 환불하고 새 경로를 연결한다. 매 조작 뒤 양 무기 세트 연결을 검증했다. 수학적 최소 골드 경로라고 주장하지 않는다.",
+    "operations": [
+      {
+        "action": "refund",
+        "id": "area_attacks17",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "area_attacks31",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "area_attacks16_",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "area_attacks10",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "area_attacks15",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "cooldowns17",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "crossbow10",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "crossbow9",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "crossbow1",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "grenades10",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "grenades18",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "grenades17",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "grenades16",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "attributes60",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "attributes46",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "dexterity73",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "grenades25",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "grenades19",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "grenades7",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "grenades6",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "grenades2",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "grenades8",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "two_handed14",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "two_handed18",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "two_handed17",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "two_handed20",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "two_handed6",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "two_handed5_",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "two_handed7",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "all_attributes2",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "all_attributes12",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "all_attributes13",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "all_attributes15",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "all_attributes10",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "armour_and_evasion2",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "cooldowns2",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "cooldowns20",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "dexterity76",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "dexterity75",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "fire62",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "area_attacks62",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "area_attacks60",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "fire61",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "jewel_slot1970",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "attributes20-",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "attributes19",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "cooldowns16",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "cooldowns14",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "cooldowns15",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "dexterity64",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "attributes43",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "strength32",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "strength33_",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "strength34",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "armour_and_evasion27",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "strength35",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "duelist_mercenary_notable2",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "projectiles21_",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "projectiles20",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "projectiles19",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "projectiles18",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "projectiles7",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "projectiles6__",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "projectiles28_",
+        "weapon_set": 0
+      },
+      {
+        "action": "refund",
+        "id": "projectiles4__",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "strength84",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "strength87",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "dexterity65_",
+        "weapon_set": 0
+      },
+      {
+        "action": "allocate",
+        "id": "ailments15",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "ailments14",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "ailments16",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "ailments17",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "ailments23",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "ailments25",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "ailments22",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "ailments38",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "area_attacks15",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "area_attacks11",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "area_attacks19",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "area_attacks30",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "crossbow1",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "crossbow9",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "crossbow10",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "fire14",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "fire15",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "fire39",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "fire59",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "fire63_",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "fire60_",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "fire65",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "fire64_",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "fire66",
+        "weapon_set": 1
+      },
+      {
+        "action": "allocate",
+        "id": "grenades19",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "grenades25",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "grenades27",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "grenades8",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "grenades2",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "grenades3",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "grenades11",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "grenades6",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "grenades7",
+        "weapon_set": 2
+      },
+      {
+        "action": "allocate",
+        "id": "grenades10",
+        "weapon_set": 2
+      }
+    ],
+    "refunds": 39,
+    "required_pool": 67,
+    "target_cost": {
+      "ordinary": 67,
+      "weapon_sets": [
+        17,
+        17
+      ],
+      "ascendancy": 4
+    }
+  },
+  "untranslated_current_item_mods": []
+}
